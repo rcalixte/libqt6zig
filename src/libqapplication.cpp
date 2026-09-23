@@ -236,11 +236,13 @@ void QApplication_FocusChanged(QApplication* self, QWidget* old, QWidget* now) {
 
 void QApplication_Connect_FocusChanged(QApplication* self, intptr_t slot) {
     void (*slotFunc)(QApplication*, QWidget*, QWidget*) = reinterpret_cast<void (*)(QApplication*, QWidget*, QWidget*)>(slot);
-    QApplication::connect(self, &QApplication::focusChanged, [self, slotFunc](QWidget* old, QWidget* now) {
-        QWidget* sigval1 = old;
-        QWidget* sigval2 = now;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QApplication::connect(self,
+                          static_cast<void (QApplication::*)(QWidget*, QWidget*)>(&QApplication::focusChanged),
+                          [self, slotFunc](QWidget* old, QWidget* now) {
+                              QWidget* sigval1 = old;
+                              QWidget* sigval2 = now;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 libqt_string QApplication_StyleSheet(const QApplication* self) {

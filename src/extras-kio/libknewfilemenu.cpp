@@ -140,12 +140,14 @@ void KNewFileMenu_FileCreationStarted(KNewFileMenu* self, const QUrl* url) {
 
 void KNewFileMenu_Connect_FileCreationStarted(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::fileCreationStarted, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::fileCreationStarted),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_FileCreated(KNewFileMenu* self, const QUrl* url) {
@@ -154,12 +156,14 @@ void KNewFileMenu_FileCreated(KNewFileMenu* self, const QUrl* url) {
 
 void KNewFileMenu_Connect_FileCreated(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::fileCreated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::fileCreated),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_FileCreationRejected(KNewFileMenu* self, const QUrl* url) {
@@ -168,12 +172,14 @@ void KNewFileMenu_FileCreationRejected(KNewFileMenu* self, const QUrl* url) {
 
 void KNewFileMenu_Connect_FileCreationRejected(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::fileCreationRejected, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::fileCreationRejected),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_DirectoryCreationStarted(KNewFileMenu* self, const QUrl* url) {
@@ -182,12 +188,14 @@ void KNewFileMenu_DirectoryCreationStarted(KNewFileMenu* self, const QUrl* url) 
 
 void KNewFileMenu_Connect_DirectoryCreationStarted(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::directoryCreationStarted, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::directoryCreationStarted),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_DirectoryCreated(KNewFileMenu* self, const QUrl* url) {
@@ -196,12 +204,14 @@ void KNewFileMenu_DirectoryCreated(KNewFileMenu* self, const QUrl* url) {
 
 void KNewFileMenu_Connect_DirectoryCreated(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::directoryCreated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::directoryCreated),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_DirectoryCreationRejected(KNewFileMenu* self, const QUrl* url) {
@@ -210,12 +220,14 @@ void KNewFileMenu_DirectoryCreationRejected(KNewFileMenu* self, const QUrl* url)
 
 void KNewFileMenu_Connect_DirectoryCreationRejected(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::directoryCreationRejected, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::directoryCreationRejected),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_SelectExistingDir(KNewFileMenu* self, const QUrl* url) {
@@ -224,12 +236,14 @@ void KNewFileMenu_SelectExistingDir(KNewFileMenu* self, const QUrl* url) {
 
 void KNewFileMenu_Connect_SelectExistingDir(KNewFileMenu* self, intptr_t slot) {
     void (*slotFunc)(KNewFileMenu*, QUrl*) = reinterpret_cast<void (*)(KNewFileMenu*, QUrl*)>(slot);
-    KNewFileMenu::connect(self, &KNewFileMenu::selectExistingDir, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KNewFileMenu::connect(self,
+                          static_cast<void (KNewFileMenu::*)(const QUrl&)>(&KNewFileMenu::selectExistingDir),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job) {

@@ -107,9 +107,11 @@ void QDBusPendingCallWatcher_Finished(QDBusPendingCallWatcher* self) {
 
 void QDBusPendingCallWatcher_Connect_Finished(QDBusPendingCallWatcher* self, intptr_t slot) {
     void (*slotFunc)(QDBusPendingCallWatcher*) = reinterpret_cast<void (*)(QDBusPendingCallWatcher*)>(slot);
-    QDBusPendingCallWatcher::connect(self, &QDBusPendingCallWatcher::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDBusPendingCallWatcher::connect(self,
+                                     static_cast<void (QDBusPendingCallWatcher::*)(QDBusPendingCallWatcher*)>(&QDBusPendingCallWatcher::finished),
+                                     [self, slotFunc]() {
+                                         slotFunc(self);
+                                     });
 }
 
 libqt_string QDBusPendingCallWatcher_Tr2(const char* s, const char* c) {
@@ -142,10 +144,12 @@ void QDBusPendingCallWatcher_Finished1(QDBusPendingCallWatcher* self, QDBusPendi
 
 void QDBusPendingCallWatcher_Connect_Finished1(QDBusPendingCallWatcher* self, intptr_t slot) {
     void (*slotFunc)(QDBusPendingCallWatcher*, QDBusPendingCallWatcher*) = reinterpret_cast<void (*)(QDBusPendingCallWatcher*, QDBusPendingCallWatcher*)>(slot);
-    QDBusPendingCallWatcher::connect(self, &QDBusPendingCallWatcher::finished, [self, slotFunc](QDBusPendingCallWatcher* selfVal) {
-        QDBusPendingCallWatcher* sigval1 = selfVal;
-        slotFunc(self, sigval1);
-    });
+    QDBusPendingCallWatcher::connect(self,
+                                     static_cast<void (QDBusPendingCallWatcher::*)(QDBusPendingCallWatcher*)>(&QDBusPendingCallWatcher::finished),
+                                     [self, slotFunc](QDBusPendingCallWatcher* selfVal) {
+                                         QDBusPendingCallWatcher* sigval1 = selfVal;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 // Base class handler implementation

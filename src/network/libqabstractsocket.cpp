@@ -217,9 +217,11 @@ void QAbstractSocket_HostFound(QAbstractSocket* self) {
 
 void QAbstractSocket_Connect_HostFound(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*) = reinterpret_cast<void (*)(QAbstractSocket*)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::hostFound, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)()>(&QAbstractSocket::hostFound),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSocket_Connected(QAbstractSocket* self) {
@@ -228,9 +230,11 @@ void QAbstractSocket_Connected(QAbstractSocket* self) {
 
 void QAbstractSocket_Connect_Connected(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*) = reinterpret_cast<void (*)(QAbstractSocket*)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::connected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)()>(&QAbstractSocket::connected),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSocket_Disconnected(QAbstractSocket* self) {
@@ -239,9 +243,11 @@ void QAbstractSocket_Disconnected(QAbstractSocket* self) {
 
 void QAbstractSocket_Connect_Disconnected(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*) = reinterpret_cast<void (*)(QAbstractSocket*)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::disconnected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)()>(&QAbstractSocket::disconnected),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSocket_StateChanged(QAbstractSocket* self, int param1) {
@@ -250,10 +256,12 @@ void QAbstractSocket_StateChanged(QAbstractSocket* self, int param1) {
 
 void QAbstractSocket_Connect_StateChanged(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*, int) = reinterpret_cast<void (*)(QAbstractSocket*, int)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::stateChanged, [self, slotFunc](QAbstractSocket::SocketState param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)(QAbstractSocket::SocketState)>(&QAbstractSocket::stateChanged),
+                             [self, slotFunc](QAbstractSocket::SocketState param1) {
+                                 int sigval1 = static_cast<int>(param1);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QAbstractSocket_ErrorOccurred(QAbstractSocket* self, int param1) {
@@ -262,10 +270,12 @@ void QAbstractSocket_ErrorOccurred(QAbstractSocket* self, int param1) {
 
 void QAbstractSocket_Connect_ErrorOccurred(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*, int) = reinterpret_cast<void (*)(QAbstractSocket*, int)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::errorOccurred, [self, slotFunc](QAbstractSocket::SocketError param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QAbstractSocket::errorOccurred),
+                             [self, slotFunc](QAbstractSocket::SocketError param1) {
+                                 int sigval1 = static_cast<int>(param1);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QAbstractSocket_ProxyAuthenticationRequired(QAbstractSocket* self, const QNetworkProxy* proxy, QAuthenticator* authenticator) {
@@ -274,13 +284,15 @@ void QAbstractSocket_ProxyAuthenticationRequired(QAbstractSocket* self, const QN
 
 void QAbstractSocket_Connect_ProxyAuthenticationRequired(QAbstractSocket* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSocket*, QNetworkProxy*, QAuthenticator*) = reinterpret_cast<void (*)(QAbstractSocket*, QNetworkProxy*, QAuthenticator*)>(slot);
-    QAbstractSocket::connect(self, &QAbstractSocket::proxyAuthenticationRequired, [self, slotFunc](const QNetworkProxy& proxy, QAuthenticator* authenticator) {
-        const QNetworkProxy& proxy_ret = proxy;
-        // Cast returned reference into pointer
-        QNetworkProxy* sigval1 = const_cast<QNetworkProxy*>(&proxy_ret);
-        QAuthenticator* sigval2 = authenticator;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractSocket::connect(self,
+                             static_cast<void (QAbstractSocket::*)(const QNetworkProxy&, QAuthenticator*)>(&QAbstractSocket::proxyAuthenticationRequired),
+                             [self, slotFunc](const QNetworkProxy& proxy, QAuthenticator* authenticator) {
+                                 const QNetworkProxy& proxy_ret = proxy;
+                                 // Cast returned reference into pointer
+                                 QNetworkProxy* sigval1 = const_cast<QNetworkProxy*>(&proxy_ret);
+                                 QAuthenticator* sigval2 = authenticator;
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 long long QAbstractSocket_ReadData(QAbstractSocket* self, char* data, long long maxlen) {

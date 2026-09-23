@@ -341,18 +341,20 @@ void KFilePlacesModel_ErrorMessage(KFilePlacesModel* self, const libqt_string me
 
 void KFilePlacesModel_Connect_ErrorMessage(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*, const char*) = reinterpret_cast<void (*)(KFilePlacesModel*, const char*)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::errorMessage, [self, slotFunc](const QString& message) {
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval1 = message_str;
-        slotFunc(self, sigval1);
-        libqt_free(message_str);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)(const QString&)>(&KFilePlacesModel::errorMessage),
+                              [self, slotFunc](const QString& message) {
+                                  const auto message_ret = message;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray message_b = message_ret.toUtf8();
+                                  auto message_str_len = message_b.length();
+                                  const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                  memcpy((void*)message_str, message_b.data(), message_str_len);
+                                  ((char*)message_str)[message_str_len] = '\0';
+                                  const char* sigval1 = message_str;
+                                  slotFunc(self, sigval1);
+                                  libqt_free(message_str);
+                              });
 }
 
 void KFilePlacesModel_SetupDone(KFilePlacesModel* self, const QModelIndex* index, bool success) {
@@ -361,13 +363,15 @@ void KFilePlacesModel_SetupDone(KFilePlacesModel* self, const QModelIndex* index
 
 void KFilePlacesModel_Connect_SetupDone(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*, QModelIndex*, bool) = reinterpret_cast<void (*)(KFilePlacesModel*, QModelIndex*, bool)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::setupDone, [self, slotFunc](const QModelIndex& index, bool success) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        bool sigval2 = success;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)(const QModelIndex&, bool)>(&KFilePlacesModel::setupDone),
+                              [self, slotFunc](const QModelIndex& index, bool success) {
+                                  const QModelIndex& index_ret = index;
+                                  // Cast returned reference into pointer
+                                  QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                                  bool sigval2 = success;
+                                  slotFunc(self, sigval1, sigval2);
+                              });
 }
 
 void KFilePlacesModel_TeardownDone(KFilePlacesModel* self, const QModelIndex* index, int errorVal, const QVariant* errorData) {
@@ -376,16 +380,18 @@ void KFilePlacesModel_TeardownDone(KFilePlacesModel* self, const QModelIndex* in
 
 void KFilePlacesModel_Connect_TeardownDone(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*, QModelIndex*, int, QVariant*) = reinterpret_cast<void (*)(KFilePlacesModel*, QModelIndex*, int, QVariant*)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::teardownDone, [self, slotFunc](const QModelIndex& index, Solid::ErrorType errorVal, const QVariant& errorData) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        int sigval2 = static_cast<int>(errorVal);
-        const QVariant& errorData_ret = errorData;
-        // Cast returned reference into pointer
-        QVariant* sigval3 = const_cast<QVariant*>(&errorData_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)(const QModelIndex&, Solid::ErrorType, const QVariant&)>(&KFilePlacesModel::teardownDone),
+                              [self, slotFunc](const QModelIndex& index, Solid::ErrorType errorVal, const QVariant& errorData) {
+                                  const QModelIndex& index_ret = index;
+                                  // Cast returned reference into pointer
+                                  QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                                  int sigval2 = static_cast<int>(errorVal);
+                                  const QVariant& errorData_ret = errorData;
+                                  // Cast returned reference into pointer
+                                  QVariant* sigval3 = const_cast<QVariant*>(&errorData_ret);
+                                  slotFunc(self, sigval1, sigval2, sigval3);
+                              });
 }
 
 void KFilePlacesModel_GroupHiddenChanged(KFilePlacesModel* self, int group, bool hidden) {
@@ -394,11 +400,13 @@ void KFilePlacesModel_GroupHiddenChanged(KFilePlacesModel* self, int group, bool
 
 void KFilePlacesModel_Connect_GroupHiddenChanged(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*, int, bool) = reinterpret_cast<void (*)(KFilePlacesModel*, int, bool)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::groupHiddenChanged, [self, slotFunc](KFilePlacesModel::GroupType group, bool hidden) {
-        int sigval1 = static_cast<int>(group);
-        bool sigval2 = hidden;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)(KFilePlacesModel::GroupType, bool)>(&KFilePlacesModel::groupHiddenChanged),
+                              [self, slotFunc](KFilePlacesModel::GroupType group, bool hidden) {
+                                  int sigval1 = static_cast<int>(group);
+                                  bool sigval2 = hidden;
+                                  slotFunc(self, sigval1, sigval2);
+                              });
 }
 
 void KFilePlacesModel_Reloaded(KFilePlacesModel* self) {
@@ -407,9 +415,11 @@ void KFilePlacesModel_Reloaded(KFilePlacesModel* self) {
 
 void KFilePlacesModel_Connect_Reloaded(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*) = reinterpret_cast<void (*)(KFilePlacesModel*)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::reloaded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)()>(&KFilePlacesModel::reloaded),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void KFilePlacesModel_SupportedSchemesChanged(KFilePlacesModel* self) {
@@ -418,9 +428,11 @@ void KFilePlacesModel_SupportedSchemesChanged(KFilePlacesModel* self) {
 
 void KFilePlacesModel_Connect_SupportedSchemesChanged(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*) = reinterpret_cast<void (*)(KFilePlacesModel*)>(slot);
-    KFilePlacesModel::connect(self, &KFilePlacesModel::supportedSchemesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFilePlacesModel::connect(self,
+                              static_cast<void (KFilePlacesModel::*)()>(&KFilePlacesModel::supportedSchemesChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string KFilePlacesModel_Tr2(const char* s, const char* c) {

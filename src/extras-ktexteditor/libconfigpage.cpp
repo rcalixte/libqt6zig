@@ -112,9 +112,11 @@ void KTextEditor__ConfigPage_Changed(KTextEditor__ConfigPage* self) {
 
 void KTextEditor__ConfigPage_Connect_Changed(KTextEditor__ConfigPage* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__ConfigPage*) = reinterpret_cast<void (*)(KTextEditor__ConfigPage*)>(slot);
-    KTextEditor::ConfigPage::connect(self, &KTextEditor::ConfigPage::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KTextEditor::ConfigPage::connect(self,
+                                     static_cast<void (KTextEditor::ConfigPage::*)()>(&KTextEditor::ConfigPage::changed),
+                                     [self, slotFunc]() {
+                                         slotFunc(self);
+                                     });
 }
 
 libqt_string KTextEditor__ConfigPage_Tr2(const char* s, const char* c) {

@@ -1182,13 +1182,15 @@ void Konsole__UrlFilter_Activated(Konsole__UrlFilter* self, const QUrl* url, boo
 
 void Konsole__UrlFilter_Connect_Activated(Konsole__UrlFilter* self, intptr_t slot) {
     void (*slotFunc)(Konsole__UrlFilter*, QUrl*, bool) = reinterpret_cast<void (*)(Konsole__UrlFilter*, QUrl*, bool)>(slot);
-    Konsole::UrlFilter::connect(self, &Konsole::UrlFilter::activated, [self, slotFunc](const QUrl& url, bool fromContextMenu) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        bool sigval2 = fromContextMenu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    Konsole::UrlFilter::connect(self,
+                                static_cast<void (Konsole::UrlFilter::*)(const QUrl&, bool)>(&Konsole::UrlFilter::activated),
+                                [self, slotFunc](const QUrl& url, bool fromContextMenu) {
+                                    const QUrl& url_ret = url;
+                                    // Cast returned reference into pointer
+                                    QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                    bool sigval2 = fromContextMenu;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 libqt_string Konsole__UrlFilter_Tr2(const char* s, const char* c) {
@@ -1785,13 +1787,15 @@ void Konsole__FilterObject_Activated(Konsole__FilterObject* self, const QUrl* ur
 
 void Konsole__FilterObject_Connect_Activated(Konsole__FilterObject* self, intptr_t slot) {
     void (*slotFunc)(Konsole__FilterObject*, QUrl*, bool) = reinterpret_cast<void (*)(Konsole__FilterObject*, QUrl*, bool)>(slot);
-    Konsole::FilterObject::connect(self, &Konsole::FilterObject::activated, [self, slotFunc](const QUrl& url, bool fromContextMenu) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        bool sigval2 = fromContextMenu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    Konsole::FilterObject::connect(self,
+                                   static_cast<void (Konsole::FilterObject::*)(const QUrl&, bool)>(&Konsole::FilterObject::activated),
+                                   [self, slotFunc](const QUrl& url, bool fromContextMenu) {
+                                       const QUrl& url_ret = url;
+                                       // Cast returned reference into pointer
+                                       QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                       bool sigval2 = fromContextMenu;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 libqt_string Konsole__FilterObject_Tr2(const char* s, const char* c) {

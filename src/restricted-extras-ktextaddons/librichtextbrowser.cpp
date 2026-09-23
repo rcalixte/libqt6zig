@@ -167,18 +167,20 @@ void TextCustomEditor__RichTextBrowser_Say(TextCustomEditor__RichTextBrowser* se
 
 void TextCustomEditor__RichTextBrowser_Connect_Say(TextCustomEditor__RichTextBrowser* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextBrowser*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextBrowser*, const char*)>(slot);
-    TextCustomEditor::RichTextBrowser::connect(self, &TextCustomEditor::RichTextBrowser::say, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    TextCustomEditor::RichTextBrowser::connect(self,
+                                               static_cast<void (TextCustomEditor::RichTextBrowser::*)(const QString&)>(&TextCustomEditor::RichTextBrowser::say),
+                                               [self, slotFunc](const QString& text) {
+                                                   const auto text_ret = text;
+                                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                   QByteArray text_b = text_ret.toUtf8();
+                                                   auto text_str_len = text_b.length();
+                                                   const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                                   memcpy((void*)text_str, text_b.data(), text_str_len);
+                                                   ((char*)text_str)[text_str_len] = '\0';
+                                                   const char* sigval1 = text_str;
+                                                   slotFunc(self, sigval1);
+                                                   libqt_free(text_str);
+                                               });
 }
 
 void TextCustomEditor__RichTextBrowser_FindText(TextCustomEditor__RichTextBrowser* self) {
@@ -187,9 +189,11 @@ void TextCustomEditor__RichTextBrowser_FindText(TextCustomEditor__RichTextBrowse
 
 void TextCustomEditor__RichTextBrowser_Connect_FindText(TextCustomEditor__RichTextBrowser* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextBrowser*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextBrowser*)>(slot);
-    TextCustomEditor::RichTextBrowser::connect(self, &TextCustomEditor::RichTextBrowser::findText, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextCustomEditor::RichTextBrowser::connect(self,
+                                               static_cast<void (TextCustomEditor::RichTextBrowser::*)()>(&TextCustomEditor::RichTextBrowser::findText),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 libqt_string TextCustomEditor__RichTextBrowser_Tr2(const char* s, const char* c) {

@@ -163,10 +163,12 @@ void QDataWidgetMapper_CurrentIndexChanged(QDataWidgetMapper* self, int index) {
 
 void QDataWidgetMapper_Connect_CurrentIndexChanged(QDataWidgetMapper* self, intptr_t slot) {
     void (*slotFunc)(QDataWidgetMapper*, int) = reinterpret_cast<void (*)(QDataWidgetMapper*, int)>(slot);
-    QDataWidgetMapper::connect(self, &QDataWidgetMapper::currentIndexChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QDataWidgetMapper::connect(self,
+                               static_cast<void (QDataWidgetMapper::*)(int)>(&QDataWidgetMapper::currentIndexChanged),
+                               [self, slotFunc](int index) {
+                                   int sigval1 = index;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_string QDataWidgetMapper_Tr2(const char* s, const char* c) {

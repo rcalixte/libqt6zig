@@ -114,9 +114,11 @@ void QLegendMarker_Clicked(QLegendMarker* self) {
 
 void QLegendMarker_Connect_Clicked(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::clicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::clicked),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_Hovered(QLegendMarker* self, bool status) {
@@ -125,10 +127,12 @@ void QLegendMarker_Hovered(QLegendMarker* self, bool status) {
 
 void QLegendMarker_Connect_Hovered(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*, bool) = reinterpret_cast<void (*)(QLegendMarker*, bool)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::hovered, [self, slotFunc](bool status) {
-        bool sigval1 = status;
-        slotFunc(self, sigval1);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)(bool)>(&QLegendMarker::hovered),
+                           [self, slotFunc](bool status) {
+                               bool sigval1 = status;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QLegendMarker_LabelChanged(QLegendMarker* self) {
@@ -137,9 +141,11 @@ void QLegendMarker_LabelChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_LabelChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::labelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::labelChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_LabelBrushChanged(QLegendMarker* self) {
@@ -148,9 +154,11 @@ void QLegendMarker_LabelBrushChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_LabelBrushChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::labelBrushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::labelBrushChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_FontChanged(QLegendMarker* self) {
@@ -159,9 +167,11 @@ void QLegendMarker_FontChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_FontChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::fontChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::fontChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_PenChanged(QLegendMarker* self) {
@@ -170,9 +180,11 @@ void QLegendMarker_PenChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_PenChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::penChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::penChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_BrushChanged(QLegendMarker* self) {
@@ -181,9 +193,11 @@ void QLegendMarker_BrushChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_BrushChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::brushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::brushChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_VisibleChanged(QLegendMarker* self) {
@@ -192,9 +206,11 @@ void QLegendMarker_VisibleChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_VisibleChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::visibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::visibleChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QLegendMarker_ShapeChanged(QLegendMarker* self) {
@@ -203,9 +219,11 @@ void QLegendMarker_ShapeChanged(QLegendMarker* self) {
 
 void QLegendMarker_Connect_ShapeChanged(QLegendMarker* self, intptr_t slot) {
     void (*slotFunc)(QLegendMarker*) = reinterpret_cast<void (*)(QLegendMarker*)>(slot);
-    QLegendMarker::connect(self, &QLegendMarker::shapeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLegendMarker::connect(self,
+                           static_cast<void (QLegendMarker::*)()>(&QLegendMarker::shapeChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 libqt_string QLegendMarker_Tr2(const char* s, const char* c) {

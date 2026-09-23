@@ -113,10 +113,12 @@ void QWebChannel_BlockUpdatesChanged(QWebChannel* self, bool block) {
 
 void QWebChannel_Connect_BlockUpdatesChanged(QWebChannel* self, intptr_t slot) {
     void (*slotFunc)(QWebChannel*, bool) = reinterpret_cast<void (*)(QWebChannel*, bool)>(slot);
-    QWebChannel::connect(self, &QWebChannel::blockUpdatesChanged, [self, slotFunc](bool block) {
-        bool sigval1 = block;
-        slotFunc(self, sigval1);
-    });
+    QWebChannel::connect(self,
+                         static_cast<void (QWebChannel::*)(bool)>(&QWebChannel::blockUpdatesChanged),
+                         [self, slotFunc](bool block) {
+                             bool sigval1 = block;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QWebChannel_ConnectTo(QWebChannel* self, QWebChannelAbstractTransport* transport) {

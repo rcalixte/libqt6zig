@@ -175,10 +175,12 @@ void QQuickWidget_StatusChanged(QQuickWidget* self, int param1) {
 
 void QQuickWidget_Connect_StatusChanged(QQuickWidget* self, intptr_t slot) {
     void (*slotFunc)(QQuickWidget*, int) = reinterpret_cast<void (*)(QQuickWidget*, int)>(slot);
-    QQuickWidget::connect(self, &QQuickWidget::statusChanged, [self, slotFunc](QQuickWidget::Status param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQuickWidget::connect(self,
+                          static_cast<void (QQuickWidget::*)(QQuickWidget::Status)>(&QQuickWidget::statusChanged),
+                          [self, slotFunc](QQuickWidget::Status param1) {
+                              int sigval1 = static_cast<int>(param1);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QQuickWidget_SceneGraphError(QQuickWidget* self, int errorVal, const libqt_string message) {
@@ -188,19 +190,21 @@ void QQuickWidget_SceneGraphError(QQuickWidget* self, int errorVal, const libqt_
 
 void QQuickWidget_Connect_SceneGraphError(QQuickWidget* self, intptr_t slot) {
     void (*slotFunc)(QQuickWidget*, int, const char*) = reinterpret_cast<void (*)(QQuickWidget*, int, const char*)>(slot);
-    QQuickWidget::connect(self, &QQuickWidget::sceneGraphError, [self, slotFunc](QQuickWindow::SceneGraphError errorVal, const QString& message) {
-        int sigval1 = static_cast<int>(errorVal);
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(message_str);
-    });
+    QQuickWidget::connect(self,
+                          static_cast<void (QQuickWidget::*)(QQuickWindow::SceneGraphError, const QString&)>(&QQuickWidget::sceneGraphError),
+                          [self, slotFunc](QQuickWindow::SceneGraphError errorVal, const QString& message) {
+                              int sigval1 = static_cast<int>(errorVal);
+                              const auto message_ret = message;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray message_b = message_ret.toUtf8();
+                              auto message_str_len = message_b.length();
+                              const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                              memcpy((void*)message_str, message_b.data(), message_str_len);
+                              ((char*)message_str)[message_str_len] = '\0';
+                              const char* sigval2 = message_str;
+                              slotFunc(self, sigval1, sigval2);
+                              libqt_free(message_str);
+                          });
 }
 
 void QQuickWidget_ResizeEvent(QQuickWidget* self, QResizeEvent* param1) {

@@ -111,10 +111,12 @@ void QPdfBookmarkModel_DocumentChanged(QPdfBookmarkModel* self, QPdfDocument* do
 
 void QPdfBookmarkModel_Connect_DocumentChanged(QPdfBookmarkModel* self, intptr_t slot) {
     void (*slotFunc)(QPdfBookmarkModel*, QPdfDocument*) = reinterpret_cast<void (*)(QPdfBookmarkModel*, QPdfDocument*)>(slot);
-    QPdfBookmarkModel::connect(self, &QPdfBookmarkModel::documentChanged, [self, slotFunc](QPdfDocument* document) {
-        QPdfDocument* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    QPdfBookmarkModel::connect(self,
+                               static_cast<void (QPdfBookmarkModel::*)(QPdfDocument*)>(&QPdfBookmarkModel::documentChanged),
+                               [self, slotFunc](QPdfDocument* document) {
+                                   QPdfDocument* sigval1 = document;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_string QPdfBookmarkModel_Tr2(const char* s, const char* c) {

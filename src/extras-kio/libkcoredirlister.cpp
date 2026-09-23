@@ -235,12 +235,14 @@ void KCoreDirLister_Started(KCoreDirLister* self, const QUrl* dirUrl) {
 
 void KCoreDirLister_Connect_Started(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::started, [self, slotFunc](const QUrl& dirUrl) {
-        const QUrl& dirUrl_ret = dirUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::started),
+                            [self, slotFunc](const QUrl& dirUrl) {
+                                const QUrl& dirUrl_ret = dirUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_Completed(KCoreDirLister* self) {
@@ -249,9 +251,11 @@ void KCoreDirLister_Completed(KCoreDirLister* self) {
 
 void KCoreDirLister_Connect_Completed(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*) = reinterpret_cast<void (*)(KCoreDirLister*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::completed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)()>(&KCoreDirLister::completed),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void KCoreDirLister_ListingDirCompleted(KCoreDirLister* self, const QUrl* dirUrl) {
@@ -260,12 +264,14 @@ void KCoreDirLister_ListingDirCompleted(KCoreDirLister* self, const QUrl* dirUrl
 
 void KCoreDirLister_Connect_ListingDirCompleted(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::listingDirCompleted, [self, slotFunc](const QUrl& dirUrl) {
-        const QUrl& dirUrl_ret = dirUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::listingDirCompleted),
+                            [self, slotFunc](const QUrl& dirUrl) {
+                                const QUrl& dirUrl_ret = dirUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_Canceled(KCoreDirLister* self) {
@@ -274,9 +280,11 @@ void KCoreDirLister_Canceled(KCoreDirLister* self) {
 
 void KCoreDirLister_Connect_Canceled(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*) = reinterpret_cast<void (*)(KCoreDirLister*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::canceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)()>(&KCoreDirLister::canceled),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void KCoreDirLister_ListingDirCanceled(KCoreDirLister* self, const QUrl* dirUrl) {
@@ -285,12 +293,14 @@ void KCoreDirLister_ListingDirCanceled(KCoreDirLister* self, const QUrl* dirUrl)
 
 void KCoreDirLister_Connect_ListingDirCanceled(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::listingDirCanceled, [self, slotFunc](const QUrl& dirUrl) {
-        const QUrl& dirUrl_ret = dirUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::listingDirCanceled),
+                            [self, slotFunc](const QUrl& dirUrl) {
+                                const QUrl& dirUrl_ret = dirUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_Redirection(KCoreDirLister* self, const QUrl* oldUrl, const QUrl* newUrl) {
@@ -299,15 +309,17 @@ void KCoreDirLister_Redirection(KCoreDirLister* self, const QUrl* oldUrl, const 
 
 void KCoreDirLister_Connect_Redirection(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*, QUrl*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::redirection, [self, slotFunc](const QUrl& oldUrl, const QUrl& newUrl) {
-        const QUrl& oldUrl_ret = oldUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
-        const QUrl& newUrl_ret = newUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&, const QUrl&)>(&KCoreDirLister::redirection),
+                            [self, slotFunc](const QUrl& oldUrl, const QUrl& newUrl) {
+                                const QUrl& oldUrl_ret = oldUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
+                                const QUrl& newUrl_ret = newUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KCoreDirLister_Clear(KCoreDirLister* self) {
@@ -316,9 +328,11 @@ void KCoreDirLister_Clear(KCoreDirLister* self) {
 
 void KCoreDirLister_Connect_Clear(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*) = reinterpret_cast<void (*)(KCoreDirLister*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::clear, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)()>(&KCoreDirLister::clear),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void KCoreDirLister_ClearDir(KCoreDirLister* self, const QUrl* dirUrl) {
@@ -327,12 +341,14 @@ void KCoreDirLister_ClearDir(KCoreDirLister* self, const QUrl* dirUrl) {
 
 void KCoreDirLister_Connect_ClearDir(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::clearDir, [self, slotFunc](const QUrl& dirUrl) {
-        const QUrl& dirUrl_ret = dirUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&)>(&KCoreDirLister::clearDir),
+                            [self, slotFunc](const QUrl& dirUrl) {
+                                const QUrl& dirUrl_ret = dirUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&dirUrl_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_NewItems(KCoreDirLister* self, const KFileItemList* items) {
@@ -341,12 +357,14 @@ void KCoreDirLister_NewItems(KCoreDirLister* self, const KFileItemList* items) {
 
 void KCoreDirLister_Connect_NewItems(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, KFileItemList*) = reinterpret_cast<void (*)(KCoreDirLister*, KFileItemList*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::newItems, [self, slotFunc](const KFileItemList& items) {
-        const KFileItemList& items_ret = items;
-        // Cast returned reference into pointer
-        KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const KFileItemList&)>(&KCoreDirLister::newItems),
+                            [self, slotFunc](const KFileItemList& items) {
+                                const KFileItemList& items_ret = items;
+                                // Cast returned reference into pointer
+                                KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_ItemsAdded(KCoreDirLister* self, const QUrl* directoryUrl, const KFileItemList* items) {
@@ -355,15 +373,17 @@ void KCoreDirLister_ItemsAdded(KCoreDirLister* self, const QUrl* directoryUrl, c
 
 void KCoreDirLister_Connect_ItemsAdded(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, QUrl*, KFileItemList*) = reinterpret_cast<void (*)(KCoreDirLister*, QUrl*, KFileItemList*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::itemsAdded, [self, slotFunc](const QUrl& directoryUrl, const KFileItemList& items) {
-        const QUrl& directoryUrl_ret = directoryUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&directoryUrl_ret);
-        const KFileItemList& items_ret = items;
-        // Cast returned reference into pointer
-        KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QUrl&, const KFileItemList&)>(&KCoreDirLister::itemsAdded),
+                            [self, slotFunc](const QUrl& directoryUrl, const KFileItemList& items) {
+                                const QUrl& directoryUrl_ret = directoryUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&directoryUrl_ret);
+                                const KFileItemList& items_ret = items;
+                                // Cast returned reference into pointer
+                                KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KCoreDirLister_ItemsFilteredByMime(KCoreDirLister* self, const KFileItemList* items) {
@@ -372,12 +392,14 @@ void KCoreDirLister_ItemsFilteredByMime(KCoreDirLister* self, const KFileItemLis
 
 void KCoreDirLister_Connect_ItemsFilteredByMime(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, KFileItemList*) = reinterpret_cast<void (*)(KCoreDirLister*, KFileItemList*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::itemsFilteredByMime, [self, slotFunc](const KFileItemList& items) {
-        const KFileItemList& items_ret = items;
-        // Cast returned reference into pointer
-        KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const KFileItemList&)>(&KCoreDirLister::itemsFilteredByMime),
+                            [self, slotFunc](const KFileItemList& items) {
+                                const KFileItemList& items_ret = items;
+                                // Cast returned reference into pointer
+                                KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_ItemsDeleted(KCoreDirLister* self, const KFileItemList* items) {
@@ -386,12 +408,14 @@ void KCoreDirLister_ItemsDeleted(KCoreDirLister* self, const KFileItemList* item
 
 void KCoreDirLister_Connect_ItemsDeleted(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, KFileItemList*) = reinterpret_cast<void (*)(KCoreDirLister*, KFileItemList*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::itemsDeleted, [self, slotFunc](const KFileItemList& items) {
-        const KFileItemList& items_ret = items;
-        // Cast returned reference into pointer
-        KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const KFileItemList&)>(&KCoreDirLister::itemsDeleted),
+                            [self, slotFunc](const KFileItemList& items) {
+                                const KFileItemList& items_ret = items;
+                                // Cast returned reference into pointer
+                                KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_InfoMessage(KCoreDirLister* self, const libqt_string msg) {
@@ -401,18 +425,20 @@ void KCoreDirLister_InfoMessage(KCoreDirLister* self, const libqt_string msg) {
 
 void KCoreDirLister_Connect_InfoMessage(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, const char*) = reinterpret_cast<void (*)(KCoreDirLister*, const char*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::infoMessage, [self, slotFunc](const QString& msg) {
-        const auto msg_ret = msg;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray msg_b = msg_ret.toUtf8();
-        auto msg_str_len = msg_b.length();
-        const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
-        memcpy((void*)msg_str, msg_b.data(), msg_str_len);
-        ((char*)msg_str)[msg_str_len] = '\0';
-        const char* sigval1 = msg_str;
-        slotFunc(self, sigval1);
-        libqt_free(msg_str);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(const QString&)>(&KCoreDirLister::infoMessage),
+                            [self, slotFunc](const QString& msg) {
+                                const auto msg_ret = msg;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray msg_b = msg_ret.toUtf8();
+                                auto msg_str_len = msg_b.length();
+                                const char* msg_str = static_cast<const char*>(malloc(msg_str_len + 1));
+                                memcpy((void*)msg_str, msg_b.data(), msg_str_len);
+                                ((char*)msg_str)[msg_str_len] = '\0';
+                                const char* sigval1 = msg_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(msg_str);
+                            });
 }
 
 void KCoreDirLister_Percent(KCoreDirLister* self, int percent) {
@@ -421,10 +447,12 @@ void KCoreDirLister_Percent(KCoreDirLister* self, int percent) {
 
 void KCoreDirLister_Connect_Percent(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, int) = reinterpret_cast<void (*)(KCoreDirLister*, int)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::percent, [self, slotFunc](int percent) {
-        int sigval1 = percent;
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(int)>(&KCoreDirLister::percent),
+                            [self, slotFunc](int percent) {
+                                int sigval1 = percent;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_TotalSize(KCoreDirLister* self, unsigned long long size) {
@@ -433,10 +461,12 @@ void KCoreDirLister_TotalSize(KCoreDirLister* self, unsigned long long size) {
 
 void KCoreDirLister_Connect_TotalSize(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, unsigned long long) = reinterpret_cast<void (*)(KCoreDirLister*, unsigned long long)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::totalSize, [self, slotFunc](KIO::filesize_t size) {
-        unsigned long long sigval1 = static_cast<unsigned long long>(size);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(KIO::filesize_t)>(&KCoreDirLister::totalSize),
+                            [self, slotFunc](KIO::filesize_t size) {
+                                unsigned long long sigval1 = static_cast<unsigned long long>(size);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_ProcessedSize(KCoreDirLister* self, unsigned long long size) {
@@ -445,10 +475,12 @@ void KCoreDirLister_ProcessedSize(KCoreDirLister* self, unsigned long long size)
 
 void KCoreDirLister_Connect_ProcessedSize(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, unsigned long long) = reinterpret_cast<void (*)(KCoreDirLister*, unsigned long long)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::processedSize, [self, slotFunc](KIO::filesize_t size) {
-        unsigned long long sigval1 = static_cast<unsigned long long>(size);
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(KIO::filesize_t)>(&KCoreDirLister::processedSize),
+                            [self, slotFunc](KIO::filesize_t size) {
+                                unsigned long long sigval1 = static_cast<unsigned long long>(size);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_Speed(KCoreDirLister* self, int bytes_per_second) {
@@ -457,10 +489,12 @@ void KCoreDirLister_Speed(KCoreDirLister* self, int bytes_per_second) {
 
 void KCoreDirLister_Connect_Speed(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, int) = reinterpret_cast<void (*)(KCoreDirLister*, int)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::speed, [self, slotFunc](int bytes_per_second) {
-        int sigval1 = bytes_per_second;
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(int)>(&KCoreDirLister::speed),
+                            [self, slotFunc](int bytes_per_second) {
+                                int sigval1 = bytes_per_second;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_JobError(KCoreDirLister* self, KIO__Job* job) {
@@ -469,10 +503,12 @@ void KCoreDirLister_JobError(KCoreDirLister* self, KIO__Job* job) {
 
 void KCoreDirLister_Connect_JobError(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, KIO__Job*) = reinterpret_cast<void (*)(KCoreDirLister*, KIO__Job*)>(slot);
-    KCoreDirLister::connect(self, &KCoreDirLister::jobError, [self, slotFunc](KIO::Job* job) {
-        KIO__Job* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KCoreDirLister::connect(self,
+                            static_cast<void (KCoreDirLister::*)(KIO::Job*)>(&KCoreDirLister::jobError),
+                            [self, slotFunc](KIO::Job* job) {
+                                KIO__Job* sigval1 = job;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KCoreDirLister_JobStarted(KCoreDirLister* self, KIO__ListJob* param1) {

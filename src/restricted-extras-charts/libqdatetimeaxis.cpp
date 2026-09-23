@@ -99,10 +99,12 @@ void QDateTimeAxis_MinChanged(QDateTimeAxis* self, QDateTime* min) {
 
 void QDateTimeAxis_Connect_MinChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, QDateTime*) = reinterpret_cast<void (*)(QDateTimeAxis*, QDateTime*)>(slot);
-    QDateTimeAxis::connect(self, &QDateTimeAxis::minChanged, [self, slotFunc](QDateTime min) {
-        QDateTime* sigval1 = new QDateTime(min);
-        slotFunc(self, sigval1);
-    });
+    QDateTimeAxis::connect(self,
+                           static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::minChanged),
+                           [self, slotFunc](QDateTime min) {
+                               QDateTime* sigval1 = new QDateTime(min);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QDateTimeAxis_MaxChanged(QDateTimeAxis* self, QDateTime* max) {
@@ -111,10 +113,12 @@ void QDateTimeAxis_MaxChanged(QDateTimeAxis* self, QDateTime* max) {
 
 void QDateTimeAxis_Connect_MaxChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, QDateTime*) = reinterpret_cast<void (*)(QDateTimeAxis*, QDateTime*)>(slot);
-    QDateTimeAxis::connect(self, &QDateTimeAxis::maxChanged, [self, slotFunc](QDateTime max) {
-        QDateTime* sigval1 = new QDateTime(max);
-        slotFunc(self, sigval1);
-    });
+    QDateTimeAxis::connect(self,
+                           static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::maxChanged),
+                           [self, slotFunc](QDateTime max) {
+                               QDateTime* sigval1 = new QDateTime(max);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QDateTimeAxis_RangeChanged(QDateTimeAxis* self, QDateTime* min, QDateTime* max) {
@@ -123,11 +127,13 @@ void QDateTimeAxis_RangeChanged(QDateTimeAxis* self, QDateTime* min, QDateTime* 
 
 void QDateTimeAxis_Connect_RangeChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, QDateTime*, QDateTime*) = reinterpret_cast<void (*)(QDateTimeAxis*, QDateTime*, QDateTime*)>(slot);
-    QDateTimeAxis::connect(self, &QDateTimeAxis::rangeChanged, [self, slotFunc](QDateTime min, QDateTime max) {
-        QDateTime* sigval1 = new QDateTime(min);
-        QDateTime* sigval2 = new QDateTime(max);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QDateTimeAxis::connect(self,
+                           static_cast<void (QDateTimeAxis::*)(QDateTime, QDateTime)>(&QDateTimeAxis::rangeChanged),
+                           [self, slotFunc](QDateTime min, QDateTime max) {
+                               QDateTime* sigval1 = new QDateTime(min);
+                               QDateTime* sigval2 = new QDateTime(max);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QDateTimeAxis_FormatChanged(QDateTimeAxis* self, libqt_string format) {
@@ -137,18 +143,20 @@ void QDateTimeAxis_FormatChanged(QDateTimeAxis* self, libqt_string format) {
 
 void QDateTimeAxis_Connect_FormatChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, const char*) = reinterpret_cast<void (*)(QDateTimeAxis*, const char*)>(slot);
-    QDateTimeAxis::connect(self, &QDateTimeAxis::formatChanged, [self, slotFunc](QString format) {
-        auto format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray format_b = format_ret.toUtf8();
-        auto format_str_len = format_b.length();
-        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
-        memcpy((void*)format_str, format_b.data(), format_str_len);
-        ((char*)format_str)[format_str_len] = '\0';
-        const char* sigval1 = format_str;
-        slotFunc(self, sigval1);
-        libqt_free(format_str);
-    });
+    QDateTimeAxis::connect(self,
+                           static_cast<void (QDateTimeAxis::*)(QString)>(&QDateTimeAxis::formatChanged),
+                           [self, slotFunc](QString format) {
+                               auto format_ret = format;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray format_b = format_ret.toUtf8();
+                               auto format_str_len = format_b.length();
+                               const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+                               memcpy((void*)format_str, format_b.data(), format_str_len);
+                               ((char*)format_str)[format_str_len] = '\0';
+                               const char* sigval1 = format_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(format_str);
+                           });
 }
 
 void QDateTimeAxis_TickCountChanged(QDateTimeAxis* self, int tick) {
@@ -157,10 +165,12 @@ void QDateTimeAxis_TickCountChanged(QDateTimeAxis* self, int tick) {
 
 void QDateTimeAxis_Connect_TickCountChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, int) = reinterpret_cast<void (*)(QDateTimeAxis*, int)>(slot);
-    QDateTimeAxis::connect(self, &QDateTimeAxis::tickCountChanged, [self, slotFunc](int tick) {
-        int sigval1 = tick;
-        slotFunc(self, sigval1);
-    });
+    QDateTimeAxis::connect(self,
+                           static_cast<void (QDateTimeAxis::*)(int)>(&QDateTimeAxis::tickCountChanged),
+                           [self, slotFunc](int tick) {
+                               int sigval1 = tick;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QDateTimeAxis_Tr2(const char* s, const char* c) {

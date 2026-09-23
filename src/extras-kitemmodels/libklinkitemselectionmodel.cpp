@@ -76,9 +76,11 @@ void KLinkItemSelectionModel_LinkedItemSelectionModelChanged(KLinkItemSelectionM
 
 void KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(KLinkItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(KLinkItemSelectionModel*) = reinterpret_cast<void (*)(KLinkItemSelectionModel*)>(slot);
-    KLinkItemSelectionModel::connect(self, &KLinkItemSelectionModel::linkedItemSelectionModelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KLinkItemSelectionModel::connect(self,
+                                     static_cast<void (KLinkItemSelectionModel::*)()>(&KLinkItemSelectionModel::linkedItemSelectionModelChanged),
+                                     [self, slotFunc]() {
+                                         slotFunc(self);
+                                     });
 }
 
 libqt_string KLinkItemSelectionModel_Tr2(const char* s, const char* c) {

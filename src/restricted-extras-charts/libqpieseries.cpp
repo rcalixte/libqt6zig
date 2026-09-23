@@ -183,20 +183,22 @@ void QPieSeries_Added(QPieSeries* self, const libqt_list /* of QPieSlice* */ sli
 
 void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
-    QPieSeries::connect(self, &QPieSeries::added, [self, slotFunc](const QList<QPieSlice*>& slices) {
-        const QList<QPieSlice*>& slices_ret = slices;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * (slices_ret.size())));
-        for (qsizetype i = 0; i < slices_ret.size(); ++i) {
-            slices_arr[i] = slices_ret[i];
-        }
-        libqt_list slices_out;
-        slices_out.len = slices_ret.size();
-        slices_out.data = static_cast<void*>(slices_arr);
-        libqt_list /* of QPieSlice* */ sigval1 = slices_out;
-        slotFunc(self, sigval1);
-        free(slices_arr);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(const QList<QPieSlice*>&)>(&QPieSeries::added),
+                        [self, slotFunc](const QList<QPieSlice*>& slices) {
+                            const QList<QPieSlice*>& slices_ret = slices;
+                            // Convert QList<> from C++ memory to manually-managed C memory
+                            QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * (slices_ret.size())));
+                            for (qsizetype i = 0; i < slices_ret.size(); ++i) {
+                                slices_arr[i] = slices_ret[i];
+                            }
+                            libqt_list slices_out;
+                            slices_out.len = slices_ret.size();
+                            slices_out.data = static_cast<void*>(slices_arr);
+                            libqt_list /* of QPieSlice* */ sigval1 = slices_out;
+                            slotFunc(self, sigval1);
+                            free(slices_arr);
+                        });
 }
 
 void QPieSeries_Removed(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
@@ -211,20 +213,22 @@ void QPieSeries_Removed(QPieSeries* self, const libqt_list /* of QPieSlice* */ s
 
 void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
-    QPieSeries::connect(self, &QPieSeries::removed, [self, slotFunc](const QList<QPieSlice*>& slices) {
-        const QList<QPieSlice*>& slices_ret = slices;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * (slices_ret.size())));
-        for (qsizetype i = 0; i < slices_ret.size(); ++i) {
-            slices_arr[i] = slices_ret[i];
-        }
-        libqt_list slices_out;
-        slices_out.len = slices_ret.size();
-        slices_out.data = static_cast<void*>(slices_arr);
-        libqt_list /* of QPieSlice* */ sigval1 = slices_out;
-        slotFunc(self, sigval1);
-        free(slices_arr);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(const QList<QPieSlice*>&)>(&QPieSeries::removed),
+                        [self, slotFunc](const QList<QPieSlice*>& slices) {
+                            const QList<QPieSlice*>& slices_ret = slices;
+                            // Convert QList<> from C++ memory to manually-managed C memory
+                            QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * (slices_ret.size())));
+                            for (qsizetype i = 0; i < slices_ret.size(); ++i) {
+                                slices_arr[i] = slices_ret[i];
+                            }
+                            libqt_list slices_out;
+                            slices_out.len = slices_ret.size();
+                            slices_out.data = static_cast<void*>(slices_arr);
+                            libqt_list /* of QPieSlice* */ sigval1 = slices_out;
+                            slotFunc(self, sigval1);
+                            free(slices_arr);
+                        });
 }
 
 void QPieSeries_Clicked(QPieSeries* self, QPieSlice* slice) {
@@ -233,10 +237,12 @@ void QPieSeries_Clicked(QPieSeries* self, QPieSlice* slice) {
 
 void QPieSeries_Connect_Clicked(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, QPieSlice*) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::clicked, [self, slotFunc](QPieSlice* slice) {
-        QPieSlice* sigval1 = slice;
-        slotFunc(self, sigval1);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(QPieSlice*)>(&QPieSeries::clicked),
+                        [self, slotFunc](QPieSlice* slice) {
+                            QPieSlice* sigval1 = slice;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QPieSeries_Hovered(QPieSeries* self, QPieSlice* slice, bool state) {
@@ -245,11 +251,13 @@ void QPieSeries_Hovered(QPieSeries* self, QPieSlice* slice, bool state) {
 
 void QPieSeries_Connect_Hovered(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, QPieSlice*, bool) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice*, bool)>(slot);
-    QPieSeries::connect(self, &QPieSeries::hovered, [self, slotFunc](QPieSlice* slice, bool state) {
-        QPieSlice* sigval1 = slice;
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(QPieSlice*, bool)>(&QPieSeries::hovered),
+                        [self, slotFunc](QPieSlice* slice, bool state) {
+                            QPieSlice* sigval1 = slice;
+                            bool sigval2 = state;
+                            slotFunc(self, sigval1, sigval2);
+                        });
 }
 
 void QPieSeries_Pressed(QPieSeries* self, QPieSlice* slice) {
@@ -258,10 +266,12 @@ void QPieSeries_Pressed(QPieSeries* self, QPieSlice* slice) {
 
 void QPieSeries_Connect_Pressed(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, QPieSlice*) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::pressed, [self, slotFunc](QPieSlice* slice) {
-        QPieSlice* sigval1 = slice;
-        slotFunc(self, sigval1);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(QPieSlice*)>(&QPieSeries::pressed),
+                        [self, slotFunc](QPieSlice* slice) {
+                            QPieSlice* sigval1 = slice;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QPieSeries_Released(QPieSeries* self, QPieSlice* slice) {
@@ -270,10 +280,12 @@ void QPieSeries_Released(QPieSeries* self, QPieSlice* slice) {
 
 void QPieSeries_Connect_Released(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, QPieSlice*) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::released, [self, slotFunc](QPieSlice* slice) {
-        QPieSlice* sigval1 = slice;
-        slotFunc(self, sigval1);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(QPieSlice*)>(&QPieSeries::released),
+                        [self, slotFunc](QPieSlice* slice) {
+                            QPieSlice* sigval1 = slice;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QPieSeries_DoubleClicked(QPieSeries* self, QPieSlice* slice) {
@@ -282,10 +294,12 @@ void QPieSeries_DoubleClicked(QPieSeries* self, QPieSlice* slice) {
 
 void QPieSeries_Connect_DoubleClicked(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, QPieSlice*) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::doubleClicked, [self, slotFunc](QPieSlice* slice) {
-        QPieSlice* sigval1 = slice;
-        slotFunc(self, sigval1);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)(QPieSlice*)>(&QPieSeries::doubleClicked),
+                        [self, slotFunc](QPieSlice* slice) {
+                            QPieSlice* sigval1 = slice;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QPieSeries_CountChanged(QPieSeries* self) {
@@ -294,9 +308,11 @@ void QPieSeries_CountChanged(QPieSeries* self) {
 
 void QPieSeries_Connect_CountChanged(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*) = reinterpret_cast<void (*)(QPieSeries*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::countChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)()>(&QPieSeries::countChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QPieSeries_SumChanged(QPieSeries* self) {
@@ -305,9 +321,11 @@ void QPieSeries_SumChanged(QPieSeries* self) {
 
 void QPieSeries_Connect_SumChanged(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*) = reinterpret_cast<void (*)(QPieSeries*)>(slot);
-    QPieSeries::connect(self, &QPieSeries::sumChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSeries::connect(self,
+                        static_cast<void (QPieSeries::*)()>(&QPieSeries::sumChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 libqt_string QPieSeries_Tr2(const char* s, const char* c) {

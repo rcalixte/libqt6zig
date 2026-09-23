@@ -480,12 +480,14 @@ void QGraphicsView_RubberBandChanged(QGraphicsView* self, QRect* viewportRect, Q
 
 void QGraphicsView_Connect_RubberBandChanged(QGraphicsView* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsView*, QRect*, QPointF*, QPointF*) = reinterpret_cast<void (*)(QGraphicsView*, QRect*, QPointF*, QPointF*)>(slot);
-    QGraphicsView::connect(self, &QGraphicsView::rubberBandChanged, [self, slotFunc](QRect viewportRect, QPointF fromScenePoint, QPointF toScenePoint) {
-        QRect* sigval1 = new QRect(viewportRect);
-        QPointF* sigval2 = new QPointF(fromScenePoint);
-        QPointF* sigval3 = new QPointF(toScenePoint);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QGraphicsView::connect(self,
+                           static_cast<void (QGraphicsView::*)(QRect, QPointF, QPointF)>(&QGraphicsView::rubberBandChanged),
+                           [self, slotFunc](QRect viewportRect, QPointF fromScenePoint, QPointF toScenePoint) {
+                               QRect* sigval1 = new QRect(viewportRect);
+                               QPointF* sigval2 = new QPointF(fromScenePoint);
+                               QPointF* sigval3 = new QPointF(toScenePoint);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QGraphicsView_SetupViewport(QGraphicsView* self, QWidget* widget) {

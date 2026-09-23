@@ -333,12 +333,14 @@ void KFileWidget_FileSelected(KFileWidget* self, const QUrl* param1) {
 
 void KFileWidget_Connect_FileSelected(KFileWidget* self, intptr_t slot) {
     void (*slotFunc)(KFileWidget*, QUrl*) = reinterpret_cast<void (*)(KFileWidget*, QUrl*)>(slot);
-    KFileWidget::connect(self, &KFileWidget::fileSelected, [self, slotFunc](const QUrl& param1) {
-        const QUrl& param1_ret = param1;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KFileWidget::connect(self,
+                         static_cast<void (KFileWidget::*)(const QUrl&)>(&KFileWidget::fileSelected),
+                         [self, slotFunc](const QUrl& param1) {
+                             const QUrl& param1_ret = param1;
+                             // Cast returned reference into pointer
+                             QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KFileWidget_FileHighlighted(KFileWidget* self, const QUrl* param1) {
@@ -347,12 +349,14 @@ void KFileWidget_FileHighlighted(KFileWidget* self, const QUrl* param1) {
 
 void KFileWidget_Connect_FileHighlighted(KFileWidget* self, intptr_t slot) {
     void (*slotFunc)(KFileWidget*, QUrl*) = reinterpret_cast<void (*)(KFileWidget*, QUrl*)>(slot);
-    KFileWidget::connect(self, &KFileWidget::fileHighlighted, [self, slotFunc](const QUrl& param1) {
-        const QUrl& param1_ret = param1;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KFileWidget::connect(self,
+                         static_cast<void (KFileWidget::*)(const QUrl&)>(&KFileWidget::fileHighlighted),
+                         [self, slotFunc](const QUrl& param1) {
+                             const QUrl& param1_ret = param1;
+                             // Cast returned reference into pointer
+                             QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KFileWidget_SelectionChanged(KFileWidget* self) {
@@ -361,9 +365,11 @@ void KFileWidget_SelectionChanged(KFileWidget* self) {
 
 void KFileWidget_Connect_SelectionChanged(KFileWidget* self, intptr_t slot) {
     void (*slotFunc)(KFileWidget*) = reinterpret_cast<void (*)(KFileWidget*)>(slot);
-    KFileWidget::connect(self, &KFileWidget::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFileWidget::connect(self,
+                         static_cast<void (KFileWidget::*)()>(&KFileWidget::selectionChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KFileWidget_FilterChanged(KFileWidget* self, const KFileFilter* filter) {
@@ -372,12 +378,14 @@ void KFileWidget_FilterChanged(KFileWidget* self, const KFileFilter* filter) {
 
 void KFileWidget_Connect_FilterChanged(KFileWidget* self, intptr_t slot) {
     void (*slotFunc)(KFileWidget*, KFileFilter*) = reinterpret_cast<void (*)(KFileWidget*, KFileFilter*)>(slot);
-    KFileWidget::connect(self, &KFileWidget::filterChanged, [self, slotFunc](const KFileFilter& filter) {
-        const KFileFilter& filter_ret = filter;
-        // Cast returned reference into pointer
-        KFileFilter* sigval1 = const_cast<KFileFilter*>(&filter_ret);
-        slotFunc(self, sigval1);
-    });
+    KFileWidget::connect(self,
+                         static_cast<void (KFileWidget::*)(const KFileFilter&)>(&KFileWidget::filterChanged),
+                         [self, slotFunc](const KFileFilter& filter) {
+                             const KFileFilter& filter_ret = filter;
+                             // Cast returned reference into pointer
+                             KFileFilter* sigval1 = const_cast<KFileFilter*>(&filter_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KFileWidget_Accepted(KFileWidget* self) {
@@ -386,9 +394,11 @@ void KFileWidget_Accepted(KFileWidget* self) {
 
 void KFileWidget_Connect_Accepted(KFileWidget* self, intptr_t slot) {
     void (*slotFunc)(KFileWidget*) = reinterpret_cast<void (*)(KFileWidget*)>(slot);
-    KFileWidget::connect(self, &KFileWidget::accepted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFileWidget::connect(self,
+                         static_cast<void (KFileWidget::*)()>(&KFileWidget::accepted),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 KDirOperator* KFileWidget_DirOperator(KFileWidget* self) {

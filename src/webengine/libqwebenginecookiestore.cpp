@@ -71,12 +71,14 @@ void QWebEngineCookieStore_CookieAdded(QWebEngineCookieStore* self, const QNetwo
 
 void QWebEngineCookieStore_Connect_CookieAdded(QWebEngineCookieStore* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineCookieStore*, QNetworkCookie*) = reinterpret_cast<void (*)(QWebEngineCookieStore*, QNetworkCookie*)>(slot);
-    QWebEngineCookieStore::connect(self, &QWebEngineCookieStore::cookieAdded, [self, slotFunc](const QNetworkCookie& cookie) {
-        const QNetworkCookie& cookie_ret = cookie;
-        // Cast returned reference into pointer
-        QNetworkCookie* sigval1 = const_cast<QNetworkCookie*>(&cookie_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEngineCookieStore::connect(self,
+                                   static_cast<void (QWebEngineCookieStore::*)(const QNetworkCookie&)>(&QWebEngineCookieStore::cookieAdded),
+                                   [self, slotFunc](const QNetworkCookie& cookie) {
+                                       const QNetworkCookie& cookie_ret = cookie;
+                                       // Cast returned reference into pointer
+                                       QNetworkCookie* sigval1 = const_cast<QNetworkCookie*>(&cookie_ret);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QWebEngineCookieStore_CookieRemoved(QWebEngineCookieStore* self, const QNetworkCookie* cookie) {
@@ -85,12 +87,14 @@ void QWebEngineCookieStore_CookieRemoved(QWebEngineCookieStore* self, const QNet
 
 void QWebEngineCookieStore_Connect_CookieRemoved(QWebEngineCookieStore* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineCookieStore*, QNetworkCookie*) = reinterpret_cast<void (*)(QWebEngineCookieStore*, QNetworkCookie*)>(slot);
-    QWebEngineCookieStore::connect(self, &QWebEngineCookieStore::cookieRemoved, [self, slotFunc](const QNetworkCookie& cookie) {
-        const QNetworkCookie& cookie_ret = cookie;
-        // Cast returned reference into pointer
-        QNetworkCookie* sigval1 = const_cast<QNetworkCookie*>(&cookie_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEngineCookieStore::connect(self,
+                                   static_cast<void (QWebEngineCookieStore::*)(const QNetworkCookie&)>(&QWebEngineCookieStore::cookieRemoved),
+                                   [self, slotFunc](const QNetworkCookie& cookie) {
+                                       const QNetworkCookie& cookie_ret = cookie;
+                                       // Cast returned reference into pointer
+                                       QNetworkCookie* sigval1 = const_cast<QNetworkCookie*>(&cookie_ret);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_string QWebEngineCookieStore_Tr2(const char* s, const char* c) {

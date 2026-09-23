@@ -105,10 +105,12 @@ void KTextEditor__Application_DocumentCreated(KTextEditor__Application* self, KT
 
 void KTextEditor__Application_Connect_DocumentCreated(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Application*, KTextEditor__Document*)>(slot);
-    KTextEditor::Application::connect(self, &KTextEditor::Application::documentCreated, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Application::connect(self,
+                                      static_cast<void (KTextEditor::Application::*)(KTextEditor::Document*)>(&KTextEditor::Application::documentCreated),
+                                      [self, slotFunc](KTextEditor::Document* document) {
+                                          KTextEditor__Document* sigval1 = document;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KTextEditor__Application_DocumentWillBeDeleted(KTextEditor__Application* self, KTextEditor__Document* document) {
@@ -117,10 +119,12 @@ void KTextEditor__Application_DocumentWillBeDeleted(KTextEditor__Application* se
 
 void KTextEditor__Application_Connect_DocumentWillBeDeleted(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Application*, KTextEditor__Document*)>(slot);
-    KTextEditor::Application::connect(self, &KTextEditor::Application::documentWillBeDeleted, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Application::connect(self,
+                                      static_cast<void (KTextEditor::Application::*)(KTextEditor::Document*)>(&KTextEditor::Application::documentWillBeDeleted),
+                                      [self, slotFunc](KTextEditor::Document* document) {
+                                          KTextEditor__Document* sigval1 = document;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KTextEditor__Application_DocumentDeleted(KTextEditor__Application* self, KTextEditor__Document* document) {
@@ -129,10 +133,12 @@ void KTextEditor__Application_DocumentDeleted(KTextEditor__Application* self, KT
 
 void KTextEditor__Application_Connect_DocumentDeleted(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Application*, KTextEditor__Document*)>(slot);
-    KTextEditor::Application::connect(self, &KTextEditor::Application::documentDeleted, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Application::connect(self,
+                                      static_cast<void (KTextEditor::Application::*)(KTextEditor::Document*)>(&KTextEditor::Application::documentDeleted),
+                                      [self, slotFunc](KTextEditor::Document* document) {
+                                          KTextEditor__Document* sigval1 = document;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 KTextEditor__Plugin* KTextEditor__Application_Plugin(KTextEditor__Application* self, const libqt_string name) {
@@ -147,19 +153,21 @@ void KTextEditor__Application_PluginCreated(KTextEditor__Application* self, cons
 
 void KTextEditor__Application_Connect_PluginCreated(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, const char*, KTextEditor__Plugin*) = reinterpret_cast<void (*)(KTextEditor__Application*, const char*, KTextEditor__Plugin*)>(slot);
-    KTextEditor::Application::connect(self, &KTextEditor::Application::pluginCreated, [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        KTextEditor__Plugin* sigval2 = plugin;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(name_str);
-    });
+    KTextEditor::Application::connect(self,
+                                      static_cast<void (KTextEditor::Application::*)(const QString&, KTextEditor::Plugin*)>(&KTextEditor::Application::pluginCreated),
+                                      [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
+                                          const auto name_ret = name;
+                                          // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                          QByteArray name_b = name_ret.toUtf8();
+                                          auto name_str_len = name_b.length();
+                                          const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                          memcpy((void*)name_str, name_b.data(), name_str_len);
+                                          ((char*)name_str)[name_str_len] = '\0';
+                                          const char* sigval1 = name_str;
+                                          KTextEditor__Plugin* sigval2 = plugin;
+                                          slotFunc(self, sigval1, sigval2);
+                                          libqt_free(name_str);
+                                      });
 }
 
 void KTextEditor__Application_PluginDeleted(KTextEditor__Application* self, const libqt_string name, KTextEditor__Plugin* plugin) {
@@ -169,19 +177,21 @@ void KTextEditor__Application_PluginDeleted(KTextEditor__Application* self, cons
 
 void KTextEditor__Application_Connect_PluginDeleted(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, const char*, KTextEditor__Plugin*) = reinterpret_cast<void (*)(KTextEditor__Application*, const char*, KTextEditor__Plugin*)>(slot);
-    KTextEditor::Application::connect(self, &KTextEditor::Application::pluginDeleted, [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        KTextEditor__Plugin* sigval2 = plugin;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(name_str);
-    });
+    KTextEditor::Application::connect(self,
+                                      static_cast<void (KTextEditor::Application::*)(const QString&, KTextEditor::Plugin*)>(&KTextEditor::Application::pluginDeleted),
+                                      [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
+                                          const auto name_ret = name;
+                                          // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                          QByteArray name_b = name_ret.toUtf8();
+                                          auto name_str_len = name_b.length();
+                                          const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                          memcpy((void*)name_str, name_b.data(), name_str_len);
+                                          ((char*)name_str)[name_str_len] = '\0';
+                                          const char* sigval1 = name_str;
+                                          KTextEditor__Plugin* sigval2 = plugin;
+                                          slotFunc(self, sigval1, sigval2);
+                                          libqt_free(name_str);
+                                      });
 }
 
 libqt_string KTextEditor__Application_Tr2(const char* s, const char* c) {

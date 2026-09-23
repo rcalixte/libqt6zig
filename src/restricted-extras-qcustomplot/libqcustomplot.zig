@@ -52496,6 +52496,22 @@ pub const QCPAxis = extern struct {
         qtc.QCPAxis_RangeChanged(@ptrCast(self.ptr), @ptrCast(newRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAxis.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAxis `
+    ///
+    /// ` callback: *const fn (self: QCPAxis, newRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged(self: QCPAxis, callback: *const fn (QCPAxis, QCPRange) callconv(.c) void) void {
+        qtc.QCPAxis_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `rangeChanged2` instead
     ///
     pub const RangeChanged2 = rangeChanged2;
@@ -52516,6 +52532,22 @@ pub const QCPAxis = extern struct {
         qtc.QCPAxis_RangeChanged2(@ptrCast(self.ptr), @ptrCast(newRange.ptr), @ptrCast(oldRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged2` instead
+    ///
+    pub const OnRangeChanged2 = onRangeChanged2;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAxis.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAxis `
+    ///
+    /// ` callback: *const fn (self: QCPAxis, newRange: QCPRange, oldRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged2(self: QCPAxis, callback: *const fn (QCPAxis, QCPRange, QCPRange) callconv(.c) void) void {
+        qtc.QCPAxis_Connect_RangeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `scaleTypeChanged` instead
     ///
     pub const ScaleTypeChanged = scaleTypeChanged;
@@ -52530,6 +52562,22 @@ pub const QCPAxis = extern struct {
     ///
     pub fn scaleTypeChanged(self: QCPAxis, _scaleType: i32) void {
         qtc.QCPAxis_ScaleTypeChanged(@ptrCast(self.ptr), @bitCast(_scaleType));
+    }
+
+    /// ### DEPRECATED: Use `onScaleTypeChanged` instead
+    ///
+    pub const OnScaleTypeChanged = onScaleTypeChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAxis.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAxis `
+    ///
+    /// ` callback: *const fn (self: QCPAxis, scaleType: qcustomplot_enums.ScaleType) callconv(.c) void `
+    ///
+    pub fn onScaleTypeChanged(self: QCPAxis, callback: *const fn (QCPAxis, i32) callconv(.c) void) void {
+        qtc.QCPAxis_Connect_ScaleTypeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `selectionChanged` instead
@@ -52548,6 +52596,22 @@ pub const QCPAxis = extern struct {
         qtc.QCPAxis_SelectionChanged(@ptrCast(self.ptr), @ptrCast(parts));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAxis.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAxis `
+    ///
+    /// ` callback: *const fn (self: QCPAxis, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPAxis, callback: *const fn (QCPAxis, *const i32) callconv(.c) void) void {
+        qtc.QCPAxis_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -52562,6 +52626,22 @@ pub const QCPAxis = extern struct {
     ///
     pub fn selectableChanged(self: QCPAxis, parts: *const i32) void {
         qtc.QCPAxis_SelectableChanged(@ptrCast(self.ptr), @ptrCast(parts));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAxis.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAxis `
+    ///
+    /// ` callback: *const fn (self: QCPAxis, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPAxis, callback: *const fn (QCPAxis, *const i32) callconv(.c) void) void {
+        qtc.QCPAxis_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `calculateMargin` instead
@@ -57897,6 +57977,22 @@ pub const QCPAbstractPlottable = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAbstractPlottable `
+    ///
+    /// ` callback: *const fn (self: QCPAbstractPlottable, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPAbstractPlottable, callback: *const fn (QCPAbstractPlottable, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -57914,6 +58010,22 @@ pub const QCPAbstractPlottable = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAbstractPlottable `
+    ///
+    /// ` callback: *const fn (self: QCPAbstractPlottable, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPAbstractPlottable, callback: *const fn (QCPAbstractPlottable, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -57928,6 +58040,22 @@ pub const QCPAbstractPlottable = extern struct {
     ///
     pub fn selectableChanged(self: QCPAbstractPlottable, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPAbstractPlottable `
+    ///
+    /// ` callback: *const fn (self: QCPAbstractPlottable, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPAbstractPlottable, callback: *const fn (QCPAbstractPlottable, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `clipRect` instead
@@ -114286,6 +114414,24 @@ pub const QCPGraph = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` callback: *const fn (self: QCPGraph, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPGraph, callback: *const fn (QCPGraph, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -114305,6 +114451,24 @@ pub const QCPGraph = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` callback: *const fn (self: QCPGraph, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPGraph, callback: *const fn (QCPGraph, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -114321,6 +114485,24 @@ pub const QCPGraph = extern struct {
     ///
     pub fn selectableChanged(self: QCPGraph, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` callback: *const fn (self: QCPGraph, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPGraph, callback: *const fn (QCPGraph, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -120644,6 +120826,24 @@ pub const QCPCurve = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPCurve `
+    ///
+    /// ` callback: *const fn (self: QCPCurve, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPCurve, callback: *const fn (QCPCurve, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -120663,6 +120863,24 @@ pub const QCPCurve = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPCurve `
+    ///
+    /// ` callback: *const fn (self: QCPCurve, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPCurve, callback: *const fn (QCPCurve, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -120679,6 +120897,24 @@ pub const QCPCurve = extern struct {
     ///
     pub fn selectableChanged(self: QCPCurve, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPCurve `
+    ///
+    /// ` callback: *const fn (self: QCPCurve, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPCurve, callback: *const fn (QCPCurve, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -128923,6 +129159,24 @@ pub const QCPBars = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPBars `
+    ///
+    /// ` callback: *const fn (self: QCPBars, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPBars, callback: *const fn (QCPBars, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -128942,6 +129196,24 @@ pub const QCPBars = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPBars `
+    ///
+    /// ` callback: *const fn (self: QCPBars, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPBars, callback: *const fn (QCPBars, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -128958,6 +129230,24 @@ pub const QCPBars = extern struct {
     ///
     pub fn selectableChanged(self: QCPBars, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPBars `
+    ///
+    /// ` callback: *const fn (self: QCPBars, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPBars, callback: *const fn (QCPBars, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -134687,6 +134977,24 @@ pub const QCPStatisticalBox = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPStatisticalBox `
+    ///
+    /// ` callback: *const fn (self: QCPStatisticalBox, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPStatisticalBox, callback: *const fn (QCPStatisticalBox, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -134706,6 +135014,24 @@ pub const QCPStatisticalBox = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPStatisticalBox `
+    ///
+    /// ` callback: *const fn (self: QCPStatisticalBox, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPStatisticalBox, callback: *const fn (QCPStatisticalBox, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -134722,6 +135048,24 @@ pub const QCPStatisticalBox = extern struct {
     ///
     pub fn selectableChanged(self: QCPStatisticalBox, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPStatisticalBox `
+    ///
+    /// ` callback: *const fn (self: QCPStatisticalBox, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPStatisticalBox, callback: *const fn (QCPStatisticalBox, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -140510,6 +140854,24 @@ pub const QCPColorMap = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPColorMap `
+    ///
+    /// ` callback: *const fn (self: QCPColorMap, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPColorMap, callback: *const fn (QCPColorMap, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -140529,6 +140891,24 @@ pub const QCPColorMap = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPColorMap `
+    ///
+    /// ` callback: *const fn (self: QCPColorMap, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPColorMap, callback: *const fn (QCPColorMap, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -140545,6 +140925,24 @@ pub const QCPColorMap = extern struct {
     ///
     pub fn selectableChanged(self: QCPColorMap, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPColorMap `
+    ///
+    /// ` callback: *const fn (self: QCPColorMap, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPColorMap, callback: *const fn (QCPColorMap, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -145785,6 +146183,24 @@ pub const QCPFinancial = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPFinancial `
+    ///
+    /// ` callback: *const fn (self: QCPFinancial, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPFinancial, callback: *const fn (QCPFinancial, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -145804,6 +146220,24 @@ pub const QCPFinancial = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPFinancial `
+    ///
+    /// ` callback: *const fn (self: QCPFinancial, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPFinancial, callback: *const fn (QCPFinancial, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -145820,6 +146254,24 @@ pub const QCPFinancial = extern struct {
     ///
     pub fn selectableChanged(self: QCPFinancial, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPFinancial `
+    ///
+    /// ` callback: *const fn (self: QCPFinancial, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPFinancial, callback: *const fn (QCPFinancial, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -151884,6 +152336,24 @@ pub const QCPErrorBars = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPErrorBars `
+    ///
+    /// ` callback: *const fn (self: QCPErrorBars, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPErrorBars, callback: *const fn (QCPErrorBars, bool) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -151903,6 +152373,24 @@ pub const QCPErrorBars = extern struct {
         qtc.QCPAbstractPlottable_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPErrorBars `
+    ///
+    /// ` callback: *const fn (self: QCPErrorBars, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPErrorBars, callback: *const fn (QCPErrorBars, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -151919,6 +152407,24 @@ pub const QCPErrorBars = extern struct {
     ///
     pub fn selectableChanged(self: QCPErrorBars, _selectable: i32) void {
         qtc.QCPAbstractPlottable_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// Inherited from QCPAbstractPlottable
+    ///
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPlottable.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPErrorBars `
+    ///
+    /// ` callback: *const fn (self: QCPErrorBars, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPErrorBars, callback: *const fn (QCPErrorBars, i32) callconv(.c) void) void {
+        qtc.QCPAbstractPlottable_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rescaleAxes1` instead
@@ -194844,6 +195350,22 @@ pub const QCPPolarAxisRadial = extern struct {
         qtc.QCPPolarAxisRadial_RangeChanged(@ptrCast(self.ptr), @ptrCast(newRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisRadial.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisRadial `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisRadial, newRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged(self: QCPPolarAxisRadial, callback: *const fn (QCPPolarAxisRadial, QCPRange) callconv(.c) void) void {
+        qtc.QCPPolarAxisRadial_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `rangeChanged2` instead
     ///
     pub const RangeChanged2 = rangeChanged2;
@@ -194864,6 +195386,22 @@ pub const QCPPolarAxisRadial = extern struct {
         qtc.QCPPolarAxisRadial_RangeChanged2(@ptrCast(self.ptr), @ptrCast(newRange.ptr), @ptrCast(oldRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged2` instead
+    ///
+    pub const OnRangeChanged2 = onRangeChanged2;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisRadial.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisRadial `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisRadial, newRange: QCPRange, oldRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged2(self: QCPPolarAxisRadial, callback: *const fn (QCPPolarAxisRadial, QCPRange, QCPRange) callconv(.c) void) void {
+        qtc.QCPPolarAxisRadial_Connect_RangeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `scaleTypeChanged` instead
     ///
     pub const ScaleTypeChanged = scaleTypeChanged;
@@ -194878,6 +195416,22 @@ pub const QCPPolarAxisRadial = extern struct {
     ///
     pub fn scaleTypeChanged(self: QCPPolarAxisRadial, _scaleType: i32) void {
         qtc.QCPPolarAxisRadial_ScaleTypeChanged(@ptrCast(self.ptr), @bitCast(_scaleType));
+    }
+
+    /// ### DEPRECATED: Use `onScaleTypeChanged` instead
+    ///
+    pub const OnScaleTypeChanged = onScaleTypeChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisRadial.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisRadial `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisRadial, scaleType: qcustomplot_enums.ScaleType) callconv(.c) void `
+    ///
+    pub fn onScaleTypeChanged(self: QCPPolarAxisRadial, callback: *const fn (QCPPolarAxisRadial, i32) callconv(.c) void) void {
+        qtc.QCPPolarAxisRadial_Connect_ScaleTypeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `selectionChanged` instead
@@ -194896,6 +195450,22 @@ pub const QCPPolarAxisRadial = extern struct {
         qtc.QCPPolarAxisRadial_SelectionChanged(@ptrCast(self.ptr), @ptrCast(parts));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisRadial.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisRadial `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisRadial, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPPolarAxisRadial, callback: *const fn (QCPPolarAxisRadial, *const i32) callconv(.c) void) void {
+        qtc.QCPPolarAxisRadial_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -194910,6 +195480,22 @@ pub const QCPPolarAxisRadial = extern struct {
     ///
     pub fn selectableChanged(self: QCPPolarAxisRadial, parts: *const i32) void {
         qtc.QCPPolarAxisRadial_SelectableChanged(@ptrCast(self.ptr), @ptrCast(parts));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisRadial.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisRadial `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisRadial, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPPolarAxisRadial, callback: *const fn (QCPPolarAxisRadial, *const i32) callconv(.c) void) void {
+        qtc.QCPPolarAxisRadial_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `applyDefaultAntialiasingHint` instead
@@ -200639,6 +201225,22 @@ pub const QCPPolarAxisAngular = extern struct {
         qtc.QCPPolarAxisAngular_RangeChanged(@ptrCast(self.ptr), @ptrCast(newRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged` instead
+    ///
+    pub const OnRangeChanged = onRangeChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisAngular.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisAngular `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisAngular, newRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged(self: QCPPolarAxisAngular, callback: *const fn (QCPPolarAxisAngular, QCPRange) callconv(.c) void) void {
+        qtc.QCPPolarAxisAngular_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `rangeChanged2` instead
     ///
     pub const RangeChanged2 = rangeChanged2;
@@ -200659,6 +201261,22 @@ pub const QCPPolarAxisAngular = extern struct {
         qtc.QCPPolarAxisAngular_RangeChanged2(@ptrCast(self.ptr), @ptrCast(newRange.ptr), @ptrCast(oldRange.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRangeChanged2` instead
+    ///
+    pub const OnRangeChanged2 = onRangeChanged2;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisAngular.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisAngular `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisAngular, newRange: QCPRange, oldRange: QCPRange) callconv(.c) void `
+    ///
+    pub fn onRangeChanged2(self: QCPPolarAxisAngular, callback: *const fn (QCPPolarAxisAngular, QCPRange, QCPRange) callconv(.c) void) void {
+        qtc.QCPPolarAxisAngular_Connect_RangeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged` instead
     ///
     pub const SelectionChanged = selectionChanged;
@@ -200675,6 +201293,22 @@ pub const QCPPolarAxisAngular = extern struct {
         qtc.QCPPolarAxisAngular_SelectionChanged(@ptrCast(self.ptr), @ptrCast(parts));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisAngular.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisAngular `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisAngular, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPPolarAxisAngular, callback: *const fn (QCPPolarAxisAngular, *const i32) callconv(.c) void) void {
+        qtc.QCPPolarAxisAngular_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -200689,6 +201323,22 @@ pub const QCPPolarAxisAngular = extern struct {
     ///
     pub fn selectableChanged(self: QCPPolarAxisAngular, parts: *const i32) void {
         qtc.QCPPolarAxisAngular_SelectableChanged(@ptrCast(self.ptr), @ptrCast(parts));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarAxisAngular.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarAxisAngular `
+    ///
+    /// ` callback: *const fn (self: QCPPolarAxisAngular, parts: *const flag of qcustomplot_enums.SelectablePart) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPPolarAxisAngular, callback: *const fn (QCPPolarAxisAngular, *const i32) callconv(.c) void) void {
+        qtc.QCPPolarAxisAngular_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `applyDefaultAntialiasingHint` instead
@@ -214246,6 +214896,22 @@ pub const QCPPolarGraph = extern struct {
         qtc.QCPPolarGraph_SelectionChanged(@ptrCast(self.ptr), _selected);
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarGraph.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarGraph `
+    ///
+    /// ` callback: *const fn (self: QCPPolarGraph, selected: bool) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged(self: QCPPolarGraph, callback: *const fn (QCPPolarGraph, bool) callconv(.c) void) void {
+        qtc.QCPPolarGraph_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionChanged2` instead
     ///
     pub const SelectionChanged2 = selectionChanged2;
@@ -214263,6 +214929,22 @@ pub const QCPPolarGraph = extern struct {
         qtc.QCPPolarGraph_SelectionChanged2(@ptrCast(self.ptr), @ptrCast(_selection.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged2` instead
+    ///
+    pub const OnSelectionChanged2 = onSelectionChanged2;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarGraph.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarGraph `
+    ///
+    /// ` callback: *const fn (self: QCPPolarGraph, selection: QCPDataSelection) callconv(.c) void `
+    ///
+    pub fn onSelectionChanged2(self: QCPPolarGraph, callback: *const fn (QCPPolarGraph, QCPDataSelection) callconv(.c) void) void {
+        qtc.QCPPolarGraph_Connect_SelectionChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectableChanged` instead
     ///
     pub const SelectableChanged = selectableChanged;
@@ -214277,6 +214959,22 @@ pub const QCPPolarGraph = extern struct {
     ///
     pub fn selectableChanged(self: QCPPolarGraph, _selectable: i32) void {
         qtc.QCPPolarGraph_SelectableChanged(@ptrCast(self.ptr), @bitCast(_selectable));
+    }
+
+    /// ### DEPRECATED: Use `onSelectableChanged` instead
+    ///
+    pub const OnSelectableChanged = onSelectableChanged;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPolarGraph.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPPolarGraph `
+    ///
+    /// ` callback: *const fn (self: QCPPolarGraph, selectable: qcustomplot_enums.SelectionType) callconv(.c) void `
+    ///
+    pub fn onSelectableChanged(self: QCPPolarGraph, callback: *const fn (QCPPolarGraph, i32) callconv(.c) void) void {
+        qtc.QCPPolarGraph_Connect_SelectableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `clipRect` instead

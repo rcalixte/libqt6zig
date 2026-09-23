@@ -448,10 +448,12 @@ void QMessageBox_ButtonClicked(QMessageBox* self, QAbstractButton* button) {
 
 void QMessageBox_Connect_ButtonClicked(QMessageBox* self, intptr_t slot) {
     void (*slotFunc)(QMessageBox*, QAbstractButton*) = reinterpret_cast<void (*)(QMessageBox*, QAbstractButton*)>(slot);
-    QMessageBox::connect(self, &QMessageBox::buttonClicked, [self, slotFunc](QAbstractButton* button) {
-        QAbstractButton* sigval1 = button;
-        slotFunc(self, sigval1);
-    });
+    QMessageBox::connect(self,
+                         static_cast<void (QMessageBox::*)(QAbstractButton*)>(&QMessageBox::buttonClicked),
+                         [self, slotFunc](QAbstractButton* button) {
+                             QAbstractButton* sigval1 = button;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 bool QMessageBox_Event(QMessageBox* self, QEvent* e) {

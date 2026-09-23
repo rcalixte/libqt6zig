@@ -46,21 +46,23 @@ void KStandardShortcut__StandardShortcutWatcher_ShortcutChanged(KStandardShortcu
 
 void KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(KStandardShortcut__StandardShortcutWatcher* self, intptr_t slot) {
     void (*slotFunc)(KStandardShortcut__StandardShortcutWatcher*, int, libqt_list /* of QKeySequence* */) = reinterpret_cast<void (*)(KStandardShortcut__StandardShortcutWatcher*, int, libqt_list /* of QKeySequence* */)>(slot);
-    KStandardShortcut::StandardShortcutWatcher::connect(self, &KStandardShortcut::StandardShortcutWatcher::shortcutChanged, [self, slotFunc](KStandardShortcut::StandardShortcut id, const QList<QKeySequence>& shortcut) {
-        int sigval1 = static_cast<int>(id);
-        const QList<QKeySequence>& shortcut_ret = shortcut;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QKeySequence** shortcut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (shortcut_ret.size())));
-        for (qsizetype i = 0; i < shortcut_ret.size(); ++i) {
-            shortcut_arr[i] = new QKeySequence(shortcut_ret[i]);
-        }
-        libqt_list shortcut_out;
-        shortcut_out.len = shortcut_ret.size();
-        shortcut_out.data = static_cast<void*>(shortcut_arr);
-        libqt_list /* of QKeySequence* */ sigval2 = shortcut_out;
-        slotFunc(self, sigval1, sigval2);
-        free(shortcut_arr);
-    });
+    KStandardShortcut::StandardShortcutWatcher::connect(self,
+                                                        static_cast<void (KStandardShortcut::StandardShortcutWatcher::*)(KStandardShortcut::StandardShortcut, const QList<QKeySequence>&)>(&KStandardShortcut::StandardShortcutWatcher::shortcutChanged),
+                                                        [self, slotFunc](KStandardShortcut::StandardShortcut id, const QList<QKeySequence>& shortcut) {
+                                                            int sigval1 = static_cast<int>(id);
+                                                            const QList<QKeySequence>& shortcut_ret = shortcut;
+                                                            // Convert QList<> from C++ memory to manually-managed C memory
+                                                            QKeySequence** shortcut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (shortcut_ret.size())));
+                                                            for (qsizetype i = 0; i < shortcut_ret.size(); ++i) {
+                                                                shortcut_arr[i] = new QKeySequence(shortcut_ret[i]);
+                                                            }
+                                                            libqt_list shortcut_out;
+                                                            shortcut_out.len = shortcut_ret.size();
+                                                            shortcut_out.data = static_cast<void*>(shortcut_arr);
+                                                            libqt_list /* of QKeySequence* */ sigval2 = shortcut_out;
+                                                            slotFunc(self, sigval1, sigval2);
+                                                            free(shortcut_arr);
+                                                        });
 }
 
 libqt_string KStandardShortcut__StandardShortcutWatcher_Tr2(const char* s, const char* c) {

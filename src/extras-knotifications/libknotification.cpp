@@ -77,9 +77,11 @@ void KNotificationAction_Activated(KNotificationAction* self) {
 
 void KNotificationAction_Connect_Activated(KNotificationAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationAction*) = reinterpret_cast<void (*)(KNotificationAction*)>(slot);
-    KNotificationAction::connect(self, &KNotificationAction::activated, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationAction::connect(self,
+                                 static_cast<void (KNotificationAction::*)()>(&KNotificationAction::activated),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 void KNotificationAction_LabelChanged(KNotificationAction* self, const libqt_string label) {
@@ -89,18 +91,20 @@ void KNotificationAction_LabelChanged(KNotificationAction* self, const libqt_str
 
 void KNotificationAction_Connect_LabelChanged(KNotificationAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationAction*, const char*) = reinterpret_cast<void (*)(KNotificationAction*, const char*)>(slot);
-    KNotificationAction::connect(self, &KNotificationAction::labelChanged, [self, slotFunc](const QString& label) {
-        const auto label_ret = label;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray label_b = label_ret.toUtf8();
-        auto label_str_len = label_b.length();
-        const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
-        memcpy((void*)label_str, label_b.data(), label_str_len);
-        ((char*)label_str)[label_str_len] = '\0';
-        const char* sigval1 = label_str;
-        slotFunc(self, sigval1);
-        libqt_free(label_str);
-    });
+    KNotificationAction::connect(self,
+                                 static_cast<void (KNotificationAction::*)(const QString&)>(&KNotificationAction::labelChanged),
+                                 [self, slotFunc](const QString& label) {
+                                     const auto label_ret = label;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray label_b = label_ret.toUtf8();
+                                     auto label_str_len = label_b.length();
+                                     const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
+                                     memcpy((void*)label_str, label_b.data(), label_str_len);
+                                     ((char*)label_str)[label_str_len] = '\0';
+                                     const char* sigval1 = label_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(label_str);
+                                 });
 }
 
 libqt_string KNotificationAction_Tr2(const char* s, const char* c) {
@@ -736,9 +740,11 @@ void KNotification_Closed(KNotification* self) {
 
 void KNotification_Connect_Closed(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::closed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::closed),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_Ignored(KNotification* self) {
@@ -747,9 +753,11 @@ void KNotification_Ignored(KNotification* self) {
 
 void KNotification_Connect_Ignored(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::ignored, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::ignored),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_EventIdChanged(KNotification* self) {
@@ -758,9 +766,11 @@ void KNotification_EventIdChanged(KNotification* self) {
 
 void KNotification_Connect_EventIdChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::eventIdChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::eventIdChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_TitleChanged(KNotification* self) {
@@ -769,9 +779,11 @@ void KNotification_TitleChanged(KNotification* self) {
 
 void KNotification_Connect_TitleChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::titleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::titleChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_TextChanged(KNotification* self) {
@@ -780,9 +792,11 @@ void KNotification_TextChanged(KNotification* self) {
 
 void KNotification_Connect_TextChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::textChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::textChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_IconNameChanged(KNotification* self) {
@@ -791,9 +805,11 @@ void KNotification_IconNameChanged(KNotification* self) {
 
 void KNotification_Connect_IconNameChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::iconNameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::iconNameChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_DefaultActionChanged(KNotification* self) {
@@ -802,9 +818,11 @@ void KNotification_DefaultActionChanged(KNotification* self) {
 
 void KNotification_Connect_DefaultActionChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::defaultActionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::defaultActionChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_ActionsChanged(KNotification* self) {
@@ -813,9 +831,11 @@ void KNotification_ActionsChanged(KNotification* self) {
 
 void KNotification_Connect_ActionsChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::actionsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::actionsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_FlagsChanged(KNotification* self) {
@@ -824,9 +844,11 @@ void KNotification_FlagsChanged(KNotification* self) {
 
 void KNotification_Connect_FlagsChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::flagsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::flagsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_ComponentNameChanged(KNotification* self) {
@@ -835,9 +857,11 @@ void KNotification_ComponentNameChanged(KNotification* self) {
 
 void KNotification_Connect_ComponentNameChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::componentNameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::componentNameChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_UrlsChanged(KNotification* self) {
@@ -846,9 +870,11 @@ void KNotification_UrlsChanged(KNotification* self) {
 
 void KNotification_Connect_UrlsChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::urlsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::urlsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_UrgencyChanged(KNotification* self) {
@@ -857,9 +883,11 @@ void KNotification_UrgencyChanged(KNotification* self) {
 
 void KNotification_Connect_UrgencyChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::urgencyChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::urgencyChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_AutoDeleteChanged(KNotification* self) {
@@ -868,9 +896,11 @@ void KNotification_AutoDeleteChanged(KNotification* self) {
 
 void KNotification_Connect_AutoDeleteChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::autoDeleteChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::autoDeleteChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_XdgActivationTokenChanged(KNotification* self) {
@@ -879,9 +909,11 @@ void KNotification_XdgActivationTokenChanged(KNotification* self) {
 
 void KNotification_Connect_XdgActivationTokenChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::xdgActivationTokenChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::xdgActivationTokenChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_HintsChanged(KNotification* self) {
@@ -890,9 +922,11 @@ void KNotification_HintsChanged(KNotification* self) {
 
 void KNotification_Connect_HintsChanged(KNotification* self, intptr_t slot) {
     void (*slotFunc)(KNotification*) = reinterpret_cast<void (*)(KNotification*)>(slot);
-    KNotification::connect(self, &KNotification::hintsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotification::connect(self,
+                           static_cast<void (KNotification::*)()>(&KNotification::hintsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KNotification_Close(KNotification* self) {

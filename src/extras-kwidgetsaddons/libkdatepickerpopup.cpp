@@ -146,12 +146,14 @@ void KDatePickerPopup_DateChanged(KDatePickerPopup* self, const QDate* date) {
 
 void KDatePickerPopup_Connect_DateChanged(KDatePickerPopup* self, intptr_t slot) {
     void (*slotFunc)(KDatePickerPopup*, QDate*) = reinterpret_cast<void (*)(KDatePickerPopup*, QDate*)>(slot);
-    KDatePickerPopup::connect(self, &KDatePickerPopup::dateChanged, [self, slotFunc](const QDate& date) {
-        const QDate& date_ret = date;
-        // Cast returned reference into pointer
-        QDate* sigval1 = const_cast<QDate*>(&date_ret);
-        slotFunc(self, sigval1);
-    });
+    KDatePickerPopup::connect(self,
+                              static_cast<void (KDatePickerPopup::*)(const QDate&)>(&KDatePickerPopup::dateChanged),
+                              [self, slotFunc](const QDate& date) {
+                                  const QDate& date_ret = date;
+                                  // Cast returned reference into pointer
+                                  QDate* sigval1 = const_cast<QDate*>(&date_ret);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 libqt_string KDatePickerPopup_Tr2(const char* s, const char* c) {

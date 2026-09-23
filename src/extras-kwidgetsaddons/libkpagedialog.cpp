@@ -140,11 +140,13 @@ void KPageDialog_CurrentPageChanged(KPageDialog* self, KPageWidgetItem* current,
 
 void KPageDialog_Connect_CurrentPageChanged(KPageDialog* self, intptr_t slot) {
     void (*slotFunc)(KPageDialog*, KPageWidgetItem*, KPageWidgetItem*) = reinterpret_cast<void (*)(KPageDialog*, KPageWidgetItem*, KPageWidgetItem*)>(slot);
-    KPageDialog::connect(self, &KPageDialog::currentPageChanged, [self, slotFunc](KPageWidgetItem* current, KPageWidgetItem* before) {
-        KPageWidgetItem* sigval1 = current;
-        KPageWidgetItem* sigval2 = before;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KPageDialog::connect(self,
+                         static_cast<void (KPageDialog::*)(KPageWidgetItem*, KPageWidgetItem*)>(&KPageDialog::currentPageChanged),
+                         [self, slotFunc](KPageWidgetItem* current, KPageWidgetItem* before) {
+                             KPageWidgetItem* sigval1 = current;
+                             KPageWidgetItem* sigval2 = before;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void KPageDialog_PageRemoved(KPageDialog* self, KPageWidgetItem* page) {
@@ -153,10 +155,12 @@ void KPageDialog_PageRemoved(KPageDialog* self, KPageWidgetItem* page) {
 
 void KPageDialog_Connect_PageRemoved(KPageDialog* self, intptr_t slot) {
     void (*slotFunc)(KPageDialog*, KPageWidgetItem*) = reinterpret_cast<void (*)(KPageDialog*, KPageWidgetItem*)>(slot);
-    KPageDialog::connect(self, &KPageDialog::pageRemoved, [self, slotFunc](KPageWidgetItem* page) {
-        KPageWidgetItem* sigval1 = page;
-        slotFunc(self, sigval1);
-    });
+    KPageDialog::connect(self,
+                         static_cast<void (KPageDialog::*)(KPageWidgetItem*)>(&KPageDialog::pageRemoved),
+                         [self, slotFunc](KPageWidgetItem* page) {
+                             KPageWidgetItem* sigval1 = page;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string KPageDialog_Tr2(const char* s, const char* c) {

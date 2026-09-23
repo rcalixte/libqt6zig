@@ -178,18 +178,20 @@ void Sonnet__Highlighter_ActiveChanged(Sonnet__Highlighter* self, const libqt_st
 
 void Sonnet__Highlighter_Connect_ActiveChanged(Sonnet__Highlighter* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Highlighter*, const char*) = reinterpret_cast<void (*)(Sonnet__Highlighter*, const char*)>(slot);
-    Sonnet::Highlighter::connect(self, &Sonnet::Highlighter::activeChanged, [self, slotFunc](const QString& description) {
-        const auto description_ret = description;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray description_b = description_ret.toUtf8();
-        auto description_str_len = description_b.length();
-        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
-        memcpy((void*)description_str, description_b.data(), description_str_len);
-        ((char*)description_str)[description_str_len] = '\0';
-        const char* sigval1 = description_str;
-        slotFunc(self, sigval1);
-        libqt_free(description_str);
-    });
+    Sonnet::Highlighter::connect(self,
+                                 static_cast<void (Sonnet::Highlighter::*)(const QString&)>(&Sonnet::Highlighter::activeChanged),
+                                 [self, slotFunc](const QString& description) {
+                                     const auto description_ret = description;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray description_b = description_ret.toUtf8();
+                                     auto description_str_len = description_b.length();
+                                     const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+                                     memcpy((void*)description_str, description_b.data(), description_str_len);
+                                     ((char*)description_str)[description_str_len] = '\0';
+                                     const char* sigval1 = description_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(description_str);
+                                 });
 }
 
 void Sonnet__Highlighter_HighlightBlock(Sonnet__Highlighter* self, const libqt_string text) {

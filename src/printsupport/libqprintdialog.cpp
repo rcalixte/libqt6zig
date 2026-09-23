@@ -116,6 +116,16 @@ void QPrintDialog_Accepted(QPrintDialog* self, QPrinter* printer) {
     self->accepted(printer);
 }
 
+void QPrintDialog_Connect_Accepted(QPrintDialog* self, intptr_t slot) {
+    void (*slotFunc)(QPrintDialog*, QPrinter*) = reinterpret_cast<void (*)(QPrintDialog*, QPrinter*)>(slot);
+    QPrintDialog::connect(self,
+                          static_cast<void (QPrintDialog::*)(QPrinter*)>(&QPrintDialog::accepted),
+                          [self, slotFunc](QPrinter* printer) {
+                              QPrinter* sigval1 = printer;
+                              slotFunc(self, sigval1);
+                          });
+}
+
 libqt_string QPrintDialog_Tr2(const char* s, const char* c) {
     auto _ret = QPrintDialog::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

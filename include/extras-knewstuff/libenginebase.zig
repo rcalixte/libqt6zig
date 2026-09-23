@@ -903,6 +903,22 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalMessage(@ptrCast(self.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `onSignalMessage` instead
+    ///
+    pub const OnSignalMessage = onSignalMessage;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalMessage)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, message: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onSignalMessage(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `signalProvidersLoaded` instead
     ///
     pub const SignalProvidersLoaded = signalProvidersLoaded;
@@ -915,6 +931,22 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     pub fn signalProvidersLoaded(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_SignalProvidersLoaded(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSignalProvidersLoaded` instead
+    ///
+    pub const OnSignalProvidersLoaded = onSignalProvidersLoaded;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalProvidersLoaded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase) callconv(.c) void `
+    ///
+    pub fn onSignalProvidersLoaded(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalProvidersLoaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `signalErrorCode` instead
@@ -942,6 +974,22 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalErrorCode(@ptrCast(self.ptr), @bitCast(errorCode), message_str, @ptrCast(metadata.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSignalErrorCode` instead
+    ///
+    pub const OnSignalErrorCode = onSignalErrorCode;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalErrorCode)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, errorCode: errorcode_enums.ErrorCode, message: [*:0]const u8, metadata: QVariant) callconv(.c) void `
+    ///
+    pub fn onSignalErrorCode(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, i32, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalErrorCode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `signalCategoriesMetadataLoded` instead
     ///
     pub const SignalCategoriesMetadataLoded = signalCategoriesMetadataLoded;
@@ -960,6 +1008,22 @@ pub const KNSCore__EngineBase = extern struct {
             .data = @ptrCast(_categories.ptr),
         };
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoded(@ptrCast(self.ptr), categories_list);
+    }
+
+    /// ### DEPRECATED: Use `onSignalCategoriesMetadataLoded` instead
+    ///
+    pub const OnSignalCategoriesMetadataLoded = onSignalCategoriesMetadataLoded;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, categories: qtc.libqt_list ([]KNSCore__Provider__CategoryMetadata)) callconv(.c) void `
+    ///
+    pub fn onSignalCategoriesMetadataLoded(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalCategoriesMetadataLoded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `signalCategoriesMetadataLoaded` instead
@@ -982,6 +1046,22 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoaded(@ptrCast(self.ptr), categories_list);
     }
 
+    /// ### DEPRECATED: Use `onSignalCategoriesMetadataLoaded` instead
+    ///
+    pub const OnSignalCategoriesMetadataLoaded = onSignalCategoriesMetadataLoaded;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoaded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, categories: qtc.libqt_list ([]KNSCore__CategoryMetadata)) callconv(.c) void `
+    ///
+    pub fn onSignalCategoriesMetadataLoaded(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalCategoriesMetadataLoaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `signalSearchPresetsLoaded` instead
     ///
     pub const SignalSearchPresetsLoaded = signalSearchPresetsLoaded;
@@ -1000,6 +1080,22 @@ pub const KNSCore__EngineBase = extern struct {
             .data = @ptrCast(presets.ptr),
         };
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded(@ptrCast(self.ptr), presets_list);
+    }
+
+    /// ### DEPRECATED: Use `onSignalSearchPresetsLoaded` instead
+    ///
+    pub const OnSignalSearchPresetsLoaded = onSignalSearchPresetsLoaded;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, presets: qtc.libqt_list ([]KNSCore__Provider__SearchPreset)) callconv(.c) void `
+    ///
+    pub fn onSignalSearchPresetsLoaded(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalSearchPresetsLoaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `signalSearchPresetsLoaded2` instead
@@ -1022,6 +1118,22 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded2(@ptrCast(self.ptr), presets_list);
     }
 
+    /// ### DEPRECATED: Use `onSignalSearchPresetsLoaded2` instead
+    ///
+    pub const OnSignalSearchPresetsLoaded2 = onSignalSearchPresetsLoaded2;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, presets: qtc.libqt_list ([]KNSCore__SearchPreset)) callconv(.c) void `
+    ///
+    pub fn onSignalSearchPresetsLoaded2(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_SignalSearchPresetsLoaded2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `providersChanged` instead
     ///
     pub const ProvidersChanged = providersChanged;
@@ -1036,6 +1148,22 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_ProvidersChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onProvidersChanged` instead
+    ///
+    pub const OnProvidersChanged = onProvidersChanged;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#providersChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase) callconv(.c) void `
+    ///
+    pub fn onProvidersChanged(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_ProvidersChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `loadingProvider` instead
     ///
     pub const LoadingProvider = loadingProvider;
@@ -1048,6 +1176,22 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     pub fn loadingProvider(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_LoadingProvider(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onLoadingProvider` instead
+    ///
+    pub const OnLoadingProvider = onLoadingProvider;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#loadingProvider)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase) callconv(.c) void `
+    ///
+    pub fn onLoadingProvider(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_LoadingProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `providerAdded` instead
@@ -1065,6 +1209,22 @@ pub const KNSCore__EngineBase = extern struct {
     pub fn providerAdded(self: KNSCore__EngineBase, provider: anytype) void {
         comptime _ = @TypeOf(provider)._is_KNSCore__ProviderCore;
         qtc.KNSCore__EngineBase_ProviderAdded(@ptrCast(self.ptr), @ptrCast(provider.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onProviderAdded` instead
+    ///
+    pub const OnProviderAdded = onProviderAdded;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#providerAdded)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    /// ` callback: *const fn (self: KNSCore__EngineBase, provider: KNSCore__ProviderCore) callconv(.c) void `
+    ///
+    pub fn onProviderAdded(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, KNSCore__ProviderCore) callconv(.c) void) void {
+        qtc.KNSCore__EngineBase_Connect_ProviderAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `updateStatus` instead

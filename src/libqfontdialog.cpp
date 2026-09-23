@@ -125,12 +125,14 @@ void QFontDialog_CurrentFontChanged(QFontDialog* self, const QFont* font) {
 
 void QFontDialog_Connect_CurrentFontChanged(QFontDialog* self, intptr_t slot) {
     void (*slotFunc)(QFontDialog*, QFont*) = reinterpret_cast<void (*)(QFontDialog*, QFont*)>(slot);
-    QFontDialog::connect(self, &QFontDialog::currentFontChanged, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    QFontDialog::connect(self,
+                         static_cast<void (QFontDialog::*)(const QFont&)>(&QFontDialog::currentFontChanged),
+                         [self, slotFunc](const QFont& font) {
+                             const QFont& font_ret = font;
+                             // Cast returned reference into pointer
+                             QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QFontDialog_FontSelected(QFontDialog* self, const QFont* font) {
@@ -139,12 +141,14 @@ void QFontDialog_FontSelected(QFontDialog* self, const QFont* font) {
 
 void QFontDialog_Connect_FontSelected(QFontDialog* self, intptr_t slot) {
     void (*slotFunc)(QFontDialog*, QFont*) = reinterpret_cast<void (*)(QFontDialog*, QFont*)>(slot);
-    QFontDialog::connect(self, &QFontDialog::fontSelected, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    QFontDialog::connect(self,
+                         static_cast<void (QFontDialog::*)(const QFont&)>(&QFontDialog::fontSelected),
+                         [self, slotFunc](const QFont& font) {
+                             const QFont& font_ret = font;
+                             // Cast returned reference into pointer
+                             QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QFontDialog_ChangeEvent(QFontDialog* self, QEvent* event) {

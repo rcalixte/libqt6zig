@@ -117,6 +117,7 @@ void QWebSocket_Connect_TextMessageReceived(QWebSocket* self, intptr_t slot);
 void QWebSocket_BinaryMessageReceived(QWebSocket* self, const libqt_string message);
 void QWebSocket_Connect_BinaryMessageReceived(QWebSocket* self, intptr_t slot);
 void QWebSocket_Error2(QWebSocket* self, int errorVal);
+void QWebSocket_Connect_Error2(QWebSocket* self, intptr_t slot);
 void QWebSocket_ErrorOccurred(QWebSocket* self, int errorVal);
 void QWebSocket_Connect_ErrorOccurred(QWebSocket* self, intptr_t slot);
 void QWebSocket_Pong(QWebSocket* self, unsigned long long elapsedTime, const libqt_string payload);

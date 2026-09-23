@@ -348,9 +348,11 @@ void KIconLoader_IconLoaderSettingsChanged(KIconLoader* self) {
 
 void KIconLoader_Connect_IconLoaderSettingsChanged(KIconLoader* self, intptr_t slot) {
     void (*slotFunc)(KIconLoader*) = reinterpret_cast<void (*)(KIconLoader*)>(slot);
-    KIconLoader::connect(self, &KIconLoader::iconLoaderSettingsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KIconLoader::connect(self,
+                         static_cast<void (KIconLoader::*)()>(&KIconLoader::iconLoaderSettingsChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KIconLoader_IconChanged(KIconLoader* self, int group) {
@@ -359,10 +361,12 @@ void KIconLoader_IconChanged(KIconLoader* self, int group) {
 
 void KIconLoader_Connect_IconChanged(KIconLoader* self, intptr_t slot) {
     void (*slotFunc)(KIconLoader*, int) = reinterpret_cast<void (*)(KIconLoader*, int)>(slot);
-    KIconLoader::connect(self, &KIconLoader::iconChanged, [self, slotFunc](int group) {
-        int sigval1 = group;
-        slotFunc(self, sigval1);
-    });
+    KIconLoader::connect(self,
+                         static_cast<void (KIconLoader::*)(int)>(&KIconLoader::iconChanged),
+                         [self, slotFunc](int group) {
+                             int sigval1 = group;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string KIconLoader_Tr2(const char* s, const char* c) {

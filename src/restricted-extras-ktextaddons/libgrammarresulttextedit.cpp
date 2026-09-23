@@ -118,12 +118,14 @@ void TextGrammarCheck__GrammarResultTextEdit_ReplaceText(TextGrammarCheck__Gramm
 
 void TextGrammarCheck__GrammarResultTextEdit_Connect_ReplaceText(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultTextEdit*, TextGrammarCheck__GrammarAction*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultTextEdit*, TextGrammarCheck__GrammarAction*)>(slot);
-    TextGrammarCheck::GrammarResultTextEdit::connect(self, &TextGrammarCheck::GrammarResultTextEdit::replaceText, [self, slotFunc](const TextGrammarCheck::GrammarAction& act) {
-        const TextGrammarCheck::GrammarAction& act_ret = act;
-        // Cast returned reference into pointer
-        TextGrammarCheck__GrammarAction* sigval1 = const_cast<TextGrammarCheck::GrammarAction*>(&act_ret);
-        slotFunc(self, sigval1);
-    });
+    TextGrammarCheck::GrammarResultTextEdit::connect(self,
+                                                     static_cast<void (TextGrammarCheck::GrammarResultTextEdit::*)(const TextGrammarCheck::GrammarAction&)>(&TextGrammarCheck::GrammarResultTextEdit::replaceText),
+                                                     [self, slotFunc](const TextGrammarCheck::GrammarAction& act) {
+                                                         const TextGrammarCheck::GrammarAction& act_ret = act;
+                                                         // Cast returned reference into pointer
+                                                         TextGrammarCheck__GrammarAction* sigval1 = const_cast<TextGrammarCheck::GrammarAction*>(&act_ret);
+                                                         slotFunc(self, sigval1);
+                                                     });
 }
 
 void TextGrammarCheck__GrammarResultTextEdit_CheckAgain(TextGrammarCheck__GrammarResultTextEdit* self) {
@@ -132,9 +134,11 @@ void TextGrammarCheck__GrammarResultTextEdit_CheckAgain(TextGrammarCheck__Gramma
 
 void TextGrammarCheck__GrammarResultTextEdit_Connect_CheckAgain(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultTextEdit*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultTextEdit*)>(slot);
-    TextGrammarCheck::GrammarResultTextEdit::connect(self, &TextGrammarCheck::GrammarResultTextEdit::checkAgain, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultTextEdit::connect(self,
+                                                     static_cast<void (TextGrammarCheck::GrammarResultTextEdit::*)()>(&TextGrammarCheck::GrammarResultTextEdit::checkAgain),
+                                                     [self, slotFunc]() {
+                                                         slotFunc(self);
+                                                     });
 }
 
 void TextGrammarCheck__GrammarResultTextEdit_CloseChecker(TextGrammarCheck__GrammarResultTextEdit* self) {
@@ -143,9 +147,11 @@ void TextGrammarCheck__GrammarResultTextEdit_CloseChecker(TextGrammarCheck__Gram
 
 void TextGrammarCheck__GrammarResultTextEdit_Connect_CloseChecker(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultTextEdit*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultTextEdit*)>(slot);
-    TextGrammarCheck::GrammarResultTextEdit::connect(self, &TextGrammarCheck::GrammarResultTextEdit::closeChecker, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultTextEdit::connect(self,
+                                                     static_cast<void (TextGrammarCheck::GrammarResultTextEdit::*)()>(&TextGrammarCheck::GrammarResultTextEdit::closeChecker),
+                                                     [self, slotFunc]() {
+                                                         slotFunc(self);
+                                                     });
 }
 
 void TextGrammarCheck__GrammarResultTextEdit_Configure(TextGrammarCheck__GrammarResultTextEdit* self) {
@@ -154,9 +160,11 @@ void TextGrammarCheck__GrammarResultTextEdit_Configure(TextGrammarCheck__Grammar
 
 void TextGrammarCheck__GrammarResultTextEdit_Connect_Configure(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultTextEdit*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultTextEdit*)>(slot);
-    TextGrammarCheck::GrammarResultTextEdit::connect(self, &TextGrammarCheck::GrammarResultTextEdit::configure, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultTextEdit::connect(self,
+                                                     static_cast<void (TextGrammarCheck::GrammarResultTextEdit::*)()>(&TextGrammarCheck::GrammarResultTextEdit::configure),
+                                                     [self, slotFunc]() {
+                                                         slotFunc(self);
+                                                     });
 }
 
 libqt_string TextGrammarCheck__GrammarResultTextEdit_Tr2(const char* s, const char* c) {

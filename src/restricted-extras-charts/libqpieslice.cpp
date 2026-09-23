@@ -208,9 +208,11 @@ void QPieSlice_Clicked(QPieSlice* self) {
 
 void QPieSlice_Connect_Clicked(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::clicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::clicked),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_Hovered(QPieSlice* self, bool state) {
@@ -219,10 +221,12 @@ void QPieSlice_Hovered(QPieSlice* self, bool state) {
 
 void QPieSlice_Connect_Hovered(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*, bool) = reinterpret_cast<void (*)(QPieSlice*, bool)>(slot);
-    QPieSlice::connect(self, &QPieSlice::hovered, [self, slotFunc](bool state) {
-        bool sigval1 = state;
-        slotFunc(self, sigval1);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)(bool)>(&QPieSlice::hovered),
+                       [self, slotFunc](bool state) {
+                           bool sigval1 = state;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QPieSlice_Pressed(QPieSlice* self) {
@@ -231,9 +235,11 @@ void QPieSlice_Pressed(QPieSlice* self) {
 
 void QPieSlice_Connect_Pressed(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::pressed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::pressed),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_Released(QPieSlice* self) {
@@ -242,9 +248,11 @@ void QPieSlice_Released(QPieSlice* self) {
 
 void QPieSlice_Connect_Released(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::released, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::released),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_DoubleClicked(QPieSlice* self) {
@@ -253,9 +261,11 @@ void QPieSlice_DoubleClicked(QPieSlice* self) {
 
 void QPieSlice_Connect_DoubleClicked(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::doubleClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::doubleClicked),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_LabelChanged(QPieSlice* self) {
@@ -264,9 +274,11 @@ void QPieSlice_LabelChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_LabelChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::labelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::labelChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_ValueChanged(QPieSlice* self) {
@@ -275,9 +287,11 @@ void QPieSlice_ValueChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_ValueChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::valueChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::valueChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_LabelVisibleChanged(QPieSlice* self) {
@@ -286,9 +300,11 @@ void QPieSlice_LabelVisibleChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_LabelVisibleChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::labelVisibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::labelVisibleChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_PenChanged(QPieSlice* self) {
@@ -297,9 +313,11 @@ void QPieSlice_PenChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_PenChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::penChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::penChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_BrushChanged(QPieSlice* self) {
@@ -308,9 +326,11 @@ void QPieSlice_BrushChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_BrushChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::brushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::brushChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_LabelBrushChanged(QPieSlice* self) {
@@ -319,9 +339,11 @@ void QPieSlice_LabelBrushChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_LabelBrushChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::labelBrushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::labelBrushChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_LabelFontChanged(QPieSlice* self) {
@@ -330,9 +352,11 @@ void QPieSlice_LabelFontChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_LabelFontChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::labelFontChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::labelFontChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_PercentageChanged(QPieSlice* self) {
@@ -341,9 +365,11 @@ void QPieSlice_PercentageChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_PercentageChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::percentageChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::percentageChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_StartAngleChanged(QPieSlice* self) {
@@ -352,9 +378,11 @@ void QPieSlice_StartAngleChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_StartAngleChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::startAngleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::startAngleChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_AngleSpanChanged(QPieSlice* self) {
@@ -363,9 +391,11 @@ void QPieSlice_AngleSpanChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_AngleSpanChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::angleSpanChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::angleSpanChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_ColorChanged(QPieSlice* self) {
@@ -374,9 +404,11 @@ void QPieSlice_ColorChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_ColorChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::colorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::colorChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_BorderColorChanged(QPieSlice* self) {
@@ -385,9 +417,11 @@ void QPieSlice_BorderColorChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_BorderColorChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::borderColorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::borderColorChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_BorderWidthChanged(QPieSlice* self) {
@@ -396,9 +430,11 @@ void QPieSlice_BorderWidthChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_BorderWidthChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::borderWidthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::borderWidthChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QPieSlice_LabelColorChanged(QPieSlice* self) {
@@ -407,9 +443,11 @@ void QPieSlice_LabelColorChanged(QPieSlice* self) {
 
 void QPieSlice_Connect_LabelColorChanged(QPieSlice* self, intptr_t slot) {
     void (*slotFunc)(QPieSlice*) = reinterpret_cast<void (*)(QPieSlice*)>(slot);
-    QPieSlice::connect(self, &QPieSlice::labelColorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPieSlice::connect(self,
+                       static_cast<void (QPieSlice::*)()>(&QPieSlice::labelColorChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 libqt_string QPieSlice_Tr2(const char* s, const char* c) {

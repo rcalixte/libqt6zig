@@ -134,9 +134,11 @@ void QQuickRhiItem_SampleCountChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_SampleCountChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::sampleCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::sampleCountChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_ColorBufferFormatChanged(QQuickRhiItem* self) {
@@ -145,9 +147,11 @@ void QQuickRhiItem_ColorBufferFormatChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_ColorBufferFormatChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::colorBufferFormatChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::colorBufferFormatChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_AutoRenderTargetChanged(QQuickRhiItem* self) {
@@ -156,9 +160,11 @@ void QQuickRhiItem_AutoRenderTargetChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_AutoRenderTargetChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::autoRenderTargetChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::autoRenderTargetChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_MirrorVerticallyChanged(QQuickRhiItem* self) {
@@ -167,9 +173,11 @@ void QQuickRhiItem_MirrorVerticallyChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_MirrorVerticallyChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::mirrorVerticallyChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::mirrorVerticallyChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_AlphaBlendingChanged(QQuickRhiItem* self) {
@@ -178,9 +186,11 @@ void QQuickRhiItem_AlphaBlendingChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_AlphaBlendingChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::alphaBlendingChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::alphaBlendingChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_FixedColorBufferWidthChanged(QQuickRhiItem* self) {
@@ -189,9 +199,11 @@ void QQuickRhiItem_FixedColorBufferWidthChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_FixedColorBufferWidthChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::fixedColorBufferWidthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::fixedColorBufferWidthChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_FixedColorBufferHeightChanged(QQuickRhiItem* self) {
@@ -200,9 +212,11 @@ void QQuickRhiItem_FixedColorBufferHeightChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_FixedColorBufferHeightChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::fixedColorBufferHeightChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::fixedColorBufferHeightChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QQuickRhiItem_EffectiveColorBufferSizeChanged(QQuickRhiItem* self) {
@@ -211,9 +225,11 @@ void QQuickRhiItem_EffectiveColorBufferSizeChanged(QQuickRhiItem* self) {
 
 void QQuickRhiItem_Connect_EffectiveColorBufferSizeChanged(QQuickRhiItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickRhiItem*) = reinterpret_cast<void (*)(QQuickRhiItem*)>(slot);
-    QQuickRhiItem::connect(self, &QQuickRhiItem::effectiveColorBufferSizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickRhiItem::connect(self,
+                           static_cast<void (QQuickRhiItem::*)()>(&QQuickRhiItem::effectiveColorBufferSizeChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 QQuickRhiItemRenderer* QQuickRhiItem_CreateRenderer(QQuickRhiItem* self) {

@@ -323,12 +323,14 @@ void QDateTimeEdit_DateTimeChanged(QDateTimeEdit* self, const QDateTime* dateTim
 
 void QDateTimeEdit_Connect_DateTimeChanged(QDateTimeEdit* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeEdit*, QDateTime*) = reinterpret_cast<void (*)(QDateTimeEdit*, QDateTime*)>(slot);
-    QDateTimeEdit::connect(self, &QDateTimeEdit::dateTimeChanged, [self, slotFunc](const QDateTime& dateTime) {
-        const QDateTime& dateTime_ret = dateTime;
-        // Cast returned reference into pointer
-        QDateTime* sigval1 = const_cast<QDateTime*>(&dateTime_ret);
-        slotFunc(self, sigval1);
-    });
+    QDateTimeEdit::connect(self,
+                           static_cast<void (QDateTimeEdit::*)(const QDateTime&)>(&QDateTimeEdit::dateTimeChanged),
+                           [self, slotFunc](const QDateTime& dateTime) {
+                               const QDateTime& dateTime_ret = dateTime;
+                               // Cast returned reference into pointer
+                               QDateTime* sigval1 = const_cast<QDateTime*>(&dateTime_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QDateTimeEdit_TimeChanged(QDateTimeEdit* self, QTime* time) {
@@ -337,10 +339,12 @@ void QDateTimeEdit_TimeChanged(QDateTimeEdit* self, QTime* time) {
 
 void QDateTimeEdit_Connect_TimeChanged(QDateTimeEdit* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeEdit*, QTime*) = reinterpret_cast<void (*)(QDateTimeEdit*, QTime*)>(slot);
-    QDateTimeEdit::connect(self, &QDateTimeEdit::timeChanged, [self, slotFunc](QTime time) {
-        QTime* sigval1 = new QTime(time);
-        slotFunc(self, sigval1);
-    });
+    QDateTimeEdit::connect(self,
+                           static_cast<void (QDateTimeEdit::*)(QTime)>(&QDateTimeEdit::timeChanged),
+                           [self, slotFunc](QTime time) {
+                               QTime* sigval1 = new QTime(time);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QDateTimeEdit_DateChanged(QDateTimeEdit* self, QDate* date) {
@@ -349,10 +353,12 @@ void QDateTimeEdit_DateChanged(QDateTimeEdit* self, QDate* date) {
 
 void QDateTimeEdit_Connect_DateChanged(QDateTimeEdit* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeEdit*, QDate*) = reinterpret_cast<void (*)(QDateTimeEdit*, QDate*)>(slot);
-    QDateTimeEdit::connect(self, &QDateTimeEdit::dateChanged, [self, slotFunc](QDate date) {
-        QDate* sigval1 = new QDate(date);
-        slotFunc(self, sigval1);
-    });
+    QDateTimeEdit::connect(self,
+                           static_cast<void (QDateTimeEdit::*)(QDate)>(&QDateTimeEdit::dateChanged),
+                           [self, slotFunc](QDate date) {
+                               QDate* sigval1 = new QDate(date);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QDateTimeEdit_SetDateTime(QDateTimeEdit* self, const QDateTime* dateTime) {
@@ -2331,10 +2337,12 @@ void QTimeEdit_UserTimeChanged(QTimeEdit* self, QTime* time) {
 
 void QTimeEdit_Connect_UserTimeChanged(QTimeEdit* self, intptr_t slot) {
     void (*slotFunc)(QTimeEdit*, QTime*) = reinterpret_cast<void (*)(QTimeEdit*, QTime*)>(slot);
-    QTimeEdit::connect(self, &QTimeEdit::userTimeChanged, [self, slotFunc](QTime time) {
-        QTime* sigval1 = new QTime(time);
-        slotFunc(self, sigval1);
-    });
+    QTimeEdit::connect(self,
+                       static_cast<void (QTimeEdit::*)(QTime)>(&QTimeEdit::userTimeChanged),
+                       [self, slotFunc](QTime time) {
+                           QTime* sigval1 = new QTime(time);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 libqt_string QTimeEdit_Tr2(const char* s, const char* c) {
@@ -4379,10 +4387,12 @@ void QDateEdit_UserDateChanged(QDateEdit* self, QDate* date) {
 
 void QDateEdit_Connect_UserDateChanged(QDateEdit* self, intptr_t slot) {
     void (*slotFunc)(QDateEdit*, QDate*) = reinterpret_cast<void (*)(QDateEdit*, QDate*)>(slot);
-    QDateEdit::connect(self, &QDateEdit::userDateChanged, [self, slotFunc](QDate date) {
-        QDate* sigval1 = new QDate(date);
-        slotFunc(self, sigval1);
-    });
+    QDateEdit::connect(self,
+                       static_cast<void (QDateEdit::*)(QDate)>(&QDateEdit::userDateChanged),
+                       [self, slotFunc](QDate date) {
+                           QDate* sigval1 = new QDate(date);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 libqt_string QDateEdit_Tr2(const char* s, const char* c) {

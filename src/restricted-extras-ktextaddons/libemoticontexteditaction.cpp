@@ -58,18 +58,20 @@ void TextEmoticonsWidgets__EmoticonTextEditAction_InsertEmoticon(TextEmoticonsWi
 
 void TextEmoticonsWidgets__EmoticonTextEditAction_Connect_InsertEmoticon(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot) {
     void (*slotFunc)(TextEmoticonsWidgets__EmoticonTextEditAction*, const char*) = reinterpret_cast<void (*)(TextEmoticonsWidgets__EmoticonTextEditAction*, const char*)>(slot);
-    TextEmoticonsWidgets::EmoticonTextEditAction::connect(self, &TextEmoticonsWidgets::EmoticonTextEditAction::insertEmoticon, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    TextEmoticonsWidgets::EmoticonTextEditAction::connect(self,
+                                                          static_cast<void (TextEmoticonsWidgets::EmoticonTextEditAction::*)(const QString&)>(&TextEmoticonsWidgets::EmoticonTextEditAction::insertEmoticon),
+                                                          [self, slotFunc](const QString& param1) {
+                                                              const auto param1_ret = param1;
+                                                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                              QByteArray param1_b = param1_ret.toUtf8();
+                                                              auto param1_str_len = param1_b.length();
+                                                              const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                                              memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                                              ((char*)param1_str)[param1_str_len] = '\0';
+                                                              const char* sigval1 = param1_str;
+                                                              slotFunc(self, sigval1);
+                                                              libqt_free(param1_str);
+                                                          });
 }
 
 libqt_string TextEmoticonsWidgets__EmoticonTextEditAction_Tr2(const char* s, const char* c) {

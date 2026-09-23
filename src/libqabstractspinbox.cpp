@@ -359,9 +359,11 @@ void QAbstractSpinBox_EditingFinished(QAbstractSpinBox* self) {
 
 void QAbstractSpinBox_Connect_EditingFinished(QAbstractSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSpinBox*) = reinterpret_cast<void (*)(QAbstractSpinBox*)>(slot);
-    QAbstractSpinBox::connect(self, &QAbstractSpinBox::editingFinished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSpinBox::connect(self,
+                              static_cast<void (QAbstractSpinBox::*)()>(&QAbstractSpinBox::editingFinished),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string QAbstractSpinBox_Tr2(const char* s, const char* c) {

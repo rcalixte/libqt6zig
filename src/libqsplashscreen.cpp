@@ -132,18 +132,20 @@ void QSplashScreen_MessageChanged(QSplashScreen* self, const libqt_string messag
 
 void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
     void (*slotFunc)(QSplashScreen*, const char*) = reinterpret_cast<void (*)(QSplashScreen*, const char*)>(slot);
-    QSplashScreen::connect(self, &QSplashScreen::messageChanged, [self, slotFunc](const QString& message) {
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval1 = message_str;
-        slotFunc(self, sigval1);
-        libqt_free(message_str);
-    });
+    QSplashScreen::connect(self,
+                           static_cast<void (QSplashScreen::*)(const QString&)>(&QSplashScreen::messageChanged),
+                           [self, slotFunc](const QString& message) {
+                               const auto message_ret = message;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray message_b = message_ret.toUtf8();
+                               auto message_str_len = message_b.length();
+                               const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                               memcpy((void*)message_str, message_b.data(), message_str_len);
+                               ((char*)message_str)[message_str_len] = '\0';
+                               const char* sigval1 = message_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(message_str);
+                           });
 }
 
 bool QSplashScreen_Event(QSplashScreen* self, QEvent* e) {

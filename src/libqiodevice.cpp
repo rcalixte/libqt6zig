@@ -259,9 +259,11 @@ void QIODevice_ReadyRead(QIODevice* self) {
 
 void QIODevice_Connect_ReadyRead(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*) = reinterpret_cast<void (*)(QIODevice*)>(slot);
-    QIODevice::connect(self, &QIODevice::readyRead, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)()>(&QIODevice::readyRead),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QIODevice_ChannelReadyRead(QIODevice* self, int channel) {
@@ -270,10 +272,12 @@ void QIODevice_ChannelReadyRead(QIODevice* self, int channel) {
 
 void QIODevice_Connect_ChannelReadyRead(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*, int) = reinterpret_cast<void (*)(QIODevice*, int)>(slot);
-    QIODevice::connect(self, &QIODevice::channelReadyRead, [self, slotFunc](int channel) {
-        int sigval1 = channel;
-        slotFunc(self, sigval1);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)(int)>(&QIODevice::channelReadyRead),
+                       [self, slotFunc](int channel) {
+                           int sigval1 = channel;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QIODevice_BytesWritten(QIODevice* self, long long bytes) {
@@ -282,10 +286,12 @@ void QIODevice_BytesWritten(QIODevice* self, long long bytes) {
 
 void QIODevice_Connect_BytesWritten(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*, long long) = reinterpret_cast<void (*)(QIODevice*, long long)>(slot);
-    QIODevice::connect(self, &QIODevice::bytesWritten, [self, slotFunc](qint64 bytes) {
-        long long sigval1 = static_cast<long long>(bytes);
-        slotFunc(self, sigval1);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)(qint64)>(&QIODevice::bytesWritten),
+                       [self, slotFunc](qint64 bytes) {
+                           long long sigval1 = static_cast<long long>(bytes);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QIODevice_ChannelBytesWritten(QIODevice* self, int channel, long long bytes) {
@@ -294,11 +300,13 @@ void QIODevice_ChannelBytesWritten(QIODevice* self, int channel, long long bytes
 
 void QIODevice_Connect_ChannelBytesWritten(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*, int, long long) = reinterpret_cast<void (*)(QIODevice*, int, long long)>(slot);
-    QIODevice::connect(self, &QIODevice::channelBytesWritten, [self, slotFunc](int channel, qint64 bytes) {
-        int sigval1 = channel;
-        long long sigval2 = static_cast<long long>(bytes);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)(int, qint64)>(&QIODevice::channelBytesWritten),
+                       [self, slotFunc](int channel, qint64 bytes) {
+                           int sigval1 = channel;
+                           long long sigval2 = static_cast<long long>(bytes);
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QIODevice_AboutToClose(QIODevice* self) {
@@ -307,9 +315,11 @@ void QIODevice_AboutToClose(QIODevice* self) {
 
 void QIODevice_Connect_AboutToClose(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*) = reinterpret_cast<void (*)(QIODevice*)>(slot);
-    QIODevice::connect(self, &QIODevice::aboutToClose, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)()>(&QIODevice::aboutToClose),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QIODevice_ReadChannelFinished(QIODevice* self) {
@@ -318,9 +328,11 @@ void QIODevice_ReadChannelFinished(QIODevice* self) {
 
 void QIODevice_Connect_ReadChannelFinished(QIODevice* self, intptr_t slot) {
     void (*slotFunc)(QIODevice*) = reinterpret_cast<void (*)(QIODevice*)>(slot);
-    QIODevice::connect(self, &QIODevice::readChannelFinished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QIODevice::connect(self,
+                       static_cast<void (QIODevice::*)()>(&QIODevice::readChannelFinished),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 long long QIODevice_ReadData(QIODevice* self, char* data, long long maxlen) {

@@ -42,10 +42,12 @@ void KNSCore__QuestionManager_AskQuestion(KNSCore__QuestionManager* self, KNSCor
 
 void KNSCore__QuestionManager_Connect_AskQuestion(KNSCore__QuestionManager* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__QuestionManager*, KNSCore__Question*) = reinterpret_cast<void (*)(KNSCore__QuestionManager*, KNSCore__Question*)>(slot);
-    KNSCore::QuestionManager::connect(self, &KNSCore::QuestionManager::askQuestion, [self, slotFunc](KNSCore::Question* question) {
-        KNSCore__Question* sigval1 = question;
-        slotFunc(self, sigval1);
-    });
+    KNSCore::QuestionManager::connect(self,
+                                      static_cast<void (KNSCore::QuestionManager::*)(KNSCore::Question*)>(&KNSCore::QuestionManager::askQuestion),
+                                      [self, slotFunc](KNSCore::Question* question) {
+                                          KNSCore__Question* sigval1 = question;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 libqt_string KNSCore__QuestionManager_Tr2(const char* s, const char* c) {

@@ -119,12 +119,14 @@ void KColorCombo_Activated(KColorCombo* self, const QColor* col) {
 
 void KColorCombo_Connect_Activated(KColorCombo* self, intptr_t slot) {
     void (*slotFunc)(KColorCombo*, QColor*) = reinterpret_cast<void (*)(KColorCombo*, QColor*)>(slot);
-    KColorCombo::connect(self, &KColorCombo::activated, [self, slotFunc](const QColor& col) {
-        const QColor& col_ret = col;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&col_ret);
-        slotFunc(self, sigval1);
-    });
+    KColorCombo::connect(self,
+                         static_cast<void (KColorCombo::*)(const QColor&)>(&KColorCombo::activated),
+                         [self, slotFunc](const QColor& col) {
+                             const QColor& col_ret = col;
+                             // Cast returned reference into pointer
+                             QColor* sigval1 = const_cast<QColor*>(&col_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KColorCombo_Highlighted(KColorCombo* self, const QColor* col) {
@@ -133,12 +135,14 @@ void KColorCombo_Highlighted(KColorCombo* self, const QColor* col) {
 
 void KColorCombo_Connect_Highlighted(KColorCombo* self, intptr_t slot) {
     void (*slotFunc)(KColorCombo*, QColor*) = reinterpret_cast<void (*)(KColorCombo*, QColor*)>(slot);
-    KColorCombo::connect(self, &KColorCombo::highlighted, [self, slotFunc](const QColor& col) {
-        const QColor& col_ret = col;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&col_ret);
-        slotFunc(self, sigval1);
-    });
+    KColorCombo::connect(self,
+                         static_cast<void (KColorCombo::*)(const QColor&)>(&KColorCombo::highlighted),
+                         [self, slotFunc](const QColor& col) {
+                             const QColor& col_ret = col;
+                             // Cast returned reference into pointer
+                             QColor* sigval1 = const_cast<QColor*>(&col_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event) {

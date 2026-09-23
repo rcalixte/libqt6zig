@@ -113,18 +113,20 @@ void KContextualHelpButton_ContextualHelpTextChanged(KContextualHelpButton* self
 
 void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButton* self, intptr_t slot) {
     void (*slotFunc)(KContextualHelpButton*, const char*) = reinterpret_cast<void (*)(KContextualHelpButton*, const char*)>(slot);
-    KContextualHelpButton::connect(self, &KContextualHelpButton::contextualHelpTextChanged, [self, slotFunc](const QString& newContextualHelpText) {
-        const auto newContextualHelpText_ret = newContextualHelpText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray newContextualHelpText_b = newContextualHelpText_ret.toUtf8();
-        auto newContextualHelpText_str_len = newContextualHelpText_b.length();
-        const char* newContextualHelpText_str = static_cast<const char*>(malloc(newContextualHelpText_str_len + 1));
-        memcpy((void*)newContextualHelpText_str, newContextualHelpText_b.data(), newContextualHelpText_str_len);
-        ((char*)newContextualHelpText_str)[newContextualHelpText_str_len] = '\0';
-        const char* sigval1 = newContextualHelpText_str;
-        slotFunc(self, sigval1);
-        libqt_free(newContextualHelpText_str);
-    });
+    KContextualHelpButton::connect(self,
+                                   static_cast<void (KContextualHelpButton::*)(const QString&)>(&KContextualHelpButton::contextualHelpTextChanged),
+                                   [self, slotFunc](const QString& newContextualHelpText) {
+                                       const auto newContextualHelpText_ret = newContextualHelpText;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray newContextualHelpText_b = newContextualHelpText_ret.toUtf8();
+                                       auto newContextualHelpText_str_len = newContextualHelpText_b.length();
+                                       const char* newContextualHelpText_str = static_cast<const char*>(malloc(newContextualHelpText_str_len + 1));
+                                       memcpy((void*)newContextualHelpText_str, newContextualHelpText_b.data(), newContextualHelpText_str_len);
+                                       ((char*)newContextualHelpText_str)[newContextualHelpText_str_len] = '\0';
+                                       const char* sigval1 = newContextualHelpText_str;
+                                       slotFunc(self, sigval1);
+                                       libqt_free(newContextualHelpText_str);
+                                   });
 }
 
 libqt_string KContextualHelpButton_Tr2(const char* s, const char* c) {

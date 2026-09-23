@@ -99,11 +99,13 @@ void KParts__ReadWritePart_SigQueryClose(KParts__ReadWritePart* self, bool* hand
 
 void KParts__ReadWritePart_Connect_SigQueryClose(KParts__ReadWritePart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadWritePart*, bool*, bool*) = reinterpret_cast<void (*)(KParts__ReadWritePart*, bool*, bool*)>(slot);
-    KParts::ReadWritePart::connect(self, &KParts::ReadWritePart::sigQueryClose, [self, slotFunc](bool* handled, bool* abortClosing) {
-        bool* sigval1 = handled;
-        bool* sigval2 = abortClosing;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KParts::ReadWritePart::connect(self,
+                                   static_cast<void (KParts::ReadWritePart::*)(bool*, bool*)>(&KParts::ReadWritePart::sigQueryClose),
+                                   [self, slotFunc](bool* handled, bool* abortClosing) {
+                                       bool* sigval1 = handled;
+                                       bool* sigval2 = abortClosing;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void KParts__ReadWritePart_SetModified2(KParts__ReadWritePart* self) {

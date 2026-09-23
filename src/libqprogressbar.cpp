@@ -189,10 +189,12 @@ void QProgressBar_ValueChanged(QProgressBar* self, int value) {
 
 void QProgressBar_Connect_ValueChanged(QProgressBar* self, intptr_t slot) {
     void (*slotFunc)(QProgressBar*, int) = reinterpret_cast<void (*)(QProgressBar*, int)>(slot);
-    QProgressBar::connect(self, &QProgressBar::valueChanged, [self, slotFunc](int value) {
-        int sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QProgressBar::connect(self,
+                          static_cast<void (QProgressBar::*)(int)>(&QProgressBar::valueChanged),
+                          [self, slotFunc](int value) {
+                              int sigval1 = value;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 bool QProgressBar_Event(QProgressBar* self, QEvent* e) {

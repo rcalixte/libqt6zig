@@ -71,9 +71,11 @@ void KModelIndexProxyMapper_IsConnectedChanged(KModelIndexProxyMapper* self) {
 
 void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* self, intptr_t slot) {
     void (*slotFunc)(KModelIndexProxyMapper*) = reinterpret_cast<void (*)(KModelIndexProxyMapper*)>(slot);
-    KModelIndexProxyMapper::connect(self, &KModelIndexProxyMapper::isConnectedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KModelIndexProxyMapper::connect(self,
+                                    static_cast<void (KModelIndexProxyMapper::*)()>(&KModelIndexProxyMapper::isConnectedChanged),
+                                    [self, slotFunc]() {
+                                        slotFunc(self);
+                                    });
 }
 
 libqt_string KModelIndexProxyMapper_Tr2(const char* s, const char* c) {

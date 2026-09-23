@@ -154,12 +154,14 @@ void QFontComboBox_CurrentFontChanged(QFontComboBox* self, const QFont* f) {
 
 void QFontComboBox_Connect_CurrentFontChanged(QFontComboBox* self, intptr_t slot) {
     void (*slotFunc)(QFontComboBox*, QFont*) = reinterpret_cast<void (*)(QFontComboBox*, QFont*)>(slot);
-    QFontComboBox::connect(self, &QFontComboBox::currentFontChanged, [self, slotFunc](const QFont& f) {
-        const QFont& f_ret = f;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&f_ret);
-        slotFunc(self, sigval1);
-    });
+    QFontComboBox::connect(self,
+                           static_cast<void (QFontComboBox::*)(const QFont&)>(&QFontComboBox::currentFontChanged),
+                           [self, slotFunc](const QFont& f) {
+                               const QFont& f_ret = f;
+                               // Cast returned reference into pointer
+                               QFont* sigval1 = const_cast<QFont*>(&f_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 bool QFontComboBox_Event(QFontComboBox* self, QEvent* e) {

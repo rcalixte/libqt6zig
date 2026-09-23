@@ -107,9 +107,11 @@ void KTextEditor__CodeCompletionModel_WaitForReset(KTextEditor__CodeCompletionMo
 
 void KTextEditor__CodeCompletionModel_Connect_WaitForReset(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__CodeCompletionModel*) = reinterpret_cast<void (*)(KTextEditor__CodeCompletionModel*)>(slot);
-    KTextEditor::CodeCompletionModel::connect(self, &KTextEditor::CodeCompletionModel::waitForReset, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KTextEditor::CodeCompletionModel::connect(self,
+                                              static_cast<void (KTextEditor::CodeCompletionModel::*)()>(&KTextEditor::CodeCompletionModel::waitForReset),
+                                              [self, slotFunc]() {
+                                                  slotFunc(self);
+                                              });
 }
 
 void KTextEditor__CodeCompletionModel_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, KTextEditor__CodeCompletionModel* model, bool hasGroups) {
@@ -118,11 +120,13 @@ void KTextEditor__CodeCompletionModel_HasGroupsChanged(KTextEditor__CodeCompleti
 
 void KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__CodeCompletionModel*, KTextEditor__CodeCompletionModel*, bool) = reinterpret_cast<void (*)(KTextEditor__CodeCompletionModel*, KTextEditor__CodeCompletionModel*, bool)>(slot);
-    KTextEditor::CodeCompletionModel::connect(self, &KTextEditor::CodeCompletionModel::hasGroupsChanged, [self, slotFunc](KTextEditor::CodeCompletionModel* model, bool hasGroups) {
-        KTextEditor__CodeCompletionModel* sigval1 = model;
-        bool sigval2 = hasGroups;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::CodeCompletionModel::connect(self,
+                                              static_cast<void (KTextEditor::CodeCompletionModel::*)(KTextEditor::CodeCompletionModel*, bool)>(&KTextEditor::CodeCompletionModel::hasGroupsChanged),
+                                              [self, slotFunc](KTextEditor::CodeCompletionModel* model, bool hasGroups) {
+                                                  KTextEditor__CodeCompletionModel* sigval1 = model;
+                                                  bool sigval2 = hasGroups;
+                                                  slotFunc(self, sigval1, sigval2);
+                                              });
 }
 
 libqt_string KTextEditor__CodeCompletionModel_Tr2(const char* s, const char* c) {

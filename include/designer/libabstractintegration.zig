@@ -963,6 +963,22 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), name_str, @ptrCast(value.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPropertyChanged` instead
+    ///
+    pub const OnPropertyChanged = onPropertyChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#propertyChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, formWindow: QDesignerFormWindowInterface, name: [*:0]const u8, value: QVariant) callconv(.c) void `
+    ///
+    pub fn onPropertyChanged(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QDesignerFormWindowInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_PropertyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `objectNameChanged` instead
     ///
     pub const ObjectNameChanged = objectNameChanged;
@@ -995,6 +1011,22 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#objectNameChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, formWindow: QDesignerFormWindowInterface, object: QObject, newName: [*:0]const u8, oldName: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onObjectNameChanged(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QDesignerFormWindowInterface, QObject, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `helpRequested` instead
     ///
     pub const HelpRequested = helpRequested;
@@ -1019,6 +1051,22 @@ pub const QDesignerIntegrationInterface = extern struct {
             .data = document.ptr,
         };
         qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self.ptr), manual_str, document_str);
+    }
+
+    /// ### DEPRECATED: Use `onHelpRequested` instead
+    ///
+    pub const OnHelpRequested = onHelpRequested;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#helpRequested)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, manual: [*:0]const u8, document: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onHelpRequested(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_HelpRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `navigateToSlot` instead
@@ -1062,6 +1110,22 @@ pub const QDesignerIntegrationInterface = extern struct {
         qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
+    /// ### DEPRECATED: Use `onNavigateToSlot` instead
+    ///
+    pub const OnNavigateToSlot = onNavigateToSlot;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, objectName: [*:0]const u8, signalSignature: [*:0]const u8, parameterNames: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onNavigateToSlot(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_NavigateToSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `navigateToSlot2` instead
     ///
     pub const NavigateToSlot2 = navigateToSlot2;
@@ -1080,6 +1144,22 @@ pub const QDesignerIntegrationInterface = extern struct {
             .data = slotSignature.ptr,
         };
         qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
+    }
+
+    /// ### DEPRECATED: Use `onNavigateToSlot2` instead
+    ///
+    pub const OnNavigateToSlot2 = onNavigateToSlot2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, slotSignature: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onNavigateToSlot2(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_NavigateToSlot2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setFeatures` instead
@@ -4978,6 +5058,24 @@ pub const QDesignerIntegration = extern struct {
         qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), name_str, @ptrCast(value.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPropertyChanged` instead
+    ///
+    pub const OnPropertyChanged = onPropertyChanged;
+
+    /// Inherited from QDesignerIntegrationInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#propertyChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegration, formWindow: QDesignerFormWindowInterface, name: [*:0]const u8, value: QVariant) callconv(.c) void `
+    ///
+    pub fn onPropertyChanged(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QDesignerFormWindowInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_PropertyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `objectNameChanged` instead
     ///
     pub const ObjectNameChanged = objectNameChanged;
@@ -5012,6 +5110,24 @@ pub const QDesignerIntegration = extern struct {
         qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
+
+    /// Inherited from QDesignerIntegrationInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#objectNameChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegration, formWindow: QDesignerFormWindowInterface, object: QObject, newName: [*:0]const u8, oldName: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onObjectNameChanged(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QDesignerFormWindowInterface, QObject, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `helpRequested` instead
     ///
     pub const HelpRequested = helpRequested;
@@ -5038,6 +5154,24 @@ pub const QDesignerIntegration = extern struct {
             .data = document.ptr,
         };
         qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self.ptr), manual_str, document_str);
+    }
+
+    /// ### DEPRECATED: Use `onHelpRequested` instead
+    ///
+    pub const OnHelpRequested = onHelpRequested;
+
+    /// Inherited from QDesignerIntegrationInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#helpRequested)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegration, manual: [*:0]const u8, document: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onHelpRequested(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_HelpRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `navigateToSlot` instead
@@ -5083,6 +5217,24 @@ pub const QDesignerIntegration = extern struct {
         qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
+    /// ### DEPRECATED: Use `onNavigateToSlot` instead
+    ///
+    pub const OnNavigateToSlot = onNavigateToSlot;
+
+    /// Inherited from QDesignerIntegrationInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegration, objectName: [*:0]const u8, signalSignature: [*:0]const u8, parameterNames: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onNavigateToSlot(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_NavigateToSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `navigateToSlot2` instead
     ///
     pub const NavigateToSlot2 = navigateToSlot2;
@@ -5103,6 +5255,24 @@ pub const QDesignerIntegration = extern struct {
             .data = slotSignature.ptr,
         };
         qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
+    }
+
+    /// ### DEPRECATED: Use `onNavigateToSlot2` instead
+    ///
+    pub const OnNavigateToSlot2 = onNavigateToSlot2;
+
+    /// Inherited from QDesignerIntegrationInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` callback: *const fn (self: QDesignerIntegration, slotSignature: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onNavigateToSlot2(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_Connect_NavigateToSlot2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `objectName` instead

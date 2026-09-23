@@ -135,10 +135,12 @@ void QAudioSource_StateChanged(QAudioSource* self, int state) {
 
 void QAudioSource_Connect_StateChanged(QAudioSource* self, intptr_t slot) {
     void (*slotFunc)(QAudioSource*, int) = reinterpret_cast<void (*)(QAudioSource*, int)>(slot);
-    QAudioSource::connect(self, &QAudioSource::stateChanged, [self, slotFunc](QAudio::State state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QAudioSource::connect(self,
+                          static_cast<void (QAudioSource::*)(QAudio::State)>(&QAudioSource::stateChanged),
+                          [self, slotFunc](QAudio::State state) {
+                              int sigval1 = static_cast<int>(state);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 libqt_string QAudioSource_Tr2(const char* s, const char* c) {

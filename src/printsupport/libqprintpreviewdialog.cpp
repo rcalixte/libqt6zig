@@ -105,10 +105,12 @@ void QPrintPreviewDialog_PaintRequested(QPrintPreviewDialog* self, QPrinter* pri
 
 void QPrintPreviewDialog_Connect_PaintRequested(QPrintPreviewDialog* self, intptr_t slot) {
     void (*slotFunc)(QPrintPreviewDialog*, QPrinter*) = reinterpret_cast<void (*)(QPrintPreviewDialog*, QPrinter*)>(slot);
-    QPrintPreviewDialog::connect(self, &QPrintPreviewDialog::paintRequested, [self, slotFunc](QPrinter* printer) {
-        QPrinter* sigval1 = printer;
-        slotFunc(self, sigval1);
-    });
+    QPrintPreviewDialog::connect(self,
+                                 static_cast<void (QPrintPreviewDialog::*)(QPrinter*)>(&QPrintPreviewDialog::paintRequested),
+                                 [self, slotFunc](QPrinter* printer) {
+                                     QPrinter* sigval1 = printer;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 libqt_string QPrintPreviewDialog_Tr2(const char* s, const char* c) {

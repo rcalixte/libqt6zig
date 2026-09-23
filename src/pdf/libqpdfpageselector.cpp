@@ -104,10 +104,12 @@ void QPdfPageSelector_DocumentChanged(QPdfPageSelector* self, QPdfDocument* docu
 
 void QPdfPageSelector_Connect_DocumentChanged(QPdfPageSelector* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageSelector*, QPdfDocument*) = reinterpret_cast<void (*)(QPdfPageSelector*, QPdfDocument*)>(slot);
-    QPdfPageSelector::connect(self, &QPdfPageSelector::documentChanged, [self, slotFunc](QPdfDocument* document) {
-        QPdfDocument* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageSelector::connect(self,
+                              static_cast<void (QPdfPageSelector::*)(QPdfDocument*)>(&QPdfPageSelector::documentChanged),
+                              [self, slotFunc](QPdfDocument* document) {
+                                  QPdfDocument* sigval1 = document;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QPdfPageSelector_CurrentPageChanged(QPdfPageSelector* self, int index) {
@@ -116,10 +118,12 @@ void QPdfPageSelector_CurrentPageChanged(QPdfPageSelector* self, int index) {
 
 void QPdfPageSelector_Connect_CurrentPageChanged(QPdfPageSelector* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageSelector*, int) = reinterpret_cast<void (*)(QPdfPageSelector*, int)>(slot);
-    QPdfPageSelector::connect(self, &QPdfPageSelector::currentPageChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageSelector::connect(self,
+                              static_cast<void (QPdfPageSelector::*)(int)>(&QPdfPageSelector::currentPageChanged),
+                              [self, slotFunc](int index) {
+                                  int sigval1 = index;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QPdfPageSelector_CurrentPageLabelChanged(QPdfPageSelector* self, const libqt_string label) {
@@ -129,18 +133,20 @@ void QPdfPageSelector_CurrentPageLabelChanged(QPdfPageSelector* self, const libq
 
 void QPdfPageSelector_Connect_CurrentPageLabelChanged(QPdfPageSelector* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageSelector*, const char*) = reinterpret_cast<void (*)(QPdfPageSelector*, const char*)>(slot);
-    QPdfPageSelector::connect(self, &QPdfPageSelector::currentPageLabelChanged, [self, slotFunc](const QString& label) {
-        const auto label_ret = label;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray label_b = label_ret.toUtf8();
-        auto label_str_len = label_b.length();
-        const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
-        memcpy((void*)label_str, label_b.data(), label_str_len);
-        ((char*)label_str)[label_str_len] = '\0';
-        const char* sigval1 = label_str;
-        slotFunc(self, sigval1);
-        libqt_free(label_str);
-    });
+    QPdfPageSelector::connect(self,
+                              static_cast<void (QPdfPageSelector::*)(const QString&)>(&QPdfPageSelector::currentPageLabelChanged),
+                              [self, slotFunc](const QString& label) {
+                                  const auto label_ret = label;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray label_b = label_ret.toUtf8();
+                                  auto label_str_len = label_b.length();
+                                  const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
+                                  memcpy((void*)label_str, label_b.data(), label_str_len);
+                                  ((char*)label_str)[label_str_len] = '\0';
+                                  const char* sigval1 = label_str;
+                                  slotFunc(self, sigval1);
+                                  libqt_free(label_str);
+                              });
 }
 
 libqt_string QPdfPageSelector_Tr2(const char* s, const char* c) {

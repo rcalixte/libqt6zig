@@ -353,9 +353,11 @@ void QQmlEngine_OfflineStoragePathChanged(QQmlEngine* self) {
 
 void QQmlEngine_Connect_OfflineStoragePathChanged(QQmlEngine* self, intptr_t slot) {
     void (*slotFunc)(QQmlEngine*) = reinterpret_cast<void (*)(QQmlEngine*)>(slot);
-    QQmlEngine::connect(self, &QQmlEngine::offlineStoragePathChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQmlEngine::connect(self,
+                        static_cast<void (QQmlEngine::*)()>(&QQmlEngine::offlineStoragePathChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 QQmlContext* QQmlEngine_ContextForObject(const QObject* param1) {
@@ -380,9 +382,11 @@ void QQmlEngine_Quit(QQmlEngine* self) {
 
 void QQmlEngine_Connect_Quit(QQmlEngine* self, intptr_t slot) {
     void (*slotFunc)(QQmlEngine*) = reinterpret_cast<void (*)(QQmlEngine*)>(slot);
-    QQmlEngine::connect(self, &QQmlEngine::quit, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQmlEngine::connect(self,
+                        static_cast<void (QQmlEngine::*)()>(&QQmlEngine::quit),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQmlEngine_Exit(QQmlEngine* self, int retCode) {
@@ -391,10 +395,12 @@ void QQmlEngine_Exit(QQmlEngine* self, int retCode) {
 
 void QQmlEngine_Connect_Exit(QQmlEngine* self, intptr_t slot) {
     void (*slotFunc)(QQmlEngine*, int) = reinterpret_cast<void (*)(QQmlEngine*, int)>(slot);
-    QQmlEngine::connect(self, &QQmlEngine::exit, [self, slotFunc](int retCode) {
-        int sigval1 = retCode;
-        slotFunc(self, sigval1);
-    });
+    QQmlEngine::connect(self,
+                        static_cast<void (QQmlEngine::*)(int)>(&QQmlEngine::exit),
+                        [self, slotFunc](int retCode) {
+                            int sigval1 = retCode;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQmlEngine_Warnings(QQmlEngine* self, const libqt_list /* of QQmlError* */ warnings) {
@@ -409,20 +415,22 @@ void QQmlEngine_Warnings(QQmlEngine* self, const libqt_list /* of QQmlError* */ 
 
 void QQmlEngine_Connect_Warnings(QQmlEngine* self, intptr_t slot) {
     void (*slotFunc)(QQmlEngine*, libqt_list /* of QQmlError* */) = reinterpret_cast<void (*)(QQmlEngine*, libqt_list /* of QQmlError* */)>(slot);
-    QQmlEngine::connect(self, &QQmlEngine::warnings, [self, slotFunc](const QList<QQmlError>& warnings) {
-        const QList<QQmlError>& warnings_ret = warnings;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QQmlError** warnings_arr = static_cast<QQmlError**>(malloc(sizeof(QQmlError*) * (warnings_ret.size())));
-        for (qsizetype i = 0; i < warnings_ret.size(); ++i) {
-            warnings_arr[i] = new QQmlError(warnings_ret[i]);
-        }
-        libqt_list warnings_out;
-        warnings_out.len = warnings_ret.size();
-        warnings_out.data = static_cast<void*>(warnings_arr);
-        libqt_list /* of QQmlError* */ sigval1 = warnings_out;
-        slotFunc(self, sigval1);
-        free(warnings_arr);
-    });
+    QQmlEngine::connect(self,
+                        static_cast<void (QQmlEngine::*)(const QList<QQmlError>&)>(&QQmlEngine::warnings),
+                        [self, slotFunc](const QList<QQmlError>& warnings) {
+                            const QList<QQmlError>& warnings_ret = warnings;
+                            // Convert QList<> from C++ memory to manually-managed C memory
+                            QQmlError** warnings_arr = static_cast<QQmlError**>(malloc(sizeof(QQmlError*) * (warnings_ret.size())));
+                            for (qsizetype i = 0; i < warnings_ret.size(); ++i) {
+                                warnings_arr[i] = new QQmlError(warnings_ret[i]);
+                            }
+                            libqt_list warnings_out;
+                            warnings_out.len = warnings_ret.size();
+                            warnings_out.data = static_cast<void*>(warnings_arr);
+                            libqt_list /* of QQmlError* */ sigval1 = warnings_out;
+                            slotFunc(self, sigval1);
+                            free(warnings_arr);
+                        });
 }
 
 libqt_string QQmlEngine_Tr2(const char* s, const char* c) {

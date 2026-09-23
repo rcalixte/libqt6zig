@@ -146,10 +146,12 @@ void KPasswordLineEdit_EchoModeChanged(KPasswordLineEdit* self, int echoMode) {
 
 void KPasswordLineEdit_Connect_EchoModeChanged(KPasswordLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KPasswordLineEdit*, int) = reinterpret_cast<void (*)(KPasswordLineEdit*, int)>(slot);
-    KPasswordLineEdit::connect(self, &KPasswordLineEdit::echoModeChanged, [self, slotFunc](QLineEdit::EchoMode echoMode) {
-        int sigval1 = static_cast<int>(echoMode);
-        slotFunc(self, sigval1);
-    });
+    KPasswordLineEdit::connect(self,
+                               static_cast<void (KPasswordLineEdit::*)(QLineEdit::EchoMode)>(&KPasswordLineEdit::echoModeChanged),
+                               [self, slotFunc](QLineEdit::EchoMode echoMode) {
+                                   int sigval1 = static_cast<int>(echoMode);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KPasswordLineEdit_PasswordChanged(KPasswordLineEdit* self, const libqt_string password) {
@@ -159,18 +161,20 @@ void KPasswordLineEdit_PasswordChanged(KPasswordLineEdit* self, const libqt_stri
 
 void KPasswordLineEdit_Connect_PasswordChanged(KPasswordLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KPasswordLineEdit*, const char*) = reinterpret_cast<void (*)(KPasswordLineEdit*, const char*)>(slot);
-    KPasswordLineEdit::connect(self, &KPasswordLineEdit::passwordChanged, [self, slotFunc](const QString& password) {
-        const auto password_ret = password;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray password_b = password_ret.toUtf8();
-        auto password_str_len = password_b.length();
-        const char* password_str = static_cast<const char*>(malloc(password_str_len + 1));
-        memcpy((void*)password_str, password_b.data(), password_str_len);
-        ((char*)password_str)[password_str_len] = '\0';
-        const char* sigval1 = password_str;
-        slotFunc(self, sigval1);
-        libqt_free(password_str);
-    });
+    KPasswordLineEdit::connect(self,
+                               static_cast<void (KPasswordLineEdit::*)(const QString&)>(&KPasswordLineEdit::passwordChanged),
+                               [self, slotFunc](const QString& password) {
+                                   const auto password_ret = password;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray password_b = password_ret.toUtf8();
+                                   auto password_str_len = password_b.length();
+                                   const char* password_str = static_cast<const char*>(malloc(password_str_len + 1));
+                                   memcpy((void*)password_str, password_b.data(), password_str_len);
+                                   ((char*)password_str)[password_str_len] = '\0';
+                                   const char* sigval1 = password_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(password_str);
+                               });
 }
 
 libqt_string KPasswordLineEdit_Tr2(const char* s, const char* c) {

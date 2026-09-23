@@ -90,11 +90,13 @@ void KModifierKeyInfoProvider_KeyLatched(KModifierKeyInfoProvider* self, int key
 
 void KModifierKeyInfoProvider_Connect_KeyLatched(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int, bool) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int, bool)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::keyLatched, [self, slotFunc](Qt::Key key, bool state) {
-        int sigval1 = static_cast<int>(key);
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::Key, bool)>(&KModifierKeyInfoProvider::keyLatched),
+                                      [self, slotFunc](Qt::Key key, bool state) {
+                                          int sigval1 = static_cast<int>(key);
+                                          bool sigval2 = state;
+                                          slotFunc(self, sigval1, sigval2);
+                                      });
 }
 
 void KModifierKeyInfoProvider_KeyLocked(KModifierKeyInfoProvider* self, int key, bool state) {
@@ -103,11 +105,13 @@ void KModifierKeyInfoProvider_KeyLocked(KModifierKeyInfoProvider* self, int key,
 
 void KModifierKeyInfoProvider_Connect_KeyLocked(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int, bool) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int, bool)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::keyLocked, [self, slotFunc](Qt::Key key, bool state) {
-        int sigval1 = static_cast<int>(key);
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::Key, bool)>(&KModifierKeyInfoProvider::keyLocked),
+                                      [self, slotFunc](Qt::Key key, bool state) {
+                                          int sigval1 = static_cast<int>(key);
+                                          bool sigval2 = state;
+                                          slotFunc(self, sigval1, sigval2);
+                                      });
 }
 
 void KModifierKeyInfoProvider_KeyPressed(KModifierKeyInfoProvider* self, int key, bool state) {
@@ -116,11 +120,13 @@ void KModifierKeyInfoProvider_KeyPressed(KModifierKeyInfoProvider* self, int key
 
 void KModifierKeyInfoProvider_Connect_KeyPressed(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int, bool) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int, bool)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::keyPressed, [self, slotFunc](Qt::Key key, bool state) {
-        int sigval1 = static_cast<int>(key);
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::Key, bool)>(&KModifierKeyInfoProvider::keyPressed),
+                                      [self, slotFunc](Qt::Key key, bool state) {
+                                          int sigval1 = static_cast<int>(key);
+                                          bool sigval2 = state;
+                                          slotFunc(self, sigval1, sigval2);
+                                      });
 }
 
 void KModifierKeyInfoProvider_ButtonPressed(KModifierKeyInfoProvider* self, int button, bool state) {
@@ -129,11 +135,13 @@ void KModifierKeyInfoProvider_ButtonPressed(KModifierKeyInfoProvider* self, int 
 
 void KModifierKeyInfoProvider_Connect_ButtonPressed(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int, bool) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int, bool)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::buttonPressed, [self, slotFunc](Qt::MouseButton button, bool state) {
-        int sigval1 = static_cast<int>(button);
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::MouseButton, bool)>(&KModifierKeyInfoProvider::buttonPressed),
+                                      [self, slotFunc](Qt::MouseButton button, bool state) {
+                                          int sigval1 = static_cast<int>(button);
+                                          bool sigval2 = state;
+                                          slotFunc(self, sigval1, sigval2);
+                                      });
 }
 
 void KModifierKeyInfoProvider_KeyAdded(KModifierKeyInfoProvider* self, int key) {
@@ -142,10 +150,12 @@ void KModifierKeyInfoProvider_KeyAdded(KModifierKeyInfoProvider* self, int key) 
 
 void KModifierKeyInfoProvider_Connect_KeyAdded(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::keyAdded, [self, slotFunc](Qt::Key key) {
-        int sigval1 = static_cast<int>(key);
-        slotFunc(self, sigval1);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::Key)>(&KModifierKeyInfoProvider::keyAdded),
+                                      [self, slotFunc](Qt::Key key) {
+                                          int sigval1 = static_cast<int>(key);
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KModifierKeyInfoProvider_KeyRemoved(KModifierKeyInfoProvider* self, int key) {
@@ -154,10 +164,12 @@ void KModifierKeyInfoProvider_KeyRemoved(KModifierKeyInfoProvider* self, int key
 
 void KModifierKeyInfoProvider_Connect_KeyRemoved(KModifierKeyInfoProvider* self, intptr_t slot) {
     void (*slotFunc)(KModifierKeyInfoProvider*, int) = reinterpret_cast<void (*)(KModifierKeyInfoProvider*, int)>(slot);
-    KModifierKeyInfoProvider::connect(self, &KModifierKeyInfoProvider::keyRemoved, [self, slotFunc](Qt::Key key) {
-        int sigval1 = static_cast<int>(key);
-        slotFunc(self, sigval1);
-    });
+    KModifierKeyInfoProvider::connect(self,
+                                      static_cast<void (KModifierKeyInfoProvider::*)(Qt::Key)>(&KModifierKeyInfoProvider::keyRemoved),
+                                      [self, slotFunc](Qt::Key key) {
+                                          int sigval1 = static_cast<int>(key);
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 libqt_string KModifierKeyInfoProvider_Tr2(const char* s, const char* c) {

@@ -56,10 +56,12 @@ void Attica__BaseJob_Finished(Attica__BaseJob* self, Attica__BaseJob* job) {
 
 void Attica__BaseJob_Connect_Finished(Attica__BaseJob* self, intptr_t slot) {
     void (*slotFunc)(Attica__BaseJob*, Attica__BaseJob*) = reinterpret_cast<void (*)(Attica__BaseJob*, Attica__BaseJob*)>(slot);
-    Attica::BaseJob::connect(self, &Attica::BaseJob::finished, [self, slotFunc](Attica::BaseJob* job) {
-        Attica__BaseJob* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    Attica::BaseJob::connect(self,
+                             static_cast<void (Attica::BaseJob::*)(Attica::BaseJob*)>(&Attica::BaseJob::finished),
+                             [self, slotFunc](Attica::BaseJob* job) {
+                                 Attica__BaseJob* sigval1 = job;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 libqt_string Attica__BaseJob_Tr2(const char* s, const char* c) {

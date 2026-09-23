@@ -278,9 +278,11 @@ void Kirigami__Platform__PlatformTheme_ColorsChanged(Kirigami__Platform__Platfor
 
 void Kirigami__Platform__PlatformTheme_Connect_ColorsChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::colorsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)()>(&Kirigami::Platform::PlatformTheme::colorsChanged),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_DefaultFontChanged(Kirigami__Platform__PlatformTheme* self, const QFont* font) {
@@ -289,12 +291,14 @@ void Kirigami__Platform__PlatformTheme_DefaultFontChanged(Kirigami__Platform__Pl
 
 void Kirigami__Platform__PlatformTheme_Connect_DefaultFontChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, QFont*) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, QFont*)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::defaultFontChanged, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(const QFont&)>(&Kirigami::Platform::PlatformTheme::defaultFontChanged),
+                                               [self, slotFunc](const QFont& font) {
+                                                   const QFont& font_ret = font;
+                                                   // Cast returned reference into pointer
+                                                   QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_SmallFontChanged(Kirigami__Platform__PlatformTheme* self, const QFont* font) {
@@ -303,12 +307,14 @@ void Kirigami__Platform__PlatformTheme_SmallFontChanged(Kirigami__Platform__Plat
 
 void Kirigami__Platform__PlatformTheme_Connect_SmallFontChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, QFont*) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, QFont*)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::smallFontChanged, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(const QFont&)>(&Kirigami::Platform::PlatformTheme::smallFontChanged),
+                                               [self, slotFunc](const QFont& font) {
+                                                   const QFont& font_ret = font;
+                                                   // Cast returned reference into pointer
+                                                   QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_ColorSetChanged(Kirigami__Platform__PlatformTheme* self, int colorSet) {
@@ -317,10 +323,12 @@ void Kirigami__Platform__PlatformTheme_ColorSetChanged(Kirigami__Platform__Platf
 
 void Kirigami__Platform__PlatformTheme_Connect_ColorSetChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, int) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, int)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::colorSetChanged, [self, slotFunc](Kirigami::Platform::PlatformTheme::ColorSet colorSet) {
-        int sigval1 = static_cast<int>(colorSet);
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(Kirigami::Platform::PlatformTheme::ColorSet)>(&Kirigami::Platform::PlatformTheme::colorSetChanged),
+                                               [self, slotFunc](Kirigami::Platform::PlatformTheme::ColorSet colorSet) {
+                                                   int sigval1 = static_cast<int>(colorSet);
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_ColorGroupChanged(Kirigami__Platform__PlatformTheme* self, int colorGroup) {
@@ -329,10 +337,12 @@ void Kirigami__Platform__PlatformTheme_ColorGroupChanged(Kirigami__Platform__Pla
 
 void Kirigami__Platform__PlatformTheme_Connect_ColorGroupChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, int) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, int)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::colorGroupChanged, [self, slotFunc](Kirigami::Platform::PlatformTheme::ColorGroup colorGroup) {
-        int sigval1 = static_cast<int>(colorGroup);
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(Kirigami::Platform::PlatformTheme::ColorGroup)>(&Kirigami::Platform::PlatformTheme::colorGroupChanged),
+                                               [self, slotFunc](Kirigami::Platform::PlatformTheme::ColorGroup colorGroup) {
+                                                   int sigval1 = static_cast<int>(colorGroup);
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_PaletteChanged(Kirigami__Platform__PlatformTheme* self, const QPalette* pal) {
@@ -341,12 +351,14 @@ void Kirigami__Platform__PlatformTheme_PaletteChanged(Kirigami__Platform__Platfo
 
 void Kirigami__Platform__PlatformTheme_Connect_PaletteChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, QPalette*) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, QPalette*)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::paletteChanged, [self, slotFunc](const QPalette& pal) {
-        const QPalette& pal_ret = pal;
-        // Cast returned reference into pointer
-        QPalette* sigval1 = const_cast<QPalette*>(&pal_ret);
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(const QPalette&)>(&Kirigami::Platform::PlatformTheme::paletteChanged),
+                                               [self, slotFunc](const QPalette& pal) {
+                                                   const QPalette& pal_ret = pal;
+                                                   // Cast returned reference into pointer
+                                                   QPalette* sigval1 = const_cast<QPalette*>(&pal_ret);
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_InheritChanged(Kirigami__Platform__PlatformTheme* self, bool inherit) {
@@ -355,10 +367,12 @@ void Kirigami__Platform__PlatformTheme_InheritChanged(Kirigami__Platform__Platfo
 
 void Kirigami__Platform__PlatformTheme_Connect_InheritChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, bool) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, bool)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::inheritChanged, [self, slotFunc](bool inherit) {
-        bool sigval1 = inherit;
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(bool)>(&Kirigami::Platform::PlatformTheme::inheritChanged),
+                                               [self, slotFunc](bool inherit) {
+                                                   bool sigval1 = inherit;
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 void Kirigami__Platform__PlatformTheme_UseAlternateBackgroundColorChanged(Kirigami__Platform__PlatformTheme* self, bool alternate) {
@@ -367,10 +381,12 @@ void Kirigami__Platform__PlatformTheme_UseAlternateBackgroundColorChanged(Kiriga
 
 void Kirigami__Platform__PlatformTheme_Connect_UseAlternateBackgroundColorChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__PlatformTheme*, bool) = reinterpret_cast<void (*)(Kirigami__Platform__PlatformTheme*, bool)>(slot);
-    Kirigami::Platform::PlatformTheme::connect(self, &Kirigami::Platform::PlatformTheme::useAlternateBackgroundColorChanged, [self, slotFunc](bool alternate) {
-        bool sigval1 = alternate;
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::PlatformTheme::connect(self,
+                                               static_cast<void (Kirigami::Platform::PlatformTheme::*)(bool)>(&Kirigami::Platform::PlatformTheme::useAlternateBackgroundColorChanged),
+                                               [self, slotFunc](bool alternate) {
+                                                   bool sigval1 = alternate;
+                                                   slotFunc(self, sigval1);
+                                               });
 }
 
 bool Kirigami__Platform__PlatformTheme_Event(Kirigami__Platform__PlatformTheme* self, QEvent* event) {

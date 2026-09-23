@@ -99,9 +99,11 @@ void QHBoxPlotModelMapper_SeriesReplaced(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_SeriesReplaced(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::seriesReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::seriesReplaced),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QHBoxPlotModelMapper_ModelReplaced(QHBoxPlotModelMapper* self) {
@@ -110,9 +112,11 @@ void QHBoxPlotModelMapper_ModelReplaced(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_ModelReplaced(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::modelReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::modelReplaced),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QHBoxPlotModelMapper_FirstBoxSetRowChanged(QHBoxPlotModelMapper* self) {
@@ -121,9 +125,11 @@ void QHBoxPlotModelMapper_FirstBoxSetRowChanged(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_FirstBoxSetRowChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::firstBoxSetRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstBoxSetRowChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QHBoxPlotModelMapper_LastBoxSetRowChanged(QHBoxPlotModelMapper* self) {
@@ -132,9 +138,11 @@ void QHBoxPlotModelMapper_LastBoxSetRowChanged(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_LastBoxSetRowChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::lastBoxSetRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::lastBoxSetRowChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QHBoxPlotModelMapper_FirstColumnChanged(QHBoxPlotModelMapper* self) {
@@ -143,9 +151,11 @@ void QHBoxPlotModelMapper_FirstColumnChanged(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_FirstColumnChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::firstColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstColumnChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QHBoxPlotModelMapper_ColumnCountChanged(QHBoxPlotModelMapper* self) {
@@ -154,9 +164,11 @@ void QHBoxPlotModelMapper_ColumnCountChanged(QHBoxPlotModelMapper* self) {
 
 void QHBoxPlotModelMapper_Connect_ColumnCountChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHBoxPlotModelMapper*) = reinterpret_cast<void (*)(QHBoxPlotModelMapper*)>(slot);
-    QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::columnCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::columnCountChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string QHBoxPlotModelMapper_Tr2(const char* s, const char* c) {

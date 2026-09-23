@@ -106,10 +106,12 @@ void QGeoCodingManagerEngine_Finished(QGeoCodingManagerEngine* self, QGeoCodeRep
 
 void QGeoCodingManagerEngine_Connect_Finished(QGeoCodingManagerEngine* self, intptr_t slot) {
     void (*slotFunc)(QGeoCodingManagerEngine*, QGeoCodeReply*) = reinterpret_cast<void (*)(QGeoCodingManagerEngine*, QGeoCodeReply*)>(slot);
-    QGeoCodingManagerEngine::connect(self, &QGeoCodingManagerEngine::finished, [self, slotFunc](QGeoCodeReply* reply) {
-        QGeoCodeReply* sigval1 = reply;
-        slotFunc(self, sigval1);
-    });
+    QGeoCodingManagerEngine::connect(self,
+                                     static_cast<void (QGeoCodingManagerEngine::*)(QGeoCodeReply*)>(&QGeoCodingManagerEngine::finished),
+                                     [self, slotFunc](QGeoCodeReply* reply) {
+                                         QGeoCodeReply* sigval1 = reply;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void QGeoCodingManagerEngine_ErrorOccurred(QGeoCodingManagerEngine* self, QGeoCodeReply* reply, int errorVal) {
@@ -118,11 +120,13 @@ void QGeoCodingManagerEngine_ErrorOccurred(QGeoCodingManagerEngine* self, QGeoCo
 
 void QGeoCodingManagerEngine_Connect_ErrorOccurred(QGeoCodingManagerEngine* self, intptr_t slot) {
     void (*slotFunc)(QGeoCodingManagerEngine*, QGeoCodeReply*, int) = reinterpret_cast<void (*)(QGeoCodingManagerEngine*, QGeoCodeReply*, int)>(slot);
-    QGeoCodingManagerEngine::connect(self, &QGeoCodingManagerEngine::errorOccurred, [self, slotFunc](QGeoCodeReply* reply, QGeoCodeReply::Error errorVal) {
-        QGeoCodeReply* sigval1 = reply;
-        int sigval2 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QGeoCodingManagerEngine::connect(self,
+                                     static_cast<void (QGeoCodingManagerEngine::*)(QGeoCodeReply*, QGeoCodeReply::Error, const QString&)>(&QGeoCodingManagerEngine::errorOccurred),
+                                     [self, slotFunc](QGeoCodeReply* reply, QGeoCodeReply::Error errorVal) {
+                                         QGeoCodeReply* sigval1 = reply;
+                                         int sigval2 = static_cast<int>(errorVal);
+                                         slotFunc(self, sigval1, sigval2);
+                                     });
 }
 
 libqt_string QGeoCodingManagerEngine_Tr2(const char* s, const char* c) {
@@ -156,20 +160,22 @@ void QGeoCodingManagerEngine_ErrorOccurred3(QGeoCodingManagerEngine* self, QGeoC
 
 void QGeoCodingManagerEngine_Connect_ErrorOccurred3(QGeoCodingManagerEngine* self, intptr_t slot) {
     void (*slotFunc)(QGeoCodingManagerEngine*, QGeoCodeReply*, int, const char*) = reinterpret_cast<void (*)(QGeoCodingManagerEngine*, QGeoCodeReply*, int, const char*)>(slot);
-    QGeoCodingManagerEngine::connect(self, &QGeoCodingManagerEngine::errorOccurred, [self, slotFunc](QGeoCodeReply* reply, QGeoCodeReply::Error errorVal, const QString& errorString) {
-        QGeoCodeReply* sigval1 = reply;
-        int sigval2 = static_cast<int>(errorVal);
-        const auto errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorString_b = errorString_ret.toUtf8();
-        auto errorString_str_len = errorString_b.length();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
-        ((char*)errorString_str)[errorString_str_len] = '\0';
-        const char* sigval3 = errorString_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(errorString_str);
-    });
+    QGeoCodingManagerEngine::connect(self,
+                                     static_cast<void (QGeoCodingManagerEngine::*)(QGeoCodeReply*, QGeoCodeReply::Error, const QString&)>(&QGeoCodingManagerEngine::errorOccurred),
+                                     [self, slotFunc](QGeoCodeReply* reply, QGeoCodeReply::Error errorVal, const QString& errorString) {
+                                         QGeoCodeReply* sigval1 = reply;
+                                         int sigval2 = static_cast<int>(errorVal);
+                                         const auto errorString_ret = errorString;
+                                         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                         QByteArray errorString_b = errorString_ret.toUtf8();
+                                         auto errorString_str_len = errorString_b.length();
+                                         const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+                                         memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+                                         ((char*)errorString_str)[errorString_str_len] = '\0';
+                                         const char* sigval3 = errorString_str;
+                                         slotFunc(self, sigval1, sigval2, sigval3);
+                                         libqt_free(errorString_str);
+                                     });
 }
 
 // Base class handler implementation

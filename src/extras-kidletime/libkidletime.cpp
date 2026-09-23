@@ -92,9 +92,11 @@ void KIdleTime_ResumingFromIdle(KIdleTime* self) {
 
 void KIdleTime_Connect_ResumingFromIdle(KIdleTime* self, intptr_t slot) {
     void (*slotFunc)(KIdleTime*) = reinterpret_cast<void (*)(KIdleTime*)>(slot);
-    KIdleTime::connect(self, &KIdleTime::resumingFromIdle, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KIdleTime::connect(self,
+                       static_cast<void (KIdleTime::*)()>(&KIdleTime::resumingFromIdle),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KIdleTime_TimeoutReached(KIdleTime* self, int identifier, int msec) {
@@ -103,11 +105,13 @@ void KIdleTime_TimeoutReached(KIdleTime* self, int identifier, int msec) {
 
 void KIdleTime_Connect_TimeoutReached(KIdleTime* self, intptr_t slot) {
     void (*slotFunc)(KIdleTime*, int, int) = reinterpret_cast<void (*)(KIdleTime*, int, int)>(slot);
-    KIdleTime::connect(self, &KIdleTime::timeoutReached, [self, slotFunc](int identifier, int msec) {
-        int sigval1 = identifier;
-        int sigval2 = msec;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIdleTime::connect(self,
+                       static_cast<void (KIdleTime::*)(int, int)>(&KIdleTime::timeoutReached),
+                       [self, slotFunc](int identifier, int msec) {
+                           int sigval1 = identifier;
+                           int sigval2 = msec;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 libqt_string KIdleTime_Tr2(const char* s, const char* c) {

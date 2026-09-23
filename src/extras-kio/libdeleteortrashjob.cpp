@@ -58,9 +58,11 @@ void KIO__DeleteOrTrashJob_Started(KIO__DeleteOrTrashJob* self) {
 
 void KIO__DeleteOrTrashJob_Connect_Started(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteOrTrashJob*) = reinterpret_cast<void (*)(KIO__DeleteOrTrashJob*)>(slot);
-    KIO::DeleteOrTrashJob::connect(self, &KIO::DeleteOrTrashJob::started, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KIO::DeleteOrTrashJob::connect(self,
+                                   static_cast<void (KIO::DeleteOrTrashJob::*)()>(&KIO::DeleteOrTrashJob::started),
+                                   [self, slotFunc]() {
+                                       slotFunc(self);
+                                   });
 }
 
 libqt_string KIO__DeleteOrTrashJob_Tr2(const char* s, const char* c) {

@@ -55,11 +55,13 @@ void KIO__DeleteJob_TotalFiles(KIO__DeleteJob* self, KJob* job, unsigned long fi
 
 void KIO__DeleteJob_Connect_TotalFiles(KIO__DeleteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteJob*, KJob*, unsigned long) = reinterpret_cast<void (*)(KIO__DeleteJob*, KJob*, unsigned long)>(slot);
-    KIO::DeleteJob::connect(self, &KIO::DeleteJob::totalFiles, [self, slotFunc](KJob* job, unsigned long files) {
-        KJob* sigval1 = job;
-        unsigned long sigval2 = files;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::DeleteJob::connect(self,
+                            static_cast<void (KIO::DeleteJob::*)(KJob*, unsigned long)>(&KIO::DeleteJob::totalFiles),
+                            [self, slotFunc](KJob* job, unsigned long files) {
+                                KJob* sigval1 = job;
+                                unsigned long sigval2 = files;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KIO__DeleteJob_TotalDirs(KIO__DeleteJob* self, KJob* job, unsigned long dirs) {
@@ -68,11 +70,13 @@ void KIO__DeleteJob_TotalDirs(KIO__DeleteJob* self, KJob* job, unsigned long dir
 
 void KIO__DeleteJob_Connect_TotalDirs(KIO__DeleteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteJob*, KJob*, unsigned long) = reinterpret_cast<void (*)(KIO__DeleteJob*, KJob*, unsigned long)>(slot);
-    KIO::DeleteJob::connect(self, &KIO::DeleteJob::totalDirs, [self, slotFunc](KJob* job, unsigned long dirs) {
-        KJob* sigval1 = job;
-        unsigned long sigval2 = dirs;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::DeleteJob::connect(self,
+                            static_cast<void (KIO::DeleteJob::*)(KJob*, unsigned long)>(&KIO::DeleteJob::totalDirs),
+                            [self, slotFunc](KJob* job, unsigned long dirs) {
+                                KJob* sigval1 = job;
+                                unsigned long sigval2 = dirs;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KIO__DeleteJob_ProcessedFiles(KIO__DeleteJob* self, KIO__Job* job, unsigned long files) {
@@ -81,11 +85,13 @@ void KIO__DeleteJob_ProcessedFiles(KIO__DeleteJob* self, KIO__Job* job, unsigned
 
 void KIO__DeleteJob_Connect_ProcessedFiles(KIO__DeleteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteJob*, KIO__Job*, unsigned long) = reinterpret_cast<void (*)(KIO__DeleteJob*, KIO__Job*, unsigned long)>(slot);
-    KIO::DeleteJob::connect(self, &KIO::DeleteJob::processedFiles, [self, slotFunc](KIO::Job* job, unsigned long files) {
-        KIO__Job* sigval1 = job;
-        unsigned long sigval2 = files;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::DeleteJob::connect(self,
+                            static_cast<void (KIO::DeleteJob::*)(KIO::Job*, unsigned long)>(&KIO::DeleteJob::processedFiles),
+                            [self, slotFunc](KIO::Job* job, unsigned long files) {
+                                KIO__Job* sigval1 = job;
+                                unsigned long sigval2 = files;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KIO__DeleteJob_ProcessedDirs(KIO__DeleteJob* self, KIO__Job* job, unsigned long dirs) {
@@ -94,11 +100,13 @@ void KIO__DeleteJob_ProcessedDirs(KIO__DeleteJob* self, KIO__Job* job, unsigned 
 
 void KIO__DeleteJob_Connect_ProcessedDirs(KIO__DeleteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteJob*, KIO__Job*, unsigned long) = reinterpret_cast<void (*)(KIO__DeleteJob*, KIO__Job*, unsigned long)>(slot);
-    KIO::DeleteJob::connect(self, &KIO::DeleteJob::processedDirs, [self, slotFunc](KIO::Job* job, unsigned long dirs) {
-        KIO__Job* sigval1 = job;
-        unsigned long sigval2 = dirs;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::DeleteJob::connect(self,
+                            static_cast<void (KIO::DeleteJob::*)(KIO::Job*, unsigned long)>(&KIO::DeleteJob::processedDirs),
+                            [self, slotFunc](KIO::Job* job, unsigned long dirs) {
+                                KIO__Job* sigval1 = job;
+                                unsigned long sigval2 = dirs;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void KIO__DeleteJob_Deleting(KIO__DeleteJob* self, KIO__Job* job, const QUrl* file) {
@@ -107,13 +115,15 @@ void KIO__DeleteJob_Deleting(KIO__DeleteJob* self, KIO__Job* job, const QUrl* fi
 
 void KIO__DeleteJob_Connect_Deleting(KIO__DeleteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__DeleteJob*, KIO__Job*, QUrl*) = reinterpret_cast<void (*)(KIO__DeleteJob*, KIO__Job*, QUrl*)>(slot);
-    KIO::DeleteJob::connect(self, &KIO::DeleteJob::deleting, [self, slotFunc](KIO::Job* job, const QUrl& file) {
-        KIO__Job* sigval1 = job;
-        const QUrl& file_ret = file;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&file_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::DeleteJob::connect(self,
+                            static_cast<void (KIO::DeleteJob::*)(KIO::Job*, const QUrl&)>(&KIO::DeleteJob::deleting),
+                            [self, slotFunc](KIO::Job* job, const QUrl& file) {
+                                KIO__Job* sigval1 = job;
+                                const QUrl& file_ret = file;
+                                // Cast returned reference into pointer
+                                QUrl* sigval2 = const_cast<QUrl*>(&file_ret);
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 libqt_string KIO__DeleteJob_Tr2(const char* s, const char* c) {

@@ -127,10 +127,12 @@ void QKeychain__Job_Finished(QKeychain__Job* self, QKeychain__Job* param1) {
 
 void QKeychain__Job_Connect_Finished(QKeychain__Job* self, intptr_t slot) {
     void (*slotFunc)(QKeychain__Job*, QKeychain__Job*) = reinterpret_cast<void (*)(QKeychain__Job*, QKeychain__Job*)>(slot);
-    QKeychain::Job::connect(self, &QKeychain::Job::finished, [self, slotFunc](QKeychain::Job* param1) {
-        QKeychain__Job* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QKeychain::Job::connect(self,
+                            static_cast<void (QKeychain::Job::*)(QKeychain::Job*)>(&QKeychain::Job::finished),
+                            [self, slotFunc](QKeychain::Job* param1) {
+                                QKeychain__Job* sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 libqt_string QKeychain__Job_Tr2(const char* s, const char* c) {

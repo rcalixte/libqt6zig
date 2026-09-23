@@ -94,9 +94,11 @@ void QAbstractAnimation_Finished(QAbstractAnimation* self) {
 
 void QAbstractAnimation_Connect_Finished(QAbstractAnimation* self, intptr_t slot) {
     void (*slotFunc)(QAbstractAnimation*) = reinterpret_cast<void (*)(QAbstractAnimation*)>(slot);
-    QAbstractAnimation::connect(self, &QAbstractAnimation::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractAnimation::connect(self,
+                                static_cast<void (QAbstractAnimation::*)()>(&QAbstractAnimation::finished),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void QAbstractAnimation_StateChanged(QAbstractAnimation* self, int newState, int oldState) {
@@ -105,11 +107,13 @@ void QAbstractAnimation_StateChanged(QAbstractAnimation* self, int newState, int
 
 void QAbstractAnimation_Connect_StateChanged(QAbstractAnimation* self, intptr_t slot) {
     void (*slotFunc)(QAbstractAnimation*, int, int) = reinterpret_cast<void (*)(QAbstractAnimation*, int, int)>(slot);
-    QAbstractAnimation::connect(self, &QAbstractAnimation::stateChanged, [self, slotFunc](QAbstractAnimation::State newState, QAbstractAnimation::State oldState) {
-        int sigval1 = static_cast<int>(newState);
-        int sigval2 = static_cast<int>(oldState);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractAnimation::connect(self,
+                                static_cast<void (QAbstractAnimation::*)(QAbstractAnimation::State, QAbstractAnimation::State)>(&QAbstractAnimation::stateChanged),
+                                [self, slotFunc](QAbstractAnimation::State newState, QAbstractAnimation::State oldState) {
+                                    int sigval1 = static_cast<int>(newState);
+                                    int sigval2 = static_cast<int>(oldState);
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QAbstractAnimation_CurrentLoopChanged(QAbstractAnimation* self, int currentLoop) {
@@ -118,10 +122,12 @@ void QAbstractAnimation_CurrentLoopChanged(QAbstractAnimation* self, int current
 
 void QAbstractAnimation_Connect_CurrentLoopChanged(QAbstractAnimation* self, intptr_t slot) {
     void (*slotFunc)(QAbstractAnimation*, int) = reinterpret_cast<void (*)(QAbstractAnimation*, int)>(slot);
-    QAbstractAnimation::connect(self, &QAbstractAnimation::currentLoopChanged, [self, slotFunc](int currentLoop) {
-        int sigval1 = currentLoop;
-        slotFunc(self, sigval1);
-    });
+    QAbstractAnimation::connect(self,
+                                static_cast<void (QAbstractAnimation::*)(int)>(&QAbstractAnimation::currentLoopChanged),
+                                [self, slotFunc](int currentLoop) {
+                                    int sigval1 = currentLoop;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QAbstractAnimation_DirectionChanged(QAbstractAnimation* self, int param1) {
@@ -130,10 +136,12 @@ void QAbstractAnimation_DirectionChanged(QAbstractAnimation* self, int param1) {
 
 void QAbstractAnimation_Connect_DirectionChanged(QAbstractAnimation* self, intptr_t slot) {
     void (*slotFunc)(QAbstractAnimation*, int) = reinterpret_cast<void (*)(QAbstractAnimation*, int)>(slot);
-    QAbstractAnimation::connect(self, &QAbstractAnimation::directionChanged, [self, slotFunc](QAbstractAnimation::Direction param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QAbstractAnimation::connect(self,
+                                static_cast<void (QAbstractAnimation::*)(QAbstractAnimation::Direction)>(&QAbstractAnimation::directionChanged),
+                                [self, slotFunc](QAbstractAnimation::Direction param1) {
+                                    int sigval1 = static_cast<int>(param1);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QAbstractAnimation_Start(QAbstractAnimation* self) {
@@ -703,9 +711,11 @@ void QAnimationDriver_Started(QAnimationDriver* self) {
 
 void QAnimationDriver_Connect_Started(QAnimationDriver* self, intptr_t slot) {
     void (*slotFunc)(QAnimationDriver*) = reinterpret_cast<void (*)(QAnimationDriver*)>(slot);
-    QAnimationDriver::connect(self, &QAnimationDriver::started, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAnimationDriver::connect(self,
+                              static_cast<void (QAnimationDriver::*)()>(&QAnimationDriver::started),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QAnimationDriver_Stopped(QAnimationDriver* self) {
@@ -714,9 +724,11 @@ void QAnimationDriver_Stopped(QAnimationDriver* self) {
 
 void QAnimationDriver_Connect_Stopped(QAnimationDriver* self, intptr_t slot) {
     void (*slotFunc)(QAnimationDriver*) = reinterpret_cast<void (*)(QAnimationDriver*)>(slot);
-    QAnimationDriver::connect(self, &QAnimationDriver::stopped, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAnimationDriver::connect(self,
+                              static_cast<void (QAnimationDriver::*)()>(&QAnimationDriver::stopped),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QAnimationDriver_Start(QAnimationDriver* self) {

@@ -44,12 +44,14 @@ void KIO__PasteJob_ItemCreated(KIO__PasteJob* self, const QUrl* url) {
 
 void KIO__PasteJob_Connect_ItemCreated(KIO__PasteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__PasteJob*, QUrl*) = reinterpret_cast<void (*)(KIO__PasteJob*, QUrl*)>(slot);
-    KIO::PasteJob::connect(self, &KIO::PasteJob::itemCreated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KIO::PasteJob::connect(self,
+                           static_cast<void (KIO::PasteJob::*)(const QUrl&)>(&KIO::PasteJob::itemCreated),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KIO__PasteJob_CopyJobStarted(KIO__PasteJob* self, KIO__CopyJob* job) {
@@ -58,10 +60,12 @@ void KIO__PasteJob_CopyJobStarted(KIO__PasteJob* self, KIO__CopyJob* job) {
 
 void KIO__PasteJob_Connect_CopyJobStarted(KIO__PasteJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__PasteJob*, KIO__CopyJob*) = reinterpret_cast<void (*)(KIO__PasteJob*, KIO__CopyJob*)>(slot);
-    KIO::PasteJob::connect(self, &KIO::PasteJob::copyJobStarted, [self, slotFunc](KIO::CopyJob* job) {
-        KIO__CopyJob* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KIO::PasteJob::connect(self,
+                           static_cast<void (KIO::PasteJob::*)(KIO::CopyJob*)>(&KIO::PasteJob::copyJobStarted),
+                           [self, slotFunc](KIO::CopyJob* job) {
+                               KIO__CopyJob* sigval1 = job;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string KIO__PasteJob_Tr2(const char* s, const char* c) {

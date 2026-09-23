@@ -156,9 +156,11 @@ void QJSEngine_UiLanguageChanged(QJSEngine* self) {
 
 void QJSEngine_Connect_UiLanguageChanged(QJSEngine* self, intptr_t slot) {
     void (*slotFunc)(QJSEngine*) = reinterpret_cast<void (*)(QJSEngine*)>(slot);
-    QJSEngine::connect(self, &QJSEngine::uiLanguageChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QJSEngine::connect(self,
+                       static_cast<void (QJSEngine::*)()>(&QJSEngine::uiLanguageChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 libqt_string QJSEngine_Tr2(const char* s, const char* c) {

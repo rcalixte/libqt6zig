@@ -250,12 +250,14 @@ void KFilePlacesView_PlaceActivated(KFilePlacesView* self, const QUrl* url) {
 
 void KFilePlacesView_Connect_PlaceActivated(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::placeActivated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&)>(&KFilePlacesView::placeActivated),
+                             [self, slotFunc](const QUrl& url) {
+                                 const QUrl& url_ret = url;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_TabRequested(KFilePlacesView* self, const QUrl* url) {
@@ -264,12 +266,14 @@ void KFilePlacesView_TabRequested(KFilePlacesView* self, const QUrl* url) {
 
 void KFilePlacesView_Connect_TabRequested(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::tabRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&)>(&KFilePlacesView::tabRequested),
+                             [self, slotFunc](const QUrl& url) {
+                                 const QUrl& url_ret = url;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_ActiveTabRequested(KFilePlacesView* self, const QUrl* url) {
@@ -278,12 +282,14 @@ void KFilePlacesView_ActiveTabRequested(KFilePlacesView* self, const QUrl* url) 
 
 void KFilePlacesView_Connect_ActiveTabRequested(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::activeTabRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&)>(&KFilePlacesView::activeTabRequested),
+                             [self, slotFunc](const QUrl& url) {
+                                 const QUrl& url_ret = url;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_NewWindowRequested(KFilePlacesView* self, const QUrl* url) {
@@ -292,12 +298,14 @@ void KFilePlacesView_NewWindowRequested(KFilePlacesView* self, const QUrl* url) 
 
 void KFilePlacesView_Connect_NewWindowRequested(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::newWindowRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&)>(&KFilePlacesView::newWindowRequested),
+                             [self, slotFunc](const QUrl& url) {
+                                 const QUrl& url_ret = url;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_ContextMenuAboutToShow(KFilePlacesView* self, const QModelIndex* index, QMenu* menu) {
@@ -306,13 +314,15 @@ void KFilePlacesView_ContextMenuAboutToShow(KFilePlacesView* self, const QModelI
 
 void KFilePlacesView_Connect_ContextMenuAboutToShow(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QModelIndex*, QMenu*) = reinterpret_cast<void (*)(KFilePlacesView*, QModelIndex*, QMenu*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::contextMenuAboutToShow, [self, slotFunc](const QModelIndex& index, QMenu* menu) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        QMenu* sigval2 = menu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QModelIndex&, QMenu*)>(&KFilePlacesView::contextMenuAboutToShow),
+                             [self, slotFunc](const QModelIndex& index, QMenu* menu) {
+                                 const QModelIndex& index_ret = index;
+                                 // Cast returned reference into pointer
+                                 QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                                 QMenu* sigval2 = menu;
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 void KFilePlacesView_AllPlacesShownChanged(KFilePlacesView* self, bool allPlacesShown) {
@@ -321,10 +331,12 @@ void KFilePlacesView_AllPlacesShownChanged(KFilePlacesView* self, bool allPlaces
 
 void KFilePlacesView_Connect_AllPlacesShownChanged(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, bool) = reinterpret_cast<void (*)(KFilePlacesView*, bool)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::allPlacesShownChanged, [self, slotFunc](bool allPlacesShown) {
-        bool sigval1 = allPlacesShown;
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(bool)>(&KFilePlacesView::allPlacesShownChanged),
+                             [self, slotFunc](bool allPlacesShown) {
+                                 bool sigval1 = allPlacesShown;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_UrlChanged(KFilePlacesView* self, const QUrl* url) {
@@ -333,12 +345,14 @@ void KFilePlacesView_UrlChanged(KFilePlacesView* self, const QUrl* url) {
 
 void KFilePlacesView_Connect_UrlChanged(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::urlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&)>(&KFilePlacesView::urlChanged),
+                             [self, slotFunc](const QUrl& url) {
+                                 const QUrl& url_ret = url;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFilePlacesView_UrlsDropped(KFilePlacesView* self, const QUrl* dest, QDropEvent* event, QWidget* parent) {
@@ -347,14 +361,16 @@ void KFilePlacesView_UrlsDropped(KFilePlacesView* self, const QUrl* dest, QDropE
 
 void KFilePlacesView_Connect_UrlsDropped(KFilePlacesView* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesView*, QUrl*, QDropEvent*, QWidget*) = reinterpret_cast<void (*)(KFilePlacesView*, QUrl*, QDropEvent*, QWidget*)>(slot);
-    KFilePlacesView::connect(self, &KFilePlacesView::urlsDropped, [self, slotFunc](const QUrl& dest, QDropEvent* event, QWidget* parent) {
-        const QUrl& dest_ret = dest;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&dest_ret);
-        QDropEvent* sigval2 = event;
-        QWidget* sigval3 = parent;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KFilePlacesView::connect(self,
+                             static_cast<void (KFilePlacesView::*)(const QUrl&, QDropEvent*, QWidget*)>(&KFilePlacesView::urlsDropped),
+                             [self, slotFunc](const QUrl& dest, QDropEvent* event, QWidget* parent) {
+                                 const QUrl& dest_ret = dest;
+                                 // Cast returned reference into pointer
+                                 QUrl* sigval1 = const_cast<QUrl*>(&dest_ret);
+                                 QDropEvent* sigval2 = event;
+                                 QWidget* sigval3 = parent;
+                                 slotFunc(self, sigval1, sigval2, sigval3);
+                             });
 }
 
 libqt_string KFilePlacesView_Tr2(const char* s, const char* c) {

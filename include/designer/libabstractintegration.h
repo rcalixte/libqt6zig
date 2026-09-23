@@ -53,10 +53,15 @@ void QDesignerIntegrationInterface_EmitNavigateToSlot(QDesignerIntegrationInterf
 void QDesignerIntegrationInterface_EmitNavigateToSlot2(QDesignerIntegrationInterface* self, const libqt_string slotSignature);
 void QDesignerIntegrationInterface_EmitHelpRequested(QDesignerIntegrationInterface* self, const libqt_string manual, const libqt_string document);
 void QDesignerIntegrationInterface_PropertyChanged(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow, const libqt_string name, const QVariant* value);
+void QDesignerIntegrationInterface_Connect_PropertyChanged(QDesignerIntegrationInterface* self, intptr_t slot);
 void QDesignerIntegrationInterface_ObjectNameChanged(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow, QObject* object, const libqt_string newName, const libqt_string oldName);
+void QDesignerIntegrationInterface_Connect_ObjectNameChanged(QDesignerIntegrationInterface* self, intptr_t slot);
 void QDesignerIntegrationInterface_HelpRequested(QDesignerIntegrationInterface* self, const libqt_string manual, const libqt_string document);
+void QDesignerIntegrationInterface_Connect_HelpRequested(QDesignerIntegrationInterface* self, intptr_t slot);
 void QDesignerIntegrationInterface_NavigateToSlot(QDesignerIntegrationInterface* self, const libqt_string objectName, const libqt_string signalSignature, const libqt_list /* of libqt_string */ parameterNames);
+void QDesignerIntegrationInterface_Connect_NavigateToSlot(QDesignerIntegrationInterface* self, intptr_t slot);
 void QDesignerIntegrationInterface_NavigateToSlot2(QDesignerIntegrationInterface* self, const libqt_string slotSignature);
+void QDesignerIntegrationInterface_Connect_NavigateToSlot2(QDesignerIntegrationInterface* self, intptr_t slot);
 void QDesignerIntegrationInterface_SetFeatures(QDesignerIntegrationInterface* self, int f);
 void QDesignerIntegrationInterface_UpdateProperty(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value, bool enableSubPropertyHandling);
 void QDesignerIntegrationInterface_UpdateProperty2(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value);

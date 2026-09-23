@@ -71,9 +71,11 @@ void QAudioBufferInput_ReadyToSendAudioBuffer(QAudioBufferInput* self) {
 
 void QAudioBufferInput_Connect_ReadyToSendAudioBuffer(QAudioBufferInput* self, intptr_t slot) {
     void (*slotFunc)(QAudioBufferInput*) = reinterpret_cast<void (*)(QAudioBufferInput*)>(slot);
-    QAudioBufferInput::connect(self, &QAudioBufferInput::readyToSendAudioBuffer, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioBufferInput::connect(self,
+                               static_cast<void (QAudioBufferInput::*)()>(&QAudioBufferInput::readyToSendAudioBuffer),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 libqt_string QAudioBufferInput_Tr2(const char* s, const char* c) {

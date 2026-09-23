@@ -72,10 +72,12 @@ void QPdfPageRenderer_DocumentChanged(QPdfPageRenderer* self, QPdfDocument* docu
 
 void QPdfPageRenderer_Connect_DocumentChanged(QPdfPageRenderer* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageRenderer*, QPdfDocument*) = reinterpret_cast<void (*)(QPdfPageRenderer*, QPdfDocument*)>(slot);
-    QPdfPageRenderer::connect(self, &QPdfPageRenderer::documentChanged, [self, slotFunc](QPdfDocument* document) {
-        QPdfDocument* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageRenderer::connect(self,
+                              static_cast<void (QPdfPageRenderer::*)(QPdfDocument*)>(&QPdfPageRenderer::documentChanged),
+                              [self, slotFunc](QPdfDocument* document) {
+                                  QPdfDocument* sigval1 = document;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QPdfPageRenderer_RenderModeChanged(QPdfPageRenderer* self, int renderMode) {
@@ -84,10 +86,12 @@ void QPdfPageRenderer_RenderModeChanged(QPdfPageRenderer* self, int renderMode) 
 
 void QPdfPageRenderer_Connect_RenderModeChanged(QPdfPageRenderer* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageRenderer*, int) = reinterpret_cast<void (*)(QPdfPageRenderer*, int)>(slot);
-    QPdfPageRenderer::connect(self, &QPdfPageRenderer::renderModeChanged, [self, slotFunc](QPdfPageRenderer::RenderMode renderMode) {
-        int sigval1 = static_cast<int>(renderMode);
-        slotFunc(self, sigval1);
-    });
+    QPdfPageRenderer::connect(self,
+                              static_cast<void (QPdfPageRenderer::*)(QPdfPageRenderer::RenderMode)>(&QPdfPageRenderer::renderModeChanged),
+                              [self, slotFunc](QPdfPageRenderer::RenderMode renderMode) {
+                                  int sigval1 = static_cast<int>(renderMode);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QPdfPageRenderer_PageRendered(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, const QImage* image, QPdfDocumentRenderOptions* options, unsigned long long requestId) {
@@ -96,16 +100,18 @@ void QPdfPageRenderer_PageRendered(QPdfPageRenderer* self, int pageNumber, QSize
 
 void QPdfPageRenderer_Connect_PageRendered(QPdfPageRenderer* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageRenderer*, int, QSize*, QImage*, QPdfDocumentRenderOptions*, unsigned long long) = reinterpret_cast<void (*)(QPdfPageRenderer*, int, QSize*, QImage*, QPdfDocumentRenderOptions*, unsigned long long)>(slot);
-    QPdfPageRenderer::connect(self, &QPdfPageRenderer::pageRendered, [self, slotFunc](int pageNumber, QSize imageSize, const QImage& image, QPdfDocumentRenderOptions options, quint64 requestId) {
-        int sigval1 = pageNumber;
-        QSize* sigval2 = new QSize(imageSize);
-        const QImage& image_ret = image;
-        // Cast returned reference into pointer
-        QImage* sigval3 = const_cast<QImage*>(&image_ret);
-        QPdfDocumentRenderOptions* sigval4 = new QPdfDocumentRenderOptions(options);
-        unsigned long long sigval5 = static_cast<unsigned long long>(requestId);
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5);
-    });
+    QPdfPageRenderer::connect(self,
+                              static_cast<void (QPdfPageRenderer::*)(int, QSize, const QImage&, QPdfDocumentRenderOptions, quint64)>(&QPdfPageRenderer::pageRendered),
+                              [self, slotFunc](int pageNumber, QSize imageSize, const QImage& image, QPdfDocumentRenderOptions options, quint64 requestId) {
+                                  int sigval1 = pageNumber;
+                                  QSize* sigval2 = new QSize(imageSize);
+                                  const QImage& image_ret = image;
+                                  // Cast returned reference into pointer
+                                  QImage* sigval3 = const_cast<QImage*>(&image_ret);
+                                  QPdfDocumentRenderOptions* sigval4 = new QPdfDocumentRenderOptions(options);
+                                  unsigned long long sigval5 = static_cast<unsigned long long>(requestId);
+                                  slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5);
+                              });
 }
 
 libqt_string QPdfPageRenderer_Tr2(const char* s, const char* c) {

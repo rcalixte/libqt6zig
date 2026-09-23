@@ -212,11 +212,13 @@ void QSplitter_SplitterMoved(QSplitter* self, int pos, int index) {
 
 void QSplitter_Connect_SplitterMoved(QSplitter* self, intptr_t slot) {
     void (*slotFunc)(QSplitter*, int, int) = reinterpret_cast<void (*)(QSplitter*, int, int)>(slot);
-    QSplitter::connect(self, &QSplitter::splitterMoved, [self, slotFunc](int pos, int index) {
-        int sigval1 = pos;
-        int sigval2 = index;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QSplitter::connect(self,
+                       static_cast<void (QSplitter::*)(int, int)>(&QSplitter::splitterMoved),
+                       [self, slotFunc](int pos, int index) {
+                           int sigval1 = pos;
+                           int sigval2 = index;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 QSplitterHandle* QSplitter_CreateHandle(QSplitter* self) {

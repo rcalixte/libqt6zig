@@ -280,18 +280,20 @@ void QLabel_LinkActivated(QLabel* self, const libqt_string link) {
 
 void QLabel_Connect_LinkActivated(QLabel* self, intptr_t slot) {
     void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
-    QLabel::connect(self, &QLabel::linkActivated, [self, slotFunc](const QString& link) {
-        const auto link_ret = link;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray link_b = link_ret.toUtf8();
-        auto link_str_len = link_b.length();
-        const char* link_str = static_cast<const char*>(malloc(link_str_len + 1));
-        memcpy((void*)link_str, link_b.data(), link_str_len);
-        ((char*)link_str)[link_str_len] = '\0';
-        const char* sigval1 = link_str;
-        slotFunc(self, sigval1);
-        libqt_free(link_str);
-    });
+    QLabel::connect(self,
+                    static_cast<void (QLabel::*)(const QString&)>(&QLabel::linkActivated),
+                    [self, slotFunc](const QString& link) {
+                        const auto link_ret = link;
+                        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                        QByteArray link_b = link_ret.toUtf8();
+                        auto link_str_len = link_b.length();
+                        const char* link_str = static_cast<const char*>(malloc(link_str_len + 1));
+                        memcpy((void*)link_str, link_b.data(), link_str_len);
+                        ((char*)link_str)[link_str_len] = '\0';
+                        const char* sigval1 = link_str;
+                        slotFunc(self, sigval1);
+                        libqt_free(link_str);
+                    });
 }
 
 void QLabel_LinkHovered(QLabel* self, const libqt_string link) {
@@ -301,18 +303,20 @@ void QLabel_LinkHovered(QLabel* self, const libqt_string link) {
 
 void QLabel_Connect_LinkHovered(QLabel* self, intptr_t slot) {
     void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
-    QLabel::connect(self, &QLabel::linkHovered, [self, slotFunc](const QString& link) {
-        const auto link_ret = link;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray link_b = link_ret.toUtf8();
-        auto link_str_len = link_b.length();
-        const char* link_str = static_cast<const char*>(malloc(link_str_len + 1));
-        memcpy((void*)link_str, link_b.data(), link_str_len);
-        ((char*)link_str)[link_str_len] = '\0';
-        const char* sigval1 = link_str;
-        slotFunc(self, sigval1);
-        libqt_free(link_str);
-    });
+    QLabel::connect(self,
+                    static_cast<void (QLabel::*)(const QString&)>(&QLabel::linkHovered),
+                    [self, slotFunc](const QString& link) {
+                        const auto link_ret = link;
+                        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                        QByteArray link_b = link_ret.toUtf8();
+                        auto link_str_len = link_b.length();
+                        const char* link_str = static_cast<const char*>(malloc(link_str_len + 1));
+                        memcpy((void*)link_str, link_b.data(), link_str_len);
+                        ((char*)link_str)[link_str_len] = '\0';
+                        const char* sigval1 = link_str;
+                        slotFunc(self, sigval1);
+                        libqt_free(link_str);
+                    });
 }
 
 bool QLabel_Event(QLabel* self, QEvent* e) {

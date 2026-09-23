@@ -356,11 +356,13 @@ void KStatusNotifierItem_ScrollRequested(KStatusNotifierItem* self, int delta, i
 
 void KStatusNotifierItem_Connect_ScrollRequested(KStatusNotifierItem* self, intptr_t slot) {
     void (*slotFunc)(KStatusNotifierItem*, int, int) = reinterpret_cast<void (*)(KStatusNotifierItem*, int, int)>(slot);
-    KStatusNotifierItem::connect(self, &KStatusNotifierItem::scrollRequested, [self, slotFunc](int delta, Qt::Orientation orientation) {
-        int sigval1 = delta;
-        int sigval2 = static_cast<int>(orientation);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KStatusNotifierItem::connect(self,
+                                 static_cast<void (KStatusNotifierItem::*)(int, Qt::Orientation)>(&KStatusNotifierItem::scrollRequested),
+                                 [self, slotFunc](int delta, Qt::Orientation orientation) {
+                                     int sigval1 = delta;
+                                     int sigval2 = static_cast<int>(orientation);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void KStatusNotifierItem_ActivateRequested(KStatusNotifierItem* self, bool active, const QPoint* pos) {
@@ -369,13 +371,15 @@ void KStatusNotifierItem_ActivateRequested(KStatusNotifierItem* self, bool activ
 
 void KStatusNotifierItem_Connect_ActivateRequested(KStatusNotifierItem* self, intptr_t slot) {
     void (*slotFunc)(KStatusNotifierItem*, bool, QPoint*) = reinterpret_cast<void (*)(KStatusNotifierItem*, bool, QPoint*)>(slot);
-    KStatusNotifierItem::connect(self, &KStatusNotifierItem::activateRequested, [self, slotFunc](bool active, const QPoint& pos) {
-        bool sigval1 = active;
-        const QPoint& pos_ret = pos;
-        // Cast returned reference into pointer
-        QPoint* sigval2 = const_cast<QPoint*>(&pos_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KStatusNotifierItem::connect(self,
+                                 static_cast<void (KStatusNotifierItem::*)(bool, const QPoint&)>(&KStatusNotifierItem::activateRequested),
+                                 [self, slotFunc](bool active, const QPoint& pos) {
+                                     bool sigval1 = active;
+                                     const QPoint& pos_ret = pos;
+                                     // Cast returned reference into pointer
+                                     QPoint* sigval2 = const_cast<QPoint*>(&pos_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void KStatusNotifierItem_SecondaryActivateRequested(KStatusNotifierItem* self, const QPoint* pos) {
@@ -384,12 +388,14 @@ void KStatusNotifierItem_SecondaryActivateRequested(KStatusNotifierItem* self, c
 
 void KStatusNotifierItem_Connect_SecondaryActivateRequested(KStatusNotifierItem* self, intptr_t slot) {
     void (*slotFunc)(KStatusNotifierItem*, QPoint*) = reinterpret_cast<void (*)(KStatusNotifierItem*, QPoint*)>(slot);
-    KStatusNotifierItem::connect(self, &KStatusNotifierItem::secondaryActivateRequested, [self, slotFunc](const QPoint& pos) {
-        const QPoint& pos_ret = pos;
-        // Cast returned reference into pointer
-        QPoint* sigval1 = const_cast<QPoint*>(&pos_ret);
-        slotFunc(self, sigval1);
-    });
+    KStatusNotifierItem::connect(self,
+                                 static_cast<void (KStatusNotifierItem::*)(const QPoint&)>(&KStatusNotifierItem::secondaryActivateRequested),
+                                 [self, slotFunc](const QPoint& pos) {
+                                     const QPoint& pos_ret = pos;
+                                     // Cast returned reference into pointer
+                                     QPoint* sigval1 = const_cast<QPoint*>(&pos_ret);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void KStatusNotifierItem_QuitRequested(KStatusNotifierItem* self) {
@@ -398,9 +404,11 @@ void KStatusNotifierItem_QuitRequested(KStatusNotifierItem* self) {
 
 void KStatusNotifierItem_Connect_QuitRequested(KStatusNotifierItem* self, intptr_t slot) {
     void (*slotFunc)(KStatusNotifierItem*) = reinterpret_cast<void (*)(KStatusNotifierItem*)>(slot);
-    KStatusNotifierItem::connect(self, &KStatusNotifierItem::quitRequested, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KStatusNotifierItem::connect(self,
+                                 static_cast<void (KStatusNotifierItem::*)()>(&KStatusNotifierItem::quitRequested),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 bool KStatusNotifierItem_EventFilter(KStatusNotifierItem* self, QObject* watched, QEvent* event) {

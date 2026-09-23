@@ -96,9 +96,11 @@ void TextAutoCorrectionWidgets__AutoCorrectionWidget_Changed(TextAutoCorrectionW
 
 void TextAutoCorrectionWidgets__AutoCorrectionWidget_Connect_Changed(TextAutoCorrectionWidgets__AutoCorrectionWidget* self, intptr_t slot) {
     void (*slotFunc)(TextAutoCorrectionWidgets__AutoCorrectionWidget*) = reinterpret_cast<void (*)(TextAutoCorrectionWidgets__AutoCorrectionWidget*)>(slot);
-    TextAutoCorrectionWidgets::AutoCorrectionWidget::connect(self, &TextAutoCorrectionWidgets::AutoCorrectionWidget::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextAutoCorrectionWidgets::AutoCorrectionWidget::connect(self,
+                                                             static_cast<void (TextAutoCorrectionWidgets::AutoCorrectionWidget::*)()>(&TextAutoCorrectionWidgets::AutoCorrectionWidget::changed),
+                                                             [self, slotFunc]() {
+                                                                 slotFunc(self);
+                                                             });
 }
 
 libqt_string TextAutoCorrectionWidgets__AutoCorrectionWidget_Tr2(const char* s, const char* c) {

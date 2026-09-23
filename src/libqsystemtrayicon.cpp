@@ -132,10 +132,12 @@ void QSystemTrayIcon_Activated(QSystemTrayIcon* self, int reason) {
 
 void QSystemTrayIcon_Connect_Activated(QSystemTrayIcon* self, intptr_t slot) {
     void (*slotFunc)(QSystemTrayIcon*, int) = reinterpret_cast<void (*)(QSystemTrayIcon*, int)>(slot);
-    QSystemTrayIcon::connect(self, &QSystemTrayIcon::activated, [self, slotFunc](QSystemTrayIcon::ActivationReason reason) {
-        int sigval1 = static_cast<int>(reason);
-        slotFunc(self, sigval1);
-    });
+    QSystemTrayIcon::connect(self,
+                             static_cast<void (QSystemTrayIcon::*)(QSystemTrayIcon::ActivationReason)>(&QSystemTrayIcon::activated),
+                             [self, slotFunc](QSystemTrayIcon::ActivationReason reason) {
+                                 int sigval1 = static_cast<int>(reason);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QSystemTrayIcon_MessageClicked(QSystemTrayIcon* self) {
@@ -144,9 +146,11 @@ void QSystemTrayIcon_MessageClicked(QSystemTrayIcon* self) {
 
 void QSystemTrayIcon_Connect_MessageClicked(QSystemTrayIcon* self, intptr_t slot) {
     void (*slotFunc)(QSystemTrayIcon*) = reinterpret_cast<void (*)(QSystemTrayIcon*)>(slot);
-    QSystemTrayIcon::connect(self, &QSystemTrayIcon::messageClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSystemTrayIcon::connect(self,
+                             static_cast<void (QSystemTrayIcon::*)()>(&QSystemTrayIcon::messageClicked),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 bool QSystemTrayIcon_Event(QSystemTrayIcon* self, QEvent* event) {

@@ -181,18 +181,20 @@ void KSvg__ImageSet_ImageSetChanged(KSvg__ImageSet* self, const libqt_string bas
 
 void KSvg__ImageSet_Connect_ImageSetChanged(KSvg__ImageSet* self, intptr_t slot) {
     void (*slotFunc)(KSvg__ImageSet*, const char*) = reinterpret_cast<void (*)(KSvg__ImageSet*, const char*)>(slot);
-    KSvg::ImageSet::connect(self, &KSvg::ImageSet::imageSetChanged, [self, slotFunc](const QString& basePath) {
-        const auto basePath_ret = basePath;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray basePath_b = basePath_ret.toUtf8();
-        auto basePath_str_len = basePath_b.length();
-        const char* basePath_str = static_cast<const char*>(malloc(basePath_str_len + 1));
-        memcpy((void*)basePath_str, basePath_b.data(), basePath_str_len);
-        ((char*)basePath_str)[basePath_str_len] = '\0';
-        const char* sigval1 = basePath_str;
-        slotFunc(self, sigval1);
-        libqt_free(basePath_str);
-    });
+    KSvg::ImageSet::connect(self,
+                            static_cast<void (KSvg::ImageSet::*)(const QString&)>(&KSvg::ImageSet::imageSetChanged),
+                            [self, slotFunc](const QString& basePath) {
+                                const auto basePath_ret = basePath;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray basePath_b = basePath_ret.toUtf8();
+                                auto basePath_str_len = basePath_b.length();
+                                const char* basePath_str = static_cast<const char*>(malloc(basePath_str_len + 1));
+                                memcpy((void*)basePath_str, basePath_b.data(), basePath_str_len);
+                                ((char*)basePath_str)[basePath_str_len] = '\0';
+                                const char* sigval1 = basePath_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(basePath_str);
+                            });
 }
 
 void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string basePath) {
@@ -202,18 +204,20 @@ void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string bas
 
 void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot) {
     void (*slotFunc)(KSvg__ImageSet*, const char*) = reinterpret_cast<void (*)(KSvg__ImageSet*, const char*)>(slot);
-    KSvg::ImageSet::connect(self, &KSvg::ImageSet::basePathChanged, [self, slotFunc](const QString& basePath) {
-        const auto basePath_ret = basePath;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray basePath_b = basePath_ret.toUtf8();
-        auto basePath_str_len = basePath_b.length();
-        const char* basePath_str = static_cast<const char*>(malloc(basePath_str_len + 1));
-        memcpy((void*)basePath_str, basePath_b.data(), basePath_str_len);
-        ((char*)basePath_str)[basePath_str_len] = '\0';
-        const char* sigval1 = basePath_str;
-        slotFunc(self, sigval1);
-        libqt_free(basePath_str);
-    });
+    KSvg::ImageSet::connect(self,
+                            static_cast<void (KSvg::ImageSet::*)(const QString&)>(&KSvg::ImageSet::basePathChanged),
+                            [self, slotFunc](const QString& basePath) {
+                                const auto basePath_ret = basePath;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray basePath_b = basePath_ret.toUtf8();
+                                auto basePath_str_len = basePath_b.length();
+                                const char* basePath_str = static_cast<const char*>(malloc(basePath_str_len + 1));
+                                memcpy((void*)basePath_str, basePath_b.data(), basePath_str_len);
+                                ((char*)basePath_str)[basePath_str_len] = '\0';
+                                const char* sigval1 = basePath_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(basePath_str);
+                            });
 }
 
 libqt_string KSvg__ImageSet_Tr2(const char* s, const char* c) {

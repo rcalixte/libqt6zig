@@ -253,13 +253,15 @@ void QsciLexer_ColorChanged(QsciLexer* self, const QColor* c, int style) {
 
 void QsciLexer_Connect_ColorChanged(QsciLexer* self, intptr_t slot) {
     void (*slotFunc)(QsciLexer*, QColor*, int) = reinterpret_cast<void (*)(QsciLexer*, QColor*, int)>(slot);
-    QsciLexer::connect(self, &QsciLexer::colorChanged, [self, slotFunc](const QColor& c, int style) {
-        const QColor& c_ret = c;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&c_ret);
-        int sigval2 = style;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciLexer::connect(self,
+                       static_cast<void (QsciLexer::*)(const QColor&, int)>(&QsciLexer::colorChanged),
+                       [self, slotFunc](const QColor& c, int style) {
+                           const QColor& c_ret = c;
+                           // Cast returned reference into pointer
+                           QColor* sigval1 = const_cast<QColor*>(&c_ret);
+                           int sigval2 = style;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QsciLexer_EolFillChanged(QsciLexer* self, bool eolfilled, int style) {
@@ -268,11 +270,13 @@ void QsciLexer_EolFillChanged(QsciLexer* self, bool eolfilled, int style) {
 
 void QsciLexer_Connect_EolFillChanged(QsciLexer* self, intptr_t slot) {
     void (*slotFunc)(QsciLexer*, bool, int) = reinterpret_cast<void (*)(QsciLexer*, bool, int)>(slot);
-    QsciLexer::connect(self, &QsciLexer::eolFillChanged, [self, slotFunc](bool eolfilled, int style) {
-        bool sigval1 = eolfilled;
-        int sigval2 = style;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciLexer::connect(self,
+                       static_cast<void (QsciLexer::*)(bool, int)>(&QsciLexer::eolFillChanged),
+                       [self, slotFunc](bool eolfilled, int style) {
+                           bool sigval1 = eolfilled;
+                           int sigval2 = style;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QsciLexer_FontChanged(QsciLexer* self, const QFont* f, int style) {
@@ -281,13 +285,15 @@ void QsciLexer_FontChanged(QsciLexer* self, const QFont* f, int style) {
 
 void QsciLexer_Connect_FontChanged(QsciLexer* self, intptr_t slot) {
     void (*slotFunc)(QsciLexer*, QFont*, int) = reinterpret_cast<void (*)(QsciLexer*, QFont*, int)>(slot);
-    QsciLexer::connect(self, &QsciLexer::fontChanged, [self, slotFunc](const QFont& f, int style) {
-        const QFont& f_ret = f;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&f_ret);
-        int sigval2 = style;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciLexer::connect(self,
+                       static_cast<void (QsciLexer::*)(const QFont&, int)>(&QsciLexer::fontChanged),
+                       [self, slotFunc](const QFont& f, int style) {
+                           const QFont& f_ret = f;
+                           // Cast returned reference into pointer
+                           QFont* sigval1 = const_cast<QFont*>(&f_ret);
+                           int sigval2 = style;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QsciLexer_PaperChanged(QsciLexer* self, const QColor* c, int style) {
@@ -296,13 +302,15 @@ void QsciLexer_PaperChanged(QsciLexer* self, const QColor* c, int style) {
 
 void QsciLexer_Connect_PaperChanged(QsciLexer* self, intptr_t slot) {
     void (*slotFunc)(QsciLexer*, QColor*, int) = reinterpret_cast<void (*)(QsciLexer*, QColor*, int)>(slot);
-    QsciLexer::connect(self, &QsciLexer::paperChanged, [self, slotFunc](const QColor& c, int style) {
-        const QColor& c_ret = c;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&c_ret);
-        int sigval2 = style;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciLexer::connect(self,
+                       static_cast<void (QsciLexer::*)(const QColor&, int)>(&QsciLexer::paperChanged),
+                       [self, slotFunc](const QColor& c, int style) {
+                           const QColor& c_ret = c;
+                           // Cast returned reference into pointer
+                           QColor* sigval1 = const_cast<QColor*>(&c_ret);
+                           int sigval2 = style;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QsciLexer_PropertyChanged(QsciLexer* self, const char* prop, const char* val) {
@@ -311,11 +319,13 @@ void QsciLexer_PropertyChanged(QsciLexer* self, const char* prop, const char* va
 
 void QsciLexer_Connect_PropertyChanged(QsciLexer* self, intptr_t slot) {
     void (*slotFunc)(QsciLexer*, const char*, const char*) = reinterpret_cast<void (*)(QsciLexer*, const char*, const char*)>(slot);
-    QsciLexer::connect(self, &QsciLexer::propertyChanged, [self, slotFunc](const char* prop, const char* val) {
-        const char* sigval1 = (const char*)prop;
-        const char* sigval2 = (const char*)val;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciLexer::connect(self,
+                       static_cast<void (QsciLexer::*)(const char*, const char*)>(&QsciLexer::propertyChanged),
+                       [self, slotFunc](const char* prop, const char* val) {
+                           const char* sigval1 = (const char*)prop;
+                           const char* sigval2 = (const char*)val;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 bool QsciLexer_ReadProperties(QsciLexer* self, QSettings* qs, const libqt_string prefix) {

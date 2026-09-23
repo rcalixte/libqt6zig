@@ -103,18 +103,20 @@ void KIO__OpenUrlJob_MimeTypeFound(KIO__OpenUrlJob* self, const libqt_string mim
 
 void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__OpenUrlJob*, const char*) = reinterpret_cast<void (*)(KIO__OpenUrlJob*, const char*)>(slot);
-    KIO::OpenUrlJob::connect(self, &KIO::OpenUrlJob::mimeTypeFound, [self, slotFunc](const QString& mimeType) {
-        const auto mimeType_ret = mimeType;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray mimeType_b = mimeType_ret.toUtf8();
-        auto mimeType_str_len = mimeType_b.length();
-        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
-        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
-        ((char*)mimeType_str)[mimeType_str_len] = '\0';
-        const char* sigval1 = mimeType_str;
-        slotFunc(self, sigval1);
-        libqt_free(mimeType_str);
-    });
+    KIO::OpenUrlJob::connect(self,
+                             static_cast<void (KIO::OpenUrlJob::*)(const QString&)>(&KIO::OpenUrlJob::mimeTypeFound),
+                             [self, slotFunc](const QString& mimeType) {
+                                 const auto mimeType_ret = mimeType;
+                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                 QByteArray mimeType_b = mimeType_ret.toUtf8();
+                                 auto mimeType_str_len = mimeType_b.length();
+                                 const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
+                                 memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
+                                 ((char*)mimeType_str)[mimeType_str_len] = '\0';
+                                 const char* sigval1 = mimeType_str;
+                                 slotFunc(self, sigval1);
+                                 libqt_free(mimeType_str);
+                             });
 }
 
 bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self) {

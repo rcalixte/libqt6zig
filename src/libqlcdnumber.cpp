@@ -166,9 +166,11 @@ void QLCDNumber_Overflow(QLCDNumber* self) {
 
 void QLCDNumber_Connect_Overflow(QLCDNumber* self, intptr_t slot) {
     void (*slotFunc)(QLCDNumber*) = reinterpret_cast<void (*)(QLCDNumber*)>(slot);
-    QLCDNumber::connect(self, &QLCDNumber::overflow, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLCDNumber::connect(self,
+                        static_cast<void (QLCDNumber::*)()>(&QLCDNumber::overflow),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 bool QLCDNumber_Event(QLCDNumber* self, QEvent* e) {

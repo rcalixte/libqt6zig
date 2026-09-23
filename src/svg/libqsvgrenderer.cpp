@@ -201,9 +201,11 @@ void QSvgRenderer_RepaintNeeded(QSvgRenderer* self) {
 
 void QSvgRenderer_Connect_RepaintNeeded(QSvgRenderer* self, intptr_t slot) {
     void (*slotFunc)(QSvgRenderer*) = reinterpret_cast<void (*)(QSvgRenderer*)>(slot);
-    QSvgRenderer::connect(self, &QSvgRenderer::repaintNeeded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSvgRenderer::connect(self,
+                          static_cast<void (QSvgRenderer::*)()>(&QSvgRenderer::repaintNeeded),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 libqt_string QSvgRenderer_Tr2(const char* s, const char* c) {

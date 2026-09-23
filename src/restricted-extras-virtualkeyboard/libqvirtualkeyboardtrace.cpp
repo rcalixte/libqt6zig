@@ -166,10 +166,12 @@ void QVirtualKeyboardTrace_TraceIdChanged(QVirtualKeyboardTrace* self, int trace
 
 void QVirtualKeyboardTrace_Connect_TraceIdChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*, int) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*, int)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::traceIdChanged, [self, slotFunc](int traceId) {
-        int sigval1 = traceId;
-        slotFunc(self, sigval1);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)(int)>(&QVirtualKeyboardTrace::traceIdChanged),
+                                   [self, slotFunc](int traceId) {
+                                       int sigval1 = traceId;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QVirtualKeyboardTrace_ChannelsChanged(QVirtualKeyboardTrace* self) {
@@ -178,9 +180,11 @@ void QVirtualKeyboardTrace_ChannelsChanged(QVirtualKeyboardTrace* self) {
 
 void QVirtualKeyboardTrace_Connect_ChannelsChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::channelsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)()>(&QVirtualKeyboardTrace::channelsChanged),
+                                   [self, slotFunc]() {
+                                       slotFunc(self);
+                                   });
 }
 
 void QVirtualKeyboardTrace_LengthChanged(QVirtualKeyboardTrace* self, int length) {
@@ -189,10 +193,12 @@ void QVirtualKeyboardTrace_LengthChanged(QVirtualKeyboardTrace* self, int length
 
 void QVirtualKeyboardTrace_Connect_LengthChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*, int) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*, int)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::lengthChanged, [self, slotFunc](int length) {
-        int sigval1 = length;
-        slotFunc(self, sigval1);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)(int)>(&QVirtualKeyboardTrace::lengthChanged),
+                                   [self, slotFunc](int length) {
+                                       int sigval1 = length;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QVirtualKeyboardTrace_FinalChanged(QVirtualKeyboardTrace* self, bool isFinal) {
@@ -201,10 +207,12 @@ void QVirtualKeyboardTrace_FinalChanged(QVirtualKeyboardTrace* self, bool isFina
 
 void QVirtualKeyboardTrace_Connect_FinalChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*, bool) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*, bool)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::finalChanged, [self, slotFunc](bool isFinal) {
-        bool sigval1 = isFinal;
-        slotFunc(self, sigval1);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)(bool)>(&QVirtualKeyboardTrace::finalChanged),
+                                   [self, slotFunc](bool isFinal) {
+                                       bool sigval1 = isFinal;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QVirtualKeyboardTrace_CanceledChanged(QVirtualKeyboardTrace* self, bool isCanceled) {
@@ -213,10 +221,12 @@ void QVirtualKeyboardTrace_CanceledChanged(QVirtualKeyboardTrace* self, bool isC
 
 void QVirtualKeyboardTrace_Connect_CanceledChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*, bool) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*, bool)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::canceledChanged, [self, slotFunc](bool isCanceled) {
-        bool sigval1 = isCanceled;
-        slotFunc(self, sigval1);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)(bool)>(&QVirtualKeyboardTrace::canceledChanged),
+                                   [self, slotFunc](bool isCanceled) {
+                                       bool sigval1 = isCanceled;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QVirtualKeyboardTrace_OpacityChanged(QVirtualKeyboardTrace* self, double opacity) {
@@ -225,10 +235,12 @@ void QVirtualKeyboardTrace_OpacityChanged(QVirtualKeyboardTrace* self, double op
 
 void QVirtualKeyboardTrace_Connect_OpacityChanged(QVirtualKeyboardTrace* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardTrace*, double) = reinterpret_cast<void (*)(QVirtualKeyboardTrace*, double)>(slot);
-    QVirtualKeyboardTrace::connect(self, &QVirtualKeyboardTrace::opacityChanged, [self, slotFunc](qreal opacity) {
-        double sigval1 = static_cast<double>(opacity);
-        slotFunc(self, sigval1);
-    });
+    QVirtualKeyboardTrace::connect(self,
+                                   static_cast<void (QVirtualKeyboardTrace::*)(qreal)>(&QVirtualKeyboardTrace::opacityChanged),
+                                   [self, slotFunc](qreal opacity) {
+                                       double sigval1 = static_cast<double>(opacity);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_string QVirtualKeyboardTrace_Tr2(const char* s, const char* c) {

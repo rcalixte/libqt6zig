@@ -152,10 +152,12 @@ void KIO__Job_Connected(KIO__Job* self, KIO__Job* job) {
 
 void KIO__Job_Connect_Connected(KIO__Job* self, intptr_t slot) {
     void (*slotFunc)(KIO__Job*, KIO__Job*) = reinterpret_cast<void (*)(KIO__Job*, KIO__Job*)>(slot);
-    KIO::Job::connect(self, &KIO::Job::connected, [self, slotFunc](KIO::Job* job) {
-        KIO__Job* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KIO::Job::connect(self,
+                      static_cast<void (KIO::Job::*)(KIO::Job*)>(&KIO::Job::connected),
+                      [self, slotFunc](KIO::Job* job) {
+                          KIO__Job* sigval1 = job;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 libqt_string KIO__Job_Tr2(const char* s, const char* c) {

@@ -665,10 +665,12 @@ void QDtls_PskRequired(QDtls* self, QSslPreSharedKeyAuthenticator* authenticator
 
 void QDtls_Connect_PskRequired(QDtls* self, intptr_t slot) {
     void (*slotFunc)(QDtls*, QSslPreSharedKeyAuthenticator*) = reinterpret_cast<void (*)(QDtls*, QSslPreSharedKeyAuthenticator*)>(slot);
-    QDtls::connect(self, &QDtls::pskRequired, [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
-        QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
-        slotFunc(self, sigval1);
-    });
+    QDtls::connect(self,
+                   static_cast<void (QDtls::*)(QSslPreSharedKeyAuthenticator*)>(&QDtls::pskRequired),
+                   [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
+                       QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
+                       slotFunc(self, sigval1);
+                   });
 }
 
 void QDtls_HandshakeTimeout(QDtls* self) {
@@ -677,9 +679,11 @@ void QDtls_HandshakeTimeout(QDtls* self) {
 
 void QDtls_Connect_HandshakeTimeout(QDtls* self, intptr_t slot) {
     void (*slotFunc)(QDtls*) = reinterpret_cast<void (*)(QDtls*)>(slot);
-    QDtls::connect(self, &QDtls::handshakeTimeout, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDtls::connect(self,
+                   static_cast<void (QDtls::*)()>(&QDtls::handshakeTimeout),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 libqt_string QDtls_Tr2(const char* s, const char* c) {

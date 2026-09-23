@@ -216,10 +216,12 @@ void Accounts__Manager_AccountCreated(Accounts__Manager* self, unsigned int id) 
 
 void Accounts__Manager_Connect_AccountCreated(Accounts__Manager* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Manager*, unsigned int) = reinterpret_cast<void (*)(Accounts__Manager*, unsigned int)>(slot);
-    Accounts::Manager::connect(self, &Accounts::Manager::accountCreated, [self, slotFunc](Accounts::AccountId id) {
-        unsigned int sigval1 = static_cast<unsigned int>(id);
-        slotFunc(self, sigval1);
-    });
+    Accounts::Manager::connect(self,
+                               static_cast<void (Accounts::Manager::*)(Accounts::AccountId)>(&Accounts::Manager::accountCreated),
+                               [self, slotFunc](Accounts::AccountId id) {
+                                   unsigned int sigval1 = static_cast<unsigned int>(id);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void Accounts__Manager_AccountRemoved(Accounts__Manager* self, unsigned int id) {
@@ -228,10 +230,12 @@ void Accounts__Manager_AccountRemoved(Accounts__Manager* self, unsigned int id) 
 
 void Accounts__Manager_Connect_AccountRemoved(Accounts__Manager* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Manager*, unsigned int) = reinterpret_cast<void (*)(Accounts__Manager*, unsigned int)>(slot);
-    Accounts::Manager::connect(self, &Accounts::Manager::accountRemoved, [self, slotFunc](Accounts::AccountId id) {
-        unsigned int sigval1 = static_cast<unsigned int>(id);
-        slotFunc(self, sigval1);
-    });
+    Accounts::Manager::connect(self,
+                               static_cast<void (Accounts::Manager::*)(Accounts::AccountId)>(&Accounts::Manager::accountRemoved),
+                               [self, slotFunc](Accounts::AccountId id) {
+                                   unsigned int sigval1 = static_cast<unsigned int>(id);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void Accounts__Manager_AccountUpdated(Accounts__Manager* self, unsigned int id) {
@@ -240,10 +244,12 @@ void Accounts__Manager_AccountUpdated(Accounts__Manager* self, unsigned int id) 
 
 void Accounts__Manager_Connect_AccountUpdated(Accounts__Manager* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Manager*, unsigned int) = reinterpret_cast<void (*)(Accounts__Manager*, unsigned int)>(slot);
-    Accounts::Manager::connect(self, &Accounts::Manager::accountUpdated, [self, slotFunc](Accounts::AccountId id) {
-        unsigned int sigval1 = static_cast<unsigned int>(id);
-        slotFunc(self, sigval1);
-    });
+    Accounts::Manager::connect(self,
+                               static_cast<void (Accounts::Manager::*)(Accounts::AccountId)>(&Accounts::Manager::accountUpdated),
+                               [self, slotFunc](Accounts::AccountId id) {
+                                   unsigned int sigval1 = static_cast<unsigned int>(id);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void Accounts__Manager_EnabledEvent(Accounts__Manager* self, unsigned int id) {
@@ -252,10 +258,12 @@ void Accounts__Manager_EnabledEvent(Accounts__Manager* self, unsigned int id) {
 
 void Accounts__Manager_Connect_EnabledEvent(Accounts__Manager* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Manager*, unsigned int) = reinterpret_cast<void (*)(Accounts__Manager*, unsigned int)>(slot);
-    Accounts::Manager::connect(self, &Accounts::Manager::enabledEvent, [self, slotFunc](Accounts::AccountId id) {
-        unsigned int sigval1 = static_cast<unsigned int>(id);
-        slotFunc(self, sigval1);
-    });
+    Accounts::Manager::connect(self,
+                               static_cast<void (Accounts::Manager::*)(Accounts::AccountId)>(&Accounts::Manager::enabledEvent),
+                               [self, slotFunc](Accounts::AccountId id) {
+                                   unsigned int sigval1 = static_cast<unsigned int>(id);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_string Accounts__Manager_Tr2(const char* s, const char* c) {

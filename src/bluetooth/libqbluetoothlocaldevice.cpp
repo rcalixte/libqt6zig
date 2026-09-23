@@ -125,10 +125,12 @@ void QBluetoothLocalDevice_HostModeStateChanged(QBluetoothLocalDevice* self, int
 
 void QBluetoothLocalDevice_Connect_HostModeStateChanged(QBluetoothLocalDevice* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothLocalDevice*, int) = reinterpret_cast<void (*)(QBluetoothLocalDevice*, int)>(slot);
-    QBluetoothLocalDevice::connect(self, &QBluetoothLocalDevice::hostModeStateChanged, [self, slotFunc](QBluetoothLocalDevice::HostMode state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothLocalDevice::connect(self,
+                                   static_cast<void (QBluetoothLocalDevice::*)(QBluetoothLocalDevice::HostMode)>(&QBluetoothLocalDevice::hostModeStateChanged),
+                                   [self, slotFunc](QBluetoothLocalDevice::HostMode state) {
+                                       int sigval1 = static_cast<int>(state);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QBluetoothLocalDevice_DeviceConnected(QBluetoothLocalDevice* self, const QBluetoothAddress* address) {
@@ -137,12 +139,14 @@ void QBluetoothLocalDevice_DeviceConnected(QBluetoothLocalDevice* self, const QB
 
 void QBluetoothLocalDevice_Connect_DeviceConnected(QBluetoothLocalDevice* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothLocalDevice*, QBluetoothAddress*) = reinterpret_cast<void (*)(QBluetoothLocalDevice*, QBluetoothAddress*)>(slot);
-    QBluetoothLocalDevice::connect(self, &QBluetoothLocalDevice::deviceConnected, [self, slotFunc](const QBluetoothAddress& address) {
-        const QBluetoothAddress& address_ret = address;
-        // Cast returned reference into pointer
-        QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothLocalDevice::connect(self,
+                                   static_cast<void (QBluetoothLocalDevice::*)(const QBluetoothAddress&)>(&QBluetoothLocalDevice::deviceConnected),
+                                   [self, slotFunc](const QBluetoothAddress& address) {
+                                       const QBluetoothAddress& address_ret = address;
+                                       // Cast returned reference into pointer
+                                       QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QBluetoothLocalDevice_DeviceDisconnected(QBluetoothLocalDevice* self, const QBluetoothAddress* address) {
@@ -151,12 +155,14 @@ void QBluetoothLocalDevice_DeviceDisconnected(QBluetoothLocalDevice* self, const
 
 void QBluetoothLocalDevice_Connect_DeviceDisconnected(QBluetoothLocalDevice* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothLocalDevice*, QBluetoothAddress*) = reinterpret_cast<void (*)(QBluetoothLocalDevice*, QBluetoothAddress*)>(slot);
-    QBluetoothLocalDevice::connect(self, &QBluetoothLocalDevice::deviceDisconnected, [self, slotFunc](const QBluetoothAddress& address) {
-        const QBluetoothAddress& address_ret = address;
-        // Cast returned reference into pointer
-        QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothLocalDevice::connect(self,
+                                   static_cast<void (QBluetoothLocalDevice::*)(const QBluetoothAddress&)>(&QBluetoothLocalDevice::deviceDisconnected),
+                                   [self, slotFunc](const QBluetoothAddress& address) {
+                                       const QBluetoothAddress& address_ret = address;
+                                       // Cast returned reference into pointer
+                                       QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QBluetoothLocalDevice_PairingFinished(QBluetoothLocalDevice* self, const QBluetoothAddress* address, int pairing) {
@@ -165,13 +171,15 @@ void QBluetoothLocalDevice_PairingFinished(QBluetoothLocalDevice* self, const QB
 
 void QBluetoothLocalDevice_Connect_PairingFinished(QBluetoothLocalDevice* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothLocalDevice*, QBluetoothAddress*, int) = reinterpret_cast<void (*)(QBluetoothLocalDevice*, QBluetoothAddress*, int)>(slot);
-    QBluetoothLocalDevice::connect(self, &QBluetoothLocalDevice::pairingFinished, [self, slotFunc](const QBluetoothAddress& address, QBluetoothLocalDevice::Pairing pairing) {
-        const QBluetoothAddress& address_ret = address;
-        // Cast returned reference into pointer
-        QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
-        int sigval2 = static_cast<int>(pairing);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBluetoothLocalDevice::connect(self,
+                                   static_cast<void (QBluetoothLocalDevice::*)(const QBluetoothAddress&, QBluetoothLocalDevice::Pairing)>(&QBluetoothLocalDevice::pairingFinished),
+                                   [self, slotFunc](const QBluetoothAddress& address, QBluetoothLocalDevice::Pairing pairing) {
+                                       const QBluetoothAddress& address_ret = address;
+                                       // Cast returned reference into pointer
+                                       QBluetoothAddress* sigval1 = const_cast<QBluetoothAddress*>(&address_ret);
+                                       int sigval2 = static_cast<int>(pairing);
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void QBluetoothLocalDevice_ErrorOccurred(QBluetoothLocalDevice* self, int errorVal) {
@@ -180,10 +188,12 @@ void QBluetoothLocalDevice_ErrorOccurred(QBluetoothLocalDevice* self, int errorV
 
 void QBluetoothLocalDevice_Connect_ErrorOccurred(QBluetoothLocalDevice* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothLocalDevice*, int) = reinterpret_cast<void (*)(QBluetoothLocalDevice*, int)>(slot);
-    QBluetoothLocalDevice::connect(self, &QBluetoothLocalDevice::errorOccurred, [self, slotFunc](QBluetoothLocalDevice::Error errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothLocalDevice::connect(self,
+                                   static_cast<void (QBluetoothLocalDevice::*)(QBluetoothLocalDevice::Error)>(&QBluetoothLocalDevice::errorOccurred),
+                                   [self, slotFunc](QBluetoothLocalDevice::Error errorVal) {
+                                       int sigval1 = static_cast<int>(errorVal);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_string QBluetoothLocalDevice_Tr2(const char* s, const char* c) {

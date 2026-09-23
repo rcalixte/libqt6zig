@@ -514,12 +514,14 @@ void QTextDocument_ContentsChange(QTextDocument* self, int from, int charsRemove
 
 void QTextDocument_Connect_ContentsChange(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, int, int, int) = reinterpret_cast<void (*)(QTextDocument*, int, int, int)>(slot);
-    QTextDocument::connect(self, &QTextDocument::contentsChange, [self, slotFunc](int from, int charsRemoved, int charsAdded) {
-        int sigval1 = from;
-        int sigval2 = charsRemoved;
-        int sigval3 = charsAdded;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(int, int, int)>(&QTextDocument::contentsChange),
+                           [self, slotFunc](int from, int charsRemoved, int charsAdded) {
+                               int sigval1 = from;
+                               int sigval2 = charsRemoved;
+                               int sigval3 = charsAdded;
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QTextDocument_ContentsChanged(QTextDocument* self) {
@@ -528,9 +530,11 @@ void QTextDocument_ContentsChanged(QTextDocument* self) {
 
 void QTextDocument_Connect_ContentsChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*) = reinterpret_cast<void (*)(QTextDocument*)>(slot);
-    QTextDocument::connect(self, &QTextDocument::contentsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)()>(&QTextDocument::contentsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QTextDocument_UndoAvailable(QTextDocument* self, bool param1) {
@@ -539,10 +543,12 @@ void QTextDocument_UndoAvailable(QTextDocument* self, bool param1) {
 
 void QTextDocument_Connect_UndoAvailable(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, bool) = reinterpret_cast<void (*)(QTextDocument*, bool)>(slot);
-    QTextDocument::connect(self, &QTextDocument::undoAvailable, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(bool)>(&QTextDocument::undoAvailable),
+                           [self, slotFunc](bool param1) {
+                               bool sigval1 = param1;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_RedoAvailable(QTextDocument* self, bool param1) {
@@ -551,10 +557,12 @@ void QTextDocument_RedoAvailable(QTextDocument* self, bool param1) {
 
 void QTextDocument_Connect_RedoAvailable(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, bool) = reinterpret_cast<void (*)(QTextDocument*, bool)>(slot);
-    QTextDocument::connect(self, &QTextDocument::redoAvailable, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(bool)>(&QTextDocument::redoAvailable),
+                           [self, slotFunc](bool param1) {
+                               bool sigval1 = param1;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_UndoCommandAdded(QTextDocument* self) {
@@ -563,9 +571,11 @@ void QTextDocument_UndoCommandAdded(QTextDocument* self) {
 
 void QTextDocument_Connect_UndoCommandAdded(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*) = reinterpret_cast<void (*)(QTextDocument*)>(slot);
-    QTextDocument::connect(self, &QTextDocument::undoCommandAdded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)()>(&QTextDocument::undoCommandAdded),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QTextDocument_ModificationChanged(QTextDocument* self, bool m) {
@@ -574,10 +584,12 @@ void QTextDocument_ModificationChanged(QTextDocument* self, bool m) {
 
 void QTextDocument_Connect_ModificationChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, bool) = reinterpret_cast<void (*)(QTextDocument*, bool)>(slot);
-    QTextDocument::connect(self, &QTextDocument::modificationChanged, [self, slotFunc](bool m) {
-        bool sigval1 = m;
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(bool)>(&QTextDocument::modificationChanged),
+                           [self, slotFunc](bool m) {
+                               bool sigval1 = m;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_CursorPositionChanged(QTextDocument* self, const QTextCursor* cursor) {
@@ -586,12 +598,14 @@ void QTextDocument_CursorPositionChanged(QTextDocument* self, const QTextCursor*
 
 void QTextDocument_Connect_CursorPositionChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, QTextCursor*) = reinterpret_cast<void (*)(QTextDocument*, QTextCursor*)>(slot);
-    QTextDocument::connect(self, &QTextDocument::cursorPositionChanged, [self, slotFunc](const QTextCursor& cursor) {
-        const QTextCursor& cursor_ret = cursor;
-        // Cast returned reference into pointer
-        QTextCursor* sigval1 = const_cast<QTextCursor*>(&cursor_ret);
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(const QTextCursor&)>(&QTextDocument::cursorPositionChanged),
+                           [self, slotFunc](const QTextCursor& cursor) {
+                               const QTextCursor& cursor_ret = cursor;
+                               // Cast returned reference into pointer
+                               QTextCursor* sigval1 = const_cast<QTextCursor*>(&cursor_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_BlockCountChanged(QTextDocument* self, int newBlockCount) {
@@ -600,10 +614,12 @@ void QTextDocument_BlockCountChanged(QTextDocument* self, int newBlockCount) {
 
 void QTextDocument_Connect_BlockCountChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, int) = reinterpret_cast<void (*)(QTextDocument*, int)>(slot);
-    QTextDocument::connect(self, &QTextDocument::blockCountChanged, [self, slotFunc](int newBlockCount) {
-        int sigval1 = newBlockCount;
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(int)>(&QTextDocument::blockCountChanged),
+                           [self, slotFunc](int newBlockCount) {
+                               int sigval1 = newBlockCount;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_BaseUrlChanged(QTextDocument* self, const QUrl* url) {
@@ -612,12 +628,14 @@ void QTextDocument_BaseUrlChanged(QTextDocument* self, const QUrl* url) {
 
 void QTextDocument_Connect_BaseUrlChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*, QUrl*) = reinterpret_cast<void (*)(QTextDocument*, QUrl*)>(slot);
-    QTextDocument::connect(self, &QTextDocument::baseUrlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)(const QUrl&)>(&QTextDocument::baseUrlChanged),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextDocument_DocumentLayoutChanged(QTextDocument* self) {
@@ -626,9 +644,11 @@ void QTextDocument_DocumentLayoutChanged(QTextDocument* self) {
 
 void QTextDocument_Connect_DocumentLayoutChanged(QTextDocument* self, intptr_t slot) {
     void (*slotFunc)(QTextDocument*) = reinterpret_cast<void (*)(QTextDocument*)>(slot);
-    QTextDocument::connect(self, &QTextDocument::documentLayoutChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTextDocument::connect(self,
+                           static_cast<void (QTextDocument::*)()>(&QTextDocument::documentLayoutChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QTextDocument_Undo2(QTextDocument* self) {

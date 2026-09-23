@@ -193,10 +193,12 @@ void QPlaceManager_Finished(QPlaceManager* self, QPlaceReply* reply) {
 
 void QPlaceManager_Connect_Finished(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, QPlaceReply*) = reinterpret_cast<void (*)(QPlaceManager*, QPlaceReply*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::finished, [self, slotFunc](QPlaceReply* reply) {
-        QPlaceReply* sigval1 = reply;
-        slotFunc(self, sigval1);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(QPlaceReply*)>(&QPlaceManager::finished),
+                           [self, slotFunc](QPlaceReply* reply) {
+                               QPlaceReply* sigval1 = reply;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QPlaceManager_ErrorOccurred(QPlaceManager* self, QPlaceReply* param1, int errorVal) {
@@ -205,11 +207,13 @@ void QPlaceManager_ErrorOccurred(QPlaceManager* self, QPlaceReply* param1, int e
 
 void QPlaceManager_Connect_ErrorOccurred(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, QPlaceReply*, int) = reinterpret_cast<void (*)(QPlaceManager*, QPlaceReply*, int)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::errorOccurred, [self, slotFunc](QPlaceReply* param1, QPlaceReply::Error errorVal) {
-        QPlaceReply* sigval1 = param1;
-        int sigval2 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(QPlaceReply*, QPlaceReply::Error, const QString&)>(&QPlaceManager::errorOccurred),
+                           [self, slotFunc](QPlaceReply* param1, QPlaceReply::Error errorVal) {
+                               QPlaceReply* sigval1 = param1;
+                               int sigval2 = static_cast<int>(errorVal);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QPlaceManager_PlaceAdded(QPlaceManager* self, const libqt_string placeId) {
@@ -219,18 +223,20 @@ void QPlaceManager_PlaceAdded(QPlaceManager* self, const libqt_string placeId) {
 
 void QPlaceManager_Connect_PlaceAdded(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::placeAdded, [self, slotFunc](const QString& placeId) {
-        const auto placeId_ret = placeId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray placeId_b = placeId_ret.toUtf8();
-        auto placeId_str_len = placeId_b.length();
-        const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
-        memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
-        ((char*)placeId_str)[placeId_str_len] = '\0';
-        const char* sigval1 = placeId_str;
-        slotFunc(self, sigval1);
-        libqt_free(placeId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QString&)>(&QPlaceManager::placeAdded),
+                           [self, slotFunc](const QString& placeId) {
+                               const auto placeId_ret = placeId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray placeId_b = placeId_ret.toUtf8();
+                               auto placeId_str_len = placeId_b.length();
+                               const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
+                               memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
+                               ((char*)placeId_str)[placeId_str_len] = '\0';
+                               const char* sigval1 = placeId_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(placeId_str);
+                           });
 }
 
 void QPlaceManager_PlaceUpdated(QPlaceManager* self, const libqt_string placeId) {
@@ -240,18 +246,20 @@ void QPlaceManager_PlaceUpdated(QPlaceManager* self, const libqt_string placeId)
 
 void QPlaceManager_Connect_PlaceUpdated(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::placeUpdated, [self, slotFunc](const QString& placeId) {
-        const auto placeId_ret = placeId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray placeId_b = placeId_ret.toUtf8();
-        auto placeId_str_len = placeId_b.length();
-        const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
-        memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
-        ((char*)placeId_str)[placeId_str_len] = '\0';
-        const char* sigval1 = placeId_str;
-        slotFunc(self, sigval1);
-        libqt_free(placeId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QString&)>(&QPlaceManager::placeUpdated),
+                           [self, slotFunc](const QString& placeId) {
+                               const auto placeId_ret = placeId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray placeId_b = placeId_ret.toUtf8();
+                               auto placeId_str_len = placeId_b.length();
+                               const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
+                               memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
+                               ((char*)placeId_str)[placeId_str_len] = '\0';
+                               const char* sigval1 = placeId_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(placeId_str);
+                           });
 }
 
 void QPlaceManager_PlaceRemoved(QPlaceManager* self, const libqt_string placeId) {
@@ -261,18 +269,20 @@ void QPlaceManager_PlaceRemoved(QPlaceManager* self, const libqt_string placeId)
 
 void QPlaceManager_Connect_PlaceRemoved(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::placeRemoved, [self, slotFunc](const QString& placeId) {
-        const auto placeId_ret = placeId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray placeId_b = placeId_ret.toUtf8();
-        auto placeId_str_len = placeId_b.length();
-        const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
-        memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
-        ((char*)placeId_str)[placeId_str_len] = '\0';
-        const char* sigval1 = placeId_str;
-        slotFunc(self, sigval1);
-        libqt_free(placeId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QString&)>(&QPlaceManager::placeRemoved),
+                           [self, slotFunc](const QString& placeId) {
+                               const auto placeId_ret = placeId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray placeId_b = placeId_ret.toUtf8();
+                               auto placeId_str_len = placeId_b.length();
+                               const char* placeId_str = static_cast<const char*>(malloc(placeId_str_len + 1));
+                               memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
+                               ((char*)placeId_str)[placeId_str_len] = '\0';
+                               const char* sigval1 = placeId_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(placeId_str);
+                           });
 }
 
 void QPlaceManager_CategoryAdded(QPlaceManager* self, const QPlaceCategory* category, const libqt_string parentId) {
@@ -282,21 +292,23 @@ void QPlaceManager_CategoryAdded(QPlaceManager* self, const QPlaceCategory* cate
 
 void QPlaceManager_Connect_CategoryAdded(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, QPlaceCategory*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, QPlaceCategory*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::categoryAdded, [self, slotFunc](const QPlaceCategory& category, const QString& parentId) {
-        const QPlaceCategory& category_ret = category;
-        // Cast returned reference into pointer
-        QPlaceCategory* sigval1 = const_cast<QPlaceCategory*>(&category_ret);
-        const auto parentId_ret = parentId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray parentId_b = parentId_ret.toUtf8();
-        auto parentId_str_len = parentId_b.length();
-        const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
-        memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
-        ((char*)parentId_str)[parentId_str_len] = '\0';
-        const char* sigval2 = parentId_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(parentId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QPlaceCategory&, const QString&)>(&QPlaceManager::categoryAdded),
+                           [self, slotFunc](const QPlaceCategory& category, const QString& parentId) {
+                               const QPlaceCategory& category_ret = category;
+                               // Cast returned reference into pointer
+                               QPlaceCategory* sigval1 = const_cast<QPlaceCategory*>(&category_ret);
+                               const auto parentId_ret = parentId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray parentId_b = parentId_ret.toUtf8();
+                               auto parentId_str_len = parentId_b.length();
+                               const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
+                               memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
+                               ((char*)parentId_str)[parentId_str_len] = '\0';
+                               const char* sigval2 = parentId_str;
+                               slotFunc(self, sigval1, sigval2);
+                               libqt_free(parentId_str);
+                           });
 }
 
 void QPlaceManager_CategoryUpdated(QPlaceManager* self, const QPlaceCategory* category, const libqt_string parentId) {
@@ -306,21 +318,23 @@ void QPlaceManager_CategoryUpdated(QPlaceManager* self, const QPlaceCategory* ca
 
 void QPlaceManager_Connect_CategoryUpdated(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, QPlaceCategory*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, QPlaceCategory*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::categoryUpdated, [self, slotFunc](const QPlaceCategory& category, const QString& parentId) {
-        const QPlaceCategory& category_ret = category;
-        // Cast returned reference into pointer
-        QPlaceCategory* sigval1 = const_cast<QPlaceCategory*>(&category_ret);
-        const auto parentId_ret = parentId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray parentId_b = parentId_ret.toUtf8();
-        auto parentId_str_len = parentId_b.length();
-        const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
-        memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
-        ((char*)parentId_str)[parentId_str_len] = '\0';
-        const char* sigval2 = parentId_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(parentId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QPlaceCategory&, const QString&)>(&QPlaceManager::categoryUpdated),
+                           [self, slotFunc](const QPlaceCategory& category, const QString& parentId) {
+                               const QPlaceCategory& category_ret = category;
+                               // Cast returned reference into pointer
+                               QPlaceCategory* sigval1 = const_cast<QPlaceCategory*>(&category_ret);
+                               const auto parentId_ret = parentId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray parentId_b = parentId_ret.toUtf8();
+                               auto parentId_str_len = parentId_b.length();
+                               const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
+                               memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
+                               ((char*)parentId_str)[parentId_str_len] = '\0';
+                               const char* sigval2 = parentId_str;
+                               slotFunc(self, sigval1, sigval2);
+                               libqt_free(parentId_str);
+                           });
 }
 
 void QPlaceManager_CategoryRemoved(QPlaceManager* self, const libqt_string categoryId, const libqt_string parentId) {
@@ -331,27 +345,29 @@ void QPlaceManager_CategoryRemoved(QPlaceManager* self, const libqt_string categ
 
 void QPlaceManager_Connect_CategoryRemoved(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, const char*, const char*) = reinterpret_cast<void (*)(QPlaceManager*, const char*, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::categoryRemoved, [self, slotFunc](const QString& categoryId, const QString& parentId) {
-        const auto categoryId_ret = categoryId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray categoryId_b = categoryId_ret.toUtf8();
-        auto categoryId_str_len = categoryId_b.length();
-        const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
-        memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
-        ((char*)categoryId_str)[categoryId_str_len] = '\0';
-        const char* sigval1 = categoryId_str;
-        const auto parentId_ret = parentId;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray parentId_b = parentId_ret.toUtf8();
-        auto parentId_str_len = parentId_b.length();
-        const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
-        memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
-        ((char*)parentId_str)[parentId_str_len] = '\0';
-        const char* sigval2 = parentId_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(categoryId_str);
-        libqt_free(parentId_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(const QString&, const QString&)>(&QPlaceManager::categoryRemoved),
+                           [self, slotFunc](const QString& categoryId, const QString& parentId) {
+                               const auto categoryId_ret = categoryId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray categoryId_b = categoryId_ret.toUtf8();
+                               auto categoryId_str_len = categoryId_b.length();
+                               const char* categoryId_str = static_cast<const char*>(malloc(categoryId_str_len + 1));
+                               memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
+                               ((char*)categoryId_str)[categoryId_str_len] = '\0';
+                               const char* sigval1 = categoryId_str;
+                               const auto parentId_ret = parentId;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray parentId_b = parentId_ret.toUtf8();
+                               auto parentId_str_len = parentId_b.length();
+                               const char* parentId_str = static_cast<const char*>(malloc(parentId_str_len + 1));
+                               memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
+                               ((char*)parentId_str)[parentId_str_len] = '\0';
+                               const char* sigval2 = parentId_str;
+                               slotFunc(self, sigval1, sigval2);
+                               libqt_free(categoryId_str);
+                               libqt_free(parentId_str);
+                           });
 }
 
 void QPlaceManager_DataChanged(QPlaceManager* self) {
@@ -360,9 +376,11 @@ void QPlaceManager_DataChanged(QPlaceManager* self) {
 
 void QPlaceManager_Connect_DataChanged(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*) = reinterpret_cast<void (*)(QPlaceManager*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::dataChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)()>(&QPlaceManager::dataChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 libqt_string QPlaceManager_Tr2(const char* s, const char* c) {
@@ -437,20 +455,22 @@ void QPlaceManager_ErrorOccurred3(QPlaceManager* self, QPlaceReply* param1, int 
 
 void QPlaceManager_Connect_ErrorOccurred3(QPlaceManager* self, intptr_t slot) {
     void (*slotFunc)(QPlaceManager*, QPlaceReply*, int, const char*) = reinterpret_cast<void (*)(QPlaceManager*, QPlaceReply*, int, const char*)>(slot);
-    QPlaceManager::connect(self, &QPlaceManager::errorOccurred, [self, slotFunc](QPlaceReply* param1, QPlaceReply::Error errorVal, const QString& errorString) {
-        QPlaceReply* sigval1 = param1;
-        int sigval2 = static_cast<int>(errorVal);
-        const auto errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorString_b = errorString_ret.toUtf8();
-        auto errorString_str_len = errorString_b.length();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
-        ((char*)errorString_str)[errorString_str_len] = '\0';
-        const char* sigval3 = errorString_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(errorString_str);
-    });
+    QPlaceManager::connect(self,
+                           static_cast<void (QPlaceManager::*)(QPlaceReply*, QPlaceReply::Error, const QString&)>(&QPlaceManager::errorOccurred),
+                           [self, slotFunc](QPlaceReply* param1, QPlaceReply::Error errorVal, const QString& errorString) {
+                               QPlaceReply* sigval1 = param1;
+                               int sigval2 = static_cast<int>(errorVal);
+                               const auto errorString_ret = errorString;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray errorString_b = errorString_ret.toUtf8();
+                               auto errorString_str_len = errorString_b.length();
+                               const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+                               memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+                               ((char*)errorString_str)[errorString_str_len] = '\0';
+                               const char* sigval3 = errorString_str;
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                               libqt_free(errorString_str);
+                           });
 }
 
 void QPlaceManager_Delete(QPlaceManager* self) {

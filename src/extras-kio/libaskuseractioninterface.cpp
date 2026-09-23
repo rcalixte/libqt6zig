@@ -87,14 +87,16 @@ void KIO__AskUserActionInterface_AskUserRenameResult(KIO__AskUserActionInterface
 
 void KIO__AskUserActionInterface_Connect_AskUserRenameResult(KIO__AskUserActionInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__AskUserActionInterface*, int, QUrl*, KJob*) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, int, QUrl*, KJob*)>(slot);
-    KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::askUserRenameResult, [self, slotFunc](KIO::RenameDialog_Result result, const QUrl& newUrl, KJob* parentJob) {
-        int sigval1 = static_cast<int>(result);
-        const QUrl& newUrl_ret = newUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
-        KJob* sigval3 = parentJob;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::AskUserActionInterface::connect(self,
+                                         static_cast<void (KIO::AskUserActionInterface::*)(KIO::RenameDialog_Result, const QUrl&, KJob*)>(&KIO::AskUserActionInterface::askUserRenameResult),
+                                         [self, slotFunc](KIO::RenameDialog_Result result, const QUrl& newUrl, KJob* parentJob) {
+                                             int sigval1 = static_cast<int>(result);
+                                             const QUrl& newUrl_ret = newUrl;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
+                                             KJob* sigval3 = parentJob;
+                                             slotFunc(self, sigval1, sigval2, sigval3);
+                                         });
 }
 
 void KIO__AskUserActionInterface_AskUserSkipResult(KIO__AskUserActionInterface* self, int result, KJob* parentJob) {
@@ -103,11 +105,13 @@ void KIO__AskUserActionInterface_AskUserSkipResult(KIO__AskUserActionInterface* 
 
 void KIO__AskUserActionInterface_Connect_AskUserSkipResult(KIO__AskUserActionInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__AskUserActionInterface*, int, KJob*) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, int, KJob*)>(slot);
-    KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::askUserSkipResult, [self, slotFunc](KIO::SkipDialog_Result result, KJob* parentJob) {
-        int sigval1 = static_cast<int>(result);
-        KJob* sigval2 = parentJob;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::AskUserActionInterface::connect(self,
+                                         static_cast<void (KIO::AskUserActionInterface::*)(KIO::SkipDialog_Result, KJob*)>(&KIO::AskUserActionInterface::askUserSkipResult),
+                                         [self, slotFunc](KIO::SkipDialog_Result result, KJob* parentJob) {
+                                             int sigval1 = static_cast<int>(result);
+                                             KJob* sigval2 = parentJob;
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
 }
 
 void KIO__AskUserActionInterface_AskUserDeleteResult(KIO__AskUserActionInterface* self, bool allowDelete, const libqt_list /* of QUrl* */ urls, int deletionType, QWidget* parent) {
@@ -122,23 +126,25 @@ void KIO__AskUserActionInterface_AskUserDeleteResult(KIO__AskUserActionInterface
 
 void KIO__AskUserActionInterface_Connect_AskUserDeleteResult(KIO__AskUserActionInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__AskUserActionInterface*, bool, libqt_list /* of QUrl* */, int, QWidget*) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, bool, libqt_list /* of QUrl* */, int, QWidget*)>(slot);
-    KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::askUserDeleteResult, [self, slotFunc](bool allowDelete, const QList<QUrl>& urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget* parent) {
-        bool sigval1 = allowDelete;
-        const QList<QUrl>& urls_ret = urls;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
-        for (qsizetype i = 0; i < urls_ret.size(); ++i) {
-            urls_arr[i] = new QUrl(urls_ret[i]);
-        }
-        libqt_list urls_out;
-        urls_out.len = urls_ret.size();
-        urls_out.data = static_cast<void*>(urls_arr);
-        libqt_list /* of QUrl* */ sigval2 = urls_out;
-        int sigval3 = static_cast<int>(deletionType);
-        QWidget* sigval4 = parent;
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-        free(urls_arr);
-    });
+    KIO::AskUserActionInterface::connect(self,
+                                         static_cast<void (KIO::AskUserActionInterface::*)(bool, const QList<QUrl>&, KIO::AskUserActionInterface::DeletionType, QWidget*)>(&KIO::AskUserActionInterface::askUserDeleteResult),
+                                         [self, slotFunc](bool allowDelete, const QList<QUrl>& urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget* parent) {
+                                             bool sigval1 = allowDelete;
+                                             const QList<QUrl>& urls_ret = urls;
+                                             // Convert QList<> from C++ memory to manually-managed C memory
+                                             QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
+                                             for (qsizetype i = 0; i < urls_ret.size(); ++i) {
+                                                 urls_arr[i] = new QUrl(urls_ret[i]);
+                                             }
+                                             libqt_list urls_out;
+                                             urls_out.len = urls_ret.size();
+                                             urls_out.data = static_cast<void*>(urls_arr);
+                                             libqt_list /* of QUrl* */ sigval2 = urls_out;
+                                             int sigval3 = static_cast<int>(deletionType);
+                                             QWidget* sigval4 = parent;
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                             free(urls_arr);
+                                         });
 }
 
 void KIO__AskUserActionInterface_MessageBoxResult(KIO__AskUserActionInterface* self, int result) {
@@ -147,10 +153,12 @@ void KIO__AskUserActionInterface_MessageBoxResult(KIO__AskUserActionInterface* s
 
 void KIO__AskUserActionInterface_Connect_MessageBoxResult(KIO__AskUserActionInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__AskUserActionInterface*, int) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, int)>(slot);
-    KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::messageBoxResult, [self, slotFunc](int result) {
-        int sigval1 = result;
-        slotFunc(self, sigval1);
-    });
+    KIO::AskUserActionInterface::connect(self,
+                                         static_cast<void (KIO::AskUserActionInterface::*)(int)>(&KIO::AskUserActionInterface::messageBoxResult),
+                                         [self, slotFunc](int result) {
+                                             int sigval1 = result;
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 void KIO__AskUserActionInterface_AskIgnoreSslErrorsResult(KIO__AskUserActionInterface* self, int result) {
@@ -159,10 +167,12 @@ void KIO__AskUserActionInterface_AskIgnoreSslErrorsResult(KIO__AskUserActionInte
 
 void KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(KIO__AskUserActionInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__AskUserActionInterface*, int) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, int)>(slot);
-    KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::askIgnoreSslErrorsResult, [self, slotFunc](int result) {
-        int sigval1 = result;
-        slotFunc(self, sigval1);
-    });
+    KIO::AskUserActionInterface::connect(self,
+                                         static_cast<void (KIO::AskUserActionInterface::*)(int)>(&KIO::AskUserActionInterface::askIgnoreSslErrorsResult),
+                                         [self, slotFunc](int result) {
+                                             int sigval1 = result;
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 libqt_string KIO__AskUserActionInterface_Tr2(const char* s, const char* c) {

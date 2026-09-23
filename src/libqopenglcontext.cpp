@@ -248,9 +248,11 @@ void QOpenGLContext_AboutToBeDestroyed(QOpenGLContext* self) {
 
 void QOpenGLContext_Connect_AboutToBeDestroyed(QOpenGLContext* self, intptr_t slot) {
     void (*slotFunc)(QOpenGLContext*) = reinterpret_cast<void (*)(QOpenGLContext*)>(slot);
-    QOpenGLContext::connect(self, &QOpenGLContext::aboutToBeDestroyed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QOpenGLContext::connect(self,
+                            static_cast<void (QOpenGLContext::*)()>(&QOpenGLContext::aboutToBeDestroyed),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 libqt_string QOpenGLContext_Tr2(const char* s, const char* c) {

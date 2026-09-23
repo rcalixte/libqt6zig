@@ -295,9 +295,11 @@ void Sonnet__Settings_SkipUppercaseChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_SkipUppercaseChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::skipUppercaseChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::skipUppercaseChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_AutodetectLanguageChanged(Sonnet__Settings* self) {
@@ -306,9 +308,11 @@ void Sonnet__Settings_AutodetectLanguageChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_AutodetectLanguageChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::autodetectLanguageChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::autodetectLanguageChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_BackgroundCheckerEnabledChanged(Sonnet__Settings* self) {
@@ -317,9 +321,11 @@ void Sonnet__Settings_BackgroundCheckerEnabledChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::backgroundCheckerEnabledChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::backgroundCheckerEnabledChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_DefaultClientChanged(Sonnet__Settings* self) {
@@ -328,9 +334,11 @@ void Sonnet__Settings_DefaultClientChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_DefaultClientChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::defaultClientChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::defaultClientChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_DefaultLanguageChanged(Sonnet__Settings* self) {
@@ -339,9 +347,11 @@ void Sonnet__Settings_DefaultLanguageChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_DefaultLanguageChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::defaultLanguageChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::defaultLanguageChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_PreferredLanguagesChanged(Sonnet__Settings* self) {
@@ -350,9 +360,11 @@ void Sonnet__Settings_PreferredLanguagesChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_PreferredLanguagesChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::preferredLanguagesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::preferredLanguagesChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_SkipRunTogetherChanged(Sonnet__Settings* self) {
@@ -361,9 +373,11 @@ void Sonnet__Settings_SkipRunTogetherChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_SkipRunTogetherChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::skipRunTogetherChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::skipRunTogetherChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_CheckerEnabledByDefaultChanged(Sonnet__Settings* self) {
@@ -372,9 +386,11 @@ void Sonnet__Settings_CheckerEnabledByDefaultChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::checkerEnabledByDefaultChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::checkerEnabledByDefaultChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_CurrentIgnoreListChanged(Sonnet__Settings* self) {
@@ -383,9 +399,11 @@ void Sonnet__Settings_CurrentIgnoreListChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_CurrentIgnoreListChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::currentIgnoreListChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::currentIgnoreListChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void Sonnet__Settings_ModifiedChanged(Sonnet__Settings* self) {
@@ -394,9 +412,11 @@ void Sonnet__Settings_ModifiedChanged(Sonnet__Settings* self) {
 
 void Sonnet__Settings_Connect_ModifiedChanged(Sonnet__Settings* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Settings*) = reinterpret_cast<void (*)(Sonnet__Settings*)>(slot);
-    Sonnet::Settings::connect(self, &Sonnet::Settings::modifiedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::Settings::connect(self,
+                              static_cast<void (Sonnet::Settings::*)()>(&Sonnet::Settings::modifiedChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string Sonnet__Settings_Tr2(const char* s, const char* c) {

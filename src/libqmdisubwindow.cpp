@@ -145,11 +145,13 @@ void QMdiSubWindow_WindowStateChanged(QMdiSubWindow* self, int oldState, int new
 
 void QMdiSubWindow_Connect_WindowStateChanged(QMdiSubWindow* self, intptr_t slot) {
     void (*slotFunc)(QMdiSubWindow*, int, int) = reinterpret_cast<void (*)(QMdiSubWindow*, int, int)>(slot);
-    QMdiSubWindow::connect(self, &QMdiSubWindow::windowStateChanged, [self, slotFunc](Qt::WindowStates oldState, Qt::WindowStates newState) {
-        int sigval1 = static_cast<int>(oldState);
-        int sigval2 = static_cast<int>(newState);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QMdiSubWindow::connect(self,
+                           static_cast<void (QMdiSubWindow::*)(Qt::WindowStates, Qt::WindowStates)>(&QMdiSubWindow::windowStateChanged),
+                           [self, slotFunc](Qt::WindowStates oldState, Qt::WindowStates newState) {
+                               int sigval1 = static_cast<int>(oldState);
+                               int sigval2 = static_cast<int>(newState);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QMdiSubWindow_AboutToActivate(QMdiSubWindow* self) {
@@ -158,9 +160,11 @@ void QMdiSubWindow_AboutToActivate(QMdiSubWindow* self) {
 
 void QMdiSubWindow_Connect_AboutToActivate(QMdiSubWindow* self, intptr_t slot) {
     void (*slotFunc)(QMdiSubWindow*) = reinterpret_cast<void (*)(QMdiSubWindow*)>(slot);
-    QMdiSubWindow::connect(self, &QMdiSubWindow::aboutToActivate, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMdiSubWindow::connect(self,
+                           static_cast<void (QMdiSubWindow::*)()>(&QMdiSubWindow::aboutToActivate),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QMdiSubWindow_ShowSystemMenu(QMdiSubWindow* self) {

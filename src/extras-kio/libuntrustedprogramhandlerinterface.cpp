@@ -55,10 +55,12 @@ void KIO__UntrustedProgramHandlerInterface_Result(KIO__UntrustedProgramHandlerIn
 
 void KIO__UntrustedProgramHandlerInterface_Connect_Result(KIO__UntrustedProgramHandlerInterface* self, intptr_t slot) {
     void (*slotFunc)(KIO__UntrustedProgramHandlerInterface*, bool) = reinterpret_cast<void (*)(KIO__UntrustedProgramHandlerInterface*, bool)>(slot);
-    KIO::UntrustedProgramHandlerInterface::connect(self, &KIO::UntrustedProgramHandlerInterface::result, [self, slotFunc](bool confirmed) {
-        bool sigval1 = confirmed;
-        slotFunc(self, sigval1);
-    });
+    KIO::UntrustedProgramHandlerInterface::connect(self,
+                                                   static_cast<void (KIO::UntrustedProgramHandlerInterface::*)(bool)>(&KIO::UntrustedProgramHandlerInterface::result),
+                                                   [self, slotFunc](bool confirmed) {
+                                                       bool sigval1 = confirmed;
+                                                       slotFunc(self, sigval1);
+                                                   });
 }
 
 libqt_string KIO__UntrustedProgramHandlerInterface_Tr2(const char* s, const char* c) {

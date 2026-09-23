@@ -111,10 +111,12 @@ void QCheckBox_StateChanged(QCheckBox* self, int param1) {
 
 void QCheckBox_Connect_StateChanged(QCheckBox* self, intptr_t slot) {
     void (*slotFunc)(QCheckBox*, int) = reinterpret_cast<void (*)(QCheckBox*, int)>(slot);
-    QCheckBox::connect(self, &QCheckBox::stateChanged, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QCheckBox::connect(self,
+                       static_cast<void (QCheckBox::*)(int)>(&QCheckBox::stateChanged),
+                       [self, slotFunc](int param1) {
+                           int sigval1 = param1;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QCheckBox_CheckStateChanged(QCheckBox* self, int param1) {
@@ -123,10 +125,12 @@ void QCheckBox_CheckStateChanged(QCheckBox* self, int param1) {
 
 void QCheckBox_Connect_CheckStateChanged(QCheckBox* self, intptr_t slot) {
     void (*slotFunc)(QCheckBox*, int) = reinterpret_cast<void (*)(QCheckBox*, int)>(slot);
-    QCheckBox::connect(self, &QCheckBox::checkStateChanged, [self, slotFunc](Qt::CheckState param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QCheckBox::connect(self,
+                       static_cast<void (QCheckBox::*)(Qt::CheckState)>(&QCheckBox::checkStateChanged),
+                       [self, slotFunc](Qt::CheckState param1) {
+                           int sigval1 = static_cast<int>(param1);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 bool QCheckBox_Event(QCheckBox* self, QEvent* e) {

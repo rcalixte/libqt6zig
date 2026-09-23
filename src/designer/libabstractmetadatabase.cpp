@@ -286,9 +286,11 @@ void QDesignerMetaDataBaseInterface_Changed(QDesignerMetaDataBaseInterface* self
 
 void QDesignerMetaDataBaseInterface_Connect_Changed(QDesignerMetaDataBaseInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerMetaDataBaseInterface*) = reinterpret_cast<void (*)(QDesignerMetaDataBaseInterface*)>(slot);
-    QDesignerMetaDataBaseInterface::connect(self, &QDesignerMetaDataBaseInterface::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDesignerMetaDataBaseInterface::connect(self,
+                                            static_cast<void (QDesignerMetaDataBaseInterface::*)()>(&QDesignerMetaDataBaseInterface::changed),
+                                            [self, slotFunc]() {
+                                                slotFunc(self);
+                                            });
 }
 
 libqt_string QDesignerMetaDataBaseInterface_Tr2(const char* s, const char* c) {

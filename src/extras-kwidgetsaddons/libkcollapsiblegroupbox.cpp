@@ -120,9 +120,11 @@ void KCollapsibleGroupBox_TitleChanged(KCollapsibleGroupBox* self) {
 
 void KCollapsibleGroupBox_Connect_TitleChanged(KCollapsibleGroupBox* self, intptr_t slot) {
     void (*slotFunc)(KCollapsibleGroupBox*) = reinterpret_cast<void (*)(KCollapsibleGroupBox*)>(slot);
-    KCollapsibleGroupBox::connect(self, &KCollapsibleGroupBox::titleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCollapsibleGroupBox::connect(self,
+                                  static_cast<void (KCollapsibleGroupBox::*)()>(&KCollapsibleGroupBox::titleChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KCollapsibleGroupBox_ExpandedChanged(KCollapsibleGroupBox* self) {
@@ -131,9 +133,11 @@ void KCollapsibleGroupBox_ExpandedChanged(KCollapsibleGroupBox* self) {
 
 void KCollapsibleGroupBox_Connect_ExpandedChanged(KCollapsibleGroupBox* self, intptr_t slot) {
     void (*slotFunc)(KCollapsibleGroupBox*) = reinterpret_cast<void (*)(KCollapsibleGroupBox*)>(slot);
-    KCollapsibleGroupBox::connect(self, &KCollapsibleGroupBox::expandedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCollapsibleGroupBox::connect(self,
+                                  static_cast<void (KCollapsibleGroupBox::*)()>(&KCollapsibleGroupBox::expandedChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KCollapsibleGroupBox_PaintEvent(KCollapsibleGroupBox* self, QPaintEvent* param1) {

@@ -347,10 +347,12 @@ void QTabBar_CurrentChanged(QTabBar* self, int index) {
 
 void QTabBar_Connect_CurrentChanged(QTabBar* self, intptr_t slot) {
     void (*slotFunc)(QTabBar*, int) = reinterpret_cast<void (*)(QTabBar*, int)>(slot);
-    QTabBar::connect(self, &QTabBar::currentChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QTabBar::connect(self,
+                     static_cast<void (QTabBar::*)(int)>(&QTabBar::currentChanged),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QTabBar_TabCloseRequested(QTabBar* self, int index) {
@@ -359,10 +361,12 @@ void QTabBar_TabCloseRequested(QTabBar* self, int index) {
 
 void QTabBar_Connect_TabCloseRequested(QTabBar* self, intptr_t slot) {
     void (*slotFunc)(QTabBar*, int) = reinterpret_cast<void (*)(QTabBar*, int)>(slot);
-    QTabBar::connect(self, &QTabBar::tabCloseRequested, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QTabBar::connect(self,
+                     static_cast<void (QTabBar::*)(int)>(&QTabBar::tabCloseRequested),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QTabBar_TabMoved(QTabBar* self, int from, int to) {
@@ -371,11 +375,13 @@ void QTabBar_TabMoved(QTabBar* self, int from, int to) {
 
 void QTabBar_Connect_TabMoved(QTabBar* self, intptr_t slot) {
     void (*slotFunc)(QTabBar*, int, int) = reinterpret_cast<void (*)(QTabBar*, int, int)>(slot);
-    QTabBar::connect(self, &QTabBar::tabMoved, [self, slotFunc](int from, int to) {
-        int sigval1 = from;
-        int sigval2 = to;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QTabBar::connect(self,
+                     static_cast<void (QTabBar::*)(int, int)>(&QTabBar::tabMoved),
+                     [self, slotFunc](int from, int to) {
+                         int sigval1 = from;
+                         int sigval2 = to;
+                         slotFunc(self, sigval1, sigval2);
+                     });
 }
 
 void QTabBar_TabBarClicked(QTabBar* self, int index) {
@@ -384,10 +390,12 @@ void QTabBar_TabBarClicked(QTabBar* self, int index) {
 
 void QTabBar_Connect_TabBarClicked(QTabBar* self, intptr_t slot) {
     void (*slotFunc)(QTabBar*, int) = reinterpret_cast<void (*)(QTabBar*, int)>(slot);
-    QTabBar::connect(self, &QTabBar::tabBarClicked, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QTabBar::connect(self,
+                     static_cast<void (QTabBar::*)(int)>(&QTabBar::tabBarClicked),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QTabBar_TabBarDoubleClicked(QTabBar* self, int index) {
@@ -396,10 +404,12 @@ void QTabBar_TabBarDoubleClicked(QTabBar* self, int index) {
 
 void QTabBar_Connect_TabBarDoubleClicked(QTabBar* self, intptr_t slot) {
     void (*slotFunc)(QTabBar*, int) = reinterpret_cast<void (*)(QTabBar*, int)>(slot);
-    QTabBar::connect(self, &QTabBar::tabBarDoubleClicked, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QTabBar::connect(self,
+                     static_cast<void (QTabBar::*)(int)>(&QTabBar::tabBarDoubleClicked),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 QSize* QTabBar_TabSizeHint(const QTabBar* self, int index) {

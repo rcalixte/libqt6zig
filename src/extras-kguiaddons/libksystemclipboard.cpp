@@ -66,10 +66,12 @@ void KSystemClipboard_Changed(KSystemClipboard* self, int mode) {
 
 void KSystemClipboard_Connect_Changed(KSystemClipboard* self, intptr_t slot) {
     void (*slotFunc)(KSystemClipboard*, int) = reinterpret_cast<void (*)(KSystemClipboard*, int)>(slot);
-    KSystemClipboard::connect(self, &KSystemClipboard::changed, [self, slotFunc](QClipboard::Mode mode) {
-        int sigval1 = static_cast<int>(mode);
-        slotFunc(self, sigval1);
-    });
+    KSystemClipboard::connect(self,
+                              static_cast<void (KSystemClipboard::*)(QClipboard::Mode)>(&KSystemClipboard::changed),
+                              [self, slotFunc](QClipboard::Mode mode) {
+                                  int sigval1 = static_cast<int>(mode);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 libqt_string KSystemClipboard_Tr2(const char* s, const char* c) {

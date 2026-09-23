@@ -134,10 +134,12 @@ void QValueAxis_MinChanged(QValueAxis* self, double min) {
 
 void QValueAxis_Connect_MinChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, double) = reinterpret_cast<void (*)(QValueAxis*, double)>(slot);
-    QValueAxis::connect(self, &QValueAxis::minChanged, [self, slotFunc](qreal min) {
-        double sigval1 = static_cast<double>(min);
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::minChanged),
+                        [self, slotFunc](qreal min) {
+                            double sigval1 = static_cast<double>(min);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_MaxChanged(QValueAxis* self, double max) {
@@ -146,10 +148,12 @@ void QValueAxis_MaxChanged(QValueAxis* self, double max) {
 
 void QValueAxis_Connect_MaxChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, double) = reinterpret_cast<void (*)(QValueAxis*, double)>(slot);
-    QValueAxis::connect(self, &QValueAxis::maxChanged, [self, slotFunc](qreal max) {
-        double sigval1 = static_cast<double>(max);
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::maxChanged),
+                        [self, slotFunc](qreal max) {
+                            double sigval1 = static_cast<double>(max);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_RangeChanged(QValueAxis* self, double min, double max) {
@@ -158,11 +162,13 @@ void QValueAxis_RangeChanged(QValueAxis* self, double min, double max) {
 
 void QValueAxis_Connect_RangeChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, double, double) = reinterpret_cast<void (*)(QValueAxis*, double, double)>(slot);
-    QValueAxis::connect(self, &QValueAxis::rangeChanged, [self, slotFunc](qreal min, qreal max) {
-        double sigval1 = static_cast<double>(min);
-        double sigval2 = static_cast<double>(max);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(qreal, qreal)>(&QValueAxis::rangeChanged),
+                        [self, slotFunc](qreal min, qreal max) {
+                            double sigval1 = static_cast<double>(min);
+                            double sigval2 = static_cast<double>(max);
+                            slotFunc(self, sigval1, sigval2);
+                        });
 }
 
 void QValueAxis_TickCountChanged(QValueAxis* self, int tickCount) {
@@ -171,10 +177,12 @@ void QValueAxis_TickCountChanged(QValueAxis* self, int tickCount) {
 
 void QValueAxis_Connect_TickCountChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, int) = reinterpret_cast<void (*)(QValueAxis*, int)>(slot);
-    QValueAxis::connect(self, &QValueAxis::tickCountChanged, [self, slotFunc](int tickCount) {
-        int sigval1 = tickCount;
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(int)>(&QValueAxis::tickCountChanged),
+                        [self, slotFunc](int tickCount) {
+                            int sigval1 = tickCount;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_MinorTickCountChanged(QValueAxis* self, int tickCount) {
@@ -183,10 +191,12 @@ void QValueAxis_MinorTickCountChanged(QValueAxis* self, int tickCount) {
 
 void QValueAxis_Connect_MinorTickCountChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, int) = reinterpret_cast<void (*)(QValueAxis*, int)>(slot);
-    QValueAxis::connect(self, &QValueAxis::minorTickCountChanged, [self, slotFunc](int tickCount) {
-        int sigval1 = tickCount;
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(int)>(&QValueAxis::minorTickCountChanged),
+                        [self, slotFunc](int tickCount) {
+                            int sigval1 = tickCount;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_LabelFormatChanged(QValueAxis* self, const libqt_string format) {
@@ -196,18 +206,20 @@ void QValueAxis_LabelFormatChanged(QValueAxis* self, const libqt_string format) 
 
 void QValueAxis_Connect_LabelFormatChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, const char*) = reinterpret_cast<void (*)(QValueAxis*, const char*)>(slot);
-    QValueAxis::connect(self, &QValueAxis::labelFormatChanged, [self, slotFunc](const QString& format) {
-        const auto format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray format_b = format_ret.toUtf8();
-        auto format_str_len = format_b.length();
-        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
-        memcpy((void*)format_str, format_b.data(), format_str_len);
-        ((char*)format_str)[format_str_len] = '\0';
-        const char* sigval1 = format_str;
-        slotFunc(self, sigval1);
-        libqt_free(format_str);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(const QString&)>(&QValueAxis::labelFormatChanged),
+                        [self, slotFunc](const QString& format) {
+                            const auto format_ret = format;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray format_b = format_ret.toUtf8();
+                            auto format_str_len = format_b.length();
+                            const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+                            memcpy((void*)format_str, format_b.data(), format_str_len);
+                            ((char*)format_str)[format_str_len] = '\0';
+                            const char* sigval1 = format_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(format_str);
+                        });
 }
 
 void QValueAxis_TickIntervalChanged(QValueAxis* self, double interval) {
@@ -216,10 +228,12 @@ void QValueAxis_TickIntervalChanged(QValueAxis* self, double interval) {
 
 void QValueAxis_Connect_TickIntervalChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, double) = reinterpret_cast<void (*)(QValueAxis*, double)>(slot);
-    QValueAxis::connect(self, &QValueAxis::tickIntervalChanged, [self, slotFunc](qreal interval) {
-        double sigval1 = static_cast<double>(interval);
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickIntervalChanged),
+                        [self, slotFunc](qreal interval) {
+                            double sigval1 = static_cast<double>(interval);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_TickAnchorChanged(QValueAxis* self, double anchor) {
@@ -228,10 +242,12 @@ void QValueAxis_TickAnchorChanged(QValueAxis* self, double anchor) {
 
 void QValueAxis_Connect_TickAnchorChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, double) = reinterpret_cast<void (*)(QValueAxis*, double)>(slot);
-    QValueAxis::connect(self, &QValueAxis::tickAnchorChanged, [self, slotFunc](qreal anchor) {
-        double sigval1 = static_cast<double>(anchor);
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickAnchorChanged),
+                        [self, slotFunc](qreal anchor) {
+                            double sigval1 = static_cast<double>(anchor);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QValueAxis_TickTypeChanged(QValueAxis* self, int typeVal) {
@@ -240,10 +256,12 @@ void QValueAxis_TickTypeChanged(QValueAxis* self, int typeVal) {
 
 void QValueAxis_Connect_TickTypeChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, int) = reinterpret_cast<void (*)(QValueAxis*, int)>(slot);
-    QValueAxis::connect(self, &QValueAxis::tickTypeChanged, [self, slotFunc](QValueAxis::TickType typeVal) {
-        int sigval1 = static_cast<int>(typeVal);
-        slotFunc(self, sigval1);
-    });
+    QValueAxis::connect(self,
+                        static_cast<void (QValueAxis::*)(QValueAxis::TickType)>(&QValueAxis::tickTypeChanged),
+                        [self, slotFunc](QValueAxis::TickType typeVal) {
+                            int sigval1 = static_cast<int>(typeVal);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QValueAxis_Tr2(const char* s, const char* c) {

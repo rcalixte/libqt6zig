@@ -109,9 +109,11 @@ void TextAddonsWidgets__SlideContainer_SlidedIn(TextAddonsWidgets__SlideContaine
 
 void TextAddonsWidgets__SlideContainer_Connect_SlidedIn(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     void (*slotFunc)(TextAddonsWidgets__SlideContainer*) = reinterpret_cast<void (*)(TextAddonsWidgets__SlideContainer*)>(slot);
-    TextAddonsWidgets::SlideContainer::connect(self, &TextAddonsWidgets::SlideContainer::slidedIn, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextAddonsWidgets::SlideContainer::connect(self,
+                                               static_cast<void (TextAddonsWidgets::SlideContainer::*)()>(&TextAddonsWidgets::SlideContainer::slidedIn),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void TextAddonsWidgets__SlideContainer_SlidedOut(TextAddonsWidgets__SlideContainer* self) {
@@ -120,9 +122,11 @@ void TextAddonsWidgets__SlideContainer_SlidedOut(TextAddonsWidgets__SlideContain
 
 void TextAddonsWidgets__SlideContainer_Connect_SlidedOut(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     void (*slotFunc)(TextAddonsWidgets__SlideContainer*) = reinterpret_cast<void (*)(TextAddonsWidgets__SlideContainer*)>(slot);
-    TextAddonsWidgets::SlideContainer::connect(self, &TextAddonsWidgets::SlideContainer::slidedOut, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextAddonsWidgets::SlideContainer::connect(self,
+                                               static_cast<void (TextAddonsWidgets::SlideContainer::*)()>(&TextAddonsWidgets::SlideContainer::slidedOut),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void TextAddonsWidgets__SlideContainer_ResizeEvent(TextAddonsWidgets__SlideContainer* self, QResizeEvent* param1) {

@@ -583,9 +583,11 @@ void QQuickImageResponse_Finished(QQuickImageResponse* self) {
 
 void QQuickImageResponse_Connect_Finished(QQuickImageResponse* self, intptr_t slot) {
     void (*slotFunc)(QQuickImageResponse*) = reinterpret_cast<void (*)(QQuickImageResponse*)>(slot);
-    QQuickImageResponse::connect(self, &QQuickImageResponse::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickImageResponse::connect(self,
+                                 static_cast<void (QQuickImageResponse::*)()>(&QQuickImageResponse::finished),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 libqt_string QQuickImageResponse_Tr2(const char* s, const char* c) {

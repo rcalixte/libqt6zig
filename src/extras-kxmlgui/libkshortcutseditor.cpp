@@ -120,9 +120,11 @@ void KShortcutsEditor_KeyChange(KShortcutsEditor* self) {
 
 void KShortcutsEditor_Connect_KeyChange(KShortcutsEditor* self, intptr_t slot) {
     void (*slotFunc)(KShortcutsEditor*) = reinterpret_cast<void (*)(KShortcutsEditor*)>(slot);
-    KShortcutsEditor::connect(self, &KShortcutsEditor::keyChange, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KShortcutsEditor::connect(self,
+                              static_cast<void (KShortcutsEditor::*)()>(&KShortcutsEditor::keyChange),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void KShortcutsEditor_AllDefault(KShortcutsEditor* self) {

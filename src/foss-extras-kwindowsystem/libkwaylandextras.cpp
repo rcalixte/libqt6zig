@@ -60,19 +60,21 @@ void KWaylandExtras_XdgActivationTokenArrived(KWaylandExtras* self, int serial, 
 
 void KWaylandExtras_Connect_XdgActivationTokenArrived(KWaylandExtras* self, intptr_t slot) {
     void (*slotFunc)(KWaylandExtras*, int, const char*) = reinterpret_cast<void (*)(KWaylandExtras*, int, const char*)>(slot);
-    KWaylandExtras::connect(self, &KWaylandExtras::xdgActivationTokenArrived, [self, slotFunc](int serial, const QString& token) {
-        int sigval1 = serial;
-        const auto token_ret = token;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray token_b = token_ret.toUtf8();
-        auto token_str_len = token_b.length();
-        const char* token_str = static_cast<const char*>(malloc(token_str_len + 1));
-        memcpy((void*)token_str, token_b.data(), token_str_len);
-        ((char*)token_str)[token_str_len] = '\0';
-        const char* sigval2 = token_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(token_str);
-    });
+    KWaylandExtras::connect(self,
+                            static_cast<void (KWaylandExtras::*)(int, const QString&)>(&KWaylandExtras::xdgActivationTokenArrived),
+                            [self, slotFunc](int serial, const QString& token) {
+                                int sigval1 = serial;
+                                const auto token_ret = token;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray token_b = token_ret.toUtf8();
+                                auto token_str_len = token_b.length();
+                                const char* token_str = static_cast<const char*>(malloc(token_str_len + 1));
+                                memcpy((void*)token_str, token_b.data(), token_str_len);
+                                ((char*)token_str)[token_str_len] = '\0';
+                                const char* sigval2 = token_str;
+                                slotFunc(self, sigval1, sigval2);
+                                libqt_free(token_str);
+                            });
 }
 
 void KWaylandExtras_WindowExported(KWaylandExtras* self, QWindow* window, const libqt_string handle) {
@@ -82,19 +84,21 @@ void KWaylandExtras_WindowExported(KWaylandExtras* self, QWindow* window, const 
 
 void KWaylandExtras_Connect_WindowExported(KWaylandExtras* self, intptr_t slot) {
     void (*slotFunc)(KWaylandExtras*, QWindow*, const char*) = reinterpret_cast<void (*)(KWaylandExtras*, QWindow*, const char*)>(slot);
-    KWaylandExtras::connect(self, &KWaylandExtras::windowExported, [self, slotFunc](QWindow* window, const QString& handle) {
-        QWindow* sigval1 = window;
-        const auto handle_ret = handle;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray handle_b = handle_ret.toUtf8();
-        auto handle_str_len = handle_b.length();
-        const char* handle_str = static_cast<const char*>(malloc(handle_str_len + 1));
-        memcpy((void*)handle_str, handle_b.data(), handle_str_len);
-        ((char*)handle_str)[handle_str_len] = '\0';
-        const char* sigval2 = handle_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(handle_str);
-    });
+    KWaylandExtras::connect(self,
+                            static_cast<void (KWaylandExtras::*)(QWindow*, const QString&)>(&KWaylandExtras::windowExported),
+                            [self, slotFunc](QWindow* window, const QString& handle) {
+                                QWindow* sigval1 = window;
+                                const auto handle_ret = handle;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray handle_b = handle_ret.toUtf8();
+                                auto handle_str_len = handle_b.length();
+                                const char* handle_str = static_cast<const char*>(malloc(handle_str_len + 1));
+                                memcpy((void*)handle_str, handle_b.data(), handle_str_len);
+                                ((char*)handle_str)[handle_str_len] = '\0';
+                                const char* sigval2 = handle_str;
+                                slotFunc(self, sigval1, sigval2);
+                                libqt_free(handle_str);
+                            });
 }
 
 libqt_string KWaylandExtras_Tr2(const char* s, const char* c) {

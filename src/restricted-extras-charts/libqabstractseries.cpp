@@ -118,9 +118,11 @@ void QAbstractSeries_NameChanged(QAbstractSeries* self) {
 
 void QAbstractSeries_Connect_NameChanged(QAbstractSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSeries*) = reinterpret_cast<void (*)(QAbstractSeries*)>(slot);
-    QAbstractSeries::connect(self, &QAbstractSeries::nameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSeries::connect(self,
+                             static_cast<void (QAbstractSeries::*)()>(&QAbstractSeries::nameChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSeries_VisibleChanged(QAbstractSeries* self) {
@@ -129,9 +131,11 @@ void QAbstractSeries_VisibleChanged(QAbstractSeries* self) {
 
 void QAbstractSeries_Connect_VisibleChanged(QAbstractSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSeries*) = reinterpret_cast<void (*)(QAbstractSeries*)>(slot);
-    QAbstractSeries::connect(self, &QAbstractSeries::visibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSeries::connect(self,
+                             static_cast<void (QAbstractSeries::*)()>(&QAbstractSeries::visibleChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSeries_OpacityChanged(QAbstractSeries* self) {
@@ -140,9 +144,11 @@ void QAbstractSeries_OpacityChanged(QAbstractSeries* self) {
 
 void QAbstractSeries_Connect_OpacityChanged(QAbstractSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSeries*) = reinterpret_cast<void (*)(QAbstractSeries*)>(slot);
-    QAbstractSeries::connect(self, &QAbstractSeries::opacityChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSeries::connect(self,
+                             static_cast<void (QAbstractSeries::*)()>(&QAbstractSeries::opacityChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSeries_UseOpenGLChanged(QAbstractSeries* self) {
@@ -151,9 +157,11 @@ void QAbstractSeries_UseOpenGLChanged(QAbstractSeries* self) {
 
 void QAbstractSeries_Connect_UseOpenGLChanged(QAbstractSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSeries*) = reinterpret_cast<void (*)(QAbstractSeries*)>(slot);
-    QAbstractSeries::connect(self, &QAbstractSeries::useOpenGLChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSeries::connect(self,
+                             static_cast<void (QAbstractSeries::*)()>(&QAbstractSeries::useOpenGLChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 libqt_string QAbstractSeries_Tr2(const char* s, const char* c) {

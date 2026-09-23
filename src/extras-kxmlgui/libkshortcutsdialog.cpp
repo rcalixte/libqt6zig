@@ -142,9 +142,11 @@ void KShortcutsDialog_Saved(KShortcutsDialog* self) {
 
 void KShortcutsDialog_Connect_Saved(KShortcutsDialog* self, intptr_t slot) {
     void (*slotFunc)(KShortcutsDialog*) = reinterpret_cast<void (*)(KShortcutsDialog*)>(slot);
-    KShortcutsDialog::connect(self, &KShortcutsDialog::saved, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KShortcutsDialog::connect(self,
+                              static_cast<void (KShortcutsDialog::*)()>(&KShortcutsDialog::saved),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string KShortcutsDialog_Tr2(const char* s, const char* c) {

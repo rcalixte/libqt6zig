@@ -53,13 +53,15 @@ void KParts__ListingNotificationExtension_ListingEvent(KParts__ListingNotificati
 
 void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNotificationExtension* self, intptr_t slot) {
     void (*slotFunc)(KParts__ListingNotificationExtension*, int, KFileItemList*) = reinterpret_cast<void (*)(KParts__ListingNotificationExtension*, int, KFileItemList*)>(slot);
-    KParts::ListingNotificationExtension::connect(self, &KParts::ListingNotificationExtension::listingEvent, [self, slotFunc](KParts::ListingNotificationExtension::NotificationEventType param1, const KFileItemList& param2) {
-        int sigval1 = static_cast<int>(param1);
-        const KFileItemList& param2_ret = param2;
-        // Cast returned reference into pointer
-        KFileItemList* sigval2 = const_cast<KFileItemList*>(&param2_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KParts::ListingNotificationExtension::connect(self,
+                                                  static_cast<void (KParts::ListingNotificationExtension::*)(KParts::ListingNotificationExtension::NotificationEventType, const KFileItemList&)>(&KParts::ListingNotificationExtension::listingEvent),
+                                                  [self, slotFunc](KParts::ListingNotificationExtension::NotificationEventType param1, const KFileItemList& param2) {
+                                                      int sigval1 = static_cast<int>(param1);
+                                                      const KFileItemList& param2_ret = param2;
+                                                      // Cast returned reference into pointer
+                                                      KFileItemList* sigval2 = const_cast<KFileItemList*>(&param2_ret);
+                                                      slotFunc(self, sigval1, sigval2);
+                                                  });
 }
 
 libqt_string KParts__ListingNotificationExtension_Tr2(const char* s, const char* c) {

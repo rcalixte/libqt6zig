@@ -127,12 +127,14 @@ void KColorButton_Changed(KColorButton* self, const QColor* newColor) {
 
 void KColorButton_Connect_Changed(KColorButton* self, intptr_t slot) {
     void (*slotFunc)(KColorButton*, QColor*) = reinterpret_cast<void (*)(KColorButton*, QColor*)>(slot);
-    KColorButton::connect(self, &KColorButton::changed, [self, slotFunc](const QColor& newColor) {
-        const QColor& newColor_ret = newColor;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&newColor_ret);
-        slotFunc(self, sigval1);
-    });
+    KColorButton::connect(self,
+                          static_cast<void (KColorButton::*)(const QColor&)>(&KColorButton::changed),
+                          [self, slotFunc](const QColor& newColor) {
+                              const QColor& newColor_ret = newColor;
+                              // Cast returned reference into pointer
+                              QColor* sigval1 = const_cast<QColor*>(&newColor_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KColorButton_PaintEvent(KColorButton* self, QPaintEvent* pe) {

@@ -118,10 +118,12 @@ void QClipboard_Changed(QClipboard* self, int mode) {
 
 void QClipboard_Connect_Changed(QClipboard* self, intptr_t slot) {
     void (*slotFunc)(QClipboard*, int) = reinterpret_cast<void (*)(QClipboard*, int)>(slot);
-    QClipboard::connect(self, &QClipboard::changed, [self, slotFunc](QClipboard::Mode mode) {
-        int sigval1 = static_cast<int>(mode);
-        slotFunc(self, sigval1);
-    });
+    QClipboard::connect(self,
+                        static_cast<void (QClipboard::*)(QClipboard::Mode)>(&QClipboard::changed),
+                        [self, slotFunc](QClipboard::Mode mode) {
+                            int sigval1 = static_cast<int>(mode);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QClipboard_SelectionChanged(QClipboard* self) {
@@ -130,9 +132,11 @@ void QClipboard_SelectionChanged(QClipboard* self) {
 
 void QClipboard_Connect_SelectionChanged(QClipboard* self, intptr_t slot) {
     void (*slotFunc)(QClipboard*) = reinterpret_cast<void (*)(QClipboard*)>(slot);
-    QClipboard::connect(self, &QClipboard::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QClipboard::connect(self,
+                        static_cast<void (QClipboard::*)()>(&QClipboard::selectionChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QClipboard_FindBufferChanged(QClipboard* self) {
@@ -141,9 +145,11 @@ void QClipboard_FindBufferChanged(QClipboard* self) {
 
 void QClipboard_Connect_FindBufferChanged(QClipboard* self, intptr_t slot) {
     void (*slotFunc)(QClipboard*) = reinterpret_cast<void (*)(QClipboard*)>(slot);
-    QClipboard::connect(self, &QClipboard::findBufferChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QClipboard::connect(self,
+                        static_cast<void (QClipboard::*)()>(&QClipboard::findBufferChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QClipboard_DataChanged(QClipboard* self) {
@@ -152,9 +158,11 @@ void QClipboard_DataChanged(QClipboard* self) {
 
 void QClipboard_Connect_DataChanged(QClipboard* self, intptr_t slot) {
     void (*slotFunc)(QClipboard*) = reinterpret_cast<void (*)(QClipboard*)>(slot);
-    QClipboard::connect(self, &QClipboard::dataChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QClipboard::connect(self,
+                        static_cast<void (QClipboard::*)()>(&QClipboard::dataChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 libqt_string QClipboard_Tr2(const char* s, const char* c) {

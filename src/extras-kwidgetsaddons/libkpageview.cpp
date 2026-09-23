@@ -131,15 +131,17 @@ void KPageView_CurrentPageChanged(KPageView* self, const QModelIndex* current, c
 
 void KPageView_Connect_CurrentPageChanged(KPageView* self, intptr_t slot) {
     void (*slotFunc)(KPageView*, QModelIndex*, QModelIndex*) = reinterpret_cast<void (*)(KPageView*, QModelIndex*, QModelIndex*)>(slot);
-    KPageView::connect(self, &KPageView::currentPageChanged, [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
-        const QModelIndex& current_ret = current;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
-        const QModelIndex& previous_ret = previous;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KPageView::connect(self,
+                       static_cast<void (KPageView::*)(const QModelIndex&, const QModelIndex&)>(&KPageView::currentPageChanged),
+                       [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
+                           const QModelIndex& current_ret = current;
+                           // Cast returned reference into pointer
+                           QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
+                           const QModelIndex& previous_ret = previous;
+                           // Cast returned reference into pointer
+                           QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 QAbstractItemView* KPageView_CreateView(KPageView* self) {

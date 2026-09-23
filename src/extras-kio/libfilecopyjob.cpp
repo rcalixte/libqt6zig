@@ -72,19 +72,21 @@ void KIO__FileCopyJob_MimeTypeFound(KIO__FileCopyJob* self, KIO__Job* job, const
 
 void KIO__FileCopyJob_Connect_MimeTypeFound(KIO__FileCopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__FileCopyJob*, KIO__Job*, const char*) = reinterpret_cast<void (*)(KIO__FileCopyJob*, KIO__Job*, const char*)>(slot);
-    KIO::FileCopyJob::connect(self, &KIO::FileCopyJob::mimeTypeFound, [self, slotFunc](KIO::Job* job, const QString& mimeType) {
-        KIO__Job* sigval1 = job;
-        const auto mimeType_ret = mimeType;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray mimeType_b = mimeType_ret.toUtf8();
-        auto mimeType_str_len = mimeType_b.length();
-        const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
-        memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
-        ((char*)mimeType_str)[mimeType_str_len] = '\0';
-        const char* sigval2 = mimeType_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(mimeType_str);
-    });
+    KIO::FileCopyJob::connect(self,
+                              static_cast<void (KIO::FileCopyJob::*)(KIO::Job*, const QString&)>(&KIO::FileCopyJob::mimeTypeFound),
+                              [self, slotFunc](KIO::Job* job, const QString& mimeType) {
+                                  KIO__Job* sigval1 = job;
+                                  const auto mimeType_ret = mimeType;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray mimeType_b = mimeType_ret.toUtf8();
+                                  auto mimeType_str_len = mimeType_b.length();
+                                  const char* mimeType_str = static_cast<const char*>(malloc(mimeType_str_len + 1));
+                                  memcpy((void*)mimeType_str, mimeType_b.data(), mimeType_str_len);
+                                  ((char*)mimeType_str)[mimeType_str_len] = '\0';
+                                  const char* sigval2 = mimeType_str;
+                                  slotFunc(self, sigval1, sigval2);
+                                  libqt_free(mimeType_str);
+                              });
 }
 
 libqt_string KIO__FileCopyJob_Tr2(const char* s, const char* c) {

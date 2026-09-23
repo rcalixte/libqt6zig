@@ -153,9 +153,11 @@ void QQmlExpression_ValueChanged(QQmlExpression* self) {
 
 void QQmlExpression_Connect_ValueChanged(QQmlExpression* self, intptr_t slot) {
     void (*slotFunc)(QQmlExpression*) = reinterpret_cast<void (*)(QQmlExpression*)>(slot);
-    QQmlExpression::connect(self, &QQmlExpression::valueChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQmlExpression::connect(self,
+                            static_cast<void (QQmlExpression::*)()>(&QQmlExpression::valueChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 libqt_string QQmlExpression_Tr2(const char* s, const char* c) {

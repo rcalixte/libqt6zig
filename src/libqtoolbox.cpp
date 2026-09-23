@@ -184,10 +184,12 @@ void QToolBox_CurrentChanged(QToolBox* self, int index) {
 
 void QToolBox_Connect_CurrentChanged(QToolBox* self, intptr_t slot) {
     void (*slotFunc)(QToolBox*, int) = reinterpret_cast<void (*)(QToolBox*, int)>(slot);
-    QToolBox::connect(self, &QToolBox::currentChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QToolBox::connect(self,
+                      static_cast<void (QToolBox::*)(int)>(&QToolBox::currentChanged),
+                      [self, slotFunc](int index) {
+                          int sigval1 = index;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 bool QToolBox_Event(QToolBox* self, QEvent* e) {

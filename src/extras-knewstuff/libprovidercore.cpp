@@ -74,9 +74,11 @@ void KNSCore__ProviderCore_BasicsLoaded(KNSCore__ProviderCore* self) {
 
 void KNSCore__ProviderCore_Connect_BasicsLoaded(KNSCore__ProviderCore* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__ProviderCore*) = reinterpret_cast<void (*)(KNSCore__ProviderCore*)>(slot);
-    KNSCore::ProviderCore::connect(self, &KNSCore::ProviderCore::basicsLoaded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNSCore::ProviderCore::connect(self,
+                                   static_cast<void (KNSCore::ProviderCore::*)()>(&KNSCore::ProviderCore::basicsLoaded),
+                                   [self, slotFunc]() {
+                                       slotFunc(self);
+                                   });
 }
 
 libqt_string KNSCore__ProviderCore_Tr2(const char* s, const char* c) {

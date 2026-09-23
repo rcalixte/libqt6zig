@@ -144,11 +144,13 @@ void QAbstractBarSeries_Clicked(QAbstractBarSeries* self, int index, QBarSet* ba
 
 void QAbstractBarSeries_Connect_Clicked(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int, QBarSet*) = reinterpret_cast<void (*)(QAbstractBarSeries*, int, QBarSet*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::clicked, [self, slotFunc](int index, QBarSet* barset) {
-        int sigval1 = index;
-        QBarSet* sigval2 = barset;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(int, QBarSet*)>(&QAbstractBarSeries::clicked),
+                                [self, slotFunc](int index, QBarSet* barset) {
+                                    int sigval1 = index;
+                                    QBarSet* sigval2 = barset;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QAbstractBarSeries_Hovered(QAbstractBarSeries* self, bool status, int index, QBarSet* barset) {
@@ -157,12 +159,14 @@ void QAbstractBarSeries_Hovered(QAbstractBarSeries* self, bool status, int index
 
 void QAbstractBarSeries_Connect_Hovered(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, bool, int, QBarSet*) = reinterpret_cast<void (*)(QAbstractBarSeries*, bool, int, QBarSet*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::hovered, [self, slotFunc](bool status, int index, QBarSet* barset) {
-        bool sigval1 = status;
-        int sigval2 = index;
-        QBarSet* sigval3 = barset;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(bool, int, QBarSet*)>(&QAbstractBarSeries::hovered),
+                                [self, slotFunc](bool status, int index, QBarSet* barset) {
+                                    bool sigval1 = status;
+                                    int sigval2 = index;
+                                    QBarSet* sigval3 = barset;
+                                    slotFunc(self, sigval1, sigval2, sigval3);
+                                });
 }
 
 void QAbstractBarSeries_Pressed(QAbstractBarSeries* self, int index, QBarSet* barset) {
@@ -171,11 +175,13 @@ void QAbstractBarSeries_Pressed(QAbstractBarSeries* self, int index, QBarSet* ba
 
 void QAbstractBarSeries_Connect_Pressed(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int, QBarSet*) = reinterpret_cast<void (*)(QAbstractBarSeries*, int, QBarSet*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::pressed, [self, slotFunc](int index, QBarSet* barset) {
-        int sigval1 = index;
-        QBarSet* sigval2 = barset;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(int, QBarSet*)>(&QAbstractBarSeries::pressed),
+                                [self, slotFunc](int index, QBarSet* barset) {
+                                    int sigval1 = index;
+                                    QBarSet* sigval2 = barset;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QAbstractBarSeries_Released(QAbstractBarSeries* self, int index, QBarSet* barset) {
@@ -184,11 +190,13 @@ void QAbstractBarSeries_Released(QAbstractBarSeries* self, int index, QBarSet* b
 
 void QAbstractBarSeries_Connect_Released(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int, QBarSet*) = reinterpret_cast<void (*)(QAbstractBarSeries*, int, QBarSet*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::released, [self, slotFunc](int index, QBarSet* barset) {
-        int sigval1 = index;
-        QBarSet* sigval2 = barset;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(int, QBarSet*)>(&QAbstractBarSeries::released),
+                                [self, slotFunc](int index, QBarSet* barset) {
+                                    int sigval1 = index;
+                                    QBarSet* sigval2 = barset;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QAbstractBarSeries_DoubleClicked(QAbstractBarSeries* self, int index, QBarSet* barset) {
@@ -197,11 +205,13 @@ void QAbstractBarSeries_DoubleClicked(QAbstractBarSeries* self, int index, QBarS
 
 void QAbstractBarSeries_Connect_DoubleClicked(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int, QBarSet*) = reinterpret_cast<void (*)(QAbstractBarSeries*, int, QBarSet*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::doubleClicked, [self, slotFunc](int index, QBarSet* barset) {
-        int sigval1 = index;
-        QBarSet* sigval2 = barset;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(int, QBarSet*)>(&QAbstractBarSeries::doubleClicked),
+                                [self, slotFunc](int index, QBarSet* barset) {
+                                    int sigval1 = index;
+                                    QBarSet* sigval2 = barset;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QAbstractBarSeries_CountChanged(QAbstractBarSeries* self) {
@@ -210,9 +220,11 @@ void QAbstractBarSeries_CountChanged(QAbstractBarSeries* self) {
 
 void QAbstractBarSeries_Connect_CountChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*) = reinterpret_cast<void (*)(QAbstractBarSeries*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::countChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)()>(&QAbstractBarSeries::countChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void QAbstractBarSeries_LabelsVisibleChanged(QAbstractBarSeries* self) {
@@ -221,9 +233,11 @@ void QAbstractBarSeries_LabelsVisibleChanged(QAbstractBarSeries* self) {
 
 void QAbstractBarSeries_Connect_LabelsVisibleChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*) = reinterpret_cast<void (*)(QAbstractBarSeries*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsVisibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)()>(&QAbstractBarSeries::labelsVisibleChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void QAbstractBarSeries_LabelsFormatChanged(QAbstractBarSeries* self, const libqt_string format) {
@@ -233,18 +247,20 @@ void QAbstractBarSeries_LabelsFormatChanged(QAbstractBarSeries* self, const libq
 
 void QAbstractBarSeries_Connect_LabelsFormatChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, const char*) = reinterpret_cast<void (*)(QAbstractBarSeries*, const char*)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsFormatChanged, [self, slotFunc](const QString& format) {
-        const auto format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray format_b = format_ret.toUtf8();
-        auto format_str_len = format_b.length();
-        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
-        memcpy((void*)format_str, format_b.data(), format_str_len);
-        ((char*)format_str)[format_str_len] = '\0';
-        const char* sigval1 = format_str;
-        slotFunc(self, sigval1);
-        libqt_free(format_str);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(const QString&)>(&QAbstractBarSeries::labelsFormatChanged),
+                                [self, slotFunc](const QString& format) {
+                                    const auto format_ret = format;
+                                    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                    QByteArray format_b = format_ret.toUtf8();
+                                    auto format_str_len = format_b.length();
+                                    const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+                                    memcpy((void*)format_str, format_b.data(), format_str_len);
+                                    ((char*)format_str)[format_str_len] = '\0';
+                                    const char* sigval1 = format_str;
+                                    slotFunc(self, sigval1);
+                                    libqt_free(format_str);
+                                });
 }
 
 void QAbstractBarSeries_LabelsPositionChanged(QAbstractBarSeries* self, int position) {
@@ -253,10 +269,12 @@ void QAbstractBarSeries_LabelsPositionChanged(QAbstractBarSeries* self, int posi
 
 void QAbstractBarSeries_Connect_LabelsPositionChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int) = reinterpret_cast<void (*)(QAbstractBarSeries*, int)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsPositionChanged, [self, slotFunc](QAbstractBarSeries::LabelsPosition position) {
-        int sigval1 = static_cast<int>(position);
-        slotFunc(self, sigval1);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(QAbstractBarSeries::LabelsPosition)>(&QAbstractBarSeries::labelsPositionChanged),
+                                [self, slotFunc](QAbstractBarSeries::LabelsPosition position) {
+                                    int sigval1 = static_cast<int>(position);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QAbstractBarSeries_LabelsAngleChanged(QAbstractBarSeries* self, double angle) {
@@ -265,10 +283,12 @@ void QAbstractBarSeries_LabelsAngleChanged(QAbstractBarSeries* self, double angl
 
 void QAbstractBarSeries_Connect_LabelsAngleChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, double) = reinterpret_cast<void (*)(QAbstractBarSeries*, double)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsAngleChanged, [self, slotFunc](qreal angle) {
-        double sigval1 = static_cast<double>(angle);
-        slotFunc(self, sigval1);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(qreal)>(&QAbstractBarSeries::labelsAngleChanged),
+                                [self, slotFunc](qreal angle) {
+                                    double sigval1 = static_cast<double>(angle);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QAbstractBarSeries_LabelsPrecisionChanged(QAbstractBarSeries* self, int precision) {
@@ -277,10 +297,12 @@ void QAbstractBarSeries_LabelsPrecisionChanged(QAbstractBarSeries* self, int pre
 
 void QAbstractBarSeries_Connect_LabelsPrecisionChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, int) = reinterpret_cast<void (*)(QAbstractBarSeries*, int)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsPrecisionChanged, [self, slotFunc](int precision) {
-        int sigval1 = precision;
-        slotFunc(self, sigval1);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(int)>(&QAbstractBarSeries::labelsPrecisionChanged),
+                                [self, slotFunc](int precision) {
+                                    int sigval1 = precision;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
@@ -295,20 +317,22 @@ void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, const libqt_list 
 
 void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsAdded, [self, slotFunc](const QList<QBarSet*>& sets) {
-        const QList<QBarSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
-        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
-            sets_arr[i] = sets_ret[i];
-        }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBarSet* */ sigval1 = sets_out;
-        slotFunc(self, sigval1);
-        free(sets_arr);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(const QList<QBarSet*>&)>(&QAbstractBarSeries::barsetsAdded),
+                                [self, slotFunc](const QList<QBarSet*>& sets) {
+                                    const QList<QBarSet*>& sets_ret = sets;
+                                    // Convert QList<> from C++ memory to manually-managed C memory
+                                    QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
+                                    for (qsizetype i = 0; i < sets_ret.size(); ++i) {
+                                        sets_arr[i] = sets_ret[i];
+                                    }
+                                    libqt_list sets_out;
+                                    sets_out.len = sets_ret.size();
+                                    sets_out.data = static_cast<void*>(sets_arr);
+                                    libqt_list /* of QBarSet* */ sigval1 = sets_out;
+                                    slotFunc(self, sigval1);
+                                    free(sets_arr);
+                                });
 }
 
 void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
@@ -323,20 +347,22 @@ void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, const libqt_lis
 
 void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
-    QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsRemoved, [self, slotFunc](const QList<QBarSet*>& sets) {
-        const QList<QBarSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
-        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
-            sets_arr[i] = sets_ret[i];
-        }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBarSet* */ sigval1 = sets_out;
-        slotFunc(self, sigval1);
-        free(sets_arr);
-    });
+    QAbstractBarSeries::connect(self,
+                                static_cast<void (QAbstractBarSeries::*)(const QList<QBarSet*>&)>(&QAbstractBarSeries::barsetsRemoved),
+                                [self, slotFunc](const QList<QBarSet*>& sets) {
+                                    const QList<QBarSet*>& sets_ret = sets;
+                                    // Convert QList<> from C++ memory to manually-managed C memory
+                                    QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
+                                    for (qsizetype i = 0; i < sets_ret.size(); ++i) {
+                                        sets_arr[i] = sets_ret[i];
+                                    }
+                                    libqt_list sets_out;
+                                    sets_out.len = sets_ret.size();
+                                    sets_out.data = static_cast<void*>(sets_arr);
+                                    libqt_list /* of QBarSet* */ sigval1 = sets_out;
+                                    slotFunc(self, sigval1);
+                                    free(sets_arr);
+                                });
 }
 
 libqt_string QAbstractBarSeries_Tr2(const char* s, const char* c) {

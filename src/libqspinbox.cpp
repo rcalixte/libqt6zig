@@ -227,10 +227,12 @@ void QSpinBox_ValueChanged(QSpinBox* self, int param1) {
 
 void QSpinBox_Connect_ValueChanged(QSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QSpinBox*, int) = reinterpret_cast<void (*)(QSpinBox*, int)>(slot);
-    QSpinBox::connect(self, &QSpinBox::valueChanged, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QSpinBox::connect(self,
+                      static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+                      [self, slotFunc](int param1) {
+                          int sigval1 = param1;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QSpinBox_TextChanged(QSpinBox* self, const libqt_string param1) {
@@ -240,18 +242,20 @@ void QSpinBox_TextChanged(QSpinBox* self, const libqt_string param1) {
 
 void QSpinBox_Connect_TextChanged(QSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QSpinBox*, const char*) = reinterpret_cast<void (*)(QSpinBox*, const char*)>(slot);
-    QSpinBox::connect(self, &QSpinBox::textChanged, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QSpinBox::connect(self,
+                      static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::textChanged),
+                      [self, slotFunc](const QString& param1) {
+                          const auto param1_ret = param1;
+                          // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                          QByteArray param1_b = param1_ret.toUtf8();
+                          auto param1_str_len = param1_b.length();
+                          const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                          memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                          ((char*)param1_str)[param1_str_len] = '\0';
+                          const char* sigval1 = param1_str;
+                          slotFunc(self, sigval1);
+                          libqt_free(param1_str);
+                      });
 }
 
 libqt_string QSpinBox_Tr2(const char* s, const char* c) {
@@ -2346,10 +2350,12 @@ void QDoubleSpinBox_ValueChanged(QDoubleSpinBox* self, double param1) {
 
 void QDoubleSpinBox_Connect_ValueChanged(QDoubleSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QDoubleSpinBox*, double) = reinterpret_cast<void (*)(QDoubleSpinBox*, double)>(slot);
-    QDoubleSpinBox::connect(self, &QDoubleSpinBox::valueChanged, [self, slotFunc](double param1) {
-        double sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QDoubleSpinBox::connect(self,
+                            static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+                            [self, slotFunc](double param1) {
+                                double sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QDoubleSpinBox_TextChanged(QDoubleSpinBox* self, const libqt_string param1) {
@@ -2359,18 +2365,20 @@ void QDoubleSpinBox_TextChanged(QDoubleSpinBox* self, const libqt_string param1)
 
 void QDoubleSpinBox_Connect_TextChanged(QDoubleSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QDoubleSpinBox*, const char*) = reinterpret_cast<void (*)(QDoubleSpinBox*, const char*)>(slot);
-    QDoubleSpinBox::connect(self, &QDoubleSpinBox::textChanged, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QDoubleSpinBox::connect(self,
+                            static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::textChanged),
+                            [self, slotFunc](const QString& param1) {
+                                const auto param1_ret = param1;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray param1_b = param1_ret.toUtf8();
+                                auto param1_str_len = param1_b.length();
+                                const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                ((char*)param1_str)[param1_str_len] = '\0';
+                                const char* sigval1 = param1_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(param1_str);
+                            });
 }
 
 libqt_string QDoubleSpinBox_Tr2(const char* s, const char* c) {

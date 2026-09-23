@@ -67,18 +67,20 @@ void KToolBarLabelAction_TextChanged(KToolBarLabelAction* self, const libqt_stri
 
 void KToolBarLabelAction_Connect_TextChanged(KToolBarLabelAction* self, intptr_t slot) {
     void (*slotFunc)(KToolBarLabelAction*, const char*) = reinterpret_cast<void (*)(KToolBarLabelAction*, const char*)>(slot);
-    KToolBarLabelAction::connect(self, &KToolBarLabelAction::textChanged, [self, slotFunc](const QString& newText) {
-        const auto newText_ret = newText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray newText_b = newText_ret.toUtf8();
-        auto newText_str_len = newText_b.length();
-        const char* newText_str = static_cast<const char*>(malloc(newText_str_len + 1));
-        memcpy((void*)newText_str, newText_b.data(), newText_str_len);
-        ((char*)newText_str)[newText_str_len] = '\0';
-        const char* sigval1 = newText_str;
-        slotFunc(self, sigval1);
-        libqt_free(newText_str);
-    });
+    KToolBarLabelAction::connect(self,
+                                 static_cast<void (KToolBarLabelAction::*)(const QString&)>(&KToolBarLabelAction::textChanged),
+                                 [self, slotFunc](const QString& newText) {
+                                     const auto newText_ret = newText;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray newText_b = newText_ret.toUtf8();
+                                     auto newText_str_len = newText_b.length();
+                                     const char* newText_str = static_cast<const char*>(malloc(newText_str_len + 1));
+                                     memcpy((void*)newText_str, newText_b.data(), newText_str_len);
+                                     ((char*)newText_str)[newText_str_len] = '\0';
+                                     const char* sigval1 = newText_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(newText_str);
+                                 });
 }
 
 bool KToolBarLabelAction_Event(KToolBarLabelAction* self, QEvent* param1) {

@@ -106,10 +106,12 @@ void QColorAxis_MinChanged(QColorAxis* self, double min) {
 
 void QColorAxis_Connect_MinChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, double) = reinterpret_cast<void (*)(QColorAxis*, double)>(slot);
-    QColorAxis::connect(self, &QColorAxis::minChanged, [self, slotFunc](qreal min) {
-        double sigval1 = static_cast<double>(min);
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(qreal)>(&QColorAxis::minChanged),
+                        [self, slotFunc](qreal min) {
+                            double sigval1 = static_cast<double>(min);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QColorAxis_MaxChanged(QColorAxis* self, double max) {
@@ -118,10 +120,12 @@ void QColorAxis_MaxChanged(QColorAxis* self, double max) {
 
 void QColorAxis_Connect_MaxChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, double) = reinterpret_cast<void (*)(QColorAxis*, double)>(slot);
-    QColorAxis::connect(self, &QColorAxis::maxChanged, [self, slotFunc](qreal max) {
-        double sigval1 = static_cast<double>(max);
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(qreal)>(&QColorAxis::maxChanged),
+                        [self, slotFunc](qreal max) {
+                            double sigval1 = static_cast<double>(max);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QColorAxis_RangeChanged(QColorAxis* self, double min, double max) {
@@ -130,11 +134,13 @@ void QColorAxis_RangeChanged(QColorAxis* self, double min, double max) {
 
 void QColorAxis_Connect_RangeChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, double, double) = reinterpret_cast<void (*)(QColorAxis*, double, double)>(slot);
-    QColorAxis::connect(self, &QColorAxis::rangeChanged, [self, slotFunc](qreal min, qreal max) {
-        double sigval1 = static_cast<double>(min);
-        double sigval2 = static_cast<double>(max);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(qreal, qreal)>(&QColorAxis::rangeChanged),
+                        [self, slotFunc](qreal min, qreal max) {
+                            double sigval1 = static_cast<double>(min);
+                            double sigval2 = static_cast<double>(max);
+                            slotFunc(self, sigval1, sigval2);
+                        });
 }
 
 void QColorAxis_TickCountChanged(QColorAxis* self, int tickCount) {
@@ -143,10 +149,12 @@ void QColorAxis_TickCountChanged(QColorAxis* self, int tickCount) {
 
 void QColorAxis_Connect_TickCountChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, int) = reinterpret_cast<void (*)(QColorAxis*, int)>(slot);
-    QColorAxis::connect(self, &QColorAxis::tickCountChanged, [self, slotFunc](int tickCount) {
-        int sigval1 = tickCount;
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(int)>(&QColorAxis::tickCountChanged),
+                        [self, slotFunc](int tickCount) {
+                            int sigval1 = tickCount;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QColorAxis_GradientChanged(QColorAxis* self, const QLinearGradient* gradient) {
@@ -155,12 +163,14 @@ void QColorAxis_GradientChanged(QColorAxis* self, const QLinearGradient* gradien
 
 void QColorAxis_Connect_GradientChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, QLinearGradient*) = reinterpret_cast<void (*)(QColorAxis*, QLinearGradient*)>(slot);
-    QColorAxis::connect(self, &QColorAxis::gradientChanged, [self, slotFunc](const QLinearGradient& gradient) {
-        const QLinearGradient& gradient_ret = gradient;
-        // Cast returned reference into pointer
-        QLinearGradient* sigval1 = const_cast<QLinearGradient*>(&gradient_ret);
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(const QLinearGradient&)>(&QColorAxis::gradientChanged),
+                        [self, slotFunc](const QLinearGradient& gradient) {
+                            const QLinearGradient& gradient_ret = gradient;
+                            // Cast returned reference into pointer
+                            QLinearGradient* sigval1 = const_cast<QLinearGradient*>(&gradient_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QColorAxis_SizeChanged(QColorAxis* self, const double size) {
@@ -169,10 +179,12 @@ void QColorAxis_SizeChanged(QColorAxis* self, const double size) {
 
 void QColorAxis_Connect_SizeChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, const double) = reinterpret_cast<void (*)(QColorAxis*, const double)>(slot);
-    QColorAxis::connect(self, &QColorAxis::sizeChanged, [self, slotFunc](const qreal size) {
-        const double sigval1 = static_cast<const double>(size);
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(const qreal)>(&QColorAxis::sizeChanged),
+                        [self, slotFunc](const qreal size) {
+                            const double sigval1 = static_cast<const double>(size);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QColorAxis_AutoRangeChanged(QColorAxis* self, bool autoRange) {
@@ -181,10 +193,12 @@ void QColorAxis_AutoRangeChanged(QColorAxis* self, bool autoRange) {
 
 void QColorAxis_Connect_AutoRangeChanged(QColorAxis* self, intptr_t slot) {
     void (*slotFunc)(QColorAxis*, bool) = reinterpret_cast<void (*)(QColorAxis*, bool)>(slot);
-    QColorAxis::connect(self, &QColorAxis::autoRangeChanged, [self, slotFunc](bool autoRange) {
-        bool sigval1 = autoRange;
-        slotFunc(self, sigval1);
-    });
+    QColorAxis::connect(self,
+                        static_cast<void (QColorAxis::*)(bool)>(&QColorAxis::autoRangeChanged),
+                        [self, slotFunc](bool autoRange) {
+                            bool sigval1 = autoRange;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QColorAxis_Tr2(const char* s, const char* c) {

@@ -180,10 +180,12 @@ void QStateMachine_RunningChanged(QStateMachine* self, bool running) {
 
 void QStateMachine_Connect_RunningChanged(QStateMachine* self, intptr_t slot) {
     void (*slotFunc)(QStateMachine*, bool) = reinterpret_cast<void (*)(QStateMachine*, bool)>(slot);
-    QStateMachine::connect(self, &QStateMachine::runningChanged, [self, slotFunc](bool running) {
-        bool sigval1 = running;
-        slotFunc(self, sigval1);
-    });
+    QStateMachine::connect(self,
+                           static_cast<void (QStateMachine::*)(bool)>(&QStateMachine::runningChanged),
+                           [self, slotFunc](bool running) {
+                               bool sigval1 = running;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QStateMachine_OnEntry(QStateMachine* self, QEvent* event) {

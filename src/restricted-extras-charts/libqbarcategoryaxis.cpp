@@ -178,9 +178,11 @@ void QBarCategoryAxis_CategoriesChanged(QBarCategoryAxis* self) {
 
 void QBarCategoryAxis_Connect_CategoriesChanged(QBarCategoryAxis* self, intptr_t slot) {
     void (*slotFunc)(QBarCategoryAxis*) = reinterpret_cast<void (*)(QBarCategoryAxis*)>(slot);
-    QBarCategoryAxis::connect(self, &QBarCategoryAxis::categoriesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarCategoryAxis::connect(self,
+                              static_cast<void (QBarCategoryAxis::*)()>(&QBarCategoryAxis::categoriesChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QBarCategoryAxis_MinChanged(QBarCategoryAxis* self, const libqt_string min) {
@@ -190,18 +192,20 @@ void QBarCategoryAxis_MinChanged(QBarCategoryAxis* self, const libqt_string min)
 
 void QBarCategoryAxis_Connect_MinChanged(QBarCategoryAxis* self, intptr_t slot) {
     void (*slotFunc)(QBarCategoryAxis*, const char*) = reinterpret_cast<void (*)(QBarCategoryAxis*, const char*)>(slot);
-    QBarCategoryAxis::connect(self, &QBarCategoryAxis::minChanged, [self, slotFunc](const QString& min) {
-        const auto min_ret = min;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray min_b = min_ret.toUtf8();
-        auto min_str_len = min_b.length();
-        const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
-        memcpy((void*)min_str, min_b.data(), min_str_len);
-        ((char*)min_str)[min_str_len] = '\0';
-        const char* sigval1 = min_str;
-        slotFunc(self, sigval1);
-        libqt_free(min_str);
-    });
+    QBarCategoryAxis::connect(self,
+                              static_cast<void (QBarCategoryAxis::*)(const QString&)>(&QBarCategoryAxis::minChanged),
+                              [self, slotFunc](const QString& min) {
+                                  const auto min_ret = min;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray min_b = min_ret.toUtf8();
+                                  auto min_str_len = min_b.length();
+                                  const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
+                                  memcpy((void*)min_str, min_b.data(), min_str_len);
+                                  ((char*)min_str)[min_str_len] = '\0';
+                                  const char* sigval1 = min_str;
+                                  slotFunc(self, sigval1);
+                                  libqt_free(min_str);
+                              });
 }
 
 void QBarCategoryAxis_MaxChanged(QBarCategoryAxis* self, const libqt_string max) {
@@ -211,18 +215,20 @@ void QBarCategoryAxis_MaxChanged(QBarCategoryAxis* self, const libqt_string max)
 
 void QBarCategoryAxis_Connect_MaxChanged(QBarCategoryAxis* self, intptr_t slot) {
     void (*slotFunc)(QBarCategoryAxis*, const char*) = reinterpret_cast<void (*)(QBarCategoryAxis*, const char*)>(slot);
-    QBarCategoryAxis::connect(self, &QBarCategoryAxis::maxChanged, [self, slotFunc](const QString& max) {
-        const auto max_ret = max;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray max_b = max_ret.toUtf8();
-        auto max_str_len = max_b.length();
-        const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
-        memcpy((void*)max_str, max_b.data(), max_str_len);
-        ((char*)max_str)[max_str_len] = '\0';
-        const char* sigval1 = max_str;
-        slotFunc(self, sigval1);
-        libqt_free(max_str);
-    });
+    QBarCategoryAxis::connect(self,
+                              static_cast<void (QBarCategoryAxis::*)(const QString&)>(&QBarCategoryAxis::maxChanged),
+                              [self, slotFunc](const QString& max) {
+                                  const auto max_ret = max;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray max_b = max_ret.toUtf8();
+                                  auto max_str_len = max_b.length();
+                                  const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
+                                  memcpy((void*)max_str, max_b.data(), max_str_len);
+                                  ((char*)max_str)[max_str_len] = '\0';
+                                  const char* sigval1 = max_str;
+                                  slotFunc(self, sigval1);
+                                  libqt_free(max_str);
+                              });
 }
 
 void QBarCategoryAxis_RangeChanged(QBarCategoryAxis* self, const libqt_string min, const libqt_string max) {
@@ -233,27 +239,29 @@ void QBarCategoryAxis_RangeChanged(QBarCategoryAxis* self, const libqt_string mi
 
 void QBarCategoryAxis_Connect_RangeChanged(QBarCategoryAxis* self, intptr_t slot) {
     void (*slotFunc)(QBarCategoryAxis*, const char*, const char*) = reinterpret_cast<void (*)(QBarCategoryAxis*, const char*, const char*)>(slot);
-    QBarCategoryAxis::connect(self, &QBarCategoryAxis::rangeChanged, [self, slotFunc](const QString& min, const QString& max) {
-        const auto min_ret = min;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray min_b = min_ret.toUtf8();
-        auto min_str_len = min_b.length();
-        const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
-        memcpy((void*)min_str, min_b.data(), min_str_len);
-        ((char*)min_str)[min_str_len] = '\0';
-        const char* sigval1 = min_str;
-        const auto max_ret = max;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray max_b = max_ret.toUtf8();
-        auto max_str_len = max_b.length();
-        const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
-        memcpy((void*)max_str, max_b.data(), max_str_len);
-        ((char*)max_str)[max_str_len] = '\0';
-        const char* sigval2 = max_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(min_str);
-        libqt_free(max_str);
-    });
+    QBarCategoryAxis::connect(self,
+                              static_cast<void (QBarCategoryAxis::*)(const QString&, const QString&)>(&QBarCategoryAxis::rangeChanged),
+                              [self, slotFunc](const QString& min, const QString& max) {
+                                  const auto min_ret = min;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray min_b = min_ret.toUtf8();
+                                  auto min_str_len = min_b.length();
+                                  const char* min_str = static_cast<const char*>(malloc(min_str_len + 1));
+                                  memcpy((void*)min_str, min_b.data(), min_str_len);
+                                  ((char*)min_str)[min_str_len] = '\0';
+                                  const char* sigval1 = min_str;
+                                  const auto max_ret = max;
+                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                  QByteArray max_b = max_ret.toUtf8();
+                                  auto max_str_len = max_b.length();
+                                  const char* max_str = static_cast<const char*>(malloc(max_str_len + 1));
+                                  memcpy((void*)max_str, max_b.data(), max_str_len);
+                                  ((char*)max_str)[max_str_len] = '\0';
+                                  const char* sigval2 = max_str;
+                                  slotFunc(self, sigval1, sigval2);
+                                  libqt_free(min_str);
+                                  libqt_free(max_str);
+                              });
 }
 
 void QBarCategoryAxis_CountChanged(QBarCategoryAxis* self) {
@@ -262,9 +270,11 @@ void QBarCategoryAxis_CountChanged(QBarCategoryAxis* self) {
 
 void QBarCategoryAxis_Connect_CountChanged(QBarCategoryAxis* self, intptr_t slot) {
     void (*slotFunc)(QBarCategoryAxis*) = reinterpret_cast<void (*)(QBarCategoryAxis*)>(slot);
-    QBarCategoryAxis::connect(self, &QBarCategoryAxis::countChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarCategoryAxis::connect(self,
+                              static_cast<void (QBarCategoryAxis::*)()>(&QBarCategoryAxis::countChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string QBarCategoryAxis_Tr2(const char* s, const char* c) {

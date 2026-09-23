@@ -199,9 +199,11 @@ void KFindDialog_OptionsChanged(KFindDialog* self) {
 
 void KFindDialog_Connect_OptionsChanged(KFindDialog* self, intptr_t slot) {
     void (*slotFunc)(KFindDialog*) = reinterpret_cast<void (*)(KFindDialog*)>(slot);
-    KFindDialog::connect(self, &KFindDialog::optionsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFindDialog::connect(self,
+                         static_cast<void (KFindDialog::*)()>(&KFindDialog::optionsChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KFindDialog_OkClicked(KFindDialog* self) {
@@ -210,9 +212,11 @@ void KFindDialog_OkClicked(KFindDialog* self) {
 
 void KFindDialog_Connect_OkClicked(KFindDialog* self, intptr_t slot) {
     void (*slotFunc)(KFindDialog*) = reinterpret_cast<void (*)(KFindDialog*)>(slot);
-    KFindDialog::connect(self, &KFindDialog::okClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFindDialog::connect(self,
+                         static_cast<void (KFindDialog::*)()>(&KFindDialog::okClicked),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KFindDialog_CancelClicked(KFindDialog* self) {
@@ -221,9 +225,11 @@ void KFindDialog_CancelClicked(KFindDialog* self) {
 
 void KFindDialog_Connect_CancelClicked(KFindDialog* self, intptr_t slot) {
     void (*slotFunc)(KFindDialog*) = reinterpret_cast<void (*)(KFindDialog*)>(slot);
-    KFindDialog::connect(self, &KFindDialog::cancelClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFindDialog::connect(self,
+                         static_cast<void (KFindDialog::*)()>(&KFindDialog::cancelClicked),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KFindDialog_ShowEvent(KFindDialog* self, QShowEvent* param1) {

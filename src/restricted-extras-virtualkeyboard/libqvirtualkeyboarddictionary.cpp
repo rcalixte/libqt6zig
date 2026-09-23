@@ -86,9 +86,11 @@ void QVirtualKeyboardDictionary_ContentsChanged(QVirtualKeyboardDictionary* self
 
 void QVirtualKeyboardDictionary_Connect_ContentsChanged(QVirtualKeyboardDictionary* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardDictionary*) = reinterpret_cast<void (*)(QVirtualKeyboardDictionary*)>(slot);
-    QVirtualKeyboardDictionary::connect(self, &QVirtualKeyboardDictionary::contentsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardDictionary::connect(self,
+                                        static_cast<void (QVirtualKeyboardDictionary::*)()>(&QVirtualKeyboardDictionary::contentsChanged),
+                                        [self, slotFunc]() {
+                                            slotFunc(self);
+                                        });
 }
 
 libqt_string QVirtualKeyboardDictionary_Tr2(const char* s, const char* c) {

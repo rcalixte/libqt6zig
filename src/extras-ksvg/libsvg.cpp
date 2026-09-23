@@ -212,9 +212,11 @@ void KSvg__Svg_RepaintNeeded(KSvg__Svg* self) {
 
 void KSvg__Svg_Connect_RepaintNeeded(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*) = reinterpret_cast<void (*)(KSvg__Svg*)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::repaintNeeded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)()>(&KSvg::Svg::repaintNeeded),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KSvg__Svg_SizeChanged(KSvg__Svg* self) {
@@ -223,9 +225,11 @@ void KSvg__Svg_SizeChanged(KSvg__Svg* self) {
 
 void KSvg__Svg_Connect_SizeChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*) = reinterpret_cast<void (*)(KSvg__Svg*)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::sizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)()>(&KSvg::Svg::sizeChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KSvg__Svg_ImagePathChanged(KSvg__Svg* self) {
@@ -234,9 +238,11 @@ void KSvg__Svg_ImagePathChanged(KSvg__Svg* self) {
 
 void KSvg__Svg_Connect_ImagePathChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*) = reinterpret_cast<void (*)(KSvg__Svg*)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::imagePathChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)()>(&KSvg::Svg::imagePathChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KSvg__Svg_ColorHintChanged(KSvg__Svg* self) {
@@ -245,9 +251,11 @@ void KSvg__Svg_ColorHintChanged(KSvg__Svg* self) {
 
 void KSvg__Svg_Connect_ColorHintChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*) = reinterpret_cast<void (*)(KSvg__Svg*)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::colorHintChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)()>(&KSvg::Svg::colorHintChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KSvg__Svg_FromCurrentImageSetChanged(KSvg__Svg* self, bool fromCurrentImageSet) {
@@ -256,10 +264,12 @@ void KSvg__Svg_FromCurrentImageSetChanged(KSvg__Svg* self, bool fromCurrentImage
 
 void KSvg__Svg_Connect_FromCurrentImageSetChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*, bool) = reinterpret_cast<void (*)(KSvg__Svg*, bool)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::fromCurrentImageSetChanged, [self, slotFunc](bool fromCurrentImageSet) {
-        bool sigval1 = fromCurrentImageSet;
-        slotFunc(self, sigval1);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)(bool)>(&KSvg::Svg::fromCurrentImageSetChanged),
+                       [self, slotFunc](bool fromCurrentImageSet) {
+                           bool sigval1 = fromCurrentImageSet;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KSvg__Svg_StatusChanged(KSvg__Svg* self, int status) {
@@ -268,10 +278,12 @@ void KSvg__Svg_StatusChanged(KSvg__Svg* self, int status) {
 
 void KSvg__Svg_Connect_StatusChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*, int) = reinterpret_cast<void (*)(KSvg__Svg*, int)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::statusChanged, [self, slotFunc](KSvg::Svg::Status status) {
-        int sigval1 = static_cast<int>(status);
-        slotFunc(self, sigval1);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)(KSvg::Svg::Status)>(&KSvg::Svg::statusChanged),
+                       [self, slotFunc](KSvg::Svg::Status status) {
+                           int sigval1 = static_cast<int>(status);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KSvg__Svg_ColorSetChanged(KSvg__Svg* self, int colorSet) {
@@ -280,10 +292,12 @@ void KSvg__Svg_ColorSetChanged(KSvg__Svg* self, int colorSet) {
 
 void KSvg__Svg_Connect_ColorSetChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*, int) = reinterpret_cast<void (*)(KSvg__Svg*, int)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::colorSetChanged, [self, slotFunc](KSvg::Svg::ColorSet colorSet) {
-        int sigval1 = static_cast<int>(colorSet);
-        slotFunc(self, sigval1);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)(KSvg::Svg::ColorSet)>(&KSvg::Svg::colorSetChanged),
+                       [self, slotFunc](KSvg::Svg::ColorSet colorSet) {
+                           int sigval1 = static_cast<int>(colorSet);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KSvg__Svg_ImageSetChanged(KSvg__Svg* self, KSvg__ImageSet* imageSet) {
@@ -292,10 +306,12 @@ void KSvg__Svg_ImageSetChanged(KSvg__Svg* self, KSvg__ImageSet* imageSet) {
 
 void KSvg__Svg_Connect_ImageSetChanged(KSvg__Svg* self, intptr_t slot) {
     void (*slotFunc)(KSvg__Svg*, KSvg__ImageSet*) = reinterpret_cast<void (*)(KSvg__Svg*, KSvg__ImageSet*)>(slot);
-    KSvg::Svg::connect(self, &KSvg::Svg::imageSetChanged, [self, slotFunc](KSvg::ImageSet* imageSet) {
-        KSvg__ImageSet* sigval1 = imageSet;
-        slotFunc(self, sigval1);
-    });
+    KSvg::Svg::connect(self,
+                       static_cast<void (KSvg::Svg::*)(KSvg::ImageSet*)>(&KSvg::Svg::imageSetChanged),
+                       [self, slotFunc](KSvg::ImageSet* imageSet) {
+                           KSvg__ImageSet* sigval1 = imageSet;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 libqt_string KSvg__Svg_Tr2(const char* s, const char* c) {

@@ -139,9 +139,11 @@ void QPdfSearchModel_DocumentChanged(QPdfSearchModel* self) {
 
 void QPdfSearchModel_Connect_DocumentChanged(QPdfSearchModel* self, intptr_t slot) {
     void (*slotFunc)(QPdfSearchModel*) = reinterpret_cast<void (*)(QPdfSearchModel*)>(slot);
-    QPdfSearchModel::connect(self, &QPdfSearchModel::documentChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfSearchModel::connect(self,
+                             static_cast<void (QPdfSearchModel::*)()>(&QPdfSearchModel::documentChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QPdfSearchModel_SearchStringChanged(QPdfSearchModel* self) {
@@ -150,9 +152,11 @@ void QPdfSearchModel_SearchStringChanged(QPdfSearchModel* self) {
 
 void QPdfSearchModel_Connect_SearchStringChanged(QPdfSearchModel* self, intptr_t slot) {
     void (*slotFunc)(QPdfSearchModel*) = reinterpret_cast<void (*)(QPdfSearchModel*)>(slot);
-    QPdfSearchModel::connect(self, &QPdfSearchModel::searchStringChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfSearchModel::connect(self,
+                             static_cast<void (QPdfSearchModel::*)()>(&QPdfSearchModel::searchStringChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QPdfSearchModel_CountChanged(QPdfSearchModel* self) {
@@ -161,9 +165,11 @@ void QPdfSearchModel_CountChanged(QPdfSearchModel* self) {
 
 void QPdfSearchModel_Connect_CountChanged(QPdfSearchModel* self, intptr_t slot) {
     void (*slotFunc)(QPdfSearchModel*) = reinterpret_cast<void (*)(QPdfSearchModel*)>(slot);
-    QPdfSearchModel::connect(self, &QPdfSearchModel::countChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfSearchModel::connect(self,
+                             static_cast<void (QPdfSearchModel::*)()>(&QPdfSearchModel::countChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event) {

@@ -159,9 +159,11 @@ void QVirtualKeyboardDictionaryManager_AvailableDictionariesChanged(QVirtualKeyb
 
 void QVirtualKeyboardDictionaryManager_Connect_AvailableDictionariesChanged(QVirtualKeyboardDictionaryManager* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardDictionaryManager*) = reinterpret_cast<void (*)(QVirtualKeyboardDictionaryManager*)>(slot);
-    QVirtualKeyboardDictionaryManager::connect(self, &QVirtualKeyboardDictionaryManager::availableDictionariesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardDictionaryManager::connect(self,
+                                               static_cast<void (QVirtualKeyboardDictionaryManager::*)()>(&QVirtualKeyboardDictionaryManager::availableDictionariesChanged),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void QVirtualKeyboardDictionaryManager_BaseDictionariesChanged(QVirtualKeyboardDictionaryManager* self) {
@@ -170,9 +172,11 @@ void QVirtualKeyboardDictionaryManager_BaseDictionariesChanged(QVirtualKeyboardD
 
 void QVirtualKeyboardDictionaryManager_Connect_BaseDictionariesChanged(QVirtualKeyboardDictionaryManager* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardDictionaryManager*) = reinterpret_cast<void (*)(QVirtualKeyboardDictionaryManager*)>(slot);
-    QVirtualKeyboardDictionaryManager::connect(self, &QVirtualKeyboardDictionaryManager::baseDictionariesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardDictionaryManager::connect(self,
+                                               static_cast<void (QVirtualKeyboardDictionaryManager::*)()>(&QVirtualKeyboardDictionaryManager::baseDictionariesChanged),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void QVirtualKeyboardDictionaryManager_ExtraDictionariesChanged(QVirtualKeyboardDictionaryManager* self) {
@@ -181,9 +185,11 @@ void QVirtualKeyboardDictionaryManager_ExtraDictionariesChanged(QVirtualKeyboard
 
 void QVirtualKeyboardDictionaryManager_Connect_ExtraDictionariesChanged(QVirtualKeyboardDictionaryManager* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardDictionaryManager*) = reinterpret_cast<void (*)(QVirtualKeyboardDictionaryManager*)>(slot);
-    QVirtualKeyboardDictionaryManager::connect(self, &QVirtualKeyboardDictionaryManager::extraDictionariesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardDictionaryManager::connect(self,
+                                               static_cast<void (QVirtualKeyboardDictionaryManager::*)()>(&QVirtualKeyboardDictionaryManager::extraDictionariesChanged),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 void QVirtualKeyboardDictionaryManager_ActiveDictionariesChanged(QVirtualKeyboardDictionaryManager* self) {
@@ -192,9 +198,11 @@ void QVirtualKeyboardDictionaryManager_ActiveDictionariesChanged(QVirtualKeyboar
 
 void QVirtualKeyboardDictionaryManager_Connect_ActiveDictionariesChanged(QVirtualKeyboardDictionaryManager* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardDictionaryManager*) = reinterpret_cast<void (*)(QVirtualKeyboardDictionaryManager*)>(slot);
-    QVirtualKeyboardDictionaryManager::connect(self, &QVirtualKeyboardDictionaryManager::activeDictionariesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardDictionaryManager::connect(self,
+                                               static_cast<void (QVirtualKeyboardDictionaryManager::*)()>(&QVirtualKeyboardDictionaryManager::activeDictionariesChanged),
+                                               [self, slotFunc]() {
+                                                   slotFunc(self);
+                                               });
 }
 
 libqt_string QVirtualKeyboardDictionaryManager_Tr2(const char* s, const char* c) {

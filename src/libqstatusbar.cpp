@@ -125,18 +125,20 @@ void QStatusBar_MessageChanged(QStatusBar* self, const libqt_string text) {
 
 void QStatusBar_Connect_MessageChanged(QStatusBar* self, intptr_t slot) {
     void (*slotFunc)(QStatusBar*, const char*) = reinterpret_cast<void (*)(QStatusBar*, const char*)>(slot);
-    QStatusBar::connect(self, &QStatusBar::messageChanged, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    QStatusBar::connect(self,
+                        static_cast<void (QStatusBar::*)(const QString&)>(&QStatusBar::messageChanged),
+                        [self, slotFunc](const QString& text) {
+                            const auto text_ret = text;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray text_b = text_ret.toUtf8();
+                            auto text_str_len = text_b.length();
+                            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                            memcpy((void*)text_str, text_b.data(), text_str_len);
+                            ((char*)text_str)[text_str_len] = '\0';
+                            const char* sigval1 = text_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(text_str);
+                        });
 }
 
 void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1) {

@@ -136,9 +136,11 @@ void QSoundEffect_SourceChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_SourceChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::sourceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::sourceChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_LoopCountChanged(QSoundEffect* self) {
@@ -147,9 +149,11 @@ void QSoundEffect_LoopCountChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_LoopCountChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::loopCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::loopCountChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_LoopsRemainingChanged(QSoundEffect* self) {
@@ -158,9 +162,11 @@ void QSoundEffect_LoopsRemainingChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_LoopsRemainingChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::loopsRemainingChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::loopsRemainingChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_VolumeChanged(QSoundEffect* self) {
@@ -169,9 +175,11 @@ void QSoundEffect_VolumeChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_VolumeChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::volumeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::volumeChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_MutedChanged(QSoundEffect* self) {
@@ -180,9 +188,11 @@ void QSoundEffect_MutedChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_MutedChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::mutedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::mutedChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_LoadedChanged(QSoundEffect* self) {
@@ -191,9 +201,11 @@ void QSoundEffect_LoadedChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_LoadedChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::loadedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::loadedChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_PlayingChanged(QSoundEffect* self) {
@@ -202,9 +214,11 @@ void QSoundEffect_PlayingChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_PlayingChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::playingChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::playingChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_StatusChanged(QSoundEffect* self) {
@@ -213,9 +227,11 @@ void QSoundEffect_StatusChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_StatusChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::statusChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::statusChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_AudioDeviceChanged(QSoundEffect* self) {
@@ -224,9 +240,11 @@ void QSoundEffect_AudioDeviceChanged(QSoundEffect* self) {
 
 void QSoundEffect_Connect_AudioDeviceChanged(QSoundEffect* self, intptr_t slot) {
     void (*slotFunc)(QSoundEffect*) = reinterpret_cast<void (*)(QSoundEffect*)>(slot);
-    QSoundEffect::connect(self, &QSoundEffect::audioDeviceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSoundEffect::connect(self,
+                          static_cast<void (QSoundEffect::*)()>(&QSoundEffect::audioDeviceChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QSoundEffect_Play(QSoundEffect* self) {

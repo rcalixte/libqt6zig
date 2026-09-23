@@ -110,10 +110,12 @@ void QLogValueAxis_MinChanged(QLogValueAxis* self, double min) {
 
 void QLogValueAxis_Connect_MinChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, double) = reinterpret_cast<void (*)(QLogValueAxis*, double)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::minChanged, [self, slotFunc](qreal min) {
-        double sigval1 = static_cast<double>(min);
-        slotFunc(self, sigval1);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(qreal)>(&QLogValueAxis::minChanged),
+                           [self, slotFunc](qreal min) {
+                               double sigval1 = static_cast<double>(min);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QLogValueAxis_MaxChanged(QLogValueAxis* self, double max) {
@@ -122,10 +124,12 @@ void QLogValueAxis_MaxChanged(QLogValueAxis* self, double max) {
 
 void QLogValueAxis_Connect_MaxChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, double) = reinterpret_cast<void (*)(QLogValueAxis*, double)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::maxChanged, [self, slotFunc](qreal max) {
-        double sigval1 = static_cast<double>(max);
-        slotFunc(self, sigval1);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(qreal)>(&QLogValueAxis::maxChanged),
+                           [self, slotFunc](qreal max) {
+                               double sigval1 = static_cast<double>(max);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QLogValueAxis_RangeChanged(QLogValueAxis* self, double min, double max) {
@@ -134,11 +138,13 @@ void QLogValueAxis_RangeChanged(QLogValueAxis* self, double min, double max) {
 
 void QLogValueAxis_Connect_RangeChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, double, double) = reinterpret_cast<void (*)(QLogValueAxis*, double, double)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::rangeChanged, [self, slotFunc](qreal min, qreal max) {
-        double sigval1 = static_cast<double>(min);
-        double sigval2 = static_cast<double>(max);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(qreal, qreal)>(&QLogValueAxis::rangeChanged),
+                           [self, slotFunc](qreal min, qreal max) {
+                               double sigval1 = static_cast<double>(min);
+                               double sigval2 = static_cast<double>(max);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QLogValueAxis_LabelFormatChanged(QLogValueAxis* self, const libqt_string format) {
@@ -148,18 +154,20 @@ void QLogValueAxis_LabelFormatChanged(QLogValueAxis* self, const libqt_string fo
 
 void QLogValueAxis_Connect_LabelFormatChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, const char*) = reinterpret_cast<void (*)(QLogValueAxis*, const char*)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::labelFormatChanged, [self, slotFunc](const QString& format) {
-        const auto format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray format_b = format_ret.toUtf8();
-        auto format_str_len = format_b.length();
-        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
-        memcpy((void*)format_str, format_b.data(), format_str_len);
-        ((char*)format_str)[format_str_len] = '\0';
-        const char* sigval1 = format_str;
-        slotFunc(self, sigval1);
-        libqt_free(format_str);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(const QString&)>(&QLogValueAxis::labelFormatChanged),
+                           [self, slotFunc](const QString& format) {
+                               const auto format_ret = format;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray format_b = format_ret.toUtf8();
+                               auto format_str_len = format_b.length();
+                               const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+                               memcpy((void*)format_str, format_b.data(), format_str_len);
+                               ((char*)format_str)[format_str_len] = '\0';
+                               const char* sigval1 = format_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(format_str);
+                           });
 }
 
 void QLogValueAxis_BaseChanged(QLogValueAxis* self, double base) {
@@ -168,10 +176,12 @@ void QLogValueAxis_BaseChanged(QLogValueAxis* self, double base) {
 
 void QLogValueAxis_Connect_BaseChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, double) = reinterpret_cast<void (*)(QLogValueAxis*, double)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::baseChanged, [self, slotFunc](qreal base) {
-        double sigval1 = static_cast<double>(base);
-        slotFunc(self, sigval1);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(qreal)>(&QLogValueAxis::baseChanged),
+                           [self, slotFunc](qreal base) {
+                               double sigval1 = static_cast<double>(base);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QLogValueAxis_TickCountChanged(QLogValueAxis* self, int tickCount) {
@@ -180,10 +190,12 @@ void QLogValueAxis_TickCountChanged(QLogValueAxis* self, int tickCount) {
 
 void QLogValueAxis_Connect_TickCountChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, int) = reinterpret_cast<void (*)(QLogValueAxis*, int)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::tickCountChanged, [self, slotFunc](int tickCount) {
-        int sigval1 = tickCount;
-        slotFunc(self, sigval1);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(int)>(&QLogValueAxis::tickCountChanged),
+                           [self, slotFunc](int tickCount) {
+                               int sigval1 = tickCount;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QLogValueAxis_MinorTickCountChanged(QLogValueAxis* self, int minorTickCount) {
@@ -192,10 +204,12 @@ void QLogValueAxis_MinorTickCountChanged(QLogValueAxis* self, int minorTickCount
 
 void QLogValueAxis_Connect_MinorTickCountChanged(QLogValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QLogValueAxis*, int) = reinterpret_cast<void (*)(QLogValueAxis*, int)>(slot);
-    QLogValueAxis::connect(self, &QLogValueAxis::minorTickCountChanged, [self, slotFunc](int minorTickCount) {
-        int sigval1 = minorTickCount;
-        slotFunc(self, sigval1);
-    });
+    QLogValueAxis::connect(self,
+                           static_cast<void (QLogValueAxis::*)(int)>(&QLogValueAxis::minorTickCountChanged),
+                           [self, slotFunc](int minorTickCount) {
+                               int sigval1 = minorTickCount;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QLogValueAxis_Tr2(const char* s, const char* c) {

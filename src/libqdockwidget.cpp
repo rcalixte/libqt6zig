@@ -144,10 +144,12 @@ void QDockWidget_FeaturesChanged(QDockWidget* self, int features) {
 
 void QDockWidget_Connect_FeaturesChanged(QDockWidget* self, intptr_t slot) {
     void (*slotFunc)(QDockWidget*, int) = reinterpret_cast<void (*)(QDockWidget*, int)>(slot);
-    QDockWidget::connect(self, &QDockWidget::featuresChanged, [self, slotFunc](QDockWidget::DockWidgetFeatures features) {
-        int sigval1 = static_cast<int>(features);
-        slotFunc(self, sigval1);
-    });
+    QDockWidget::connect(self,
+                         static_cast<void (QDockWidget::*)(QDockWidget::DockWidgetFeatures)>(&QDockWidget::featuresChanged),
+                         [self, slotFunc](QDockWidget::DockWidgetFeatures features) {
+                             int sigval1 = static_cast<int>(features);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QDockWidget_TopLevelChanged(QDockWidget* self, bool topLevel) {
@@ -156,10 +158,12 @@ void QDockWidget_TopLevelChanged(QDockWidget* self, bool topLevel) {
 
 void QDockWidget_Connect_TopLevelChanged(QDockWidget* self, intptr_t slot) {
     void (*slotFunc)(QDockWidget*, bool) = reinterpret_cast<void (*)(QDockWidget*, bool)>(slot);
-    QDockWidget::connect(self, &QDockWidget::topLevelChanged, [self, slotFunc](bool topLevel) {
-        bool sigval1 = topLevel;
-        slotFunc(self, sigval1);
-    });
+    QDockWidget::connect(self,
+                         static_cast<void (QDockWidget::*)(bool)>(&QDockWidget::topLevelChanged),
+                         [self, slotFunc](bool topLevel) {
+                             bool sigval1 = topLevel;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QDockWidget_AllowedAreasChanged(QDockWidget* self, int allowedAreas) {
@@ -168,10 +172,12 @@ void QDockWidget_AllowedAreasChanged(QDockWidget* self, int allowedAreas) {
 
 void QDockWidget_Connect_AllowedAreasChanged(QDockWidget* self, intptr_t slot) {
     void (*slotFunc)(QDockWidget*, int) = reinterpret_cast<void (*)(QDockWidget*, int)>(slot);
-    QDockWidget::connect(self, &QDockWidget::allowedAreasChanged, [self, slotFunc](Qt::DockWidgetAreas allowedAreas) {
-        int sigval1 = static_cast<int>(allowedAreas);
-        slotFunc(self, sigval1);
-    });
+    QDockWidget::connect(self,
+                         static_cast<void (QDockWidget::*)(Qt::DockWidgetAreas)>(&QDockWidget::allowedAreasChanged),
+                         [self, slotFunc](Qt::DockWidgetAreas allowedAreas) {
+                             int sigval1 = static_cast<int>(allowedAreas);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QDockWidget_VisibilityChanged(QDockWidget* self, bool visible) {
@@ -180,10 +186,12 @@ void QDockWidget_VisibilityChanged(QDockWidget* self, bool visible) {
 
 void QDockWidget_Connect_VisibilityChanged(QDockWidget* self, intptr_t slot) {
     void (*slotFunc)(QDockWidget*, bool) = reinterpret_cast<void (*)(QDockWidget*, bool)>(slot);
-    QDockWidget::connect(self, &QDockWidget::visibilityChanged, [self, slotFunc](bool visible) {
-        bool sigval1 = visible;
-        slotFunc(self, sigval1);
-    });
+    QDockWidget::connect(self,
+                         static_cast<void (QDockWidget::*)(bool)>(&QDockWidget::visibilityChanged),
+                         [self, slotFunc](bool visible) {
+                             bool sigval1 = visible;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QDockWidget_DockLocationChanged(QDockWidget* self, int area) {
@@ -192,10 +200,12 @@ void QDockWidget_DockLocationChanged(QDockWidget* self, int area) {
 
 void QDockWidget_Connect_DockLocationChanged(QDockWidget* self, intptr_t slot) {
     void (*slotFunc)(QDockWidget*, int) = reinterpret_cast<void (*)(QDockWidget*, int)>(slot);
-    QDockWidget::connect(self, &QDockWidget::dockLocationChanged, [self, slotFunc](Qt::DockWidgetArea area) {
-        int sigval1 = static_cast<int>(area);
-        slotFunc(self, sigval1);
-    });
+    QDockWidget::connect(self,
+                         static_cast<void (QDockWidget::*)(Qt::DockWidgetArea)>(&QDockWidget::dockLocationChanged),
+                         [self, slotFunc](Qt::DockWidgetArea area) {
+                             int sigval1 = static_cast<int>(area);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QDockWidget_ChangeEvent(QDockWidget* self, QEvent* event) {

@@ -137,9 +137,11 @@ void QKeySequenceEdit_EditingFinished(QKeySequenceEdit* self) {
 
 void QKeySequenceEdit_Connect_EditingFinished(QKeySequenceEdit* self, intptr_t slot) {
     void (*slotFunc)(QKeySequenceEdit*) = reinterpret_cast<void (*)(QKeySequenceEdit*)>(slot);
-    QKeySequenceEdit::connect(self, &QKeySequenceEdit::editingFinished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QKeySequenceEdit::connect(self,
+                              static_cast<void (QKeySequenceEdit::*)()>(&QKeySequenceEdit::editingFinished),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QKeySequenceEdit_KeySequenceChanged(QKeySequenceEdit* self, const QKeySequence* keySequence) {
@@ -148,12 +150,14 @@ void QKeySequenceEdit_KeySequenceChanged(QKeySequenceEdit* self, const QKeySeque
 
 void QKeySequenceEdit_Connect_KeySequenceChanged(QKeySequenceEdit* self, intptr_t slot) {
     void (*slotFunc)(QKeySequenceEdit*, QKeySequence*) = reinterpret_cast<void (*)(QKeySequenceEdit*, QKeySequence*)>(slot);
-    QKeySequenceEdit::connect(self, &QKeySequenceEdit::keySequenceChanged, [self, slotFunc](const QKeySequence& keySequence) {
-        const QKeySequence& keySequence_ret = keySequence;
-        // Cast returned reference into pointer
-        QKeySequence* sigval1 = const_cast<QKeySequence*>(&keySequence_ret);
-        slotFunc(self, sigval1);
-    });
+    QKeySequenceEdit::connect(self,
+                              static_cast<void (QKeySequenceEdit::*)(const QKeySequence&)>(&QKeySequenceEdit::keySequenceChanged),
+                              [self, slotFunc](const QKeySequence& keySequence) {
+                                  const QKeySequence& keySequence_ret = keySequence;
+                                  // Cast returned reference into pointer
+                                  QKeySequence* sigval1 = const_cast<QKeySequence*>(&keySequence_ret);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 bool QKeySequenceEdit_Event(QKeySequenceEdit* self, QEvent* param1) {

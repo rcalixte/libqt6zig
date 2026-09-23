@@ -586,12 +586,14 @@ void KDirOperator_UrlEntered(KDirOperator* self, const QUrl* param1) {
 
 void KDirOperator_Connect_UrlEntered(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, QUrl*) = reinterpret_cast<void (*)(KDirOperator*, QUrl*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::urlEntered, [self, slotFunc](const QUrl& param1) {
-        const QUrl& param1_ret = param1;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const QUrl&)>(&KDirOperator::urlEntered),
+                          [self, slotFunc](const QUrl& param1) {
+                              const QUrl& param1_ret = param1;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_UpdateInformation(KDirOperator* self, int files, int dirs) {
@@ -600,11 +602,13 @@ void KDirOperator_UpdateInformation(KDirOperator* self, int files, int dirs) {
 
 void KDirOperator_Connect_UpdateInformation(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, int, int) = reinterpret_cast<void (*)(KDirOperator*, int, int)>(slot);
-    KDirOperator::connect(self, &KDirOperator::updateInformation, [self, slotFunc](int files, int dirs) {
-        int sigval1 = files;
-        int sigval2 = dirs;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(int, int)>(&KDirOperator::updateInformation),
+                          [self, slotFunc](int files, int dirs) {
+                              int sigval1 = files;
+                              int sigval2 = dirs;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KDirOperator_Completion(KDirOperator* self, const libqt_string param1) {
@@ -614,18 +618,20 @@ void KDirOperator_Completion(KDirOperator* self, const libqt_string param1) {
 
 void KDirOperator_Connect_Completion(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, const char*) = reinterpret_cast<void (*)(KDirOperator*, const char*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::completion, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const QString&)>(&KDirOperator::completion),
+                          [self, slotFunc](const QString& param1) {
+                              const auto param1_ret = param1;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray param1_b = param1_ret.toUtf8();
+                              auto param1_str_len = param1_b.length();
+                              const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                              memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                              ((char*)param1_str)[param1_str_len] = '\0';
+                              const char* sigval1 = param1_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(param1_str);
+                          });
 }
 
 void KDirOperator_FinishedLoading(KDirOperator* self) {
@@ -634,9 +640,11 @@ void KDirOperator_FinishedLoading(KDirOperator* self) {
 
 void KDirOperator_Connect_FinishedLoading(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*) = reinterpret_cast<void (*)(KDirOperator*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::finishedLoading, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)()>(&KDirOperator::finishedLoading),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KDirOperator_ViewChanged(KDirOperator* self, QAbstractItemView* newView) {
@@ -645,10 +653,12 @@ void KDirOperator_ViewChanged(KDirOperator* self, QAbstractItemView* newView) {
 
 void KDirOperator_Connect_ViewChanged(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, QAbstractItemView*) = reinterpret_cast<void (*)(KDirOperator*, QAbstractItemView*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::viewChanged, [self, slotFunc](QAbstractItemView* newView) {
-        QAbstractItemView* sigval1 = newView;
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(QAbstractItemView*)>(&KDirOperator::viewChanged),
+                          [self, slotFunc](QAbstractItemView* newView) {
+                              QAbstractItemView* sigval1 = newView;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_FileHighlighted(KDirOperator* self, const KFileItem* item) {
@@ -657,12 +667,14 @@ void KDirOperator_FileHighlighted(KDirOperator* self, const KFileItem* item) {
 
 void KDirOperator_Connect_FileHighlighted(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, KFileItem*) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::fileHighlighted, [self, slotFunc](const KFileItem& item) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const KFileItem&)>(&KDirOperator::fileHighlighted),
+                          [self, slotFunc](const KFileItem& item) {
+                              const KFileItem& item_ret = item;
+                              // Cast returned reference into pointer
+                              KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_DirActivated(KDirOperator* self, const KFileItem* item) {
@@ -671,12 +683,14 @@ void KDirOperator_DirActivated(KDirOperator* self, const KFileItem* item) {
 
 void KDirOperator_Connect_DirActivated(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, KFileItem*) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::dirActivated, [self, slotFunc](const KFileItem& item) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const KFileItem&)>(&KDirOperator::dirActivated),
+                          [self, slotFunc](const KFileItem& item) {
+                              const KFileItem& item_ret = item;
+                              // Cast returned reference into pointer
+                              KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_FileSelected(KDirOperator* self, const KFileItem* item) {
@@ -685,12 +699,14 @@ void KDirOperator_FileSelected(KDirOperator* self, const KFileItem* item) {
 
 void KDirOperator_Connect_FileSelected(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, KFileItem*) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::fileSelected, [self, slotFunc](const KFileItem& item) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const KFileItem&)>(&KDirOperator::fileSelected),
+                          [self, slotFunc](const KFileItem& item) {
+                              const KFileItem& item_ret = item;
+                              // Cast returned reference into pointer
+                              KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_Dropped(KDirOperator* self, const KFileItem* item, QDropEvent* event, const libqt_list /* of QUrl* */ urls) {
@@ -705,24 +721,26 @@ void KDirOperator_Dropped(KDirOperator* self, const KFileItem* item, QDropEvent*
 
 void KDirOperator_Connect_Dropped(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, KFileItem*, QDropEvent*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*, QDropEvent*, libqt_list /* of QUrl* */)>(slot);
-    KDirOperator::connect(self, &KDirOperator::dropped, [self, slotFunc](const KFileItem& item, QDropEvent* event, const QList<QUrl>& urls) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        QDropEvent* sigval2 = event;
-        const QList<QUrl>& urls_ret = urls;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
-        for (qsizetype i = 0; i < urls_ret.size(); ++i) {
-            urls_arr[i] = new QUrl(urls_ret[i]);
-        }
-        libqt_list urls_out;
-        urls_out.len = urls_ret.size();
-        urls_out.data = static_cast<void*>(urls_arr);
-        libqt_list /* of QUrl* */ sigval3 = urls_out;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        free(urls_arr);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const KFileItem&, QDropEvent*, const QList<QUrl>&)>(&KDirOperator::dropped),
+                          [self, slotFunc](const KFileItem& item, QDropEvent* event, const QList<QUrl>& urls) {
+                              const KFileItem& item_ret = item;
+                              // Cast returned reference into pointer
+                              KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                              QDropEvent* sigval2 = event;
+                              const QList<QUrl>& urls_ret = urls;
+                              // Convert QList<> from C++ memory to manually-managed C memory
+                              QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
+                              for (qsizetype i = 0; i < urls_ret.size(); ++i) {
+                                  urls_arr[i] = new QUrl(urls_ret[i]);
+                              }
+                              libqt_list urls_out;
+                              urls_out.len = urls_ret.size();
+                              urls_out.data = static_cast<void*>(urls_arr);
+                              libqt_list /* of QUrl* */ sigval3 = urls_out;
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                              free(urls_arr);
+                          });
 }
 
 void KDirOperator_ContextMenuAboutToShow(KDirOperator* self, const KFileItem* item, QMenu* menu) {
@@ -731,13 +749,15 @@ void KDirOperator_ContextMenuAboutToShow(KDirOperator* self, const KFileItem* it
 
 void KDirOperator_Connect_ContextMenuAboutToShow(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, KFileItem*, QMenu*) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*, QMenu*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::contextMenuAboutToShow, [self, slotFunc](const KFileItem& item, QMenu* menu) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        QMenu* sigval2 = menu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const KFileItem&, QMenu*)>(&KDirOperator::contextMenuAboutToShow),
+                          [self, slotFunc](const KFileItem& item, QMenu* menu) {
+                              const KFileItem& item_ret = item;
+                              // Cast returned reference into pointer
+                              KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                              QMenu* sigval2 = menu;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KDirOperator_CurrentIconSizeChanged(KDirOperator* self, int size) {
@@ -746,10 +766,12 @@ void KDirOperator_CurrentIconSizeChanged(KDirOperator* self, int size) {
 
 void KDirOperator_Connect_CurrentIconSizeChanged(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, int) = reinterpret_cast<void (*)(KDirOperator*, int)>(slot);
-    KDirOperator::connect(self, &KDirOperator::currentIconSizeChanged, [self, slotFunc](int size) {
-        int sigval1 = size;
-        slotFunc(self, sigval1);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(int)>(&KDirOperator::currentIconSizeChanged),
+                          [self, slotFunc](int size) {
+                              int sigval1 = size;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KDirOperator_KeyEnterReturnPressed(KDirOperator* self) {
@@ -758,9 +780,11 @@ void KDirOperator_KeyEnterReturnPressed(KDirOperator* self) {
 
 void KDirOperator_Connect_KeyEnterReturnPressed(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*) = reinterpret_cast<void (*)(KDirOperator*)>(slot);
-    KDirOperator::connect(self, &KDirOperator::keyEnterReturnPressed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)()>(&KDirOperator::keyEnterReturnPressed),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KDirOperator_RenamingFinished(KDirOperator* self, const libqt_list /* of QUrl* */ urls) {
@@ -775,20 +799,22 @@ void KDirOperator_RenamingFinished(KDirOperator* self, const libqt_list /* of QU
 
 void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(KDirOperator*, libqt_list /* of QUrl* */)>(slot);
-    KDirOperator::connect(self, &KDirOperator::renamingFinished, [self, slotFunc](const QList<QUrl>& urls) {
-        const QList<QUrl>& urls_ret = urls;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
-        for (qsizetype i = 0; i < urls_ret.size(); ++i) {
-            urls_arr[i] = new QUrl(urls_ret[i]);
-        }
-        libqt_list urls_out;
-        urls_out.len = urls_ret.size();
-        urls_out.data = static_cast<void*>(urls_arr);
-        libqt_list /* of QUrl* */ sigval1 = urls_out;
-        slotFunc(self, sigval1);
-        free(urls_arr);
-    });
+    KDirOperator::connect(self,
+                          static_cast<void (KDirOperator::*)(const QList<QUrl>&)>(&KDirOperator::renamingFinished),
+                          [self, slotFunc](const QList<QUrl>& urls) {
+                              const QList<QUrl>& urls_ret = urls;
+                              // Convert QList<> from C++ memory to manually-managed C memory
+                              QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
+                              for (qsizetype i = 0; i < urls_ret.size(); ++i) {
+                                  urls_arr[i] = new QUrl(urls_ret[i]);
+                              }
+                              libqt_list urls_out;
+                              urls_out.len = urls_ret.size();
+                              urls_out.data = static_cast<void*>(urls_arr);
+                              libqt_list /* of QUrl* */ sigval1 = urls_out;
+                              slotFunc(self, sigval1);
+                              free(urls_arr);
+                          });
 }
 
 libqt_string KDirOperator_Tr2(const char* s, const char* c) {

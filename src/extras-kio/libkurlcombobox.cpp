@@ -170,12 +170,14 @@ void KUrlComboBox_UrlActivated(KUrlComboBox* self, const QUrl* url) {
 
 void KUrlComboBox_Connect_UrlActivated(KUrlComboBox* self, intptr_t slot) {
     void (*slotFunc)(KUrlComboBox*, QUrl*) = reinterpret_cast<void (*)(KUrlComboBox*, QUrl*)>(slot);
-    KUrlComboBox::connect(self, &KUrlComboBox::urlActivated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlComboBox::connect(self,
+                          static_cast<void (KUrlComboBox::*)(const QUrl&)>(&KUrlComboBox::urlActivated),
+                          [self, slotFunc](const QUrl& url) {
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void KUrlComboBox_MousePressEvent(KUrlComboBox* self, QMouseEvent* event) {

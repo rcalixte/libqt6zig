@@ -104,18 +104,20 @@ void Sonnet__ConfigDialog_LanguageChanged(Sonnet__ConfigDialog* self, const libq
 
 void Sonnet__ConfigDialog_Connect_LanguageChanged(Sonnet__ConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__ConfigDialog*, const char*) = reinterpret_cast<void (*)(Sonnet__ConfigDialog*, const char*)>(slot);
-    Sonnet::ConfigDialog::connect(self, &Sonnet::ConfigDialog::languageChanged, [self, slotFunc](const QString& language) {
-        const auto language_ret = language;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray language_b = language_ret.toUtf8();
-        auto language_str_len = language_b.length();
-        const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
-        memcpy((void*)language_str, language_b.data(), language_str_len);
-        ((char*)language_str)[language_str_len] = '\0';
-        const char* sigval1 = language_str;
-        slotFunc(self, sigval1);
-        libqt_free(language_str);
-    });
+    Sonnet::ConfigDialog::connect(self,
+                                  static_cast<void (Sonnet::ConfigDialog::*)(const QString&)>(&Sonnet::ConfigDialog::languageChanged),
+                                  [self, slotFunc](const QString& language) {
+                                      const auto language_ret = language;
+                                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                      QByteArray language_b = language_ret.toUtf8();
+                                      auto language_str_len = language_b.length();
+                                      const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
+                                      memcpy((void*)language_str, language_b.data(), language_str_len);
+                                      ((char*)language_str)[language_str_len] = '\0';
+                                      const char* sigval1 = language_str;
+                                      slotFunc(self, sigval1);
+                                      libqt_free(language_str);
+                                  });
 }
 
 void Sonnet__ConfigDialog_ConfigChanged(Sonnet__ConfigDialog* self) {
@@ -124,9 +126,11 @@ void Sonnet__ConfigDialog_ConfigChanged(Sonnet__ConfigDialog* self) {
 
 void Sonnet__ConfigDialog_Connect_ConfigChanged(Sonnet__ConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__ConfigDialog*) = reinterpret_cast<void (*)(Sonnet__ConfigDialog*)>(slot);
-    Sonnet::ConfigDialog::connect(self, &Sonnet::ConfigDialog::configChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::ConfigDialog::connect(self,
+                                  static_cast<void (Sonnet::ConfigDialog::*)()>(&Sonnet::ConfigDialog::configChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string Sonnet__ConfigDialog_Tr2(const char* s, const char* c) {

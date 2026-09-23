@@ -243,20 +243,22 @@ void QListView_IndexesMoved(QListView* self, const libqt_list /* of QModelIndex*
 
 void QListView_Connect_IndexesMoved(QListView* self, intptr_t slot) {
     void (*slotFunc)(QListView*, libqt_list /* of QModelIndex* */) = reinterpret_cast<void (*)(QListView*, libqt_list /* of QModelIndex* */)>(slot);
-    QListView::connect(self, &QListView::indexesMoved, [self, slotFunc](const QList<QModelIndex>& indexes) {
-        const QList<QModelIndex>& indexes_ret = indexes;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
-        for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
-            indexes_arr[i] = new QModelIndex(indexes_ret[i]);
-        }
-        libqt_list indexes_out;
-        indexes_out.len = indexes_ret.size();
-        indexes_out.data = static_cast<void*>(indexes_arr);
-        libqt_list /* of QModelIndex* */ sigval1 = indexes_out;
-        slotFunc(self, sigval1);
-        free(indexes_arr);
-    });
+    QListView::connect(self,
+                       static_cast<void (QListView::*)(const QList<QModelIndex>&)>(&QListView::indexesMoved),
+                       [self, slotFunc](const QList<QModelIndex>& indexes) {
+                           const QList<QModelIndex>& indexes_ret = indexes;
+                           // Convert QList<> from C++ memory to manually-managed C memory
+                           QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
+                           for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
+                               indexes_arr[i] = new QModelIndex(indexes_ret[i]);
+                           }
+                           libqt_list indexes_out;
+                           indexes_out.len = indexes_ret.size();
+                           indexes_out.data = static_cast<void*>(indexes_arr);
+                           libqt_list /* of QModelIndex* */ sigval1 = indexes_out;
+                           slotFunc(self, sigval1);
+                           free(indexes_arr);
+                       });
 }
 
 bool QListView_Event(QListView* self, QEvent* e) {

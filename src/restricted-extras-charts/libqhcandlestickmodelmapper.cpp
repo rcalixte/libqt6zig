@@ -109,9 +109,11 @@ void QHCandlestickModelMapper_TimestampColumnChanged(QHCandlestickModelMapper* s
 
 void QHCandlestickModelMapper_Connect_TimestampColumnChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::timestampColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::timestampColumnChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_OpenColumnChanged(QHCandlestickModelMapper* self) {
@@ -120,9 +122,11 @@ void QHCandlestickModelMapper_OpenColumnChanged(QHCandlestickModelMapper* self) 
 
 void QHCandlestickModelMapper_Connect_OpenColumnChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::openColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::openColumnChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_HighColumnChanged(QHCandlestickModelMapper* self) {
@@ -131,9 +135,11 @@ void QHCandlestickModelMapper_HighColumnChanged(QHCandlestickModelMapper* self) 
 
 void QHCandlestickModelMapper_Connect_HighColumnChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::highColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::highColumnChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_LowColumnChanged(QHCandlestickModelMapper* self) {
@@ -142,9 +148,11 @@ void QHCandlestickModelMapper_LowColumnChanged(QHCandlestickModelMapper* self) {
 
 void QHCandlestickModelMapper_Connect_LowColumnChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::lowColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::lowColumnChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_CloseColumnChanged(QHCandlestickModelMapper* self) {
@@ -153,9 +161,11 @@ void QHCandlestickModelMapper_CloseColumnChanged(QHCandlestickModelMapper* self)
 
 void QHCandlestickModelMapper_Connect_CloseColumnChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::closeColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::closeColumnChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_FirstSetRowChanged(QHCandlestickModelMapper* self) {
@@ -164,9 +174,11 @@ void QHCandlestickModelMapper_FirstSetRowChanged(QHCandlestickModelMapper* self)
 
 void QHCandlestickModelMapper_Connect_FirstSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::firstSetRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::firstSetRowChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void QHCandlestickModelMapper_LastSetRowChanged(QHCandlestickModelMapper* self) {
@@ -175,9 +187,11 @@ void QHCandlestickModelMapper_LastSetRowChanged(QHCandlestickModelMapper* self) 
 
 void QHCandlestickModelMapper_Connect_LastSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHCandlestickModelMapper*) = reinterpret_cast<void (*)(QHCandlestickModelMapper*)>(slot);
-    QHCandlestickModelMapper::connect(self, &QHCandlestickModelMapper::lastSetRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHCandlestickModelMapper::connect(self,
+                                      static_cast<void (QHCandlestickModelMapper::*)()>(&QHCandlestickModelMapper::lastSetRowChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 libqt_string QHCandlestickModelMapper_Tr2(const char* s, const char* c) {

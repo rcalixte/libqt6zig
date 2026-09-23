@@ -305,12 +305,14 @@ void QTreeView_Expanded(QTreeView* self, const QModelIndex* index) {
 
 void QTreeView_Connect_Expanded(QTreeView* self, intptr_t slot) {
     void (*slotFunc)(QTreeView*, QModelIndex*) = reinterpret_cast<void (*)(QTreeView*, QModelIndex*)>(slot);
-    QTreeView::connect(self, &QTreeView::expanded, [self, slotFunc](const QModelIndex& index) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1);
-    });
+    QTreeView::connect(self,
+                       static_cast<void (QTreeView::*)(const QModelIndex&)>(&QTreeView::expanded),
+                       [self, slotFunc](const QModelIndex& index) {
+                           const QModelIndex& index_ret = index;
+                           // Cast returned reference into pointer
+                           QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QTreeView_Collapsed(QTreeView* self, const QModelIndex* index) {
@@ -319,12 +321,14 @@ void QTreeView_Collapsed(QTreeView* self, const QModelIndex* index) {
 
 void QTreeView_Connect_Collapsed(QTreeView* self, intptr_t slot) {
     void (*slotFunc)(QTreeView*, QModelIndex*) = reinterpret_cast<void (*)(QTreeView*, QModelIndex*)>(slot);
-    QTreeView::connect(self, &QTreeView::collapsed, [self, slotFunc](const QModelIndex& index) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1);
-    });
+    QTreeView::connect(self,
+                       static_cast<void (QTreeView::*)(const QModelIndex&)>(&QTreeView::collapsed),
+                       [self, slotFunc](const QModelIndex& index) {
+                           const QModelIndex& index_ret = index;
+                           // Cast returned reference into pointer
+                           QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QTreeView_HideColumn(QTreeView* self, int column) {

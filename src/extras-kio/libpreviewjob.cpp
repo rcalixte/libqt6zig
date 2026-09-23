@@ -176,15 +176,17 @@ void KIO__PreviewJob_GotPreview(KIO__PreviewJob* self, const KFileItem* item, co
 
 void KIO__PreviewJob_Connect_GotPreview(KIO__PreviewJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__PreviewJob*, KFileItem*, QPixmap*) = reinterpret_cast<void (*)(KIO__PreviewJob*, KFileItem*, QPixmap*)>(slot);
-    KIO::PreviewJob::connect(self, &KIO::PreviewJob::gotPreview, [self, slotFunc](const KFileItem& item, const QPixmap& preview) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        const QPixmap& preview_ret = preview;
-        // Cast returned reference into pointer
-        QPixmap* sigval2 = const_cast<QPixmap*>(&preview_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::PreviewJob::connect(self,
+                             static_cast<void (KIO::PreviewJob::*)(const KFileItem&, const QPixmap&)>(&KIO::PreviewJob::gotPreview),
+                             [self, slotFunc](const KFileItem& item, const QPixmap& preview) {
+                                 const KFileItem& item_ret = item;
+                                 // Cast returned reference into pointer
+                                 KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                                 const QPixmap& preview_ret = preview;
+                                 // Cast returned reference into pointer
+                                 QPixmap* sigval2 = const_cast<QPixmap*>(&preview_ret);
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 void KIO__PreviewJob_Failed(KIO__PreviewJob* self, const KFileItem* item) {
@@ -193,12 +195,14 @@ void KIO__PreviewJob_Failed(KIO__PreviewJob* self, const KFileItem* item) {
 
 void KIO__PreviewJob_Connect_Failed(KIO__PreviewJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__PreviewJob*, KFileItem*) = reinterpret_cast<void (*)(KIO__PreviewJob*, KFileItem*)>(slot);
-    KIO::PreviewJob::connect(self, &KIO::PreviewJob::failed, [self, slotFunc](const KFileItem& item) {
-        const KFileItem& item_ret = item;
-        // Cast returned reference into pointer
-        KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
-        slotFunc(self, sigval1);
-    });
+    KIO::PreviewJob::connect(self,
+                             static_cast<void (KIO::PreviewJob::*)(const KFileItem&)>(&KIO::PreviewJob::failed),
+                             [self, slotFunc](const KFileItem& item) {
+                                 const KFileItem& item_ret = item;
+                                 // Cast returned reference into pointer
+                                 KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KIO__PreviewJob_SlotResult(KIO__PreviewJob* self, KJob* job) {

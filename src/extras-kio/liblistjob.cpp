@@ -60,21 +60,23 @@ void KIO__ListJob_Entries(KIO__ListJob* self, KIO__Job* job, const libqt_list /*
 
 void KIO__ListJob_Connect_Entries(KIO__ListJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__ListJob*, KIO__Job*, libqt_list /* of KIO__UDSEntry* */) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__Job*, libqt_list /* of KIO__UDSEntry* */)>(slot);
-    KIO::ListJob::connect(self, &KIO::ListJob::entries, [self, slotFunc](KIO::Job* job, const QList<KIO::UDSEntry>& list) {
-        KIO__Job* sigval1 = job;
-        const QList<KIO::UDSEntry>& list_ret = list;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KIO__UDSEntry** list_arr = static_cast<KIO__UDSEntry**>(malloc(sizeof(KIO__UDSEntry*) * (list_ret.size())));
-        for (qsizetype i = 0; i < list_ret.size(); ++i) {
-            list_arr[i] = new KIO::UDSEntry(list_ret[i]);
-        }
-        libqt_list list_out;
-        list_out.len = list_ret.size();
-        list_out.data = static_cast<void*>(list_arr);
-        libqt_list /* of KIO__UDSEntry* */ sigval2 = list_out;
-        slotFunc(self, sigval1, sigval2);
-        free(list_arr);
-    });
+    KIO::ListJob::connect(self,
+                          static_cast<void (KIO::ListJob::*)(KIO::Job*, const QList<KIO::UDSEntry>&)>(&KIO::ListJob::entries),
+                          [self, slotFunc](KIO::Job* job, const QList<KIO::UDSEntry>& list) {
+                              KIO__Job* sigval1 = job;
+                              const QList<KIO::UDSEntry>& list_ret = list;
+                              // Convert QList<> from C++ memory to manually-managed C memory
+                              KIO__UDSEntry** list_arr = static_cast<KIO__UDSEntry**>(malloc(sizeof(KIO__UDSEntry*) * (list_ret.size())));
+                              for (qsizetype i = 0; i < list_ret.size(); ++i) {
+                                  list_arr[i] = new KIO::UDSEntry(list_ret[i]);
+                              }
+                              libqt_list list_out;
+                              list_out.len = list_ret.size();
+                              list_out.data = static_cast<void*>(list_arr);
+                              libqt_list /* of KIO__UDSEntry* */ sigval2 = list_out;
+                              slotFunc(self, sigval1, sigval2);
+                              free(list_arr);
+                          });
 }
 
 void KIO__ListJob_SubError(KIO__ListJob* self, KIO__ListJob* job, KIO__ListJob* subJob) {
@@ -83,11 +85,13 @@ void KIO__ListJob_SubError(KIO__ListJob* self, KIO__ListJob* job, KIO__ListJob* 
 
 void KIO__ListJob_Connect_SubError(KIO__ListJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__ListJob*, KIO__ListJob*, KIO__ListJob*) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__ListJob*, KIO__ListJob*)>(slot);
-    KIO::ListJob::connect(self, &KIO::ListJob::subError, [self, slotFunc](KIO::ListJob* job, KIO::ListJob* subJob) {
-        KIO__ListJob* sigval1 = job;
-        KIO__ListJob* sigval2 = subJob;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::ListJob::connect(self,
+                          static_cast<void (KIO::ListJob::*)(KIO::ListJob*, KIO::ListJob*)>(&KIO::ListJob::subError),
+                          [self, slotFunc](KIO::ListJob* job, KIO::ListJob* subJob) {
+                              KIO__ListJob* sigval1 = job;
+                              KIO__ListJob* sigval2 = subJob;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KIO__ListJob_Redirection(KIO__ListJob* self, KIO__Job* job, const QUrl* url) {
@@ -96,13 +100,15 @@ void KIO__ListJob_Redirection(KIO__ListJob* self, KIO__Job* job, const QUrl* url
 
 void KIO__ListJob_Connect_Redirection(KIO__ListJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__ListJob*, KIO__Job*, QUrl*) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__Job*, QUrl*)>(slot);
-    KIO::ListJob::connect(self, &KIO::ListJob::redirection, [self, slotFunc](KIO::Job* job, const QUrl& url) {
-        KIO__Job* sigval1 = job;
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::ListJob::connect(self,
+                          static_cast<void (KIO::ListJob::*)(KIO::Job*, const QUrl&)>(&KIO::ListJob::redirection),
+                          [self, slotFunc](KIO::Job* job, const QUrl& url) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& url_ret = url;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KIO__ListJob_PermanentRedirection(KIO__ListJob* self, KIO__Job* job, const QUrl* fromUrl, const QUrl* toUrl) {
@@ -111,16 +117,18 @@ void KIO__ListJob_PermanentRedirection(KIO__ListJob* self, KIO__Job* job, const 
 
 void KIO__ListJob_Connect_PermanentRedirection(KIO__ListJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__ListJob*, KIO__Job*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__Job*, QUrl*, QUrl*)>(slot);
-    KIO::ListJob::connect(self, &KIO::ListJob::permanentRedirection, [self, slotFunc](KIO::Job* job, const QUrl& fromUrl, const QUrl& toUrl) {
-        KIO__Job* sigval1 = job;
-        const QUrl& fromUrl_ret = fromUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&fromUrl_ret);
-        const QUrl& toUrl_ret = toUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&toUrl_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::ListJob::connect(self,
+                          static_cast<void (KIO::ListJob::*)(KIO::Job*, const QUrl&, const QUrl&)>(&KIO::ListJob::permanentRedirection),
+                          [self, slotFunc](KIO::Job* job, const QUrl& fromUrl, const QUrl& toUrl) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& fromUrl_ret = fromUrl;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&fromUrl_ret);
+                              const QUrl& toUrl_ret = toUrl;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&toUrl_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                          });
 }
 
 libqt_string KIO__ListJob_Tr2(const char* s, const char* c) {

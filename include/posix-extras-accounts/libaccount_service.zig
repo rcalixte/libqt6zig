@@ -658,6 +658,22 @@ pub const Accounts__AccountService = extern struct {
         qtc.Accounts__AccountService_Enabled2(@ptrCast(self.ptr), _isEnabled);
     }
 
+    /// ### DEPRECATED: Use `onEnabled2` instead
+    ///
+    pub const OnEnabled2 = onEnabled2;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Accounts__AccountService `
+    ///
+    /// ` callback: *const fn (self: Accounts__AccountService, isEnabled: bool) callconv(.c) void `
+    ///
+    pub fn onEnabled2(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, bool) callconv(.c) void) void {
+        qtc.Accounts__AccountService_Connect_Enabled2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `changed` instead
     ///
     pub const Changed = changed;
@@ -670,6 +686,22 @@ pub const Accounts__AccountService = extern struct {
     ///
     pub fn changed(self: Accounts__AccountService) void {
         qtc.Accounts__AccountService_Changed(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Accounts__AccountService `
+    ///
+    /// ` callback: *const fn (self: Accounts__AccountService) callconv(.c) void `
+    ///
+    pub fn onChanged(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService) callconv(.c) void) void {
+        qtc.Accounts__AccountService_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `tr2` instead

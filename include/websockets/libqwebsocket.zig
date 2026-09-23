@@ -1498,6 +1498,22 @@ pub const QWebSocket = extern struct {
         qtc.QWebSocket_Error2(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
+    /// ### DEPRECATED: Use `onError2` instead
+    ///
+    pub const OnError2 = onError2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocket.html#error)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QWebSocket `
+    ///
+    /// ` callback: *const fn (self: QWebSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void `
+    ///
+    pub fn onError2(self: QWebSocket, callback: *const fn (QWebSocket, i32) callconv(.c) void) void {
+        qtc.QWebSocket_Connect_Error2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `errorOccurred` instead
     ///
     pub const ErrorOccurred = errorOccurred;

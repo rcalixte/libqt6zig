@@ -62,10 +62,12 @@ void KTextEditor__MainWindow_UnhandledShortcutOverride(KTextEditor__MainWindow* 
 
 void KTextEditor__MainWindow_Connect_UnhandledShortcutOverride(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, QEvent*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, QEvent*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::unhandledShortcutOverride, [self, slotFunc](QEvent* e) {
-        QEvent* sigval1 = e;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(QEvent*)>(&KTextEditor::MainWindow::unhandledShortcutOverride),
+                                     [self, slotFunc](QEvent* e) {
+                                         QEvent* sigval1 = e;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 libqt_list /* of KTextEditor__View* */ KTextEditor__MainWindow_Views(KTextEditor__MainWindow* self) {
@@ -115,10 +117,12 @@ void KTextEditor__MainWindow_ViewChanged(KTextEditor__MainWindow* self, KTextEdi
 
 void KTextEditor__MainWindow_Connect_ViewChanged(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, KTextEditor__View*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::viewChanged, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(KTextEditor::View*)>(&KTextEditor::MainWindow::viewChanged),
+                                     [self, slotFunc](KTextEditor::View* view) {
+                                         KTextEditor__View* sigval1 = view;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void KTextEditor__MainWindow_ViewCreated(KTextEditor__MainWindow* self, KTextEditor__View* view) {
@@ -127,10 +131,12 @@ void KTextEditor__MainWindow_ViewCreated(KTextEditor__MainWindow* self, KTextEdi
 
 void KTextEditor__MainWindow_Connect_ViewCreated(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, KTextEditor__View*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::viewCreated, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(KTextEditor::View*)>(&KTextEditor::MainWindow::viewCreated),
+                                     [self, slotFunc](KTextEditor::View* view) {
+                                         KTextEditor__View* sigval1 = view;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 QWidget* KTextEditor__MainWindow_CreateViewBar(KTextEditor__MainWindow* self, KTextEditor__View* view) {
@@ -187,19 +193,21 @@ void KTextEditor__MainWindow_PluginViewCreated(KTextEditor__MainWindow* self, co
 
 void KTextEditor__MainWindow_Connect_PluginViewCreated(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, const char*, QObject*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, const char*, QObject*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::pluginViewCreated, [self, slotFunc](const QString& name, QObject* pluginView) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        QObject* sigval2 = pluginView;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(name_str);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(const QString&, QObject*)>(&KTextEditor::MainWindow::pluginViewCreated),
+                                     [self, slotFunc](const QString& name, QObject* pluginView) {
+                                         const auto name_ret = name;
+                                         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                         QByteArray name_b = name_ret.toUtf8();
+                                         auto name_str_len = name_b.length();
+                                         const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                         memcpy((void*)name_str, name_b.data(), name_str_len);
+                                         ((char*)name_str)[name_str_len] = '\0';
+                                         const char* sigval1 = name_str;
+                                         QObject* sigval2 = pluginView;
+                                         slotFunc(self, sigval1, sigval2);
+                                         libqt_free(name_str);
+                                     });
 }
 
 void KTextEditor__MainWindow_PluginViewDeleted(KTextEditor__MainWindow* self, const libqt_string name, QObject* pluginView) {
@@ -209,19 +217,21 @@ void KTextEditor__MainWindow_PluginViewDeleted(KTextEditor__MainWindow* self, co
 
 void KTextEditor__MainWindow_Connect_PluginViewDeleted(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, const char*, QObject*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, const char*, QObject*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::pluginViewDeleted, [self, slotFunc](const QString& name, QObject* pluginView) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        QObject* sigval2 = pluginView;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(name_str);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(const QString&, QObject*)>(&KTextEditor::MainWindow::pluginViewDeleted),
+                                     [self, slotFunc](const QString& name, QObject* pluginView) {
+                                         const auto name_ret = name;
+                                         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                         QByteArray name_b = name_ret.toUtf8();
+                                         auto name_str_len = name_b.length();
+                                         const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                         memcpy((void*)name_str, name_b.data(), name_str_len);
+                                         ((char*)name_str)[name_str_len] = '\0';
+                                         const char* sigval1 = name_str;
+                                         QObject* sigval2 = pluginView;
+                                         slotFunc(self, sigval1, sigval2);
+                                         libqt_free(name_str);
+                                     });
 }
 
 bool KTextEditor__MainWindow_AddWidget(KTextEditor__MainWindow* self, QWidget* widget) {
@@ -259,10 +269,12 @@ void KTextEditor__MainWindow_WidgetAdded(KTextEditor__MainWindow* self, QWidget*
 
 void KTextEditor__MainWindow_Connect_WidgetAdded(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, QWidget*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, QWidget*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::widgetAdded, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(QWidget*)>(&KTextEditor::MainWindow::widgetAdded),
+                                     [self, slotFunc](QWidget* widget) {
+                                         QWidget* sigval1 = widget;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void KTextEditor__MainWindow_WidgetRemoved(KTextEditor__MainWindow* self, QWidget* widget) {
@@ -271,10 +283,12 @@ void KTextEditor__MainWindow_WidgetRemoved(KTextEditor__MainWindow* self, QWidge
 
 void KTextEditor__MainWindow_Connect_WidgetRemoved(KTextEditor__MainWindow* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__MainWindow*, QWidget*) = reinterpret_cast<void (*)(KTextEditor__MainWindow*, QWidget*)>(slot);
-    KTextEditor::MainWindow::connect(self, &KTextEditor::MainWindow::widgetRemoved, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::MainWindow::connect(self,
+                                     static_cast<void (KTextEditor::MainWindow::*)(QWidget*)>(&KTextEditor::MainWindow::widgetRemoved),
+                                     [self, slotFunc](QWidget* widget) {
+                                         QWidget* sigval1 = widget;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const libqt_map /* of libqt_string to QVariant* */ message) {

@@ -254,9 +254,11 @@ void QObject_Destroyed(QObject* self) {
 
 void QObject_Connect_Destroyed(QObject* self, intptr_t slot) {
     void (*slotFunc)(QObject*) = reinterpret_cast<void (*)(QObject*)>(slot);
-    QObject::connect(self, &QObject::destroyed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QObject::connect(self,
+                     static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 QObject* QObject_Parent(const QObject* self) {
@@ -372,10 +374,12 @@ void QObject_Destroyed1(QObject* self, QObject* param1) {
 
 void QObject_Connect_Destroyed1(QObject* self, intptr_t slot) {
     void (*slotFunc)(QObject*, QObject*) = reinterpret_cast<void (*)(QObject*, QObject*)>(slot);
-    QObject::connect(self, &QObject::destroyed, [self, slotFunc](QObject* param1) {
-        QObject* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QObject::connect(self,
+                     static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed),
+                     [self, slotFunc](QObject* param1) {
+                         QObject* sigval1 = param1;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 // Base class handler implementation

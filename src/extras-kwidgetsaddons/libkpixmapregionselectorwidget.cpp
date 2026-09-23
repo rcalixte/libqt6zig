@@ -131,9 +131,11 @@ void KPixmapRegionSelectorWidget_PixmapRotated(KPixmapRegionSelectorWidget* self
 
 void KPixmapRegionSelectorWidget_Connect_PixmapRotated(KPixmapRegionSelectorWidget* self, intptr_t slot) {
     void (*slotFunc)(KPixmapRegionSelectorWidget*) = reinterpret_cast<void (*)(KPixmapRegionSelectorWidget*)>(slot);
-    KPixmapRegionSelectorWidget::connect(self, &KPixmapRegionSelectorWidget::pixmapRotated, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KPixmapRegionSelectorWidget::connect(self,
+                                         static_cast<void (KPixmapRegionSelectorWidget::*)()>(&KPixmapRegionSelectorWidget::pixmapRotated),
+                                         [self, slotFunc]() {
+                                             slotFunc(self);
+                                         });
 }
 
 QMenu* KPixmapRegionSelectorWidget_CreatePopupMenu(KPixmapRegionSelectorWidget* self) {

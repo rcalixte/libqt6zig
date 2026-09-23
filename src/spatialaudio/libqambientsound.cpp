@@ -82,9 +82,11 @@ void QAmbientSound_SourceChanged(QAmbientSound* self) {
 
 void QAmbientSound_Connect_SourceChanged(QAmbientSound* self, intptr_t slot) {
     void (*slotFunc)(QAmbientSound*) = reinterpret_cast<void (*)(QAmbientSound*)>(slot);
-    QAmbientSound::connect(self, &QAmbientSound::sourceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAmbientSound::connect(self,
+                           static_cast<void (QAmbientSound::*)()>(&QAmbientSound::sourceChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QAmbientSound_LoopsChanged(QAmbientSound* self) {
@@ -93,9 +95,11 @@ void QAmbientSound_LoopsChanged(QAmbientSound* self) {
 
 void QAmbientSound_Connect_LoopsChanged(QAmbientSound* self, intptr_t slot) {
     void (*slotFunc)(QAmbientSound*) = reinterpret_cast<void (*)(QAmbientSound*)>(slot);
-    QAmbientSound::connect(self, &QAmbientSound::loopsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAmbientSound::connect(self,
+                           static_cast<void (QAmbientSound::*)()>(&QAmbientSound::loopsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QAmbientSound_AutoPlayChanged(QAmbientSound* self) {
@@ -104,9 +108,11 @@ void QAmbientSound_AutoPlayChanged(QAmbientSound* self) {
 
 void QAmbientSound_Connect_AutoPlayChanged(QAmbientSound* self, intptr_t slot) {
     void (*slotFunc)(QAmbientSound*) = reinterpret_cast<void (*)(QAmbientSound*)>(slot);
-    QAmbientSound::connect(self, &QAmbientSound::autoPlayChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAmbientSound::connect(self,
+                           static_cast<void (QAmbientSound::*)()>(&QAmbientSound::autoPlayChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QAmbientSound_VolumeChanged(QAmbientSound* self) {
@@ -115,9 +121,11 @@ void QAmbientSound_VolumeChanged(QAmbientSound* self) {
 
 void QAmbientSound_Connect_VolumeChanged(QAmbientSound* self, intptr_t slot) {
     void (*slotFunc)(QAmbientSound*) = reinterpret_cast<void (*)(QAmbientSound*)>(slot);
-    QAmbientSound::connect(self, &QAmbientSound::volumeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAmbientSound::connect(self,
+                           static_cast<void (QAmbientSound::*)()>(&QAmbientSound::volumeChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QAmbientSound_Play(QAmbientSound* self) {

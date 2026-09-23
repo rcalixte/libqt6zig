@@ -94,10 +94,12 @@ void TextAddonsWidgets__SelectSpecialCharDialog_CharSelected(TextAddonsWidgets__
 
 void TextAddonsWidgets__SelectSpecialCharDialog_Connect_CharSelected(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
     void (*slotFunc)(TextAddonsWidgets__SelectSpecialCharDialog*, QChar*) = reinterpret_cast<void (*)(TextAddonsWidgets__SelectSpecialCharDialog*, QChar*)>(slot);
-    TextAddonsWidgets::SelectSpecialCharDialog::connect(self, &TextAddonsWidgets::SelectSpecialCharDialog::charSelected, [self, slotFunc](QChar param1) {
-        QChar* sigval1 = new QChar(param1);
-        slotFunc(self, sigval1);
-    });
+    TextAddonsWidgets::SelectSpecialCharDialog::connect(self,
+                                                        static_cast<void (TextAddonsWidgets::SelectSpecialCharDialog::*)(QChar)>(&TextAddonsWidgets::SelectSpecialCharDialog::charSelected),
+                                                        [self, slotFunc](QChar param1) {
+                                                            QChar* sigval1 = new QChar(param1);
+                                                            slotFunc(self, sigval1);
+                                                        });
 }
 
 libqt_string TextAddonsWidgets__SelectSpecialCharDialog_Tr2(const char* s, const char* c) {

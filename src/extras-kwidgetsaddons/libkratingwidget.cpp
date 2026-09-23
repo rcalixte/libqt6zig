@@ -111,10 +111,12 @@ void KRatingWidget_RatingChanged(KRatingWidget* self, int rating) {
 
 void KRatingWidget_Connect_RatingChanged(KRatingWidget* self, intptr_t slot) {
     void (*slotFunc)(KRatingWidget*, int) = reinterpret_cast<void (*)(KRatingWidget*, int)>(slot);
-    KRatingWidget::connect(self, &KRatingWidget::ratingChanged, [self, slotFunc](int rating) {
-        int sigval1 = rating;
-        slotFunc(self, sigval1);
-    });
+    KRatingWidget::connect(self,
+                           static_cast<void (KRatingWidget::*)(int)>(&KRatingWidget::ratingChanged),
+                           [self, slotFunc](int rating) {
+                               int sigval1 = rating;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KRatingWidget_SetRating(KRatingWidget* self, int rating) {

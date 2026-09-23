@@ -140,12 +140,14 @@ void QBluetoothServiceDiscoveryAgent_ServiceDiscovered(QBluetoothServiceDiscover
 
 void QBluetoothServiceDiscoveryAgent_Connect_ServiceDiscovered(QBluetoothServiceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothServiceDiscoveryAgent*, QBluetoothServiceInfo*) = reinterpret_cast<void (*)(QBluetoothServiceDiscoveryAgent*, QBluetoothServiceInfo*)>(slot);
-    QBluetoothServiceDiscoveryAgent::connect(self, &QBluetoothServiceDiscoveryAgent::serviceDiscovered, [self, slotFunc](const QBluetoothServiceInfo& info) {
-        const QBluetoothServiceInfo& info_ret = info;
-        // Cast returned reference into pointer
-        QBluetoothServiceInfo* sigval1 = const_cast<QBluetoothServiceInfo*>(&info_ret);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothServiceDiscoveryAgent::connect(self,
+                                             static_cast<void (QBluetoothServiceDiscoveryAgent::*)(const QBluetoothServiceInfo&)>(&QBluetoothServiceDiscoveryAgent::serviceDiscovered),
+                                             [self, slotFunc](const QBluetoothServiceInfo& info) {
+                                                 const QBluetoothServiceInfo& info_ret = info;
+                                                 // Cast returned reference into pointer
+                                                 QBluetoothServiceInfo* sigval1 = const_cast<QBluetoothServiceInfo*>(&info_ret);
+                                                 slotFunc(self, sigval1);
+                                             });
 }
 
 void QBluetoothServiceDiscoveryAgent_Finished(QBluetoothServiceDiscoveryAgent* self) {
@@ -154,9 +156,11 @@ void QBluetoothServiceDiscoveryAgent_Finished(QBluetoothServiceDiscoveryAgent* s
 
 void QBluetoothServiceDiscoveryAgent_Connect_Finished(QBluetoothServiceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothServiceDiscoveryAgent*) = reinterpret_cast<void (*)(QBluetoothServiceDiscoveryAgent*)>(slot);
-    QBluetoothServiceDiscoveryAgent::connect(self, &QBluetoothServiceDiscoveryAgent::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothServiceDiscoveryAgent::connect(self,
+                                             static_cast<void (QBluetoothServiceDiscoveryAgent::*)()>(&QBluetoothServiceDiscoveryAgent::finished),
+                                             [self, slotFunc]() {
+                                                 slotFunc(self);
+                                             });
 }
 
 void QBluetoothServiceDiscoveryAgent_Canceled(QBluetoothServiceDiscoveryAgent* self) {
@@ -165,9 +169,11 @@ void QBluetoothServiceDiscoveryAgent_Canceled(QBluetoothServiceDiscoveryAgent* s
 
 void QBluetoothServiceDiscoveryAgent_Connect_Canceled(QBluetoothServiceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothServiceDiscoveryAgent*) = reinterpret_cast<void (*)(QBluetoothServiceDiscoveryAgent*)>(slot);
-    QBluetoothServiceDiscoveryAgent::connect(self, &QBluetoothServiceDiscoveryAgent::canceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothServiceDiscoveryAgent::connect(self,
+                                             static_cast<void (QBluetoothServiceDiscoveryAgent::*)()>(&QBluetoothServiceDiscoveryAgent::canceled),
+                                             [self, slotFunc]() {
+                                                 slotFunc(self);
+                                             });
 }
 
 void QBluetoothServiceDiscoveryAgent_ErrorOccurred(QBluetoothServiceDiscoveryAgent* self, int errorVal) {
@@ -176,10 +182,12 @@ void QBluetoothServiceDiscoveryAgent_ErrorOccurred(QBluetoothServiceDiscoveryAge
 
 void QBluetoothServiceDiscoveryAgent_Connect_ErrorOccurred(QBluetoothServiceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothServiceDiscoveryAgent*, int) = reinterpret_cast<void (*)(QBluetoothServiceDiscoveryAgent*, int)>(slot);
-    QBluetoothServiceDiscoveryAgent::connect(self, &QBluetoothServiceDiscoveryAgent::errorOccurred, [self, slotFunc](QBluetoothServiceDiscoveryAgent::Error errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothServiceDiscoveryAgent::connect(self,
+                                             static_cast<void (QBluetoothServiceDiscoveryAgent::*)(QBluetoothServiceDiscoveryAgent::Error)>(&QBluetoothServiceDiscoveryAgent::errorOccurred),
+                                             [self, slotFunc](QBluetoothServiceDiscoveryAgent::Error errorVal) {
+                                                 int sigval1 = static_cast<int>(errorVal);
+                                                 slotFunc(self, sigval1);
+                                             });
 }
 
 libqt_string QBluetoothServiceDiscoveryAgent_Tr2(const char* s, const char* c) {

@@ -89,12 +89,14 @@ void QColumnView_UpdatePreviewWidget(QColumnView* self, const QModelIndex* index
 
 void QColumnView_Connect_UpdatePreviewWidget(QColumnView* self, intptr_t slot) {
     void (*slotFunc)(QColumnView*, QModelIndex*) = reinterpret_cast<void (*)(QColumnView*, QModelIndex*)>(slot);
-    QColumnView::connect(self, &QColumnView::updatePreviewWidget, [self, slotFunc](const QModelIndex& index) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1);
-    });
+    QColumnView::connect(self,
+                         static_cast<void (QColumnView::*)(const QModelIndex&)>(&QColumnView::updatePreviewWidget),
+                         [self, slotFunc](const QModelIndex& index) {
+                             const QModelIndex& index_ret = index;
+                             // Cast returned reference into pointer
+                             QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 QModelIndex* QColumnView_IndexAt(const QColumnView* self, const QPoint* point) {

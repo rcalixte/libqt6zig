@@ -49,18 +49,20 @@ void Solid__DeviceNotifier_DeviceAdded(Solid__DeviceNotifier* self, const libqt_
 
 void Solid__DeviceNotifier_Connect_DeviceAdded(Solid__DeviceNotifier* self, intptr_t slot) {
     void (*slotFunc)(Solid__DeviceNotifier*, const char*) = reinterpret_cast<void (*)(Solid__DeviceNotifier*, const char*)>(slot);
-    Solid::DeviceNotifier::connect(self, &Solid::DeviceNotifier::deviceAdded, [self, slotFunc](const QString& udi) {
-        const auto udi_ret = udi;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray udi_b = udi_ret.toUtf8();
-        auto udi_str_len = udi_b.length();
-        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
-        ((char*)udi_str)[udi_str_len] = '\0';
-        const char* sigval1 = udi_str;
-        slotFunc(self, sigval1);
-        libqt_free(udi_str);
-    });
+    Solid::DeviceNotifier::connect(self,
+                                   static_cast<void (Solid::DeviceNotifier::*)(const QString&)>(&Solid::DeviceNotifier::deviceAdded),
+                                   [self, slotFunc](const QString& udi) {
+                                       const auto udi_ret = udi;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray udi_b = udi_ret.toUtf8();
+                                       auto udi_str_len = udi_b.length();
+                                       const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+                                       memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+                                       ((char*)udi_str)[udi_str_len] = '\0';
+                                       const char* sigval1 = udi_str;
+                                       slotFunc(self, sigval1);
+                                       libqt_free(udi_str);
+                                   });
 }
 
 void Solid__DeviceNotifier_DeviceRemoved(Solid__DeviceNotifier* self, const libqt_string udi) {
@@ -70,18 +72,20 @@ void Solid__DeviceNotifier_DeviceRemoved(Solid__DeviceNotifier* self, const libq
 
 void Solid__DeviceNotifier_Connect_DeviceRemoved(Solid__DeviceNotifier* self, intptr_t slot) {
     void (*slotFunc)(Solid__DeviceNotifier*, const char*) = reinterpret_cast<void (*)(Solid__DeviceNotifier*, const char*)>(slot);
-    Solid::DeviceNotifier::connect(self, &Solid::DeviceNotifier::deviceRemoved, [self, slotFunc](const QString& udi) {
-        const auto udi_ret = udi;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray udi_b = udi_ret.toUtf8();
-        auto udi_str_len = udi_b.length();
-        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
-        ((char*)udi_str)[udi_str_len] = '\0';
-        const char* sigval1 = udi_str;
-        slotFunc(self, sigval1);
-        libqt_free(udi_str);
-    });
+    Solid::DeviceNotifier::connect(self,
+                                   static_cast<void (Solid::DeviceNotifier::*)(const QString&)>(&Solid::DeviceNotifier::deviceRemoved),
+                                   [self, slotFunc](const QString& udi) {
+                                       const auto udi_ret = udi;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray udi_b = udi_ret.toUtf8();
+                                       auto udi_str_len = udi_b.length();
+                                       const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+                                       memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+                                       ((char*)udi_str)[udi_str_len] = '\0';
+                                       const char* sigval1 = udi_str;
+                                       slotFunc(self, sigval1);
+                                       libqt_free(udi_str);
+                                   });
 }
 
 libqt_string Solid__DeviceNotifier_Tr2(const char* s, const char* c) {

@@ -230,10 +230,12 @@ void KSelectAction_ActionTriggered(KSelectAction* self, QAction* action) {
 
 void KSelectAction_Connect_ActionTriggered(KSelectAction* self, intptr_t slot) {
     void (*slotFunc)(KSelectAction*, QAction*) = reinterpret_cast<void (*)(KSelectAction*, QAction*)>(slot);
-    KSelectAction::connect(self, &KSelectAction::actionTriggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KSelectAction::connect(self,
+                           static_cast<void (KSelectAction::*)(QAction*)>(&KSelectAction::actionTriggered),
+                           [self, slotFunc](QAction* action) {
+                               QAction* sigval1 = action;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KSelectAction_IndexTriggered(KSelectAction* self, int index) {
@@ -242,10 +244,12 @@ void KSelectAction_IndexTriggered(KSelectAction* self, int index) {
 
 void KSelectAction_Connect_IndexTriggered(KSelectAction* self, intptr_t slot) {
     void (*slotFunc)(KSelectAction*, int) = reinterpret_cast<void (*)(KSelectAction*, int)>(slot);
-    KSelectAction::connect(self, &KSelectAction::indexTriggered, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    KSelectAction::connect(self,
+                           static_cast<void (KSelectAction::*)(int)>(&KSelectAction::indexTriggered),
+                           [self, slotFunc](int index) {
+                               int sigval1 = index;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KSelectAction_TextTriggered(KSelectAction* self, const libqt_string text) {
@@ -255,18 +259,20 @@ void KSelectAction_TextTriggered(KSelectAction* self, const libqt_string text) {
 
 void KSelectAction_Connect_TextTriggered(KSelectAction* self, intptr_t slot) {
     void (*slotFunc)(KSelectAction*, const char*) = reinterpret_cast<void (*)(KSelectAction*, const char*)>(slot);
-    KSelectAction::connect(self, &KSelectAction::textTriggered, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KSelectAction::connect(self,
+                           static_cast<void (KSelectAction::*)(const QString&)>(&KSelectAction::textTriggered),
+                           [self, slotFunc](const QString& text) {
+                               const auto text_ret = text;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray text_b = text_ret.toUtf8();
+                               auto text_str_len = text_b.length();
+                               const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                               memcpy((void*)text_str, text_b.data(), text_str_len);
+                               ((char*)text_str)[text_str_len] = '\0';
+                               const char* sigval1 = text_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(text_str);
+                           });
 }
 
 void KSelectAction_SlotActionTriggered(KSelectAction* self, QAction* action) {

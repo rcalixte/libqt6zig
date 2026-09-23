@@ -489,6 +489,22 @@ pub const QAudioDecoder = extern struct {
         qtc.QAudioDecoder_BufferAvailableChanged(@ptrCast(self.ptr), param1);
     }
 
+    /// ### DEPRECATED: Use `onBufferAvailableChanged` instead
+    ///
+    pub const OnBufferAvailableChanged = onBufferAvailableChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferAvailableChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, param1: bool) callconv(.c) void `
+    ///
+    pub fn onBufferAvailableChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder, bool) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_BufferAvailableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `bufferReady` instead
     ///
     pub const BufferReady = bufferReady;
@@ -501,6 +517,22 @@ pub const QAudioDecoder = extern struct {
     ///
     pub fn bufferReady(self: QAudioDecoder) void {
         qtc.QAudioDecoder_BufferReady(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onBufferReady` instead
+    ///
+    pub const OnBufferReady = onBufferReady;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferReady)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder) callconv(.c) void `
+    ///
+    pub fn onBufferReady(self: QAudioDecoder, callback: *const fn (QAudioDecoder) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_BufferReady(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `finished` instead
@@ -517,6 +549,22 @@ pub const QAudioDecoder = extern struct {
         qtc.QAudioDecoder_Finished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#finished)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder) callconv(.c) void `
+    ///
+    pub fn onFinished(self: QAudioDecoder, callback: *const fn (QAudioDecoder) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `isDecodingChanged` instead
     ///
     pub const IsDecodingChanged = isDecodingChanged;
@@ -531,6 +579,22 @@ pub const QAudioDecoder = extern struct {
     ///
     pub fn isDecodingChanged(self: QAudioDecoder, param1: bool) void {
         qtc.QAudioDecoder_IsDecodingChanged(@ptrCast(self.ptr), param1);
+    }
+
+    /// ### DEPRECATED: Use `onIsDecodingChanged` instead
+    ///
+    pub const OnIsDecodingChanged = onIsDecodingChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#isDecodingChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, param1: bool) callconv(.c) void `
+    ///
+    pub fn onIsDecodingChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder, bool) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_IsDecodingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `formatChanged` instead
@@ -550,6 +614,22 @@ pub const QAudioDecoder = extern struct {
         qtc.QAudioDecoder_FormatChanged(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFormatChanged` instead
+    ///
+    pub const OnFormatChanged = onFormatChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#formatChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, format: QAudioFormat) callconv(.c) void `
+    ///
+    pub fn onFormatChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder, QAudioFormat) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_FormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `error2` instead
     ///
     pub const Error2 = error2;
@@ -566,6 +646,22 @@ pub const QAudioDecoder = extern struct {
         qtc.QAudioDecoder_Error2(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
+    /// ### DEPRECATED: Use `onError2` instead
+    ///
+    pub const OnError2 = onError2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#error)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, errorVal: qaudiodecoder_enums.Error) callconv(.c) void `
+    ///
+    pub fn onError2(self: QAudioDecoder, callback: *const fn (QAudioDecoder, i32) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_Error2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `sourceChanged` instead
     ///
     pub const SourceChanged = sourceChanged;
@@ -578,6 +674,22 @@ pub const QAudioDecoder = extern struct {
     ///
     pub fn sourceChanged(self: QAudioDecoder) void {
         qtc.QAudioDecoder_SourceChanged(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSourceChanged` instead
+    ///
+    pub const OnSourceChanged = onSourceChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#sourceChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder) callconv(.c) void `
+    ///
+    pub fn onSourceChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_SourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `positionChanged` instead
@@ -596,6 +708,22 @@ pub const QAudioDecoder = extern struct {
         qtc.QAudioDecoder_PositionChanged(@ptrCast(self.ptr), @bitCast(_position));
     }
 
+    /// ### DEPRECATED: Use `onPositionChanged` instead
+    ///
+    pub const OnPositionChanged = onPositionChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#positionChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, position: i64) callconv(.c) void `
+    ///
+    pub fn onPositionChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder, i64) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_PositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `durationChanged` instead
     ///
     pub const DurationChanged = durationChanged;
@@ -610,6 +738,22 @@ pub const QAudioDecoder = extern struct {
     ///
     pub fn durationChanged(self: QAudioDecoder, _duration: i64) void {
         qtc.QAudioDecoder_DurationChanged(@ptrCast(self.ptr), @bitCast(_duration));
+    }
+
+    /// ### DEPRECATED: Use `onDurationChanged` instead
+    ///
+    pub const OnDurationChanged = onDurationChanged;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#durationChanged)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QAudioDecoder `
+    ///
+    /// ` callback: *const fn (self: QAudioDecoder, duration: i64) callconv(.c) void `
+    ///
+    pub fn onDurationChanged(self: QAudioDecoder, callback: *const fn (QAudioDecoder, i64) callconv(.c) void) void {
+        qtc.QAudioDecoder_Connect_DurationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `tr2` instead

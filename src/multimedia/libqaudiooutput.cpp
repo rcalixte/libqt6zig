@@ -81,9 +81,11 @@ void QAudioOutput_DeviceChanged(QAudioOutput* self) {
 
 void QAudioOutput_Connect_DeviceChanged(QAudioOutput* self, intptr_t slot) {
     void (*slotFunc)(QAudioOutput*) = reinterpret_cast<void (*)(QAudioOutput*)>(slot);
-    QAudioOutput::connect(self, &QAudioOutput::deviceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioOutput::connect(self,
+                          static_cast<void (QAudioOutput::*)()>(&QAudioOutput::deviceChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioOutput_VolumeChanged(QAudioOutput* self, float volume) {
@@ -92,10 +94,12 @@ void QAudioOutput_VolumeChanged(QAudioOutput* self, float volume) {
 
 void QAudioOutput_Connect_VolumeChanged(QAudioOutput* self, intptr_t slot) {
     void (*slotFunc)(QAudioOutput*, float) = reinterpret_cast<void (*)(QAudioOutput*, float)>(slot);
-    QAudioOutput::connect(self, &QAudioOutput::volumeChanged, [self, slotFunc](float volume) {
-        float sigval1 = volume;
-        slotFunc(self, sigval1);
-    });
+    QAudioOutput::connect(self,
+                          static_cast<void (QAudioOutput::*)(float)>(&QAudioOutput::volumeChanged),
+                          [self, slotFunc](float volume) {
+                              float sigval1 = volume;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QAudioOutput_MutedChanged(QAudioOutput* self, bool muted) {
@@ -104,10 +108,12 @@ void QAudioOutput_MutedChanged(QAudioOutput* self, bool muted) {
 
 void QAudioOutput_Connect_MutedChanged(QAudioOutput* self, intptr_t slot) {
     void (*slotFunc)(QAudioOutput*, bool) = reinterpret_cast<void (*)(QAudioOutput*, bool)>(slot);
-    QAudioOutput::connect(self, &QAudioOutput::mutedChanged, [self, slotFunc](bool muted) {
-        bool sigval1 = muted;
-        slotFunc(self, sigval1);
-    });
+    QAudioOutput::connect(self,
+                          static_cast<void (QAudioOutput::*)(bool)>(&QAudioOutput::mutedChanged),
+                          [self, slotFunc](bool muted) {
+                              bool sigval1 = muted;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 libqt_string QAudioOutput_Tr2(const char* s, const char* c) {

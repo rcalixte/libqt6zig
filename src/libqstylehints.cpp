@@ -198,10 +198,12 @@ void QStyleHints_CursorFlashTimeChanged(QStyleHints* self, int cursorFlashTime) 
 
 void QStyleHints_Connect_CursorFlashTimeChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::cursorFlashTimeChanged, [self, slotFunc](int cursorFlashTime) {
-        int sigval1 = cursorFlashTime;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::cursorFlashTimeChanged),
+                         [self, slotFunc](int cursorFlashTime) {
+                             int sigval1 = cursorFlashTime;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_KeyboardInputIntervalChanged(QStyleHints* self, int keyboardInputInterval) {
@@ -210,10 +212,12 @@ void QStyleHints_KeyboardInputIntervalChanged(QStyleHints* self, int keyboardInp
 
 void QStyleHints_Connect_KeyboardInputIntervalChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::keyboardInputIntervalChanged, [self, slotFunc](int keyboardInputInterval) {
-        int sigval1 = keyboardInputInterval;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::keyboardInputIntervalChanged),
+                         [self, slotFunc](int keyboardInputInterval) {
+                             int sigval1 = keyboardInputInterval;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_MouseDoubleClickIntervalChanged(QStyleHints* self, int mouseDoubleClickInterval) {
@@ -222,10 +226,12 @@ void QStyleHints_MouseDoubleClickIntervalChanged(QStyleHints* self, int mouseDou
 
 void QStyleHints_Connect_MouseDoubleClickIntervalChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::mouseDoubleClickIntervalChanged, [self, slotFunc](int mouseDoubleClickInterval) {
-        int sigval1 = mouseDoubleClickInterval;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::mouseDoubleClickIntervalChanged),
+                         [self, slotFunc](int mouseDoubleClickInterval) {
+                             int sigval1 = mouseDoubleClickInterval;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_MousePressAndHoldIntervalChanged(QStyleHints* self, int mousePressAndHoldInterval) {
@@ -234,10 +240,12 @@ void QStyleHints_MousePressAndHoldIntervalChanged(QStyleHints* self, int mousePr
 
 void QStyleHints_Connect_MousePressAndHoldIntervalChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::mousePressAndHoldIntervalChanged, [self, slotFunc](int mousePressAndHoldInterval) {
-        int sigval1 = mousePressAndHoldInterval;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::mousePressAndHoldIntervalChanged),
+                         [self, slotFunc](int mousePressAndHoldInterval) {
+                             int sigval1 = mousePressAndHoldInterval;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_StartDragDistanceChanged(QStyleHints* self, int startDragDistance) {
@@ -246,10 +254,12 @@ void QStyleHints_StartDragDistanceChanged(QStyleHints* self, int startDragDistan
 
 void QStyleHints_Connect_StartDragDistanceChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::startDragDistanceChanged, [self, slotFunc](int startDragDistance) {
-        int sigval1 = startDragDistance;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::startDragDistanceChanged),
+                         [self, slotFunc](int startDragDistance) {
+                             int sigval1 = startDragDistance;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_StartDragTimeChanged(QStyleHints* self, int startDragTime) {
@@ -258,10 +268,12 @@ void QStyleHints_StartDragTimeChanged(QStyleHints* self, int startDragTime) {
 
 void QStyleHints_Connect_StartDragTimeChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::startDragTimeChanged, [self, slotFunc](int startDragTime) {
-        int sigval1 = startDragTime;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::startDragTimeChanged),
+                         [self, slotFunc](int startDragTime) {
+                             int sigval1 = startDragTime;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_TabFocusBehaviorChanged(QStyleHints* self, int tabFocusBehavior) {
@@ -270,10 +282,12 @@ void QStyleHints_TabFocusBehaviorChanged(QStyleHints* self, int tabFocusBehavior
 
 void QStyleHints_Connect_TabFocusBehaviorChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::tabFocusBehaviorChanged, [self, slotFunc](Qt::TabFocusBehavior tabFocusBehavior) {
-        int sigval1 = static_cast<int>(tabFocusBehavior);
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(Qt::TabFocusBehavior)>(&QStyleHints::tabFocusBehaviorChanged),
+                         [self, slotFunc](Qt::TabFocusBehavior tabFocusBehavior) {
+                             int sigval1 = static_cast<int>(tabFocusBehavior);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_UseHoverEffectsChanged(QStyleHints* self, bool useHoverEffects) {
@@ -282,10 +296,12 @@ void QStyleHints_UseHoverEffectsChanged(QStyleHints* self, bool useHoverEffects)
 
 void QStyleHints_Connect_UseHoverEffectsChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, bool) = reinterpret_cast<void (*)(QStyleHints*, bool)>(slot);
-    QStyleHints::connect(self, &QStyleHints::useHoverEffectsChanged, [self, slotFunc](bool useHoverEffects) {
-        bool sigval1 = useHoverEffects;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(bool)>(&QStyleHints::useHoverEffectsChanged),
+                         [self, slotFunc](bool useHoverEffects) {
+                             bool sigval1 = useHoverEffects;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_ShowShortcutsInContextMenusChanged(QStyleHints* self, bool param1) {
@@ -294,10 +310,12 @@ void QStyleHints_ShowShortcutsInContextMenusChanged(QStyleHints* self, bool para
 
 void QStyleHints_Connect_ShowShortcutsInContextMenusChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, bool) = reinterpret_cast<void (*)(QStyleHints*, bool)>(slot);
-    QStyleHints::connect(self, &QStyleHints::showShortcutsInContextMenusChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(bool)>(&QStyleHints::showShortcutsInContextMenusChanged),
+                         [self, slotFunc](bool param1) {
+                             bool sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_ContextMenuTriggerChanged(QStyleHints* self, int contextMenuTrigger) {
@@ -306,10 +324,12 @@ void QStyleHints_ContextMenuTriggerChanged(QStyleHints* self, int contextMenuTri
 
 void QStyleHints_Connect_ContextMenuTriggerChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::contextMenuTriggerChanged, [self, slotFunc](Qt::ContextMenuTrigger contextMenuTrigger) {
-        int sigval1 = static_cast<int>(contextMenuTrigger);
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(Qt::ContextMenuTrigger)>(&QStyleHints::contextMenuTriggerChanged),
+                         [self, slotFunc](Qt::ContextMenuTrigger contextMenuTrigger) {
+                             int sigval1 = static_cast<int>(contextMenuTrigger);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_WheelScrollLinesChanged(QStyleHints* self, int scrollLines) {
@@ -318,10 +338,12 @@ void QStyleHints_WheelScrollLinesChanged(QStyleHints* self, int scrollLines) {
 
 void QStyleHints_Connect_WheelScrollLinesChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::wheelScrollLinesChanged, [self, slotFunc](int scrollLines) {
-        int sigval1 = scrollLines;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::wheelScrollLinesChanged),
+                         [self, slotFunc](int scrollLines) {
+                             int sigval1 = scrollLines;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_MouseQuickSelectionThresholdChanged(QStyleHints* self, int threshold) {
@@ -330,10 +352,12 @@ void QStyleHints_MouseQuickSelectionThresholdChanged(QStyleHints* self, int thre
 
 void QStyleHints_Connect_MouseQuickSelectionThresholdChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::mouseQuickSelectionThresholdChanged, [self, slotFunc](int threshold) {
-        int sigval1 = threshold;
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(int)>(&QStyleHints::mouseQuickSelectionThresholdChanged),
+                         [self, slotFunc](int threshold) {
+                             int sigval1 = threshold;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QStyleHints_ColorSchemeChanged(QStyleHints* self, int colorScheme) {
@@ -342,10 +366,12 @@ void QStyleHints_ColorSchemeChanged(QStyleHints* self, int colorScheme) {
 
 void QStyleHints_Connect_ColorSchemeChanged(QStyleHints* self, intptr_t slot) {
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
-    QStyleHints::connect(self, &QStyleHints::colorSchemeChanged, [self, slotFunc](Qt::ColorScheme colorScheme) {
-        int sigval1 = static_cast<int>(colorScheme);
-        slotFunc(self, sigval1);
-    });
+    QStyleHints::connect(self,
+                         static_cast<void (QStyleHints::*)(Qt::ColorScheme)>(&QStyleHints::colorSchemeChanged),
+                         [self, slotFunc](Qt::ColorScheme colorScheme) {
+                             int sigval1 = static_cast<int>(colorScheme);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string QStyleHints_Tr2(const char* s, const char* c) {

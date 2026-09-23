@@ -148,10 +148,12 @@ void TextEditTextToSpeech__TextToSpeech_StateChanged(TextEditTextToSpeech__TextT
 
 void TextEditTextToSpeech__TextToSpeech_Connect_StateChanged(TextEditTextToSpeech__TextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(TextEditTextToSpeech__TextToSpeech*, int) = reinterpret_cast<void (*)(TextEditTextToSpeech__TextToSpeech*, int)>(slot);
-    TextEditTextToSpeech::TextToSpeech::connect(self, &TextEditTextToSpeech::TextToSpeech::stateChanged, [self, slotFunc](TextEditTextToSpeech::TextToSpeech::State param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    TextEditTextToSpeech::TextToSpeech::connect(self,
+                                                static_cast<void (TextEditTextToSpeech::TextToSpeech::*)(TextEditTextToSpeech::TextToSpeech::State)>(&TextEditTextToSpeech::TextToSpeech::stateChanged),
+                                                [self, slotFunc](TextEditTextToSpeech::TextToSpeech::State param1) {
+                                                    int sigval1 = static_cast<int>(param1);
+                                                    slotFunc(self, sigval1);
+                                                });
 }
 
 libqt_string TextEditTextToSpeech__TextToSpeech_Tr2(const char* s, const char* c) {

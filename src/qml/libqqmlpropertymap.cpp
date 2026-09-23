@@ -133,21 +133,23 @@ void QQmlPropertyMap_ValueChanged(QQmlPropertyMap* self, const libqt_string key,
 
 void QQmlPropertyMap_Connect_ValueChanged(QQmlPropertyMap* self, intptr_t slot) {
     void (*slotFunc)(QQmlPropertyMap*, const char*, QVariant*) = reinterpret_cast<void (*)(QQmlPropertyMap*, const char*, QVariant*)>(slot);
-    QQmlPropertyMap::connect(self, &QQmlPropertyMap::valueChanged, [self, slotFunc](const QString& key, const QVariant& value) {
-        const auto key_ret = key;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray key_b = key_ret.toUtf8();
-        auto key_str_len = key_b.length();
-        const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
-        memcpy((void*)key_str, key_b.data(), key_str_len);
-        ((char*)key_str)[key_str_len] = '\0';
-        const char* sigval1 = key_str;
-        const QVariant& value_ret = value;
-        // Cast returned reference into pointer
-        QVariant* sigval2 = const_cast<QVariant*>(&value_ret);
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(key_str);
-    });
+    QQmlPropertyMap::connect(self,
+                             static_cast<void (QQmlPropertyMap::*)(const QString&, const QVariant&)>(&QQmlPropertyMap::valueChanged),
+                             [self, slotFunc](const QString& key, const QVariant& value) {
+                                 const auto key_ret = key;
+                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                 QByteArray key_b = key_ret.toUtf8();
+                                 auto key_str_len = key_b.length();
+                                 const char* key_str = static_cast<const char*>(malloc(key_str_len + 1));
+                                 memcpy((void*)key_str, key_b.data(), key_str_len);
+                                 ((char*)key_str)[key_str_len] = '\0';
+                                 const char* sigval1 = key_str;
+                                 const QVariant& value_ret = value;
+                                 // Cast returned reference into pointer
+                                 QVariant* sigval2 = const_cast<QVariant*>(&value_ret);
+                                 slotFunc(self, sigval1, sigval2);
+                                 libqt_free(key_str);
+                             });
 }
 
 QVariant* QQmlPropertyMap_UpdateValue(QQmlPropertyMap* self, const libqt_string key, const QVariant* input) {

@@ -84,10 +84,12 @@ void QWebEngineWebAuthUxRequest_StateChanged(QWebEngineWebAuthUxRequest* self, i
 
 void QWebEngineWebAuthUxRequest_Connect_StateChanged(QWebEngineWebAuthUxRequest* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineWebAuthUxRequest*, int) = reinterpret_cast<void (*)(QWebEngineWebAuthUxRequest*, int)>(slot);
-    QWebEngineWebAuthUxRequest::connect(self, &QWebEngineWebAuthUxRequest::stateChanged, [self, slotFunc](QWebEngineWebAuthUxRequest::WebAuthUxState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QWebEngineWebAuthUxRequest::connect(self,
+                                        static_cast<void (QWebEngineWebAuthUxRequest::*)(QWebEngineWebAuthUxRequest::WebAuthUxState)>(&QWebEngineWebAuthUxRequest::stateChanged),
+                                        [self, slotFunc](QWebEngineWebAuthUxRequest::WebAuthUxState state) {
+                                            int sigval1 = static_cast<int>(state);
+                                            slotFunc(self, sigval1);
+                                        });
 }
 
 void QWebEngineWebAuthUxRequest_Cancel(QWebEngineWebAuthUxRequest* self) {

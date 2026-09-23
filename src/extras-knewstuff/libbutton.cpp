@@ -93,20 +93,22 @@ void KNSWidgets__Button_DialogFinished(KNSWidgets__Button* self, const libqt_lis
 
 void KNSWidgets__Button_Connect_DialogFinished(KNSWidgets__Button* self, intptr_t slot) {
     void (*slotFunc)(KNSWidgets__Button*, libqt_list /* of KNSCore__Entry* */) = reinterpret_cast<void (*)(KNSWidgets__Button*, libqt_list /* of KNSCore__Entry* */)>(slot);
-    KNSWidgets::Button::connect(self, &KNSWidgets::Button::dialogFinished, [self, slotFunc](const QList<KNSCore::Entry>& changedEntries) {
-        const QList<KNSCore::Entry>& changedEntries_ret = changedEntries;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Entry** changedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (changedEntries_ret.size())));
-        for (qsizetype i = 0; i < changedEntries_ret.size(); ++i) {
-            changedEntries_arr[i] = new KNSCore::Entry(changedEntries_ret[i]);
-        }
-        libqt_list changedEntries_out;
-        changedEntries_out.len = changedEntries_ret.size();
-        changedEntries_out.data = static_cast<void*>(changedEntries_arr);
-        libqt_list /* of KNSCore__Entry* */ sigval1 = changedEntries_out;
-        slotFunc(self, sigval1);
-        free(changedEntries_arr);
-    });
+    KNSWidgets::Button::connect(self,
+                                static_cast<void (KNSWidgets::Button::*)(const QList<KNSCore::Entry>&)>(&KNSWidgets::Button::dialogFinished),
+                                [self, slotFunc](const QList<KNSCore::Entry>& changedEntries) {
+                                    const QList<KNSCore::Entry>& changedEntries_ret = changedEntries;
+                                    // Convert QList<> from C++ memory to manually-managed C memory
+                                    KNSCore__Entry** changedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (changedEntries_ret.size())));
+                                    for (qsizetype i = 0; i < changedEntries_ret.size(); ++i) {
+                                        changedEntries_arr[i] = new KNSCore::Entry(changedEntries_ret[i]);
+                                    }
+                                    libqt_list changedEntries_out;
+                                    changedEntries_out.len = changedEntries_ret.size();
+                                    changedEntries_out.data = static_cast<void*>(changedEntries_arr);
+                                    libqt_list /* of KNSCore__Entry* */ sigval1 = changedEntries_out;
+                                    slotFunc(self, sigval1);
+                                    free(changedEntries_arr);
+                                });
 }
 
 libqt_string KNSWidgets__Button_Tr2(const char* s, const char* c) {

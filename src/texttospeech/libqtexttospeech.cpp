@@ -238,18 +238,20 @@ void QTextToSpeech_EngineChanged(QTextToSpeech* self, const libqt_string engine)
 
 void QTextToSpeech_Connect_EngineChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, const char*) = reinterpret_cast<void (*)(QTextToSpeech*, const char*)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::engineChanged, [self, slotFunc](const QString& engine) {
-        const auto engine_ret = engine;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray engine_b = engine_ret.toUtf8();
-        auto engine_str_len = engine_b.length();
-        const char* engine_str = static_cast<const char*>(malloc(engine_str_len + 1));
-        memcpy((void*)engine_str, engine_b.data(), engine_str_len);
-        ((char*)engine_str)[engine_str_len] = '\0';
-        const char* sigval1 = engine_str;
-        slotFunc(self, sigval1);
-        libqt_free(engine_str);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(const QString&)>(&QTextToSpeech::engineChanged),
+                           [self, slotFunc](const QString& engine) {
+                               const auto engine_ret = engine;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray engine_b = engine_ret.toUtf8();
+                               auto engine_str_len = engine_b.length();
+                               const char* engine_str = static_cast<const char*>(malloc(engine_str_len + 1));
+                               memcpy((void*)engine_str, engine_b.data(), engine_str_len);
+                               ((char*)engine_str)[engine_str_len] = '\0';
+                               const char* sigval1 = engine_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(engine_str);
+                           });
 }
 
 void QTextToSpeech_StateChanged(QTextToSpeech* self, int state) {
@@ -258,10 +260,12 @@ void QTextToSpeech_StateChanged(QTextToSpeech* self, int state) {
 
 void QTextToSpeech_Connect_StateChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, int) = reinterpret_cast<void (*)(QTextToSpeech*, int)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::stateChanged, [self, slotFunc](QTextToSpeech::State state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(QTextToSpeech::State)>(&QTextToSpeech::stateChanged),
+                           [self, slotFunc](QTextToSpeech::State state) {
+                               int sigval1 = static_cast<int>(state);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_ErrorOccurred(QTextToSpeech* self, int errorVal, const libqt_string errorString) {
@@ -271,19 +275,21 @@ void QTextToSpeech_ErrorOccurred(QTextToSpeech* self, int errorVal, const libqt_
 
 void QTextToSpeech_Connect_ErrorOccurred(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, int, const char*) = reinterpret_cast<void (*)(QTextToSpeech*, int, const char*)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::errorOccurred, [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
-        int sigval1 = static_cast<int>(errorVal);
-        const auto errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorString_b = errorString_ret.toUtf8();
-        auto errorString_str_len = errorString_b.length();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
-        ((char*)errorString_str)[errorString_str_len] = '\0';
-        const char* sigval2 = errorString_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(errorString_str);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(QTextToSpeech::ErrorReason, const QString&)>(&QTextToSpeech::errorOccurred),
+                           [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
+                               int sigval1 = static_cast<int>(errorVal);
+                               const auto errorString_ret = errorString;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray errorString_b = errorString_ret.toUtf8();
+                               auto errorString_str_len = errorString_b.length();
+                               const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+                               memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+                               ((char*)errorString_str)[errorString_str_len] = '\0';
+                               const char* sigval2 = errorString_str;
+                               slotFunc(self, sigval1, sigval2);
+                               libqt_free(errorString_str);
+                           });
 }
 
 void QTextToSpeech_LocaleChanged(QTextToSpeech* self, const QLocale* locale) {
@@ -292,12 +298,14 @@ void QTextToSpeech_LocaleChanged(QTextToSpeech* self, const QLocale* locale) {
 
 void QTextToSpeech_Connect_LocaleChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, QLocale*) = reinterpret_cast<void (*)(QTextToSpeech*, QLocale*)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::localeChanged, [self, slotFunc](const QLocale& locale) {
-        const QLocale& locale_ret = locale;
-        // Cast returned reference into pointer
-        QLocale* sigval1 = const_cast<QLocale*>(&locale_ret);
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(const QLocale&)>(&QTextToSpeech::localeChanged),
+                           [self, slotFunc](const QLocale& locale) {
+                               const QLocale& locale_ret = locale;
+                               // Cast returned reference into pointer
+                               QLocale* sigval1 = const_cast<QLocale*>(&locale_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_RateChanged(QTextToSpeech* self, double rate) {
@@ -306,10 +314,12 @@ void QTextToSpeech_RateChanged(QTextToSpeech* self, double rate) {
 
 void QTextToSpeech_Connect_RateChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, double) = reinterpret_cast<void (*)(QTextToSpeech*, double)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::rateChanged, [self, slotFunc](double rate) {
-        double sigval1 = rate;
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(double)>(&QTextToSpeech::rateChanged),
+                           [self, slotFunc](double rate) {
+                               double sigval1 = rate;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_PitchChanged(QTextToSpeech* self, double pitch) {
@@ -318,10 +328,12 @@ void QTextToSpeech_PitchChanged(QTextToSpeech* self, double pitch) {
 
 void QTextToSpeech_Connect_PitchChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, double) = reinterpret_cast<void (*)(QTextToSpeech*, double)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::pitchChanged, [self, slotFunc](double pitch) {
-        double sigval1 = pitch;
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(double)>(&QTextToSpeech::pitchChanged),
+                           [self, slotFunc](double pitch) {
+                               double sigval1 = pitch;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_VolumeChanged(QTextToSpeech* self, double volume) {
@@ -330,10 +342,12 @@ void QTextToSpeech_VolumeChanged(QTextToSpeech* self, double volume) {
 
 void QTextToSpeech_Connect_VolumeChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, double) = reinterpret_cast<void (*)(QTextToSpeech*, double)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::volumeChanged, [self, slotFunc](double volume) {
-        double sigval1 = volume;
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(double)>(&QTextToSpeech::volumeChanged),
+                           [self, slotFunc](double volume) {
+                               double sigval1 = volume;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_VoiceChanged(QTextToSpeech* self, const QVoice* voice) {
@@ -342,12 +356,14 @@ void QTextToSpeech_VoiceChanged(QTextToSpeech* self, const QVoice* voice) {
 
 void QTextToSpeech_Connect_VoiceChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, QVoice*) = reinterpret_cast<void (*)(QTextToSpeech*, QVoice*)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::voiceChanged, [self, slotFunc](const QVoice& voice) {
-        const QVoice& voice_ret = voice;
-        // Cast returned reference into pointer
-        QVoice* sigval1 = const_cast<QVoice*>(&voice_ret);
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(const QVoice&)>(&QTextToSpeech::voiceChanged),
+                           [self, slotFunc](const QVoice& voice) {
+                               const QVoice& voice_ret = voice;
+                               // Cast returned reference into pointer
+                               QVoice* sigval1 = const_cast<QVoice*>(&voice_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QTextToSpeech_SayingWord(QTextToSpeech* self, const libqt_string word, ptrdiff_t id, ptrdiff_t start, ptrdiff_t length) {
@@ -357,21 +373,23 @@ void QTextToSpeech_SayingWord(QTextToSpeech* self, const libqt_string word, ptrd
 
 void QTextToSpeech_Connect_SayingWord(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, const char*, ptrdiff_t, ptrdiff_t, ptrdiff_t) = reinterpret_cast<void (*)(QTextToSpeech*, const char*, ptrdiff_t, ptrdiff_t, ptrdiff_t)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::sayingWord, [self, slotFunc](const QString& word, qsizetype id, qsizetype start, qsizetype length) {
-        const auto word_ret = word;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray word_b = word_ret.toUtf8();
-        auto word_str_len = word_b.length();
-        const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
-        memcpy((void*)word_str, word_b.data(), word_str_len);
-        ((char*)word_str)[word_str_len] = '\0';
-        const char* sigval1 = word_str;
-        ptrdiff_t sigval2 = static_cast<ptrdiff_t>(id);
-        ptrdiff_t sigval3 = static_cast<ptrdiff_t>(start);
-        ptrdiff_t sigval4 = static_cast<ptrdiff_t>(length);
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-        libqt_free(word_str);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(const QString&, qsizetype, qsizetype, qsizetype)>(&QTextToSpeech::sayingWord),
+                           [self, slotFunc](const QString& word, qsizetype id, qsizetype start, qsizetype length) {
+                               const auto word_ret = word;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray word_b = word_ret.toUtf8();
+                               auto word_str_len = word_b.length();
+                               const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
+                               memcpy((void*)word_str, word_b.data(), word_str_len);
+                               ((char*)word_str)[word_str_len] = '\0';
+                               const char* sigval1 = word_str;
+                               ptrdiff_t sigval2 = static_cast<ptrdiff_t>(id);
+                               ptrdiff_t sigval3 = static_cast<ptrdiff_t>(start);
+                               ptrdiff_t sigval4 = static_cast<ptrdiff_t>(length);
+                               slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                               libqt_free(word_str);
+                           });
 }
 
 void QTextToSpeech_AboutToSynthesize(QTextToSpeech* self, ptrdiff_t id) {
@@ -380,10 +398,12 @@ void QTextToSpeech_AboutToSynthesize(QTextToSpeech* self, ptrdiff_t id) {
 
 void QTextToSpeech_Connect_AboutToSynthesize(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, ptrdiff_t) = reinterpret_cast<void (*)(QTextToSpeech*, ptrdiff_t)>(slot);
-    QTextToSpeech::connect(self, &QTextToSpeech::aboutToSynthesize, [self, slotFunc](qsizetype id) {
-        ptrdiff_t sigval1 = static_cast<ptrdiff_t>(id);
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeech::connect(self,
+                           static_cast<void (QTextToSpeech::*)(qsizetype)>(&QTextToSpeech::aboutToSynthesize),
+                           [self, slotFunc](qsizetype id) {
+                               ptrdiff_t sigval1 = static_cast<ptrdiff_t>(id);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QTextToSpeech_Tr2(const char* s, const char* c) {

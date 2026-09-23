@@ -143,24 +143,26 @@ void TextEmoticonsCore__EmojiModelManager_UsedIdentifierChanged(TextEmoticonsCor
 
 void TextEmoticonsCore__EmojiModelManager_Connect_UsedIdentifierChanged(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot) {
     void (*slotFunc)(TextEmoticonsCore__EmojiModelManager*, const char**) = reinterpret_cast<void (*)(TextEmoticonsCore__EmojiModelManager*, const char**)>(slot);
-    TextEmoticonsCore::EmojiModelManager::connect(self, &TextEmoticonsCore::EmojiModelManager::usedIdentifierChanged, [self, slotFunc](const QList<QString>& lst) {
-        const QList<QString>& lst_ret = lst;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** lst_arr = static_cast<const char**>(malloc(sizeof(const char*) * (lst_ret.size() + 1)));
-        for (qsizetype i = 0; i < lst_ret.size(); ++i) {
-            QByteArray lst_b = lst_ret[i].toUtf8();
-            auto lst_str_len = lst_b.length();
-            char* lst_str = static_cast<char*>(malloc(lst_str_len + 1));
-            memcpy(lst_str, lst_b.data(), lst_str_len);
-            lst_str[lst_str_len] = '\0';
-            lst_arr[i] = lst_str;
-        }
-        // Append sentinel null terminator to the list
-        lst_arr[lst_ret.size()] = nullptr;
-        const char** sigval1 = lst_arr;
-        slotFunc(self, sigval1);
-        libqt_free(lst_arr);
-    });
+    TextEmoticonsCore::EmojiModelManager::connect(self,
+                                                  static_cast<void (TextEmoticonsCore::EmojiModelManager::*)(const QList<QString>&)>(&TextEmoticonsCore::EmojiModelManager::usedIdentifierChanged),
+                                                  [self, slotFunc](const QList<QString>& lst) {
+                                                      const QList<QString>& lst_ret = lst;
+                                                      // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                                      const char** lst_arr = static_cast<const char**>(malloc(sizeof(const char*) * (lst_ret.size() + 1)));
+                                                      for (qsizetype i = 0; i < lst_ret.size(); ++i) {
+                                                          QByteArray lst_b = lst_ret[i].toUtf8();
+                                                          auto lst_str_len = lst_b.length();
+                                                          char* lst_str = static_cast<char*>(malloc(lst_str_len + 1));
+                                                          memcpy(lst_str, lst_b.data(), lst_str_len);
+                                                          lst_str[lst_str_len] = '\0';
+                                                          lst_arr[i] = lst_str;
+                                                      }
+                                                      // Append sentinel null terminator to the list
+                                                      lst_arr[lst_ret.size()] = nullptr;
+                                                      const char** sigval1 = lst_arr;
+                                                      slotFunc(self, sigval1);
+                                                      libqt_free(lst_arr);
+                                                  });
 }
 
 void TextEmoticonsCore__EmojiModelManager_ExcludeEmoticonsChanged(TextEmoticonsCore__EmojiModelManager* self) {
@@ -169,9 +171,11 @@ void TextEmoticonsCore__EmojiModelManager_ExcludeEmoticonsChanged(TextEmoticonsC
 
 void TextEmoticonsCore__EmojiModelManager_Connect_ExcludeEmoticonsChanged(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot) {
     void (*slotFunc)(TextEmoticonsCore__EmojiModelManager*) = reinterpret_cast<void (*)(TextEmoticonsCore__EmojiModelManager*)>(slot);
-    TextEmoticonsCore::EmojiModelManager::connect(self, &TextEmoticonsCore::EmojiModelManager::excludeEmoticonsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextEmoticonsCore::EmojiModelManager::connect(self,
+                                                  static_cast<void (TextEmoticonsCore::EmojiModelManager::*)()>(&TextEmoticonsCore::EmojiModelManager::excludeEmoticonsChanged),
+                                                  [self, slotFunc]() {
+                                                      slotFunc(self);
+                                                  });
 }
 
 libqt_string TextEmoticonsCore__EmojiModelManager_Tr2(const char* s, const char* c) {

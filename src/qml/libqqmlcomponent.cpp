@@ -237,10 +237,12 @@ void QQmlComponent_StatusChanged(QQmlComponent* self, int param1) {
 
 void QQmlComponent_Connect_StatusChanged(QQmlComponent* self, intptr_t slot) {
     void (*slotFunc)(QQmlComponent*, int) = reinterpret_cast<void (*)(QQmlComponent*, int)>(slot);
-    QQmlComponent::connect(self, &QQmlComponent::statusChanged, [self, slotFunc](QQmlComponent::Status param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQmlComponent::connect(self,
+                           static_cast<void (QQmlComponent::*)(QQmlComponent::Status)>(&QQmlComponent::statusChanged),
+                           [self, slotFunc](QQmlComponent::Status param1) {
+                               int sigval1 = static_cast<int>(param1);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QQmlComponent_ProgressChanged(QQmlComponent* self, double param1) {
@@ -249,10 +251,12 @@ void QQmlComponent_ProgressChanged(QQmlComponent* self, double param1) {
 
 void QQmlComponent_Connect_ProgressChanged(QQmlComponent* self, intptr_t slot) {
     void (*slotFunc)(QQmlComponent*, double) = reinterpret_cast<void (*)(QQmlComponent*, double)>(slot);
-    QQmlComponent::connect(self, &QQmlComponent::progressChanged, [self, slotFunc](qreal param1) {
-        double sigval1 = static_cast<double>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQmlComponent::connect(self,
+                           static_cast<void (QQmlComponent::*)(qreal)>(&QQmlComponent::progressChanged),
+                           [self, slotFunc](qreal param1) {
+                               double sigval1 = static_cast<double>(param1);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QQmlComponent_Tr2(const char* s, const char* c) {

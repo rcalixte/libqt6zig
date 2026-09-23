@@ -94,10 +94,12 @@ void QScreenCapture_ActiveChanged(QScreenCapture* self, bool param1) {
 
 void QScreenCapture_Connect_ActiveChanged(QScreenCapture* self, intptr_t slot) {
     void (*slotFunc)(QScreenCapture*, bool) = reinterpret_cast<void (*)(QScreenCapture*, bool)>(slot);
-    QScreenCapture::connect(self, &QScreenCapture::activeChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QScreenCapture::connect(self,
+                            static_cast<void (QScreenCapture::*)(bool)>(&QScreenCapture::activeChanged),
+                            [self, slotFunc](bool param1) {
+                                bool sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QScreenCapture_ErrorChanged(QScreenCapture* self) {
@@ -106,9 +108,11 @@ void QScreenCapture_ErrorChanged(QScreenCapture* self) {
 
 void QScreenCapture_Connect_ErrorChanged(QScreenCapture* self, intptr_t slot) {
     void (*slotFunc)(QScreenCapture*) = reinterpret_cast<void (*)(QScreenCapture*)>(slot);
-    QScreenCapture::connect(self, &QScreenCapture::errorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QScreenCapture::connect(self,
+                            static_cast<void (QScreenCapture::*)()>(&QScreenCapture::errorChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QScreenCapture_ScreenChanged(QScreenCapture* self, QScreen* param1) {
@@ -117,10 +121,12 @@ void QScreenCapture_ScreenChanged(QScreenCapture* self, QScreen* param1) {
 
 void QScreenCapture_Connect_ScreenChanged(QScreenCapture* self, intptr_t slot) {
     void (*slotFunc)(QScreenCapture*, QScreen*) = reinterpret_cast<void (*)(QScreenCapture*, QScreen*)>(slot);
-    QScreenCapture::connect(self, &QScreenCapture::screenChanged, [self, slotFunc](QScreen* param1) {
-        QScreen* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QScreenCapture::connect(self,
+                            static_cast<void (QScreenCapture::*)(QScreen*)>(&QScreenCapture::screenChanged),
+                            [self, slotFunc](QScreen* param1) {
+                                QScreen* sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QScreenCapture_ErrorOccurred(QScreenCapture* self, int errorVal, const libqt_string errorString) {
@@ -130,19 +136,21 @@ void QScreenCapture_ErrorOccurred(QScreenCapture* self, int errorVal, const libq
 
 void QScreenCapture_Connect_ErrorOccurred(QScreenCapture* self, intptr_t slot) {
     void (*slotFunc)(QScreenCapture*, int, const char*) = reinterpret_cast<void (*)(QScreenCapture*, int, const char*)>(slot);
-    QScreenCapture::connect(self, &QScreenCapture::errorOccurred, [self, slotFunc](QScreenCapture::Error errorVal, const QString& errorString) {
-        int sigval1 = static_cast<int>(errorVal);
-        const auto errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorString_b = errorString_ret.toUtf8();
-        auto errorString_str_len = errorString_b.length();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
-        ((char*)errorString_str)[errorString_str_len] = '\0';
-        const char* sigval2 = errorString_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(errorString_str);
-    });
+    QScreenCapture::connect(self,
+                            static_cast<void (QScreenCapture::*)(QScreenCapture::Error, const QString&)>(&QScreenCapture::errorOccurred),
+                            [self, slotFunc](QScreenCapture::Error errorVal, const QString& errorString) {
+                                int sigval1 = static_cast<int>(errorVal);
+                                const auto errorString_ret = errorString;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray errorString_b = errorString_ret.toUtf8();
+                                auto errorString_str_len = errorString_b.length();
+                                const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+                                memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+                                ((char*)errorString_str)[errorString_str_len] = '\0';
+                                const char* sigval2 = errorString_str;
+                                slotFunc(self, sigval1, sigval2);
+                                libqt_free(errorString_str);
+                            });
 }
 
 libqt_string QScreenCapture_Tr2(const char* s, const char* c) {

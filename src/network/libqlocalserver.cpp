@@ -49,9 +49,11 @@ void QLocalServer_NewConnection(QLocalServer* self) {
 
 void QLocalServer_Connect_NewConnection(QLocalServer* self, intptr_t slot) {
     void (*slotFunc)(QLocalServer*) = reinterpret_cast<void (*)(QLocalServer*)>(slot);
-    QLocalServer::connect(self, &QLocalServer::newConnection, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLocalServer::connect(self,
+                          static_cast<void (QLocalServer::*)()>(&QLocalServer::newConnection),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QLocalServer_Close(QLocalServer* self) {

@@ -115,9 +115,11 @@ void KPopupFrame_LeaveModality(KPopupFrame* self) {
 
 void KPopupFrame_Connect_LeaveModality(KPopupFrame* self, intptr_t slot) {
     void (*slotFunc)(KPopupFrame*) = reinterpret_cast<void (*)(KPopupFrame*)>(slot);
-    KPopupFrame::connect(self, &KPopupFrame::leaveModality, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KPopupFrame::connect(self,
+                         static_cast<void (KPopupFrame::*)()>(&KPopupFrame::leaveModality),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 libqt_string KPopupFrame_Tr2(const char* s, const char* c) {

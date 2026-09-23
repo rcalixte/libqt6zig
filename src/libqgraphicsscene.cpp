@@ -662,20 +662,22 @@ void QGraphicsScene_Changed(QGraphicsScene* self, const libqt_list /* of QRectF*
 
 void QGraphicsScene_Connect_Changed(QGraphicsScene* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsScene*, libqt_list /* of QRectF* */) = reinterpret_cast<void (*)(QGraphicsScene*, libqt_list /* of QRectF* */)>(slot);
-    QGraphicsScene::connect(self, &QGraphicsScene::changed, [self, slotFunc](const QList<QRectF>& region) {
-        const QList<QRectF>& region_ret = region;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QRectF** region_arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * (region_ret.size())));
-        for (qsizetype i = 0; i < region_ret.size(); ++i) {
-            region_arr[i] = new QRectF(region_ret[i]);
-        }
-        libqt_list region_out;
-        region_out.len = region_ret.size();
-        region_out.data = static_cast<void*>(region_arr);
-        libqt_list /* of QRectF* */ sigval1 = region_out;
-        slotFunc(self, sigval1);
-        free(region_arr);
-    });
+    QGraphicsScene::connect(self,
+                            static_cast<void (QGraphicsScene::*)(const QList<QRectF>&)>(&QGraphicsScene::changed),
+                            [self, slotFunc](const QList<QRectF>& region) {
+                                const QList<QRectF>& region_ret = region;
+                                // Convert QList<> from C++ memory to manually-managed C memory
+                                QRectF** region_arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * (region_ret.size())));
+                                for (qsizetype i = 0; i < region_ret.size(); ++i) {
+                                    region_arr[i] = new QRectF(region_ret[i]);
+                                }
+                                libqt_list region_out;
+                                region_out.len = region_ret.size();
+                                region_out.data = static_cast<void*>(region_arr);
+                                libqt_list /* of QRectF* */ sigval1 = region_out;
+                                slotFunc(self, sigval1);
+                                free(region_arr);
+                            });
 }
 
 void QGraphicsScene_SceneRectChanged(QGraphicsScene* self, const QRectF* rect) {
@@ -684,12 +686,14 @@ void QGraphicsScene_SceneRectChanged(QGraphicsScene* self, const QRectF* rect) {
 
 void QGraphicsScene_Connect_SceneRectChanged(QGraphicsScene* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsScene*, QRectF*) = reinterpret_cast<void (*)(QGraphicsScene*, QRectF*)>(slot);
-    QGraphicsScene::connect(self, &QGraphicsScene::sceneRectChanged, [self, slotFunc](const QRectF& rect) {
-        const QRectF& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRectF* sigval1 = const_cast<QRectF*>(&rect_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsScene::connect(self,
+                            static_cast<void (QGraphicsScene::*)(const QRectF&)>(&QGraphicsScene::sceneRectChanged),
+                            [self, slotFunc](const QRectF& rect) {
+                                const QRectF& rect_ret = rect;
+                                // Cast returned reference into pointer
+                                QRectF* sigval1 = const_cast<QRectF*>(&rect_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QGraphicsScene_SelectionChanged(QGraphicsScene* self) {
@@ -698,9 +702,11 @@ void QGraphicsScene_SelectionChanged(QGraphicsScene* self) {
 
 void QGraphicsScene_Connect_SelectionChanged(QGraphicsScene* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsScene*) = reinterpret_cast<void (*)(QGraphicsScene*)>(slot);
-    QGraphicsScene::connect(self, &QGraphicsScene::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsScene::connect(self,
+                            static_cast<void (QGraphicsScene::*)()>(&QGraphicsScene::selectionChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QGraphicsScene_FocusItemChanged(QGraphicsScene* self, QGraphicsItem* newFocus, QGraphicsItem* oldFocus, int reason) {
@@ -709,12 +715,14 @@ void QGraphicsScene_FocusItemChanged(QGraphicsScene* self, QGraphicsItem* newFoc
 
 void QGraphicsScene_Connect_FocusItemChanged(QGraphicsScene* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsScene*, QGraphicsItem*, QGraphicsItem*, int) = reinterpret_cast<void (*)(QGraphicsScene*, QGraphicsItem*, QGraphicsItem*, int)>(slot);
-    QGraphicsScene::connect(self, &QGraphicsScene::focusItemChanged, [self, slotFunc](QGraphicsItem* newFocus, QGraphicsItem* oldFocus, Qt::FocusReason reason) {
-        QGraphicsItem* sigval1 = newFocus;
-        QGraphicsItem* sigval2 = oldFocus;
-        int sigval3 = static_cast<int>(reason);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QGraphicsScene::connect(self,
+                            static_cast<void (QGraphicsScene::*)(QGraphicsItem*, QGraphicsItem*, Qt::FocusReason)>(&QGraphicsScene::focusItemChanged),
+                            [self, slotFunc](QGraphicsItem* newFocus, QGraphicsItem* oldFocus, Qt::FocusReason reason) {
+                                QGraphicsItem* sigval1 = newFocus;
+                                QGraphicsItem* sigval2 = oldFocus;
+                                int sigval3 = static_cast<int>(reason);
+                                slotFunc(self, sigval1, sigval2, sigval3);
+                            });
 }
 
 libqt_string QGraphicsScene_Tr2(const char* s, const char* c) {

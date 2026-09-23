@@ -99,9 +99,11 @@ void QHXYModelMapper_SeriesReplaced(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_SeriesReplaced(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::seriesReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::seriesReplaced),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QHXYModelMapper_ModelReplaced(QHXYModelMapper* self) {
@@ -110,9 +112,11 @@ void QHXYModelMapper_ModelReplaced(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_ModelReplaced(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::modelReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::modelReplaced),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QHXYModelMapper_XRowChanged(QHXYModelMapper* self) {
@@ -121,9 +125,11 @@ void QHXYModelMapper_XRowChanged(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_XRowChanged(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::xRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::xRowChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QHXYModelMapper_YRowChanged(QHXYModelMapper* self) {
@@ -132,9 +138,11 @@ void QHXYModelMapper_YRowChanged(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_YRowChanged(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::yRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::yRowChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QHXYModelMapper_FirstColumnChanged(QHXYModelMapper* self) {
@@ -143,9 +151,11 @@ void QHXYModelMapper_FirstColumnChanged(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_FirstColumnChanged(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::firstColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::firstColumnChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QHXYModelMapper_ColumnCountChanged(QHXYModelMapper* self) {
@@ -154,9 +164,11 @@ void QHXYModelMapper_ColumnCountChanged(QHXYModelMapper* self) {
 
 void QHXYModelMapper_Connect_ColumnCountChanged(QHXYModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QHXYModelMapper*) = reinterpret_cast<void (*)(QHXYModelMapper*)>(slot);
-    QHXYModelMapper::connect(self, &QHXYModelMapper::columnCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHXYModelMapper::connect(self,
+                             static_cast<void (QHXYModelMapper::*)()>(&QHXYModelMapper::columnCountChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 libqt_string QHXYModelMapper_Tr2(const char* s, const char* c) {

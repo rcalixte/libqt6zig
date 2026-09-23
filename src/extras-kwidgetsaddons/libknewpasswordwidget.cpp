@@ -164,9 +164,11 @@ void KNewPasswordWidget_PasswordStatusChanged(KNewPasswordWidget* self) {
 
 void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, intptr_t slot) {
     void (*slotFunc)(KNewPasswordWidget*) = reinterpret_cast<void (*)(KNewPasswordWidget*)>(slot);
-    KNewPasswordWidget::connect(self, &KNewPasswordWidget::passwordStatusChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNewPasswordWidget::connect(self,
+                                static_cast<void (KNewPasswordWidget::*)()>(&KNewPasswordWidget::passwordStatusChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 libqt_string KNewPasswordWidget_Tr2(const char* s, const char* c) {

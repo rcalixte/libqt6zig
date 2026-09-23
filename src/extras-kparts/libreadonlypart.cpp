@@ -116,10 +116,12 @@ void KParts__ReadOnlyPart_Started(KParts__ReadOnlyPart* self, KIO__Job* job) {
 
 void KParts__ReadOnlyPart_Connect_Started(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*, KIO__Job*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*, KIO__Job*)>(slot);
-    KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::started, [self, slotFunc](KIO::Job* job) {
-        KIO__Job* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KParts::ReadOnlyPart::connect(self,
+                                  static_cast<void (KParts::ReadOnlyPart::*)(KIO::Job*)>(&KParts::ReadOnlyPart::started),
+                                  [self, slotFunc](KIO::Job* job) {
+                                      KIO__Job* sigval1 = job;
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void KParts__ReadOnlyPart_Completed(KParts__ReadOnlyPart* self) {
@@ -128,9 +130,11 @@ void KParts__ReadOnlyPart_Completed(KParts__ReadOnlyPart* self) {
 
 void KParts__ReadOnlyPart_Connect_Completed(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*)>(slot);
-    KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::completed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KParts::ReadOnlyPart::connect(self,
+                                  static_cast<void (KParts::ReadOnlyPart::*)()>(&KParts::ReadOnlyPart::completed),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KParts__ReadOnlyPart_CompletedWithPendingAction(KParts__ReadOnlyPart* self) {
@@ -139,9 +143,11 @@ void KParts__ReadOnlyPart_CompletedWithPendingAction(KParts__ReadOnlyPart* self)
 
 void KParts__ReadOnlyPart_Connect_CompletedWithPendingAction(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*)>(slot);
-    KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::completedWithPendingAction, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KParts::ReadOnlyPart::connect(self,
+                                  static_cast<void (KParts::ReadOnlyPart::*)()>(&KParts::ReadOnlyPart::completedWithPendingAction),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KParts__ReadOnlyPart_Canceled(KParts__ReadOnlyPart* self, const libqt_string errMsg) {
@@ -151,18 +157,20 @@ void KParts__ReadOnlyPart_Canceled(KParts__ReadOnlyPart* self, const libqt_strin
 
 void KParts__ReadOnlyPart_Connect_Canceled(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*, const char*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*, const char*)>(slot);
-    KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::canceled, [self, slotFunc](const QString& errMsg) {
-        const auto errMsg_ret = errMsg;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errMsg_b = errMsg_ret.toUtf8();
-        auto errMsg_str_len = errMsg_b.length();
-        const char* errMsg_str = static_cast<const char*>(malloc(errMsg_str_len + 1));
-        memcpy((void*)errMsg_str, errMsg_b.data(), errMsg_str_len);
-        ((char*)errMsg_str)[errMsg_str_len] = '\0';
-        const char* sigval1 = errMsg_str;
-        slotFunc(self, sigval1);
-        libqt_free(errMsg_str);
-    });
+    KParts::ReadOnlyPart::connect(self,
+                                  static_cast<void (KParts::ReadOnlyPart::*)(const QString&)>(&KParts::ReadOnlyPart::canceled),
+                                  [self, slotFunc](const QString& errMsg) {
+                                      const auto errMsg_ret = errMsg;
+                                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                      QByteArray errMsg_b = errMsg_ret.toUtf8();
+                                      auto errMsg_str_len = errMsg_b.length();
+                                      const char* errMsg_str = static_cast<const char*>(malloc(errMsg_str_len + 1));
+                                      memcpy((void*)errMsg_str, errMsg_b.data(), errMsg_str_len);
+                                      ((char*)errMsg_str)[errMsg_str_len] = '\0';
+                                      const char* sigval1 = errMsg_str;
+                                      slotFunc(self, sigval1);
+                                      libqt_free(errMsg_str);
+                                  });
 }
 
 void KParts__ReadOnlyPart_UrlChanged(KParts__ReadOnlyPart* self, const QUrl* url) {
@@ -171,12 +179,14 @@ void KParts__ReadOnlyPart_UrlChanged(KParts__ReadOnlyPart* self, const QUrl* url
 
 void KParts__ReadOnlyPart_Connect_UrlChanged(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*, QUrl*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*, QUrl*)>(slot);
-    KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::urlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KParts::ReadOnlyPart::connect(self,
+                                  static_cast<void (KParts::ReadOnlyPart::*)(const QUrl&)>(&KParts::ReadOnlyPart::urlChanged),
+                                  [self, slotFunc](const QUrl& url) {
+                                      const QUrl& url_ret = url;
+                                      // Cast returned reference into pointer
+                                      QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 bool KParts__ReadOnlyPart_OpenFile(KParts__ReadOnlyPart* self) {

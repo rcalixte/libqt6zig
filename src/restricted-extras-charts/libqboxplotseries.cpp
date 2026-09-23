@@ -136,10 +136,12 @@ void QBoxPlotSeries_Clicked(QBoxPlotSeries* self, QBoxSet* boxset) {
 
 void QBoxPlotSeries_Connect_Clicked(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, QBoxSet*) = reinterpret_cast<void (*)(QBoxPlotSeries*, QBoxSet*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::clicked, [self, slotFunc](QBoxSet* boxset) {
-        QBoxSet* sigval1 = boxset;
-        slotFunc(self, sigval1);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(QBoxSet*)>(&QBoxPlotSeries::clicked),
+                            [self, slotFunc](QBoxSet* boxset) {
+                                QBoxSet* sigval1 = boxset;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QBoxPlotSeries_Hovered(QBoxPlotSeries* self, bool status, QBoxSet* boxset) {
@@ -148,11 +150,13 @@ void QBoxPlotSeries_Hovered(QBoxPlotSeries* self, bool status, QBoxSet* boxset) 
 
 void QBoxPlotSeries_Connect_Hovered(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, bool, QBoxSet*) = reinterpret_cast<void (*)(QBoxPlotSeries*, bool, QBoxSet*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::hovered, [self, slotFunc](bool status, QBoxSet* boxset) {
-        bool sigval1 = status;
-        QBoxSet* sigval2 = boxset;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(bool, QBoxSet*)>(&QBoxPlotSeries::hovered),
+                            [self, slotFunc](bool status, QBoxSet* boxset) {
+                                bool sigval1 = status;
+                                QBoxSet* sigval2 = boxset;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QBoxPlotSeries_Pressed(QBoxPlotSeries* self, QBoxSet* boxset) {
@@ -161,10 +165,12 @@ void QBoxPlotSeries_Pressed(QBoxPlotSeries* self, QBoxSet* boxset) {
 
 void QBoxPlotSeries_Connect_Pressed(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, QBoxSet*) = reinterpret_cast<void (*)(QBoxPlotSeries*, QBoxSet*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::pressed, [self, slotFunc](QBoxSet* boxset) {
-        QBoxSet* sigval1 = boxset;
-        slotFunc(self, sigval1);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(QBoxSet*)>(&QBoxPlotSeries::pressed),
+                            [self, slotFunc](QBoxSet* boxset) {
+                                QBoxSet* sigval1 = boxset;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QBoxPlotSeries_Released(QBoxPlotSeries* self, QBoxSet* boxset) {
@@ -173,10 +179,12 @@ void QBoxPlotSeries_Released(QBoxPlotSeries* self, QBoxSet* boxset) {
 
 void QBoxPlotSeries_Connect_Released(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, QBoxSet*) = reinterpret_cast<void (*)(QBoxPlotSeries*, QBoxSet*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::released, [self, slotFunc](QBoxSet* boxset) {
-        QBoxSet* sigval1 = boxset;
-        slotFunc(self, sigval1);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(QBoxSet*)>(&QBoxPlotSeries::released),
+                            [self, slotFunc](QBoxSet* boxset) {
+                                QBoxSet* sigval1 = boxset;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QBoxPlotSeries_DoubleClicked(QBoxPlotSeries* self, QBoxSet* boxset) {
@@ -185,10 +193,12 @@ void QBoxPlotSeries_DoubleClicked(QBoxPlotSeries* self, QBoxSet* boxset) {
 
 void QBoxPlotSeries_Connect_DoubleClicked(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, QBoxSet*) = reinterpret_cast<void (*)(QBoxPlotSeries*, QBoxSet*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::doubleClicked, [self, slotFunc](QBoxSet* boxset) {
-        QBoxSet* sigval1 = boxset;
-        slotFunc(self, sigval1);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(QBoxSet*)>(&QBoxPlotSeries::doubleClicked),
+                            [self, slotFunc](QBoxSet* boxset) {
+                                QBoxSet* sigval1 = boxset;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QBoxPlotSeries_CountChanged(QBoxPlotSeries* self) {
@@ -197,9 +207,11 @@ void QBoxPlotSeries_CountChanged(QBoxPlotSeries* self) {
 
 void QBoxPlotSeries_Connect_CountChanged(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*) = reinterpret_cast<void (*)(QBoxPlotSeries*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::countChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)()>(&QBoxPlotSeries::countChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QBoxPlotSeries_PenChanged(QBoxPlotSeries* self) {
@@ -208,9 +220,11 @@ void QBoxPlotSeries_PenChanged(QBoxPlotSeries* self) {
 
 void QBoxPlotSeries_Connect_PenChanged(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*) = reinterpret_cast<void (*)(QBoxPlotSeries*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::penChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)()>(&QBoxPlotSeries::penChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QBoxPlotSeries_BrushChanged(QBoxPlotSeries* self) {
@@ -219,9 +233,11 @@ void QBoxPlotSeries_BrushChanged(QBoxPlotSeries* self) {
 
 void QBoxPlotSeries_Connect_BrushChanged(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*) = reinterpret_cast<void (*)(QBoxPlotSeries*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::brushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)()>(&QBoxPlotSeries::brushChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QBoxPlotSeries_BoxOutlineVisibilityChanged(QBoxPlotSeries* self) {
@@ -230,9 +246,11 @@ void QBoxPlotSeries_BoxOutlineVisibilityChanged(QBoxPlotSeries* self) {
 
 void QBoxPlotSeries_Connect_BoxOutlineVisibilityChanged(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*) = reinterpret_cast<void (*)(QBoxPlotSeries*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxOutlineVisibilityChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)()>(&QBoxPlotSeries::boxOutlineVisibilityChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QBoxPlotSeries_BoxWidthChanged(QBoxPlotSeries* self) {
@@ -241,9 +259,11 @@ void QBoxPlotSeries_BoxWidthChanged(QBoxPlotSeries* self) {
 
 void QBoxPlotSeries_Connect_BoxWidthChanged(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*) = reinterpret_cast<void (*)(QBoxPlotSeries*)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxWidthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)()>(&QBoxPlotSeries::boxWidthChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QBoxPlotSeries_BoxsetsAdded(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ sets) {
@@ -258,20 +278,22 @@ void QBoxPlotSeries_BoxsetsAdded(QBoxPlotSeries* self, const libqt_list /* of QB
 
 void QBoxPlotSeries_Connect_BoxsetsAdded(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */) = reinterpret_cast<void (*)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxsetsAdded, [self, slotFunc](const QList<QBoxSet*>& sets) {
-        const QList<QBoxSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * (sets_ret.size())));
-        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
-            sets_arr[i] = sets_ret[i];
-        }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBoxSet* */ sigval1 = sets_out;
-        slotFunc(self, sigval1);
-        free(sets_arr);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(const QList<QBoxSet*>&)>(&QBoxPlotSeries::boxsetsAdded),
+                            [self, slotFunc](const QList<QBoxSet*>& sets) {
+                                const QList<QBoxSet*>& sets_ret = sets;
+                                // Convert QList<> from C++ memory to manually-managed C memory
+                                QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * (sets_ret.size())));
+                                for (qsizetype i = 0; i < sets_ret.size(); ++i) {
+                                    sets_arr[i] = sets_ret[i];
+                                }
+                                libqt_list sets_out;
+                                sets_out.len = sets_ret.size();
+                                sets_out.data = static_cast<void*>(sets_arr);
+                                libqt_list /* of QBoxSet* */ sigval1 = sets_out;
+                                slotFunc(self, sigval1);
+                                free(sets_arr);
+                            });
 }
 
 void QBoxPlotSeries_BoxsetsRemoved(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ sets) {
@@ -286,20 +308,22 @@ void QBoxPlotSeries_BoxsetsRemoved(QBoxPlotSeries* self, const libqt_list /* of 
 
 void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */) = reinterpret_cast<void (*)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */)>(slot);
-    QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxsetsRemoved, [self, slotFunc](const QList<QBoxSet*>& sets) {
-        const QList<QBoxSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * (sets_ret.size())));
-        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
-            sets_arr[i] = sets_ret[i];
-        }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBoxSet* */ sigval1 = sets_out;
-        slotFunc(self, sigval1);
-        free(sets_arr);
-    });
+    QBoxPlotSeries::connect(self,
+                            static_cast<void (QBoxPlotSeries::*)(const QList<QBoxSet*>&)>(&QBoxPlotSeries::boxsetsRemoved),
+                            [self, slotFunc](const QList<QBoxSet*>& sets) {
+                                const QList<QBoxSet*>& sets_ret = sets;
+                                // Convert QList<> from C++ memory to manually-managed C memory
+                                QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * (sets_ret.size())));
+                                for (qsizetype i = 0; i < sets_ret.size(); ++i) {
+                                    sets_arr[i] = sets_ret[i];
+                                }
+                                libqt_list sets_out;
+                                sets_out.len = sets_ret.size();
+                                sets_out.data = static_cast<void*>(sets_arr);
+                                libqt_list /* of QBoxSet* */ sigval1 = sets_out;
+                                slotFunc(self, sigval1);
+                                free(sets_arr);
+                            });
 }
 
 libqt_string QBoxPlotSeries_Tr2(const char* s, const char* c) {

@@ -267,10 +267,12 @@ void QWizard_CurrentIdChanged(QWizard* self, int id) {
 
 void QWizard_Connect_CurrentIdChanged(QWizard* self, intptr_t slot) {
     void (*slotFunc)(QWizard*, int) = reinterpret_cast<void (*)(QWizard*, int)>(slot);
-    QWizard::connect(self, &QWizard::currentIdChanged, [self, slotFunc](int id) {
-        int sigval1 = id;
-        slotFunc(self, sigval1);
-    });
+    QWizard::connect(self,
+                     static_cast<void (QWizard::*)(int)>(&QWizard::currentIdChanged),
+                     [self, slotFunc](int id) {
+                         int sigval1 = id;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QWizard_HelpRequested(QWizard* self) {
@@ -279,9 +281,11 @@ void QWizard_HelpRequested(QWizard* self) {
 
 void QWizard_Connect_HelpRequested(QWizard* self, intptr_t slot) {
     void (*slotFunc)(QWizard*) = reinterpret_cast<void (*)(QWizard*)>(slot);
-    QWizard::connect(self, &QWizard::helpRequested, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWizard::connect(self,
+                     static_cast<void (QWizard::*)()>(&QWizard::helpRequested),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QWizard_CustomButtonClicked(QWizard* self, int which) {
@@ -290,10 +294,12 @@ void QWizard_CustomButtonClicked(QWizard* self, int which) {
 
 void QWizard_Connect_CustomButtonClicked(QWizard* self, intptr_t slot) {
     void (*slotFunc)(QWizard*, int) = reinterpret_cast<void (*)(QWizard*, int)>(slot);
-    QWizard::connect(self, &QWizard::customButtonClicked, [self, slotFunc](int which) {
-        int sigval1 = which;
-        slotFunc(self, sigval1);
-    });
+    QWizard::connect(self,
+                     static_cast<void (QWizard::*)(int)>(&QWizard::customButtonClicked),
+                     [self, slotFunc](int which) {
+                         int sigval1 = which;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QWizard_PageAdded(QWizard* self, int id) {
@@ -302,10 +308,12 @@ void QWizard_PageAdded(QWizard* self, int id) {
 
 void QWizard_Connect_PageAdded(QWizard* self, intptr_t slot) {
     void (*slotFunc)(QWizard*, int) = reinterpret_cast<void (*)(QWizard*, int)>(slot);
-    QWizard::connect(self, &QWizard::pageAdded, [self, slotFunc](int id) {
-        int sigval1 = id;
-        slotFunc(self, sigval1);
-    });
+    QWizard::connect(self,
+                     static_cast<void (QWizard::*)(int)>(&QWizard::pageAdded),
+                     [self, slotFunc](int id) {
+                         int sigval1 = id;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QWizard_PageRemoved(QWizard* self, int id) {
@@ -314,10 +322,12 @@ void QWizard_PageRemoved(QWizard* self, int id) {
 
 void QWizard_Connect_PageRemoved(QWizard* self, intptr_t slot) {
     void (*slotFunc)(QWizard*, int) = reinterpret_cast<void (*)(QWizard*, int)>(slot);
-    QWizard::connect(self, &QWizard::pageRemoved, [self, slotFunc](int id) {
-        int sigval1 = id;
-        slotFunc(self, sigval1);
-    });
+    QWizard::connect(self,
+                     static_cast<void (QWizard::*)(int)>(&QWizard::pageRemoved),
+                     [self, slotFunc](int id) {
+                         int sigval1 = id;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QWizard_Back(QWizard* self) {
@@ -2376,9 +2386,11 @@ void QWizardPage_CompleteChanged(QWizardPage* self) {
 
 void QWizardPage_Connect_CompleteChanged(QWizardPage* self, intptr_t slot) {
     void (*slotFunc)(QWizardPage*) = reinterpret_cast<void (*)(QWizardPage*)>(slot);
-    QWizardPage::connect(self, &QWizardPage::completeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWizardPage::connect(self,
+                         static_cast<void (QWizardPage::*)()>(&QWizardPage::completeChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 libqt_string QWizardPage_Tr2(const char* s, const char* c) {

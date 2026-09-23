@@ -534,10 +534,12 @@ void QProcess_Finished(QProcess* self, int exitCode) {
 
 void QProcess_Connect_Finished(QProcess* self, intptr_t slot) {
     void (*slotFunc)(QProcess*, int) = reinterpret_cast<void (*)(QProcess*, int)>(slot);
-    QProcess::connect(self, &QProcess::finished, [self, slotFunc](int exitCode) {
-        int sigval1 = exitCode;
-        slotFunc(self, sigval1);
-    });
+    QProcess::connect(self,
+                      static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                      [self, slotFunc](int exitCode) {
+                          int sigval1 = exitCode;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QProcess_ErrorOccurred(QProcess* self, int errorVal) {
@@ -546,10 +548,12 @@ void QProcess_ErrorOccurred(QProcess* self, int errorVal) {
 
 void QProcess_Connect_ErrorOccurred(QProcess* self, intptr_t slot) {
     void (*slotFunc)(QProcess*, int) = reinterpret_cast<void (*)(QProcess*, int)>(slot);
-    QProcess::connect(self, &QProcess::errorOccurred, [self, slotFunc](QProcess::ProcessError errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QProcess::connect(self,
+                      static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::errorOccurred),
+                      [self, slotFunc](QProcess::ProcessError errorVal) {
+                          int sigval1 = static_cast<int>(errorVal);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 long long QProcess_ReadData(QProcess* self, char* data, long long maxlen) {
@@ -709,11 +713,13 @@ void QProcess_Finished2(QProcess* self, int exitCode, int exitStatus) {
 
 void QProcess_Connect_Finished2(QProcess* self, intptr_t slot) {
     void (*slotFunc)(QProcess*, int, int) = reinterpret_cast<void (*)(QProcess*, int, int)>(slot);
-    QProcess::connect(self, &QProcess::finished, [self, slotFunc](int exitCode, QProcess::ExitStatus exitStatus) {
-        int sigval1 = exitCode;
-        int sigval2 = static_cast<int>(exitStatus);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QProcess::connect(self,
+                      static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                      [self, slotFunc](int exitCode, QProcess::ExitStatus exitStatus) {
+                          int sigval1 = exitCode;
+                          int sigval2 = static_cast<int>(exitStatus);
+                          slotFunc(self, sigval1, sigval2);
+                      });
 }
 
 // Base class handler implementation

@@ -253,9 +253,11 @@ void KUrlNavigator_Activated(KUrlNavigator* self) {
 
 void KUrlNavigator_Connect_Activated(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*) = reinterpret_cast<void (*)(KUrlNavigator*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::activated, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)()>(&KUrlNavigator::activated),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KUrlNavigator_UrlChanged(KUrlNavigator* self, const QUrl* url) {
@@ -264,12 +266,14 @@ void KUrlNavigator_UrlChanged(KUrlNavigator* self, const QUrl* url) {
 
 void KUrlNavigator_Connect_UrlChanged(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::urlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::urlChanged),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_UrlAboutToBeChanged(KUrlNavigator* self, const QUrl* newUrl) {
@@ -278,12 +282,14 @@ void KUrlNavigator_UrlAboutToBeChanged(KUrlNavigator* self, const QUrl* newUrl) 
 
 void KUrlNavigator_Connect_UrlAboutToBeChanged(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::urlAboutToBeChanged, [self, slotFunc](const QUrl& newUrl) {
-        const QUrl& newUrl_ret = newUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&newUrl_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::urlAboutToBeChanged),
+                           [self, slotFunc](const QUrl& newUrl) {
+                               const QUrl& newUrl_ret = newUrl;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&newUrl_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_EditableStateChanged(KUrlNavigator* self, bool editable) {
@@ -292,10 +298,12 @@ void KUrlNavigator_EditableStateChanged(KUrlNavigator* self, bool editable) {
 
 void KUrlNavigator_Connect_EditableStateChanged(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, bool) = reinterpret_cast<void (*)(KUrlNavigator*, bool)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::editableStateChanged, [self, slotFunc](bool editable) {
-        bool sigval1 = editable;
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(bool)>(&KUrlNavigator::editableStateChanged),
+                           [self, slotFunc](bool editable) {
+                               bool sigval1 = editable;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_HistoryChanged(KUrlNavigator* self) {
@@ -304,9 +312,11 @@ void KUrlNavigator_HistoryChanged(KUrlNavigator* self) {
 
 void KUrlNavigator_Connect_HistoryChanged(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*) = reinterpret_cast<void (*)(KUrlNavigator*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::historyChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)()>(&KUrlNavigator::historyChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KUrlNavigator_UrlsDropped(KUrlNavigator* self, const QUrl* destination, QDropEvent* event) {
@@ -315,13 +325,15 @@ void KUrlNavigator_UrlsDropped(KUrlNavigator* self, const QUrl* destination, QDr
 
 void KUrlNavigator_Connect_UrlsDropped(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*, QDropEvent*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*, QDropEvent*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::urlsDropped, [self, slotFunc](const QUrl& destination, QDropEvent* event) {
-        const QUrl& destination_ret = destination;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&destination_ret);
-        QDropEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&, QDropEvent*)>(&KUrlNavigator::urlsDropped),
+                           [self, slotFunc](const QUrl& destination, QDropEvent* event) {
+                               const QUrl& destination_ret = destination;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&destination_ret);
+                               QDropEvent* sigval2 = event;
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void KUrlNavigator_ReturnPressed(KUrlNavigator* self) {
@@ -330,9 +342,11 @@ void KUrlNavigator_ReturnPressed(KUrlNavigator* self) {
 
 void KUrlNavigator_Connect_ReturnPressed(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*) = reinterpret_cast<void (*)(KUrlNavigator*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::returnPressed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)()>(&KUrlNavigator::returnPressed),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KUrlNavigator_TabRequested(KUrlNavigator* self, const QUrl* url) {
@@ -341,12 +355,14 @@ void KUrlNavigator_TabRequested(KUrlNavigator* self, const QUrl* url) {
 
 void KUrlNavigator_Connect_TabRequested(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::tabRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::tabRequested),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_ActiveTabRequested(KUrlNavigator* self, const QUrl* url) {
@@ -355,12 +371,14 @@ void KUrlNavigator_ActiveTabRequested(KUrlNavigator* self, const QUrl* url) {
 
 void KUrlNavigator_Connect_ActiveTabRequested(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::activeTabRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::activeTabRequested),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_NewWindowRequested(KUrlNavigator* self, const QUrl* url) {
@@ -369,12 +387,14 @@ void KUrlNavigator_NewWindowRequested(KUrlNavigator* self, const QUrl* url) {
 
 void KUrlNavigator_Connect_NewWindowRequested(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::newWindowRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::newWindowRequested),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_UrlSelectionRequested(KUrlNavigator* self, const QUrl* url) {
@@ -383,12 +403,14 @@ void KUrlNavigator_UrlSelectionRequested(KUrlNavigator* self, const QUrl* url) {
 
 void KUrlNavigator_Connect_UrlSelectionRequested(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*, QUrl*) = reinterpret_cast<void (*)(KUrlNavigator*, QUrl*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::urlSelectionRequested, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)(const QUrl&)>(&KUrlNavigator::urlSelectionRequested),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KUrlNavigator_LayoutChanged(KUrlNavigator* self) {
@@ -397,9 +419,11 @@ void KUrlNavigator_LayoutChanged(KUrlNavigator* self) {
 
 void KUrlNavigator_Connect_LayoutChanged(KUrlNavigator* self, intptr_t slot) {
     void (*slotFunc)(KUrlNavigator*) = reinterpret_cast<void (*)(KUrlNavigator*)>(slot);
-    KUrlNavigator::connect(self, &KUrlNavigator::layoutChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlNavigator::connect(self,
+                           static_cast<void (KUrlNavigator::*)()>(&KUrlNavigator::layoutChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KUrlNavigator_KeyPressEvent(KUrlNavigator* self, QKeyEvent* event) {

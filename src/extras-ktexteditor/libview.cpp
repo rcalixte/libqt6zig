@@ -111,10 +111,12 @@ void KTextEditor__View_FocusIn(KTextEditor__View* self, KTextEditor__View* view)
 
 void KTextEditor__View_Connect_FocusIn(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::focusIn, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::focusIn),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KTextEditor__View_FocusOut(KTextEditor__View* self, KTextEditor__View* view) {
@@ -123,10 +125,12 @@ void KTextEditor__View_FocusOut(KTextEditor__View* self, KTextEditor__View* view
 
 void KTextEditor__View_Connect_FocusOut(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::focusOut, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::focusOut),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KTextEditor__View_ViewModeChanged(KTextEditor__View* self, KTextEditor__View* view, int mode) {
@@ -135,11 +139,13 @@ void KTextEditor__View_ViewModeChanged(KTextEditor__View* self, KTextEditor__Vie
 
 void KTextEditor__View_Connect_ViewModeChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, int) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, int)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::viewModeChanged, [self, slotFunc](KTextEditor::View* view, KTextEditor::View::ViewMode mode) {
-        KTextEditor__View* sigval1 = view;
-        int sigval2 = static_cast<int>(mode);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::View::ViewMode)>(&KTextEditor::View::viewModeChanged),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::View::ViewMode mode) {
+                                   KTextEditor__View* sigval1 = view;
+                                   int sigval2 = static_cast<int>(mode);
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_ViewInputModeChanged(KTextEditor__View* self, KTextEditor__View* view, int mode) {
@@ -148,11 +154,13 @@ void KTextEditor__View_ViewInputModeChanged(KTextEditor__View* self, KTextEditor
 
 void KTextEditor__View_Connect_ViewInputModeChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, int) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, int)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::viewInputModeChanged, [self, slotFunc](KTextEditor::View* view, KTextEditor::View::InputMode mode) {
-        KTextEditor__View* sigval1 = view;
-        int sigval2 = static_cast<int>(mode);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::View::InputMode)>(&KTextEditor::View::viewInputModeChanged),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::View::InputMode mode) {
+                                   KTextEditor__View* sigval1 = view;
+                                   int sigval2 = static_cast<int>(mode);
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_TextInserted(KTextEditor__View* self, KTextEditor__View* view, KTextEditor__Cursor* position, const libqt_string text) {
@@ -162,20 +170,22 @@ void KTextEditor__View_TextInserted(KTextEditor__View* self, KTextEditor__View* 
 
 void KTextEditor__View_Connect_TextInserted(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*, const char*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*, const char*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::textInserted, [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor position, const QString& text) {
-        KTextEditor__View* sigval1 = view;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval3 = text_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(text_str);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::Cursor, const QString&)>(&KTextEditor::View::textInserted),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor position, const QString& text) {
+                                   KTextEditor__View* sigval1 = view;
+                                   KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
+                                   const auto text_ret = text;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray text_b = text_ret.toUtf8();
+                                   auto text_str_len = text_b.length();
+                                   const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                   memcpy((void*)text_str, text_b.data(), text_str_len);
+                                   ((char*)text_str)[text_str_len] = '\0';
+                                   const char* sigval3 = text_str;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                                   libqt_free(text_str);
+                               });
 }
 
 void KTextEditor__View_SetContextMenu(KTextEditor__View* self, QMenu* menu) {
@@ -196,11 +206,13 @@ void KTextEditor__View_ContextMenuAboutToShow(KTextEditor__View* self, KTextEdit
 
 void KTextEditor__View_Connect_ContextMenuAboutToShow(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, QMenu*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, QMenu*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::contextMenuAboutToShow, [self, slotFunc](KTextEditor::View* view, QMenu* menu) {
-        KTextEditor__View* sigval1 = view;
-        QMenu* sigval2 = menu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, QMenu*)>(&KTextEditor::View::contextMenuAboutToShow),
+                               [self, slotFunc](KTextEditor::View* view, QMenu* menu) {
+                                   KTextEditor__View* sigval1 = view;
+                                   QMenu* sigval2 = menu;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 bool KTextEditor__View_SetCursorPosition(KTextEditor__View* self, KTextEditor__Cursor* position) {
@@ -256,11 +268,13 @@ void KTextEditor__View_CursorPositionChanged(KTextEditor__View* self, KTextEdito
 
 void KTextEditor__View_Connect_CursorPositionChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::cursorPositionChanged, [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPosition) {
-        KTextEditor__View* sigval1 = view;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPosition);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::Cursor)>(&KTextEditor::View::cursorPositionChanged),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPosition) {
+                                   KTextEditor__View* sigval1 = view;
+                                   KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPosition);
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_VerticalScrollPositionChanged(KTextEditor__View* self, KTextEditor__View* view, KTextEditor__Cursor* newPos) {
@@ -269,11 +283,13 @@ void KTextEditor__View_VerticalScrollPositionChanged(KTextEditor__View* self, KT
 
 void KTextEditor__View_Connect_VerticalScrollPositionChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::verticalScrollPositionChanged, [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPos) {
-        KTextEditor__View* sigval1 = view;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPos);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::Cursor)>(&KTextEditor::View::verticalScrollPositionChanged),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPos) {
+                                   KTextEditor__View* sigval1 = view;
+                                   KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPos);
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_HorizontalScrollPositionChanged(KTextEditor__View* self, KTextEditor__View* view) {
@@ -282,10 +298,12 @@ void KTextEditor__View_HorizontalScrollPositionChanged(KTextEditor__View* self, 
 
 void KTextEditor__View_Connect_HorizontalScrollPositionChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::horizontalScrollPositionChanged, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::horizontalScrollPositionChanged),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 bool KTextEditor__View_MouseTrackingEnabled(const KTextEditor__View* self) {
@@ -302,11 +320,13 @@ void KTextEditor__View_MousePositionChanged(KTextEditor__View* self, KTextEditor
 
 void KTextEditor__View_Connect_MousePositionChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, KTextEditor__Cursor*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::mousePositionChanged, [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPosition) {
-        KTextEditor__View* sigval1 = view;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPosition);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, KTextEditor::Cursor)>(&KTextEditor::View::mousePositionChanged),
+                               [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor newPosition) {
+                                   KTextEditor__View* sigval1 = view;
+                                   KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(newPosition);
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 bool KTextEditor__View_SetSelection(KTextEditor__View* self, KTextEditor__Range* range) {
@@ -378,10 +398,12 @@ void KTextEditor__View_SelectionChanged(KTextEditor__View* self, KTextEditor__Vi
 
 void KTextEditor__View_Connect_SelectionChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::selectionChanged, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::selectionChanged),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 bool KTextEditor__View_InsertText(KTextEditor__View* self, const libqt_string text) {
@@ -432,10 +454,12 @@ void KTextEditor__View_DisplayRangeChanged(KTextEditor__View* self, KTextEditor_
 
 void KTextEditor__View_Connect_DisplayRangeChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::displayRangeChanged, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::displayRangeChanged),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 bool KTextEditor__View_Print(KTextEditor__View* self) {
@@ -460,11 +484,13 @@ void KTextEditor__View_StatusBarEnabledChanged(KTextEditor__View* self, KTextEdi
 
 void KTextEditor__View_Connect_StatusBarEnabledChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, bool) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, bool)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::statusBarEnabledChanged, [self, slotFunc](KTextEditor::View* view, bool enabled) {
-        KTextEditor__View* sigval1 = view;
-        bool sigval2 = enabled;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, bool)>(&KTextEditor::View::statusBarEnabledChanged),
+                               [self, slotFunc](KTextEditor::View* view, bool enabled) {
+                                   KTextEditor__View* sigval1 = view;
+                                   bool sigval2 = enabled;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_ReadSessionConfig(KTextEditor__View* self, const KConfigGroup* config, const libqt_list /* set of libqt_string */ flags) {
@@ -506,10 +532,12 @@ void KTextEditor__View_ConfigChanged(KTextEditor__View* self, KTextEditor__View*
 
 void KTextEditor__View_Connect_ConfigChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::configChanged, [self, slotFunc](KTextEditor::View* view) {
-        KTextEditor__View* sigval1 = view;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*)>(&KTextEditor::View::configChanged),
+                               [self, slotFunc](KTextEditor::View* view) {
+                                   KTextEditor__View* sigval1 = view;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_list /* of libqt_string */ KTextEditor__View_ConfigKeys(const KTextEditor__View* self) {
@@ -581,12 +609,14 @@ void KTextEditor__View_AnnotationContextMenuAboutToShow(KTextEditor__View* self,
 
 void KTextEditor__View_Connect_AnnotationContextMenuAboutToShow(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, QMenu*, int) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, QMenu*, int)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::annotationContextMenuAboutToShow, [self, slotFunc](KTextEditor::View* view, QMenu* menu, int line) {
-        KTextEditor__View* sigval1 = view;
-        QMenu* sigval2 = menu;
-        int sigval3 = line;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, QMenu*, int)>(&KTextEditor::View::annotationContextMenuAboutToShow),
+                               [self, slotFunc](KTextEditor::View* view, QMenu* menu, int line) {
+                                   KTextEditor__View* sigval1 = view;
+                                   QMenu* sigval2 = menu;
+                                   int sigval3 = line;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
 }
 
 void KTextEditor__View_AnnotationActivated(KTextEditor__View* self, KTextEditor__View* view, int line) {
@@ -595,11 +625,13 @@ void KTextEditor__View_AnnotationActivated(KTextEditor__View* self, KTextEditor_
 
 void KTextEditor__View_Connect_AnnotationActivated(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, int) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, int)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::annotationActivated, [self, slotFunc](KTextEditor::View* view, int line) {
-        KTextEditor__View* sigval1 = view;
-        int sigval2 = line;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, int)>(&KTextEditor::View::annotationActivated),
+                               [self, slotFunc](KTextEditor::View* view, int line) {
+                                   KTextEditor__View* sigval1 = view;
+                                   int sigval2 = line;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_AnnotationBorderVisibilityChanged(KTextEditor__View* self, KTextEditor__View* view, bool visible) {
@@ -608,11 +640,13 @@ void KTextEditor__View_AnnotationBorderVisibilityChanged(KTextEditor__View* self
 
 void KTextEditor__View_Connect_AnnotationBorderVisibilityChanged(KTextEditor__View* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__View*, KTextEditor__View*, bool) = reinterpret_cast<void (*)(KTextEditor__View*, KTextEditor__View*, bool)>(slot);
-    KTextEditor::View::connect(self, &KTextEditor::View::annotationBorderVisibilityChanged, [self, slotFunc](KTextEditor::View* view, bool visible) {
-        KTextEditor__View* sigval1 = view;
-        bool sigval2 = visible;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::View::connect(self,
+                               static_cast<void (KTextEditor::View::*)(KTextEditor::View*, bool)>(&KTextEditor::View::annotationBorderVisibilityChanged),
+                               [self, slotFunc](KTextEditor::View* view, bool visible) {
+                                   KTextEditor__View* sigval1 = view;
+                                   bool sigval2 = visible;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void KTextEditor__View_RegisterInlineNoteProvider(KTextEditor__View* self, KTextEditor__InlineNoteProvider* provider) {

@@ -75,9 +75,13 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, co
 bool QCompleter_EventFilter(QCompleter* self, QObject* o, QEvent* e);
 bool QCompleter_Event(QCompleter* self, QEvent* param1);
 void QCompleter_Activated(QCompleter* self, const libqt_string text);
+void QCompleter_Connect_Activated(QCompleter* self, intptr_t slot);
 void QCompleter_Activated2(QCompleter* self, const QModelIndex* index);
+void QCompleter_Connect_Activated2(QCompleter* self, intptr_t slot);
 void QCompleter_Highlighted(QCompleter* self, const libqt_string text);
+void QCompleter_Connect_Highlighted(QCompleter* self, intptr_t slot);
 void QCompleter_Highlighted2(QCompleter* self, const QModelIndex* index);
+void QCompleter_Connect_Highlighted2(QCompleter* self, intptr_t slot);
 libqt_string QCompleter_Tr2(const char* s, const char* c);
 libqt_string QCompleter_Tr3(const char* s, const char* c, int n);
 void QCompleter_Complete1(QCompleter* self, const QRect* rect);

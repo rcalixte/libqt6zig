@@ -99,9 +99,11 @@ void QVBoxPlotModelMapper_SeriesReplaced(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_SeriesReplaced(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::seriesReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::seriesReplaced),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QVBoxPlotModelMapper_ModelReplaced(QVBoxPlotModelMapper* self) {
@@ -110,9 +112,11 @@ void QVBoxPlotModelMapper_ModelReplaced(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_ModelReplaced(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::modelReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::modelReplaced),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QVBoxPlotModelMapper_FirstBoxSetColumnChanged(QVBoxPlotModelMapper* self) {
@@ -121,9 +125,11 @@ void QVBoxPlotModelMapper_FirstBoxSetColumnChanged(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_FirstBoxSetColumnChanged(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::firstBoxSetColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::firstBoxSetColumnChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QVBoxPlotModelMapper_LastBoxSetColumnChanged(QVBoxPlotModelMapper* self) {
@@ -132,9 +138,11 @@ void QVBoxPlotModelMapper_LastBoxSetColumnChanged(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_LastBoxSetColumnChanged(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::lastBoxSetColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::lastBoxSetColumnChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QVBoxPlotModelMapper_FirstRowChanged(QVBoxPlotModelMapper* self) {
@@ -143,9 +151,11 @@ void QVBoxPlotModelMapper_FirstRowChanged(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_FirstRowChanged(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::firstRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::firstRowChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QVBoxPlotModelMapper_RowCountChanged(QVBoxPlotModelMapper* self) {
@@ -154,9 +164,11 @@ void QVBoxPlotModelMapper_RowCountChanged(QVBoxPlotModelMapper* self) {
 
 void QVBoxPlotModelMapper_Connect_RowCountChanged(QVBoxPlotModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBoxPlotModelMapper*) = reinterpret_cast<void (*)(QVBoxPlotModelMapper*)>(slot);
-    QVBoxPlotModelMapper::connect(self, &QVBoxPlotModelMapper::rowCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBoxPlotModelMapper::connect(self,
+                                  static_cast<void (QVBoxPlotModelMapper::*)()>(&QVBoxPlotModelMapper::rowCountChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string QVBoxPlotModelMapper_Tr2(const char* s, const char* c) {

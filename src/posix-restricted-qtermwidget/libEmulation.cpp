@@ -120,11 +120,13 @@ void Konsole__Emulation_SendData(Konsole__Emulation* self, const char* data, int
 
 void Konsole__Emulation_Connect_SendData(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, const char*, int) = reinterpret_cast<void (*)(Konsole__Emulation*, const char*, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::sendData, [self, slotFunc](const char* data, int len) {
-        const char* sigval1 = (const char*)data;
-        int sigval2 = len;
-        slotFunc(self, sigval1, sigval2);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(const char*, int)>(&Konsole::Emulation::sendData),
+                                [self, slotFunc](const char* data, int len) {
+                                    const char* sigval1 = (const char*)data;
+                                    int sigval2 = len;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void Konsole__Emulation_LockPtyRequest(Konsole__Emulation* self, bool suspendVal) {
@@ -133,10 +135,12 @@ void Konsole__Emulation_LockPtyRequest(Konsole__Emulation* self, bool suspendVal
 
 void Konsole__Emulation_Connect_LockPtyRequest(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::lockPtyRequest, [self, slotFunc](bool suspendVal) {
-        bool sigval1 = suspendVal;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(bool)>(&Konsole::Emulation::lockPtyRequest),
+                                [self, slotFunc](bool suspendVal) {
+                                    bool sigval1 = suspendVal;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_UseUtf8Request(Konsole__Emulation* self, bool param1) {
@@ -145,10 +149,12 @@ void Konsole__Emulation_UseUtf8Request(Konsole__Emulation* self, bool param1) {
 
 void Konsole__Emulation_Connect_UseUtf8Request(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::useUtf8Request, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(bool)>(&Konsole::Emulation::useUtf8Request),
+                                [self, slotFunc](bool param1) {
+                                    bool sigval1 = param1;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_StateSet(Konsole__Emulation* self, int state) {
@@ -157,10 +163,12 @@ void Konsole__Emulation_StateSet(Konsole__Emulation* self, int state) {
 
 void Konsole__Emulation_Connect_StateSet(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int) = reinterpret_cast<void (*)(Konsole__Emulation*, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::stateSet, [self, slotFunc](int state) {
-        int sigval1 = state;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(int)>(&Konsole::Emulation::stateSet),
+                                [self, slotFunc](int state) {
+                                    int sigval1 = state;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_ZmodemDetected(Konsole__Emulation* self) {
@@ -169,9 +177,11 @@ void Konsole__Emulation_ZmodemDetected(Konsole__Emulation* self) {
 
 void Konsole__Emulation_Connect_ZmodemDetected(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*) = reinterpret_cast<void (*)(Konsole__Emulation*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::zmodemDetected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)()>(&Konsole::Emulation::zmodemDetected),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void Konsole__Emulation_ChangeTabTextColorRequest(Konsole__Emulation* self, int color) {
@@ -180,10 +190,12 @@ void Konsole__Emulation_ChangeTabTextColorRequest(Konsole__Emulation* self, int 
 
 void Konsole__Emulation_Connect_ChangeTabTextColorRequest(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int) = reinterpret_cast<void (*)(Konsole__Emulation*, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::changeTabTextColorRequest, [self, slotFunc](int color) {
-        int sigval1 = color;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(int)>(&Konsole::Emulation::changeTabTextColorRequest),
+                                [self, slotFunc](int color) {
+                                    int sigval1 = color;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_ProgramUsesMouseChanged(Konsole__Emulation* self, bool usesMouse) {
@@ -192,10 +204,12 @@ void Konsole__Emulation_ProgramUsesMouseChanged(Konsole__Emulation* self, bool u
 
 void Konsole__Emulation_Connect_ProgramUsesMouseChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::programUsesMouseChanged, [self, slotFunc](bool usesMouse) {
-        bool sigval1 = usesMouse;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(bool)>(&Konsole::Emulation::programUsesMouseChanged),
+                                [self, slotFunc](bool usesMouse) {
+                                    bool sigval1 = usesMouse;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_ProgramBracketedPasteModeChanged(Konsole__Emulation* self, bool bracketedPasteMode) {
@@ -204,10 +218,12 @@ void Konsole__Emulation_ProgramBracketedPasteModeChanged(Konsole__Emulation* sel
 
 void Konsole__Emulation_Connect_ProgramBracketedPasteModeChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::programBracketedPasteModeChanged, [self, slotFunc](bool bracketedPasteMode) {
-        bool sigval1 = bracketedPasteMode;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(bool)>(&Konsole::Emulation::programBracketedPasteModeChanged),
+                                [self, slotFunc](bool bracketedPasteMode) {
+                                    bool sigval1 = bracketedPasteMode;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_OutputChanged(Konsole__Emulation* self) {
@@ -216,9 +232,11 @@ void Konsole__Emulation_OutputChanged(Konsole__Emulation* self) {
 
 void Konsole__Emulation_Connect_OutputChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*) = reinterpret_cast<void (*)(Konsole__Emulation*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::outputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)()>(&Konsole::Emulation::outputChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void Konsole__Emulation_TitleChanged(Konsole__Emulation* self, int title, const libqt_string newTitle) {
@@ -228,19 +246,21 @@ void Konsole__Emulation_TitleChanged(Konsole__Emulation* self, int title, const 
 
 void Konsole__Emulation_Connect_TitleChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int, const char*) = reinterpret_cast<void (*)(Konsole__Emulation*, int, const char*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::titleChanged, [self, slotFunc](int title, const QString& newTitle) {
-        int sigval1 = title;
-        const auto newTitle_ret = newTitle;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray newTitle_b = newTitle_ret.toUtf8();
-        auto newTitle_str_len = newTitle_b.length();
-        const char* newTitle_str = static_cast<const char*>(malloc(newTitle_str_len + 1));
-        memcpy((void*)newTitle_str, newTitle_b.data(), newTitle_str_len);
-        ((char*)newTitle_str)[newTitle_str_len] = '\0';
-        const char* sigval2 = newTitle_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(newTitle_str);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(int, const QString&)>(&Konsole::Emulation::titleChanged),
+                                [self, slotFunc](int title, const QString& newTitle) {
+                                    int sigval1 = title;
+                                    const auto newTitle_ret = newTitle;
+                                    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                    QByteArray newTitle_b = newTitle_ret.toUtf8();
+                                    auto newTitle_str_len = newTitle_b.length();
+                                    const char* newTitle_str = static_cast<const char*>(malloc(newTitle_str_len + 1));
+                                    memcpy((void*)newTitle_str, newTitle_b.data(), newTitle_str_len);
+                                    ((char*)newTitle_str)[newTitle_str_len] = '\0';
+                                    const char* sigval2 = newTitle_str;
+                                    slotFunc(self, sigval1, sigval2);
+                                    libqt_free(newTitle_str);
+                                });
 }
 
 void Konsole__Emulation_ImageSizeChanged(Konsole__Emulation* self, int lineCount, int columnCount) {
@@ -249,11 +269,13 @@ void Konsole__Emulation_ImageSizeChanged(Konsole__Emulation* self, int lineCount
 
 void Konsole__Emulation_Connect_ImageSizeChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int, int) = reinterpret_cast<void (*)(Konsole__Emulation*, int, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::imageSizeChanged, [self, slotFunc](int lineCount, int columnCount) {
-        int sigval1 = lineCount;
-        int sigval2 = columnCount;
-        slotFunc(self, sigval1, sigval2);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(int, int)>(&Konsole::Emulation::imageSizeChanged),
+                                [self, slotFunc](int lineCount, int columnCount) {
+                                    int sigval1 = lineCount;
+                                    int sigval2 = columnCount;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void Konsole__Emulation_ImageSizeInitialized(Konsole__Emulation* self) {
@@ -262,9 +284,11 @@ void Konsole__Emulation_ImageSizeInitialized(Konsole__Emulation* self) {
 
 void Konsole__Emulation_Connect_ImageSizeInitialized(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*) = reinterpret_cast<void (*)(Konsole__Emulation*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::imageSizeInitialized, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)()>(&Konsole::Emulation::imageSizeInitialized),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void Konsole__Emulation_ImageResizeRequest(Konsole__Emulation* self, const QSize* sizz) {
@@ -273,12 +297,14 @@ void Konsole__Emulation_ImageResizeRequest(Konsole__Emulation* self, const QSize
 
 void Konsole__Emulation_Connect_ImageResizeRequest(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, QSize*) = reinterpret_cast<void (*)(Konsole__Emulation*, QSize*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::imageResizeRequest, [self, slotFunc](const QSize& sizz) {
-        const QSize& sizz_ret = sizz;
-        // Cast returned reference into pointer
-        QSize* sigval1 = const_cast<QSize*>(&sizz_ret);
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(const QSize&)>(&Konsole::Emulation::imageResizeRequest),
+                                [self, slotFunc](const QSize& sizz) {
+                                    const QSize& sizz_ret = sizz;
+                                    // Cast returned reference into pointer
+                                    QSize* sigval1 = const_cast<QSize*>(&sizz_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_ProfileChangeCommandReceived(Konsole__Emulation* self, const libqt_string text) {
@@ -288,18 +314,20 @@ void Konsole__Emulation_ProfileChangeCommandReceived(Konsole__Emulation* self, c
 
 void Konsole__Emulation_Connect_ProfileChangeCommandReceived(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, const char*) = reinterpret_cast<void (*)(Konsole__Emulation*, const char*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::profileChangeCommandReceived, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(const QString&)>(&Konsole::Emulation::profileChangeCommandReceived),
+                                [self, slotFunc](const QString& text) {
+                                    const auto text_ret = text;
+                                    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                    QByteArray text_b = text_ret.toUtf8();
+                                    auto text_str_len = text_b.length();
+                                    const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                    memcpy((void*)text_str, text_b.data(), text_str_len);
+                                    ((char*)text_str)[text_str_len] = '\0';
+                                    const char* sigval1 = text_str;
+                                    slotFunc(self, sigval1);
+                                    libqt_free(text_str);
+                                });
 }
 
 void Konsole__Emulation_FlowControlKeyPressed(Konsole__Emulation* self, bool suspendKeyPressed) {
@@ -308,10 +336,12 @@ void Konsole__Emulation_FlowControlKeyPressed(Konsole__Emulation* self, bool sus
 
 void Konsole__Emulation_Connect_FlowControlKeyPressed(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::flowControlKeyPressed, [self, slotFunc](bool suspendKeyPressed) {
-        bool sigval1 = suspendKeyPressed;
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(bool)>(&Konsole::Emulation::flowControlKeyPressed),
+                                [self, slotFunc](bool suspendKeyPressed) {
+                                    bool sigval1 = suspendKeyPressed;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_CursorChanged(Konsole__Emulation* self, int cursorShape, bool blinkingCursorEnabled) {
@@ -320,11 +350,13 @@ void Konsole__Emulation_CursorChanged(Konsole__Emulation* self, int cursorShape,
 
 void Konsole__Emulation_Connect_CursorChanged(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int, bool) = reinterpret_cast<void (*)(Konsole__Emulation*, int, bool)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::cursorChanged, [self, slotFunc](Konsole::Emulation::KeyboardCursorShape cursorShape, bool blinkingCursorEnabled) {
-        int sigval1 = static_cast<int>(cursorShape);
-        bool sigval2 = blinkingCursorEnabled;
-        slotFunc(self, sigval1, sigval2);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(Konsole::Emulation::KeyboardCursorShape, bool)>(&Konsole::Emulation::cursorChanged),
+                                [self, slotFunc](Konsole::Emulation::KeyboardCursorShape cursorShape, bool blinkingCursorEnabled) {
+                                    int sigval1 = static_cast<int>(cursorShape);
+                                    bool sigval2 = blinkingCursorEnabled;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void Konsole__Emulation_HandleCommandFromKeyboard(Konsole__Emulation* self, int command) {
@@ -333,10 +365,12 @@ void Konsole__Emulation_HandleCommandFromKeyboard(Konsole__Emulation* self, int 
 
 void Konsole__Emulation_Connect_HandleCommandFromKeyboard(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, int) = reinterpret_cast<void (*)(Konsole__Emulation*, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::handleCommandFromKeyboard, [self, slotFunc](Konsole::KeyboardTranslator::Command command) {
-        int sigval1 = static_cast<int>(command);
-        slotFunc(self, sigval1);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)(Konsole::KeyboardTranslator::Command)>(&Konsole::Emulation::handleCommandFromKeyboard),
+                                [self, slotFunc](Konsole::KeyboardTranslator::Command command) {
+                                    int sigval1 = static_cast<int>(command);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void Konsole__Emulation_OutputFromKeypressEvent(Konsole__Emulation* self) {
@@ -345,9 +379,11 @@ void Konsole__Emulation_OutputFromKeypressEvent(Konsole__Emulation* self) {
 
 void Konsole__Emulation_Connect_OutputFromKeypressEvent(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*) = reinterpret_cast<void (*)(Konsole__Emulation*)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::outputFromKeypressEvent, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Konsole::Emulation::connect(self,
+                                static_cast<void (Konsole::Emulation::*)()>(&Konsole::Emulation::outputFromKeypressEvent),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void Konsole__Emulation_SetMode(Konsole__Emulation* self, int mode) {

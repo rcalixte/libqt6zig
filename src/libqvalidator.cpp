@@ -71,9 +71,11 @@ void QValidator_Changed(QValidator* self) {
 
 void QValidator_Connect_Changed(QValidator* self, intptr_t slot) {
     void (*slotFunc)(QValidator*) = reinterpret_cast<void (*)(QValidator*)>(slot);
-    QValidator::connect(self, &QValidator::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QValidator::connect(self,
+                        static_cast<void (QValidator::*)()>(&QValidator::changed),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 libqt_string QValidator_Tr2(const char* s, const char* c) {
@@ -580,10 +582,12 @@ void QIntValidator_BottomChanged(QIntValidator* self, int bottom) {
 
 void QIntValidator_Connect_BottomChanged(QIntValidator* self, intptr_t slot) {
     void (*slotFunc)(QIntValidator*, int) = reinterpret_cast<void (*)(QIntValidator*, int)>(slot);
-    QIntValidator::connect(self, &QIntValidator::bottomChanged, [self, slotFunc](int bottom) {
-        int sigval1 = bottom;
-        slotFunc(self, sigval1);
-    });
+    QIntValidator::connect(self,
+                           static_cast<void (QIntValidator::*)(int)>(&QIntValidator::bottomChanged),
+                           [self, slotFunc](int bottom) {
+                               int sigval1 = bottom;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QIntValidator_TopChanged(QIntValidator* self, int top) {
@@ -592,10 +596,12 @@ void QIntValidator_TopChanged(QIntValidator* self, int top) {
 
 void QIntValidator_Connect_TopChanged(QIntValidator* self, intptr_t slot) {
     void (*slotFunc)(QIntValidator*, int) = reinterpret_cast<void (*)(QIntValidator*, int)>(slot);
-    QIntValidator::connect(self, &QIntValidator::topChanged, [self, slotFunc](int top) {
-        int sigval1 = top;
-        slotFunc(self, sigval1);
-    });
+    QIntValidator::connect(self,
+                           static_cast<void (QIntValidator::*)(int)>(&QIntValidator::topChanged),
+                           [self, slotFunc](int top) {
+                               int sigval1 = top;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QIntValidator_Tr2(const char* s, const char* c) {
@@ -1122,10 +1128,12 @@ void QDoubleValidator_BottomChanged(QDoubleValidator* self, double bottom) {
 
 void QDoubleValidator_Connect_BottomChanged(QDoubleValidator* self, intptr_t slot) {
     void (*slotFunc)(QDoubleValidator*, double) = reinterpret_cast<void (*)(QDoubleValidator*, double)>(slot);
-    QDoubleValidator::connect(self, &QDoubleValidator::bottomChanged, [self, slotFunc](double bottom) {
-        double sigval1 = bottom;
-        slotFunc(self, sigval1);
-    });
+    QDoubleValidator::connect(self,
+                              static_cast<void (QDoubleValidator::*)(double)>(&QDoubleValidator::bottomChanged),
+                              [self, slotFunc](double bottom) {
+                                  double sigval1 = bottom;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QDoubleValidator_TopChanged(QDoubleValidator* self, double top) {
@@ -1134,10 +1142,12 @@ void QDoubleValidator_TopChanged(QDoubleValidator* self, double top) {
 
 void QDoubleValidator_Connect_TopChanged(QDoubleValidator* self, intptr_t slot) {
     void (*slotFunc)(QDoubleValidator*, double) = reinterpret_cast<void (*)(QDoubleValidator*, double)>(slot);
-    QDoubleValidator::connect(self, &QDoubleValidator::topChanged, [self, slotFunc](double top) {
-        double sigval1 = top;
-        slotFunc(self, sigval1);
-    });
+    QDoubleValidator::connect(self,
+                              static_cast<void (QDoubleValidator::*)(double)>(&QDoubleValidator::topChanged),
+                              [self, slotFunc](double top) {
+                                  double sigval1 = top;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QDoubleValidator_DecimalsChanged(QDoubleValidator* self, int decimals) {
@@ -1146,10 +1156,12 @@ void QDoubleValidator_DecimalsChanged(QDoubleValidator* self, int decimals) {
 
 void QDoubleValidator_Connect_DecimalsChanged(QDoubleValidator* self, intptr_t slot) {
     void (*slotFunc)(QDoubleValidator*, int) = reinterpret_cast<void (*)(QDoubleValidator*, int)>(slot);
-    QDoubleValidator::connect(self, &QDoubleValidator::decimalsChanged, [self, slotFunc](int decimals) {
-        int sigval1 = decimals;
-        slotFunc(self, sigval1);
-    });
+    QDoubleValidator::connect(self,
+                              static_cast<void (QDoubleValidator::*)(int)>(&QDoubleValidator::decimalsChanged),
+                              [self, slotFunc](int decimals) {
+                                  int sigval1 = decimals;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QDoubleValidator_NotationChanged(QDoubleValidator* self, int notation) {
@@ -1158,10 +1170,12 @@ void QDoubleValidator_NotationChanged(QDoubleValidator* self, int notation) {
 
 void QDoubleValidator_Connect_NotationChanged(QDoubleValidator* self, intptr_t slot) {
     void (*slotFunc)(QDoubleValidator*, int) = reinterpret_cast<void (*)(QDoubleValidator*, int)>(slot);
-    QDoubleValidator::connect(self, &QDoubleValidator::notationChanged, [self, slotFunc](QDoubleValidator::Notation notation) {
-        int sigval1 = static_cast<int>(notation);
-        slotFunc(self, sigval1);
-    });
+    QDoubleValidator::connect(self,
+                              static_cast<void (QDoubleValidator::*)(QDoubleValidator::Notation)>(&QDoubleValidator::notationChanged),
+                              [self, slotFunc](QDoubleValidator::Notation notation) {
+                                  int sigval1 = static_cast<int>(notation);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 libqt_string QDoubleValidator_Tr2(const char* s, const char* c) {
@@ -1651,12 +1665,14 @@ void QRegularExpressionValidator_RegularExpressionChanged(QRegularExpressionVali
 
 void QRegularExpressionValidator_Connect_RegularExpressionChanged(QRegularExpressionValidator* self, intptr_t slot) {
     void (*slotFunc)(QRegularExpressionValidator*, QRegularExpression*) = reinterpret_cast<void (*)(QRegularExpressionValidator*, QRegularExpression*)>(slot);
-    QRegularExpressionValidator::connect(self, &QRegularExpressionValidator::regularExpressionChanged, [self, slotFunc](const QRegularExpression& re) {
-        const QRegularExpression& re_ret = re;
-        // Cast returned reference into pointer
-        QRegularExpression* sigval1 = const_cast<QRegularExpression*>(&re_ret);
-        slotFunc(self, sigval1);
-    });
+    QRegularExpressionValidator::connect(self,
+                                         static_cast<void (QRegularExpressionValidator::*)(const QRegularExpression&)>(&QRegularExpressionValidator::regularExpressionChanged),
+                                         [self, slotFunc](const QRegularExpression& re) {
+                                             const QRegularExpression& re_ret = re;
+                                             // Cast returned reference into pointer
+                                             QRegularExpression* sigval1 = const_cast<QRegularExpression*>(&re_ret);
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 libqt_string QRegularExpressionValidator_Tr2(const char* s, const char* c) {

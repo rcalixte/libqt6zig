@@ -138,15 +138,17 @@ void KStartupInfo_GotNewStartup(KStartupInfo* self, const KStartupInfoId* id, co
 
 void KStartupInfo_Connect_GotNewStartup(KStartupInfo* self, intptr_t slot) {
     void (*slotFunc)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*) = reinterpret_cast<void (*)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*)>(slot);
-    KStartupInfo::connect(self, &KStartupInfo::gotNewStartup, [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
-        const KStartupInfoId& id_ret = id;
-        // Cast returned reference into pointer
-        KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
-        const KStartupInfoData& data_ret = data;
-        // Cast returned reference into pointer
-        KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KStartupInfo::connect(self,
+                          static_cast<void (KStartupInfo::*)(const KStartupInfoId&, const KStartupInfoData&)>(&KStartupInfo::gotNewStartup),
+                          [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
+                              const KStartupInfoId& id_ret = id;
+                              // Cast returned reference into pointer
+                              KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
+                              const KStartupInfoData& data_ret = data;
+                              // Cast returned reference into pointer
+                              KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KStartupInfo_GotStartupChange(KStartupInfo* self, const KStartupInfoId* id, const KStartupInfoData* data) {
@@ -155,15 +157,17 @@ void KStartupInfo_GotStartupChange(KStartupInfo* self, const KStartupInfoId* id,
 
 void KStartupInfo_Connect_GotStartupChange(KStartupInfo* self, intptr_t slot) {
     void (*slotFunc)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*) = reinterpret_cast<void (*)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*)>(slot);
-    KStartupInfo::connect(self, &KStartupInfo::gotStartupChange, [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
-        const KStartupInfoId& id_ret = id;
-        // Cast returned reference into pointer
-        KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
-        const KStartupInfoData& data_ret = data;
-        // Cast returned reference into pointer
-        KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KStartupInfo::connect(self,
+                          static_cast<void (KStartupInfo::*)(const KStartupInfoId&, const KStartupInfoData&)>(&KStartupInfo::gotStartupChange),
+                          [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
+                              const KStartupInfoId& id_ret = id;
+                              // Cast returned reference into pointer
+                              KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
+                              const KStartupInfoData& data_ret = data;
+                              // Cast returned reference into pointer
+                              KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KStartupInfo_GotRemoveStartup(KStartupInfo* self, const KStartupInfoId* id, const KStartupInfoData* data) {
@@ -172,15 +176,17 @@ void KStartupInfo_GotRemoveStartup(KStartupInfo* self, const KStartupInfoId* id,
 
 void KStartupInfo_Connect_GotRemoveStartup(KStartupInfo* self, intptr_t slot) {
     void (*slotFunc)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*) = reinterpret_cast<void (*)(KStartupInfo*, KStartupInfoId*, KStartupInfoData*)>(slot);
-    KStartupInfo::connect(self, &KStartupInfo::gotRemoveStartup, [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
-        const KStartupInfoId& id_ret = id;
-        // Cast returned reference into pointer
-        KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
-        const KStartupInfoData& data_ret = data;
-        // Cast returned reference into pointer
-        KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KStartupInfo::connect(self,
+                          static_cast<void (KStartupInfo::*)(const KStartupInfoId&, const KStartupInfoData&)>(&KStartupInfo::gotRemoveStartup),
+                          [self, slotFunc](const KStartupInfoId& id, const KStartupInfoData& data) {
+                              const KStartupInfoId& id_ret = id;
+                              // Cast returned reference into pointer
+                              KStartupInfoId* sigval1 = const_cast<KStartupInfoId*>(&id_ret);
+                              const KStartupInfoData& data_ret = data;
+                              // Cast returned reference into pointer
+                              KStartupInfoData* sigval2 = const_cast<KStartupInfoData*>(&data_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P) {

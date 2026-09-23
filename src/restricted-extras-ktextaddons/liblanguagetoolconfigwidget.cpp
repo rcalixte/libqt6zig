@@ -83,9 +83,11 @@ void TextGrammarCheck__LanguageToolConfigWidget_ResetValue(TextGrammarCheck__Lan
 
 void TextGrammarCheck__LanguageToolConfigWidget_Connect_ResetValue(TextGrammarCheck__LanguageToolConfigWidget* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__LanguageToolConfigWidget*) = reinterpret_cast<void (*)(TextGrammarCheck__LanguageToolConfigWidget*)>(slot);
-    TextGrammarCheck::LanguageToolConfigWidget::connect(self, &TextGrammarCheck::LanguageToolConfigWidget::resetValue, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::LanguageToolConfigWidget::connect(self,
+                                                        static_cast<void (TextGrammarCheck::LanguageToolConfigWidget::*)()>(&TextGrammarCheck::LanguageToolConfigWidget::resetValue),
+                                                        [self, slotFunc]() {
+                                                            slotFunc(self);
+                                                        });
 }
 
 libqt_string TextGrammarCheck__LanguageToolConfigWidget_Tr2(const char* s, const char* c) {

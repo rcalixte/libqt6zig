@@ -459,9 +459,11 @@ void QSslSocket_Encrypted(QSslSocket* self) {
 
 void QSslSocket_Connect_Encrypted(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*) = reinterpret_cast<void (*)(QSslSocket*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::encrypted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)()>(&QSslSocket::encrypted),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QSslSocket_PeerVerifyError(QSslSocket* self, const QSslError* errorVal) {
@@ -470,12 +472,14 @@ void QSslSocket_PeerVerifyError(QSslSocket* self, const QSslError* errorVal) {
 
 void QSslSocket_Connect_PeerVerifyError(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, QSslError*) = reinterpret_cast<void (*)(QSslSocket*, QSslError*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::peerVerifyError, [self, slotFunc](const QSslError& errorVal) {
-        const QSslError& errorVal_ret = errorVal;
-        // Cast returned reference into pointer
-        QSslError* sigval1 = const_cast<QSslError*>(&errorVal_ret);
-        slotFunc(self, sigval1);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(const QSslError&)>(&QSslSocket::peerVerifyError),
+                        [self, slotFunc](const QSslError& errorVal) {
+                            const QSslError& errorVal_ret = errorVal;
+                            // Cast returned reference into pointer
+                            QSslError* sigval1 = const_cast<QSslError*>(&errorVal_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QSslSocket_SslErrors(QSslSocket* self, const libqt_list /* of QSslError* */ errors) {
@@ -490,20 +494,22 @@ void QSslSocket_SslErrors(QSslSocket* self, const libqt_list /* of QSslError* */
 
 void QSslSocket_Connect_SslErrors(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QSslSocket*, libqt_list /* of QSslError* */)>(slot);
-    QSslSocket::connect(self, &QSslSocket::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
-        const QList<QSslError>& errors_ret = errors;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
-        for (qsizetype i = 0; i < errors_ret.size(); ++i) {
-            errors_arr[i] = new QSslError(errors_ret[i]);
-        }
-        libqt_list errors_out;
-        errors_out.len = errors_ret.size();
-        errors_out.data = static_cast<void*>(errors_arr);
-        libqt_list /* of QSslError* */ sigval1 = errors_out;
-        slotFunc(self, sigval1);
-        free(errors_arr);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(const QList<QSslError>&)>(&QSslSocket::sslErrors),
+                        [self, slotFunc](const QList<QSslError>& errors) {
+                            const QList<QSslError>& errors_ret = errors;
+                            // Convert QList<> from C++ memory to manually-managed C memory
+                            QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
+                            for (qsizetype i = 0; i < errors_ret.size(); ++i) {
+                                errors_arr[i] = new QSslError(errors_ret[i]);
+                            }
+                            libqt_list errors_out;
+                            errors_out.len = errors_ret.size();
+                            errors_out.data = static_cast<void*>(errors_arr);
+                            libqt_list /* of QSslError* */ sigval1 = errors_out;
+                            slotFunc(self, sigval1);
+                            free(errors_arr);
+                        });
 }
 
 void QSslSocket_ModeChanged(QSslSocket* self, int newMode) {
@@ -512,10 +518,12 @@ void QSslSocket_ModeChanged(QSslSocket* self, int newMode) {
 
 void QSslSocket_Connect_ModeChanged(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, int) = reinterpret_cast<void (*)(QSslSocket*, int)>(slot);
-    QSslSocket::connect(self, &QSslSocket::modeChanged, [self, slotFunc](QSslSocket::SslMode newMode) {
-        int sigval1 = static_cast<int>(newMode);
-        slotFunc(self, sigval1);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(QSslSocket::SslMode)>(&QSslSocket::modeChanged),
+                        [self, slotFunc](QSslSocket::SslMode newMode) {
+                            int sigval1 = static_cast<int>(newMode);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QSslSocket_EncryptedBytesWritten(QSslSocket* self, long long totalBytes) {
@@ -524,10 +532,12 @@ void QSslSocket_EncryptedBytesWritten(QSslSocket* self, long long totalBytes) {
 
 void QSslSocket_Connect_EncryptedBytesWritten(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, long long) = reinterpret_cast<void (*)(QSslSocket*, long long)>(slot);
-    QSslSocket::connect(self, &QSslSocket::encryptedBytesWritten, [self, slotFunc](qint64 totalBytes) {
-        long long sigval1 = static_cast<long long>(totalBytes);
-        slotFunc(self, sigval1);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(qint64)>(&QSslSocket::encryptedBytesWritten),
+                        [self, slotFunc](qint64 totalBytes) {
+                            long long sigval1 = static_cast<long long>(totalBytes);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QSslSocket_PreSharedKeyAuthenticationRequired(QSslSocket* self, QSslPreSharedKeyAuthenticator* authenticator) {
@@ -536,10 +546,12 @@ void QSslSocket_PreSharedKeyAuthenticationRequired(QSslSocket* self, QSslPreShar
 
 void QSslSocket_Connect_PreSharedKeyAuthenticationRequired(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, QSslPreSharedKeyAuthenticator*) = reinterpret_cast<void (*)(QSslSocket*, QSslPreSharedKeyAuthenticator*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::preSharedKeyAuthenticationRequired, [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
-        QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
-        slotFunc(self, sigval1);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(QSslPreSharedKeyAuthenticator*)>(&QSslSocket::preSharedKeyAuthenticationRequired),
+                        [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
+                            QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QSslSocket_NewSessionTicketReceived(QSslSocket* self) {
@@ -548,9 +560,11 @@ void QSslSocket_NewSessionTicketReceived(QSslSocket* self) {
 
 void QSslSocket_Connect_NewSessionTicketReceived(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*) = reinterpret_cast<void (*)(QSslSocket*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::newSessionTicketReceived, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)()>(&QSslSocket::newSessionTicketReceived),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QSslSocket_AlertSent(QSslSocket* self, int level, int typeVal, const libqt_string description) {
@@ -560,20 +574,22 @@ void QSslSocket_AlertSent(QSslSocket* self, int level, int typeVal, const libqt_
 
 void QSslSocket_Connect_AlertSent(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, int, int, const char*) = reinterpret_cast<void (*)(QSslSocket*, int, int, const char*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::alertSent, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
-        int sigval1 = static_cast<int>(level);
-        int sigval2 = static_cast<int>(typeVal);
-        const auto description_ret = description;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray description_b = description_ret.toUtf8();
-        auto description_str_len = description_b.length();
-        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
-        memcpy((void*)description_str, description_b.data(), description_str_len);
-        ((char*)description_str)[description_str_len] = '\0';
-        const char* sigval3 = description_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(description_str);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(QSsl::AlertLevel, QSsl::AlertType, const QString&)>(&QSslSocket::alertSent),
+                        [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
+                            int sigval1 = static_cast<int>(level);
+                            int sigval2 = static_cast<int>(typeVal);
+                            const auto description_ret = description;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray description_b = description_ret.toUtf8();
+                            auto description_str_len = description_b.length();
+                            const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+                            memcpy((void*)description_str, description_b.data(), description_str_len);
+                            ((char*)description_str)[description_str_len] = '\0';
+                            const char* sigval3 = description_str;
+                            slotFunc(self, sigval1, sigval2, sigval3);
+                            libqt_free(description_str);
+                        });
 }
 
 void QSslSocket_AlertReceived(QSslSocket* self, int level, int typeVal, const libqt_string description) {
@@ -583,20 +599,22 @@ void QSslSocket_AlertReceived(QSslSocket* self, int level, int typeVal, const li
 
 void QSslSocket_Connect_AlertReceived(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, int, int, const char*) = reinterpret_cast<void (*)(QSslSocket*, int, int, const char*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::alertReceived, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
-        int sigval1 = static_cast<int>(level);
-        int sigval2 = static_cast<int>(typeVal);
-        const auto description_ret = description;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray description_b = description_ret.toUtf8();
-        auto description_str_len = description_b.length();
-        const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
-        memcpy((void*)description_str, description_b.data(), description_str_len);
-        ((char*)description_str)[description_str_len] = '\0';
-        const char* sigval3 = description_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(description_str);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(QSsl::AlertLevel, QSsl::AlertType, const QString&)>(&QSslSocket::alertReceived),
+                        [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
+                            int sigval1 = static_cast<int>(level);
+                            int sigval2 = static_cast<int>(typeVal);
+                            const auto description_ret = description;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray description_b = description_ret.toUtf8();
+                            auto description_str_len = description_b.length();
+                            const char* description_str = static_cast<const char*>(malloc(description_str_len + 1));
+                            memcpy((void*)description_str, description_b.data(), description_str_len);
+                            ((char*)description_str)[description_str_len] = '\0';
+                            const char* sigval3 = description_str;
+                            slotFunc(self, sigval1, sigval2, sigval3);
+                            libqt_free(description_str);
+                        });
 }
 
 void QSslSocket_HandshakeInterruptedOnError(QSslSocket* self, const QSslError* errorVal) {
@@ -605,12 +623,14 @@ void QSslSocket_HandshakeInterruptedOnError(QSslSocket* self, const QSslError* e
 
 void QSslSocket_Connect_HandshakeInterruptedOnError(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, QSslError*) = reinterpret_cast<void (*)(QSslSocket*, QSslError*)>(slot);
-    QSslSocket::connect(self, &QSslSocket::handshakeInterruptedOnError, [self, slotFunc](const QSslError& errorVal) {
-        const QSslError& errorVal_ret = errorVal;
-        // Cast returned reference into pointer
-        QSslError* sigval1 = const_cast<QSslError*>(&errorVal_ret);
-        slotFunc(self, sigval1);
-    });
+    QSslSocket::connect(self,
+                        static_cast<void (QSslSocket::*)(const QSslError&)>(&QSslSocket::handshakeInterruptedOnError),
+                        [self, slotFunc](const QSslError& errorVal) {
+                            const QSslError& errorVal_ret = errorVal;
+                            // Cast returned reference into pointer
+                            QSslError* sigval1 = const_cast<QSslError*>(&errorVal_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 long long QSslSocket_ReadData(QSslSocket* self, char* data, long long maxlen) {
