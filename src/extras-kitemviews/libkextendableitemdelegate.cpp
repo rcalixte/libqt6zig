@@ -87,13 +87,15 @@ void KExtendableItemDelegate_ExtenderCreated(KExtendableItemDelegate* self, QWid
 
 void KExtendableItemDelegate_Connect_ExtenderCreated(KExtendableItemDelegate* self, intptr_t slot) {
     void (*slotFunc)(KExtendableItemDelegate*, QWidget*, QModelIndex*) = reinterpret_cast<void (*)(KExtendableItemDelegate*, QWidget*, QModelIndex*)>(slot);
-    KExtendableItemDelegate::connect(self, &KExtendableItemDelegate::extenderCreated, [self, slotFunc](QWidget* extender, const QModelIndex& index) {
-        QWidget* sigval1 = extender;
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KExtendableItemDelegate::connect(self,
+                                     static_cast<void (KExtendableItemDelegate::*)(QWidget*, const QModelIndex&)>(&KExtendableItemDelegate::extenderCreated),
+                                     [self, slotFunc](QWidget* extender, const QModelIndex& index) {
+                                         QWidget* sigval1 = extender;
+                                         const QModelIndex& index_ret = index;
+                                         // Cast returned reference into pointer
+                                         QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
+                                         slotFunc(self, sigval1, sigval2);
+                                     });
 }
 
 void KExtendableItemDelegate_ExtenderDestroyed(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index) {
@@ -102,13 +104,15 @@ void KExtendableItemDelegate_ExtenderDestroyed(KExtendableItemDelegate* self, QW
 
 void KExtendableItemDelegate_Connect_ExtenderDestroyed(KExtendableItemDelegate* self, intptr_t slot) {
     void (*slotFunc)(KExtendableItemDelegate*, QWidget*, QModelIndex*) = reinterpret_cast<void (*)(KExtendableItemDelegate*, QWidget*, QModelIndex*)>(slot);
-    KExtendableItemDelegate::connect(self, &KExtendableItemDelegate::extenderDestroyed, [self, slotFunc](QWidget* extender, const QModelIndex& index) {
-        QWidget* sigval1 = extender;
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KExtendableItemDelegate::connect(self,
+                                     static_cast<void (KExtendableItemDelegate::*)(QWidget*, const QModelIndex&)>(&KExtendableItemDelegate::extenderDestroyed),
+                                     [self, slotFunc](QWidget* extender, const QModelIndex& index) {
+                                         QWidget* sigval1 = extender;
+                                         const QModelIndex& index_ret = index;
+                                         // Cast returned reference into pointer
+                                         QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
+                                         slotFunc(self, sigval1, sigval2);
+                                     });
 }
 
 libqt_string KExtendableItemDelegate_Tr2(const char* s, const char* c) {

@@ -77,11 +77,13 @@ void KTextEditor__Editor_DocumentCreated(KTextEditor__Editor* self, KTextEditor_
 
 void KTextEditor__Editor_Connect_DocumentCreated(KTextEditor__Editor* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Editor*, KTextEditor__Editor*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Editor*, KTextEditor__Editor*, KTextEditor__Document*)>(slot);
-    KTextEditor::Editor::connect(self, &KTextEditor::Editor::documentCreated, [self, slotFunc](KTextEditor::Editor* editor, KTextEditor::Document* document) {
-        KTextEditor__Editor* sigval1 = editor;
-        KTextEditor__Document* sigval2 = document;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::Editor::connect(self,
+                                 static_cast<void (KTextEditor::Editor::*)(KTextEditor::Editor*, KTextEditor::Document*)>(&KTextEditor::Editor::documentCreated),
+                                 [self, slotFunc](KTextEditor::Editor* editor, KTextEditor::Document* document) {
+                                     KTextEditor__Editor* sigval1 = editor;
+                                     KTextEditor__Document* sigval2 = document;
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 KAboutData* KTextEditor__Editor_AboutData(const KTextEditor__Editor* self) {
@@ -120,10 +122,12 @@ void KTextEditor__Editor_ConfigChanged(KTextEditor__Editor* self, KTextEditor__E
 
 void KTextEditor__Editor_Connect_ConfigChanged(KTextEditor__Editor* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Editor*, KTextEditor__Editor*) = reinterpret_cast<void (*)(KTextEditor__Editor*, KTextEditor__Editor*)>(slot);
-    KTextEditor::Editor::connect(self, &KTextEditor::Editor::configChanged, [self, slotFunc](KTextEditor::Editor* editor) {
-        KTextEditor__Editor* sigval1 = editor;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Editor::connect(self,
+                                 static_cast<void (KTextEditor::Editor::*)(KTextEditor::Editor*)>(&KTextEditor::Editor::configChanged),
+                                 [self, slotFunc](KTextEditor::Editor* editor) {
+                                     KTextEditor__Editor* sigval1 = editor;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 QFont* KTextEditor__Editor_Font(const KTextEditor__Editor* self) {
@@ -146,10 +150,12 @@ void KTextEditor__Editor_RepositoryReloaded(KTextEditor__Editor* self, KTextEdit
 
 void KTextEditor__Editor_Connect_RepositoryReloaded(KTextEditor__Editor* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Editor*, KTextEditor__Editor*) = reinterpret_cast<void (*)(KTextEditor__Editor*, KTextEditor__Editor*)>(slot);
-    KTextEditor::Editor::connect(self, &KTextEditor::Editor::repositoryReloaded, [self, slotFunc](KTextEditor::Editor* editor) {
-        KTextEditor__Editor* sigval1 = editor;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Editor::connect(self,
+                                 static_cast<void (KTextEditor::Editor::*)(KTextEditor::Editor*)>(&KTextEditor::Editor::repositoryReloaded),
+                                 [self, slotFunc](KTextEditor::Editor* editor) {
+                                     KTextEditor__Editor* sigval1 = editor;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 KTextEditor__Command* KTextEditor__Editor_QueryCommand(const KTextEditor__Editor* self, const libqt_string cmd) {

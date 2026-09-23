@@ -43,15 +43,17 @@ void KIO__BatchRenameJob_FileRenamed(KIO__BatchRenameJob* self, const QUrl* oldU
 
 void KIO__BatchRenameJob_Connect_FileRenamed(KIO__BatchRenameJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__BatchRenameJob*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__BatchRenameJob*, QUrl*, QUrl*)>(slot);
-    KIO::BatchRenameJob::connect(self, &KIO::BatchRenameJob::fileRenamed, [self, slotFunc](const QUrl& oldUrl, const QUrl& newUrl) {
-        const QUrl& oldUrl_ret = oldUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
-        const QUrl& newUrl_ret = newUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::BatchRenameJob::connect(self,
+                                 static_cast<void (KIO::BatchRenameJob::*)(const QUrl&, const QUrl&)>(&KIO::BatchRenameJob::fileRenamed),
+                                 [self, slotFunc](const QUrl& oldUrl, const QUrl& newUrl) {
+                                     const QUrl& oldUrl_ret = oldUrl;
+                                     // Cast returned reference into pointer
+                                     QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
+                                     const QUrl& newUrl_ret = newUrl;
+                                     // Cast returned reference into pointer
+                                     QUrl* sigval2 = const_cast<QUrl*>(&newUrl_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 libqt_string KIO__BatchRenameJob_Tr2(const char* s, const char* c) {

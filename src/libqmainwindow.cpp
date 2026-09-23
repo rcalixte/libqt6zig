@@ -321,12 +321,14 @@ void QMainWindow_IconSizeChanged(QMainWindow* self, const QSize* iconSize) {
 
 void QMainWindow_Connect_IconSizeChanged(QMainWindow* self, intptr_t slot) {
     void (*slotFunc)(QMainWindow*, QSize*) = reinterpret_cast<void (*)(QMainWindow*, QSize*)>(slot);
-    QMainWindow::connect(self, &QMainWindow::iconSizeChanged, [self, slotFunc](const QSize& iconSize) {
-        const QSize& iconSize_ret = iconSize;
-        // Cast returned reference into pointer
-        QSize* sigval1 = const_cast<QSize*>(&iconSize_ret);
-        slotFunc(self, sigval1);
-    });
+    QMainWindow::connect(self,
+                         static_cast<void (QMainWindow::*)(const QSize&)>(&QMainWindow::iconSizeChanged),
+                         [self, slotFunc](const QSize& iconSize) {
+                             const QSize& iconSize_ret = iconSize;
+                             // Cast returned reference into pointer
+                             QSize* sigval1 = const_cast<QSize*>(&iconSize_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QMainWindow_ToolButtonStyleChanged(QMainWindow* self, int toolButtonStyle) {
@@ -335,10 +337,12 @@ void QMainWindow_ToolButtonStyleChanged(QMainWindow* self, int toolButtonStyle) 
 
 void QMainWindow_Connect_ToolButtonStyleChanged(QMainWindow* self, intptr_t slot) {
     void (*slotFunc)(QMainWindow*, int) = reinterpret_cast<void (*)(QMainWindow*, int)>(slot);
-    QMainWindow::connect(self, &QMainWindow::toolButtonStyleChanged, [self, slotFunc](Qt::ToolButtonStyle toolButtonStyle) {
-        int sigval1 = static_cast<int>(toolButtonStyle);
-        slotFunc(self, sigval1);
-    });
+    QMainWindow::connect(self,
+                         static_cast<void (QMainWindow::*)(Qt::ToolButtonStyle)>(&QMainWindow::toolButtonStyleChanged),
+                         [self, slotFunc](Qt::ToolButtonStyle toolButtonStyle) {
+                             int sigval1 = static_cast<int>(toolButtonStyle);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QMainWindow_TabifiedDockWidgetActivated(QMainWindow* self, QDockWidget* dockWidget) {
@@ -347,10 +351,12 @@ void QMainWindow_TabifiedDockWidgetActivated(QMainWindow* self, QDockWidget* doc
 
 void QMainWindow_Connect_TabifiedDockWidgetActivated(QMainWindow* self, intptr_t slot) {
     void (*slotFunc)(QMainWindow*, QDockWidget*) = reinterpret_cast<void (*)(QMainWindow*, QDockWidget*)>(slot);
-    QMainWindow::connect(self, &QMainWindow::tabifiedDockWidgetActivated, [self, slotFunc](QDockWidget* dockWidget) {
-        QDockWidget* sigval1 = dockWidget;
-        slotFunc(self, sigval1);
-    });
+    QMainWindow::connect(self,
+                         static_cast<void (QMainWindow::*)(QDockWidget*)>(&QMainWindow::tabifiedDockWidgetActivated),
+                         [self, slotFunc](QDockWidget* dockWidget) {
+                             QDockWidget* sigval1 = dockWidget;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event) {

@@ -375,18 +375,20 @@ void QInputDialog_TextValueChanged(QInputDialog* self, const libqt_string text) 
 
 void QInputDialog_Connect_TextValueChanged(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, const char*) = reinterpret_cast<void (*)(QInputDialog*, const char*)>(slot);
-    QInputDialog::connect(self, &QInputDialog::textValueChanged, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(const QString&)>(&QInputDialog::textValueChanged),
+                          [self, slotFunc](const QString& text) {
+                              const auto text_ret = text;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray text_b = text_ret.toUtf8();
+                              auto text_str_len = text_b.length();
+                              const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                              memcpy((void*)text_str, text_b.data(), text_str_len);
+                              ((char*)text_str)[text_str_len] = '\0';
+                              const char* sigval1 = text_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(text_str);
+                          });
 }
 
 void QInputDialog_TextValueSelected(QInputDialog* self, const libqt_string text) {
@@ -396,18 +398,20 @@ void QInputDialog_TextValueSelected(QInputDialog* self, const libqt_string text)
 
 void QInputDialog_Connect_TextValueSelected(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, const char*) = reinterpret_cast<void (*)(QInputDialog*, const char*)>(slot);
-    QInputDialog::connect(self, &QInputDialog::textValueSelected, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(const QString&)>(&QInputDialog::textValueSelected),
+                          [self, slotFunc](const QString& text) {
+                              const auto text_ret = text;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray text_b = text_ret.toUtf8();
+                              auto text_str_len = text_b.length();
+                              const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                              memcpy((void*)text_str, text_b.data(), text_str_len);
+                              ((char*)text_str)[text_str_len] = '\0';
+                              const char* sigval1 = text_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(text_str);
+                          });
 }
 
 void QInputDialog_IntValueChanged(QInputDialog* self, int value) {
@@ -416,10 +420,12 @@ void QInputDialog_IntValueChanged(QInputDialog* self, int value) {
 
 void QInputDialog_Connect_IntValueChanged(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, int) = reinterpret_cast<void (*)(QInputDialog*, int)>(slot);
-    QInputDialog::connect(self, &QInputDialog::intValueChanged, [self, slotFunc](int value) {
-        int sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(int)>(&QInputDialog::intValueChanged),
+                          [self, slotFunc](int value) {
+                              int sigval1 = value;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QInputDialog_IntValueSelected(QInputDialog* self, int value) {
@@ -428,10 +434,12 @@ void QInputDialog_IntValueSelected(QInputDialog* self, int value) {
 
 void QInputDialog_Connect_IntValueSelected(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, int) = reinterpret_cast<void (*)(QInputDialog*, int)>(slot);
-    QInputDialog::connect(self, &QInputDialog::intValueSelected, [self, slotFunc](int value) {
-        int sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(int)>(&QInputDialog::intValueSelected),
+                          [self, slotFunc](int value) {
+                              int sigval1 = value;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QInputDialog_DoubleValueChanged(QInputDialog* self, double value) {
@@ -440,10 +448,12 @@ void QInputDialog_DoubleValueChanged(QInputDialog* self, double value) {
 
 void QInputDialog_Connect_DoubleValueChanged(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, double) = reinterpret_cast<void (*)(QInputDialog*, double)>(slot);
-    QInputDialog::connect(self, &QInputDialog::doubleValueChanged, [self, slotFunc](double value) {
-        double sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(double)>(&QInputDialog::doubleValueChanged),
+                          [self, slotFunc](double value) {
+                              double sigval1 = value;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QInputDialog_DoubleValueSelected(QInputDialog* self, double value) {
@@ -452,10 +462,12 @@ void QInputDialog_DoubleValueSelected(QInputDialog* self, double value) {
 
 void QInputDialog_Connect_DoubleValueSelected(QInputDialog* self, intptr_t slot) {
     void (*slotFunc)(QInputDialog*, double) = reinterpret_cast<void (*)(QInputDialog*, double)>(slot);
-    QInputDialog::connect(self, &QInputDialog::doubleValueSelected, [self, slotFunc](double value) {
-        double sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QInputDialog::connect(self,
+                          static_cast<void (QInputDialog::*)(double)>(&QInputDialog::doubleValueSelected),
+                          [self, slotFunc](double value) {
+                              double sigval1 = value;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QInputDialog_Done(QInputDialog* self, int result) {

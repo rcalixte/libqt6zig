@@ -86,9 +86,11 @@ void KTextEditor__InlineNoteProvider_InlineNotesReset(KTextEditor__InlineNotePro
 
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__InlineNoteProvider*) = reinterpret_cast<void (*)(KTextEditor__InlineNoteProvider*)>(slot);
-    KTextEditor::InlineNoteProvider::connect(self, &KTextEditor::InlineNoteProvider::inlineNotesReset, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KTextEditor::InlineNoteProvider::connect(self,
+                                             static_cast<void (KTextEditor::InlineNoteProvider::*)()>(&KTextEditor::InlineNoteProvider::inlineNotesReset),
+                                             [self, slotFunc]() {
+                                                 slotFunc(self);
+                                             });
 }
 
 void KTextEditor__InlineNoteProvider_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, int line) {
@@ -97,10 +99,12 @@ void KTextEditor__InlineNoteProvider_InlineNotesChanged(KTextEditor__InlineNoteP
 
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__InlineNoteProvider*, int) = reinterpret_cast<void (*)(KTextEditor__InlineNoteProvider*, int)>(slot);
-    KTextEditor::InlineNoteProvider::connect(self, &KTextEditor::InlineNoteProvider::inlineNotesChanged, [self, slotFunc](int line) {
-        int sigval1 = line;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::InlineNoteProvider::connect(self,
+                                             static_cast<void (KTextEditor::InlineNoteProvider::*)(int)>(&KTextEditor::InlineNoteProvider::inlineNotesChanged),
+                                             [self, slotFunc](int line) {
+                                                 int sigval1 = line;
+                                                 slotFunc(self, sigval1);
+                                             });
 }
 
 libqt_string KTextEditor__InlineNoteProvider_Tr2(const char* s, const char* c) {

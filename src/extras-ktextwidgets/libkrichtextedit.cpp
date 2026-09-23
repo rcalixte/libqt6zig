@@ -277,10 +277,12 @@ void KRichTextEdit_TextModeChanged(KRichTextEdit* self, int mode) {
 
 void KRichTextEdit_Connect_TextModeChanged(KRichTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KRichTextEdit*, int) = reinterpret_cast<void (*)(KRichTextEdit*, int)>(slot);
-    KRichTextEdit::connect(self, &KRichTextEdit::textModeChanged, [self, slotFunc](KRichTextEdit::Mode mode) {
-        int sigval1 = static_cast<int>(mode);
-        slotFunc(self, sigval1);
-    });
+    KRichTextEdit::connect(self,
+                           static_cast<void (KRichTextEdit::*)(KRichTextEdit::Mode)>(&KRichTextEdit::textModeChanged),
+                           [self, slotFunc](KRichTextEdit::Mode mode) {
+                               int sigval1 = static_cast<int>(mode);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KRichTextEdit_KeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {

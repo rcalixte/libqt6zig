@@ -119,12 +119,14 @@ void KRecentFilesAction_UrlSelected(KRecentFilesAction* self, const QUrl* url) {
 
 void KRecentFilesAction_Connect_UrlSelected(KRecentFilesAction* self, intptr_t slot) {
     void (*slotFunc)(KRecentFilesAction*, QUrl*) = reinterpret_cast<void (*)(KRecentFilesAction*, QUrl*)>(slot);
-    KRecentFilesAction::connect(self, &KRecentFilesAction::urlSelected, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KRecentFilesAction::connect(self,
+                                static_cast<void (KRecentFilesAction::*)(const QUrl&)>(&KRecentFilesAction::urlSelected),
+                                [self, slotFunc](const QUrl& url) {
+                                    const QUrl& url_ret = url;
+                                    // Cast returned reference into pointer
+                                    QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void KRecentFilesAction_RecentListCleared(KRecentFilesAction* self) {
@@ -133,9 +135,11 @@ void KRecentFilesAction_RecentListCleared(KRecentFilesAction* self) {
 
 void KRecentFilesAction_Connect_RecentListCleared(KRecentFilesAction* self, intptr_t slot) {
     void (*slotFunc)(KRecentFilesAction*) = reinterpret_cast<void (*)(KRecentFilesAction*)>(slot);
-    KRecentFilesAction::connect(self, &KRecentFilesAction::recentListCleared, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KRecentFilesAction::connect(self,
+                                static_cast<void (KRecentFilesAction::*)()>(&KRecentFilesAction::recentListCleared),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 libqt_string KRecentFilesAction_Tr2(const char* s, const char* c) {

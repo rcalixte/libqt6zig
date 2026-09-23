@@ -191,10 +191,12 @@ void QMdiArea_SubWindowActivated(QMdiArea* self, QMdiSubWindow* param1) {
 
 void QMdiArea_Connect_SubWindowActivated(QMdiArea* self, intptr_t slot) {
     void (*slotFunc)(QMdiArea*, QMdiSubWindow*) = reinterpret_cast<void (*)(QMdiArea*, QMdiSubWindow*)>(slot);
-    QMdiArea::connect(self, &QMdiArea::subWindowActivated, [self, slotFunc](QMdiSubWindow* param1) {
-        QMdiSubWindow* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QMdiArea::connect(self,
+                      static_cast<void (QMdiArea::*)(QMdiSubWindow*)>(&QMdiArea::subWindowActivated),
+                      [self, slotFunc](QMdiSubWindow* param1) {
+                          QMdiSubWindow* sigval1 = param1;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QMdiArea_SetActiveSubWindow(QMdiArea* self, QMdiSubWindow* window) {

@@ -623,9 +623,11 @@ void QDnsLookup_Finished(QDnsLookup* self) {
 
 void QDnsLookup_Connect_Finished(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*) = reinterpret_cast<void (*)(QDnsLookup*)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)()>(&QDnsLookup::finished),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QDnsLookup_NameChanged(QDnsLookup* self, const libqt_string name) {
@@ -635,18 +637,20 @@ void QDnsLookup_NameChanged(QDnsLookup* self, const libqt_string name) {
 
 void QDnsLookup_Connect_NameChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, const char*) = reinterpret_cast<void (*)(QDnsLookup*, const char*)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::nameChanged, [self, slotFunc](const QString& name) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        slotFunc(self, sigval1);
-        libqt_free(name_str);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)(const QString&)>(&QDnsLookup::nameChanged),
+                        [self, slotFunc](const QString& name) {
+                            const auto name_ret = name;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray name_b = name_ret.toUtf8();
+                            auto name_str_len = name_b.length();
+                            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                            memcpy((void*)name_str, name_b.data(), name_str_len);
+                            ((char*)name_str)[name_str_len] = '\0';
+                            const char* sigval1 = name_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(name_str);
+                        });
 }
 
 void QDnsLookup_TypeChanged(QDnsLookup* self, int typeVal) {
@@ -655,10 +659,12 @@ void QDnsLookup_TypeChanged(QDnsLookup* self, int typeVal) {
 
 void QDnsLookup_Connect_TypeChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, int) = reinterpret_cast<void (*)(QDnsLookup*, int)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::typeChanged, [self, slotFunc](QDnsLookup::Type typeVal) {
-        int sigval1 = static_cast<int>(typeVal);
-        slotFunc(self, sigval1);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)(QDnsLookup::Type)>(&QDnsLookup::typeChanged),
+                        [self, slotFunc](QDnsLookup::Type typeVal) {
+                            int sigval1 = static_cast<int>(typeVal);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QDnsLookup_NameserverChanged(QDnsLookup* self, const QHostAddress* nameserver) {
@@ -667,12 +673,14 @@ void QDnsLookup_NameserverChanged(QDnsLookup* self, const QHostAddress* nameserv
 
 void QDnsLookup_Connect_NameserverChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, QHostAddress*) = reinterpret_cast<void (*)(QDnsLookup*, QHostAddress*)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::nameserverChanged, [self, slotFunc](const QHostAddress& nameserver) {
-        const QHostAddress& nameserver_ret = nameserver;
-        // Cast returned reference into pointer
-        QHostAddress* sigval1 = const_cast<QHostAddress*>(&nameserver_ret);
-        slotFunc(self, sigval1);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)(const QHostAddress&)>(&QDnsLookup::nameserverChanged),
+                        [self, slotFunc](const QHostAddress& nameserver) {
+                            const QHostAddress& nameserver_ret = nameserver;
+                            // Cast returned reference into pointer
+                            QHostAddress* sigval1 = const_cast<QHostAddress*>(&nameserver_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QDnsLookup_NameserverPortChanged(QDnsLookup* self, uint16_t port) {
@@ -681,10 +689,12 @@ void QDnsLookup_NameserverPortChanged(QDnsLookup* self, uint16_t port) {
 
 void QDnsLookup_Connect_NameserverPortChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, uint16_t) = reinterpret_cast<void (*)(QDnsLookup*, uint16_t)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::nameserverPortChanged, [self, slotFunc](quint16 port) {
-        uint16_t sigval1 = static_cast<uint16_t>(port);
-        slotFunc(self, sigval1);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)(quint16)>(&QDnsLookup::nameserverPortChanged),
+                        [self, slotFunc](quint16 port) {
+                            uint16_t sigval1 = static_cast<uint16_t>(port);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QDnsLookup_NameserverProtocolChanged(QDnsLookup* self, uint8_t protocol) {
@@ -693,10 +703,12 @@ void QDnsLookup_NameserverProtocolChanged(QDnsLookup* self, uint8_t protocol) {
 
 void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, uint8_t) = reinterpret_cast<void (*)(QDnsLookup*, uint8_t)>(slot);
-    QDnsLookup::connect(self, &QDnsLookup::nameserverProtocolChanged, [self, slotFunc](QDnsLookup::Protocol protocol) {
-        uint8_t sigval1 = static_cast<uint8_t>(protocol);
-        slotFunc(self, sigval1);
-    });
+    QDnsLookup::connect(self,
+                        static_cast<void (QDnsLookup::*)(QDnsLookup::Protocol)>(&QDnsLookup::nameserverProtocolChanged),
+                        [self, slotFunc](QDnsLookup::Protocol protocol) {
+                            uint8_t sigval1 = static_cast<uint8_t>(protocol);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QDnsLookup_Tr2(const char* s, const char* c) {

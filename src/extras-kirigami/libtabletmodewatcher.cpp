@@ -139,10 +139,12 @@ void Kirigami__Platform__TabletModeWatcher_TabletModeAvailableChanged(Kirigami__
 
 void Kirigami__Platform__TabletModeWatcher_Connect_TabletModeAvailableChanged(Kirigami__Platform__TabletModeWatcher* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__TabletModeWatcher*, bool) = reinterpret_cast<void (*)(Kirigami__Platform__TabletModeWatcher*, bool)>(slot);
-    Kirigami::Platform::TabletModeWatcher::connect(self, &Kirigami::Platform::TabletModeWatcher::tabletModeAvailableChanged, [self, slotFunc](bool tabletModeAvailable) {
-        bool sigval1 = tabletModeAvailable;
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::TabletModeWatcher::connect(self,
+                                                   static_cast<void (Kirigami::Platform::TabletModeWatcher::*)(bool)>(&Kirigami::Platform::TabletModeWatcher::tabletModeAvailableChanged),
+                                                   [self, slotFunc](bool tabletModeAvailable) {
+                                                       bool sigval1 = tabletModeAvailable;
+                                                       slotFunc(self, sigval1);
+                                                   });
 }
 
 void Kirigami__Platform__TabletModeWatcher_TabletModeChanged(Kirigami__Platform__TabletModeWatcher* self, bool tabletMode) {
@@ -151,10 +153,12 @@ void Kirigami__Platform__TabletModeWatcher_TabletModeChanged(Kirigami__Platform_
 
 void Kirigami__Platform__TabletModeWatcher_Connect_TabletModeChanged(Kirigami__Platform__TabletModeWatcher* self, intptr_t slot) {
     void (*slotFunc)(Kirigami__Platform__TabletModeWatcher*, bool) = reinterpret_cast<void (*)(Kirigami__Platform__TabletModeWatcher*, bool)>(slot);
-    Kirigami::Platform::TabletModeWatcher::connect(self, &Kirigami::Platform::TabletModeWatcher::tabletModeChanged, [self, slotFunc](bool tabletMode) {
-        bool sigval1 = tabletMode;
-        slotFunc(self, sigval1);
-    });
+    Kirigami::Platform::TabletModeWatcher::connect(self,
+                                                   static_cast<void (Kirigami::Platform::TabletModeWatcher::*)(bool)>(&Kirigami::Platform::TabletModeWatcher::tabletModeChanged),
+                                                   [self, slotFunc](bool tabletMode) {
+                                                       bool sigval1 = tabletMode;
+                                                       slotFunc(self, sigval1);
+                                                   });
 }
 
 libqt_string Kirigami__Platform__TabletModeWatcher_Tr2(const char* s, const char* c) {

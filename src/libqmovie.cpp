@@ -228,9 +228,11 @@ void QMovie_Started(QMovie* self) {
 
 void QMovie_Connect_Started(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*) = reinterpret_cast<void (*)(QMovie*)>(slot);
-    QMovie::connect(self, &QMovie::started, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)()>(&QMovie::started),
+                    [self, slotFunc]() {
+                        slotFunc(self);
+                    });
 }
 
 void QMovie_Resized(QMovie* self, const QSize* size) {
@@ -239,12 +241,14 @@ void QMovie_Resized(QMovie* self, const QSize* size) {
 
 void QMovie_Connect_Resized(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*, QSize*) = reinterpret_cast<void (*)(QMovie*, QSize*)>(slot);
-    QMovie::connect(self, &QMovie::resized, [self, slotFunc](const QSize& size) {
-        const QSize& size_ret = size;
-        // Cast returned reference into pointer
-        QSize* sigval1 = const_cast<QSize*>(&size_ret);
-        slotFunc(self, sigval1);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)(const QSize&)>(&QMovie::resized),
+                    [self, slotFunc](const QSize& size) {
+                        const QSize& size_ret = size;
+                        // Cast returned reference into pointer
+                        QSize* sigval1 = const_cast<QSize*>(&size_ret);
+                        slotFunc(self, sigval1);
+                    });
 }
 
 void QMovie_Updated(QMovie* self, const QRect* rect) {
@@ -253,12 +257,14 @@ void QMovie_Updated(QMovie* self, const QRect* rect) {
 
 void QMovie_Connect_Updated(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*, QRect*) = reinterpret_cast<void (*)(QMovie*, QRect*)>(slot);
-    QMovie::connect(self, &QMovie::updated, [self, slotFunc](const QRect& rect) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        slotFunc(self, sigval1);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)(const QRect&)>(&QMovie::updated),
+                    [self, slotFunc](const QRect& rect) {
+                        const QRect& rect_ret = rect;
+                        // Cast returned reference into pointer
+                        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                        slotFunc(self, sigval1);
+                    });
 }
 
 void QMovie_StateChanged(QMovie* self, int state) {
@@ -267,10 +273,12 @@ void QMovie_StateChanged(QMovie* self, int state) {
 
 void QMovie_Connect_StateChanged(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*, int) = reinterpret_cast<void (*)(QMovie*, int)>(slot);
-    QMovie::connect(self, &QMovie::stateChanged, [self, slotFunc](QMovie::MovieState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)(QMovie::MovieState)>(&QMovie::stateChanged),
+                    [self, slotFunc](QMovie::MovieState state) {
+                        int sigval1 = static_cast<int>(state);
+                        slotFunc(self, sigval1);
+                    });
 }
 
 void QMovie_Error(QMovie* self, int errorVal) {
@@ -279,10 +287,12 @@ void QMovie_Error(QMovie* self, int errorVal) {
 
 void QMovie_Connect_Error(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*, int) = reinterpret_cast<void (*)(QMovie*, int)>(slot);
-    QMovie::connect(self, &QMovie::error, [self, slotFunc](QImageReader::ImageReaderError errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)(QImageReader::ImageReaderError)>(&QMovie::error),
+                    [self, slotFunc](QImageReader::ImageReaderError errorVal) {
+                        int sigval1 = static_cast<int>(errorVal);
+                        slotFunc(self, sigval1);
+                    });
 }
 
 void QMovie_Finished(QMovie* self) {
@@ -291,9 +301,11 @@ void QMovie_Finished(QMovie* self) {
 
 void QMovie_Connect_Finished(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*) = reinterpret_cast<void (*)(QMovie*)>(slot);
-    QMovie::connect(self, &QMovie::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)()>(&QMovie::finished),
+                    [self, slotFunc]() {
+                        slotFunc(self);
+                    });
 }
 
 void QMovie_FrameChanged(QMovie* self, int frameNumber) {
@@ -302,10 +314,12 @@ void QMovie_FrameChanged(QMovie* self, int frameNumber) {
 
 void QMovie_Connect_FrameChanged(QMovie* self, intptr_t slot) {
     void (*slotFunc)(QMovie*, int) = reinterpret_cast<void (*)(QMovie*, int)>(slot);
-    QMovie::connect(self, &QMovie::frameChanged, [self, slotFunc](int frameNumber) {
-        int sigval1 = frameNumber;
-        slotFunc(self, sigval1);
-    });
+    QMovie::connect(self,
+                    static_cast<void (QMovie::*)(int)>(&QMovie::frameChanged),
+                    [self, slotFunc](int frameNumber) {
+                        int sigval1 = frameNumber;
+                        slotFunc(self, sigval1);
+                    });
 }
 
 void QMovie_Start(QMovie* self) {

@@ -405,10 +405,12 @@ void QWebEngineProfile_DownloadRequested(QWebEngineProfile* self, QWebEngineDown
 
 void QWebEngineProfile_Connect_DownloadRequested(QWebEngineProfile* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineProfile*, QWebEngineDownloadRequest*) = reinterpret_cast<void (*)(QWebEngineProfile*, QWebEngineDownloadRequest*)>(slot);
-    QWebEngineProfile::connect(self, &QWebEngineProfile::downloadRequested, [self, slotFunc](QWebEngineDownloadRequest* download) {
-        QWebEngineDownloadRequest* sigval1 = download;
-        slotFunc(self, sigval1);
-    });
+    QWebEngineProfile::connect(self,
+                               static_cast<void (QWebEngineProfile::*)(QWebEngineDownloadRequest*)>(&QWebEngineProfile::downloadRequested),
+                               [self, slotFunc](QWebEngineDownloadRequest* download) {
+                                   QWebEngineDownloadRequest* sigval1 = download;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self) {
@@ -417,9 +419,11 @@ void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self) {
 
 void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineProfile*) = reinterpret_cast<void (*)(QWebEngineProfile*)>(slot);
-    QWebEngineProfile::connect(self, &QWebEngineProfile::clearHttpCacheCompleted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEngineProfile::connect(self,
+                               static_cast<void (QWebEngineProfile::*)()>(&QWebEngineProfile::clearHttpCacheCompleted),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 libqt_string QWebEngineProfile_Tr2(const char* s, const char* c) {

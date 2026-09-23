@@ -42,12 +42,14 @@ void KIO__MkpathJob_DirectoryCreated(KIO__MkpathJob* self, const QUrl* url) {
 
 void KIO__MkpathJob_Connect_DirectoryCreated(KIO__MkpathJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__MkpathJob*, QUrl*) = reinterpret_cast<void (*)(KIO__MkpathJob*, QUrl*)>(slot);
-    KIO::MkpathJob::connect(self, &KIO::MkpathJob::directoryCreated, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KIO::MkpathJob::connect(self,
+                            static_cast<void (KIO::MkpathJob::*)(const QUrl&)>(&KIO::MkpathJob::directoryCreated),
+                            [self, slotFunc](const QUrl& url) {
+                                const QUrl& url_ret = url;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 libqt_string KIO__MkpathJob_Tr2(const char* s, const char* c) {

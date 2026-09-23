@@ -86,9 +86,11 @@ void KHamburgerMenu_AboutToShowMenu(KHamburgerMenu* self) {
 
 void KHamburgerMenu_Connect_AboutToShowMenu(KHamburgerMenu* self, intptr_t slot) {
     void (*slotFunc)(KHamburgerMenu*) = reinterpret_cast<void (*)(KHamburgerMenu*)>(slot);
-    KHamburgerMenu::connect(self, &KHamburgerMenu::aboutToShowMenu, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KHamburgerMenu::connect(self,
+                            static_cast<void (KHamburgerMenu::*)()>(&KHamburgerMenu::aboutToShowMenu),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 QWidget* KHamburgerMenu_CreateWidget(KHamburgerMenu* self, QWidget* parent) {

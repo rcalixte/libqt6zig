@@ -177,9 +177,11 @@ void QLocalSocket_Connected(QLocalSocket* self) {
 
 void QLocalSocket_Connect_Connected(QLocalSocket* self, intptr_t slot) {
     void (*slotFunc)(QLocalSocket*) = reinterpret_cast<void (*)(QLocalSocket*)>(slot);
-    QLocalSocket::connect(self, &QLocalSocket::connected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLocalSocket::connect(self,
+                          static_cast<void (QLocalSocket::*)()>(&QLocalSocket::connected),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QLocalSocket_Disconnected(QLocalSocket* self) {
@@ -188,9 +190,11 @@ void QLocalSocket_Disconnected(QLocalSocket* self) {
 
 void QLocalSocket_Connect_Disconnected(QLocalSocket* self, intptr_t slot) {
     void (*slotFunc)(QLocalSocket*) = reinterpret_cast<void (*)(QLocalSocket*)>(slot);
-    QLocalSocket::connect(self, &QLocalSocket::disconnected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLocalSocket::connect(self,
+                          static_cast<void (QLocalSocket::*)()>(&QLocalSocket::disconnected),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QLocalSocket_ErrorOccurred(QLocalSocket* self, int socketError) {
@@ -199,10 +203,12 @@ void QLocalSocket_ErrorOccurred(QLocalSocket* self, int socketError) {
 
 void QLocalSocket_Connect_ErrorOccurred(QLocalSocket* self, intptr_t slot) {
     void (*slotFunc)(QLocalSocket*, int) = reinterpret_cast<void (*)(QLocalSocket*, int)>(slot);
-    QLocalSocket::connect(self, &QLocalSocket::errorOccurred, [self, slotFunc](QLocalSocket::LocalSocketError socketError) {
-        int sigval1 = static_cast<int>(socketError);
-        slotFunc(self, sigval1);
-    });
+    QLocalSocket::connect(self,
+                          static_cast<void (QLocalSocket::*)(QLocalSocket::LocalSocketError)>(&QLocalSocket::errorOccurred),
+                          [self, slotFunc](QLocalSocket::LocalSocketError socketError) {
+                              int sigval1 = static_cast<int>(socketError);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QLocalSocket_StateChanged(QLocalSocket* self, int socketState) {
@@ -211,10 +217,12 @@ void QLocalSocket_StateChanged(QLocalSocket* self, int socketState) {
 
 void QLocalSocket_Connect_StateChanged(QLocalSocket* self, intptr_t slot) {
     void (*slotFunc)(QLocalSocket*, int) = reinterpret_cast<void (*)(QLocalSocket*, int)>(slot);
-    QLocalSocket::connect(self, &QLocalSocket::stateChanged, [self, slotFunc](QLocalSocket::LocalSocketState socketState) {
-        int sigval1 = static_cast<int>(socketState);
-        slotFunc(self, sigval1);
-    });
+    QLocalSocket::connect(self,
+                          static_cast<void (QLocalSocket::*)(QLocalSocket::LocalSocketState)>(&QLocalSocket::stateChanged),
+                          [self, slotFunc](QLocalSocket::LocalSocketState socketState) {
+                              int sigval1 = static_cast<int>(socketState);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 long long QLocalSocket_ReadData(QLocalSocket* self, char* param1, long long param2) {

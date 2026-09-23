@@ -98,24 +98,26 @@ void PackageKit__Offline_PreparedUpdates(PackageKit__Offline* self, const libqt_
 
 void PackageKit__Offline_Connect_PreparedUpdates(PackageKit__Offline* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Offline*, const char**) = reinterpret_cast<void (*)(PackageKit__Offline*, const char**)>(slot);
-    PackageKit::Offline::connect(self, &PackageKit::Offline::preparedUpdates, [self, slotFunc](const QList<QString>& updates) {
-        const QList<QString>& updates_ret = updates;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** updates_arr = static_cast<const char**>(malloc(sizeof(const char*) * (updates_ret.size() + 1)));
-        for (qsizetype i = 0; i < updates_ret.size(); ++i) {
-            QByteArray updates_b = updates_ret[i].toUtf8();
-            auto updates_str_len = updates_b.length();
-            char* updates_str = static_cast<char*>(malloc(updates_str_len + 1));
-            memcpy(updates_str, updates_b.data(), updates_str_len);
-            updates_str[updates_str_len] = '\0';
-            updates_arr[i] = updates_str;
-        }
-        // Append sentinel null terminator to the list
-        updates_arr[updates_ret.size()] = nullptr;
-        const char** sigval1 = updates_arr;
-        slotFunc(self, sigval1);
-        libqt_free(updates_arr);
-    });
+    PackageKit::Offline::connect(self,
+                                 static_cast<void (PackageKit::Offline::*)(const QList<QString>&)>(&PackageKit::Offline::preparedUpdates),
+                                 [self, slotFunc](const QList<QString>& updates) {
+                                     const QList<QString>& updates_ret = updates;
+                                     // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                     const char** updates_arr = static_cast<const char**>(malloc(sizeof(const char*) * (updates_ret.size() + 1)));
+                                     for (qsizetype i = 0; i < updates_ret.size(); ++i) {
+                                         QByteArray updates_b = updates_ret[i].toUtf8();
+                                         auto updates_str_len = updates_b.length();
+                                         char* updates_str = static_cast<char*>(malloc(updates_str_len + 1));
+                                         memcpy(updates_str, updates_b.data(), updates_str_len);
+                                         updates_str[updates_str_len] = '\0';
+                                         updates_arr[i] = updates_str;
+                                     }
+                                     // Append sentinel null terminator to the list
+                                     updates_arr[updates_ret.size()] = nullptr;
+                                     const char** sigval1 = updates_arr;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(updates_arr);
+                                 });
 }
 
 void PackageKit__Offline_Changed(PackageKit__Offline* self) {
@@ -124,9 +126,11 @@ void PackageKit__Offline_Changed(PackageKit__Offline* self) {
 
 void PackageKit__Offline_Connect_Changed(PackageKit__Offline* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Offline*) = reinterpret_cast<void (*)(PackageKit__Offline*)>(slot);
-    PackageKit::Offline::connect(self, &PackageKit::Offline::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Offline::connect(self,
+                                 static_cast<void (PackageKit::Offline::*)()>(&PackageKit::Offline::changed),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 libqt_string PackageKit__Offline_Tr2(const char* s, const char* c) {

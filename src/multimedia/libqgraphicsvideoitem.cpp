@@ -111,12 +111,14 @@ void QGraphicsVideoItem_NativeSizeChanged(QGraphicsVideoItem* self, const QSizeF
 
 void QGraphicsVideoItem_Connect_NativeSizeChanged(QGraphicsVideoItem* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsVideoItem*, QSizeF*) = reinterpret_cast<void (*)(QGraphicsVideoItem*, QSizeF*)>(slot);
-    QGraphicsVideoItem::connect(self, &QGraphicsVideoItem::nativeSizeChanged, [self, slotFunc](const QSizeF& size) {
-        const QSizeF& size_ret = size;
-        // Cast returned reference into pointer
-        QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsVideoItem::connect(self,
+                                static_cast<void (QGraphicsVideoItem::*)(const QSizeF&)>(&QGraphicsVideoItem::nativeSizeChanged),
+                                [self, slotFunc](const QSizeF& size) {
+                                    const QSizeF& size_ret = size;
+                                    // Cast returned reference into pointer
+                                    QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {

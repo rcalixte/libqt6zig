@@ -359,12 +359,14 @@ void QChart_PlotAreaChanged(QChart* self, const QRectF* plotArea) {
 
 void QChart_Connect_PlotAreaChanged(QChart* self, intptr_t slot) {
     void (*slotFunc)(QChart*, QRectF*) = reinterpret_cast<void (*)(QChart*, QRectF*)>(slot);
-    QChart::connect(self, &QChart::plotAreaChanged, [self, slotFunc](const QRectF& plotArea) {
-        const QRectF& plotArea_ret = plotArea;
-        // Cast returned reference into pointer
-        QRectF* sigval1 = const_cast<QRectF*>(&plotArea_ret);
-        slotFunc(self, sigval1);
-    });
+    QChart::connect(self,
+                    static_cast<void (QChart::*)(const QRectF&)>(&QChart::plotAreaChanged),
+                    [self, slotFunc](const QRectF& plotArea) {
+                        const QRectF& plotArea_ret = plotArea;
+                        // Cast returned reference into pointer
+                        QRectF* sigval1 = const_cast<QRectF*>(&plotArea_ret);
+                        slotFunc(self, sigval1);
+                    });
 }
 
 libqt_string QChart_Tr2(const char* s, const char* c) {

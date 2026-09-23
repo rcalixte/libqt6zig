@@ -144,9 +144,11 @@ void QBoxSet_Clicked(QBoxSet* self) {
 
 void QBoxSet_Connect_Clicked(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::clicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::clicked),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_Hovered(QBoxSet* self, bool status) {
@@ -155,10 +157,12 @@ void QBoxSet_Hovered(QBoxSet* self, bool status) {
 
 void QBoxSet_Connect_Hovered(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*, bool) = reinterpret_cast<void (*)(QBoxSet*, bool)>(slot);
-    QBoxSet::connect(self, &QBoxSet::hovered, [self, slotFunc](bool status) {
-        bool sigval1 = status;
-        slotFunc(self, sigval1);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)(bool)>(&QBoxSet::hovered),
+                     [self, slotFunc](bool status) {
+                         bool sigval1 = status;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBoxSet_Pressed(QBoxSet* self) {
@@ -167,9 +171,11 @@ void QBoxSet_Pressed(QBoxSet* self) {
 
 void QBoxSet_Connect_Pressed(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::pressed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::pressed),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_Released(QBoxSet* self) {
@@ -178,9 +184,11 @@ void QBoxSet_Released(QBoxSet* self) {
 
 void QBoxSet_Connect_Released(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::released, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::released),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_DoubleClicked(QBoxSet* self) {
@@ -189,9 +197,11 @@ void QBoxSet_DoubleClicked(QBoxSet* self) {
 
 void QBoxSet_Connect_DoubleClicked(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::doubleClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::doubleClicked),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_PenChanged(QBoxSet* self) {
@@ -200,9 +210,11 @@ void QBoxSet_PenChanged(QBoxSet* self) {
 
 void QBoxSet_Connect_PenChanged(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::penChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::penChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_BrushChanged(QBoxSet* self) {
@@ -211,9 +223,11 @@ void QBoxSet_BrushChanged(QBoxSet* self) {
 
 void QBoxSet_Connect_BrushChanged(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::brushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::brushChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_ValuesChanged(QBoxSet* self) {
@@ -222,9 +236,11 @@ void QBoxSet_ValuesChanged(QBoxSet* self) {
 
 void QBoxSet_Connect_ValuesChanged(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::valuesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::valuesChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBoxSet_ValueChanged(QBoxSet* self, int index) {
@@ -233,10 +249,12 @@ void QBoxSet_ValueChanged(QBoxSet* self, int index) {
 
 void QBoxSet_Connect_ValueChanged(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*, int) = reinterpret_cast<void (*)(QBoxSet*, int)>(slot);
-    QBoxSet::connect(self, &QBoxSet::valueChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)(int)>(&QBoxSet::valueChanged),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBoxSet_Cleared(QBoxSet* self) {
@@ -245,9 +263,11 @@ void QBoxSet_Cleared(QBoxSet* self) {
 
 void QBoxSet_Connect_Cleared(QBoxSet* self, intptr_t slot) {
     void (*slotFunc)(QBoxSet*) = reinterpret_cast<void (*)(QBoxSet*)>(slot);
-    QBoxSet::connect(self, &QBoxSet::cleared, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBoxSet::connect(self,
+                     static_cast<void (QBoxSet::*)()>(&QBoxSet::cleared),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 libqt_string QBoxSet_Tr2(const char* s, const char* c) {

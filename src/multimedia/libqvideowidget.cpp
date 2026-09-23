@@ -96,10 +96,12 @@ void QVideoWidget_FullScreenChanged(QVideoWidget* self, bool fullScreen) {
 
 void QVideoWidget_Connect_FullScreenChanged(QVideoWidget* self, intptr_t slot) {
     void (*slotFunc)(QVideoWidget*, bool) = reinterpret_cast<void (*)(QVideoWidget*, bool)>(slot);
-    QVideoWidget::connect(self, &QVideoWidget::fullScreenChanged, [self, slotFunc](bool fullScreen) {
-        bool sigval1 = fullScreen;
-        slotFunc(self, sigval1);
-    });
+    QVideoWidget::connect(self,
+                          static_cast<void (QVideoWidget::*)(bool)>(&QVideoWidget::fullScreenChanged),
+                          [self, slotFunc](bool fullScreen) {
+                              bool sigval1 = fullScreen;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QVideoWidget_AspectRatioModeChanged(QVideoWidget* self, int mode) {
@@ -108,10 +110,12 @@ void QVideoWidget_AspectRatioModeChanged(QVideoWidget* self, int mode) {
 
 void QVideoWidget_Connect_AspectRatioModeChanged(QVideoWidget* self, intptr_t slot) {
     void (*slotFunc)(QVideoWidget*, int) = reinterpret_cast<void (*)(QVideoWidget*, int)>(slot);
-    QVideoWidget::connect(self, &QVideoWidget::aspectRatioModeChanged, [self, slotFunc](Qt::AspectRatioMode mode) {
-        int sigval1 = static_cast<int>(mode);
-        slotFunc(self, sigval1);
-    });
+    QVideoWidget::connect(self,
+                          static_cast<void (QVideoWidget::*)(Qt::AspectRatioMode)>(&QVideoWidget::aspectRatioModeChanged),
+                          [self, slotFunc](Qt::AspectRatioMode mode) {
+                              int sigval1 = static_cast<int>(mode);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 bool QVideoWidget_Event(QVideoWidget* self, QEvent* event) {

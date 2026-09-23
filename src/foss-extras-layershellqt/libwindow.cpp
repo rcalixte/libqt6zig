@@ -128,9 +128,11 @@ void LayerShellQt__Window_AnchorsChanged(LayerShellQt__Window* self) {
 
 void LayerShellQt__Window_Connect_AnchorsChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::anchorsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::anchorsChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void LayerShellQt__Window_ExclusionZoneChanged(LayerShellQt__Window* self) {
@@ -139,9 +141,11 @@ void LayerShellQt__Window_ExclusionZoneChanged(LayerShellQt__Window* self) {
 
 void LayerShellQt__Window_Connect_ExclusionZoneChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::exclusionZoneChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::exclusionZoneChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void LayerShellQt__Window_ExclusiveEdgeChanged(LayerShellQt__Window* self) {
@@ -150,9 +154,11 @@ void LayerShellQt__Window_ExclusiveEdgeChanged(LayerShellQt__Window* self) {
 
 void LayerShellQt__Window_Connect_ExclusiveEdgeChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::exclusiveEdgeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::exclusiveEdgeChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void LayerShellQt__Window_MarginsChanged(LayerShellQt__Window* self) {
@@ -161,9 +167,11 @@ void LayerShellQt__Window_MarginsChanged(LayerShellQt__Window* self) {
 
 void LayerShellQt__Window_Connect_MarginsChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::marginsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::marginsChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void LayerShellQt__Window_KeyboardInteractivityChanged(LayerShellQt__Window* self) {
@@ -172,9 +180,11 @@ void LayerShellQt__Window_KeyboardInteractivityChanged(LayerShellQt__Window* sel
 
 void LayerShellQt__Window_Connect_KeyboardInteractivityChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::keyboardInteractivityChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::keyboardInteractivityChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void LayerShellQt__Window_LayerChanged(LayerShellQt__Window* self) {
@@ -183,9 +193,11 @@ void LayerShellQt__Window_LayerChanged(LayerShellQt__Window* self) {
 
 void LayerShellQt__Window_Connect_LayerChanged(LayerShellQt__Window* self, intptr_t slot) {
     void (*slotFunc)(LayerShellQt__Window*) = reinterpret_cast<void (*)(LayerShellQt__Window*)>(slot);
-    LayerShellQt::Window::connect(self, &LayerShellQt::Window::layerChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    LayerShellQt::Window::connect(self,
+                                  static_cast<void (LayerShellQt::Window::*)()>(&LayerShellQt::Window::layerChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string LayerShellQt__Window_Tr2(const char* s, const char* c) {

@@ -193,18 +193,20 @@ void KNewPasswordDialog_NewPassword(KNewPasswordDialog* self, const libqt_string
 
 void KNewPasswordDialog_Connect_NewPassword(KNewPasswordDialog* self, intptr_t slot) {
     void (*slotFunc)(KNewPasswordDialog*, const char*) = reinterpret_cast<void (*)(KNewPasswordDialog*, const char*)>(slot);
-    KNewPasswordDialog::connect(self, &KNewPasswordDialog::newPassword, [self, slotFunc](const QString& password) {
-        const auto password_ret = password;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray password_b = password_ret.toUtf8();
-        auto password_str_len = password_b.length();
-        const char* password_str = static_cast<const char*>(malloc(password_str_len + 1));
-        memcpy((void*)password_str, password_b.data(), password_str_len);
-        ((char*)password_str)[password_str_len] = '\0';
-        const char* sigval1 = password_str;
-        slotFunc(self, sigval1);
-        libqt_free(password_str);
-    });
+    KNewPasswordDialog::connect(self,
+                                static_cast<void (KNewPasswordDialog::*)(const QString&)>(&KNewPasswordDialog::newPassword),
+                                [self, slotFunc](const QString& password) {
+                                    const auto password_ret = password;
+                                    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                    QByteArray password_b = password_ret.toUtf8();
+                                    auto password_str_len = password_b.length();
+                                    const char* password_str = static_cast<const char*>(malloc(password_str_len + 1));
+                                    memcpy((void*)password_str, password_b.data(), password_str_len);
+                                    ((char*)password_str)[password_str_len] = '\0';
+                                    const char* sigval1 = password_str;
+                                    slotFunc(self, sigval1);
+                                    libqt_free(password_str);
+                                });
 }
 
 libqt_string KNewPasswordDialog_Tr2(const char* s, const char* c) {

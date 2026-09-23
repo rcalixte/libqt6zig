@@ -182,18 +182,20 @@ void KComboBox_ReturnPressed(KComboBox* self, const libqt_string text) {
 
 void KComboBox_Connect_ReturnPressed(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
-    KComboBox::connect(self, &KComboBox::returnPressed, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(const QString&)>(&KComboBox::returnPressed),
+                       [self, slotFunc](const QString& text) {
+                           const auto text_ret = text;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray text_b = text_ret.toUtf8();
+                           auto text_str_len = text_b.length();
+                           const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                           memcpy((void*)text_str, text_b.data(), text_str_len);
+                           ((char*)text_str)[text_str_len] = '\0';
+                           const char* sigval1 = text_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(text_str);
+                       });
 }
 
 void KComboBox_Completion(KComboBox* self, const libqt_string param1) {
@@ -203,18 +205,20 @@ void KComboBox_Completion(KComboBox* self, const libqt_string param1) {
 
 void KComboBox_Connect_Completion(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
-    KComboBox::connect(self, &KComboBox::completion, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(const QString&)>(&KComboBox::completion),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KComboBox_SubstringCompletion(KComboBox* self, const libqt_string param1) {
@@ -224,18 +228,20 @@ void KComboBox_SubstringCompletion(KComboBox* self, const libqt_string param1) {
 
 void KComboBox_Connect_SubstringCompletion(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
-    KComboBox::connect(self, &KComboBox::substringCompletion, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(const QString&)>(&KComboBox::substringCompletion),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KComboBox_TextRotation(KComboBox* self, int param1) {
@@ -244,10 +250,12 @@ void KComboBox_TextRotation(KComboBox* self, int param1) {
 
 void KComboBox_Connect_TextRotation(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, int) = reinterpret_cast<void (*)(KComboBox*, int)>(slot);
-    KComboBox::connect(self, &KComboBox::textRotation, [self, slotFunc](KCompletionBase::KeyBindingType param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(KCompletionBase::KeyBindingType)>(&KComboBox::textRotation),
+                       [self, slotFunc](KCompletionBase::KeyBindingType param1) {
+                           int sigval1 = static_cast<int>(param1);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KComboBox_CompletionModeChanged(KComboBox* self, int param1) {
@@ -256,10 +264,12 @@ void KComboBox_CompletionModeChanged(KComboBox* self, int param1) {
 
 void KComboBox_Connect_CompletionModeChanged(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, int) = reinterpret_cast<void (*)(KComboBox*, int)>(slot);
-    KComboBox::connect(self, &KComboBox::completionModeChanged, [self, slotFunc](KCompletion::CompletionMode param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(KCompletion::CompletionMode)>(&KComboBox::completionModeChanged),
+                       [self, slotFunc](KCompletion::CompletionMode param1) {
+                           int sigval1 = static_cast<int>(param1);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KComboBox_AboutToShowContextMenu(KComboBox* self, QMenu* contextMenu) {
@@ -268,10 +278,12 @@ void KComboBox_AboutToShowContextMenu(KComboBox* self, QMenu* contextMenu) {
 
 void KComboBox_Connect_AboutToShowContextMenu(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, QMenu*) = reinterpret_cast<void (*)(KComboBox*, QMenu*)>(slot);
-    KComboBox::connect(self, &KComboBox::aboutToShowContextMenu, [self, slotFunc](QMenu* contextMenu) {
-        QMenu* sigval1 = contextMenu;
-        slotFunc(self, sigval1);
-    });
+    KComboBox::connect(self,
+                       static_cast<void (KComboBox::*)(QMenu*)>(&KComboBox::aboutToShowContextMenu),
+                       [self, slotFunc](QMenu* contextMenu) {
+                           QMenu* sigval1 = contextMenu;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KComboBox_RotateText(KComboBox* self, int typeVal) {

@@ -167,12 +167,14 @@ void QGeoPositionInfoSource_PositionUpdated(QGeoPositionInfoSource* self, const 
 
 void QGeoPositionInfoSource_Connect_PositionUpdated(QGeoPositionInfoSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoPositionInfoSource*, QGeoPositionInfo*) = reinterpret_cast<void (*)(QGeoPositionInfoSource*, QGeoPositionInfo*)>(slot);
-    QGeoPositionInfoSource::connect(self, &QGeoPositionInfoSource::positionUpdated, [self, slotFunc](const QGeoPositionInfo& update) {
-        const QGeoPositionInfo& update_ret = update;
-        // Cast returned reference into pointer
-        QGeoPositionInfo* sigval1 = const_cast<QGeoPositionInfo*>(&update_ret);
-        slotFunc(self, sigval1);
-    });
+    QGeoPositionInfoSource::connect(self,
+                                    static_cast<void (QGeoPositionInfoSource::*)(const QGeoPositionInfo&)>(&QGeoPositionInfoSource::positionUpdated),
+                                    [self, slotFunc](const QGeoPositionInfo& update) {
+                                        const QGeoPositionInfo& update_ret = update;
+                                        // Cast returned reference into pointer
+                                        QGeoPositionInfo* sigval1 = const_cast<QGeoPositionInfo*>(&update_ret);
+                                        slotFunc(self, sigval1);
+                                    });
 }
 
 void QGeoPositionInfoSource_ErrorOccurred(QGeoPositionInfoSource* self, int param1) {
@@ -181,10 +183,12 @@ void QGeoPositionInfoSource_ErrorOccurred(QGeoPositionInfoSource* self, int para
 
 void QGeoPositionInfoSource_Connect_ErrorOccurred(QGeoPositionInfoSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoPositionInfoSource*, int) = reinterpret_cast<void (*)(QGeoPositionInfoSource*, int)>(slot);
-    QGeoPositionInfoSource::connect(self, &QGeoPositionInfoSource::errorOccurred, [self, slotFunc](QGeoPositionInfoSource::Error param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QGeoPositionInfoSource::connect(self,
+                                    static_cast<void (QGeoPositionInfoSource::*)(QGeoPositionInfoSource::Error)>(&QGeoPositionInfoSource::errorOccurred),
+                                    [self, slotFunc](QGeoPositionInfoSource::Error param1) {
+                                        int sigval1 = static_cast<int>(param1);
+                                        slotFunc(self, sigval1);
+                                    });
 }
 
 void QGeoPositionInfoSource_SupportedPositioningMethodsChanged(QGeoPositionInfoSource* self) {
@@ -193,9 +197,11 @@ void QGeoPositionInfoSource_SupportedPositioningMethodsChanged(QGeoPositionInfoS
 
 void QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(QGeoPositionInfoSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoPositionInfoSource*) = reinterpret_cast<void (*)(QGeoPositionInfoSource*)>(slot);
-    QGeoPositionInfoSource::connect(self, &QGeoPositionInfoSource::supportedPositioningMethodsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGeoPositionInfoSource::connect(self,
+                                    static_cast<void (QGeoPositionInfoSource::*)()>(&QGeoPositionInfoSource::supportedPositioningMethodsChanged),
+                                    [self, slotFunc]() {
+                                        slotFunc(self);
+                                    });
 }
 
 libqt_string QGeoPositionInfoSource_Tr2(const char* s, const char* c) {

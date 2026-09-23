@@ -122,36 +122,125 @@ void QAudioDecoder_BufferAvailableChanged(QAudioDecoder* self, bool param1) {
     self->bufferAvailableChanged(param1);
 }
 
+void QAudioDecoder_Connect_BufferAvailableChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, bool) = reinterpret_cast<void (*)(QAudioDecoder*, bool)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(bool)>(&QAudioDecoder::bufferAvailableChanged),
+                           [self, slotFunc](bool param1) {
+                               bool sigval1 = param1;
+                               slotFunc(self, sigval1);
+                           });
+}
+
 void QAudioDecoder_BufferReady(QAudioDecoder* self) {
     self->bufferReady();
+}
+
+void QAudioDecoder_Connect_BufferReady(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*) = reinterpret_cast<void (*)(QAudioDecoder*)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)()>(&QAudioDecoder::bufferReady),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QAudioDecoder_Finished(QAudioDecoder* self) {
     self->finished();
 }
 
+void QAudioDecoder_Connect_Finished(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*) = reinterpret_cast<void (*)(QAudioDecoder*)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)()>(&QAudioDecoder::finished),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
+}
+
 void QAudioDecoder_IsDecodingChanged(QAudioDecoder* self, bool param1) {
     self->isDecodingChanged(param1);
+}
+
+void QAudioDecoder_Connect_IsDecodingChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, bool) = reinterpret_cast<void (*)(QAudioDecoder*, bool)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(bool)>(&QAudioDecoder::isDecodingChanged),
+                           [self, slotFunc](bool param1) {
+                               bool sigval1 = param1;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QAudioDecoder_FormatChanged(QAudioDecoder* self, const QAudioFormat* format) {
     self->formatChanged(*format);
 }
 
+void QAudioDecoder_Connect_FormatChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, QAudioFormat*) = reinterpret_cast<void (*)(QAudioDecoder*, QAudioFormat*)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(const QAudioFormat&)>(&QAudioDecoder::formatChanged),
+                           [self, slotFunc](const QAudioFormat& format) {
+                               const QAudioFormat& format_ret = format;
+                               // Cast returned reference into pointer
+                               QAudioFormat* sigval1 = const_cast<QAudioFormat*>(&format_ret);
+                               slotFunc(self, sigval1);
+                           });
+}
+
 void QAudioDecoder_Error2(QAudioDecoder* self, int errorVal) {
     self->error(static_cast<QAudioDecoder::Error>(errorVal));
+}
+
+void QAudioDecoder_Connect_Error2(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, int) = reinterpret_cast<void (*)(QAudioDecoder*, int)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(QAudioDecoder::Error)>(&QAudioDecoder::error),
+                           [self, slotFunc](QAudioDecoder::Error errorVal) {
+                               int sigval1 = static_cast<int>(errorVal);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QAudioDecoder_SourceChanged(QAudioDecoder* self) {
     self->sourceChanged();
 }
 
+void QAudioDecoder_Connect_SourceChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*) = reinterpret_cast<void (*)(QAudioDecoder*)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)()>(&QAudioDecoder::sourceChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
+}
+
 void QAudioDecoder_PositionChanged(QAudioDecoder* self, long long position) {
     self->positionChanged(static_cast<qint64>(position));
 }
 
+void QAudioDecoder_Connect_PositionChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, long long) = reinterpret_cast<void (*)(QAudioDecoder*, long long)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(qint64)>(&QAudioDecoder::positionChanged),
+                           [self, slotFunc](qint64 position) {
+                               long long sigval1 = static_cast<long long>(position);
+                               slotFunc(self, sigval1);
+                           });
+}
+
 void QAudioDecoder_DurationChanged(QAudioDecoder* self, long long duration) {
     self->durationChanged(static_cast<qint64>(duration));
+}
+
+void QAudioDecoder_Connect_DurationChanged(QAudioDecoder* self, intptr_t slot) {
+    void (*slotFunc)(QAudioDecoder*, long long) = reinterpret_cast<void (*)(QAudioDecoder*, long long)>(slot);
+    QAudioDecoder::connect(self,
+                           static_cast<void (QAudioDecoder::*)(qint64)>(&QAudioDecoder::durationChanged),
+                           [self, slotFunc](qint64 duration) {
+                               long long sigval1 = static_cast<long long>(duration);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string QAudioDecoder_Tr2(const char* s, const char* c) {

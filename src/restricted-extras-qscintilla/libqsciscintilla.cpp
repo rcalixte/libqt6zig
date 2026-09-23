@@ -1242,11 +1242,13 @@ void QsciScintilla_CursorPositionChanged(QsciScintilla* self, int line, int inde
 
 void QsciScintilla_Connect_CursorPositionChanged(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, int) = reinterpret_cast<void (*)(QsciScintilla*, int, int)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::cursorPositionChanged, [self, slotFunc](int line, int index) {
-        int sigval1 = line;
-        int sigval2 = index;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, int)>(&QsciScintilla::cursorPositionChanged),
+                           [self, slotFunc](int line, int index) {
+                               int sigval1 = line;
+                               int sigval2 = index;
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QsciScintilla_CopyAvailable(QsciScintilla* self, bool yes) {
@@ -1255,10 +1257,12 @@ void QsciScintilla_CopyAvailable(QsciScintilla* self, bool yes) {
 
 void QsciScintilla_Connect_CopyAvailable(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, bool) = reinterpret_cast<void (*)(QsciScintilla*, bool)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::copyAvailable, [self, slotFunc](bool yes) {
-        bool sigval1 = yes;
-        slotFunc(self, sigval1);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(bool)>(&QsciScintilla::copyAvailable),
+                           [self, slotFunc](bool yes) {
+                               bool sigval1 = yes;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QsciScintilla_IndicatorClicked(QsciScintilla* self, int line, int index, int state) {
@@ -1267,12 +1271,14 @@ void QsciScintilla_IndicatorClicked(QsciScintilla* self, int line, int index, in
 
 void QsciScintilla_Connect_IndicatorClicked(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, int, int) = reinterpret_cast<void (*)(QsciScintilla*, int, int, int)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::indicatorClicked, [self, slotFunc](int line, int index, Qt::KeyboardModifiers state) {
-        int sigval1 = line;
-        int sigval2 = index;
-        int sigval3 = static_cast<int>(state);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, int, Qt::KeyboardModifiers)>(&QsciScintilla::indicatorClicked),
+                           [self, slotFunc](int line, int index, Qt::KeyboardModifiers state) {
+                               int sigval1 = line;
+                               int sigval2 = index;
+                               int sigval3 = static_cast<int>(state);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QsciScintilla_IndicatorReleased(QsciScintilla* self, int line, int index, int state) {
@@ -1281,12 +1287,14 @@ void QsciScintilla_IndicatorReleased(QsciScintilla* self, int line, int index, i
 
 void QsciScintilla_Connect_IndicatorReleased(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, int, int) = reinterpret_cast<void (*)(QsciScintilla*, int, int, int)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::indicatorReleased, [self, slotFunc](int line, int index, Qt::KeyboardModifiers state) {
-        int sigval1 = line;
-        int sigval2 = index;
-        int sigval3 = static_cast<int>(state);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, int, Qt::KeyboardModifiers)>(&QsciScintilla::indicatorReleased),
+                           [self, slotFunc](int line, int index, Qt::KeyboardModifiers state) {
+                               int sigval1 = line;
+                               int sigval2 = index;
+                               int sigval3 = static_cast<int>(state);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QsciScintilla_LinesChanged(QsciScintilla* self) {
@@ -1295,9 +1303,11 @@ void QsciScintilla_LinesChanged(QsciScintilla* self) {
 
 void QsciScintilla_Connect_LinesChanged(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*) = reinterpret_cast<void (*)(QsciScintilla*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::linesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)()>(&QsciScintilla::linesChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QsciScintilla_MarginClicked(QsciScintilla* self, int margin, int line, int state) {
@@ -1306,12 +1316,14 @@ void QsciScintilla_MarginClicked(QsciScintilla* self, int margin, int line, int 
 
 void QsciScintilla_Connect_MarginClicked(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, int, int) = reinterpret_cast<void (*)(QsciScintilla*, int, int, int)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::marginClicked, [self, slotFunc](int margin, int line, Qt::KeyboardModifiers state) {
-        int sigval1 = margin;
-        int sigval2 = line;
-        int sigval3 = static_cast<int>(state);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, int, Qt::KeyboardModifiers)>(&QsciScintilla::marginClicked),
+                           [self, slotFunc](int margin, int line, Qt::KeyboardModifiers state) {
+                               int sigval1 = margin;
+                               int sigval2 = line;
+                               int sigval3 = static_cast<int>(state);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QsciScintilla_MarginRightClicked(QsciScintilla* self, int margin, int line, int state) {
@@ -1320,12 +1332,14 @@ void QsciScintilla_MarginRightClicked(QsciScintilla* self, int margin, int line,
 
 void QsciScintilla_Connect_MarginRightClicked(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, int, int) = reinterpret_cast<void (*)(QsciScintilla*, int, int, int)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::marginRightClicked, [self, slotFunc](int margin, int line, Qt::KeyboardModifiers state) {
-        int sigval1 = margin;
-        int sigval2 = line;
-        int sigval3 = static_cast<int>(state);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, int, Qt::KeyboardModifiers)>(&QsciScintilla::marginRightClicked),
+                           [self, slotFunc](int margin, int line, Qt::KeyboardModifiers state) {
+                               int sigval1 = margin;
+                               int sigval2 = line;
+                               int sigval3 = static_cast<int>(state);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 void QsciScintilla_ModificationAttempted(QsciScintilla* self) {
@@ -1334,9 +1348,11 @@ void QsciScintilla_ModificationAttempted(QsciScintilla* self) {
 
 void QsciScintilla_Connect_ModificationAttempted(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*) = reinterpret_cast<void (*)(QsciScintilla*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::modificationAttempted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)()>(&QsciScintilla::modificationAttempted),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QsciScintilla_ModificationChanged(QsciScintilla* self, bool m) {
@@ -1345,10 +1361,12 @@ void QsciScintilla_ModificationChanged(QsciScintilla* self, bool m) {
 
 void QsciScintilla_Connect_ModificationChanged(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, bool) = reinterpret_cast<void (*)(QsciScintilla*, bool)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::modificationChanged, [self, slotFunc](bool m) {
-        bool sigval1 = m;
-        slotFunc(self, sigval1);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(bool)>(&QsciScintilla::modificationChanged),
+                           [self, slotFunc](bool m) {
+                               bool sigval1 = m;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QsciScintilla_SelectionChanged(QsciScintilla* self) {
@@ -1357,9 +1375,11 @@ void QsciScintilla_SelectionChanged(QsciScintilla* self) {
 
 void QsciScintilla_Connect_SelectionChanged(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*) = reinterpret_cast<void (*)(QsciScintilla*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)()>(&QsciScintilla::selectionChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QsciScintilla_TextChanged(QsciScintilla* self) {
@@ -1368,9 +1388,11 @@ void QsciScintilla_TextChanged(QsciScintilla* self) {
 
 void QsciScintilla_Connect_TextChanged(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*) = reinterpret_cast<void (*)(QsciScintilla*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::textChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)()>(&QsciScintilla::textChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_string string) {
@@ -1380,19 +1402,21 @@ void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_st
 
 void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, const char*) = reinterpret_cast<void (*)(QsciScintilla*, int, const char*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::userListActivated, [self, slotFunc](int id, const QString& string) {
-        int sigval1 = id;
-        const auto string_ret = string;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray string_b = string_ret.toUtf8();
-        auto string_str_len = string_b.length();
-        const char* string_str = static_cast<const char*>(malloc(string_str_len + 1));
-        memcpy((void*)string_str, string_b.data(), string_str_len);
-        ((char*)string_str)[string_str_len] = '\0';
-        const char* sigval2 = string_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(string_str);
-    });
+    QsciScintilla::connect(self,
+                           static_cast<void (QsciScintilla::*)(int, const QString&)>(&QsciScintilla::userListActivated),
+                           [self, slotFunc](int id, const QString& string) {
+                               int sigval1 = id;
+                               const auto string_ret = string;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray string_b = string_ret.toUtf8();
+                               auto string_str_len = string_b.length();
+                               const char* string_str = static_cast<const char*>(malloc(string_str_len + 1));
+                               memcpy((void*)string_str, string_b.data(), string_str_len);
+                               ((char*)string_str)[string_str_len] = '\0';
+                               const char* sigval2 = string_str;
+                               slotFunc(self, sigval1, sigval2);
+                               libqt_free(string_str);
+                           });
 }
 
 bool QsciScintilla_Event(QsciScintilla* self, QEvent* e) {

@@ -102,9 +102,11 @@ void QMediaDevices_AudioInputsChanged(QMediaDevices* self) {
 
 void QMediaDevices_Connect_AudioInputsChanged(QMediaDevices* self, intptr_t slot) {
     void (*slotFunc)(QMediaDevices*) = reinterpret_cast<void (*)(QMediaDevices*)>(slot);
-    QMediaDevices::connect(self, &QMediaDevices::audioInputsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaDevices::connect(self,
+                           static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioInputsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QMediaDevices_AudioOutputsChanged(QMediaDevices* self) {
@@ -113,9 +115,11 @@ void QMediaDevices_AudioOutputsChanged(QMediaDevices* self) {
 
 void QMediaDevices_Connect_AudioOutputsChanged(QMediaDevices* self, intptr_t slot) {
     void (*slotFunc)(QMediaDevices*) = reinterpret_cast<void (*)(QMediaDevices*)>(slot);
-    QMediaDevices::connect(self, &QMediaDevices::audioOutputsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaDevices::connect(self,
+                           static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioOutputsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QMediaDevices_VideoInputsChanged(QMediaDevices* self) {
@@ -124,9 +128,11 @@ void QMediaDevices_VideoInputsChanged(QMediaDevices* self) {
 
 void QMediaDevices_Connect_VideoInputsChanged(QMediaDevices* self, intptr_t slot) {
     void (*slotFunc)(QMediaDevices*) = reinterpret_cast<void (*)(QMediaDevices*)>(slot);
-    QMediaDevices::connect(self, &QMediaDevices::videoInputsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaDevices::connect(self,
+                           static_cast<void (QMediaDevices::*)()>(&QMediaDevices::videoInputsChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {

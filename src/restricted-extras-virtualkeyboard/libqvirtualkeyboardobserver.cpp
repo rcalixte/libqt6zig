@@ -53,9 +53,11 @@ void QVirtualKeyboardObserver_LayoutChanged(QVirtualKeyboardObserver* self) {
 
 void QVirtualKeyboardObserver_Connect_LayoutChanged(QVirtualKeyboardObserver* self, intptr_t slot) {
     void (*slotFunc)(QVirtualKeyboardObserver*) = reinterpret_cast<void (*)(QVirtualKeyboardObserver*)>(slot);
-    QVirtualKeyboardObserver::connect(self, &QVirtualKeyboardObserver::layoutChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVirtualKeyboardObserver::connect(self,
+                                      static_cast<void (QVirtualKeyboardObserver::*)()>(&QVirtualKeyboardObserver::layoutChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 libqt_string QVirtualKeyboardObserver_Tr2(const char* s, const char* c) {

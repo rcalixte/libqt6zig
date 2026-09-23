@@ -92,9 +92,11 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Error(TextGrammarCheck
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Connect_Error(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammalecteGenerateConfigOptionJob*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammalecteGenerateConfigOptionJob*)>(slot);
-    TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connect(self, &TextGrammarCheck::GrammalecteGenerateConfigOptionJob::error, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connect(self,
+                                                                  static_cast<void (TextGrammarCheck::GrammalecteGenerateConfigOptionJob::*)()>(&TextGrammarCheck::GrammalecteGenerateConfigOptionJob::error),
+                                                                  [self, slotFunc]() {
+                                                                      slotFunc(self);
+                                                                  });
 }
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Finished(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const libqt_list /* of TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* */ result) {
@@ -109,20 +111,22 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Finished(TextGrammarCh
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Connect_Finished(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammalecteGenerateConfigOptionJob*, libqt_list /* of TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* */) = reinterpret_cast<void (*)(TextGrammarCheck__GrammalecteGenerateConfigOptionJob*, libqt_list /* of TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* */)>(slot);
-    TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connect(self, &TextGrammarCheck::GrammalecteGenerateConfigOptionJob::finished, [self, slotFunc](const QVector<TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option>& result) {
-        const QVector<TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option>& result_ret = result;
-        // Convert QVector<> from C++ memory to manually-managed C memory
-        TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option** result_arr = static_cast<TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option**>(malloc(sizeof(TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option*) * (result_ret.size())));
-        for (qsizetype i = 0; i < result_ret.size(); ++i) {
-            result_arr[i] = new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option(result_ret[i]);
-        }
-        libqt_list result_out;
-        result_out.len = result_ret.size();
-        result_out.data = static_cast<void*>(result_arr);
-        libqt_list /* of TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* */ sigval1 = result_out;
-        slotFunc(self, sigval1);
-        free(result_arr);
-    });
+    TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connect(self,
+                                                                  static_cast<void (TextGrammarCheck::GrammalecteGenerateConfigOptionJob::*)(const QVector<TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option>&)>(&TextGrammarCheck::GrammalecteGenerateConfigOptionJob::finished),
+                                                                  [self, slotFunc](const QVector<TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option>& result) {
+                                                                      const QVector<TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option>& result_ret = result;
+                                                                      // Convert QVector<> from C++ memory to manually-managed C memory
+                                                                      TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option** result_arr = static_cast<TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option**>(malloc(sizeof(TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option*) * (result_ret.size())));
+                                                                      for (qsizetype i = 0; i < result_ret.size(); ++i) {
+                                                                          result_arr[i] = new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option(result_ret[i]);
+                                                                      }
+                                                                      libqt_list result_out;
+                                                                      result_out.len = result_ret.size();
+                                                                      result_out.data = static_cast<void*>(result_arr);
+                                                                      libqt_list /* of TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* */ sigval1 = result_out;
+                                                                      slotFunc(self, sigval1);
+                                                                      free(result_arr);
+                                                                  });
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Tr2(const char* s, const char* c) {

@@ -99,10 +99,12 @@ void QButtonGroup_ButtonClicked(QButtonGroup* self, QAbstractButton* param1) {
 
 void QButtonGroup_Connect_ButtonClicked(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, QAbstractButton*) = reinterpret_cast<void (*)(QButtonGroup*, QAbstractButton*)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::buttonClicked, [self, slotFunc](QAbstractButton* param1) {
-        QAbstractButton* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked),
+                          [self, slotFunc](QAbstractButton* param1) {
+                              QAbstractButton* sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_ButtonPressed(QButtonGroup* self, QAbstractButton* param1) {
@@ -111,10 +113,12 @@ void QButtonGroup_ButtonPressed(QButtonGroup* self, QAbstractButton* param1) {
 
 void QButtonGroup_Connect_ButtonPressed(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, QAbstractButton*) = reinterpret_cast<void (*)(QButtonGroup*, QAbstractButton*)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::buttonPressed, [self, slotFunc](QAbstractButton* param1) {
-        QAbstractButton* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonPressed),
+                          [self, slotFunc](QAbstractButton* param1) {
+                              QAbstractButton* sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_ButtonReleased(QButtonGroup* self, QAbstractButton* param1) {
@@ -123,10 +127,12 @@ void QButtonGroup_ButtonReleased(QButtonGroup* self, QAbstractButton* param1) {
 
 void QButtonGroup_Connect_ButtonReleased(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, QAbstractButton*) = reinterpret_cast<void (*)(QButtonGroup*, QAbstractButton*)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::buttonReleased, [self, slotFunc](QAbstractButton* param1) {
-        QAbstractButton* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonReleased),
+                          [self, slotFunc](QAbstractButton* param1) {
+                              QAbstractButton* sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_ButtonToggled(QButtonGroup* self, QAbstractButton* param1, bool param2) {
@@ -135,11 +141,13 @@ void QButtonGroup_ButtonToggled(QButtonGroup* self, QAbstractButton* param1, boo
 
 void QButtonGroup_Connect_ButtonToggled(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, QAbstractButton*, bool) = reinterpret_cast<void (*)(QButtonGroup*, QAbstractButton*, bool)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::buttonToggled, [self, slotFunc](QAbstractButton* param1, bool param2) {
-        QAbstractButton* sigval1 = param1;
-        bool sigval2 = param2;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(QAbstractButton*, bool)>(&QButtonGroup::buttonToggled),
+                          [self, slotFunc](QAbstractButton* param1, bool param2) {
+                              QAbstractButton* sigval1 = param1;
+                              bool sigval2 = param2;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void QButtonGroup_IdClicked(QButtonGroup* self, int param1) {
@@ -148,10 +156,12 @@ void QButtonGroup_IdClicked(QButtonGroup* self, int param1) {
 
 void QButtonGroup_Connect_IdClicked(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, int) = reinterpret_cast<void (*)(QButtonGroup*, int)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::idClicked, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked),
+                          [self, slotFunc](int param1) {
+                              int sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_IdPressed(QButtonGroup* self, int param1) {
@@ -160,10 +170,12 @@ void QButtonGroup_IdPressed(QButtonGroup* self, int param1) {
 
 void QButtonGroup_Connect_IdPressed(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, int) = reinterpret_cast<void (*)(QButtonGroup*, int)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::idPressed, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idPressed),
+                          [self, slotFunc](int param1) {
+                              int sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_IdReleased(QButtonGroup* self, int param1) {
@@ -172,10 +184,12 @@ void QButtonGroup_IdReleased(QButtonGroup* self, int param1) {
 
 void QButtonGroup_Connect_IdReleased(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, int) = reinterpret_cast<void (*)(QButtonGroup*, int)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::idReleased, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idReleased),
+                          [self, slotFunc](int param1) {
+                              int sigval1 = param1;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QButtonGroup_IdToggled(QButtonGroup* self, int param1, bool param2) {
@@ -184,11 +198,13 @@ void QButtonGroup_IdToggled(QButtonGroup* self, int param1, bool param2) {
 
 void QButtonGroup_Connect_IdToggled(QButtonGroup* self, intptr_t slot) {
     void (*slotFunc)(QButtonGroup*, int, bool) = reinterpret_cast<void (*)(QButtonGroup*, int, bool)>(slot);
-    QButtonGroup::connect(self, &QButtonGroup::idToggled, [self, slotFunc](int param1, bool param2) {
-        int sigval1 = param1;
-        bool sigval2 = param2;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QButtonGroup::connect(self,
+                          static_cast<void (QButtonGroup::*)(int, bool)>(&QButtonGroup::idToggled),
+                          [self, slotFunc](int param1, bool param2) {
+                              int sigval1 = param1;
+                              bool sigval2 = param2;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 libqt_string QButtonGroup_Tr2(const char* s, const char* c) {

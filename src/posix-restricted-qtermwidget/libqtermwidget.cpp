@@ -503,9 +503,11 @@ void QTermWidget_Finished(QTermWidget* self) {
 
 void QTermWidget_Connect_Finished(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::finished),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_CopyAvailable(QTermWidget* self, bool param1) {
@@ -514,10 +516,12 @@ void QTermWidget_CopyAvailable(QTermWidget* self, bool param1) {
 
 void QTermWidget_Connect_CopyAvailable(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, bool) = reinterpret_cast<void (*)(QTermWidget*, bool)>(slot);
-    QTermWidget::connect(self, &QTermWidget::copyAvailable, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(bool)>(&QTermWidget::copyAvailable),
+                         [self, slotFunc](bool param1) {
+                             bool sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QTermWidget_TermGetFocus(QTermWidget* self) {
@@ -526,9 +530,11 @@ void QTermWidget_TermGetFocus(QTermWidget* self) {
 
 void QTermWidget_Connect_TermGetFocus(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::termGetFocus, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::termGetFocus),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_TermLostFocus(QTermWidget* self) {
@@ -537,9 +543,11 @@ void QTermWidget_TermLostFocus(QTermWidget* self) {
 
 void QTermWidget_Connect_TermLostFocus(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::termLostFocus, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::termLostFocus),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_TermKeyPressed(QTermWidget* self, QKeyEvent* param1) {
@@ -548,10 +556,12 @@ void QTermWidget_TermKeyPressed(QTermWidget* self, QKeyEvent* param1) {
 
 void QTermWidget_Connect_TermKeyPressed(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, QKeyEvent*) = reinterpret_cast<void (*)(QTermWidget*, QKeyEvent*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::termKeyPressed, [self, slotFunc](QKeyEvent* param1) {
-        QKeyEvent* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(QKeyEvent*)>(&QTermWidget::termKeyPressed),
+                         [self, slotFunc](QKeyEvent* param1) {
+                             QKeyEvent* sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QTermWidget_UrlActivated(QTermWidget* self, const QUrl* param1, bool fromContextMenu) {
@@ -560,13 +570,15 @@ void QTermWidget_UrlActivated(QTermWidget* self, const QUrl* param1, bool fromCo
 
 void QTermWidget_Connect_UrlActivated(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, QUrl*, bool) = reinterpret_cast<void (*)(QTermWidget*, QUrl*, bool)>(slot);
-    QTermWidget::connect(self, &QTermWidget::urlActivated, [self, slotFunc](const QUrl& param1, bool fromContextMenu) {
-        const QUrl& param1_ret = param1;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
-        bool sigval2 = fromContextMenu;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(const QUrl&, bool)>(&QTermWidget::urlActivated),
+                         [self, slotFunc](const QUrl& param1, bool fromContextMenu) {
+                             const QUrl& param1_ret = param1;
+                             // Cast returned reference into pointer
+                             QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
+                             bool sigval2 = fromContextMenu;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QTermWidget_Bell(QTermWidget* self, const libqt_string message) {
@@ -576,18 +588,20 @@ void QTermWidget_Bell(QTermWidget* self, const libqt_string message) {
 
 void QTermWidget_Connect_Bell(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::bell, [self, slotFunc](const QString& message) {
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval1 = message_str;
-        slotFunc(self, sigval1);
-        libqt_free(message_str);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(const QString&)>(&QTermWidget::bell),
+                         [self, slotFunc](const QString& message) {
+                             const auto message_ret = message;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray message_b = message_ret.toUtf8();
+                             auto message_str_len = message_b.length();
+                             const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                             memcpy((void*)message_str, message_b.data(), message_str_len);
+                             ((char*)message_str)[message_str_len] = '\0';
+                             const char* sigval1 = message_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(message_str);
+                         });
 }
 
 void QTermWidget_Activity(QTermWidget* self) {
@@ -596,9 +610,11 @@ void QTermWidget_Activity(QTermWidget* self) {
 
 void QTermWidget_Connect_Activity(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::activity, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::activity),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_Silence(QTermWidget* self) {
@@ -607,9 +623,11 @@ void QTermWidget_Silence(QTermWidget* self) {
 
 void QTermWidget_Connect_Silence(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::silence, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::silence),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_SendData(QTermWidget* self, const char* param1, int param2) {
@@ -618,11 +636,13 @@ void QTermWidget_SendData(QTermWidget* self, const char* param1, int param2) {
 
 void QTermWidget_Connect_SendData(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*, int) = reinterpret_cast<void (*)(QTermWidget*, const char*, int)>(slot);
-    QTermWidget::connect(self, &QTermWidget::sendData, [self, slotFunc](const char* param1, int param2) {
-        const char* sigval1 = (const char*)param1;
-        int sigval2 = param2;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(const char*, int)>(&QTermWidget::sendData),
+                         [self, slotFunc](const char* param1, int param2) {
+                             const char* sigval1 = (const char*)param1;
+                             int sigval2 = param2;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QTermWidget_ProfileChanged(QTermWidget* self, const libqt_string profile) {
@@ -632,18 +652,20 @@ void QTermWidget_ProfileChanged(QTermWidget* self, const libqt_string profile) {
 
 void QTermWidget_Connect_ProfileChanged(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::profileChanged, [self, slotFunc](const QString& profile) {
-        const auto profile_ret = profile;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray profile_b = profile_ret.toUtf8();
-        auto profile_str_len = profile_b.length();
-        const char* profile_str = static_cast<const char*>(malloc(profile_str_len + 1));
-        memcpy((void*)profile_str, profile_b.data(), profile_str_len);
-        ((char*)profile_str)[profile_str_len] = '\0';
-        const char* sigval1 = profile_str;
-        slotFunc(self, sigval1);
-        libqt_free(profile_str);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(const QString&)>(&QTermWidget::profileChanged),
+                         [self, slotFunc](const QString& profile) {
+                             const auto profile_ret = profile;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray profile_b = profile_ret.toUtf8();
+                             auto profile_str_len = profile_b.length();
+                             const char* profile_str = static_cast<const char*>(malloc(profile_str_len + 1));
+                             memcpy((void*)profile_str, profile_b.data(), profile_str_len);
+                             ((char*)profile_str)[profile_str_len] = '\0';
+                             const char* sigval1 = profile_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(profile_str);
+                         });
 }
 
 void QTermWidget_TitleChanged(QTermWidget* self) {
@@ -652,9 +674,11 @@ void QTermWidget_TitleChanged(QTermWidget* self) {
 
 void QTermWidget_Connect_TitleChanged(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*) = reinterpret_cast<void (*)(QTermWidget*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::titleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)()>(&QTermWidget::titleChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QTermWidget_ReceivedData(QTermWidget* self, const libqt_string text) {
@@ -664,18 +688,20 @@ void QTermWidget_ReceivedData(QTermWidget* self, const libqt_string text) {
 
 void QTermWidget_Connect_ReceivedData(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
-    QTermWidget::connect(self, &QTermWidget::receivedData, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    QTermWidget::connect(self,
+                         static_cast<void (QTermWidget::*)(const QString&)>(&QTermWidget::receivedData),
+                         [self, slotFunc](const QString& text) {
+                             const auto text_ret = text;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray text_b = text_ret.toUtf8();
+                             auto text_str_len = text_b.length();
+                             const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                             memcpy((void*)text_str, text_b.data(), text_str_len);
+                             ((char*)text_str)[text_str_len] = '\0';
+                             const char* sigval1 = text_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(text_str);
+                         });
 }
 
 void QTermWidget_CopyClipboard(QTermWidget* self) {

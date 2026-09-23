@@ -133,11 +133,13 @@ void KTreeWidgetSearchLine_HiddenChanged(KTreeWidgetSearchLine* self, QTreeWidge
 
 void KTreeWidgetSearchLine_Connect_HiddenChanged(KTreeWidgetSearchLine* self, intptr_t slot) {
     void (*slotFunc)(KTreeWidgetSearchLine*, QTreeWidgetItem*, bool) = reinterpret_cast<void (*)(KTreeWidgetSearchLine*, QTreeWidgetItem*, bool)>(slot);
-    KTreeWidgetSearchLine::connect(self, &KTreeWidgetSearchLine::hiddenChanged, [self, slotFunc](QTreeWidgetItem* param1, bool param2) {
-        QTreeWidgetItem* sigval1 = param1;
-        bool sigval2 = param2;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTreeWidgetSearchLine::connect(self,
+                                   static_cast<void (KTreeWidgetSearchLine::*)(QTreeWidgetItem*, bool)>(&KTreeWidgetSearchLine::hiddenChanged),
+                                   [self, slotFunc](QTreeWidgetItem* param1, bool param2) {
+                                       QTreeWidgetItem* sigval1 = param1;
+                                       bool sigval2 = param2;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void KTreeWidgetSearchLine_SearchUpdated(KTreeWidgetSearchLine* self, const libqt_string searchString) {
@@ -147,18 +149,20 @@ void KTreeWidgetSearchLine_SearchUpdated(KTreeWidgetSearchLine* self, const libq
 
 void KTreeWidgetSearchLine_Connect_SearchUpdated(KTreeWidgetSearchLine* self, intptr_t slot) {
     void (*slotFunc)(KTreeWidgetSearchLine*, const char*) = reinterpret_cast<void (*)(KTreeWidgetSearchLine*, const char*)>(slot);
-    KTreeWidgetSearchLine::connect(self, &KTreeWidgetSearchLine::searchUpdated, [self, slotFunc](const QString& searchString) {
-        const auto searchString_ret = searchString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray searchString_b = searchString_ret.toUtf8();
-        auto searchString_str_len = searchString_b.length();
-        const char* searchString_str = static_cast<const char*>(malloc(searchString_str_len + 1));
-        memcpy((void*)searchString_str, searchString_b.data(), searchString_str_len);
-        ((char*)searchString_str)[searchString_str_len] = '\0';
-        const char* sigval1 = searchString_str;
-        slotFunc(self, sigval1);
-        libqt_free(searchString_str);
-    });
+    KTreeWidgetSearchLine::connect(self,
+                                   static_cast<void (KTreeWidgetSearchLine::*)(const QString&)>(&KTreeWidgetSearchLine::searchUpdated),
+                                   [self, slotFunc](const QString& searchString) {
+                                       const auto searchString_ret = searchString;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray searchString_b = searchString_ret.toUtf8();
+                                       auto searchString_str_len = searchString_b.length();
+                                       const char* searchString_str = static_cast<const char*>(malloc(searchString_str_len + 1));
+                                       memcpy((void*)searchString_str, searchString_b.data(), searchString_str_len);
+                                       ((char*)searchString_str)[searchString_str_len] = '\0';
+                                       const char* sigval1 = searchString_str;
+                                       slotFunc(self, sigval1);
+                                       libqt_free(searchString_str);
+                                   });
 }
 
 void KTreeWidgetSearchLine_CaseSensitivityChanged(KTreeWidgetSearchLine* self, int caseSensitivity) {
@@ -167,10 +171,12 @@ void KTreeWidgetSearchLine_CaseSensitivityChanged(KTreeWidgetSearchLine* self, i
 
 void KTreeWidgetSearchLine_Connect_CaseSensitivityChanged(KTreeWidgetSearchLine* self, intptr_t slot) {
     void (*slotFunc)(KTreeWidgetSearchLine*, int) = reinterpret_cast<void (*)(KTreeWidgetSearchLine*, int)>(slot);
-    KTreeWidgetSearchLine::connect(self, &KTreeWidgetSearchLine::caseSensitivityChanged, [self, slotFunc](Qt::CaseSensitivity caseSensitivity) {
-        int sigval1 = static_cast<int>(caseSensitivity);
-        slotFunc(self, sigval1);
-    });
+    KTreeWidgetSearchLine::connect(self,
+                                   static_cast<void (KTreeWidgetSearchLine::*)(Qt::CaseSensitivity)>(&KTreeWidgetSearchLine::caseSensitivityChanged),
+                                   [self, slotFunc](Qt::CaseSensitivity caseSensitivity) {
+                                       int sigval1 = static_cast<int>(caseSensitivity);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTreeWidgetSearchLine_KeepParentsVisibleChanged(KTreeWidgetSearchLine* self, bool keepParentsVisible) {
@@ -179,10 +185,12 @@ void KTreeWidgetSearchLine_KeepParentsVisibleChanged(KTreeWidgetSearchLine* self
 
 void KTreeWidgetSearchLine_Connect_KeepParentsVisibleChanged(KTreeWidgetSearchLine* self, intptr_t slot) {
     void (*slotFunc)(KTreeWidgetSearchLine*, bool) = reinterpret_cast<void (*)(KTreeWidgetSearchLine*, bool)>(slot);
-    KTreeWidgetSearchLine::connect(self, &KTreeWidgetSearchLine::keepParentsVisibleChanged, [self, slotFunc](bool keepParentsVisible) {
-        bool sigval1 = keepParentsVisible;
-        slotFunc(self, sigval1);
-    });
+    KTreeWidgetSearchLine::connect(self,
+                                   static_cast<void (KTreeWidgetSearchLine::*)(bool)>(&KTreeWidgetSearchLine::keepParentsVisibleChanged),
+                                   [self, slotFunc](bool keepParentsVisible) {
+                                       bool sigval1 = keepParentsVisible;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTreeWidgetSearchLine_AddTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* treeWidget) {

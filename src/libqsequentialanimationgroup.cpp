@@ -67,10 +67,12 @@ void QSequentialAnimationGroup_CurrentAnimationChanged(QSequentialAnimationGroup
 
 void QSequentialAnimationGroup_Connect_CurrentAnimationChanged(QSequentialAnimationGroup* self, intptr_t slot) {
     void (*slotFunc)(QSequentialAnimationGroup*, QAbstractAnimation*) = reinterpret_cast<void (*)(QSequentialAnimationGroup*, QAbstractAnimation*)>(slot);
-    QSequentialAnimationGroup::connect(self, &QSequentialAnimationGroup::currentAnimationChanged, [self, slotFunc](QAbstractAnimation* current) {
-        QAbstractAnimation* sigval1 = current;
-        slotFunc(self, sigval1);
-    });
+    QSequentialAnimationGroup::connect(self,
+                                       static_cast<void (QSequentialAnimationGroup::*)(QAbstractAnimation*)>(&QSequentialAnimationGroup::currentAnimationChanged),
+                                       [self, slotFunc](QAbstractAnimation* current) {
+                                           QAbstractAnimation* sigval1 = current;
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* event) {

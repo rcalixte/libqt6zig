@@ -128,21 +128,87 @@ void KParts__NavigationExtension_EnableAction(KParts__NavigationExtension* self,
     self->enableAction(name, enabled);
 }
 
+void KParts__NavigationExtension_Connect_EnableAction(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, const char*, bool) = reinterpret_cast<void (*)(KParts__NavigationExtension*, const char*, bool)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const char*, bool)>(&KParts::NavigationExtension::enableAction),
+                                         [self, slotFunc](const char* name, bool enabled) {
+                                             const char* sigval1 = (const char*)name;
+                                             bool sigval2 = enabled;
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
+}
+
 void KParts__NavigationExtension_SetActionText(KParts__NavigationExtension* self, const char* name, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setActionText(name, text_QString);
+}
+
+void KParts__NavigationExtension_Connect_SetActionText(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, const char*, const char*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, const char*, const char*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const char*, const QString&)>(&KParts::NavigationExtension::setActionText),
+                                         [self, slotFunc](const char* name, const QString& text) {
+                                             const char* sigval1 = (const char*)name;
+                                             const auto text_ret = text;
+                                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                             QByteArray text_b = text_ret.toUtf8();
+                                             auto text_str_len = text_b.length();
+                                             const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                             memcpy((void*)text_str, text_b.data(), text_str_len);
+                                             ((char*)text_str)[text_str_len] = '\0';
+                                             const char* sigval2 = text_str;
+                                             slotFunc(self, sigval1, sigval2);
+                                             libqt_free(text_str);
+                                         });
 }
 
 void KParts__NavigationExtension_OpenUrlRequest(KParts__NavigationExtension* self, const QUrl* url) {
     self->openUrlRequest(*url);
 }
 
+void KParts__NavigationExtension_Connect_OpenUrlRequest(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&, const KParts::OpenUrlArguments&)>(&KParts::NavigationExtension::openUrlRequest),
+                                         [self, slotFunc](const QUrl& url) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             slotFunc(self, sigval1);
+                                         });
+}
+
 void KParts__NavigationExtension_OpenUrlRequestDelayed(KParts__NavigationExtension* self, const QUrl* url, const KParts__OpenUrlArguments* arguments) {
     self->openUrlRequestDelayed(*url, *arguments);
 }
 
+void KParts__NavigationExtension_Connect_OpenUrlRequestDelayed(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*, KParts__OpenUrlArguments*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*, KParts__OpenUrlArguments*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&, const KParts::OpenUrlArguments&)>(&KParts::NavigationExtension::openUrlRequestDelayed),
+                                         [self, slotFunc](const QUrl& url, const KParts::OpenUrlArguments& arguments) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval2 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
+}
+
 void KParts__NavigationExtension_OpenUrlNotify(KParts__NavigationExtension* self) {
     self->openUrlNotify();
+}
+
+void KParts__NavigationExtension_Connect_OpenUrlNotify(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*) = reinterpret_cast<void (*)(KParts__NavigationExtension*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)()>(&KParts::NavigationExtension::openUrlNotify),
+                                         [self, slotFunc]() {
+                                             slotFunc(self);
+                                         });
 }
 
 void KParts__NavigationExtension_SetLocationBarUrl(KParts__NavigationExtension* self, const libqt_string url) {
@@ -150,20 +216,82 @@ void KParts__NavigationExtension_SetLocationBarUrl(KParts__NavigationExtension* 
     self->setLocationBarUrl(url_QString);
 }
 
+void KParts__NavigationExtension_Connect_SetLocationBarUrl(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, const char*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, const char*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QString&)>(&KParts::NavigationExtension::setLocationBarUrl),
+                                         [self, slotFunc](const QString& url) {
+                                             const auto url_ret = url;
+                                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                             QByteArray url_b = url_ret.toUtf8();
+                                             auto url_str_len = url_b.length();
+                                             const char* url_str = static_cast<const char*>(malloc(url_str_len + 1));
+                                             memcpy((void*)url_str, url_b.data(), url_str_len);
+                                             ((char*)url_str)[url_str_len] = '\0';
+                                             const char* sigval1 = url_str;
+                                             slotFunc(self, sigval1);
+                                             libqt_free(url_str);
+                                         });
+}
+
 void KParts__NavigationExtension_SetIconUrl(KParts__NavigationExtension* self, const QUrl* url) {
     self->setIconUrl(*url);
+}
+
+void KParts__NavigationExtension_Connect_SetIconUrl(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&)>(&KParts::NavigationExtension::setIconUrl),
+                                         [self, slotFunc](const QUrl& url) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 void KParts__NavigationExtension_CreateNewWindow(KParts__NavigationExtension* self, const QUrl* url) {
     self->createNewWindow(*url);
 }
 
+void KParts__NavigationExtension_Connect_CreateNewWindow(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&)>(&KParts::NavigationExtension::createNewWindow),
+                                         [self, slotFunc](const QUrl& url) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             slotFunc(self, sigval1);
+                                         });
+}
+
 void KParts__NavigationExtension_LoadingProgress(KParts__NavigationExtension* self, int percent) {
     self->loadingProgress(static_cast<int>(percent));
 }
 
+void KParts__NavigationExtension_Connect_LoadingProgress(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(int)>(&KParts::NavigationExtension::loadingProgress),
+                                         [self, slotFunc](int percent) {
+                                             int sigval1 = percent;
+                                             slotFunc(self, sigval1);
+                                         });
+}
+
 void KParts__NavigationExtension_SpeedProgress(KParts__NavigationExtension* self, int bytesPerSecond) {
     self->speedProgress(static_cast<int>(bytesPerSecond));
+}
+
+void KParts__NavigationExtension_Connect_SpeedProgress(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(int)>(&KParts::NavigationExtension::speedProgress),
+                                         [self, slotFunc](int bytesPerSecond) {
+                                             int sigval1 = bytesPerSecond;
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 void KParts__NavigationExtension_InfoMessage(KParts__NavigationExtension* self, const libqt_string param1) {
@@ -171,20 +299,92 @@ void KParts__NavigationExtension_InfoMessage(KParts__NavigationExtension* self, 
     self->infoMessage(param1_QString);
 }
 
+void KParts__NavigationExtension_Connect_InfoMessage(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, const char*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, const char*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QString&)>(&KParts::NavigationExtension::infoMessage),
+                                         [self, slotFunc](const QString& param1) {
+                                             const auto param1_ret = param1;
+                                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                             QByteArray param1_b = param1_ret.toUtf8();
+                                             auto param1_str_len = param1_b.length();
+                                             const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                             ((char*)param1_str)[param1_str_len] = '\0';
+                                             const char* sigval1 = param1_str;
+                                             slotFunc(self, sigval1);
+                                             libqt_free(param1_str);
+                                         });
+}
+
 void KParts__NavigationExtension_PopupMenu(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items) {
     self->popupMenu(*global, *items);
+}
+
+void KParts__NavigationExtension_Connect_PopupMenu(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, KFileItemList*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, KFileItemList*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const KFileItemList&, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const KFileItemList& items) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
 }
 
 void KParts__NavigationExtension_PopupMenu2(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url) {
     self->popupMenu(*global, *url);
 }
 
+void KParts__NavigationExtension_Connect_PopupMenu2(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, QUrl*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, QUrl*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const QUrl&, mode_t, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const QUrl& url) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
+}
+
 void KParts__NavigationExtension_SelectionInfo(KParts__NavigationExtension* self, const KFileItemList* items) {
     self->selectionInfo(*items);
 }
 
+void KParts__NavigationExtension_Connect_SelectionInfo(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, KFileItemList*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, KFileItemList*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const KFileItemList&)>(&KParts::NavigationExtension::selectionInfo),
+                                         [self, slotFunc](const KFileItemList& items) {
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
+                                             slotFunc(self, sigval1);
+                                         });
+}
+
 void KParts__NavigationExtension_MouseOverInfo(KParts__NavigationExtension* self, const KFileItem* item) {
     self->mouseOverInfo(*item);
+}
+
+void KParts__NavigationExtension_Connect_MouseOverInfo(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, KFileItem*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, KFileItem*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const KFileItem&)>(&KParts::NavigationExtension::mouseOverInfo),
+                                         [self, slotFunc](const KFileItem& item) {
+                                             const KFileItem& item_ret = item;
+                                             // Cast returned reference into pointer
+                                             KFileItem* sigval1 = const_cast<KFileItem*>(&item_ret);
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 void KParts__NavigationExtension_AddWebSideBar(KParts__NavigationExtension* self, const QUrl* url, const libqt_string name) {
@@ -192,24 +392,99 @@ void KParts__NavigationExtension_AddWebSideBar(KParts__NavigationExtension* self
     self->addWebSideBar(*url, name_QString);
 }
 
+void KParts__NavigationExtension_Connect_AddWebSideBar(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*, const char*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*, const char*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&, const QString&)>(&KParts::NavigationExtension::addWebSideBar),
+                                         [self, slotFunc](const QUrl& url, const QString& name) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             const auto name_ret = name;
+                                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                             QByteArray name_b = name_ret.toUtf8();
+                                             auto name_str_len = name_b.length();
+                                             const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                             memcpy((void*)name_str, name_b.data(), name_str_len);
+                                             ((char*)name_str)[name_str_len] = '\0';
+                                             const char* sigval2 = name_str;
+                                             slotFunc(self, sigval1, sigval2);
+                                             libqt_free(name_str);
+                                         });
+}
+
 void KParts__NavigationExtension_MoveTopLevelWidget(KParts__NavigationExtension* self, int x, int y) {
     self->moveTopLevelWidget(static_cast<int>(x), static_cast<int>(y));
+}
+
+void KParts__NavigationExtension_Connect_MoveTopLevelWidget(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, int, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, int, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(int, int)>(&KParts::NavigationExtension::moveTopLevelWidget),
+                                         [self, slotFunc](int x, int y) {
+                                             int sigval1 = x;
+                                             int sigval2 = y;
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
 }
 
 void KParts__NavigationExtension_ResizeTopLevelWidget(KParts__NavigationExtension* self, int w, int h) {
     self->resizeTopLevelWidget(static_cast<int>(w), static_cast<int>(h));
 }
 
+void KParts__NavigationExtension_Connect_ResizeTopLevelWidget(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, int, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, int, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(int, int)>(&KParts::NavigationExtension::resizeTopLevelWidget),
+                                         [self, slotFunc](int w, int h) {
+                                             int sigval1 = w;
+                                             int sigval2 = h;
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
+}
+
 void KParts__NavigationExtension_RequestFocus(KParts__NavigationExtension* self, KParts__ReadOnlyPart* part) {
     self->requestFocus(part);
+}
+
+void KParts__NavigationExtension_Connect_RequestFocus(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, KParts__ReadOnlyPart*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, KParts__ReadOnlyPart*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(KParts::ReadOnlyPart*)>(&KParts::NavigationExtension::requestFocus),
+                                         [self, slotFunc](KParts::ReadOnlyPart* part) {
+                                             KParts__ReadOnlyPart* sigval1 = part;
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 void KParts__NavigationExtension_SetPageSecurity(KParts__NavigationExtension* self, int pageSecurity) {
     self->setPageSecurity(static_cast<int>(pageSecurity));
 }
 
+void KParts__NavigationExtension_Connect_SetPageSecurity(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(int)>(&KParts::NavigationExtension::setPageSecurity),
+                                         [self, slotFunc](int pageSecurity) {
+                                             int sigval1 = pageSecurity;
+                                             slotFunc(self, sigval1);
+                                         });
+}
+
 void KParts__NavigationExtension_ItemsRemoved(KParts__NavigationExtension* self, const KFileItemList* items) {
     self->itemsRemoved(*items);
+}
+
+void KParts__NavigationExtension_Connect_ItemsRemoved(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, KFileItemList*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, KFileItemList*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const KFileItemList&)>(&KParts::NavigationExtension::itemsRemoved),
+                                         [self, slotFunc](const KFileItemList& items) {
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
+                                             slotFunc(self, sigval1);
+                                         });
 }
 
 libqt_string KParts__NavigationExtension_Tr2(const char* s, const char* c) {
@@ -240,12 +515,64 @@ void KParts__NavigationExtension_OpenUrlRequest2(KParts__NavigationExtension* se
     self->openUrlRequest(*url, *arguments);
 }
 
+void KParts__NavigationExtension_Connect_OpenUrlRequest2(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QUrl*, KParts__OpenUrlArguments*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QUrl*, KParts__OpenUrlArguments*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QUrl&, const KParts::OpenUrlArguments&)>(&KParts::NavigationExtension::openUrlRequest),
+                                         [self, slotFunc](const QUrl& url, const KParts::OpenUrlArguments& arguments) {
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval2 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             slotFunc(self, sigval1, sigval2);
+                                         });
+}
+
 void KParts__NavigationExtension_PopupMenu3(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments) {
     self->popupMenu(*global, *items, *arguments);
 }
 
+void KParts__NavigationExtension_Connect_PopupMenu3(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const KFileItemList&, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const KFileItemList& items, const KParts::OpenUrlArguments& arguments) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval3 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             slotFunc(self, sigval1, sigval2, sigval3);
+                                         });
+}
+
 void KParts__NavigationExtension_PopupMenu4(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments, int flags) {
     self->popupMenu(*global, *items, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags));
+}
+
+void KParts__NavigationExtension_Connect_PopupMenu4(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const KFileItemList&, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const KFileItemList& items, const KParts::OpenUrlArguments& arguments, KParts::NavigationExtension::PopupFlags flags) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval3 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             int sigval4 = static_cast<int>(flags);
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                         });
 }
 
 void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups) {
@@ -265,16 +592,122 @@ void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, c
     self->popupMenu(*global, *items, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags), actionGroups_QMap);
 }
 
+void KParts__NavigationExtension_Connect_PopupMenu5(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*, int, libqt_map /* of libqt_string to libqt_list of QAction* */) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, KFileItemList*, KParts__OpenUrlArguments*, int, libqt_map /* of libqt_string to libqt_list of QAction* */)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const KFileItemList&, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const KFileItemList& items, const KParts::OpenUrlArguments& arguments, KParts::NavigationExtension::PopupFlags flags, const QMap<QString, QList<QAction*>>& actionGroups) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const KFileItemList& items_ret = items;
+                                             // Cast returned reference into pointer
+                                             KFileItemList* sigval2 = const_cast<KFileItemList*>(&items_ret);
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval3 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             int sigval4 = static_cast<int>(flags);
+                                             const QMap<QString, QList<QAction*>>& actionGroups_ret = actionGroups;
+                                             // Convert QMap<> from C++ memory to manually-managed C memory
+                                             libqt_string* actionGroups_karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * actionGroups_ret.size()));
+                                             libqt_list /* of QAction* */* actionGroups_varr = static_cast<libqt_list /* of QAction* */*>(malloc(sizeof(libqt_list /* of QAction* */) * actionGroups_ret.size()));
+                                             int actionGroups_ctr = 0;
+                                             for (auto actionGroups_itr = actionGroups_ret.keyValueBegin(); actionGroups_itr != actionGroups_ret.keyValueEnd(); ++actionGroups_itr) {
+                                                 auto actionGroups_mapkey_ret = actionGroups_itr->first;
+                                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+                                                 QByteArray actionGroups_mapkey_b = actionGroups_mapkey_ret.toUtf8();
+                                                 libqt_string actionGroups_mapkey_str;
+                                                 actionGroups_mapkey_str.len = actionGroups_mapkey_b.length();
+                                                 actionGroups_mapkey_str.data = static_cast<const char*>(malloc(actionGroups_mapkey_str.len + 1));
+                                                 memcpy((void*)actionGroups_mapkey_str.data, actionGroups_mapkey_b.data(), actionGroups_mapkey_str.len);
+                                                 ((char*)actionGroups_mapkey_str.data)[actionGroups_mapkey_str.len] = '\0';
+                                                 actionGroups_karr[actionGroups_ctr] = actionGroups_mapkey_str;
+                                                 QList<QAction*> actionGroups_mapval_ret = actionGroups_itr->second;
+                                                 // Convert QList<> from C++ memory to manually-managed C memory
+                                                 QAction** actionGroups_mapval_arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (actionGroups_mapval_ret.size())));
+                                                 for (qsizetype i = 0; i < actionGroups_mapval_ret.size(); ++i) {
+                                                     actionGroups_mapval_arr[i] = actionGroups_mapval_ret[i];
+                                                 }
+                                                 libqt_list actionGroups_mapval_out;
+                                                 actionGroups_mapval_out.len = actionGroups_mapval_ret.size();
+                                                 actionGroups_mapval_out.data = static_cast<void*>(actionGroups_mapval_arr);
+                                                 actionGroups_varr[actionGroups_ctr] = actionGroups_mapval_out;
+                                                 actionGroups_ctr++;
+                                             }
+                                             libqt_map actionGroups_out;
+                                             actionGroups_out.len = actionGroups_ret.size();
+                                             actionGroups_out.keys = static_cast<void*>(actionGroups_karr);
+                                             actionGroups_out.values = static_cast<void*>(actionGroups_varr);
+                                             libqt_map /* of libqt_string to libqt_list of QAction* */ sigval5 = actionGroups_out;
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5);
+                                         });
+}
+
 void KParts__NavigationExtension_PopupMenu32(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode) {
     self->popupMenu(*global, *url, mode);
+}
+
+void KParts__NavigationExtension_Connect_PopupMenu32(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const QUrl&, mode_t, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const QUrl& url, mode_t mode) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                                             mode_t sigval3 = mode;
+                                             slotFunc(self, sigval1, sigval2, sigval3);
+                                         });
 }
 
 void KParts__NavigationExtension_PopupMenu42(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments) {
     self->popupMenu(*global, *url, mode, *arguments);
 }
 
+void KParts__NavigationExtension_Connect_PopupMenu42(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const QUrl&, mode_t, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const QUrl& url, mode_t mode, const KParts::OpenUrlArguments& arguments) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                                             mode_t sigval3 = mode;
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval4 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                         });
+}
+
 void KParts__NavigationExtension_PopupMenu52(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags) {
     self->popupMenu(*global, *url, mode, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags));
+}
+
+void KParts__NavigationExtension_Connect_PopupMenu52(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*, int) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*, int)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const QUrl&, mode_t, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const QUrl& url, mode_t mode, const KParts::OpenUrlArguments& arguments, KParts::NavigationExtension::PopupFlags flags) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                                             mode_t sigval3 = mode;
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval4 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             int sigval5 = static_cast<int>(flags);
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5);
+                                         });
 }
 
 void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups) {
@@ -292,6 +725,58 @@ void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, c
         actionGroups_QMap.insert(actionGroups_karr_i_QString, actionGroups_varr_i_QList);
     }
     self->popupMenu(*global, *url, mode, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags), actionGroups_QMap);
+}
+
+void KParts__NavigationExtension_Connect_PopupMenu6(KParts__NavigationExtension* self, intptr_t slot) {
+    void (*slotFunc)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*, int, libqt_map /* of libqt_string to libqt_list of QAction* */) = reinterpret_cast<void (*)(KParts__NavigationExtension*, QPoint*, QUrl*, mode_t, KParts__OpenUrlArguments*, int, libqt_map /* of libqt_string to libqt_list of QAction* */)>(slot);
+    KParts::NavigationExtension::connect(self,
+                                         static_cast<void (KParts::NavigationExtension::*)(const QPoint&, const QUrl&, mode_t, const KParts::OpenUrlArguments&, KParts::NavigationExtension::PopupFlags, const QMap<QString, QList<QAction*>>&)>(&KParts::NavigationExtension::popupMenu),
+                                         [self, slotFunc](const QPoint& global, const QUrl& url, mode_t mode, const KParts::OpenUrlArguments& arguments, KParts::NavigationExtension::PopupFlags flags, const QMap<QString, QList<QAction*>>& actionGroups) {
+                                             const QPoint& global_ret = global;
+                                             // Cast returned reference into pointer
+                                             QPoint* sigval1 = const_cast<QPoint*>(&global_ret);
+                                             const QUrl& url_ret = url;
+                                             // Cast returned reference into pointer
+                                             QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                                             mode_t sigval3 = mode;
+                                             const KParts::OpenUrlArguments& arguments_ret = arguments;
+                                             // Cast returned reference into pointer
+                                             KParts__OpenUrlArguments* sigval4 = const_cast<KParts::OpenUrlArguments*>(&arguments_ret);
+                                             int sigval5 = static_cast<int>(flags);
+                                             const QMap<QString, QList<QAction*>>& actionGroups_ret = actionGroups;
+                                             // Convert QMap<> from C++ memory to manually-managed C memory
+                                             libqt_string* actionGroups_karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * actionGroups_ret.size()));
+                                             libqt_list /* of QAction* */* actionGroups_varr = static_cast<libqt_list /* of QAction* */*>(malloc(sizeof(libqt_list /* of QAction* */) * actionGroups_ret.size()));
+                                             int actionGroups_ctr = 0;
+                                             for (auto actionGroups_itr = actionGroups_ret.keyValueBegin(); actionGroups_itr != actionGroups_ret.keyValueEnd(); ++actionGroups_itr) {
+                                                 auto actionGroups_mapkey_ret = actionGroups_itr->first;
+                                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+                                                 QByteArray actionGroups_mapkey_b = actionGroups_mapkey_ret.toUtf8();
+                                                 libqt_string actionGroups_mapkey_str;
+                                                 actionGroups_mapkey_str.len = actionGroups_mapkey_b.length();
+                                                 actionGroups_mapkey_str.data = static_cast<const char*>(malloc(actionGroups_mapkey_str.len + 1));
+                                                 memcpy((void*)actionGroups_mapkey_str.data, actionGroups_mapkey_b.data(), actionGroups_mapkey_str.len);
+                                                 ((char*)actionGroups_mapkey_str.data)[actionGroups_mapkey_str.len] = '\0';
+                                                 actionGroups_karr[actionGroups_ctr] = actionGroups_mapkey_str;
+                                                 QList<QAction*> actionGroups_mapval_ret = actionGroups_itr->second;
+                                                 // Convert QList<> from C++ memory to manually-managed C memory
+                                                 QAction** actionGroups_mapval_arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (actionGroups_mapval_ret.size())));
+                                                 for (qsizetype i = 0; i < actionGroups_mapval_ret.size(); ++i) {
+                                                     actionGroups_mapval_arr[i] = actionGroups_mapval_ret[i];
+                                                 }
+                                                 libqt_list actionGroups_mapval_out;
+                                                 actionGroups_mapval_out.len = actionGroups_mapval_ret.size();
+                                                 actionGroups_mapval_out.data = static_cast<void*>(actionGroups_mapval_arr);
+                                                 actionGroups_varr[actionGroups_ctr] = actionGroups_mapval_out;
+                                                 actionGroups_ctr++;
+                                             }
+                                             libqt_map actionGroups_out;
+                                             actionGroups_out.len = actionGroups_ret.size();
+                                             actionGroups_out.keys = static_cast<void*>(actionGroups_karr);
+                                             actionGroups_out.values = static_cast<void*>(actionGroups_varr);
+                                             libqt_map /* of libqt_string to libqt_list of QAction* */ sigval6 = actionGroups_out;
+                                             slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5, sigval6);
+                                         });
 }
 
 // Base class handler implementation

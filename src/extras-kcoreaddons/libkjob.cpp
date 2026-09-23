@@ -174,19 +174,21 @@ void KJob_InfoMessage(KJob* self, KJob* job, const libqt_string message) {
 
 void KJob_Connect_InfoMessage(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, const char*) = reinterpret_cast<void (*)(KJob*, KJob*, const char*)>(slot);
-    KJob::connect(self, &KJob::infoMessage, [self, slotFunc](KJob* job, const QString& message) {
-        KJob* sigval1 = job;
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(message_str);
-    });
+    KJob::connect(self,
+                  static_cast<void (KJob::*)(KJob*, const QString&)>(&KJob::infoMessage),
+                  [self, slotFunc](KJob* job, const QString& message) {
+                      KJob* sigval1 = job;
+                      const auto message_ret = message;
+                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                      QByteArray message_b = message_ret.toUtf8();
+                      auto message_str_len = message_b.length();
+                      const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                      memcpy((void*)message_str, message_b.data(), message_str_len);
+                      ((char*)message_str)[message_str_len] = '\0';
+                      const char* sigval2 = message_str;
+                      slotFunc(self, sigval1, sigval2);
+                      libqt_free(message_str);
+                  });
 }
 
 void KJob_Warning(KJob* self, KJob* job, const libqt_string message) {
@@ -196,19 +198,21 @@ void KJob_Warning(KJob* self, KJob* job, const libqt_string message) {
 
 void KJob_Connect_Warning(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, const char*) = reinterpret_cast<void (*)(KJob*, KJob*, const char*)>(slot);
-    KJob::connect(self, &KJob::warning, [self, slotFunc](KJob* job, const QString& message) {
-        KJob* sigval1 = job;
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(message_str);
-    });
+    KJob::connect(self,
+                  static_cast<void (KJob::*)(KJob*, const QString&)>(&KJob::warning),
+                  [self, slotFunc](KJob* job, const QString& message) {
+                      KJob* sigval1 = job;
+                      const auto message_ret = message;
+                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                      QByteArray message_b = message_ret.toUtf8();
+                      auto message_str_len = message_b.length();
+                      const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                      memcpy((void*)message_str, message_b.data(), message_str_len);
+                      ((char*)message_str)[message_str_len] = '\0';
+                      const char* sigval2 = message_str;
+                      slotFunc(self, sigval1, sigval2);
+                      libqt_free(message_str);
+                  });
 }
 
 void KJob_TotalSize(KJob* self, KJob* job, unsigned long long size) {
@@ -217,11 +221,13 @@ void KJob_TotalSize(KJob* self, KJob* job, unsigned long long size) {
 
 void KJob_Connect_TotalSize(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, unsigned long long) = reinterpret_cast<void (*)(KJob*, KJob*, unsigned long long)>(slot);
-    KJob::connect(self, &KJob::totalSize, [self, slotFunc](KJob* job, qulonglong size) {
-        KJob* sigval1 = job;
-        unsigned long long sigval2 = static_cast<unsigned long long>(size);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KJob::connect(self,
+                  static_cast<void (KJob::*)(KJob*, qulonglong)>(&KJob::totalSize),
+                  [self, slotFunc](KJob* job, qulonglong size) {
+                      KJob* sigval1 = job;
+                      unsigned long long sigval2 = static_cast<unsigned long long>(size);
+                      slotFunc(self, sigval1, sigval2);
+                  });
 }
 
 void KJob_ProcessedSize(KJob* self, KJob* job, unsigned long long size) {
@@ -230,11 +236,13 @@ void KJob_ProcessedSize(KJob* self, KJob* job, unsigned long long size) {
 
 void KJob_Connect_ProcessedSize(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, unsigned long long) = reinterpret_cast<void (*)(KJob*, KJob*, unsigned long long)>(slot);
-    KJob::connect(self, &KJob::processedSize, [self, slotFunc](KJob* job, qulonglong size) {
-        KJob* sigval1 = job;
-        unsigned long long sigval2 = static_cast<unsigned long long>(size);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KJob::connect(self,
+                  static_cast<void (KJob::*)(KJob*, qulonglong)>(&KJob::processedSize),
+                  [self, slotFunc](KJob* job, qulonglong size) {
+                      KJob* sigval1 = job;
+                      unsigned long long sigval2 = static_cast<unsigned long long>(size);
+                      slotFunc(self, sigval1, sigval2);
+                  });
 }
 
 void KJob_Speed(KJob* self, KJob* job, unsigned long speed) {
@@ -243,11 +251,13 @@ void KJob_Speed(KJob* self, KJob* job, unsigned long speed) {
 
 void KJob_Connect_Speed(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, unsigned long) = reinterpret_cast<void (*)(KJob*, KJob*, unsigned long)>(slot);
-    KJob::connect(self, &KJob::speed, [self, slotFunc](KJob* job, unsigned long speed) {
-        KJob* sigval1 = job;
-        unsigned long sigval2 = speed;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KJob::connect(self,
+                  static_cast<void (KJob::*)(KJob*, unsigned long)>(&KJob::speed),
+                  [self, slotFunc](KJob* job, unsigned long speed) {
+                      KJob* sigval1 = job;
+                      unsigned long sigval2 = speed;
+                      slotFunc(self, sigval1, sigval2);
+                  });
 }
 
 libqt_string KJob_Tr2(const char* s, const char* c) {

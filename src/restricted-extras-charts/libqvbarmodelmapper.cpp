@@ -99,9 +99,11 @@ void QVBarModelMapper_SeriesReplaced(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_SeriesReplaced(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::seriesReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::seriesReplaced),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QVBarModelMapper_ModelReplaced(QVBarModelMapper* self) {
@@ -110,9 +112,11 @@ void QVBarModelMapper_ModelReplaced(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_ModelReplaced(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::modelReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::modelReplaced),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QVBarModelMapper_FirstBarSetColumnChanged(QVBarModelMapper* self) {
@@ -121,9 +125,11 @@ void QVBarModelMapper_FirstBarSetColumnChanged(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_FirstBarSetColumnChanged(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::firstBarSetColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::firstBarSetColumnChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QVBarModelMapper_LastBarSetColumnChanged(QVBarModelMapper* self) {
@@ -132,9 +138,11 @@ void QVBarModelMapper_LastBarSetColumnChanged(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_LastBarSetColumnChanged(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::lastBarSetColumnChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::lastBarSetColumnChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QVBarModelMapper_FirstRowChanged(QVBarModelMapper* self) {
@@ -143,9 +151,11 @@ void QVBarModelMapper_FirstRowChanged(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_FirstRowChanged(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::firstRowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::firstRowChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QVBarModelMapper_RowCountChanged(QVBarModelMapper* self) {
@@ -154,9 +164,11 @@ void QVBarModelMapper_RowCountChanged(QVBarModelMapper* self) {
 
 void QVBarModelMapper_Connect_RowCountChanged(QVBarModelMapper* self, intptr_t slot) {
     void (*slotFunc)(QVBarModelMapper*) = reinterpret_cast<void (*)(QVBarModelMapper*)>(slot);
-    QVBarModelMapper::connect(self, &QVBarModelMapper::rowCountChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVBarModelMapper::connect(self,
+                              static_cast<void (QVBarModelMapper::*)()>(&QVBarModelMapper::rowCountChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string QVBarModelMapper_Tr2(const char* s, const char* c) {

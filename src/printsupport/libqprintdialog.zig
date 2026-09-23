@@ -597,6 +597,22 @@ pub const QPrintDialog = extern struct {
         qtc.QPrintDialog_Accepted(@ptrCast(self.ptr), @ptrCast(_printer.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintdialog.html#accepted)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QPrintDialog `
+    ///
+    /// ` callback: *const fn (self: QPrintDialog, printer: QPrinter) callconv(.c) void `
+    ///
+    pub fn onAccepted(self: QPrintDialog, callback: *const fn (QPrintDialog, QPrinter) callconv(.c) void) void {
+        qtc.QPrintDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `tr2` instead
     ///
     pub const Tr2 = tr2;

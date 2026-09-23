@@ -173,10 +173,12 @@ void KDualAction_ActiveChanged(KDualAction* self, bool param1) {
 
 void KDualAction_Connect_ActiveChanged(KDualAction* self, intptr_t slot) {
     void (*slotFunc)(KDualAction*, bool) = reinterpret_cast<void (*)(KDualAction*, bool)>(slot);
-    KDualAction::connect(self, &KDualAction::activeChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KDualAction::connect(self,
+                         static_cast<void (KDualAction::*)(bool)>(&KDualAction::activeChanged),
+                         [self, slotFunc](bool param1) {
+                             bool sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KDualAction_ActiveChangedByUser(KDualAction* self, bool param1) {
@@ -185,10 +187,12 @@ void KDualAction_ActiveChangedByUser(KDualAction* self, bool param1) {
 
 void KDualAction_Connect_ActiveChangedByUser(KDualAction* self, intptr_t slot) {
     void (*slotFunc)(KDualAction*, bool) = reinterpret_cast<void (*)(KDualAction*, bool)>(slot);
-    KDualAction::connect(self, &KDualAction::activeChangedByUser, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KDualAction::connect(self,
+                         static_cast<void (KDualAction::*)(bool)>(&KDualAction::activeChangedByUser),
+                         [self, slotFunc](bool param1) {
+                             bool sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string KDualAction_Tr2(const char* s, const char* c) {

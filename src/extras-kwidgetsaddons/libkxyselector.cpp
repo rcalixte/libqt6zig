@@ -113,11 +113,13 @@ void KXYSelector_ValueChanged(KXYSelector* self, int x, int y) {
 
 void KXYSelector_Connect_ValueChanged(KXYSelector* self, intptr_t slot) {
     void (*slotFunc)(KXYSelector*, int, int) = reinterpret_cast<void (*)(KXYSelector*, int, int)>(slot);
-    KXYSelector::connect(self, &KXYSelector::valueChanged, [self, slotFunc](int x, int y) {
-        int sigval1 = x;
-        int sigval2 = y;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KXYSelector::connect(self,
+                         static_cast<void (KXYSelector::*)(int, int)>(&KXYSelector::valueChanged),
+                         [self, slotFunc](int x, int y) {
+                             int sigval1 = x;
+                             int sigval2 = y;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void KXYSelector_DrawContents(KXYSelector* self, QPainter* param1) {

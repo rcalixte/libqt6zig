@@ -171,9 +171,11 @@ void QLowEnergyController_Connected(QLowEnergyController* self) {
 
 void QLowEnergyController_Connect_Connected(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*) = reinterpret_cast<void (*)(QLowEnergyController*)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::connected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)()>(&QLowEnergyController::connected),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QLowEnergyController_Disconnected(QLowEnergyController* self) {
@@ -182,9 +184,11 @@ void QLowEnergyController_Disconnected(QLowEnergyController* self) {
 
 void QLowEnergyController_Connect_Disconnected(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*) = reinterpret_cast<void (*)(QLowEnergyController*)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::disconnected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)()>(&QLowEnergyController::disconnected),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QLowEnergyController_StateChanged(QLowEnergyController* self, int state) {
@@ -193,10 +197,12 @@ void QLowEnergyController_StateChanged(QLowEnergyController* self, int state) {
 
 void QLowEnergyController_Connect_StateChanged(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, int) = reinterpret_cast<void (*)(QLowEnergyController*, int)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::stateChanged, [self, slotFunc](QLowEnergyController::ControllerState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(QLowEnergyController::ControllerState)>(&QLowEnergyController::stateChanged),
+                                  [self, slotFunc](QLowEnergyController::ControllerState state) {
+                                      int sigval1 = static_cast<int>(state);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void QLowEnergyController_ErrorOccurred(QLowEnergyController* self, int newError) {
@@ -205,10 +211,12 @@ void QLowEnergyController_ErrorOccurred(QLowEnergyController* self, int newError
 
 void QLowEnergyController_Connect_ErrorOccurred(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, int) = reinterpret_cast<void (*)(QLowEnergyController*, int)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::errorOccurred, [self, slotFunc](QLowEnergyController::Error newError) {
-        int sigval1 = static_cast<int>(newError);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::errorOccurred),
+                                  [self, slotFunc](QLowEnergyController::Error newError) {
+                                      int sigval1 = static_cast<int>(newError);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void QLowEnergyController_MtuChanged(QLowEnergyController* self, int mtu) {
@@ -217,10 +225,12 @@ void QLowEnergyController_MtuChanged(QLowEnergyController* self, int mtu) {
 
 void QLowEnergyController_Connect_MtuChanged(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, int) = reinterpret_cast<void (*)(QLowEnergyController*, int)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::mtuChanged, [self, slotFunc](int mtu) {
-        int sigval1 = mtu;
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(int)>(&QLowEnergyController::mtuChanged),
+                                  [self, slotFunc](int mtu) {
+                                      int sigval1 = mtu;
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void QLowEnergyController_RssiRead(QLowEnergyController* self, int16_t rssi) {
@@ -229,10 +239,12 @@ void QLowEnergyController_RssiRead(QLowEnergyController* self, int16_t rssi) {
 
 void QLowEnergyController_Connect_RssiRead(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, int16_t) = reinterpret_cast<void (*)(QLowEnergyController*, int16_t)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::rssiRead, [self, slotFunc](qint16 rssi) {
-        int16_t sigval1 = static_cast<int16_t>(rssi);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(qint16)>(&QLowEnergyController::rssiRead),
+                                  [self, slotFunc](qint16 rssi) {
+                                      int16_t sigval1 = static_cast<int16_t>(rssi);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void QLowEnergyController_ServiceDiscovered(QLowEnergyController* self, const QBluetoothUuid* newService) {
@@ -241,12 +253,14 @@ void QLowEnergyController_ServiceDiscovered(QLowEnergyController* self, const QB
 
 void QLowEnergyController_Connect_ServiceDiscovered(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, QBluetoothUuid*) = reinterpret_cast<void (*)(QLowEnergyController*, QBluetoothUuid*)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::serviceDiscovered, [self, slotFunc](const QBluetoothUuid& newService) {
-        const QBluetoothUuid& newService_ret = newService;
-        // Cast returned reference into pointer
-        QBluetoothUuid* sigval1 = const_cast<QBluetoothUuid*>(&newService_ret);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(const QBluetoothUuid&)>(&QLowEnergyController::serviceDiscovered),
+                                  [self, slotFunc](const QBluetoothUuid& newService) {
+                                      const QBluetoothUuid& newService_ret = newService;
+                                      // Cast returned reference into pointer
+                                      QBluetoothUuid* sigval1 = const_cast<QBluetoothUuid*>(&newService_ret);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void QLowEnergyController_DiscoveryFinished(QLowEnergyController* self) {
@@ -255,9 +269,11 @@ void QLowEnergyController_DiscoveryFinished(QLowEnergyController* self) {
 
 void QLowEnergyController_Connect_DiscoveryFinished(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*) = reinterpret_cast<void (*)(QLowEnergyController*)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::discoveryFinished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)()>(&QLowEnergyController::discoveryFinished),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QLowEnergyController_ConnectionUpdated(QLowEnergyController* self, const QLowEnergyConnectionParameters* parameters) {
@@ -266,12 +282,14 @@ void QLowEnergyController_ConnectionUpdated(QLowEnergyController* self, const QL
 
 void QLowEnergyController_Connect_ConnectionUpdated(QLowEnergyController* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyController*, QLowEnergyConnectionParameters*) = reinterpret_cast<void (*)(QLowEnergyController*, QLowEnergyConnectionParameters*)>(slot);
-    QLowEnergyController::connect(self, &QLowEnergyController::connectionUpdated, [self, slotFunc](const QLowEnergyConnectionParameters& parameters) {
-        const QLowEnergyConnectionParameters& parameters_ret = parameters;
-        // Cast returned reference into pointer
-        QLowEnergyConnectionParameters* sigval1 = const_cast<QLowEnergyConnectionParameters*>(&parameters_ret);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyController::connect(self,
+                                  static_cast<void (QLowEnergyController::*)(const QLowEnergyConnectionParameters&)>(&QLowEnergyController::connectionUpdated),
+                                  [self, slotFunc](const QLowEnergyConnectionParameters& parameters) {
+                                      const QLowEnergyConnectionParameters& parameters_ret = parameters;
+                                      // Cast returned reference into pointer
+                                      QLowEnergyConnectionParameters* sigval1 = const_cast<QLowEnergyConnectionParameters*>(&parameters_ret);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 libqt_string QLowEnergyController_Tr2(const char* s, const char* c) {

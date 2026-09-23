@@ -155,15 +155,17 @@ void QPointingDevice_GrabChanged(const QPointingDevice* self, QObject* grabber, 
 
 void QPointingDevice_Connect_GrabChanged(const QPointingDevice* self, intptr_t slot) {
     void (*slotFunc)(const QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*) = reinterpret_cast<void (*)(const QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*)>(slot);
-    QPointingDevice::connect(self, &QPointingDevice::grabChanged, [self, slotFunc](QObject* grabber, QPointingDevice::GrabTransition transition, const QPointerEvent* event, const QEventPoint& point) {
-        QObject* sigval1 = grabber;
-        int sigval2 = static_cast<int>(transition);
-        QPointerEvent* sigval3 = (QPointerEvent*)event;
-        const QEventPoint& point_ret = point;
-        // Cast returned reference into pointer
-        QEventPoint* sigval4 = const_cast<QEventPoint*>(&point_ret);
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-    });
+    QPointingDevice::connect(self,
+                             static_cast<void (QPointingDevice::*)(QObject*, QPointingDevice::GrabTransition, const QPointerEvent*, const QEventPoint&) const>(&QPointingDevice::grabChanged),
+                             [self, slotFunc](QObject* grabber, QPointingDevice::GrabTransition transition, const QPointerEvent* event, const QEventPoint& point) {
+                                 QObject* sigval1 = grabber;
+                                 int sigval2 = static_cast<int>(transition);
+                                 QPointerEvent* sigval3 = (QPointerEvent*)event;
+                                 const QEventPoint& point_ret = point;
+                                 // Cast returned reference into pointer
+                                 QEventPoint* sigval4 = const_cast<QEventPoint*>(&point_ret);
+                                 slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                             });
 }
 
 libqt_string QPointingDevice_Tr2(const char* s, const char* c) {

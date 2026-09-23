@@ -53,13 +53,15 @@ void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* 
 
 void QWebChannelAbstractTransport_Connect_MessageReceived(QWebChannelAbstractTransport* self, intptr_t slot) {
     void (*slotFunc)(QWebChannelAbstractTransport*, QJsonObject*, QWebChannelAbstractTransport*) = reinterpret_cast<void (*)(QWebChannelAbstractTransport*, QJsonObject*, QWebChannelAbstractTransport*)>(slot);
-    QWebChannelAbstractTransport::connect(self, &QWebChannelAbstractTransport::messageReceived, [self, slotFunc](const QJsonObject& message, QWebChannelAbstractTransport* transport) {
-        const QJsonObject& message_ret = message;
-        // Cast returned reference into pointer
-        QJsonObject* sigval1 = const_cast<QJsonObject*>(&message_ret);
-        QWebChannelAbstractTransport* sigval2 = transport;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QWebChannelAbstractTransport::connect(self,
+                                          static_cast<void (QWebChannelAbstractTransport::*)(const QJsonObject&, QWebChannelAbstractTransport*)>(&QWebChannelAbstractTransport::messageReceived),
+                                          [self, slotFunc](const QJsonObject& message, QWebChannelAbstractTransport* transport) {
+                                              const QJsonObject& message_ret = message;
+                                              // Cast returned reference into pointer
+                                              QJsonObject* sigval1 = const_cast<QJsonObject*>(&message_ret);
+                                              QWebChannelAbstractTransport* sigval2 = transport;
+                                              slotFunc(self, sigval1, sigval2);
+                                          });
 }
 
 libqt_string QWebChannelAbstractTransport_Tr2(const char* s, const char* c) {

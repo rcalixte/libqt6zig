@@ -140,12 +140,14 @@ void KRecentFilesMenu_UrlTriggered(KRecentFilesMenu* self, const QUrl* url) {
 
 void KRecentFilesMenu_Connect_UrlTriggered(KRecentFilesMenu* self, intptr_t slot) {
     void (*slotFunc)(KRecentFilesMenu*, QUrl*) = reinterpret_cast<void (*)(KRecentFilesMenu*, QUrl*)>(slot);
-    KRecentFilesMenu::connect(self, &KRecentFilesMenu::urlTriggered, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    KRecentFilesMenu::connect(self,
+                              static_cast<void (KRecentFilesMenu::*)(const QUrl&)>(&KRecentFilesMenu::urlTriggered),
+                              [self, slotFunc](const QUrl& url) {
+                                  const QUrl& url_ret = url;
+                                  // Cast returned reference into pointer
+                                  QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void KRecentFilesMenu_RecentFilesChanged(KRecentFilesMenu* self) {
@@ -154,9 +156,11 @@ void KRecentFilesMenu_RecentFilesChanged(KRecentFilesMenu* self) {
 
 void KRecentFilesMenu_Connect_RecentFilesChanged(KRecentFilesMenu* self, intptr_t slot) {
     void (*slotFunc)(KRecentFilesMenu*) = reinterpret_cast<void (*)(KRecentFilesMenu*)>(slot);
-    KRecentFilesMenu::connect(self, &KRecentFilesMenu::recentFilesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KRecentFilesMenu::connect(self,
+                              static_cast<void (KRecentFilesMenu::*)()>(&KRecentFilesMenu::recentFilesChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string KRecentFilesMenu_Tr2(const char* s, const char* c) {

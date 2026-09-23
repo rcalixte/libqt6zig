@@ -68,10 +68,12 @@ void KFontSizeAction_FontSizeChanged(KFontSizeAction* self, int param1) {
 
 void KFontSizeAction_Connect_FontSizeChanged(KFontSizeAction* self, intptr_t slot) {
     void (*slotFunc)(KFontSizeAction*, int) = reinterpret_cast<void (*)(KFontSizeAction*, int)>(slot);
-    KFontSizeAction::connect(self, &KFontSizeAction::fontSizeChanged, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KFontSizeAction::connect(self,
+                             static_cast<void (KFontSizeAction::*)(int)>(&KFontSizeAction::fontSizeChanged),
+                             [self, slotFunc](int param1) {
+                                 int sigval1 = param1;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action) {

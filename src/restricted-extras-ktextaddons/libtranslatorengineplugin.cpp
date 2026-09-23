@@ -153,9 +153,11 @@ void TextTranslator__TranslatorEnginePlugin_TranslateDone(TextTranslator__Transl
 
 void TextTranslator__TranslatorEnginePlugin_Connect_TranslateDone(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorEnginePlugin*) = reinterpret_cast<void (*)(TextTranslator__TranslatorEnginePlugin*)>(slot);
-    TextTranslator::TranslatorEnginePlugin::connect(self, &TextTranslator::TranslatorEnginePlugin::translateDone, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorEnginePlugin::connect(self,
+                                                    static_cast<void (TextTranslator::TranslatorEnginePlugin::*)()>(&TextTranslator::TranslatorEnginePlugin::translateDone),
+                                                    [self, slotFunc]() {
+                                                        slotFunc(self);
+                                                    });
 }
 
 void TextTranslator__TranslatorEnginePlugin_TranslateFailed(TextTranslator__TranslatorEnginePlugin* self, const libqt_string errorMessage) {
@@ -165,18 +167,20 @@ void TextTranslator__TranslatorEnginePlugin_TranslateFailed(TextTranslator__Tran
 
 void TextTranslator__TranslatorEnginePlugin_Connect_TranslateFailed(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorEnginePlugin*, const char*) = reinterpret_cast<void (*)(TextTranslator__TranslatorEnginePlugin*, const char*)>(slot);
-    TextTranslator::TranslatorEnginePlugin::connect(self, &TextTranslator::TranslatorEnginePlugin::translateFailed, [self, slotFunc](const QString& errorMessage) {
-        const auto errorMessage_ret = errorMessage;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorMessage_b = errorMessage_ret.toUtf8();
-        auto errorMessage_str_len = errorMessage_b.length();
-        const char* errorMessage_str = static_cast<const char*>(malloc(errorMessage_str_len + 1));
-        memcpy((void*)errorMessage_str, errorMessage_b.data(), errorMessage_str_len);
-        ((char*)errorMessage_str)[errorMessage_str_len] = '\0';
-        const char* sigval1 = errorMessage_str;
-        slotFunc(self, sigval1);
-        libqt_free(errorMessage_str);
-    });
+    TextTranslator::TranslatorEnginePlugin::connect(self,
+                                                    static_cast<void (TextTranslator::TranslatorEnginePlugin::*)(const QString&)>(&TextTranslator::TranslatorEnginePlugin::translateFailed),
+                                                    [self, slotFunc](const QString& errorMessage) {
+                                                        const auto errorMessage_ret = errorMessage;
+                                                        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                        QByteArray errorMessage_b = errorMessage_ret.toUtf8();
+                                                        auto errorMessage_str_len = errorMessage_b.length();
+                                                        const char* errorMessage_str = static_cast<const char*>(malloc(errorMessage_str_len + 1));
+                                                        memcpy((void*)errorMessage_str, errorMessage_b.data(), errorMessage_str_len);
+                                                        ((char*)errorMessage_str)[errorMessage_str_len] = '\0';
+                                                        const char* sigval1 = errorMessage_str;
+                                                        slotFunc(self, sigval1);
+                                                        libqt_free(errorMessage_str);
+                                                    });
 }
 
 void TextTranslator__TranslatorEnginePlugin_LanguagesChanged(TextTranslator__TranslatorEnginePlugin* self) {
@@ -185,9 +189,11 @@ void TextTranslator__TranslatorEnginePlugin_LanguagesChanged(TextTranslator__Tra
 
 void TextTranslator__TranslatorEnginePlugin_Connect_LanguagesChanged(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorEnginePlugin*) = reinterpret_cast<void (*)(TextTranslator__TranslatorEnginePlugin*)>(slot);
-    TextTranslator::TranslatorEnginePlugin::connect(self, &TextTranslator::TranslatorEnginePlugin::languagesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorEnginePlugin::connect(self,
+                                                    static_cast<void (TextTranslator::TranslatorEnginePlugin::*)()>(&TextTranslator::TranslatorEnginePlugin::languagesChanged),
+                                                    [self, slotFunc]() {
+                                                        slotFunc(self);
+                                                    });
 }
 
 libqt_string TextTranslator__TranslatorEnginePlugin_LanguageCode(TextTranslator__TranslatorEnginePlugin* self, const libqt_string langStr) {

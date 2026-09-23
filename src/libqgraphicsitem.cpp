@@ -1867,9 +1867,11 @@ void QGraphicsObject_ParentChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_ParentChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::parentChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::parentChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_OpacityChanged(QGraphicsObject* self) {
@@ -1878,9 +1880,11 @@ void QGraphicsObject_OpacityChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_OpacityChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::opacityChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::opacityChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_VisibleChanged(QGraphicsObject* self) {
@@ -1889,9 +1893,11 @@ void QGraphicsObject_VisibleChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_VisibleChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::visibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::visibleChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_EnabledChanged(QGraphicsObject* self) {
@@ -1900,9 +1906,11 @@ void QGraphicsObject_EnabledChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_EnabledChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::enabledChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::enabledChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_XChanged(QGraphicsObject* self) {
@@ -1911,9 +1919,11 @@ void QGraphicsObject_XChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_XChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::xChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::xChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_YChanged(QGraphicsObject* self) {
@@ -1922,9 +1932,11 @@ void QGraphicsObject_YChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_YChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::yChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::yChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_ZChanged(QGraphicsObject* self) {
@@ -1933,9 +1945,11 @@ void QGraphicsObject_ZChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_ZChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::zChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::zChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_RotationChanged(QGraphicsObject* self) {
@@ -1944,9 +1958,11 @@ void QGraphicsObject_RotationChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_RotationChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::rotationChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::rotationChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_ScaleChanged(QGraphicsObject* self) {
@@ -1955,9 +1971,11 @@ void QGraphicsObject_ScaleChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_ScaleChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::scaleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::scaleChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_ChildrenChanged(QGraphicsObject* self) {
@@ -1966,9 +1984,11 @@ void QGraphicsObject_ChildrenChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_ChildrenChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::childrenChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::childrenChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_WidthChanged(QGraphicsObject* self) {
@@ -1977,9 +1997,11 @@ void QGraphicsObject_WidthChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_WidthChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::widthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::widthChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QGraphicsObject_HeightChanged(QGraphicsObject* self) {
@@ -1988,9 +2010,11 @@ void QGraphicsObject_HeightChanged(QGraphicsObject* self) {
 
 void QGraphicsObject_Connect_HeightChanged(QGraphicsObject* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsObject*) = reinterpret_cast<void (*)(QGraphicsObject*)>(slot);
-    QGraphicsObject::connect(self, &QGraphicsObject::heightChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QGraphicsObject::connect(self,
+                             static_cast<void (QGraphicsObject::*)()>(&QGraphicsObject::heightChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev) {
@@ -11244,18 +11268,20 @@ void QGraphicsTextItem_LinkActivated(QGraphicsTextItem* self, const libqt_string
 
 void QGraphicsTextItem_Connect_LinkActivated(QGraphicsTextItem* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsTextItem*, const char*) = reinterpret_cast<void (*)(QGraphicsTextItem*, const char*)>(slot);
-    QGraphicsTextItem::connect(self, &QGraphicsTextItem::linkActivated, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QGraphicsTextItem::connect(self,
+                               static_cast<void (QGraphicsTextItem::*)(const QString&)>(&QGraphicsTextItem::linkActivated),
+                               [self, slotFunc](const QString& param1) {
+                                   const auto param1_ret = param1;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray param1_b = param1_ret.toUtf8();
+                                   auto param1_str_len = param1_b.length();
+                                   const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                   memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                   ((char*)param1_str)[param1_str_len] = '\0';
+                                   const char* sigval1 = param1_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(param1_str);
+                               });
 }
 
 void QGraphicsTextItem_LinkHovered(QGraphicsTextItem* self, const libqt_string param1) {
@@ -11265,18 +11291,20 @@ void QGraphicsTextItem_LinkHovered(QGraphicsTextItem* self, const libqt_string p
 
 void QGraphicsTextItem_Connect_LinkHovered(QGraphicsTextItem* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsTextItem*, const char*) = reinterpret_cast<void (*)(QGraphicsTextItem*, const char*)>(slot);
-    QGraphicsTextItem::connect(self, &QGraphicsTextItem::linkHovered, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QGraphicsTextItem::connect(self,
+                               static_cast<void (QGraphicsTextItem::*)(const QString&)>(&QGraphicsTextItem::linkHovered),
+                               [self, slotFunc](const QString& param1) {
+                                   const auto param1_ret = param1;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray param1_b = param1_ret.toUtf8();
+                                   auto param1_str_len = param1_b.length();
+                                   const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                   memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                   ((char*)param1_str)[param1_str_len] = '\0';
+                                   const char* sigval1 = param1_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(param1_str);
+                               });
 }
 
 bool QGraphicsTextItem_SceneEvent(QGraphicsTextItem* self, QEvent* event) {

@@ -275,13 +275,15 @@ void QNetworkAccessManager_ProxyAuthenticationRequired(QNetworkAccessManager* se
 
 void QNetworkAccessManager_Connect_ProxyAuthenticationRequired(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkProxy*, QAuthenticator*) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkProxy*, QAuthenticator*)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::proxyAuthenticationRequired, [self, slotFunc](const QNetworkProxy& proxy, QAuthenticator* authenticator) {
-        const QNetworkProxy& proxy_ret = proxy;
-        // Cast returned reference into pointer
-        QNetworkProxy* sigval1 = const_cast<QNetworkProxy*>(&proxy_ret);
-        QAuthenticator* sigval2 = authenticator;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(const QNetworkProxy&, QAuthenticator*)>(&QNetworkAccessManager::proxyAuthenticationRequired),
+                                   [self, slotFunc](const QNetworkProxy& proxy, QAuthenticator* authenticator) {
+                                       const QNetworkProxy& proxy_ret = proxy;
+                                       // Cast returned reference into pointer
+                                       QNetworkProxy* sigval1 = const_cast<QNetworkProxy*>(&proxy_ret);
+                                       QAuthenticator* sigval2 = authenticator;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void QNetworkAccessManager_AuthenticationRequired(QNetworkAccessManager* self, QNetworkReply* reply, QAuthenticator* authenticator) {
@@ -290,11 +292,13 @@ void QNetworkAccessManager_AuthenticationRequired(QNetworkAccessManager* self, Q
 
 void QNetworkAccessManager_Connect_AuthenticationRequired(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, QAuthenticator*) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, QAuthenticator*)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::authenticationRequired, [self, slotFunc](QNetworkReply* reply, QAuthenticator* authenticator) {
-        QNetworkReply* sigval1 = reply;
-        QAuthenticator* sigval2 = authenticator;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(QNetworkReply*, QAuthenticator*)>(&QNetworkAccessManager::authenticationRequired),
+                                   [self, slotFunc](QNetworkReply* reply, QAuthenticator* authenticator) {
+                                       QNetworkReply* sigval1 = reply;
+                                       QAuthenticator* sigval2 = authenticator;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void QNetworkAccessManager_Finished(QNetworkAccessManager* self, QNetworkReply* reply) {
@@ -303,10 +307,12 @@ void QNetworkAccessManager_Finished(QNetworkAccessManager* self, QNetworkReply* 
 
 void QNetworkAccessManager_Connect_Finished(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::finished, [self, slotFunc](QNetworkReply* reply) {
-        QNetworkReply* sigval1 = reply;
-        slotFunc(self, sigval1);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(QNetworkReply*)>(&QNetworkAccessManager::finished),
+                                   [self, slotFunc](QNetworkReply* reply) {
+                                       QNetworkReply* sigval1 = reply;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QNetworkAccessManager_Encrypted(QNetworkAccessManager* self, QNetworkReply* reply) {
@@ -315,10 +321,12 @@ void QNetworkAccessManager_Encrypted(QNetworkAccessManager* self, QNetworkReply*
 
 void QNetworkAccessManager_Connect_Encrypted(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::encrypted, [self, slotFunc](QNetworkReply* reply) {
-        QNetworkReply* sigval1 = reply;
-        slotFunc(self, sigval1);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(QNetworkReply*)>(&QNetworkAccessManager::encrypted),
+                                   [self, slotFunc](QNetworkReply* reply) {
+                                       QNetworkReply* sigval1 = reply;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QNetworkAccessManager_SslErrors(QNetworkAccessManager* self, QNetworkReply* reply, const libqt_list /* of QSslError* */ errors) {
@@ -333,21 +341,23 @@ void QNetworkAccessManager_SslErrors(QNetworkAccessManager* self, QNetworkReply*
 
 void QNetworkAccessManager_Connect_SslErrors(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::sslErrors, [self, slotFunc](QNetworkReply* reply, const QList<QSslError>& errors) {
-        QNetworkReply* sigval1 = reply;
-        const QList<QSslError>& errors_ret = errors;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
-        for (qsizetype i = 0; i < errors_ret.size(); ++i) {
-            errors_arr[i] = new QSslError(errors_ret[i]);
-        }
-        libqt_list errors_out;
-        errors_out.len = errors_ret.size();
-        errors_out.data = static_cast<void*>(errors_arr);
-        libqt_list /* of QSslError* */ sigval2 = errors_out;
-        slotFunc(self, sigval1, sigval2);
-        free(errors_arr);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(QNetworkReply*, const QList<QSslError>&)>(&QNetworkAccessManager::sslErrors),
+                                   [self, slotFunc](QNetworkReply* reply, const QList<QSslError>& errors) {
+                                       QNetworkReply* sigval1 = reply;
+                                       const QList<QSslError>& errors_ret = errors;
+                                       // Convert QList<> from C++ memory to manually-managed C memory
+                                       QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
+                                       for (qsizetype i = 0; i < errors_ret.size(); ++i) {
+                                           errors_arr[i] = new QSslError(errors_ret[i]);
+                                       }
+                                       libqt_list errors_out;
+                                       errors_out.len = errors_ret.size();
+                                       errors_out.data = static_cast<void*>(errors_arr);
+                                       libqt_list /* of QSslError* */ sigval2 = errors_out;
+                                       slotFunc(self, sigval1, sigval2);
+                                       free(errors_arr);
+                                   });
 }
 
 void QNetworkAccessManager_PreSharedKeyAuthenticationRequired(QNetworkAccessManager* self, QNetworkReply* reply, QSslPreSharedKeyAuthenticator* authenticator) {
@@ -356,11 +366,13 @@ void QNetworkAccessManager_PreSharedKeyAuthenticationRequired(QNetworkAccessMana
 
 void QNetworkAccessManager_Connect_PreSharedKeyAuthenticationRequired(QNetworkAccessManager* self, intptr_t slot) {
     void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, QSslPreSharedKeyAuthenticator*) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, QSslPreSharedKeyAuthenticator*)>(slot);
-    QNetworkAccessManager::connect(self, &QNetworkAccessManager::preSharedKeyAuthenticationRequired, [self, slotFunc](QNetworkReply* reply, QSslPreSharedKeyAuthenticator* authenticator) {
-        QNetworkReply* sigval1 = reply;
-        QSslPreSharedKeyAuthenticator* sigval2 = authenticator;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QNetworkAccessManager::connect(self,
+                                   static_cast<void (QNetworkAccessManager::*)(QNetworkReply*, QSslPreSharedKeyAuthenticator*)>(&QNetworkAccessManager::preSharedKeyAuthenticationRequired),
+                                   [self, slotFunc](QNetworkReply* reply, QSslPreSharedKeyAuthenticator* authenticator) {
+                                       QNetworkReply* sigval1 = reply;
+                                       QSslPreSharedKeyAuthenticator* sigval2 = authenticator;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 QNetworkReply* QNetworkAccessManager_CreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData) {

@@ -170,9 +170,11 @@ void KHistoryComboBox_Cleared(KHistoryComboBox* self) {
 
 void KHistoryComboBox_Connect_Cleared(KHistoryComboBox* self, intptr_t slot) {
     void (*slotFunc)(KHistoryComboBox*) = reinterpret_cast<void (*)(KHistoryComboBox*)>(slot);
-    KHistoryComboBox::connect(self, &KHistoryComboBox::cleared, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KHistoryComboBox::connect(self,
+                              static_cast<void (KHistoryComboBox::*)()>(&KHistoryComboBox::cleared),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void KHistoryComboBox_KeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1) {

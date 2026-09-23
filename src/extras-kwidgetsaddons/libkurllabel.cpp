@@ -199,9 +199,11 @@ void KUrlLabel_EnteredUrl(KUrlLabel* self) {
 
 void KUrlLabel_Connect_EnteredUrl(KUrlLabel* self, intptr_t slot) {
     void (*slotFunc)(KUrlLabel*) = reinterpret_cast<void (*)(KUrlLabel*)>(slot);
-    KUrlLabel::connect(self, &KUrlLabel::enteredUrl, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlLabel::connect(self,
+                       static_cast<void (KUrlLabel::*)()>(&KUrlLabel::enteredUrl),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KUrlLabel_LeftUrl(KUrlLabel* self) {
@@ -210,9 +212,11 @@ void KUrlLabel_LeftUrl(KUrlLabel* self) {
 
 void KUrlLabel_Connect_LeftUrl(KUrlLabel* self, intptr_t slot) {
     void (*slotFunc)(KUrlLabel*) = reinterpret_cast<void (*)(KUrlLabel*)>(slot);
-    KUrlLabel::connect(self, &KUrlLabel::leftUrl, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlLabel::connect(self,
+                       static_cast<void (KUrlLabel::*)()>(&KUrlLabel::leftUrl),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KUrlLabel_LeftClickedUrl(KUrlLabel* self) {
@@ -221,9 +225,11 @@ void KUrlLabel_LeftClickedUrl(KUrlLabel* self) {
 
 void KUrlLabel_Connect_LeftClickedUrl(KUrlLabel* self, intptr_t slot) {
     void (*slotFunc)(KUrlLabel*) = reinterpret_cast<void (*)(KUrlLabel*)>(slot);
-    KUrlLabel::connect(self, &KUrlLabel::leftClickedUrl, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlLabel::connect(self,
+                       static_cast<void (KUrlLabel::*)()>(&KUrlLabel::leftClickedUrl),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KUrlLabel_RightClickedUrl(KUrlLabel* self) {
@@ -232,9 +238,11 @@ void KUrlLabel_RightClickedUrl(KUrlLabel* self) {
 
 void KUrlLabel_Connect_RightClickedUrl(KUrlLabel* self, intptr_t slot) {
     void (*slotFunc)(KUrlLabel*) = reinterpret_cast<void (*)(KUrlLabel*)>(slot);
-    KUrlLabel::connect(self, &KUrlLabel::rightClickedUrl, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlLabel::connect(self,
+                       static_cast<void (KUrlLabel::*)()>(&KUrlLabel::rightClickedUrl),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KUrlLabel_MiddleClickedUrl(KUrlLabel* self) {
@@ -243,9 +251,11 @@ void KUrlLabel_MiddleClickedUrl(KUrlLabel* self) {
 
 void KUrlLabel_Connect_MiddleClickedUrl(KUrlLabel* self, intptr_t slot) {
     void (*slotFunc)(KUrlLabel*) = reinterpret_cast<void (*)(KUrlLabel*)>(slot);
-    KUrlLabel::connect(self, &KUrlLabel::middleClickedUrl, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUrlLabel::connect(self,
+                       static_cast<void (KUrlLabel::*)()>(&KUrlLabel::middleClickedUrl),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KUrlLabel_MouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {

@@ -75,18 +75,20 @@ void Solid__OpticalDrive_EjectPressed(Solid__OpticalDrive* self, const libqt_str
 
 void Solid__OpticalDrive_Connect_EjectPressed(Solid__OpticalDrive* self, intptr_t slot) {
     void (*slotFunc)(Solid__OpticalDrive*, const char*) = reinterpret_cast<void (*)(Solid__OpticalDrive*, const char*)>(slot);
-    Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectPressed, [self, slotFunc](const QString& udi) {
-        const auto udi_ret = udi;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray udi_b = udi_ret.toUtf8();
-        auto udi_str_len = udi_b.length();
-        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
-        ((char*)udi_str)[udi_str_len] = '\0';
-        const char* sigval1 = udi_str;
-        slotFunc(self, sigval1);
-        libqt_free(udi_str);
-    });
+    Solid::OpticalDrive::connect(self,
+                                 static_cast<void (Solid::OpticalDrive::*)(const QString&)>(&Solid::OpticalDrive::ejectPressed),
+                                 [self, slotFunc](const QString& udi) {
+                                     const auto udi_ret = udi;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray udi_b = udi_ret.toUtf8();
+                                     auto udi_str_len = udi_b.length();
+                                     const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+                                     memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+                                     ((char*)udi_str)[udi_str_len] = '\0';
+                                     const char* sigval1 = udi_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(udi_str);
+                                 });
 }
 
 void Solid__OpticalDrive_EjectDone(Solid__OpticalDrive* self, int errorVal, QVariant* errorData, const libqt_string udi) {
@@ -96,20 +98,22 @@ void Solid__OpticalDrive_EjectDone(Solid__OpticalDrive* self, int errorVal, QVar
 
 void Solid__OpticalDrive_Connect_EjectDone(Solid__OpticalDrive* self, intptr_t slot) {
     void (*slotFunc)(Solid__OpticalDrive*, int, QVariant*, const char*) = reinterpret_cast<void (*)(Solid__OpticalDrive*, int, QVariant*, const char*)>(slot);
-    Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
-        int sigval1 = static_cast<int>(errorVal);
-        QVariant* sigval2 = new QVariant(errorData);
-        const auto udi_ret = udi;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray udi_b = udi_ret.toUtf8();
-        auto udi_str_len = udi_b.length();
-        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
-        ((char*)udi_str)[udi_str_len] = '\0';
-        const char* sigval3 = udi_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(udi_str);
-    });
+    Solid::OpticalDrive::connect(self,
+                                 static_cast<void (Solid::OpticalDrive::*)(Solid::ErrorType, QVariant, const QString&)>(&Solid::OpticalDrive::ejectDone),
+                                 [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
+                                     int sigval1 = static_cast<int>(errorVal);
+                                     QVariant* sigval2 = new QVariant(errorData);
+                                     const auto udi_ret = udi;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray udi_b = udi_ret.toUtf8();
+                                     auto udi_str_len = udi_b.length();
+                                     const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+                                     memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+                                     ((char*)udi_str)[udi_str_len] = '\0';
+                                     const char* sigval3 = udi_str;
+                                     slotFunc(self, sigval1, sigval2, sigval3);
+                                     libqt_free(udi_str);
+                                 });
 }
 
 void Solid__OpticalDrive_EjectRequested(Solid__OpticalDrive* self, const libqt_string udi) {
@@ -119,18 +123,20 @@ void Solid__OpticalDrive_EjectRequested(Solid__OpticalDrive* self, const libqt_s
 
 void Solid__OpticalDrive_Connect_EjectRequested(Solid__OpticalDrive* self, intptr_t slot) {
     void (*slotFunc)(Solid__OpticalDrive*, const char*) = reinterpret_cast<void (*)(Solid__OpticalDrive*, const char*)>(slot);
-    Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectRequested, [self, slotFunc](const QString& udi) {
-        const auto udi_ret = udi;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray udi_b = udi_ret.toUtf8();
-        auto udi_str_len = udi_b.length();
-        const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
-        memcpy((void*)udi_str, udi_b.data(), udi_str_len);
-        ((char*)udi_str)[udi_str_len] = '\0';
-        const char* sigval1 = udi_str;
-        slotFunc(self, sigval1);
-        libqt_free(udi_str);
-    });
+    Solid::OpticalDrive::connect(self,
+                                 static_cast<void (Solid::OpticalDrive::*)(const QString&)>(&Solid::OpticalDrive::ejectRequested),
+                                 [self, slotFunc](const QString& udi) {
+                                     const auto udi_ret = udi;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray udi_b = udi_ret.toUtf8();
+                                     auto udi_str_len = udi_b.length();
+                                     const char* udi_str = static_cast<const char*>(malloc(udi_str_len + 1));
+                                     memcpy((void*)udi_str, udi_b.data(), udi_str_len);
+                                     ((char*)udi_str)[udi_str_len] = '\0';
+                                     const char* sigval1 = udi_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(udi_str);
+                                 });
 }
 
 libqt_string Solid__OpticalDrive_Tr2(const char* s, const char* c) {

@@ -109,9 +109,11 @@ void QAudioEngine_OutputModeChanged(QAudioEngine* self) {
 
 void QAudioEngine_Connect_OutputModeChanged(QAudioEngine* self, intptr_t slot) {
     void (*slotFunc)(QAudioEngine*) = reinterpret_cast<void (*)(QAudioEngine*)>(slot);
-    QAudioEngine::connect(self, &QAudioEngine::outputModeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioEngine::connect(self,
+                          static_cast<void (QAudioEngine::*)()>(&QAudioEngine::outputModeChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioEngine_OutputDeviceChanged(QAudioEngine* self) {
@@ -120,9 +122,11 @@ void QAudioEngine_OutputDeviceChanged(QAudioEngine* self) {
 
 void QAudioEngine_Connect_OutputDeviceChanged(QAudioEngine* self, intptr_t slot) {
     void (*slotFunc)(QAudioEngine*) = reinterpret_cast<void (*)(QAudioEngine*)>(slot);
-    QAudioEngine::connect(self, &QAudioEngine::outputDeviceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioEngine::connect(self,
+                          static_cast<void (QAudioEngine::*)()>(&QAudioEngine::outputDeviceChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioEngine_MasterVolumeChanged(QAudioEngine* self) {
@@ -131,9 +135,11 @@ void QAudioEngine_MasterVolumeChanged(QAudioEngine* self) {
 
 void QAudioEngine_Connect_MasterVolumeChanged(QAudioEngine* self, intptr_t slot) {
     void (*slotFunc)(QAudioEngine*) = reinterpret_cast<void (*)(QAudioEngine*)>(slot);
-    QAudioEngine::connect(self, &QAudioEngine::masterVolumeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioEngine::connect(self,
+                          static_cast<void (QAudioEngine::*)()>(&QAudioEngine::masterVolumeChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioEngine_PausedChanged(QAudioEngine* self) {
@@ -142,9 +148,11 @@ void QAudioEngine_PausedChanged(QAudioEngine* self) {
 
 void QAudioEngine_Connect_PausedChanged(QAudioEngine* self, intptr_t slot) {
     void (*slotFunc)(QAudioEngine*) = reinterpret_cast<void (*)(QAudioEngine*)>(slot);
-    QAudioEngine::connect(self, &QAudioEngine::pausedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioEngine::connect(self,
+                          static_cast<void (QAudioEngine::*)()>(&QAudioEngine::pausedChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioEngine_DistanceScaleChanged(QAudioEngine* self) {
@@ -153,9 +161,11 @@ void QAudioEngine_DistanceScaleChanged(QAudioEngine* self) {
 
 void QAudioEngine_Connect_DistanceScaleChanged(QAudioEngine* self, intptr_t slot) {
     void (*slotFunc)(QAudioEngine*) = reinterpret_cast<void (*)(QAudioEngine*)>(slot);
-    QAudioEngine::connect(self, &QAudioEngine::distanceScaleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioEngine::connect(self,
+                          static_cast<void (QAudioEngine::*)()>(&QAudioEngine::distanceScaleChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QAudioEngine_Start(QAudioEngine* self) {

@@ -71,19 +71,21 @@ void KFileCopyToMenu_Error(KFileCopyToMenu* self, int errorCode, const libqt_str
 
 void KFileCopyToMenu_Connect_Error(KFileCopyToMenu* self, intptr_t slot) {
     void (*slotFunc)(KFileCopyToMenu*, int, const char*) = reinterpret_cast<void (*)(KFileCopyToMenu*, int, const char*)>(slot);
-    KFileCopyToMenu::connect(self, &KFileCopyToMenu::error, [self, slotFunc](int errorCode, const QString& message) {
-        int sigval1 = errorCode;
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(message_str);
-    });
+    KFileCopyToMenu::connect(self,
+                             static_cast<void (KFileCopyToMenu::*)(int, const QString&)>(&KFileCopyToMenu::error),
+                             [self, slotFunc](int errorCode, const QString& message) {
+                                 int sigval1 = errorCode;
+                                 const auto message_ret = message;
+                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                 QByteArray message_b = message_ret.toUtf8();
+                                 auto message_str_len = message_b.length();
+                                 const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                 memcpy((void*)message_str, message_b.data(), message_str_len);
+                                 ((char*)message_str)[message_str_len] = '\0';
+                                 const char* sigval2 = message_str;
+                                 slotFunc(self, sigval1, sigval2);
+                                 libqt_free(message_str);
+                             });
 }
 
 libqt_string KFileCopyToMenu_Tr2(const char* s, const char* c) {

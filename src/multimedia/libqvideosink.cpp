@@ -79,12 +79,14 @@ void QVideoSink_VideoFrameChanged(const QVideoSink* self, const QVideoFrame* fra
 
 void QVideoSink_Connect_VideoFrameChanged(const QVideoSink* self, intptr_t slot) {
     void (*slotFunc)(const QVideoSink*, QVideoFrame*) = reinterpret_cast<void (*)(const QVideoSink*, QVideoFrame*)>(slot);
-    QVideoSink::connect(self, &QVideoSink::videoFrameChanged, [self, slotFunc](const QVideoFrame& frame) {
-        const QVideoFrame& frame_ret = frame;
-        // Cast returned reference into pointer
-        QVideoFrame* sigval1 = const_cast<QVideoFrame*>(&frame_ret);
-        slotFunc(self, sigval1);
-    });
+    QVideoSink::connect(self,
+                        static_cast<void (QVideoSink::*)(const QVideoFrame&) const>(&QVideoSink::videoFrameChanged),
+                        [self, slotFunc](const QVideoFrame& frame) {
+                            const QVideoFrame& frame_ret = frame;
+                            // Cast returned reference into pointer
+                            QVideoFrame* sigval1 = const_cast<QVideoFrame*>(&frame_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string subtitleText) {
@@ -94,18 +96,20 @@ void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string s
 
 void QVideoSink_Connect_SubtitleTextChanged(const QVideoSink* self, intptr_t slot) {
     void (*slotFunc)(const QVideoSink*, const char*) = reinterpret_cast<void (*)(const QVideoSink*, const char*)>(slot);
-    QVideoSink::connect(self, &QVideoSink::subtitleTextChanged, [self, slotFunc](const QString& subtitleText) {
-        const auto subtitleText_ret = subtitleText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray subtitleText_b = subtitleText_ret.toUtf8();
-        auto subtitleText_str_len = subtitleText_b.length();
-        const char* subtitleText_str = static_cast<const char*>(malloc(subtitleText_str_len + 1));
-        memcpy((void*)subtitleText_str, subtitleText_b.data(), subtitleText_str_len);
-        ((char*)subtitleText_str)[subtitleText_str_len] = '\0';
-        const char* sigval1 = subtitleText_str;
-        slotFunc(self, sigval1);
-        libqt_free(subtitleText_str);
-    });
+    QVideoSink::connect(self,
+                        static_cast<void (QVideoSink::*)(const QString&) const>(&QVideoSink::subtitleTextChanged),
+                        [self, slotFunc](const QString& subtitleText) {
+                            const auto subtitleText_ret = subtitleText;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray subtitleText_b = subtitleText_ret.toUtf8();
+                            auto subtitleText_str_len = subtitleText_b.length();
+                            const char* subtitleText_str = static_cast<const char*>(malloc(subtitleText_str_len + 1));
+                            memcpy((void*)subtitleText_str, subtitleText_b.data(), subtitleText_str_len);
+                            ((char*)subtitleText_str)[subtitleText_str_len] = '\0';
+                            const char* sigval1 = subtitleText_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(subtitleText_str);
+                        });
 }
 
 void QVideoSink_VideoSizeChanged(QVideoSink* self) {
@@ -114,9 +118,11 @@ void QVideoSink_VideoSizeChanged(QVideoSink* self) {
 
 void QVideoSink_Connect_VideoSizeChanged(QVideoSink* self, intptr_t slot) {
     void (*slotFunc)(QVideoSink*) = reinterpret_cast<void (*)(QVideoSink*)>(slot);
-    QVideoSink::connect(self, &QVideoSink::videoSizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVideoSink::connect(self,
+                        static_cast<void (QVideoSink::*)()>(&QVideoSink::videoSizeChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 libqt_string QVideoSink_Tr2(const char* s, const char* c) {

@@ -150,12 +150,14 @@ void KKeySequenceWidget_KeySequenceChanged(KKeySequenceWidget* self, const QKeyS
 
 void KKeySequenceWidget_Connect_KeySequenceChanged(KKeySequenceWidget* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceWidget*, QKeySequence*) = reinterpret_cast<void (*)(KKeySequenceWidget*, QKeySequence*)>(slot);
-    KKeySequenceWidget::connect(self, &KKeySequenceWidget::keySequenceChanged, [self, slotFunc](const QKeySequence& seq) {
-        const QKeySequence& seq_ret = seq;
-        // Cast returned reference into pointer
-        QKeySequence* sigval1 = const_cast<QKeySequence*>(&seq_ret);
-        slotFunc(self, sigval1);
-    });
+    KKeySequenceWidget::connect(self,
+                                static_cast<void (KKeySequenceWidget::*)(const QKeySequence&)>(&KKeySequenceWidget::keySequenceChanged),
+                                [self, slotFunc](const QKeySequence& seq) {
+                                    const QKeySequence& seq_ret = seq;
+                                    // Cast returned reference into pointer
+                                    QKeySequence* sigval1 = const_cast<QKeySequence*>(&seq_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void KKeySequenceWidget_StealShortcut(KKeySequenceWidget* self, const QKeySequence* seq, QAction* action) {
@@ -164,13 +166,15 @@ void KKeySequenceWidget_StealShortcut(KKeySequenceWidget* self, const QKeySequen
 
 void KKeySequenceWidget_Connect_StealShortcut(KKeySequenceWidget* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceWidget*, QKeySequence*, QAction*) = reinterpret_cast<void (*)(KKeySequenceWidget*, QKeySequence*, QAction*)>(slot);
-    KKeySequenceWidget::connect(self, &KKeySequenceWidget::stealShortcut, [self, slotFunc](const QKeySequence& seq, QAction* action) {
-        const QKeySequence& seq_ret = seq;
-        // Cast returned reference into pointer
-        QKeySequence* sigval1 = const_cast<QKeySequence*>(&seq_ret);
-        QAction* sigval2 = action;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KKeySequenceWidget::connect(self,
+                                static_cast<void (KKeySequenceWidget::*)(const QKeySequence&, QAction*)>(&KKeySequenceWidget::stealShortcut),
+                                [self, slotFunc](const QKeySequence& seq, QAction* action) {
+                                    const QKeySequence& seq_ret = seq;
+                                    // Cast returned reference into pointer
+                                    QKeySequence* sigval1 = const_cast<QKeySequence*>(&seq_ret);
+                                    QAction* sigval2 = action;
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void KKeySequenceWidget_RecordingChanged(KKeySequenceWidget* self) {
@@ -179,9 +183,11 @@ void KKeySequenceWidget_RecordingChanged(KKeySequenceWidget* self) {
 
 void KKeySequenceWidget_Connect_RecordingChanged(KKeySequenceWidget* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceWidget*) = reinterpret_cast<void (*)(KKeySequenceWidget*)>(slot);
-    KKeySequenceWidget::connect(self, &KKeySequenceWidget::recordingChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceWidget::connect(self,
+                                static_cast<void (KKeySequenceWidget::*)()>(&KKeySequenceWidget::recordingChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void KKeySequenceWidget_CaptureKeySequence(KKeySequenceWidget* self) {

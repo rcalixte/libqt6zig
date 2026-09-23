@@ -213,8 +213,27 @@ void Accounts__AccountService_Enabled2(Accounts__AccountService* self, bool isEn
     self->enabled(isEnabled);
 }
 
+void Accounts__AccountService_Connect_Enabled2(Accounts__AccountService* self, intptr_t slot) {
+    void (*slotFunc)(Accounts__AccountService*, bool) = reinterpret_cast<void (*)(Accounts__AccountService*, bool)>(slot);
+    Accounts::AccountService::connect(self,
+                                      static_cast<void (Accounts::AccountService::*)(bool)>(&Accounts::AccountService::enabled),
+                                      [self, slotFunc](bool isEnabled) {
+                                          bool sigval1 = isEnabled;
+                                          slotFunc(self, sigval1);
+                                      });
+}
+
 void Accounts__AccountService_Changed(Accounts__AccountService* self) {
     self->changed();
+}
+
+void Accounts__AccountService_Connect_Changed(Accounts__AccountService* self, intptr_t slot) {
+    void (*slotFunc)(Accounts__AccountService*) = reinterpret_cast<void (*)(Accounts__AccountService*)>(slot);
+    Accounts::AccountService::connect(self,
+                                      static_cast<void (Accounts::AccountService::*)()>(&Accounts::AccountService::changed),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 libqt_string Accounts__AccountService_Tr2(const char* s, const char* c) {

@@ -161,10 +161,12 @@ void KTextEdit_CheckSpellingChanged(KTextEdit* self, bool param1) {
 
 void KTextEdit_Connect_CheckSpellingChanged(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, bool) = reinterpret_cast<void (*)(KTextEdit*, bool)>(slot);
-    KTextEdit::connect(self, &KTextEdit::checkSpellingChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)(bool)>(&KTextEdit::checkSpellingChanged),
+                       [self, slotFunc](bool param1) {
+                           bool sigval1 = param1;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KTextEdit_SpellCheckStatus(KTextEdit* self, const libqt_string param1) {
@@ -174,18 +176,20 @@ void KTextEdit_SpellCheckStatus(KTextEdit* self, const libqt_string param1) {
 
 void KTextEdit_Connect_SpellCheckStatus(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::spellCheckStatus, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)(const QString&)>(&KTextEdit::spellCheckStatus),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KTextEdit_LanguageChanged(KTextEdit* self, const libqt_string language) {
@@ -195,18 +199,20 @@ void KTextEdit_LanguageChanged(KTextEdit* self, const libqt_string language) {
 
 void KTextEdit_Connect_LanguageChanged(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::languageChanged, [self, slotFunc](const QString& language) {
-        const auto language_ret = language;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray language_b = language_ret.toUtf8();
-        auto language_str_len = language_b.length();
-        const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
-        memcpy((void*)language_str, language_b.data(), language_str_len);
-        ((char*)language_str)[language_str_len] = '\0';
-        const char* sigval1 = language_str;
-        slotFunc(self, sigval1);
-        libqt_free(language_str);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)(const QString&)>(&KTextEdit::languageChanged),
+                       [self, slotFunc](const QString& language) {
+                           const auto language_ret = language;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray language_b = language_ret.toUtf8();
+                           auto language_str_len = language_b.length();
+                           const char* language_str = static_cast<const char*>(malloc(language_str_len + 1));
+                           memcpy((void*)language_str, language_b.data(), language_str_len);
+                           ((char*)language_str)[language_str_len] = '\0';
+                           const char* sigval1 = language_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(language_str);
+                       });
 }
 
 void KTextEdit_AboutToShowContextMenu(KTextEdit* self, QMenu* menu) {
@@ -215,10 +221,12 @@ void KTextEdit_AboutToShowContextMenu(KTextEdit* self, QMenu* menu) {
 
 void KTextEdit_Connect_AboutToShowContextMenu(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, QMenu*) = reinterpret_cast<void (*)(KTextEdit*, QMenu*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::aboutToShowContextMenu, [self, slotFunc](QMenu* menu) {
-        QMenu* sigval1 = menu;
-        slotFunc(self, sigval1);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)(QMenu*)>(&KTextEdit::aboutToShowContextMenu),
+                       [self, slotFunc](QMenu* menu) {
+                           QMenu* sigval1 = menu;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KTextEdit_SpellCheckerAutoCorrect(KTextEdit* self, const libqt_string currentWord, const libqt_string autoCorrectWord) {
@@ -229,27 +237,29 @@ void KTextEdit_SpellCheckerAutoCorrect(KTextEdit* self, const libqt_string curre
 
 void KTextEdit_Connect_SpellCheckerAutoCorrect(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*, const char*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::spellCheckerAutoCorrect, [self, slotFunc](const QString& currentWord, const QString& autoCorrectWord) {
-        const auto currentWord_ret = currentWord;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray currentWord_b = currentWord_ret.toUtf8();
-        auto currentWord_str_len = currentWord_b.length();
-        const char* currentWord_str = static_cast<const char*>(malloc(currentWord_str_len + 1));
-        memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
-        ((char*)currentWord_str)[currentWord_str_len] = '\0';
-        const char* sigval1 = currentWord_str;
-        const auto autoCorrectWord_ret = autoCorrectWord;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray autoCorrectWord_b = autoCorrectWord_ret.toUtf8();
-        auto autoCorrectWord_str_len = autoCorrectWord_b.length();
-        const char* autoCorrectWord_str = static_cast<const char*>(malloc(autoCorrectWord_str_len + 1));
-        memcpy((void*)autoCorrectWord_str, autoCorrectWord_b.data(), autoCorrectWord_str_len);
-        ((char*)autoCorrectWord_str)[autoCorrectWord_str_len] = '\0';
-        const char* sigval2 = autoCorrectWord_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(currentWord_str);
-        libqt_free(autoCorrectWord_str);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)(const QString&, const QString&)>(&KTextEdit::spellCheckerAutoCorrect),
+                       [self, slotFunc](const QString& currentWord, const QString& autoCorrectWord) {
+                           const auto currentWord_ret = currentWord;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray currentWord_b = currentWord_ret.toUtf8();
+                           auto currentWord_str_len = currentWord_b.length();
+                           const char* currentWord_str = static_cast<const char*>(malloc(currentWord_str_len + 1));
+                           memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
+                           ((char*)currentWord_str)[currentWord_str_len] = '\0';
+                           const char* sigval1 = currentWord_str;
+                           const auto autoCorrectWord_ret = autoCorrectWord;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray autoCorrectWord_b = autoCorrectWord_ret.toUtf8();
+                           auto autoCorrectWord_str_len = autoCorrectWord_b.length();
+                           const char* autoCorrectWord_str = static_cast<const char*>(malloc(autoCorrectWord_str_len + 1));
+                           memcpy((void*)autoCorrectWord_str, autoCorrectWord_b.data(), autoCorrectWord_str_len);
+                           ((char*)autoCorrectWord_str)[autoCorrectWord_str_len] = '\0';
+                           const char* sigval2 = autoCorrectWord_str;
+                           slotFunc(self, sigval1, sigval2);
+                           libqt_free(currentWord_str);
+                           libqt_free(autoCorrectWord_str);
+                       });
 }
 
 void KTextEdit_SpellCheckingFinished(KTextEdit* self) {
@@ -258,9 +268,11 @@ void KTextEdit_SpellCheckingFinished(KTextEdit* self) {
 
 void KTextEdit_Connect_SpellCheckingFinished(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*) = reinterpret_cast<void (*)(KTextEdit*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::spellCheckingFinished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)()>(&KTextEdit::spellCheckingFinished),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KTextEdit_SpellCheckingCanceled(KTextEdit* self) {
@@ -269,9 +281,11 @@ void KTextEdit_SpellCheckingCanceled(KTextEdit* self) {
 
 void KTextEdit_Connect_SpellCheckingCanceled(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*) = reinterpret_cast<void (*)(KTextEdit*)>(slot);
-    KTextEdit::connect(self, &KTextEdit::spellCheckingCanceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KTextEdit::connect(self,
+                       static_cast<void (KTextEdit::*)()>(&KTextEdit::spellCheckingCanceled),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KTextEdit_SetSpellCheckingLanguage(KTextEdit* self, const libqt_string language) {

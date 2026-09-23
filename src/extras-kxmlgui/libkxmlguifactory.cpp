@@ -160,10 +160,12 @@ void KXMLGUIFactory_ClientAdded(KXMLGUIFactory* self, KXMLGUIClient* client) {
 
 void KXMLGUIFactory_Connect_ClientAdded(KXMLGUIFactory* self, intptr_t slot) {
     void (*slotFunc)(KXMLGUIFactory*, KXMLGUIClient*) = reinterpret_cast<void (*)(KXMLGUIFactory*, KXMLGUIClient*)>(slot);
-    KXMLGUIFactory::connect(self, &KXMLGUIFactory::clientAdded, [self, slotFunc](KXMLGUIClient* client) {
-        KXMLGUIClient* sigval1 = client;
-        slotFunc(self, sigval1);
-    });
+    KXMLGUIFactory::connect(self,
+                            static_cast<void (KXMLGUIFactory::*)(KXMLGUIClient*)>(&KXMLGUIFactory::clientAdded),
+                            [self, slotFunc](KXMLGUIClient* client) {
+                                KXMLGUIClient* sigval1 = client;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KXMLGUIFactory_ClientRemoved(KXMLGUIFactory* self, KXMLGUIClient* client) {
@@ -172,10 +174,12 @@ void KXMLGUIFactory_ClientRemoved(KXMLGUIFactory* self, KXMLGUIClient* client) {
 
 void KXMLGUIFactory_Connect_ClientRemoved(KXMLGUIFactory* self, intptr_t slot) {
     void (*slotFunc)(KXMLGUIFactory*, KXMLGUIClient*) = reinterpret_cast<void (*)(KXMLGUIFactory*, KXMLGUIClient*)>(slot);
-    KXMLGUIFactory::connect(self, &KXMLGUIFactory::clientRemoved, [self, slotFunc](KXMLGUIClient* client) {
-        KXMLGUIClient* sigval1 = client;
-        slotFunc(self, sigval1);
-    });
+    KXMLGUIFactory::connect(self,
+                            static_cast<void (KXMLGUIFactory::*)(KXMLGUIClient*)>(&KXMLGUIFactory::clientRemoved),
+                            [self, slotFunc](KXMLGUIClient* client) {
+                                KXMLGUIClient* sigval1 = client;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KXMLGUIFactory_MakingChanges(KXMLGUIFactory* self, bool param1) {
@@ -184,10 +188,12 @@ void KXMLGUIFactory_MakingChanges(KXMLGUIFactory* self, bool param1) {
 
 void KXMLGUIFactory_Connect_MakingChanges(KXMLGUIFactory* self, intptr_t slot) {
     void (*slotFunc)(KXMLGUIFactory*, bool) = reinterpret_cast<void (*)(KXMLGUIFactory*, bool)>(slot);
-    KXMLGUIFactory::connect(self, &KXMLGUIFactory::makingChanges, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KXMLGUIFactory::connect(self,
+                            static_cast<void (KXMLGUIFactory::*)(bool)>(&KXMLGUIFactory::makingChanges),
+                            [self, slotFunc](bool param1) {
+                                bool sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void KXMLGUIFactory_ShortcutsSaved(KXMLGUIFactory* self) {
@@ -196,9 +202,11 @@ void KXMLGUIFactory_ShortcutsSaved(KXMLGUIFactory* self) {
 
 void KXMLGUIFactory_Connect_ShortcutsSaved(KXMLGUIFactory* self, intptr_t slot) {
     void (*slotFunc)(KXMLGUIFactory*) = reinterpret_cast<void (*)(KXMLGUIFactory*)>(slot);
-    KXMLGUIFactory::connect(self, &KXMLGUIFactory::shortcutsSaved, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KXMLGUIFactory::connect(self,
+                            static_cast<void (KXMLGUIFactory::*)()>(&KXMLGUIFactory::shortcutsSaved),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 libqt_string KXMLGUIFactory_Tr2(const char* s, const char* c) {

@@ -172,9 +172,11 @@ void QQuickPaintedItem_FillColorChanged(QQuickPaintedItem* self) {
 
 void QQuickPaintedItem_Connect_FillColorChanged(QQuickPaintedItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickPaintedItem*) = reinterpret_cast<void (*)(QQuickPaintedItem*)>(slot);
-    QQuickPaintedItem::connect(self, &QQuickPaintedItem::fillColorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickPaintedItem::connect(self,
+                               static_cast<void (QQuickPaintedItem::*)()>(&QQuickPaintedItem::fillColorChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QQuickPaintedItem_ContentsSizeChanged(QQuickPaintedItem* self) {
@@ -183,9 +185,11 @@ void QQuickPaintedItem_ContentsSizeChanged(QQuickPaintedItem* self) {
 
 void QQuickPaintedItem_Connect_ContentsSizeChanged(QQuickPaintedItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickPaintedItem*) = reinterpret_cast<void (*)(QQuickPaintedItem*)>(slot);
-    QQuickPaintedItem::connect(self, &QQuickPaintedItem::contentsSizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickPaintedItem::connect(self,
+                               static_cast<void (QQuickPaintedItem::*)()>(&QQuickPaintedItem::contentsSizeChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QQuickPaintedItem_ContentsScaleChanged(QQuickPaintedItem* self) {
@@ -194,9 +198,11 @@ void QQuickPaintedItem_ContentsScaleChanged(QQuickPaintedItem* self) {
 
 void QQuickPaintedItem_Connect_ContentsScaleChanged(QQuickPaintedItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickPaintedItem*) = reinterpret_cast<void (*)(QQuickPaintedItem*)>(slot);
-    QQuickPaintedItem::connect(self, &QQuickPaintedItem::contentsScaleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickPaintedItem::connect(self,
+                               static_cast<void (QQuickPaintedItem::*)()>(&QQuickPaintedItem::contentsScaleChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QQuickPaintedItem_RenderTargetChanged(QQuickPaintedItem* self) {
@@ -205,9 +211,11 @@ void QQuickPaintedItem_RenderTargetChanged(QQuickPaintedItem* self) {
 
 void QQuickPaintedItem_Connect_RenderTargetChanged(QQuickPaintedItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickPaintedItem*) = reinterpret_cast<void (*)(QQuickPaintedItem*)>(slot);
-    QQuickPaintedItem::connect(self, &QQuickPaintedItem::renderTargetChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickPaintedItem::connect(self,
+                               static_cast<void (QQuickPaintedItem::*)()>(&QQuickPaintedItem::renderTargetChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QQuickPaintedItem_TextureSizeChanged(QQuickPaintedItem* self) {
@@ -216,9 +224,11 @@ void QQuickPaintedItem_TextureSizeChanged(QQuickPaintedItem* self) {
 
 void QQuickPaintedItem_Connect_TextureSizeChanged(QQuickPaintedItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickPaintedItem*) = reinterpret_cast<void (*)(QQuickPaintedItem*)>(slot);
-    QQuickPaintedItem::connect(self, &QQuickPaintedItem::textureSizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickPaintedItem::connect(self,
+                               static_cast<void (QQuickPaintedItem::*)()>(&QQuickPaintedItem::textureSizeChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 QSGNode* QQuickPaintedItem_UpdatePaintNode(QQuickPaintedItem* self, QSGNode* param1, QQuickItem__UpdatePaintNodeData* param2) {

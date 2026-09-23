@@ -133,11 +133,13 @@ void KTextEditor__AbstractAnnotationItemDelegate_SizeHintChanged(KTextEditor__Ab
 
 void KTextEditor__AbstractAnnotationItemDelegate_Connect_SizeHintChanged(KTextEditor__AbstractAnnotationItemDelegate* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__AbstractAnnotationItemDelegate*, KTextEditor__AnnotationModel*, int) = reinterpret_cast<void (*)(KTextEditor__AbstractAnnotationItemDelegate*, KTextEditor__AnnotationModel*, int)>(slot);
-    KTextEditor::AbstractAnnotationItemDelegate::connect(self, &KTextEditor::AbstractAnnotationItemDelegate::sizeHintChanged, [self, slotFunc](KTextEditor::AnnotationModel* model, int line) {
-        KTextEditor__AnnotationModel* sigval1 = model;
-        int sigval2 = line;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::AbstractAnnotationItemDelegate::connect(self,
+                                                         static_cast<void (KTextEditor::AbstractAnnotationItemDelegate::*)(KTextEditor::AnnotationModel*, int)>(&KTextEditor::AbstractAnnotationItemDelegate::sizeHintChanged),
+                                                         [self, slotFunc](KTextEditor::AnnotationModel* model, int line) {
+                                                             KTextEditor__AnnotationModel* sigval1 = model;
+                                                             int sigval2 = line;
+                                                             slotFunc(self, sigval1, sigval2);
+                                                         });
 }
 
 libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr2(const char* s, const char* c) {

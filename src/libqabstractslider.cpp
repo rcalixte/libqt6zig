@@ -171,10 +171,12 @@ void QAbstractSlider_ValueChanged(QAbstractSlider* self, int value) {
 
 void QAbstractSlider_Connect_ValueChanged(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*, int) = reinterpret_cast<void (*)(QAbstractSlider*, int)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::valueChanged, [self, slotFunc](int value) {
-        int sigval1 = value;
-        slotFunc(self, sigval1);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)(int)>(&QAbstractSlider::valueChanged),
+                             [self, slotFunc](int value) {
+                                 int sigval1 = value;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QAbstractSlider_SliderPressed(QAbstractSlider* self) {
@@ -183,9 +185,11 @@ void QAbstractSlider_SliderPressed(QAbstractSlider* self) {
 
 void QAbstractSlider_Connect_SliderPressed(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*) = reinterpret_cast<void (*)(QAbstractSlider*)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::sliderPressed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)()>(&QAbstractSlider::sliderPressed),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSlider_SliderMoved(QAbstractSlider* self, int position) {
@@ -194,10 +198,12 @@ void QAbstractSlider_SliderMoved(QAbstractSlider* self, int position) {
 
 void QAbstractSlider_Connect_SliderMoved(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*, int) = reinterpret_cast<void (*)(QAbstractSlider*, int)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::sliderMoved, [self, slotFunc](int position) {
-        int sigval1 = position;
-        slotFunc(self, sigval1);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)(int)>(&QAbstractSlider::sliderMoved),
+                             [self, slotFunc](int position) {
+                                 int sigval1 = position;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QAbstractSlider_SliderReleased(QAbstractSlider* self) {
@@ -206,9 +212,11 @@ void QAbstractSlider_SliderReleased(QAbstractSlider* self) {
 
 void QAbstractSlider_Connect_SliderReleased(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*) = reinterpret_cast<void (*)(QAbstractSlider*)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::sliderReleased, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)()>(&QAbstractSlider::sliderReleased),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QAbstractSlider_RangeChanged(QAbstractSlider* self, int min, int max) {
@@ -217,11 +225,13 @@ void QAbstractSlider_RangeChanged(QAbstractSlider* self, int min, int max) {
 
 void QAbstractSlider_Connect_RangeChanged(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*, int, int) = reinterpret_cast<void (*)(QAbstractSlider*, int, int)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::rangeChanged, [self, slotFunc](int min, int max) {
-        int sigval1 = min;
-        int sigval2 = max;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)(int, int)>(&QAbstractSlider::rangeChanged),
+                             [self, slotFunc](int min, int max) {
+                                 int sigval1 = min;
+                                 int sigval2 = max;
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 void QAbstractSlider_ActionTriggered(QAbstractSlider* self, int action) {
@@ -230,10 +240,12 @@ void QAbstractSlider_ActionTriggered(QAbstractSlider* self, int action) {
 
 void QAbstractSlider_Connect_ActionTriggered(QAbstractSlider* self, intptr_t slot) {
     void (*slotFunc)(QAbstractSlider*, int) = reinterpret_cast<void (*)(QAbstractSlider*, int)>(slot);
-    QAbstractSlider::connect(self, &QAbstractSlider::actionTriggered, [self, slotFunc](int action) {
-        int sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QAbstractSlider::connect(self,
+                             static_cast<void (QAbstractSlider::*)(int)>(&QAbstractSlider::actionTriggered),
+                             [self, slotFunc](int action) {
+                                 int sigval1 = action;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 bool QAbstractSlider_Event(QAbstractSlider* self, QEvent* e) {

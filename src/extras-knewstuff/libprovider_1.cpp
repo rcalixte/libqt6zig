@@ -261,10 +261,12 @@ void KNSCore__Provider_ProviderInitialized(KNSCore__Provider* self, KNSCore__Pro
 
 void KNSCore__Provider_Connect_ProviderInitialized(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider*) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::providerInitialized, [self, slotFunc](KNSCore::Provider* param1) {
-        KNSCore__Provider* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(KNSCore::Provider*)>(&KNSCore::Provider::providerInitialized),
+                               [self, slotFunc](KNSCore::Provider* param1) {
+                                   KNSCore__Provider* sigval1 = param1;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KNSCore__Provider_LoadingFinished(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* param1, const libqt_list /* of KNSCore__Entry* */ param2) {
@@ -279,23 +281,25 @@ void KNSCore__Provider_LoadingFinished(KNSCore__Provider* self, const KNSCore__P
 
 void KNSCore__Provider_Connect_LoadingFinished(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, libqt_list /* of KNSCore__Entry* */) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, libqt_list /* of KNSCore__Entry* */)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::loadingFinished, [self, slotFunc](const KNSCore::Provider::SearchRequest& param1, const QList<KNSCore::Entry>& param2) {
-        const KNSCore::Provider::SearchRequest& param1_ret = param1;
-        // Cast returned reference into pointer
-        KNSCore__Provider__SearchRequest* sigval1 = const_cast<KNSCore::Provider::SearchRequest*>(&param1_ret);
-        const QList<KNSCore::Entry>& param2_ret = param2;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Entry** param2_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (param2_ret.size())));
-        for (qsizetype i = 0; i < param2_ret.size(); ++i) {
-            param2_arr[i] = new KNSCore::Entry(param2_ret[i]);
-        }
-        libqt_list param2_out;
-        param2_out.len = param2_ret.size();
-        param2_out.data = static_cast<void*>(param2_arr);
-        libqt_list /* of KNSCore__Entry* */ sigval2 = param2_out;
-        slotFunc(self, sigval1, sigval2);
-        free(param2_arr);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const KNSCore::Provider::SearchRequest&, const QList<KNSCore::Entry>&)>(&KNSCore::Provider::loadingFinished),
+                               [self, slotFunc](const KNSCore::Provider::SearchRequest& param1, const QList<KNSCore::Entry>& param2) {
+                                   const KNSCore::Provider::SearchRequest& param1_ret = param1;
+                                   // Cast returned reference into pointer
+                                   KNSCore__Provider__SearchRequest* sigval1 = const_cast<KNSCore::Provider::SearchRequest*>(&param1_ret);
+                                   const QList<KNSCore::Entry>& param2_ret = param2;
+                                   // Convert QList<> from C++ memory to manually-managed C memory
+                                   KNSCore__Entry** param2_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (param2_ret.size())));
+                                   for (qsizetype i = 0; i < param2_ret.size(); ++i) {
+                                       param2_arr[i] = new KNSCore::Entry(param2_ret[i]);
+                                   }
+                                   libqt_list param2_out;
+                                   param2_out.len = param2_ret.size();
+                                   param2_out.data = static_cast<void*>(param2_arr);
+                                   libqt_list /* of KNSCore__Entry* */ sigval2 = param2_out;
+                                   slotFunc(self, sigval1, sigval2);
+                                   free(param2_arr);
+                               });
 }
 
 void KNSCore__Provider_LoadingFailed(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* param1) {
@@ -304,12 +308,14 @@ void KNSCore__Provider_LoadingFailed(KNSCore__Provider* self, const KNSCore__Pro
 
 void KNSCore__Provider_Connect_LoadingFailed(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::loadingFailed, [self, slotFunc](const KNSCore::Provider::SearchRequest& param1) {
-        const KNSCore::Provider::SearchRequest& param1_ret = param1;
-        // Cast returned reference into pointer
-        KNSCore__Provider__SearchRequest* sigval1 = const_cast<KNSCore::Provider::SearchRequest*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const KNSCore::Provider::SearchRequest&)>(&KNSCore::Provider::loadingFailed),
+                               [self, slotFunc](const KNSCore::Provider::SearchRequest& param1) {
+                                   const KNSCore::Provider::SearchRequest& param1_ret = param1;
+                                   // Cast returned reference into pointer
+                                   KNSCore__Provider__SearchRequest* sigval1 = const_cast<KNSCore::Provider::SearchRequest*>(&param1_ret);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KNSCore__Provider_EntryDetailsLoaded(KNSCore__Provider* self, const KNSCore__Entry* param1) {
@@ -318,12 +324,14 @@ void KNSCore__Provider_EntryDetailsLoaded(KNSCore__Provider* self, const KNSCore
 
 void KNSCore__Provider_Connect_EntryDetailsLoaded(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, KNSCore__Entry*) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Entry*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::entryDetailsLoaded, [self, slotFunc](const KNSCore::Entry& param1) {
-        const KNSCore::Entry& param1_ret = param1;
-        // Cast returned reference into pointer
-        KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const KNSCore::Entry&)>(&KNSCore::Provider::entryDetailsLoaded),
+                               [self, slotFunc](const KNSCore::Entry& param1) {
+                                   const KNSCore::Entry& param1_ret = param1;
+                                   // Cast returned reference into pointer
+                                   KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&param1_ret);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KNSCore__Provider_PayloadLinkLoaded(KNSCore__Provider* self, const KNSCore__Entry* param1) {
@@ -332,12 +340,14 @@ void KNSCore__Provider_PayloadLinkLoaded(KNSCore__Provider* self, const KNSCore_
 
 void KNSCore__Provider_Connect_PayloadLinkLoaded(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, KNSCore__Entry*) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Entry*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::payloadLinkLoaded, [self, slotFunc](const KNSCore::Entry& param1) {
-        const KNSCore::Entry& param1_ret = param1;
-        // Cast returned reference into pointer
-        KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const KNSCore::Entry&)>(&KNSCore::Provider::payloadLinkLoaded),
+                               [self, slotFunc](const KNSCore::Entry& param1) {
+                                   const KNSCore::Entry& param1_ret = param1;
+                                   // Cast returned reference into pointer
+                                   KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&param1_ret);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KNSCore__Provider_BasicsLoaded(KNSCore__Provider* self) {
@@ -346,9 +356,11 @@ void KNSCore__Provider_BasicsLoaded(KNSCore__Provider* self) {
 
 void KNSCore__Provider_Connect_BasicsLoaded(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*) = reinterpret_cast<void (*)(KNSCore__Provider*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::basicsLoaded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)()>(&KNSCore::Provider::basicsLoaded),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KNSCore__Provider_SearchPresetsLoaded(KNSCore__Provider* self, const libqt_list /* of KNSCore__Provider__SearchPreset* */ presets) {
@@ -363,20 +375,22 @@ void KNSCore__Provider_SearchPresetsLoaded(KNSCore__Provider* self, const libqt_
 
 void KNSCore__Provider_Connect_SearchPresetsLoaded(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__SearchPreset* */) = reinterpret_cast<void (*)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__SearchPreset* */)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::searchPresetsLoaded, [self, slotFunc](const QList<KNSCore::Provider::SearchPreset>& presets) {
-        const QList<KNSCore::Provider::SearchPreset>& presets_ret = presets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Provider__SearchPreset** presets_arr = static_cast<KNSCore__Provider__SearchPreset**>(malloc(sizeof(KNSCore__Provider__SearchPreset*) * (presets_ret.size())));
-        for (qsizetype i = 0; i < presets_ret.size(); ++i) {
-            presets_arr[i] = new KNSCore::Provider::SearchPreset(presets_ret[i]);
-        }
-        libqt_list presets_out;
-        presets_out.len = presets_ret.size();
-        presets_out.data = static_cast<void*>(presets_arr);
-        libqt_list /* of KNSCore__Provider__SearchPreset* */ sigval1 = presets_out;
-        slotFunc(self, sigval1);
-        free(presets_arr);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const QList<KNSCore::Provider::SearchPreset>&)>(&KNSCore::Provider::searchPresetsLoaded),
+                               [self, slotFunc](const QList<KNSCore::Provider::SearchPreset>& presets) {
+                                   const QList<KNSCore::Provider::SearchPreset>& presets_ret = presets;
+                                   // Convert QList<> from C++ memory to manually-managed C memory
+                                   KNSCore__Provider__SearchPreset** presets_arr = static_cast<KNSCore__Provider__SearchPreset**>(malloc(sizeof(KNSCore__Provider__SearchPreset*) * (presets_ret.size())));
+                                   for (qsizetype i = 0; i < presets_ret.size(); ++i) {
+                                       presets_arr[i] = new KNSCore::Provider::SearchPreset(presets_ret[i]);
+                                   }
+                                   libqt_list presets_out;
+                                   presets_out.len = presets_ret.size();
+                                   presets_out.data = static_cast<void*>(presets_arr);
+                                   libqt_list /* of KNSCore__Provider__SearchPreset* */ sigval1 = presets_out;
+                                   slotFunc(self, sigval1);
+                                   free(presets_arr);
+                               });
 }
 
 void KNSCore__Provider_SignalInformation(KNSCore__Provider* self, const libqt_string param1) {
@@ -386,18 +400,20 @@ void KNSCore__Provider_SignalInformation(KNSCore__Provider* self, const libqt_st
 
 void KNSCore__Provider_Connect_SignalInformation(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, const char*) = reinterpret_cast<void (*)(KNSCore__Provider*, const char*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::signalInformation, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const QString&)>(&KNSCore::Provider::signalInformation),
+                               [self, slotFunc](const QString& param1) {
+                                   const auto param1_ret = param1;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray param1_b = param1_ret.toUtf8();
+                                   auto param1_str_len = param1_b.length();
+                                   const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                   memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                   ((char*)param1_str)[param1_str_len] = '\0';
+                                   const char* sigval1 = param1_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(param1_str);
+                               });
 }
 
 void KNSCore__Provider_SignalError(KNSCore__Provider* self, const libqt_string param1) {
@@ -407,18 +423,20 @@ void KNSCore__Provider_SignalError(KNSCore__Provider* self, const libqt_string p
 
 void KNSCore__Provider_Connect_SignalError(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, const char*) = reinterpret_cast<void (*)(KNSCore__Provider*, const char*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::signalError, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const QString&)>(&KNSCore::Provider::signalError),
+                               [self, slotFunc](const QString& param1) {
+                                   const auto param1_ret = param1;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray param1_b = param1_ret.toUtf8();
+                                   auto param1_str_len = param1_b.length();
+                                   const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                   memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                   ((char*)param1_str)[param1_str_len] = '\0';
+                                   const char* sigval1 = param1_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(param1_str);
+                               });
 }
 
 void KNSCore__Provider_SignalErrorCode(KNSCore__Provider* self, int errorCode, const libqt_string message, const QVariant* metadata) {
@@ -428,22 +446,24 @@ void KNSCore__Provider_SignalErrorCode(KNSCore__Provider* self, int errorCode, c
 
 void KNSCore__Provider_Connect_SignalErrorCode(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, int, const char*, QVariant*) = reinterpret_cast<void (*)(KNSCore__Provider*, int, const char*, QVariant*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::signalErrorCode, [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
-        int sigval1 = static_cast<int>(errorCode);
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        const QVariant& metadata_ret = metadata;
-        // Cast returned reference into pointer
-        QVariant* sigval3 = const_cast<QVariant*>(&metadata_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(message_str);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(KNSCore::ErrorCode::ErrorCode, const QString&, const QVariant&)>(&KNSCore::Provider::signalErrorCode),
+                               [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
+                                   int sigval1 = static_cast<int>(errorCode);
+                                   const auto message_ret = message;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray message_b = message_ret.toUtf8();
+                                   auto message_str_len = message_b.length();
+                                   const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                   memcpy((void*)message_str, message_b.data(), message_str_len);
+                                   ((char*)message_str)[message_str_len] = '\0';
+                                   const char* sigval2 = message_str;
+                                   const QVariant& metadata_ret = metadata;
+                                   // Cast returned reference into pointer
+                                   QVariant* sigval3 = const_cast<QVariant*>(&metadata_ret);
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                                   libqt_free(message_str);
+                               });
 }
 
 void KNSCore__Provider_CategoriesMetadataLoded(KNSCore__Provider* self, const libqt_list /* of KNSCore__Provider__CategoryMetadata* */ categories) {
@@ -458,20 +478,22 @@ void KNSCore__Provider_CategoriesMetadataLoded(KNSCore__Provider* self, const li
 
 void KNSCore__Provider_Connect_CategoriesMetadataLoded(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */) = reinterpret_cast<void (*)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::categoriesMetadataLoded, [self, slotFunc](const QList<KNSCore::Provider::CategoryMetadata>& categories) {
-        const QList<KNSCore::Provider::CategoryMetadata>& categories_ret = categories;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Provider__CategoryMetadata** categories_arr = static_cast<KNSCore__Provider__CategoryMetadata**>(malloc(sizeof(KNSCore__Provider__CategoryMetadata*) * (categories_ret.size())));
-        for (qsizetype i = 0; i < categories_ret.size(); ++i) {
-            categories_arr[i] = new KNSCore::Provider::CategoryMetadata(categories_ret[i]);
-        }
-        libqt_list categories_out;
-        categories_out.len = categories_ret.size();
-        categories_out.data = static_cast<void*>(categories_arr);
-        libqt_list /* of KNSCore__Provider__CategoryMetadata* */ sigval1 = categories_out;
-        slotFunc(self, sigval1);
-        free(categories_arr);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)(const QList<KNSCore::Provider::CategoryMetadata>&)>(&KNSCore::Provider::categoriesMetadataLoded),
+                               [self, slotFunc](const QList<KNSCore::Provider::CategoryMetadata>& categories) {
+                                   const QList<KNSCore::Provider::CategoryMetadata>& categories_ret = categories;
+                                   // Convert QList<> from C++ memory to manually-managed C memory
+                                   KNSCore__Provider__CategoryMetadata** categories_arr = static_cast<KNSCore__Provider__CategoryMetadata**>(malloc(sizeof(KNSCore__Provider__CategoryMetadata*) * (categories_ret.size())));
+                                   for (qsizetype i = 0; i < categories_ret.size(); ++i) {
+                                       categories_arr[i] = new KNSCore::Provider::CategoryMetadata(categories_ret[i]);
+                                   }
+                                   libqt_list categories_out;
+                                   categories_out.len = categories_ret.size();
+                                   categories_out.data = static_cast<void*>(categories_arr);
+                                   libqt_list /* of KNSCore__Provider__CategoryMetadata* */ sigval1 = categories_out;
+                                   slotFunc(self, sigval1);
+                                   free(categories_arr);
+                               });
 }
 
 void KNSCore__Provider_TagFilterChanged(KNSCore__Provider* self) {
@@ -480,9 +502,11 @@ void KNSCore__Provider_TagFilterChanged(KNSCore__Provider* self) {
 
 void KNSCore__Provider_Connect_TagFilterChanged(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*) = reinterpret_cast<void (*)(KNSCore__Provider*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::tagFilterChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)()>(&KNSCore::Provider::tagFilterChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KNSCore__Provider_DownloadTagFilterChanged(KNSCore__Provider* self) {
@@ -491,9 +515,11 @@ void KNSCore__Provider_DownloadTagFilterChanged(KNSCore__Provider* self) {
 
 void KNSCore__Provider_Connect_DownloadTagFilterChanged(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*) = reinterpret_cast<void (*)(KNSCore__Provider*)>(slot);
-    KNSCore::Provider::connect(self, &KNSCore::Provider::downloadTagFilterChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNSCore::Provider::connect(self,
+                               static_cast<void (KNSCore::Provider::*)()>(&KNSCore::Provider::downloadTagFilterChanged),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 libqt_string KNSCore__Provider_Tr2(const char* s, const char* c) {

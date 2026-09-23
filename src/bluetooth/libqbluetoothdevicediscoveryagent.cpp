@@ -116,12 +116,14 @@ void QBluetoothDeviceDiscoveryAgent_DeviceDiscovered(QBluetoothDeviceDiscoveryAg
 
 void QBluetoothDeviceDiscoveryAgent_Connect_DeviceDiscovered(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothDeviceDiscoveryAgent*, QBluetoothDeviceInfo*) = reinterpret_cast<void (*)(QBluetoothDeviceDiscoveryAgent*, QBluetoothDeviceInfo*)>(slot);
-    QBluetoothDeviceDiscoveryAgent::connect(self, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, [self, slotFunc](const QBluetoothDeviceInfo& info) {
-        const QBluetoothDeviceInfo& info_ret = info;
-        // Cast returned reference into pointer
-        QBluetoothDeviceInfo* sigval1 = const_cast<QBluetoothDeviceInfo*>(&info_ret);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothDeviceDiscoveryAgent::connect(self,
+                                            static_cast<void (QBluetoothDeviceDiscoveryAgent::*)(const QBluetoothDeviceInfo&)>(&QBluetoothDeviceDiscoveryAgent::deviceDiscovered),
+                                            [self, slotFunc](const QBluetoothDeviceInfo& info) {
+                                                const QBluetoothDeviceInfo& info_ret = info;
+                                                // Cast returned reference into pointer
+                                                QBluetoothDeviceInfo* sigval1 = const_cast<QBluetoothDeviceInfo*>(&info_ret);
+                                                slotFunc(self, sigval1);
+                                            });
 }
 
 void QBluetoothDeviceDiscoveryAgent_DeviceUpdated(QBluetoothDeviceDiscoveryAgent* self, const QBluetoothDeviceInfo* info, int updatedFields) {
@@ -130,13 +132,15 @@ void QBluetoothDeviceDiscoveryAgent_DeviceUpdated(QBluetoothDeviceDiscoveryAgent
 
 void QBluetoothDeviceDiscoveryAgent_Connect_DeviceUpdated(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothDeviceDiscoveryAgent*, QBluetoothDeviceInfo*, int) = reinterpret_cast<void (*)(QBluetoothDeviceDiscoveryAgent*, QBluetoothDeviceInfo*, int)>(slot);
-    QBluetoothDeviceDiscoveryAgent::connect(self, &QBluetoothDeviceDiscoveryAgent::deviceUpdated, [self, slotFunc](const QBluetoothDeviceInfo& info, QBluetoothDeviceInfo::Fields updatedFields) {
-        const QBluetoothDeviceInfo& info_ret = info;
-        // Cast returned reference into pointer
-        QBluetoothDeviceInfo* sigval1 = const_cast<QBluetoothDeviceInfo*>(&info_ret);
-        int sigval2 = static_cast<int>(updatedFields);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBluetoothDeviceDiscoveryAgent::connect(self,
+                                            static_cast<void (QBluetoothDeviceDiscoveryAgent::*)(const QBluetoothDeviceInfo&, QBluetoothDeviceInfo::Fields)>(&QBluetoothDeviceDiscoveryAgent::deviceUpdated),
+                                            [self, slotFunc](const QBluetoothDeviceInfo& info, QBluetoothDeviceInfo::Fields updatedFields) {
+                                                const QBluetoothDeviceInfo& info_ret = info;
+                                                // Cast returned reference into pointer
+                                                QBluetoothDeviceInfo* sigval1 = const_cast<QBluetoothDeviceInfo*>(&info_ret);
+                                                int sigval2 = static_cast<int>(updatedFields);
+                                                slotFunc(self, sigval1, sigval2);
+                                            });
 }
 
 void QBluetoothDeviceDiscoveryAgent_Finished(QBluetoothDeviceDiscoveryAgent* self) {
@@ -145,9 +149,11 @@ void QBluetoothDeviceDiscoveryAgent_Finished(QBluetoothDeviceDiscoveryAgent* sel
 
 void QBluetoothDeviceDiscoveryAgent_Connect_Finished(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothDeviceDiscoveryAgent*) = reinterpret_cast<void (*)(QBluetoothDeviceDiscoveryAgent*)>(slot);
-    QBluetoothDeviceDiscoveryAgent::connect(self, &QBluetoothDeviceDiscoveryAgent::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothDeviceDiscoveryAgent::connect(self,
+                                            static_cast<void (QBluetoothDeviceDiscoveryAgent::*)()>(&QBluetoothDeviceDiscoveryAgent::finished),
+                                            [self, slotFunc]() {
+                                                slotFunc(self);
+                                            });
 }
 
 void QBluetoothDeviceDiscoveryAgent_ErrorOccurred(QBluetoothDeviceDiscoveryAgent* self, int errorVal) {
@@ -156,10 +162,12 @@ void QBluetoothDeviceDiscoveryAgent_ErrorOccurred(QBluetoothDeviceDiscoveryAgent
 
 void QBluetoothDeviceDiscoveryAgent_Connect_ErrorOccurred(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothDeviceDiscoveryAgent*, int) = reinterpret_cast<void (*)(QBluetoothDeviceDiscoveryAgent*, int)>(slot);
-    QBluetoothDeviceDiscoveryAgent::connect(self, &QBluetoothDeviceDiscoveryAgent::errorOccurred, [self, slotFunc](QBluetoothDeviceDiscoveryAgent::Error errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothDeviceDiscoveryAgent::connect(self,
+                                            static_cast<void (QBluetoothDeviceDiscoveryAgent::*)(QBluetoothDeviceDiscoveryAgent::Error)>(&QBluetoothDeviceDiscoveryAgent::errorOccurred),
+                                            [self, slotFunc](QBluetoothDeviceDiscoveryAgent::Error errorVal) {
+                                                int sigval1 = static_cast<int>(errorVal);
+                                                slotFunc(self, sigval1);
+                                            });
 }
 
 void QBluetoothDeviceDiscoveryAgent_Canceled(QBluetoothDeviceDiscoveryAgent* self) {
@@ -168,9 +176,11 @@ void QBluetoothDeviceDiscoveryAgent_Canceled(QBluetoothDeviceDiscoveryAgent* sel
 
 void QBluetoothDeviceDiscoveryAgent_Connect_Canceled(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothDeviceDiscoveryAgent*) = reinterpret_cast<void (*)(QBluetoothDeviceDiscoveryAgent*)>(slot);
-    QBluetoothDeviceDiscoveryAgent::connect(self, &QBluetoothDeviceDiscoveryAgent::canceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothDeviceDiscoveryAgent::connect(self,
+                                            static_cast<void (QBluetoothDeviceDiscoveryAgent::*)()>(&QBluetoothDeviceDiscoveryAgent::canceled),
+                                            [self, slotFunc]() {
+                                                slotFunc(self);
+                                            });
 }
 
 libqt_string QBluetoothDeviceDiscoveryAgent_Tr2(const char* s, const char* c) {

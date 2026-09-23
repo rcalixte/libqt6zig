@@ -135,18 +135,20 @@ void KIconDialog_NewIconName(KIconDialog* self, const libqt_string iconName) {
 
 void KIconDialog_Connect_NewIconName(KIconDialog* self, intptr_t slot) {
     void (*slotFunc)(KIconDialog*, const char*) = reinterpret_cast<void (*)(KIconDialog*, const char*)>(slot);
-    KIconDialog::connect(self, &KIconDialog::newIconName, [self, slotFunc](const QString& iconName) {
-        const auto iconName_ret = iconName;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray iconName_b = iconName_ret.toUtf8();
-        auto iconName_str_len = iconName_b.length();
-        const char* iconName_str = static_cast<const char*>(malloc(iconName_str_len + 1));
-        memcpy((void*)iconName_str, iconName_b.data(), iconName_str_len);
-        ((char*)iconName_str)[iconName_str_len] = '\0';
-        const char* sigval1 = iconName_str;
-        slotFunc(self, sigval1);
-        libqt_free(iconName_str);
-    });
+    KIconDialog::connect(self,
+                         static_cast<void (KIconDialog::*)(const QString&)>(&KIconDialog::newIconName),
+                         [self, slotFunc](const QString& iconName) {
+                             const auto iconName_ret = iconName;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray iconName_b = iconName_ret.toUtf8();
+                             auto iconName_str_len = iconName_b.length();
+                             const char* iconName_str = static_cast<const char*>(malloc(iconName_str_len + 1));
+                             memcpy((void*)iconName_str, iconName_b.data(), iconName_str_len);
+                             ((char*)iconName_str)[iconName_str_len] = '\0';
+                             const char* sigval1 = iconName_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(iconName_str);
+                         });
 }
 
 void KIconDialog_ShowEvent(KIconDialog* self, QShowEvent* event) {

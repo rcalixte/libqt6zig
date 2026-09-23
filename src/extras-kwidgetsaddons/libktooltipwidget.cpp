@@ -97,9 +97,11 @@ void KToolTipWidget_Hidden(KToolTipWidget* self) {
 
 void KToolTipWidget_Connect_Hidden(KToolTipWidget* self, intptr_t slot) {
     void (*slotFunc)(KToolTipWidget*) = reinterpret_cast<void (*)(KToolTipWidget*)>(slot);
-    KToolTipWidget::connect(self, &KToolTipWidget::hidden, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KToolTipWidget::connect(self,
+                            static_cast<void (KToolTipWidget::*)()>(&KToolTipWidget::hidden),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void KToolTipWidget_EnterEvent(KToolTipWidget* self, QEnterEvent* event) {

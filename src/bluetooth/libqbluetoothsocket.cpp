@@ -185,9 +185,11 @@ void QBluetoothSocket_Connected(QBluetoothSocket* self) {
 
 void QBluetoothSocket_Connect_Connected(QBluetoothSocket* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothSocket*) = reinterpret_cast<void (*)(QBluetoothSocket*)>(slot);
-    QBluetoothSocket::connect(self, &QBluetoothSocket::connected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothSocket::connect(self,
+                              static_cast<void (QBluetoothSocket::*)()>(&QBluetoothSocket::connected),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QBluetoothSocket_Disconnected(QBluetoothSocket* self) {
@@ -196,9 +198,11 @@ void QBluetoothSocket_Disconnected(QBluetoothSocket* self) {
 
 void QBluetoothSocket_Connect_Disconnected(QBluetoothSocket* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothSocket*) = reinterpret_cast<void (*)(QBluetoothSocket*)>(slot);
-    QBluetoothSocket::connect(self, &QBluetoothSocket::disconnected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBluetoothSocket::connect(self,
+                              static_cast<void (QBluetoothSocket::*)()>(&QBluetoothSocket::disconnected),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QBluetoothSocket_ErrorOccurred(QBluetoothSocket* self, int errorVal) {
@@ -207,10 +211,12 @@ void QBluetoothSocket_ErrorOccurred(QBluetoothSocket* self, int errorVal) {
 
 void QBluetoothSocket_Connect_ErrorOccurred(QBluetoothSocket* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothSocket*, int) = reinterpret_cast<void (*)(QBluetoothSocket*, int)>(slot);
-    QBluetoothSocket::connect(self, &QBluetoothSocket::errorOccurred, [self, slotFunc](QBluetoothSocket::SocketError errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothSocket::connect(self,
+                              static_cast<void (QBluetoothSocket::*)(QBluetoothSocket::SocketError)>(&QBluetoothSocket::errorOccurred),
+                              [self, slotFunc](QBluetoothSocket::SocketError errorVal) {
+                                  int sigval1 = static_cast<int>(errorVal);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QBluetoothSocket_StateChanged(QBluetoothSocket* self, int state) {
@@ -219,10 +225,12 @@ void QBluetoothSocket_StateChanged(QBluetoothSocket* self, int state) {
 
 void QBluetoothSocket_Connect_StateChanged(QBluetoothSocket* self, intptr_t slot) {
     void (*slotFunc)(QBluetoothSocket*, int) = reinterpret_cast<void (*)(QBluetoothSocket*, int)>(slot);
-    QBluetoothSocket::connect(self, &QBluetoothSocket::stateChanged, [self, slotFunc](QBluetoothSocket::SocketState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QBluetoothSocket::connect(self,
+                              static_cast<void (QBluetoothSocket::*)(QBluetoothSocket::SocketState)>(&QBluetoothSocket::stateChanged),
+                              [self, slotFunc](QBluetoothSocket::SocketState state) {
+                                  int sigval1 = static_cast<int>(state);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 long long QBluetoothSocket_ReadData(QBluetoothSocket* self, char* data, long long maxSize) {

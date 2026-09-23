@@ -117,10 +117,12 @@ void QStackedWidget_CurrentChanged(QStackedWidget* self, int param1) {
 
 void QStackedWidget_Connect_CurrentChanged(QStackedWidget* self, intptr_t slot) {
     void (*slotFunc)(QStackedWidget*, int) = reinterpret_cast<void (*)(QStackedWidget*, int)>(slot);
-    QStackedWidget::connect(self, &QStackedWidget::currentChanged, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QStackedWidget::connect(self,
+                            static_cast<void (QStackedWidget::*)(int)>(&QStackedWidget::currentChanged),
+                            [self, slotFunc](int param1) {
+                                int sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QStackedWidget_WidgetRemoved(QStackedWidget* self, int index) {
@@ -129,10 +131,12 @@ void QStackedWidget_WidgetRemoved(QStackedWidget* self, int index) {
 
 void QStackedWidget_Connect_WidgetRemoved(QStackedWidget* self, intptr_t slot) {
     void (*slotFunc)(QStackedWidget*, int) = reinterpret_cast<void (*)(QStackedWidget*, int)>(slot);
-    QStackedWidget::connect(self, &QStackedWidget::widgetRemoved, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QStackedWidget::connect(self,
+                            static_cast<void (QStackedWidget::*)(int)>(&QStackedWidget::widgetRemoved),
+                            [self, slotFunc](int index) {
+                                int sigval1 = index;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 bool QStackedWidget_Event(QStackedWidget* self, QEvent* e) {

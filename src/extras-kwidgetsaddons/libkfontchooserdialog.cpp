@@ -97,12 +97,14 @@ void KFontChooserDialog_FontSelected(KFontChooserDialog* self, const QFont* font
 
 void KFontChooserDialog_Connect_FontSelected(KFontChooserDialog* self, intptr_t slot) {
     void (*slotFunc)(KFontChooserDialog*, QFont*) = reinterpret_cast<void (*)(KFontChooserDialog*, QFont*)>(slot);
-    KFontChooserDialog::connect(self, &KFontChooserDialog::fontSelected, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    KFontChooserDialog::connect(self,
+                                static_cast<void (KFontChooserDialog::*)(const QFont&)>(&KFontChooserDialog::fontSelected),
+                                [self, slotFunc](const QFont& font) {
+                                    const QFont& font_ret = font;
+                                    // Cast returned reference into pointer
+                                    QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 libqt_string KFontChooserDialog_Tr2(const char* s, const char* c) {

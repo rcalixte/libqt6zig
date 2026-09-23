@@ -51,9 +51,11 @@ void Attica__PlatformDependentV3_ReadyChanged(Attica__PlatformDependentV3* self)
 
 void Attica__PlatformDependentV3_Connect_ReadyChanged(Attica__PlatformDependentV3* self, intptr_t slot) {
     void (*slotFunc)(Attica__PlatformDependentV3*) = reinterpret_cast<void (*)(Attica__PlatformDependentV3*)>(slot);
-    Attica::PlatformDependentV3::connect(self, &Attica::PlatformDependentV3::readyChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Attica::PlatformDependentV3::connect(self,
+                                         static_cast<void (Attica::PlatformDependentV3::*)()>(&Attica::PlatformDependentV3::readyChanged),
+                                         [self, slotFunc]() {
+                                             slotFunc(self);
+                                         });
 }
 
 libqt_string Attica__PlatformDependentV3_Tr2(const char* s, const char* c) {

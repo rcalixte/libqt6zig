@@ -385,9 +385,11 @@ void QWebEnginePage_LoadStarted(QWebEnginePage* self) {
 
 void QWebEnginePage_Connect_LoadStarted(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::loadStarted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)()>(&QWebEnginePage::loadStarted),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QWebEnginePage_LoadProgress(QWebEnginePage* self, int progress) {
@@ -396,10 +398,12 @@ void QWebEnginePage_LoadProgress(QWebEnginePage* self, int progress) {
 
 void QWebEnginePage_Connect_LoadProgress(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, int) = reinterpret_cast<void (*)(QWebEnginePage*, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::loadProgress, [self, slotFunc](int progress) {
-        int sigval1 = progress;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(int)>(&QWebEnginePage::loadProgress),
+                            [self, slotFunc](int progress) {
+                                int sigval1 = progress;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_LoadFinished(QWebEnginePage* self, bool ok) {
@@ -408,10 +412,12 @@ void QWebEnginePage_LoadFinished(QWebEnginePage* self, bool ok) {
 
 void QWebEnginePage_Connect_LoadFinished(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, bool)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::loadFinished, [self, slotFunc](bool ok) {
-        bool sigval1 = ok;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(bool)>(&QWebEnginePage::loadFinished),
+                            [self, slotFunc](bool ok) {
+                                bool sigval1 = ok;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_LoadingChanged(QWebEnginePage* self, const QWebEngineLoadingInfo* loadingInfo) {
@@ -420,12 +426,14 @@ void QWebEnginePage_LoadingChanged(QWebEnginePage* self, const QWebEngineLoading
 
 void QWebEnginePage_Connect_LoadingChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineLoadingInfo*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineLoadingInfo*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::loadingChanged, [self, slotFunc](const QWebEngineLoadingInfo& loadingInfo) {
-        const QWebEngineLoadingInfo& loadingInfo_ret = loadingInfo;
-        // Cast returned reference into pointer
-        QWebEngineLoadingInfo* sigval1 = const_cast<QWebEngineLoadingInfo*>(&loadingInfo_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QWebEngineLoadingInfo&)>(&QWebEnginePage::loadingChanged),
+                            [self, slotFunc](const QWebEngineLoadingInfo& loadingInfo) {
+                                const QWebEngineLoadingInfo& loadingInfo_ret = loadingInfo;
+                                // Cast returned reference into pointer
+                                QWebEngineLoadingInfo* sigval1 = const_cast<QWebEngineLoadingInfo*>(&loadingInfo_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_LinkHovered(QWebEnginePage* self, const libqt_string url) {
@@ -435,18 +443,20 @@ void QWebEnginePage_LinkHovered(QWebEnginePage* self, const libqt_string url) {
 
 void QWebEnginePage_Connect_LinkHovered(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::linkHovered, [self, slotFunc](const QString& url) {
-        const auto url_ret = url;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray url_b = url_ret.toUtf8();
-        auto url_str_len = url_b.length();
-        const char* url_str = static_cast<const char*>(malloc(url_str_len + 1));
-        memcpy((void*)url_str, url_b.data(), url_str_len);
-        ((char*)url_str)[url_str_len] = '\0';
-        const char* sigval1 = url_str;
-        slotFunc(self, sigval1);
-        libqt_free(url_str);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QString&)>(&QWebEnginePage::linkHovered),
+                            [self, slotFunc](const QString& url) {
+                                const auto url_ret = url;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray url_b = url_ret.toUtf8();
+                                auto url_str_len = url_b.length();
+                                const char* url_str = static_cast<const char*>(malloc(url_str_len + 1));
+                                memcpy((void*)url_str, url_b.data(), url_str_len);
+                                ((char*)url_str)[url_str_len] = '\0';
+                                const char* sigval1 = url_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(url_str);
+                            });
 }
 
 void QWebEnginePage_SelectionChanged(QWebEnginePage* self) {
@@ -455,9 +465,11 @@ void QWebEnginePage_SelectionChanged(QWebEnginePage* self) {
 
 void QWebEnginePage_Connect_SelectionChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)()>(&QWebEnginePage::selectionChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QWebEnginePage_GeometryChangeRequested(QWebEnginePage* self, const QRect* geom) {
@@ -466,12 +478,14 @@ void QWebEnginePage_GeometryChangeRequested(QWebEnginePage* self, const QRect* g
 
 void QWebEnginePage_Connect_GeometryChangeRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QRect*) = reinterpret_cast<void (*)(QWebEnginePage*, QRect*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::geometryChangeRequested, [self, slotFunc](const QRect& geom) {
-        const QRect& geom_ret = geom;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&geom_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QRect&)>(&QWebEnginePage::geometryChangeRequested),
+                            [self, slotFunc](const QRect& geom) {
+                                const QRect& geom_ret = geom;
+                                // Cast returned reference into pointer
+                                QRect* sigval1 = const_cast<QRect*>(&geom_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_WindowCloseRequested(QWebEnginePage* self) {
@@ -480,9 +494,11 @@ void QWebEnginePage_WindowCloseRequested(QWebEnginePage* self) {
 
 void QWebEnginePage_Connect_WindowCloseRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::windowCloseRequested, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)()>(&QWebEnginePage::windowCloseRequested),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QWebEnginePage_FeaturePermissionRequested(QWebEnginePage* self, const QUrl* securityOrigin, int feature) {
@@ -491,13 +507,15 @@ void QWebEnginePage_FeaturePermissionRequested(QWebEnginePage* self, const QUrl*
 
 void QWebEnginePage_Connect_FeaturePermissionRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*, int) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::featurePermissionRequested, [self, slotFunc](const QUrl& securityOrigin, QWebEnginePage::Feature feature) {
-        const QUrl& securityOrigin_ret = securityOrigin;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&securityOrigin_ret);
-        int sigval2 = static_cast<int>(feature);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&, QWebEnginePage::Feature)>(&QWebEnginePage::featurePermissionRequested),
+                            [self, slotFunc](const QUrl& securityOrigin, QWebEnginePage::Feature feature) {
+                                const QUrl& securityOrigin_ret = securityOrigin;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&securityOrigin_ret);
+                                int sigval2 = static_cast<int>(feature);
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QWebEnginePage_FeaturePermissionRequestCanceled(QWebEnginePage* self, const QUrl* securityOrigin, int feature) {
@@ -506,13 +524,15 @@ void QWebEnginePage_FeaturePermissionRequestCanceled(QWebEnginePage* self, const
 
 void QWebEnginePage_Connect_FeaturePermissionRequestCanceled(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*, int) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::featurePermissionRequestCanceled, [self, slotFunc](const QUrl& securityOrigin, QWebEnginePage::Feature feature) {
-        const QUrl& securityOrigin_ret = securityOrigin;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&securityOrigin_ret);
-        int sigval2 = static_cast<int>(feature);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&, QWebEnginePage::Feature)>(&QWebEnginePage::featurePermissionRequestCanceled),
+                            [self, slotFunc](const QUrl& securityOrigin, QWebEnginePage::Feature feature) {
+                                const QUrl& securityOrigin_ret = securityOrigin;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&securityOrigin_ret);
+                                int sigval2 = static_cast<int>(feature);
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QWebEnginePage_FullScreenRequested(QWebEnginePage* self, QWebEngineFullScreenRequest* fullScreenRequest) {
@@ -521,10 +541,12 @@ void QWebEnginePage_FullScreenRequested(QWebEnginePage* self, QWebEngineFullScre
 
 void QWebEnginePage_Connect_FullScreenRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineFullScreenRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineFullScreenRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::fullScreenRequested, [self, slotFunc](QWebEngineFullScreenRequest fullScreenRequest) {
-        QWebEngineFullScreenRequest* sigval1 = new QWebEngineFullScreenRequest(fullScreenRequest);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineFullScreenRequest)>(&QWebEnginePage::fullScreenRequested),
+                            [self, slotFunc](QWebEngineFullScreenRequest fullScreenRequest) {
+                                QWebEngineFullScreenRequest* sigval1 = new QWebEngineFullScreenRequest(fullScreenRequest);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_PermissionRequested(QWebEnginePage* self, QWebEnginePermission* permissionRequest) {
@@ -533,10 +555,12 @@ void QWebEnginePage_PermissionRequested(QWebEnginePage* self, QWebEnginePermissi
 
 void QWebEnginePage_Connect_PermissionRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEnginePermission*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEnginePermission*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::permissionRequested, [self, slotFunc](QWebEnginePermission permissionRequest) {
-        QWebEnginePermission* sigval1 = new QWebEnginePermission(permissionRequest);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEnginePermission)>(&QWebEnginePage::permissionRequested),
+                            [self, slotFunc](QWebEnginePermission permissionRequest) {
+                                QWebEnginePermission* sigval1 = new QWebEnginePermission(permissionRequest);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_QuotaRequested(QWebEnginePage* self, QWebEngineQuotaRequest* quotaRequest) {
@@ -545,10 +569,12 @@ void QWebEnginePage_QuotaRequested(QWebEnginePage* self, QWebEngineQuotaRequest*
 
 void QWebEnginePage_Connect_QuotaRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineQuotaRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineQuotaRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::quotaRequested, [self, slotFunc](QWebEngineQuotaRequest quotaRequest) {
-        QWebEngineQuotaRequest* sigval1 = new QWebEngineQuotaRequest(quotaRequest);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineQuotaRequest)>(&QWebEnginePage::quotaRequested),
+                            [self, slotFunc](QWebEngineQuotaRequest quotaRequest) {
+                                QWebEngineQuotaRequest* sigval1 = new QWebEngineQuotaRequest(quotaRequest);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_RegisterProtocolHandlerRequested(QWebEnginePage* self, QWebEngineRegisterProtocolHandlerRequest* request) {
@@ -557,10 +583,12 @@ void QWebEnginePage_RegisterProtocolHandlerRequested(QWebEnginePage* self, QWebE
 
 void QWebEnginePage_Connect_RegisterProtocolHandlerRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineRegisterProtocolHandlerRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineRegisterProtocolHandlerRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::registerProtocolHandlerRequested, [self, slotFunc](QWebEngineRegisterProtocolHandlerRequest request) {
-        QWebEngineRegisterProtocolHandlerRequest* sigval1 = new QWebEngineRegisterProtocolHandlerRequest(request);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineRegisterProtocolHandlerRequest)>(&QWebEnginePage::registerProtocolHandlerRequested),
+                            [self, slotFunc](QWebEngineRegisterProtocolHandlerRequest request) {
+                                QWebEngineRegisterProtocolHandlerRequest* sigval1 = new QWebEngineRegisterProtocolHandlerRequest(request);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_FileSystemAccessRequested(QWebEnginePage* self, QWebEngineFileSystemAccessRequest* request) {
@@ -569,10 +597,12 @@ void QWebEnginePage_FileSystemAccessRequested(QWebEnginePage* self, QWebEngineFi
 
 void QWebEnginePage_Connect_FileSystemAccessRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineFileSystemAccessRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineFileSystemAccessRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::fileSystemAccessRequested, [self, slotFunc](QWebEngineFileSystemAccessRequest request) {
-        QWebEngineFileSystemAccessRequest* sigval1 = new QWebEngineFileSystemAccessRequest(request);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineFileSystemAccessRequest)>(&QWebEnginePage::fileSystemAccessRequested),
+                            [self, slotFunc](QWebEngineFileSystemAccessRequest request) {
+                                QWebEngineFileSystemAccessRequest* sigval1 = new QWebEngineFileSystemAccessRequest(request);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_SelectClientCertificate(QWebEnginePage* self, QWebEngineClientCertificateSelection* clientCertSelection) {
@@ -581,10 +611,12 @@ void QWebEnginePage_SelectClientCertificate(QWebEnginePage* self, QWebEngineClie
 
 void QWebEnginePage_Connect_SelectClientCertificate(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineClientCertificateSelection*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineClientCertificateSelection*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::selectClientCertificate, [self, slotFunc](QWebEngineClientCertificateSelection clientCertSelection) {
-        QWebEngineClientCertificateSelection* sigval1 = new QWebEngineClientCertificateSelection(clientCertSelection);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineClientCertificateSelection)>(&QWebEnginePage::selectClientCertificate),
+                            [self, slotFunc](QWebEngineClientCertificateSelection clientCertSelection) {
+                                QWebEngineClientCertificateSelection* sigval1 = new QWebEngineClientCertificateSelection(clientCertSelection);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_AuthenticationRequired(QWebEnginePage* self, const QUrl* requestUrl, QAuthenticator* authenticator) {
@@ -593,13 +625,15 @@ void QWebEnginePage_AuthenticationRequired(QWebEnginePage* self, const QUrl* req
 
 void QWebEnginePage_Connect_AuthenticationRequired(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*, QAuthenticator*) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, QAuthenticator*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::authenticationRequired, [self, slotFunc](const QUrl& requestUrl, QAuthenticator* authenticator) {
-        const QUrl& requestUrl_ret = requestUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
-        QAuthenticator* sigval2 = authenticator;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&, QAuthenticator*)>(&QWebEnginePage::authenticationRequired),
+                            [self, slotFunc](const QUrl& requestUrl, QAuthenticator* authenticator) {
+                                const QUrl& requestUrl_ret = requestUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
+                                QAuthenticator* sigval2 = authenticator;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QWebEnginePage_ProxyAuthenticationRequired(QWebEnginePage* self, const QUrl* requestUrl, QAuthenticator* authenticator, const libqt_string proxyHost) {
@@ -609,22 +643,24 @@ void QWebEnginePage_ProxyAuthenticationRequired(QWebEnginePage* self, const QUrl
 
 void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*, QAuthenticator*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, QAuthenticator*, const char*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::proxyAuthenticationRequired, [self, slotFunc](const QUrl& requestUrl, QAuthenticator* authenticator, const QString& proxyHost) {
-        const QUrl& requestUrl_ret = requestUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
-        QAuthenticator* sigval2 = authenticator;
-        const auto proxyHost_ret = proxyHost;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray proxyHost_b = proxyHost_ret.toUtf8();
-        auto proxyHost_str_len = proxyHost_b.length();
-        const char* proxyHost_str = static_cast<const char*>(malloc(proxyHost_str_len + 1));
-        memcpy((void*)proxyHost_str, proxyHost_b.data(), proxyHost_str_len);
-        ((char*)proxyHost_str)[proxyHost_str_len] = '\0';
-        const char* sigval3 = proxyHost_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(proxyHost_str);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&, QAuthenticator*, const QString&)>(&QWebEnginePage::proxyAuthenticationRequired),
+                            [self, slotFunc](const QUrl& requestUrl, QAuthenticator* authenticator, const QString& proxyHost) {
+                                const QUrl& requestUrl_ret = requestUrl;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
+                                QAuthenticator* sigval2 = authenticator;
+                                const auto proxyHost_ret = proxyHost;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray proxyHost_b = proxyHost_ret.toUtf8();
+                                auto proxyHost_str_len = proxyHost_b.length();
+                                const char* proxyHost_str = static_cast<const char*>(malloc(proxyHost_str_len + 1));
+                                memcpy((void*)proxyHost_str, proxyHost_b.data(), proxyHost_str_len);
+                                ((char*)proxyHost_str)[proxyHost_str_len] = '\0';
+                                const char* sigval3 = proxyHost_str;
+                                slotFunc(self, sigval1, sigval2, sigval3);
+                                libqt_free(proxyHost_str);
+                            });
 }
 
 void QWebEnginePage_RenderProcessTerminated(QWebEnginePage* self, int terminationStatus, int exitCode) {
@@ -633,11 +669,13 @@ void QWebEnginePage_RenderProcessTerminated(QWebEnginePage* self, int terminatio
 
 void QWebEnginePage_Connect_RenderProcessTerminated(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, int, int) = reinterpret_cast<void (*)(QWebEnginePage*, int, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::renderProcessTerminated, [self, slotFunc](QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
-        int sigval1 = static_cast<int>(terminationStatus);
-        int sigval2 = exitCode;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEnginePage::RenderProcessTerminationStatus, int)>(&QWebEnginePage::renderProcessTerminated),
+                            [self, slotFunc](QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
+                                int sigval1 = static_cast<int>(terminationStatus);
+                                int sigval2 = exitCode;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QWebEnginePage_DesktopMediaRequested(QWebEnginePage* self, const QWebEngineDesktopMediaRequest* request) {
@@ -646,12 +684,14 @@ void QWebEnginePage_DesktopMediaRequested(QWebEnginePage* self, const QWebEngine
 
 void QWebEnginePage_Connect_DesktopMediaRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineDesktopMediaRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineDesktopMediaRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::desktopMediaRequested, [self, slotFunc](const QWebEngineDesktopMediaRequest& request) {
-        const QWebEngineDesktopMediaRequest& request_ret = request;
-        // Cast returned reference into pointer
-        QWebEngineDesktopMediaRequest* sigval1 = const_cast<QWebEngineDesktopMediaRequest*>(&request_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QWebEngineDesktopMediaRequest&)>(&QWebEnginePage::desktopMediaRequested),
+                            [self, slotFunc](const QWebEngineDesktopMediaRequest& request) {
+                                const QWebEngineDesktopMediaRequest& request_ret = request;
+                                // Cast returned reference into pointer
+                                QWebEngineDesktopMediaRequest* sigval1 = const_cast<QWebEngineDesktopMediaRequest*>(&request_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_CertificateError(QWebEnginePage* self, const QWebEngineCertificateError* certificateError) {
@@ -660,12 +700,14 @@ void QWebEnginePage_CertificateError(QWebEnginePage* self, const QWebEngineCerti
 
 void QWebEnginePage_Connect_CertificateError(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineCertificateError*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineCertificateError*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::certificateError, [self, slotFunc](const QWebEngineCertificateError& certificateError) {
-        const QWebEngineCertificateError& certificateError_ret = certificateError;
-        // Cast returned reference into pointer
-        QWebEngineCertificateError* sigval1 = const_cast<QWebEngineCertificateError*>(&certificateError_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QWebEngineCertificateError&)>(&QWebEnginePage::certificateError),
+                            [self, slotFunc](const QWebEngineCertificateError& certificateError) {
+                                const QWebEngineCertificateError& certificateError_ret = certificateError;
+                                // Cast returned reference into pointer
+                                QWebEngineCertificateError* sigval1 = const_cast<QWebEngineCertificateError*>(&certificateError_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_NavigationRequested(QWebEnginePage* self, QWebEngineNavigationRequest* request) {
@@ -674,12 +716,14 @@ void QWebEnginePage_NavigationRequested(QWebEnginePage* self, QWebEngineNavigati
 
 void QWebEnginePage_Connect_NavigationRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineNavigationRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineNavigationRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::navigationRequested, [self, slotFunc](QWebEngineNavigationRequest& request) {
-        QWebEngineNavigationRequest& request_ret = request;
-        // Cast returned reference into pointer
-        QWebEngineNavigationRequest* sigval1 = &request_ret;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineNavigationRequest&)>(&QWebEnginePage::navigationRequested),
+                            [self, slotFunc](QWebEngineNavigationRequest& request) {
+                                QWebEngineNavigationRequest& request_ret = request;
+                                // Cast returned reference into pointer
+                                QWebEngineNavigationRequest* sigval1 = &request_ret;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_NewWindowRequested(QWebEnginePage* self, QWebEngineNewWindowRequest* request) {
@@ -688,12 +732,14 @@ void QWebEnginePage_NewWindowRequested(QWebEnginePage* self, QWebEngineNewWindow
 
 void QWebEnginePage_Connect_NewWindowRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineNewWindowRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineNewWindowRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::newWindowRequested, [self, slotFunc](QWebEngineNewWindowRequest& request) {
-        QWebEngineNewWindowRequest& request_ret = request;
-        // Cast returned reference into pointer
-        QWebEngineNewWindowRequest* sigval1 = &request_ret;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineNewWindowRequest&)>(&QWebEnginePage::newWindowRequested),
+                            [self, slotFunc](QWebEngineNewWindowRequest& request) {
+                                QWebEngineNewWindowRequest& request_ret = request;
+                                // Cast returned reference into pointer
+                                QWebEngineNewWindowRequest* sigval1 = &request_ret;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_TitleChanged(QWebEnginePage* self, const libqt_string title) {
@@ -703,18 +749,20 @@ void QWebEnginePage_TitleChanged(QWebEnginePage* self, const libqt_string title)
 
 void QWebEnginePage_Connect_TitleChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::titleChanged, [self, slotFunc](const QString& title) {
-        const auto title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray title_b = title_ret.toUtf8();
-        auto title_str_len = title_b.length();
-        const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
-        memcpy((void*)title_str, title_b.data(), title_str_len);
-        ((char*)title_str)[title_str_len] = '\0';
-        const char* sigval1 = title_str;
-        slotFunc(self, sigval1);
-        libqt_free(title_str);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QString&)>(&QWebEnginePage::titleChanged),
+                            [self, slotFunc](const QString& title) {
+                                const auto title_ret = title;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray title_b = title_ret.toUtf8();
+                                auto title_str_len = title_b.length();
+                                const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
+                                memcpy((void*)title_str, title_b.data(), title_str_len);
+                                ((char*)title_str)[title_str_len] = '\0';
+                                const char* sigval1 = title_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(title_str);
+                            });
 }
 
 void QWebEnginePage_UrlChanged(QWebEnginePage* self, const QUrl* url) {
@@ -723,12 +771,14 @@ void QWebEnginePage_UrlChanged(QWebEnginePage* self, const QUrl* url) {
 
 void QWebEnginePage_Connect_UrlChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::urlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&)>(&QWebEnginePage::urlChanged),
+                            [self, slotFunc](const QUrl& url) {
+                                const QUrl& url_ret = url;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_IconUrlChanged(QWebEnginePage* self, const QUrl* url) {
@@ -737,12 +787,14 @@ void QWebEnginePage_IconUrlChanged(QWebEnginePage* self, const QUrl* url) {
 
 void QWebEnginePage_Connect_IconUrlChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QUrl*) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::iconUrlChanged, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QUrl&)>(&QWebEnginePage::iconUrlChanged),
+                            [self, slotFunc](const QUrl& url) {
+                                const QUrl& url_ret = url;
+                                // Cast returned reference into pointer
+                                QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_IconChanged(QWebEnginePage* self, const QIcon* icon) {
@@ -751,12 +803,14 @@ void QWebEnginePage_IconChanged(QWebEnginePage* self, const QIcon* icon) {
 
 void QWebEnginePage_Connect_IconChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QIcon*) = reinterpret_cast<void (*)(QWebEnginePage*, QIcon*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::iconChanged, [self, slotFunc](const QIcon& icon) {
-        const QIcon& icon_ret = icon;
-        // Cast returned reference into pointer
-        QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QIcon&)>(&QWebEnginePage::iconChanged),
+                            [self, slotFunc](const QIcon& icon) {
+                                const QIcon& icon_ret = icon;
+                                // Cast returned reference into pointer
+                                QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_ZoomFactorChanged(QWebEnginePage* self, double factor) {
@@ -765,10 +819,12 @@ void QWebEnginePage_ZoomFactorChanged(QWebEnginePage* self, double factor) {
 
 void QWebEnginePage_Connect_ZoomFactorChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, double) = reinterpret_cast<void (*)(QWebEnginePage*, double)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::zoomFactorChanged, [self, slotFunc](qreal factor) {
-        double sigval1 = static_cast<double>(factor);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(qreal)>(&QWebEnginePage::zoomFactorChanged),
+                            [self, slotFunc](qreal factor) {
+                                double sigval1 = static_cast<double>(factor);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_ScrollPositionChanged(QWebEnginePage* self, const QPointF* position) {
@@ -777,12 +833,14 @@ void QWebEnginePage_ScrollPositionChanged(QWebEnginePage* self, const QPointF* p
 
 void QWebEnginePage_Connect_ScrollPositionChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QPointF*) = reinterpret_cast<void (*)(QWebEnginePage*, QPointF*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::scrollPositionChanged, [self, slotFunc](const QPointF& position) {
-        const QPointF& position_ret = position;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&position_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QPointF&)>(&QWebEnginePage::scrollPositionChanged),
+                            [self, slotFunc](const QPointF& position) {
+                                const QPointF& position_ret = position;
+                                // Cast returned reference into pointer
+                                QPointF* sigval1 = const_cast<QPointF*>(&position_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_ContentsSizeChanged(QWebEnginePage* self, const QSizeF* size) {
@@ -791,12 +849,14 @@ void QWebEnginePage_ContentsSizeChanged(QWebEnginePage* self, const QSizeF* size
 
 void QWebEnginePage_Connect_ContentsSizeChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QSizeF*) = reinterpret_cast<void (*)(QWebEnginePage*, QSizeF*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::contentsSizeChanged, [self, slotFunc](const QSizeF& size) {
-        const QSizeF& size_ret = size;
-        // Cast returned reference into pointer
-        QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QSizeF&)>(&QWebEnginePage::contentsSizeChanged),
+                            [self, slotFunc](const QSizeF& size) {
+                                const QSizeF& size_ret = size;
+                                // Cast returned reference into pointer
+                                QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_AudioMutedChanged(QWebEnginePage* self, bool muted) {
@@ -805,10 +865,12 @@ void QWebEnginePage_AudioMutedChanged(QWebEnginePage* self, bool muted) {
 
 void QWebEnginePage_Connect_AudioMutedChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, bool)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::audioMutedChanged, [self, slotFunc](bool muted) {
-        bool sigval1 = muted;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(bool)>(&QWebEnginePage::audioMutedChanged),
+                            [self, slotFunc](bool muted) {
+                                bool sigval1 = muted;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_RecentlyAudibleChanged(QWebEnginePage* self, bool recentlyAudible) {
@@ -817,10 +879,12 @@ void QWebEnginePage_RecentlyAudibleChanged(QWebEnginePage* self, bool recentlyAu
 
 void QWebEnginePage_Connect_RecentlyAudibleChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, bool)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::recentlyAudibleChanged, [self, slotFunc](bool recentlyAudible) {
-        bool sigval1 = recentlyAudible;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(bool)>(&QWebEnginePage::recentlyAudibleChanged),
+                            [self, slotFunc](bool recentlyAudible) {
+                                bool sigval1 = recentlyAudible;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_RenderProcessPidChanged(QWebEnginePage* self, long long pid) {
@@ -829,10 +893,12 @@ void QWebEnginePage_RenderProcessPidChanged(QWebEnginePage* self, long long pid)
 
 void QWebEnginePage_Connect_RenderProcessPidChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, long long) = reinterpret_cast<void (*)(QWebEnginePage*, long long)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::renderProcessPidChanged, [self, slotFunc](qint64 pid) {
-        long long sigval1 = static_cast<long long>(pid);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(qint64)>(&QWebEnginePage::renderProcessPidChanged),
+                            [self, slotFunc](qint64 pid) {
+                                long long sigval1 = static_cast<long long>(pid);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_PdfPrintingFinished(QWebEnginePage* self, const libqt_string filePath, bool success) {
@@ -842,19 +908,21 @@ void QWebEnginePage_PdfPrintingFinished(QWebEnginePage* self, const libqt_string
 
 void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, const char*, bool)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::pdfPrintingFinished, [self, slotFunc](const QString& filePath, bool success) {
-        const auto filePath_ret = filePath;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray filePath_b = filePath_ret.toUtf8();
-        auto filePath_str_len = filePath_b.length();
-        const char* filePath_str = static_cast<const char*>(malloc(filePath_str_len + 1));
-        memcpy((void*)filePath_str, filePath_b.data(), filePath_str_len);
-        ((char*)filePath_str)[filePath_str_len] = '\0';
-        const char* sigval1 = filePath_str;
-        bool sigval2 = success;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(filePath_str);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QString&, bool)>(&QWebEnginePage::pdfPrintingFinished),
+                            [self, slotFunc](const QString& filePath, bool success) {
+                                const auto filePath_ret = filePath;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray filePath_b = filePath_ret.toUtf8();
+                                auto filePath_str_len = filePath_b.length();
+                                const char* filePath_str = static_cast<const char*>(malloc(filePath_str_len + 1));
+                                memcpy((void*)filePath_str, filePath_b.data(), filePath_str_len);
+                                ((char*)filePath_str)[filePath_str_len] = '\0';
+                                const char* sigval1 = filePath_str;
+                                bool sigval2 = success;
+                                slotFunc(self, sigval1, sigval2);
+                                libqt_free(filePath_str);
+                            });
 }
 
 void QWebEnginePage_PrintRequested(QWebEnginePage* self) {
@@ -863,9 +931,11 @@ void QWebEnginePage_PrintRequested(QWebEnginePage* self) {
 
 void QWebEnginePage_Connect_PrintRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::printRequested, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)()>(&QWebEnginePage::printRequested),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QWebEnginePage_PrintRequestedByFrame(QWebEnginePage* self, QWebEngineFrame* frame) {
@@ -874,10 +944,12 @@ void QWebEnginePage_PrintRequestedByFrame(QWebEnginePage* self, QWebEngineFrame*
 
 void QWebEnginePage_Connect_PrintRequestedByFrame(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineFrame*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineFrame*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::printRequestedByFrame, [self, slotFunc](QWebEngineFrame frame) {
-        QWebEngineFrame* sigval1 = new QWebEngineFrame(frame);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineFrame)>(&QWebEnginePage::printRequestedByFrame),
+                            [self, slotFunc](QWebEngineFrame frame) {
+                                QWebEngineFrame* sigval1 = new QWebEngineFrame(frame);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_VisibleChanged(QWebEnginePage* self, bool visible) {
@@ -886,10 +958,12 @@ void QWebEnginePage_VisibleChanged(QWebEnginePage* self, bool visible) {
 
 void QWebEnginePage_Connect_VisibleChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, bool)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::visibleChanged, [self, slotFunc](bool visible) {
-        bool sigval1 = visible;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(bool)>(&QWebEnginePage::visibleChanged),
+                            [self, slotFunc](bool visible) {
+                                bool sigval1 = visible;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_LifecycleStateChanged(QWebEnginePage* self, int state) {
@@ -898,10 +972,12 @@ void QWebEnginePage_LifecycleStateChanged(QWebEnginePage* self, int state) {
 
 void QWebEnginePage_Connect_LifecycleStateChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, int) = reinterpret_cast<void (*)(QWebEnginePage*, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::lifecycleStateChanged, [self, slotFunc](QWebEnginePage::LifecycleState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEnginePage::LifecycleState)>(&QWebEnginePage::lifecycleStateChanged),
+                            [self, slotFunc](QWebEnginePage::LifecycleState state) {
+                                int sigval1 = static_cast<int>(state);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_RecommendedStateChanged(QWebEnginePage* self, int state) {
@@ -910,10 +986,12 @@ void QWebEnginePage_RecommendedStateChanged(QWebEnginePage* self, int state) {
 
 void QWebEnginePage_Connect_RecommendedStateChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, int) = reinterpret_cast<void (*)(QWebEnginePage*, int)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::recommendedStateChanged, [self, slotFunc](QWebEnginePage::LifecycleState state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEnginePage::LifecycleState)>(&QWebEnginePage::recommendedStateChanged),
+                            [self, slotFunc](QWebEnginePage::LifecycleState state) {
+                                int sigval1 = static_cast<int>(state);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_FindTextFinished(QWebEnginePage* self, const QWebEngineFindTextResult* result) {
@@ -922,12 +1000,14 @@ void QWebEnginePage_FindTextFinished(QWebEnginePage* self, const QWebEngineFindT
 
 void QWebEnginePage_Connect_FindTextFinished(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineFindTextResult*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineFindTextResult*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::findTextFinished, [self, slotFunc](const QWebEngineFindTextResult& result) {
-        const QWebEngineFindTextResult& result_ret = result;
-        // Cast returned reference into pointer
-        QWebEngineFindTextResult* sigval1 = const_cast<QWebEngineFindTextResult*>(&result_ret);
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(const QWebEngineFindTextResult&)>(&QWebEnginePage::findTextFinished),
+                            [self, slotFunc](const QWebEngineFindTextResult& result) {
+                                const QWebEngineFindTextResult& result_ret = result;
+                                // Cast returned reference into pointer
+                                QWebEngineFindTextResult* sigval1 = const_cast<QWebEngineFindTextResult*>(&result_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QWebEnginePage_QAboutToDelete(QWebEnginePage* self) {
@@ -936,9 +1016,11 @@ void QWebEnginePage_QAboutToDelete(QWebEnginePage* self) {
 
 void QWebEnginePage_Connect_QAboutToDelete(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::_q_aboutToDelete, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)()>(&QWebEnginePage::_q_aboutToDelete),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QWebEnginePage_WebAuthUxRequested(QWebEnginePage* self, QWebEngineWebAuthUxRequest* request) {
@@ -947,10 +1029,12 @@ void QWebEnginePage_WebAuthUxRequested(QWebEnginePage* self, QWebEngineWebAuthUx
 
 void QWebEnginePage_Connect_WebAuthUxRequested(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, QWebEngineWebAuthUxRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineWebAuthUxRequest*)>(slot);
-    QWebEnginePage::connect(self, &QWebEnginePage::webAuthUxRequested, [self, slotFunc](QWebEngineWebAuthUxRequest* request) {
-        QWebEngineWebAuthUxRequest* sigval1 = request;
-        slotFunc(self, sigval1);
-    });
+    QWebEnginePage::connect(self,
+                            static_cast<void (QWebEnginePage::*)(QWebEngineWebAuthUxRequest*)>(&QWebEnginePage::webAuthUxRequested),
+                            [self, slotFunc](QWebEngineWebAuthUxRequest* request) {
+                                QWebEngineWebAuthUxRequest* sigval1 = request;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 QWebEnginePage* QWebEnginePage_CreateWindow(QWebEnginePage* self, int typeVal) {

@@ -146,9 +146,11 @@ void QMediaCaptureSession_AudioInputChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_AudioInputChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::audioInputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::audioInputChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_AudioBufferInputChanged(QMediaCaptureSession* self) {
@@ -157,9 +159,11 @@ void QMediaCaptureSession_AudioBufferInputChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_AudioBufferInputChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::audioBufferInputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::audioBufferInputChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_CameraChanged(QMediaCaptureSession* self) {
@@ -168,9 +172,11 @@ void QMediaCaptureSession_CameraChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_CameraChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::cameraChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::cameraChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_ScreenCaptureChanged(QMediaCaptureSession* self) {
@@ -179,9 +185,11 @@ void QMediaCaptureSession_ScreenCaptureChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_ScreenCaptureChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::screenCaptureChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::screenCaptureChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_WindowCaptureChanged(QMediaCaptureSession* self) {
@@ -190,9 +198,11 @@ void QMediaCaptureSession_WindowCaptureChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_WindowCaptureChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::windowCaptureChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::windowCaptureChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_VideoFrameInputChanged(QMediaCaptureSession* self) {
@@ -201,9 +211,11 @@ void QMediaCaptureSession_VideoFrameInputChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_VideoFrameInputChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::videoFrameInputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::videoFrameInputChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_ImageCaptureChanged(QMediaCaptureSession* self) {
@@ -212,9 +224,11 @@ void QMediaCaptureSession_ImageCaptureChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_ImageCaptureChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::imageCaptureChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::imageCaptureChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_RecorderChanged(QMediaCaptureSession* self) {
@@ -223,9 +237,11 @@ void QMediaCaptureSession_RecorderChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_RecorderChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::recorderChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::recorderChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_VideoOutputChanged(QMediaCaptureSession* self) {
@@ -234,9 +250,11 @@ void QMediaCaptureSession_VideoOutputChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_VideoOutputChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::videoOutputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::videoOutputChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void QMediaCaptureSession_AudioOutputChanged(QMediaCaptureSession* self) {
@@ -245,9 +263,11 @@ void QMediaCaptureSession_AudioOutputChanged(QMediaCaptureSession* self) {
 
 void QMediaCaptureSession_Connect_AudioOutputChanged(QMediaCaptureSession* self, intptr_t slot) {
     void (*slotFunc)(QMediaCaptureSession*) = reinterpret_cast<void (*)(QMediaCaptureSession*)>(slot);
-    QMediaCaptureSession::connect(self, &QMediaCaptureSession::audioOutputChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMediaCaptureSession::connect(self,
+                                  static_cast<void (QMediaCaptureSession::*)()>(&QMediaCaptureSession::audioOutputChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string QMediaCaptureSession_Tr2(const char* s, const char* c) {

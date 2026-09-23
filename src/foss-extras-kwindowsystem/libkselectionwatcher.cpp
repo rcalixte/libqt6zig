@@ -56,9 +56,11 @@ void KSelectionWatcher_LostOwner(KSelectionWatcher* self) {
 
 void KSelectionWatcher_Connect_LostOwner(KSelectionWatcher* self, intptr_t slot) {
     void (*slotFunc)(KSelectionWatcher*) = reinterpret_cast<void (*)(KSelectionWatcher*)>(slot);
-    KSelectionWatcher::connect(self, &KSelectionWatcher::lostOwner, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSelectionWatcher::connect(self,
+                               static_cast<void (KSelectionWatcher::*)()>(&KSelectionWatcher::lostOwner),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 libqt_string KSelectionWatcher_Tr2(const char* s, const char* c) {

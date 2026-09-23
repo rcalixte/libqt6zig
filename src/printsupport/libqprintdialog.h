@@ -70,6 +70,7 @@ void QPrintDialog_SetOptions(QPrintDialog* self, int options);
 int QPrintDialog_Options(const QPrintDialog* self);
 void QPrintDialog_SetVisible(QPrintDialog* self, bool visible);
 void QPrintDialog_Accepted(QPrintDialog* self, QPrinter* printer);
+void QPrintDialog_Connect_Accepted(QPrintDialog* self, intptr_t slot);
 libqt_string QPrintDialog_Tr2(const char* s, const char* c);
 libqt_string QPrintDialog_Tr3(const char* s, const char* c, int n);
 void QPrintDialog_SetOption2(QPrintDialog* self, int option, bool on);

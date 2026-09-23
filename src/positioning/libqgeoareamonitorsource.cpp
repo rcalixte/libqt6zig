@@ -156,15 +156,17 @@ void QGeoAreaMonitorSource_AreaEntered(QGeoAreaMonitorSource* self, const QGeoAr
 
 void QGeoAreaMonitorSource_Connect_AreaEntered(QGeoAreaMonitorSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*, QGeoPositionInfo*) = reinterpret_cast<void (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*, QGeoPositionInfo*)>(slot);
-    QGeoAreaMonitorSource::connect(self, &QGeoAreaMonitorSource::areaEntered, [self, slotFunc](const QGeoAreaMonitorInfo& monitor, const QGeoPositionInfo& update) {
-        const QGeoAreaMonitorInfo& monitor_ret = monitor;
-        // Cast returned reference into pointer
-        QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
-        const QGeoPositionInfo& update_ret = update;
-        // Cast returned reference into pointer
-        QGeoPositionInfo* sigval2 = const_cast<QGeoPositionInfo*>(&update_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QGeoAreaMonitorSource::connect(self,
+                                   static_cast<void (QGeoAreaMonitorSource::*)(const QGeoAreaMonitorInfo&, const QGeoPositionInfo&)>(&QGeoAreaMonitorSource::areaEntered),
+                                   [self, slotFunc](const QGeoAreaMonitorInfo& monitor, const QGeoPositionInfo& update) {
+                                       const QGeoAreaMonitorInfo& monitor_ret = monitor;
+                                       // Cast returned reference into pointer
+                                       QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
+                                       const QGeoPositionInfo& update_ret = update;
+                                       // Cast returned reference into pointer
+                                       QGeoPositionInfo* sigval2 = const_cast<QGeoPositionInfo*>(&update_ret);
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void QGeoAreaMonitorSource_AreaExited(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor, const QGeoPositionInfo* update) {
@@ -173,15 +175,17 @@ void QGeoAreaMonitorSource_AreaExited(QGeoAreaMonitorSource* self, const QGeoAre
 
 void QGeoAreaMonitorSource_Connect_AreaExited(QGeoAreaMonitorSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*, QGeoPositionInfo*) = reinterpret_cast<void (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*, QGeoPositionInfo*)>(slot);
-    QGeoAreaMonitorSource::connect(self, &QGeoAreaMonitorSource::areaExited, [self, slotFunc](const QGeoAreaMonitorInfo& monitor, const QGeoPositionInfo& update) {
-        const QGeoAreaMonitorInfo& monitor_ret = monitor;
-        // Cast returned reference into pointer
-        QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
-        const QGeoPositionInfo& update_ret = update;
-        // Cast returned reference into pointer
-        QGeoPositionInfo* sigval2 = const_cast<QGeoPositionInfo*>(&update_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QGeoAreaMonitorSource::connect(self,
+                                   static_cast<void (QGeoAreaMonitorSource::*)(const QGeoAreaMonitorInfo&, const QGeoPositionInfo&)>(&QGeoAreaMonitorSource::areaExited),
+                                   [self, slotFunc](const QGeoAreaMonitorInfo& monitor, const QGeoPositionInfo& update) {
+                                       const QGeoAreaMonitorInfo& monitor_ret = monitor;
+                                       // Cast returned reference into pointer
+                                       QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
+                                       const QGeoPositionInfo& update_ret = update;
+                                       // Cast returned reference into pointer
+                                       QGeoPositionInfo* sigval2 = const_cast<QGeoPositionInfo*>(&update_ret);
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void QGeoAreaMonitorSource_MonitorExpired(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor) {
@@ -190,12 +194,14 @@ void QGeoAreaMonitorSource_MonitorExpired(QGeoAreaMonitorSource* self, const QGe
 
 void QGeoAreaMonitorSource_Connect_MonitorExpired(QGeoAreaMonitorSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*) = reinterpret_cast<void (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*)>(slot);
-    QGeoAreaMonitorSource::connect(self, &QGeoAreaMonitorSource::monitorExpired, [self, slotFunc](const QGeoAreaMonitorInfo& monitor) {
-        const QGeoAreaMonitorInfo& monitor_ret = monitor;
-        // Cast returned reference into pointer
-        QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
-        slotFunc(self, sigval1);
-    });
+    QGeoAreaMonitorSource::connect(self,
+                                   static_cast<void (QGeoAreaMonitorSource::*)(const QGeoAreaMonitorInfo&)>(&QGeoAreaMonitorSource::monitorExpired),
+                                   [self, slotFunc](const QGeoAreaMonitorInfo& monitor) {
+                                       const QGeoAreaMonitorInfo& monitor_ret = monitor;
+                                       // Cast returned reference into pointer
+                                       QGeoAreaMonitorInfo* sigval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QGeoAreaMonitorSource_ErrorOccurred(QGeoAreaMonitorSource* self, int errorVal) {
@@ -204,10 +210,12 @@ void QGeoAreaMonitorSource_ErrorOccurred(QGeoAreaMonitorSource* self, int errorV
 
 void QGeoAreaMonitorSource_Connect_ErrorOccurred(QGeoAreaMonitorSource* self, intptr_t slot) {
     void (*slotFunc)(QGeoAreaMonitorSource*, int) = reinterpret_cast<void (*)(QGeoAreaMonitorSource*, int)>(slot);
-    QGeoAreaMonitorSource::connect(self, &QGeoAreaMonitorSource::errorOccurred, [self, slotFunc](QGeoAreaMonitorSource::Error errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QGeoAreaMonitorSource::connect(self,
+                                   static_cast<void (QGeoAreaMonitorSource::*)(QGeoAreaMonitorSource::Error)>(&QGeoAreaMonitorSource::errorOccurred),
+                                   [self, slotFunc](QGeoAreaMonitorSource::Error errorVal) {
+                                       int sigval1 = static_cast<int>(errorVal);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_string QGeoAreaMonitorSource_Tr2(const char* s, const char* c) {

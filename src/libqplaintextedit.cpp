@@ -436,9 +436,11 @@ void QPlainTextEdit_TextChanged(QPlainTextEdit* self) {
 
 void QPlainTextEdit_Connect_TextChanged(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*) = reinterpret_cast<void (*)(QPlainTextEdit*)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::textChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::textChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QPlainTextEdit_UndoAvailable(QPlainTextEdit* self, bool b) {
@@ -447,10 +449,12 @@ void QPlainTextEdit_UndoAvailable(QPlainTextEdit* self, bool b) {
 
 void QPlainTextEdit_Connect_UndoAvailable(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, bool) = reinterpret_cast<void (*)(QPlainTextEdit*, bool)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::undoAvailable, [self, slotFunc](bool b) {
-        bool sigval1 = b;
-        slotFunc(self, sigval1);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::undoAvailable),
+                            [self, slotFunc](bool b) {
+                                bool sigval1 = b;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QPlainTextEdit_RedoAvailable(QPlainTextEdit* self, bool b) {
@@ -459,10 +463,12 @@ void QPlainTextEdit_RedoAvailable(QPlainTextEdit* self, bool b) {
 
 void QPlainTextEdit_Connect_RedoAvailable(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, bool) = reinterpret_cast<void (*)(QPlainTextEdit*, bool)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::redoAvailable, [self, slotFunc](bool b) {
-        bool sigval1 = b;
-        slotFunc(self, sigval1);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::redoAvailable),
+                            [self, slotFunc](bool b) {
+                                bool sigval1 = b;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QPlainTextEdit_CopyAvailable(QPlainTextEdit* self, bool b) {
@@ -471,10 +477,12 @@ void QPlainTextEdit_CopyAvailable(QPlainTextEdit* self, bool b) {
 
 void QPlainTextEdit_Connect_CopyAvailable(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, bool) = reinterpret_cast<void (*)(QPlainTextEdit*, bool)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::copyAvailable, [self, slotFunc](bool b) {
-        bool sigval1 = b;
-        slotFunc(self, sigval1);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::copyAvailable),
+                            [self, slotFunc](bool b) {
+                                bool sigval1 = b;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QPlainTextEdit_SelectionChanged(QPlainTextEdit* self) {
@@ -483,9 +491,11 @@ void QPlainTextEdit_SelectionChanged(QPlainTextEdit* self) {
 
 void QPlainTextEdit_Connect_SelectionChanged(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*) = reinterpret_cast<void (*)(QPlainTextEdit*)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::selectionChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QPlainTextEdit_CursorPositionChanged(QPlainTextEdit* self) {
@@ -494,9 +504,11 @@ void QPlainTextEdit_CursorPositionChanged(QPlainTextEdit* self) {
 
 void QPlainTextEdit_Connect_CursorPositionChanged(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*) = reinterpret_cast<void (*)(QPlainTextEdit*)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::cursorPositionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::cursorPositionChanged),
+                            [self, slotFunc]() {
+                                slotFunc(self);
+                            });
 }
 
 void QPlainTextEdit_UpdateRequest(QPlainTextEdit* self, const QRect* rect, int dy) {
@@ -505,13 +517,15 @@ void QPlainTextEdit_UpdateRequest(QPlainTextEdit* self, const QRect* rect, int d
 
 void QPlainTextEdit_Connect_UpdateRequest(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, QRect*, int) = reinterpret_cast<void (*)(QPlainTextEdit*, QRect*, int)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::updateRequest, [self, slotFunc](const QRect& rect, int dy) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        int sigval2 = dy;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(const QRect&, int)>(&QPlainTextEdit::updateRequest),
+                            [self, slotFunc](const QRect& rect, int dy) {
+                                const QRect& rect_ret = rect;
+                                // Cast returned reference into pointer
+                                QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                                int sigval2 = dy;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QPlainTextEdit_BlockCountChanged(QPlainTextEdit* self, int newBlockCount) {
@@ -520,10 +534,12 @@ void QPlainTextEdit_BlockCountChanged(QPlainTextEdit* self, int newBlockCount) {
 
 void QPlainTextEdit_Connect_BlockCountChanged(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, int) = reinterpret_cast<void (*)(QPlainTextEdit*, int)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::blockCountChanged, [self, slotFunc](int newBlockCount) {
-        int sigval1 = newBlockCount;
-        slotFunc(self, sigval1);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(int)>(&QPlainTextEdit::blockCountChanged),
+                            [self, slotFunc](int newBlockCount) {
+                                int sigval1 = newBlockCount;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QPlainTextEdit_ModificationChanged(QPlainTextEdit* self, bool param1) {
@@ -532,10 +548,12 @@ void QPlainTextEdit_ModificationChanged(QPlainTextEdit* self, bool param1) {
 
 void QPlainTextEdit_Connect_ModificationChanged(QPlainTextEdit* self, intptr_t slot) {
     void (*slotFunc)(QPlainTextEdit*, bool) = reinterpret_cast<void (*)(QPlainTextEdit*, bool)>(slot);
-    QPlainTextEdit::connect(self, &QPlainTextEdit::modificationChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QPlainTextEdit::connect(self,
+                            static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::modificationChanged),
+                            [self, slotFunc](bool param1) {
+                                bool sigval1 = param1;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 bool QPlainTextEdit_Event(QPlainTextEdit* self, QEvent* e) {

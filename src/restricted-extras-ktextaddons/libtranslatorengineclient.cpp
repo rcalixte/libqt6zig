@@ -156,9 +156,11 @@ void TextTranslator__TranslatorEngineClient_ConfigureChanged(TextTranslator__Tra
 
 void TextTranslator__TranslatorEngineClient_Connect_ConfigureChanged(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorEngineClient*) = reinterpret_cast<void (*)(TextTranslator__TranslatorEngineClient*)>(slot);
-    TextTranslator::TranslatorEngineClient::connect(self, &TextTranslator::TranslatorEngineClient::configureChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorEngineClient::connect(self,
+                                                    static_cast<void (TextTranslator::TranslatorEngineClient::*)()>(&TextTranslator::TranslatorEngineClient::configureChanged),
+                                                    [self, slotFunc]() {
+                                                        slotFunc(self);
+                                                    });
 }
 
 bool TextTranslator__TranslatorEngineClient_IsSupported(const TextTranslator__TranslatorEngineClient* self, int lang) {

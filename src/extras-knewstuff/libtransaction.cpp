@@ -64,9 +64,11 @@ void KNSCore__Transaction_Finished(KNSCore__Transaction* self) {
 
 void KNSCore__Transaction_Connect_Finished(KNSCore__Transaction* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Transaction*) = reinterpret_cast<void (*)(KNSCore__Transaction*)>(slot);
-    KNSCore::Transaction::connect(self, &KNSCore::Transaction::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNSCore::Transaction::connect(self,
+                                  static_cast<void (KNSCore::Transaction::*)()>(&KNSCore::Transaction::finished),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KNSCore__Transaction_SignalMessage(KNSCore__Transaction* self, const libqt_string message) {
@@ -76,18 +78,20 @@ void KNSCore__Transaction_SignalMessage(KNSCore__Transaction* self, const libqt_
 
 void KNSCore__Transaction_Connect_SignalMessage(KNSCore__Transaction* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Transaction*, const char*) = reinterpret_cast<void (*)(KNSCore__Transaction*, const char*)>(slot);
-    KNSCore::Transaction::connect(self, &KNSCore::Transaction::signalMessage, [self, slotFunc](const QString& message) {
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval1 = message_str;
-        slotFunc(self, sigval1);
-        libqt_free(message_str);
-    });
+    KNSCore::Transaction::connect(self,
+                                  static_cast<void (KNSCore::Transaction::*)(const QString&)>(&KNSCore::Transaction::signalMessage),
+                                  [self, slotFunc](const QString& message) {
+                                      const auto message_ret = message;
+                                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                      QByteArray message_b = message_ret.toUtf8();
+                                      auto message_str_len = message_b.length();
+                                      const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                      memcpy((void*)message_str, message_b.data(), message_str_len);
+                                      ((char*)message_str)[message_str_len] = '\0';
+                                      const char* sigval1 = message_str;
+                                      slotFunc(self, sigval1);
+                                      libqt_free(message_str);
+                                  });
 }
 
 void KNSCore__Transaction_SignalEntryEvent(KNSCore__Transaction* self, const KNSCore__Entry* entry, int event) {
@@ -96,13 +100,15 @@ void KNSCore__Transaction_SignalEntryEvent(KNSCore__Transaction* self, const KNS
 
 void KNSCore__Transaction_Connect_SignalEntryEvent(KNSCore__Transaction* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Transaction*, KNSCore__Entry*, int) = reinterpret_cast<void (*)(KNSCore__Transaction*, KNSCore__Entry*, int)>(slot);
-    KNSCore::Transaction::connect(self, &KNSCore::Transaction::signalEntryEvent, [self, slotFunc](const KNSCore::Entry& entry, KNSCore::Entry::EntryEvent event) {
-        const KNSCore::Entry& entry_ret = entry;
-        // Cast returned reference into pointer
-        KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&entry_ret);
-        int sigval2 = static_cast<int>(event);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KNSCore::Transaction::connect(self,
+                                  static_cast<void (KNSCore::Transaction::*)(const KNSCore::Entry&, KNSCore::Entry::EntryEvent)>(&KNSCore::Transaction::signalEntryEvent),
+                                  [self, slotFunc](const KNSCore::Entry& entry, KNSCore::Entry::EntryEvent event) {
+                                      const KNSCore::Entry& entry_ret = entry;
+                                      // Cast returned reference into pointer
+                                      KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&entry_ret);
+                                      int sigval2 = static_cast<int>(event);
+                                      slotFunc(self, sigval1, sigval2);
+                                  });
 }
 
 void KNSCore__Transaction_SignalErrorCode(KNSCore__Transaction* self, int errorCode, const libqt_string message, const QVariant* metadata) {
@@ -112,22 +118,24 @@ void KNSCore__Transaction_SignalErrorCode(KNSCore__Transaction* self, int errorC
 
 void KNSCore__Transaction_Connect_SignalErrorCode(KNSCore__Transaction* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Transaction*, int, const char*, QVariant*) = reinterpret_cast<void (*)(KNSCore__Transaction*, int, const char*, QVariant*)>(slot);
-    KNSCore::Transaction::connect(self, &KNSCore::Transaction::signalErrorCode, [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
-        int sigval1 = static_cast<int>(errorCode);
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        const QVariant& metadata_ret = metadata;
-        // Cast returned reference into pointer
-        QVariant* sigval3 = const_cast<QVariant*>(&metadata_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(message_str);
-    });
+    KNSCore::Transaction::connect(self,
+                                  static_cast<void (KNSCore::Transaction::*)(KNSCore::ErrorCode::ErrorCode, const QString&, const QVariant&)>(&KNSCore::Transaction::signalErrorCode),
+                                  [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
+                                      int sigval1 = static_cast<int>(errorCode);
+                                      const auto message_ret = message;
+                                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                      QByteArray message_b = message_ret.toUtf8();
+                                      auto message_str_len = message_b.length();
+                                      const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                      memcpy((void*)message_str, message_b.data(), message_str_len);
+                                      ((char*)message_str)[message_str_len] = '\0';
+                                      const char* sigval2 = message_str;
+                                      const QVariant& metadata_ret = metadata;
+                                      // Cast returned reference into pointer
+                                      QVariant* sigval3 = const_cast<QVariant*>(&metadata_ret);
+                                      slotFunc(self, sigval1, sigval2, sigval3);
+                                      libqt_free(message_str);
+                                  });
 }
 
 libqt_string KNSCore__Transaction_Tr2(const char* s, const char* c) {

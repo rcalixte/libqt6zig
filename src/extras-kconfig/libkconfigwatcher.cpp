@@ -47,27 +47,29 @@ void KConfigWatcher_ConfigChanged(KConfigWatcher* self, const KConfigGroup* grou
 
 void KConfigWatcher_Connect_ConfigChanged(KConfigWatcher* self, intptr_t slot) {
     void (*slotFunc)(KConfigWatcher*, KConfigGroup*, const char**) = reinterpret_cast<void (*)(KConfigWatcher*, KConfigGroup*, const char**)>(slot);
-    KConfigWatcher::connect(self, &KConfigWatcher::configChanged, [self, slotFunc](const KConfigGroup& group, const QList<QByteArray>& names) {
-        const KConfigGroup& group_ret = group;
-        // Cast returned reference into pointer
-        KConfigGroup* sigval1 = const_cast<KConfigGroup*>(&group_ret);
-        const QList<QByteArray>& names_ret = names;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** names_arr = static_cast<const char**>(malloc(sizeof(const char*) * (names_ret.size() + 1)));
-        for (qsizetype i = 0; i < names_ret.size(); ++i) {
-            QByteArray names_b = names_ret[i];
-            auto names_str_len = names_b.length();
-            char* names_str = static_cast<char*>(malloc(names_str_len + 1));
-            memcpy(names_str, names_b.data(), names_str_len);
-            names_str[names_str_len] = '\0';
-            names_arr[i] = names_str;
-        }
-        // Append sentinel null terminator to the list
-        names_arr[names_ret.size()] = nullptr;
-        const char** sigval2 = names_arr;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(names_arr);
-    });
+    KConfigWatcher::connect(self,
+                            static_cast<void (KConfigWatcher::*)(const KConfigGroup&, const QList<QByteArray>&)>(&KConfigWatcher::configChanged),
+                            [self, slotFunc](const KConfigGroup& group, const QList<QByteArray>& names) {
+                                const KConfigGroup& group_ret = group;
+                                // Cast returned reference into pointer
+                                KConfigGroup* sigval1 = const_cast<KConfigGroup*>(&group_ret);
+                                const QList<QByteArray>& names_ret = names;
+                                // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                const char** names_arr = static_cast<const char**>(malloc(sizeof(const char*) * (names_ret.size() + 1)));
+                                for (qsizetype i = 0; i < names_ret.size(); ++i) {
+                                    QByteArray names_b = names_ret[i];
+                                    auto names_str_len = names_b.length();
+                                    char* names_str = static_cast<char*>(malloc(names_str_len + 1));
+                                    memcpy(names_str, names_b.data(), names_str_len);
+                                    names_str[names_str_len] = '\0';
+                                    names_arr[i] = names_str;
+                                }
+                                // Append sentinel null terminator to the list
+                                names_arr[names_ret.size()] = nullptr;
+                                const char** sigval2 = names_arr;
+                                slotFunc(self, sigval1, sigval2);
+                                libqt_free(names_arr);
+                            });
 }
 
 libqt_string KConfigWatcher_Tr2(const char* s, const char* c) {

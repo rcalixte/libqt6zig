@@ -93,16 +93,18 @@ void KCodecAction_CodecNameTriggered(KCodecAction* self, const libqt_string name
 
 void KCodecAction_Connect_CodecNameTriggered(KCodecAction* self, intptr_t slot) {
     void (*slotFunc)(KCodecAction*, libqt_string) = reinterpret_cast<void (*)(KCodecAction*, libqt_string)>(slot);
-    KCodecAction::connect(self, &KCodecAction::codecNameTriggered, [self, slotFunc](const QByteArray& name) {
-        const QByteArray name_qb = name;
-        libqt_string name_str;
-        name_str.len = name_qb.length();
-        name_str.data = static_cast<char*>(malloc(name_str.len));
-        memcpy((void*)name_str.data, name_qb.data(), name_str.len);
-        libqt_string sigval1 = name_str;
-        slotFunc(self, sigval1);
-        libqt_free(name_str.data);
-    });
+    KCodecAction::connect(self,
+                          static_cast<void (KCodecAction::*)(const QByteArray&)>(&KCodecAction::codecNameTriggered),
+                          [self, slotFunc](const QByteArray& name) {
+                              const QByteArray name_qb = name;
+                              libqt_string name_str;
+                              name_str.len = name_qb.length();
+                              name_str.data = static_cast<char*>(malloc(name_str.len));
+                              memcpy((void*)name_str.data, name_qb.data(), name_str.len);
+                              libqt_string sigval1 = name_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(name_str.data);
+                          });
 }
 
 void KCodecAction_DefaultItemTriggered(KCodecAction* self) {
@@ -111,9 +113,11 @@ void KCodecAction_DefaultItemTriggered(KCodecAction* self) {
 
 void KCodecAction_Connect_DefaultItemTriggered(KCodecAction* self, intptr_t slot) {
     void (*slotFunc)(KCodecAction*) = reinterpret_cast<void (*)(KCodecAction*)>(slot);
-    KCodecAction::connect(self, &KCodecAction::defaultItemTriggered, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCodecAction::connect(self,
+                          static_cast<void (KCodecAction::*)()>(&KCodecAction::defaultItemTriggered),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1) {

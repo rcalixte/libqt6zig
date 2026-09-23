@@ -111,9 +111,11 @@ void QAudioRoom_PositionChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_PositionChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::positionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::positionChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_DimensionsChanged(QAudioRoom* self) {
@@ -122,9 +124,11 @@ void QAudioRoom_DimensionsChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_DimensionsChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::dimensionsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::dimensionsChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_RotationChanged(QAudioRoom* self) {
@@ -133,9 +137,11 @@ void QAudioRoom_RotationChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_RotationChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::rotationChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::rotationChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_WallsChanged(QAudioRoom* self) {
@@ -144,9 +150,11 @@ void QAudioRoom_WallsChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_WallsChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::wallsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::wallsChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_ReflectionGainChanged(QAudioRoom* self) {
@@ -155,9 +163,11 @@ void QAudioRoom_ReflectionGainChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_ReflectionGainChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::reflectionGainChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::reflectionGainChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_ReverbGainChanged(QAudioRoom* self) {
@@ -166,9 +176,11 @@ void QAudioRoom_ReverbGainChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_ReverbGainChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::reverbGainChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::reverbGainChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_ReverbTimeChanged(QAudioRoom* self) {
@@ -177,9 +189,11 @@ void QAudioRoom_ReverbTimeChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_ReverbTimeChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::reverbTimeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::reverbTimeChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QAudioRoom_ReverbBrightnessChanged(QAudioRoom* self) {
@@ -188,9 +202,11 @@ void QAudioRoom_ReverbBrightnessChanged(QAudioRoom* self) {
 
 void QAudioRoom_Connect_ReverbBrightnessChanged(QAudioRoom* self, intptr_t slot) {
     void (*slotFunc)(QAudioRoom*) = reinterpret_cast<void (*)(QAudioRoom*)>(slot);
-    QAudioRoom::connect(self, &QAudioRoom::reverbBrightnessChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QAudioRoom::connect(self,
+                        static_cast<void (QAudioRoom::*)()>(&QAudioRoom::reverbBrightnessChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 libqt_string QAudioRoom_Tr2(const char* s, const char* c) {

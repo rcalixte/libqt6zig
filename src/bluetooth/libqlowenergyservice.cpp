@@ -130,10 +130,12 @@ void QLowEnergyService_StateChanged(QLowEnergyService* self, int newState) {
 
 void QLowEnergyService_Connect_StateChanged(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, int) = reinterpret_cast<void (*)(QLowEnergyService*, int)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::stateChanged, [self, slotFunc](QLowEnergyService::ServiceState newState) {
-        int sigval1 = static_cast<int>(newState);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(QLowEnergyService::ServiceState)>(&QLowEnergyService::stateChanged),
+                               [self, slotFunc](QLowEnergyService::ServiceState newState) {
+                                   int sigval1 = static_cast<int>(newState);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QLowEnergyService_CharacteristicChanged(QLowEnergyService* self, const QLowEnergyCharacteristic* info, const libqt_string value) {
@@ -143,19 +145,21 @@ void QLowEnergyService_CharacteristicChanged(QLowEnergyService* self, const QLow
 
 void QLowEnergyService_Connect_CharacteristicChanged(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string) = reinterpret_cast<void (*)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::characteristicChanged, [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
-        const QLowEnergyCharacteristic& info_ret = info;
-        // Cast returned reference into pointer
-        QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
-        const QByteArray value_qb = value;
-        libqt_string value_str;
-        value_str.len = value_qb.length();
-        value_str.data = static_cast<char*>(malloc(value_str.len));
-        memcpy((void*)value_str.data, value_qb.data(), value_str.len);
-        libqt_string sigval2 = value_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(value_str.data);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(const QLowEnergyCharacteristic&, const QByteArray&)>(&QLowEnergyService::characteristicChanged),
+                               [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
+                                   const QLowEnergyCharacteristic& info_ret = info;
+                                   // Cast returned reference into pointer
+                                   QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
+                                   const QByteArray value_qb = value;
+                                   libqt_string value_str;
+                                   value_str.len = value_qb.length();
+                                   value_str.data = static_cast<char*>(malloc(value_str.len));
+                                   memcpy((void*)value_str.data, value_qb.data(), value_str.len);
+                                   libqt_string sigval2 = value_str;
+                                   slotFunc(self, sigval1, sigval2);
+                                   libqt_free(value_str.data);
+                               });
 }
 
 void QLowEnergyService_CharacteristicRead(QLowEnergyService* self, const QLowEnergyCharacteristic* info, const libqt_string value) {
@@ -165,19 +169,21 @@ void QLowEnergyService_CharacteristicRead(QLowEnergyService* self, const QLowEne
 
 void QLowEnergyService_Connect_CharacteristicRead(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string) = reinterpret_cast<void (*)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::characteristicRead, [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
-        const QLowEnergyCharacteristic& info_ret = info;
-        // Cast returned reference into pointer
-        QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
-        const QByteArray value_qb = value;
-        libqt_string value_str;
-        value_str.len = value_qb.length();
-        value_str.data = static_cast<char*>(malloc(value_str.len));
-        memcpy((void*)value_str.data, value_qb.data(), value_str.len);
-        libqt_string sigval2 = value_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(value_str.data);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(const QLowEnergyCharacteristic&, const QByteArray&)>(&QLowEnergyService::characteristicRead),
+                               [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
+                                   const QLowEnergyCharacteristic& info_ret = info;
+                                   // Cast returned reference into pointer
+                                   QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
+                                   const QByteArray value_qb = value;
+                                   libqt_string value_str;
+                                   value_str.len = value_qb.length();
+                                   value_str.data = static_cast<char*>(malloc(value_str.len));
+                                   memcpy((void*)value_str.data, value_qb.data(), value_str.len);
+                                   libqt_string sigval2 = value_str;
+                                   slotFunc(self, sigval1, sigval2);
+                                   libqt_free(value_str.data);
+                               });
 }
 
 void QLowEnergyService_CharacteristicWritten(QLowEnergyService* self, const QLowEnergyCharacteristic* info, const libqt_string value) {
@@ -187,19 +193,21 @@ void QLowEnergyService_CharacteristicWritten(QLowEnergyService* self, const QLow
 
 void QLowEnergyService_Connect_CharacteristicWritten(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string) = reinterpret_cast<void (*)(QLowEnergyService*, QLowEnergyCharacteristic*, libqt_string)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::characteristicWritten, [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
-        const QLowEnergyCharacteristic& info_ret = info;
-        // Cast returned reference into pointer
-        QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
-        const QByteArray value_qb = value;
-        libqt_string value_str;
-        value_str.len = value_qb.length();
-        value_str.data = static_cast<char*>(malloc(value_str.len));
-        memcpy((void*)value_str.data, value_qb.data(), value_str.len);
-        libqt_string sigval2 = value_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(value_str.data);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(const QLowEnergyCharacteristic&, const QByteArray&)>(&QLowEnergyService::characteristicWritten),
+                               [self, slotFunc](const QLowEnergyCharacteristic& info, const QByteArray& value) {
+                                   const QLowEnergyCharacteristic& info_ret = info;
+                                   // Cast returned reference into pointer
+                                   QLowEnergyCharacteristic* sigval1 = const_cast<QLowEnergyCharacteristic*>(&info_ret);
+                                   const QByteArray value_qb = value;
+                                   libqt_string value_str;
+                                   value_str.len = value_qb.length();
+                                   value_str.data = static_cast<char*>(malloc(value_str.len));
+                                   memcpy((void*)value_str.data, value_qb.data(), value_str.len);
+                                   libqt_string sigval2 = value_str;
+                                   slotFunc(self, sigval1, sigval2);
+                                   libqt_free(value_str.data);
+                               });
 }
 
 void QLowEnergyService_DescriptorRead(QLowEnergyService* self, const QLowEnergyDescriptor* info, const libqt_string value) {
@@ -209,19 +217,21 @@ void QLowEnergyService_DescriptorRead(QLowEnergyService* self, const QLowEnergyD
 
 void QLowEnergyService_Connect_DescriptorRead(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, QLowEnergyDescriptor*, libqt_string) = reinterpret_cast<void (*)(QLowEnergyService*, QLowEnergyDescriptor*, libqt_string)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::descriptorRead, [self, slotFunc](const QLowEnergyDescriptor& info, const QByteArray& value) {
-        const QLowEnergyDescriptor& info_ret = info;
-        // Cast returned reference into pointer
-        QLowEnergyDescriptor* sigval1 = const_cast<QLowEnergyDescriptor*>(&info_ret);
-        const QByteArray value_qb = value;
-        libqt_string value_str;
-        value_str.len = value_qb.length();
-        value_str.data = static_cast<char*>(malloc(value_str.len));
-        memcpy((void*)value_str.data, value_qb.data(), value_str.len);
-        libqt_string sigval2 = value_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(value_str.data);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(const QLowEnergyDescriptor&, const QByteArray&)>(&QLowEnergyService::descriptorRead),
+                               [self, slotFunc](const QLowEnergyDescriptor& info, const QByteArray& value) {
+                                   const QLowEnergyDescriptor& info_ret = info;
+                                   // Cast returned reference into pointer
+                                   QLowEnergyDescriptor* sigval1 = const_cast<QLowEnergyDescriptor*>(&info_ret);
+                                   const QByteArray value_qb = value;
+                                   libqt_string value_str;
+                                   value_str.len = value_qb.length();
+                                   value_str.data = static_cast<char*>(malloc(value_str.len));
+                                   memcpy((void*)value_str.data, value_qb.data(), value_str.len);
+                                   libqt_string sigval2 = value_str;
+                                   slotFunc(self, sigval1, sigval2);
+                                   libqt_free(value_str.data);
+                               });
 }
 
 void QLowEnergyService_DescriptorWritten(QLowEnergyService* self, const QLowEnergyDescriptor* info, const libqt_string value) {
@@ -231,19 +241,21 @@ void QLowEnergyService_DescriptorWritten(QLowEnergyService* self, const QLowEner
 
 void QLowEnergyService_Connect_DescriptorWritten(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, QLowEnergyDescriptor*, libqt_string) = reinterpret_cast<void (*)(QLowEnergyService*, QLowEnergyDescriptor*, libqt_string)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::descriptorWritten, [self, slotFunc](const QLowEnergyDescriptor& info, const QByteArray& value) {
-        const QLowEnergyDescriptor& info_ret = info;
-        // Cast returned reference into pointer
-        QLowEnergyDescriptor* sigval1 = const_cast<QLowEnergyDescriptor*>(&info_ret);
-        const QByteArray value_qb = value;
-        libqt_string value_str;
-        value_str.len = value_qb.length();
-        value_str.data = static_cast<char*>(malloc(value_str.len));
-        memcpy((void*)value_str.data, value_qb.data(), value_str.len);
-        libqt_string sigval2 = value_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(value_str.data);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(const QLowEnergyDescriptor&, const QByteArray&)>(&QLowEnergyService::descriptorWritten),
+                               [self, slotFunc](const QLowEnergyDescriptor& info, const QByteArray& value) {
+                                   const QLowEnergyDescriptor& info_ret = info;
+                                   // Cast returned reference into pointer
+                                   QLowEnergyDescriptor* sigval1 = const_cast<QLowEnergyDescriptor*>(&info_ret);
+                                   const QByteArray value_qb = value;
+                                   libqt_string value_str;
+                                   value_str.len = value_qb.length();
+                                   value_str.data = static_cast<char*>(malloc(value_str.len));
+                                   memcpy((void*)value_str.data, value_qb.data(), value_str.len);
+                                   libqt_string sigval2 = value_str;
+                                   slotFunc(self, sigval1, sigval2);
+                                   libqt_free(value_str.data);
+                               });
 }
 
 void QLowEnergyService_ErrorOccurred(QLowEnergyService* self, int errorVal) {
@@ -252,10 +264,12 @@ void QLowEnergyService_ErrorOccurred(QLowEnergyService* self, int errorVal) {
 
 void QLowEnergyService_Connect_ErrorOccurred(QLowEnergyService* self, intptr_t slot) {
     void (*slotFunc)(QLowEnergyService*, int) = reinterpret_cast<void (*)(QLowEnergyService*, int)>(slot);
-    QLowEnergyService::connect(self, &QLowEnergyService::errorOccurred, [self, slotFunc](QLowEnergyService::ServiceError errorVal) {
-        int sigval1 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1);
-    });
+    QLowEnergyService::connect(self,
+                               static_cast<void (QLowEnergyService::*)(QLowEnergyService::ServiceError)>(&QLowEnergyService::errorOccurred),
+                               [self, slotFunc](QLowEnergyService::ServiceError errorVal) {
+                                   int sigval1 = static_cast<int>(errorVal);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_string QLowEnergyService_Tr2(const char* s, const char* c) {

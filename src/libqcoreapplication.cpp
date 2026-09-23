@@ -309,10 +309,12 @@ void QCoreApplication_InstallNativeEventFilter(QCoreApplication* self, QAbstract
 
 void QCoreApplication_Connect_InstallNativeEventFilter(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*, QAbstractNativeEventFilter*) = reinterpret_cast<void (*)(QCoreApplication*, QAbstractNativeEventFilter*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::installNativeEventFilter, [self, slotFunc](QAbstractNativeEventFilter* filterObj) {
-        QAbstractNativeEventFilter* sigval1 = filterObj;
-        slotFunc(self, sigval1);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)(QAbstractNativeEventFilter*)>(&QCoreApplication::installNativeEventFilter),
+                              [self, slotFunc](QAbstractNativeEventFilter* filterObj) {
+                                  QAbstractNativeEventFilter* sigval1 = filterObj;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QCoreApplication_RemoveNativeEventFilter(QCoreApplication* self, QAbstractNativeEventFilter* filterObj) {
@@ -321,10 +323,12 @@ void QCoreApplication_RemoveNativeEventFilter(QCoreApplication* self, QAbstractN
 
 void QCoreApplication_Connect_RemoveNativeEventFilter(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*, QAbstractNativeEventFilter*) = reinterpret_cast<void (*)(QCoreApplication*, QAbstractNativeEventFilter*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::removeNativeEventFilter, [self, slotFunc](QAbstractNativeEventFilter* filterObj) {
-        QAbstractNativeEventFilter* sigval1 = filterObj;
-        slotFunc(self, sigval1);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)(QAbstractNativeEventFilter*)>(&QCoreApplication::removeNativeEventFilter),
+                              [self, slotFunc](QAbstractNativeEventFilter* filterObj) {
+                                  QAbstractNativeEventFilter* sigval1 = filterObj;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 bool QCoreApplication_IsQuitLockEnabled() {
@@ -349,9 +353,11 @@ void QCoreApplication_OrganizationNameChanged(QCoreApplication* self) {
 
 void QCoreApplication_Connect_OrganizationNameChanged(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*) = reinterpret_cast<void (*)(QCoreApplication*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::organizationNameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)()>(&QCoreApplication::organizationNameChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QCoreApplication_OrganizationDomainChanged(QCoreApplication* self) {
@@ -360,9 +366,11 @@ void QCoreApplication_OrganizationDomainChanged(QCoreApplication* self) {
 
 void QCoreApplication_Connect_OrganizationDomainChanged(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*) = reinterpret_cast<void (*)(QCoreApplication*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::organizationDomainChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)()>(&QCoreApplication::organizationDomainChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QCoreApplication_ApplicationNameChanged(QCoreApplication* self) {
@@ -371,9 +379,11 @@ void QCoreApplication_ApplicationNameChanged(QCoreApplication* self) {
 
 void QCoreApplication_Connect_ApplicationNameChanged(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*) = reinterpret_cast<void (*)(QCoreApplication*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::applicationNameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)()>(&QCoreApplication::applicationNameChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QCoreApplication_ApplicationVersionChanged(QCoreApplication* self) {
@@ -382,9 +392,11 @@ void QCoreApplication_ApplicationVersionChanged(QCoreApplication* self) {
 
 void QCoreApplication_Connect_ApplicationVersionChanged(QCoreApplication* self, intptr_t slot) {
     void (*slotFunc)(QCoreApplication*) = reinterpret_cast<void (*)(QCoreApplication*)>(slot);
-    QCoreApplication::connect(self, &QCoreApplication::applicationVersionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCoreApplication::connect(self,
+                              static_cast<void (QCoreApplication::*)()>(&QCoreApplication::applicationVersionChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1) {

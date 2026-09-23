@@ -338,13 +338,62 @@ void KNSCore__EngineBase_SignalMessage(KNSCore__EngineBase* self, const libqt_st
     self->signalMessage(message_QString);
 }
 
+void KNSCore__EngineBase_Connect_SignalMessage(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, const char*) = reinterpret_cast<void (*)(KNSCore__EngineBase*, const char*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(const QString&)>(&KNSCore::EngineBase::signalMessage),
+                                 [self, slotFunc](const QString& message) {
+                                     const auto message_ret = message;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray message_b = message_ret.toUtf8();
+                                     auto message_str_len = message_b.length();
+                                     const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                     memcpy((void*)message_str, message_b.data(), message_str_len);
+                                     ((char*)message_str)[message_str_len] = '\0';
+                                     const char* sigval1 = message_str;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(message_str);
+                                 });
+}
+
 void KNSCore__EngineBase_SignalProvidersLoaded(KNSCore__EngineBase* self) {
     self->signalProvidersLoaded();
+}
+
+void KNSCore__EngineBase_Connect_SignalProvidersLoaded(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*) = reinterpret_cast<void (*)(KNSCore__EngineBase*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)()>(&KNSCore::EngineBase::signalProvidersLoaded),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 void KNSCore__EngineBase_SignalErrorCode(KNSCore__EngineBase* self, int errorCode, const libqt_string message, const QVariant* metadata) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->signalErrorCode(static_cast<KNSCore::ErrorCode::ErrorCode>(errorCode), message_QString, *metadata);
+}
+
+void KNSCore__EngineBase_Connect_SignalErrorCode(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, int, const char*, QVariant*) = reinterpret_cast<void (*)(KNSCore__EngineBase*, int, const char*, QVariant*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(KNSCore::ErrorCode::ErrorCode, const QString&, const QVariant&)>(&KNSCore::EngineBase::signalErrorCode),
+                                 [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
+                                     int sigval1 = static_cast<int>(errorCode);
+                                     const auto message_ret = message;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray message_b = message_ret.toUtf8();
+                                     auto message_str_len = message_b.length();
+                                     const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                     memcpy((void*)message_str, message_b.data(), message_str_len);
+                                     ((char*)message_str)[message_str_len] = '\0';
+                                     const char* sigval2 = message_str;
+                                     const QVariant& metadata_ret = metadata;
+                                     // Cast returned reference into pointer
+                                     QVariant* sigval3 = const_cast<QVariant*>(&metadata_ret);
+                                     slotFunc(self, sigval1, sigval2, sigval3);
+                                     libqt_free(message_str);
+                                 });
 }
 
 void KNSCore__EngineBase_SignalCategoriesMetadataLoded(KNSCore__EngineBase* self, const libqt_list /* of KNSCore__Provider__CategoryMetadata* */ categories) {
@@ -357,6 +406,26 @@ void KNSCore__EngineBase_SignalCategoriesMetadataLoded(KNSCore__EngineBase* self
     self->signalCategoriesMetadataLoded(categories_QList);
 }
 
+void KNSCore__EngineBase_Connect_SignalCategoriesMetadataLoded(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */) = reinterpret_cast<void (*)(KNSCore__EngineBase*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(const QList<KNSCore::Provider::CategoryMetadata>&)>(&KNSCore::EngineBase::signalCategoriesMetadataLoded),
+                                 [self, slotFunc](const QList<KNSCore::Provider::CategoryMetadata>& categories) {
+                                     const QList<KNSCore::Provider::CategoryMetadata>& categories_ret = categories;
+                                     // Convert QList<> from C++ memory to manually-managed C memory
+                                     KNSCore__Provider__CategoryMetadata** categories_arr = static_cast<KNSCore__Provider__CategoryMetadata**>(malloc(sizeof(KNSCore__Provider__CategoryMetadata*) * (categories_ret.size())));
+                                     for (qsizetype i = 0; i < categories_ret.size(); ++i) {
+                                         categories_arr[i] = new KNSCore::Provider::CategoryMetadata(categories_ret[i]);
+                                     }
+                                     libqt_list categories_out;
+                                     categories_out.len = categories_ret.size();
+                                     categories_out.data = static_cast<void*>(categories_arr);
+                                     libqt_list /* of KNSCore__Provider__CategoryMetadata* */ sigval1 = categories_out;
+                                     slotFunc(self, sigval1);
+                                     free(categories_arr);
+                                 });
+}
+
 void KNSCore__EngineBase_SignalCategoriesMetadataLoaded(KNSCore__EngineBase* self, const libqt_list /* of KNSCore__CategoryMetadata* */ categories) {
     QList<KNSCore::CategoryMetadata> categories_QList;
     categories_QList.reserve(categories.len);
@@ -365,6 +434,26 @@ void KNSCore__EngineBase_SignalCategoriesMetadataLoaded(KNSCore__EngineBase* sel
         categories_QList.push_back(*(categories_arr[i]));
     }
     self->signalCategoriesMetadataLoaded(categories_QList);
+}
+
+void KNSCore__EngineBase_Connect_SignalCategoriesMetadataLoaded(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, libqt_list /* of KNSCore__CategoryMetadata* */) = reinterpret_cast<void (*)(KNSCore__EngineBase*, libqt_list /* of KNSCore__CategoryMetadata* */)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(const QList<KNSCore::CategoryMetadata>&)>(&KNSCore::EngineBase::signalCategoriesMetadataLoaded),
+                                 [self, slotFunc](const QList<KNSCore::CategoryMetadata>& categories) {
+                                     const QList<KNSCore::CategoryMetadata>& categories_ret = categories;
+                                     // Convert QList<> from C++ memory to manually-managed C memory
+                                     KNSCore__CategoryMetadata** categories_arr = static_cast<KNSCore__CategoryMetadata**>(malloc(sizeof(KNSCore__CategoryMetadata*) * (categories_ret.size())));
+                                     for (qsizetype i = 0; i < categories_ret.size(); ++i) {
+                                         categories_arr[i] = new KNSCore::CategoryMetadata(categories_ret[i]);
+                                     }
+                                     libqt_list categories_out;
+                                     categories_out.len = categories_ret.size();
+                                     categories_out.data = static_cast<void*>(categories_arr);
+                                     libqt_list /* of KNSCore__CategoryMetadata* */ sigval1 = categories_out;
+                                     slotFunc(self, sigval1);
+                                     free(categories_arr);
+                                 });
 }
 
 void KNSCore__EngineBase_SignalSearchPresetsLoaded(KNSCore__EngineBase* self, const libqt_list /* of KNSCore__Provider__SearchPreset* */ presets) {
@@ -377,6 +466,26 @@ void KNSCore__EngineBase_SignalSearchPresetsLoaded(KNSCore__EngineBase* self, co
     self->signalSearchPresetsLoaded(presets_QList);
 }
 
+void KNSCore__EngineBase_Connect_SignalSearchPresetsLoaded(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, libqt_list /* of KNSCore__Provider__SearchPreset* */) = reinterpret_cast<void (*)(KNSCore__EngineBase*, libqt_list /* of KNSCore__Provider__SearchPreset* */)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(const QList<KNSCore::Provider::SearchPreset>&)>(&KNSCore::EngineBase::signalSearchPresetsLoaded),
+                                 [self, slotFunc](const QList<KNSCore::Provider::SearchPreset>& presets) {
+                                     const QList<KNSCore::Provider::SearchPreset>& presets_ret = presets;
+                                     // Convert QList<> from C++ memory to manually-managed C memory
+                                     KNSCore__Provider__SearchPreset** presets_arr = static_cast<KNSCore__Provider__SearchPreset**>(malloc(sizeof(KNSCore__Provider__SearchPreset*) * (presets_ret.size())));
+                                     for (qsizetype i = 0; i < presets_ret.size(); ++i) {
+                                         presets_arr[i] = new KNSCore::Provider::SearchPreset(presets_ret[i]);
+                                     }
+                                     libqt_list presets_out;
+                                     presets_out.len = presets_ret.size();
+                                     presets_out.data = static_cast<void*>(presets_arr);
+                                     libqt_list /* of KNSCore__Provider__SearchPreset* */ sigval1 = presets_out;
+                                     slotFunc(self, sigval1);
+                                     free(presets_arr);
+                                 });
+}
+
 void KNSCore__EngineBase_SignalSearchPresetsLoaded2(KNSCore__EngineBase* self, const libqt_list /* of KNSCore__SearchPreset* */ presets) {
     QList<KNSCore::SearchPreset> presets_QList;
     presets_QList.reserve(presets.len);
@@ -387,16 +496,64 @@ void KNSCore__EngineBase_SignalSearchPresetsLoaded2(KNSCore__EngineBase* self, c
     self->signalSearchPresetsLoaded(presets_QList);
 }
 
+void KNSCore__EngineBase_Connect_SignalSearchPresetsLoaded2(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, libqt_list /* of KNSCore__SearchPreset* */) = reinterpret_cast<void (*)(KNSCore__EngineBase*, libqt_list /* of KNSCore__SearchPreset* */)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(const QList<KNSCore::SearchPreset>&)>(&KNSCore::EngineBase::signalSearchPresetsLoaded),
+                                 [self, slotFunc](const QList<KNSCore::SearchPreset>& presets) {
+                                     const QList<KNSCore::SearchPreset>& presets_ret = presets;
+                                     // Convert QList<> from C++ memory to manually-managed C memory
+                                     KNSCore__SearchPreset** presets_arr = static_cast<KNSCore__SearchPreset**>(malloc(sizeof(KNSCore__SearchPreset*) * (presets_ret.size())));
+                                     for (qsizetype i = 0; i < presets_ret.size(); ++i) {
+                                         presets_arr[i] = new KNSCore::SearchPreset(presets_ret[i]);
+                                     }
+                                     libqt_list presets_out;
+                                     presets_out.len = presets_ret.size();
+                                     presets_out.data = static_cast<void*>(presets_arr);
+                                     libqt_list /* of KNSCore__SearchPreset* */ sigval1 = presets_out;
+                                     slotFunc(self, sigval1);
+                                     free(presets_arr);
+                                 });
+}
+
 void KNSCore__EngineBase_ProvidersChanged(KNSCore__EngineBase* self) {
     self->providersChanged();
+}
+
+void KNSCore__EngineBase_Connect_ProvidersChanged(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*) = reinterpret_cast<void (*)(KNSCore__EngineBase*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)()>(&KNSCore::EngineBase::providersChanged),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 void KNSCore__EngineBase_LoadingProvider(KNSCore__EngineBase* self) {
     self->loadingProvider();
 }
 
+void KNSCore__EngineBase_Connect_LoadingProvider(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*) = reinterpret_cast<void (*)(KNSCore__EngineBase*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)()>(&KNSCore::EngineBase::loadingProvider),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
+}
+
 void KNSCore__EngineBase_ProviderAdded(KNSCore__EngineBase* self, KNSCore__ProviderCore* provider) {
     self->providerAdded(provider);
+}
+
+void KNSCore__EngineBase_Connect_ProviderAdded(KNSCore__EngineBase* self, intptr_t slot) {
+    void (*slotFunc)(KNSCore__EngineBase*, KNSCore__ProviderCore*) = reinterpret_cast<void (*)(KNSCore__EngineBase*, KNSCore__ProviderCore*)>(slot);
+    KNSCore::EngineBase::connect(self,
+                                 static_cast<void (KNSCore::EngineBase::*)(KNSCore::ProviderCore*)>(&KNSCore::EngineBase::providerAdded),
+                                 [self, slotFunc](KNSCore::ProviderCore* provider) {
+                                     KNSCore__ProviderCore* sigval1 = provider;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void KNSCore__EngineBase_UpdateStatus(KNSCore__EngineBase* self) {

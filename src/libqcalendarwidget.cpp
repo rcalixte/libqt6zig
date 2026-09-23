@@ -318,9 +318,11 @@ void QCalendarWidget_SelectionChanged(QCalendarWidget* self) {
 
 void QCalendarWidget_Connect_SelectionChanged(QCalendarWidget* self, intptr_t slot) {
     void (*slotFunc)(QCalendarWidget*) = reinterpret_cast<void (*)(QCalendarWidget*)>(slot);
-    QCalendarWidget::connect(self, &QCalendarWidget::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCalendarWidget::connect(self,
+                             static_cast<void (QCalendarWidget::*)()>(&QCalendarWidget::selectionChanged),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QCalendarWidget_Clicked(QCalendarWidget* self, QDate* date) {
@@ -329,10 +331,12 @@ void QCalendarWidget_Clicked(QCalendarWidget* self, QDate* date) {
 
 void QCalendarWidget_Connect_Clicked(QCalendarWidget* self, intptr_t slot) {
     void (*slotFunc)(QCalendarWidget*, QDate*) = reinterpret_cast<void (*)(QCalendarWidget*, QDate*)>(slot);
-    QCalendarWidget::connect(self, &QCalendarWidget::clicked, [self, slotFunc](QDate date) {
-        QDate* sigval1 = new QDate(date);
-        slotFunc(self, sigval1);
-    });
+    QCalendarWidget::connect(self,
+                             static_cast<void (QCalendarWidget::*)(QDate)>(&QCalendarWidget::clicked),
+                             [self, slotFunc](QDate date) {
+                                 QDate* sigval1 = new QDate(date);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QCalendarWidget_Activated(QCalendarWidget* self, QDate* date) {
@@ -341,10 +345,12 @@ void QCalendarWidget_Activated(QCalendarWidget* self, QDate* date) {
 
 void QCalendarWidget_Connect_Activated(QCalendarWidget* self, intptr_t slot) {
     void (*slotFunc)(QCalendarWidget*, QDate*) = reinterpret_cast<void (*)(QCalendarWidget*, QDate*)>(slot);
-    QCalendarWidget::connect(self, &QCalendarWidget::activated, [self, slotFunc](QDate date) {
-        QDate* sigval1 = new QDate(date);
-        slotFunc(self, sigval1);
-    });
+    QCalendarWidget::connect(self,
+                             static_cast<void (QCalendarWidget::*)(QDate)>(&QCalendarWidget::activated),
+                             [self, slotFunc](QDate date) {
+                                 QDate* sigval1 = new QDate(date);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QCalendarWidget_CurrentPageChanged(QCalendarWidget* self, int year, int month) {
@@ -353,11 +359,13 @@ void QCalendarWidget_CurrentPageChanged(QCalendarWidget* self, int year, int mon
 
 void QCalendarWidget_Connect_CurrentPageChanged(QCalendarWidget* self, intptr_t slot) {
     void (*slotFunc)(QCalendarWidget*, int, int) = reinterpret_cast<void (*)(QCalendarWidget*, int, int)>(slot);
-    QCalendarWidget::connect(self, &QCalendarWidget::currentPageChanged, [self, slotFunc](int year, int month) {
-        int sigval1 = year;
-        int sigval2 = month;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCalendarWidget::connect(self,
+                             static_cast<void (QCalendarWidget::*)(int, int)>(&QCalendarWidget::currentPageChanged),
+                             [self, slotFunc](int year, int month) {
+                                 int sigval1 = year;
+                                 int sigval2 = month;
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 libqt_string QCalendarWidget_Tr2(const char* s, const char* c) {

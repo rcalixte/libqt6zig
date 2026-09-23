@@ -277,9 +277,11 @@ void QMenu_AboutToShow(QMenu* self) {
 
 void QMenu_Connect_AboutToShow(QMenu* self, intptr_t slot) {
     void (*slotFunc)(QMenu*) = reinterpret_cast<void (*)(QMenu*)>(slot);
-    QMenu::connect(self, &QMenu::aboutToShow, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMenu::connect(self,
+                   static_cast<void (QMenu::*)()>(&QMenu::aboutToShow),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 void QMenu_AboutToHide(QMenu* self) {
@@ -288,9 +290,11 @@ void QMenu_AboutToHide(QMenu* self) {
 
 void QMenu_Connect_AboutToHide(QMenu* self, intptr_t slot) {
     void (*slotFunc)(QMenu*) = reinterpret_cast<void (*)(QMenu*)>(slot);
-    QMenu::connect(self, &QMenu::aboutToHide, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QMenu::connect(self,
+                   static_cast<void (QMenu::*)()>(&QMenu::aboutToHide),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 void QMenu_Triggered(QMenu* self, QAction* action) {
@@ -299,10 +303,12 @@ void QMenu_Triggered(QMenu* self, QAction* action) {
 
 void QMenu_Connect_Triggered(QMenu* self, intptr_t slot) {
     void (*slotFunc)(QMenu*, QAction*) = reinterpret_cast<void (*)(QMenu*, QAction*)>(slot);
-    QMenu::connect(self, &QMenu::triggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QMenu::connect(self,
+                   static_cast<void (QMenu::*)(QAction*)>(&QMenu::triggered),
+                   [self, slotFunc](QAction* action) {
+                       QAction* sigval1 = action;
+                       slotFunc(self, sigval1);
+                   });
 }
 
 void QMenu_Hovered(QMenu* self, QAction* action) {
@@ -311,10 +317,12 @@ void QMenu_Hovered(QMenu* self, QAction* action) {
 
 void QMenu_Connect_Hovered(QMenu* self, intptr_t slot) {
     void (*slotFunc)(QMenu*, QAction*) = reinterpret_cast<void (*)(QMenu*, QAction*)>(slot);
-    QMenu::connect(self, &QMenu::hovered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QMenu::connect(self,
+                   static_cast<void (QMenu::*)(QAction*)>(&QMenu::hovered),
+                   [self, slotFunc](QAction* action) {
+                       QAction* sigval1 = action;
+                       slotFunc(self, sigval1);
+                   });
 }
 
 void QMenu_ChangeEvent(QMenu* self, QEvent* param1) {

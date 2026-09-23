@@ -133,18 +133,20 @@ void KIconButton_IconChanged(KIconButton* self, const libqt_string icon) {
 
 void KIconButton_Connect_IconChanged(KIconButton* self, intptr_t slot) {
     void (*slotFunc)(KIconButton*, const char*) = reinterpret_cast<void (*)(KIconButton*, const char*)>(slot);
-    KIconButton::connect(self, &KIconButton::iconChanged, [self, slotFunc](const QString& icon) {
-        const auto icon_ret = icon;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray icon_b = icon_ret.toUtf8();
-        auto icon_str_len = icon_b.length();
-        const char* icon_str = static_cast<const char*>(malloc(icon_str_len + 1));
-        memcpy((void*)icon_str, icon_b.data(), icon_str_len);
-        ((char*)icon_str)[icon_str_len] = '\0';
-        const char* sigval1 = icon_str;
-        slotFunc(self, sigval1);
-        libqt_free(icon_str);
-    });
+    KIconButton::connect(self,
+                         static_cast<void (KIconButton::*)(const QString&)>(&KIconButton::iconChanged),
+                         [self, slotFunc](const QString& icon) {
+                             const auto icon_ret = icon;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray icon_b = icon_ret.toUtf8();
+                             auto icon_str_len = icon_b.length();
+                             const char* icon_str = static_cast<const char*>(malloc(icon_str_len + 1));
+                             memcpy((void*)icon_str, icon_b.data(), icon_str_len);
+                             ((char*)icon_str)[icon_str_len] = '\0';
+                             const char* sigval1 = icon_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(icon_str);
+                         });
 }
 
 libqt_string KIconButton_Tr2(const char* s, const char* c) {

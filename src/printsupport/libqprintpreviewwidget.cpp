@@ -184,10 +184,12 @@ void QPrintPreviewWidget_PaintRequested(QPrintPreviewWidget* self, QPrinter* pri
 
 void QPrintPreviewWidget_Connect_PaintRequested(QPrintPreviewWidget* self, intptr_t slot) {
     void (*slotFunc)(QPrintPreviewWidget*, QPrinter*) = reinterpret_cast<void (*)(QPrintPreviewWidget*, QPrinter*)>(slot);
-    QPrintPreviewWidget::connect(self, &QPrintPreviewWidget::paintRequested, [self, slotFunc](QPrinter* printer) {
-        QPrinter* sigval1 = printer;
-        slotFunc(self, sigval1);
-    });
+    QPrintPreviewWidget::connect(self,
+                                 static_cast<void (QPrintPreviewWidget::*)(QPrinter*)>(&QPrintPreviewWidget::paintRequested),
+                                 [self, slotFunc](QPrinter* printer) {
+                                     QPrinter* sigval1 = printer;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QPrintPreviewWidget_PreviewChanged(QPrintPreviewWidget* self) {
@@ -196,9 +198,11 @@ void QPrintPreviewWidget_PreviewChanged(QPrintPreviewWidget* self) {
 
 void QPrintPreviewWidget_Connect_PreviewChanged(QPrintPreviewWidget* self, intptr_t slot) {
     void (*slotFunc)(QPrintPreviewWidget*) = reinterpret_cast<void (*)(QPrintPreviewWidget*)>(slot);
-    QPrintPreviewWidget::connect(self, &QPrintPreviewWidget::previewChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPrintPreviewWidget::connect(self,
+                                 static_cast<void (QPrintPreviewWidget::*)()>(&QPrintPreviewWidget::previewChanged),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 libqt_string QPrintPreviewWidget_Tr2(const char* s, const char* c) {

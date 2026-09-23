@@ -224,12 +224,14 @@ void QOpenGLDebugLogger_MessageLogged(QOpenGLDebugLogger* self, const QOpenGLDeb
 
 void QOpenGLDebugLogger_Connect_MessageLogged(QOpenGLDebugLogger* self, intptr_t slot) {
     void (*slotFunc)(QOpenGLDebugLogger*, QOpenGLDebugMessage*) = reinterpret_cast<void (*)(QOpenGLDebugLogger*, QOpenGLDebugMessage*)>(slot);
-    QOpenGLDebugLogger::connect(self, &QOpenGLDebugLogger::messageLogged, [self, slotFunc](const QOpenGLDebugMessage& debugMessage) {
-        const QOpenGLDebugMessage& debugMessage_ret = debugMessage;
-        // Cast returned reference into pointer
-        QOpenGLDebugMessage* sigval1 = const_cast<QOpenGLDebugMessage*>(&debugMessage_ret);
-        slotFunc(self, sigval1);
-    });
+    QOpenGLDebugLogger::connect(self,
+                                static_cast<void (QOpenGLDebugLogger::*)(const QOpenGLDebugMessage&)>(&QOpenGLDebugLogger::messageLogged),
+                                [self, slotFunc](const QOpenGLDebugMessage& debugMessage) {
+                                    const QOpenGLDebugMessage& debugMessage_ret = debugMessage;
+                                    // Cast returned reference into pointer
+                                    QOpenGLDebugMessage* sigval1 = const_cast<QOpenGLDebugMessage*>(&debugMessage_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 libqt_string QOpenGLDebugLogger_Tr2(const char* s, const char* c) {

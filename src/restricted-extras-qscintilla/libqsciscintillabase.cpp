@@ -155,144 +155,540 @@ void QsciScintillaBase_QSCN_SELCHANGED(QsciScintillaBase* self, bool yes) {
     self->QSCN_SELCHANGED(yes);
 }
 
+void QsciScintillaBase_Connect_QSCN_SELCHANGED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, bool) = reinterpret_cast<void (*)(QsciScintillaBase*, bool)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(bool)>(&QsciScintillaBase::QSCN_SELCHANGED),
+                               [self, slotFunc](bool yes) {
+                                   bool sigval1 = yes;
+                                   slotFunc(self, sigval1);
+                               });
+}
+
 void QsciScintillaBase_SCN_AUTOCCANCELLED(QsciScintillaBase* self) {
     self->SCN_AUTOCCANCELLED();
+}
+
+void QsciScintillaBase_Connect_SCN_AUTOCCANCELLED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_AUTOCCANCELLED),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QsciScintillaBase_SCN_AUTOCCHARDELETED(QsciScintillaBase* self) {
     self->SCN_AUTOCCHARDELETED();
 }
 
+void QsciScintillaBase_Connect_SCN_AUTOCCHARDELETED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_AUTOCCHARDELETED),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
+}
+
 void QsciScintillaBase_SCN_AUTOCCOMPLETED(QsciScintillaBase* self, const char* selection, int position, int ch, int method) {
     self->SCN_AUTOCCOMPLETED(selection, static_cast<int>(position), static_cast<int>(ch), static_cast<int>(method));
+}
+
+void QsciScintillaBase_Connect_SCN_AUTOCCOMPLETED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int, int, int)>(&QsciScintillaBase::SCN_AUTOCCOMPLETED),
+                               [self, slotFunc](const char* selection, int position, int ch, int method) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = position;
+                                   int sigval3 = ch;
+                                   int sigval4 = method;
+                                   slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                               });
 }
 
 void QsciScintillaBase_SCN_AUTOCSELECTION(QsciScintillaBase* self, const char* selection, int position, int ch, int method) {
     self->SCN_AUTOCSELECTION(selection, static_cast<int>(position), static_cast<int>(ch), static_cast<int>(method));
 }
 
+void QsciScintillaBase_Connect_SCN_AUTOCSELECTION(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int, int, int)>(&QsciScintillaBase::SCN_AUTOCSELECTION),
+                               [self, slotFunc](const char* selection, int position, int ch, int method) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = position;
+                                   int sigval3 = ch;
+                                   int sigval4 = method;
+                                   slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                               });
+}
+
 void QsciScintillaBase_SCN_AUTOCSELECTION2(QsciScintillaBase* self, const char* selection, int position) {
     self->SCN_AUTOCSELECTION(selection, static_cast<int>(position));
+}
+
+void QsciScintillaBase_Connect_SCN_AUTOCSELECTION2(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int)>(&QsciScintillaBase::SCN_AUTOCSELECTION),
+                               [self, slotFunc](const char* selection, int position) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = position;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void QsciScintillaBase_SCN_AUTOCSELECTIONCHANGE(QsciScintillaBase* self, const char* selection, int id, int position) {
     self->SCN_AUTOCSELECTIONCHANGE(selection, static_cast<int>(id), static_cast<int>(position));
 }
 
+void QsciScintillaBase_Connect_SCN_AUTOCSELECTIONCHANGE(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int, int)>(&QsciScintillaBase::SCN_AUTOCSELECTIONCHANGE),
+                               [self, slotFunc](const char* selection, int id, int position) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = id;
+                                   int sigval3 = position;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
+}
+
 void QsciScintillaBase_SCEN_CHANGE(QsciScintillaBase* self) {
     self->SCEN_CHANGE();
+}
+
+void QsciScintillaBase_Connect_SCEN_CHANGE(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCEN_CHANGE),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QsciScintillaBase_SCN_CALLTIPCLICK(QsciScintillaBase* self, int direction) {
     self->SCN_CALLTIPCLICK(static_cast<int>(direction));
 }
 
+void QsciScintillaBase_Connect_SCN_CALLTIPCLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int)>(&QsciScintillaBase::SCN_CALLTIPCLICK),
+                               [self, slotFunc](int direction) {
+                                   int sigval1 = direction;
+                                   slotFunc(self, sigval1);
+                               });
+}
+
 void QsciScintillaBase_SCN_CHARADDED(QsciScintillaBase* self, int charadded) {
     self->SCN_CHARADDED(static_cast<int>(charadded));
+}
+
+void QsciScintillaBase_Connect_SCN_CHARADDED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int)>(&QsciScintillaBase::SCN_CHARADDED),
+                               [self, slotFunc](int charadded) {
+                                   int sigval1 = charadded;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QsciScintillaBase_SCN_DOUBLECLICK(QsciScintillaBase* self, int position, int line, int modifiers) {
     self->SCN_DOUBLECLICK(static_cast<int>(position), static_cast<int>(line), static_cast<int>(modifiers));
 }
 
+void QsciScintillaBase_Connect_SCN_DOUBLECLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, int)>(&QsciScintillaBase::SCN_DOUBLECLICK),
+                               [self, slotFunc](int position, int line, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = line;
+                                   int sigval3 = modifiers;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
+}
+
 void QsciScintillaBase_SCN_DWELLEND(QsciScintillaBase* self, int position, int x, int y) {
     self->SCN_DWELLEND(static_cast<int>(position), static_cast<int>(x), static_cast<int>(y));
+}
+
+void QsciScintillaBase_Connect_SCN_DWELLEND(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, int)>(&QsciScintillaBase::SCN_DWELLEND),
+                               [self, slotFunc](int position, int x, int y) {
+                                   int sigval1 = position;
+                                   int sigval2 = x;
+                                   int sigval3 = y;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
 }
 
 void QsciScintillaBase_SCN_DWELLSTART(QsciScintillaBase* self, int position, int x, int y) {
     self->SCN_DWELLSTART(static_cast<int>(position), static_cast<int>(x), static_cast<int>(y));
 }
 
+void QsciScintillaBase_Connect_SCN_DWELLSTART(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, int)>(&QsciScintillaBase::SCN_DWELLSTART),
+                               [self, slotFunc](int position, int x, int y) {
+                                   int sigval1 = position;
+                                   int sigval2 = x;
+                                   int sigval3 = y;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
+}
+
 void QsciScintillaBase_SCN_FOCUSIN(QsciScintillaBase* self) {
     self->SCN_FOCUSIN();
+}
+
+void QsciScintillaBase_Connect_SCN_FOCUSIN(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_FOCUSIN),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QsciScintillaBase_SCN_FOCUSOUT(QsciScintillaBase* self) {
     self->SCN_FOCUSOUT();
 }
 
+void QsciScintillaBase_Connect_SCN_FOCUSOUT(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_FOCUSOUT),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
+}
+
 void QsciScintillaBase_SCN_HOTSPOTCLICK(QsciScintillaBase* self, int position, int modifiers) {
     self->SCN_HOTSPOTCLICK(static_cast<int>(position), static_cast<int>(modifiers));
+}
+
+void QsciScintillaBase_Connect_SCN_HOTSPOTCLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_HOTSPOTCLICK),
+                               [self, slotFunc](int position, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void QsciScintillaBase_SCN_HOTSPOTDOUBLECLICK(QsciScintillaBase* self, int position, int modifiers) {
     self->SCN_HOTSPOTDOUBLECLICK(static_cast<int>(position), static_cast<int>(modifiers));
 }
 
+void QsciScintillaBase_Connect_SCN_HOTSPOTDOUBLECLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_HOTSPOTDOUBLECLICK),
+                               [self, slotFunc](int position, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
+}
+
 void QsciScintillaBase_SCN_HOTSPOTRELEASECLICK(QsciScintillaBase* self, int position, int modifiers) {
     self->SCN_HOTSPOTRELEASECLICK(static_cast<int>(position), static_cast<int>(modifiers));
+}
+
+void QsciScintillaBase_Connect_SCN_HOTSPOTRELEASECLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_HOTSPOTRELEASECLICK),
+                               [self, slotFunc](int position, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void QsciScintillaBase_SCN_INDICATORCLICK(QsciScintillaBase* self, int position, int modifiers) {
     self->SCN_INDICATORCLICK(static_cast<int>(position), static_cast<int>(modifiers));
 }
 
+void QsciScintillaBase_Connect_SCN_INDICATORCLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_INDICATORCLICK),
+                               [self, slotFunc](int position, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
+}
+
 void QsciScintillaBase_SCN_INDICATORRELEASE(QsciScintillaBase* self, int position, int modifiers) {
     self->SCN_INDICATORRELEASE(static_cast<int>(position), static_cast<int>(modifiers));
+}
+
+void QsciScintillaBase_Connect_SCN_INDICATORRELEASE(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_INDICATORRELEASE),
+                               [self, slotFunc](int position, int modifiers) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void QsciScintillaBase_SCN_MACRORECORD(QsciScintillaBase* self, unsigned int param1, unsigned long param2, void* param3) {
     self->SCN_MACRORECORD(static_cast<unsigned int>(param1), static_cast<unsigned long>(param2), param3);
 }
 
+void QsciScintillaBase_Connect_SCN_MACRORECORD(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, unsigned int, unsigned long, void*) = reinterpret_cast<void (*)(QsciScintillaBase*, unsigned int, unsigned long, void*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(unsigned int, unsigned long, void*)>(&QsciScintillaBase::SCN_MACRORECORD),
+                               [self, slotFunc](unsigned int param1, unsigned long param2, void* param3) {
+                                   unsigned int sigval1 = param1;
+                                   unsigned long sigval2 = param2;
+                                   void* sigval3 = param3;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
+}
+
 void QsciScintillaBase_SCN_MARGINCLICK(QsciScintillaBase* self, int position, int modifiers, int margin) {
     self->SCN_MARGINCLICK(static_cast<int>(position), static_cast<int>(modifiers), static_cast<int>(margin));
+}
+
+void QsciScintillaBase_Connect_SCN_MARGINCLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, int)>(&QsciScintillaBase::SCN_MARGINCLICK),
+                               [self, slotFunc](int position, int modifiers, int margin) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   int sigval3 = margin;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
 }
 
 void QsciScintillaBase_SCN_MARGINRIGHTCLICK(QsciScintillaBase* self, int position, int modifiers, int margin) {
     self->SCN_MARGINRIGHTCLICK(static_cast<int>(position), static_cast<int>(modifiers), static_cast<int>(margin));
 }
 
+void QsciScintillaBase_Connect_SCN_MARGINRIGHTCLICK(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, int)>(&QsciScintillaBase::SCN_MARGINRIGHTCLICK),
+                               [self, slotFunc](int position, int modifiers, int margin) {
+                                   int sigval1 = position;
+                                   int sigval2 = modifiers;
+                                   int sigval3 = margin;
+                                   slotFunc(self, sigval1, sigval2, sigval3);
+                               });
+}
+
 void QsciScintillaBase_SCN_MODIFIED(QsciScintillaBase* self, int param1, int param2, const char* param3, int param4, int param5, int param6, int param7, int param8, int param9, int param10) {
     self->SCN_MODIFIED(static_cast<int>(param1), static_cast<int>(param2), param3, static_cast<int>(param4), static_cast<int>(param5), static_cast<int>(param6), static_cast<int>(param7), static_cast<int>(param8), static_cast<int>(param9), static_cast<int>(param10));
+}
+
+void QsciScintillaBase_Connect_SCN_MODIFIED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int, const char*, int, int, int, int, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int, const char*, int, int, int, int, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int, const char*, int, int, int, int, int, int, int)>(&QsciScintillaBase::SCN_MODIFIED),
+                               [self, slotFunc](int param1, int param2, const char* param3, int param4, int param5, int param6, int param7, int param8, int param9, int param10) {
+                                   int sigval1 = param1;
+                                   int sigval2 = param2;
+                                   const char* sigval3 = (const char*)param3;
+                                   int sigval4 = param4;
+                                   int sigval5 = param5;
+                                   int sigval6 = param6;
+                                   int sigval7 = param7;
+                                   int sigval8 = param8;
+                                   int sigval9 = param9;
+                                   int sigval10 = param10;
+                                   slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5, sigval6, sigval7, sigval8, sigval9, sigval10);
+                               });
 }
 
 void QsciScintillaBase_SCN_MODIFYATTEMPTRO(QsciScintillaBase* self) {
     self->SCN_MODIFYATTEMPTRO();
 }
 
+void QsciScintillaBase_Connect_SCN_MODIFYATTEMPTRO(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_MODIFYATTEMPTRO),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
+}
+
 void QsciScintillaBase_SCN_NEEDSHOWN(QsciScintillaBase* self, int param1, int param2) {
     self->SCN_NEEDSHOWN(static_cast<int>(param1), static_cast<int>(param2));
+}
+
+void QsciScintillaBase_Connect_SCN_NEEDSHOWN(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int, int)>(&QsciScintillaBase::SCN_NEEDSHOWN),
+                               [self, slotFunc](int param1, int param2) {
+                                   int sigval1 = param1;
+                                   int sigval2 = param2;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 void QsciScintillaBase_SCN_PAINTED(QsciScintillaBase* self) {
     self->SCN_PAINTED();
 }
 
+void QsciScintillaBase_Connect_SCN_PAINTED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_PAINTED),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
+}
+
 void QsciScintillaBase_SCN_SAVEPOINTLEFT(QsciScintillaBase* self) {
     self->SCN_SAVEPOINTLEFT();
+}
+
+void QsciScintillaBase_Connect_SCN_SAVEPOINTLEFT(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_SAVEPOINTLEFT),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void QsciScintillaBase_SCN_SAVEPOINTREACHED(QsciScintillaBase* self) {
     self->SCN_SAVEPOINTREACHED();
 }
 
+void QsciScintillaBase_Connect_SCN_SAVEPOINTREACHED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_SAVEPOINTREACHED),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
+}
+
 void QsciScintillaBase_SCN_STYLENEEDED(QsciScintillaBase* self, int position) {
     self->SCN_STYLENEEDED(static_cast<int>(position));
+}
+
+void QsciScintillaBase_Connect_SCN_STYLENEEDED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int)>(&QsciScintillaBase::SCN_STYLENEEDED),
+                               [self, slotFunc](int position) {
+                                   int sigval1 = position;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QsciScintillaBase_SCN_URIDROPPED(QsciScintillaBase* self, const QUrl* url) {
     self->SCN_URIDROPPED(*url);
 }
 
+void QsciScintillaBase_Connect_SCN_URIDROPPED(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, QUrl*) = reinterpret_cast<void (*)(QsciScintillaBase*, QUrl*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const QUrl&)>(&QsciScintillaBase::SCN_URIDROPPED),
+                               [self, slotFunc](const QUrl& url) {
+                                   const QUrl& url_ret = url;
+                                   // Cast returned reference into pointer
+                                   QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                   slotFunc(self, sigval1);
+                               });
+}
+
 void QsciScintillaBase_SCN_UPDATEUI(QsciScintillaBase* self, int updated) {
     self->SCN_UPDATEUI(static_cast<int>(updated));
+}
+
+void QsciScintillaBase_Connect_SCN_UPDATEUI(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(int)>(&QsciScintillaBase::SCN_UPDATEUI),
+                               [self, slotFunc](int updated) {
+                                   int sigval1 = updated;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QsciScintillaBase_SCN_USERLISTSELECTION(QsciScintillaBase* self, const char* selection, int id, int ch, int method, int position) {
     self->SCN_USERLISTSELECTION(selection, static_cast<int>(id), static_cast<int>(ch), static_cast<int>(method), static_cast<int>(position));
 }
 
+void QsciScintillaBase_Connect_SCN_USERLISTSELECTION(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int, int, int, int)>(&QsciScintillaBase::SCN_USERLISTSELECTION),
+                               [self, slotFunc](const char* selection, int id, int ch, int method, int position) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = id;
+                                   int sigval3 = ch;
+                                   int sigval4 = method;
+                                   int sigval5 = position;
+                                   slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5);
+                               });
+}
+
 void QsciScintillaBase_SCN_USERLISTSELECTION2(QsciScintillaBase* self, const char* selection, int id, int ch, int method) {
     self->SCN_USERLISTSELECTION(selection, static_cast<int>(id), static_cast<int>(ch), static_cast<int>(method));
+}
+
+void QsciScintillaBase_Connect_SCN_USERLISTSELECTION2(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int, int, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int, int, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int, int, int)>(&QsciScintillaBase::SCN_USERLISTSELECTION),
+                               [self, slotFunc](const char* selection, int id, int ch, int method) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = id;
+                                   int sigval3 = ch;
+                                   int sigval4 = method;
+                                   slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                               });
 }
 
 void QsciScintillaBase_SCN_USERLISTSELECTION3(QsciScintillaBase* self, const char* selection, int id) {
     self->SCN_USERLISTSELECTION(selection, static_cast<int>(id));
 }
 
+void QsciScintillaBase_Connect_SCN_USERLISTSELECTION3(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*, const char*, int) = reinterpret_cast<void (*)(QsciScintillaBase*, const char*, int)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)(const char*, int)>(&QsciScintillaBase::SCN_USERLISTSELECTION),
+                               [self, slotFunc](const char* selection, int id) {
+                                   const char* sigval1 = (const char*)selection;
+                                   int sigval2 = id;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
+}
+
 void QsciScintillaBase_SCN_ZOOM(QsciScintillaBase* self) {
     self->SCN_ZOOM();
+}
+
+void QsciScintillaBase_Connect_SCN_ZOOM(QsciScintillaBase* self, intptr_t slot) {
+    void (*slotFunc)(QsciScintillaBase*) = reinterpret_cast<void (*)(QsciScintillaBase*)>(slot);
+    QsciScintillaBase::connect(self,
+                               static_cast<void (QsciScintillaBase::*)()>(&QsciScintillaBase::SCN_ZOOM),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 bool QsciScintillaBase_CanInsertFromMimeData(const QsciScintillaBase* self, const QMimeData* source) {

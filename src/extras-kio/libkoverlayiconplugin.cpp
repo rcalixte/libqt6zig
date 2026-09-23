@@ -78,27 +78,29 @@ void KOverlayIconPlugin_OverlaysChanged(KOverlayIconPlugin* self, const QUrl* ur
 
 void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr_t slot) {
     void (*slotFunc)(KOverlayIconPlugin*, QUrl*, const char**) = reinterpret_cast<void (*)(KOverlayIconPlugin*, QUrl*, const char**)>(slot);
-    KOverlayIconPlugin::connect(self, &KOverlayIconPlugin::overlaysChanged, [self, slotFunc](const QUrl& url, const QList<QString>& overlays) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        const QList<QString>& overlays_ret = overlays;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** overlays_arr = static_cast<const char**>(malloc(sizeof(const char*) * (overlays_ret.size() + 1)));
-        for (qsizetype i = 0; i < overlays_ret.size(); ++i) {
-            QByteArray overlays_b = overlays_ret[i].toUtf8();
-            auto overlays_str_len = overlays_b.length();
-            char* overlays_str = static_cast<char*>(malloc(overlays_str_len + 1));
-            memcpy(overlays_str, overlays_b.data(), overlays_str_len);
-            overlays_str[overlays_str_len] = '\0';
-            overlays_arr[i] = overlays_str;
-        }
-        // Append sentinel null terminator to the list
-        overlays_arr[overlays_ret.size()] = nullptr;
-        const char** sigval2 = overlays_arr;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(overlays_arr);
-    });
+    KOverlayIconPlugin::connect(self,
+                                static_cast<void (KOverlayIconPlugin::*)(const QUrl&, const QList<QString>&)>(&KOverlayIconPlugin::overlaysChanged),
+                                [self, slotFunc](const QUrl& url, const QList<QString>& overlays) {
+                                    const QUrl& url_ret = url;
+                                    // Cast returned reference into pointer
+                                    QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                                    const QList<QString>& overlays_ret = overlays;
+                                    // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                    const char** overlays_arr = static_cast<const char**>(malloc(sizeof(const char*) * (overlays_ret.size() + 1)));
+                                    for (qsizetype i = 0; i < overlays_ret.size(); ++i) {
+                                        QByteArray overlays_b = overlays_ret[i].toUtf8();
+                                        auto overlays_str_len = overlays_b.length();
+                                        char* overlays_str = static_cast<char*>(malloc(overlays_str_len + 1));
+                                        memcpy(overlays_str, overlays_b.data(), overlays_str_len);
+                                        overlays_str[overlays_str_len] = '\0';
+                                        overlays_arr[i] = overlays_str;
+                                    }
+                                    // Append sentinel null terminator to the list
+                                    overlays_arr[overlays_ret.size()] = nullptr;
+                                    const char** sigval2 = overlays_arr;
+                                    slotFunc(self, sigval1, sigval2);
+                                    libqt_free(overlays_arr);
+                                });
 }
 
 libqt_string KOverlayIconPlugin_Tr2(const char* s, const char* c) {

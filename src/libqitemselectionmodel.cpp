@@ -274,15 +274,17 @@ void QItemSelectionModel_SelectionChanged(QItemSelectionModel* self, const QItem
 
 void QItemSelectionModel_Connect_SelectionChanged(QItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(QItemSelectionModel*, QItemSelection*, QItemSelection*) = reinterpret_cast<void (*)(QItemSelectionModel*, QItemSelection*, QItemSelection*)>(slot);
-    QItemSelectionModel::connect(self, &QItemSelectionModel::selectionChanged, [self, slotFunc](const QItemSelection& selected, const QItemSelection& deselected) {
-        const QItemSelection& selected_ret = selected;
-        // Cast returned reference into pointer
-        QItemSelection* sigval1 = const_cast<QItemSelection*>(&selected_ret);
-        const QItemSelection& deselected_ret = deselected;
-        // Cast returned reference into pointer
-        QItemSelection* sigval2 = const_cast<QItemSelection*>(&deselected_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QItemSelectionModel::connect(self,
+                                 static_cast<void (QItemSelectionModel::*)(const QItemSelection&, const QItemSelection&)>(&QItemSelectionModel::selectionChanged),
+                                 [self, slotFunc](const QItemSelection& selected, const QItemSelection& deselected) {
+                                     const QItemSelection& selected_ret = selected;
+                                     // Cast returned reference into pointer
+                                     QItemSelection* sigval1 = const_cast<QItemSelection*>(&selected_ret);
+                                     const QItemSelection& deselected_ret = deselected;
+                                     // Cast returned reference into pointer
+                                     QItemSelection* sigval2 = const_cast<QItemSelection*>(&deselected_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void QItemSelectionModel_CurrentChanged(QItemSelectionModel* self, const QModelIndex* current, const QModelIndex* previous) {
@@ -291,15 +293,17 @@ void QItemSelectionModel_CurrentChanged(QItemSelectionModel* self, const QModelI
 
 void QItemSelectionModel_Connect_CurrentChanged(QItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(QItemSelectionModel*, QModelIndex*, QModelIndex*) = reinterpret_cast<void (*)(QItemSelectionModel*, QModelIndex*, QModelIndex*)>(slot);
-    QItemSelectionModel::connect(self, &QItemSelectionModel::currentChanged, [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
-        const QModelIndex& current_ret = current;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
-        const QModelIndex& previous_ret = previous;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QItemSelectionModel::connect(self,
+                                 static_cast<void (QItemSelectionModel::*)(const QModelIndex&, const QModelIndex&)>(&QItemSelectionModel::currentChanged),
+                                 [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
+                                     const QModelIndex& current_ret = current;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
+                                     const QModelIndex& previous_ret = previous;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void QItemSelectionModel_CurrentRowChanged(QItemSelectionModel* self, const QModelIndex* current, const QModelIndex* previous) {
@@ -308,15 +312,17 @@ void QItemSelectionModel_CurrentRowChanged(QItemSelectionModel* self, const QMod
 
 void QItemSelectionModel_Connect_CurrentRowChanged(QItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(QItemSelectionModel*, QModelIndex*, QModelIndex*) = reinterpret_cast<void (*)(QItemSelectionModel*, QModelIndex*, QModelIndex*)>(slot);
-    QItemSelectionModel::connect(self, &QItemSelectionModel::currentRowChanged, [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
-        const QModelIndex& current_ret = current;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
-        const QModelIndex& previous_ret = previous;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QItemSelectionModel::connect(self,
+                                 static_cast<void (QItemSelectionModel::*)(const QModelIndex&, const QModelIndex&)>(&QItemSelectionModel::currentRowChanged),
+                                 [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
+                                     const QModelIndex& current_ret = current;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
+                                     const QModelIndex& previous_ret = previous;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void QItemSelectionModel_CurrentColumnChanged(QItemSelectionModel* self, const QModelIndex* current, const QModelIndex* previous) {
@@ -325,15 +331,17 @@ void QItemSelectionModel_CurrentColumnChanged(QItemSelectionModel* self, const Q
 
 void QItemSelectionModel_Connect_CurrentColumnChanged(QItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(QItemSelectionModel*, QModelIndex*, QModelIndex*) = reinterpret_cast<void (*)(QItemSelectionModel*, QModelIndex*, QModelIndex*)>(slot);
-    QItemSelectionModel::connect(self, &QItemSelectionModel::currentColumnChanged, [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
-        const QModelIndex& current_ret = current;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
-        const QModelIndex& previous_ret = previous;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QItemSelectionModel::connect(self,
+                                 static_cast<void (QItemSelectionModel::*)(const QModelIndex&, const QModelIndex&)>(&QItemSelectionModel::currentColumnChanged),
+                                 [self, slotFunc](const QModelIndex& current, const QModelIndex& previous) {
+                                     const QModelIndex& current_ret = current;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
+                                     const QModelIndex& previous_ret = previous;
+                                     // Cast returned reference into pointer
+                                     QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void QItemSelectionModel_ModelChanged(QItemSelectionModel* self, QAbstractItemModel* model) {
@@ -342,10 +350,12 @@ void QItemSelectionModel_ModelChanged(QItemSelectionModel* self, QAbstractItemMo
 
 void QItemSelectionModel_Connect_ModelChanged(QItemSelectionModel* self, intptr_t slot) {
     void (*slotFunc)(QItemSelectionModel*, QAbstractItemModel*) = reinterpret_cast<void (*)(QItemSelectionModel*, QAbstractItemModel*)>(slot);
-    QItemSelectionModel::connect(self, &QItemSelectionModel::modelChanged, [self, slotFunc](QAbstractItemModel* model) {
-        QAbstractItemModel* sigval1 = model;
-        slotFunc(self, sigval1);
-    });
+    QItemSelectionModel::connect(self,
+                                 static_cast<void (QItemSelectionModel::*)(QAbstractItemModel*)>(&QItemSelectionModel::modelChanged),
+                                 [self, slotFunc](QAbstractItemModel* model) {
+                                     QAbstractItemModel* sigval1 = model;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 libqt_string QItemSelectionModel_Tr2(const char* s, const char* c) {

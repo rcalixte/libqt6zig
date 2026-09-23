@@ -345,10 +345,12 @@ void QSortFilterProxyModel_DynamicSortFilterChanged(QSortFilterProxyModel* self,
 
 void QSortFilterProxyModel_Connect_DynamicSortFilterChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, bool) = reinterpret_cast<void (*)(QSortFilterProxyModel*, bool)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::dynamicSortFilterChanged, [self, slotFunc](bool dynamicSortFilter) {
-        bool sigval1 = dynamicSortFilter;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(bool)>(&QSortFilterProxyModel::dynamicSortFilterChanged),
+                                   [self, slotFunc](bool dynamicSortFilter) {
+                                       bool sigval1 = dynamicSortFilter;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_FilterCaseSensitivityChanged(QSortFilterProxyModel* self, int filterCaseSensitivity) {
@@ -357,10 +359,12 @@ void QSortFilterProxyModel_FilterCaseSensitivityChanged(QSortFilterProxyModel* s
 
 void QSortFilterProxyModel_Connect_FilterCaseSensitivityChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, int) = reinterpret_cast<void (*)(QSortFilterProxyModel*, int)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::filterCaseSensitivityChanged, [self, slotFunc](Qt::CaseSensitivity filterCaseSensitivity) {
-        int sigval1 = static_cast<int>(filterCaseSensitivity);
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(Qt::CaseSensitivity)>(&QSortFilterProxyModel::filterCaseSensitivityChanged),
+                                   [self, slotFunc](Qt::CaseSensitivity filterCaseSensitivity) {
+                                       int sigval1 = static_cast<int>(filterCaseSensitivity);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_SortCaseSensitivityChanged(QSortFilterProxyModel* self, int sortCaseSensitivity) {
@@ -369,10 +373,12 @@ void QSortFilterProxyModel_SortCaseSensitivityChanged(QSortFilterProxyModel* sel
 
 void QSortFilterProxyModel_Connect_SortCaseSensitivityChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, int) = reinterpret_cast<void (*)(QSortFilterProxyModel*, int)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::sortCaseSensitivityChanged, [self, slotFunc](Qt::CaseSensitivity sortCaseSensitivity) {
-        int sigval1 = static_cast<int>(sortCaseSensitivity);
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(Qt::CaseSensitivity)>(&QSortFilterProxyModel::sortCaseSensitivityChanged),
+                                   [self, slotFunc](Qt::CaseSensitivity sortCaseSensitivity) {
+                                       int sigval1 = static_cast<int>(sortCaseSensitivity);
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_SortLocaleAwareChanged(QSortFilterProxyModel* self, bool sortLocaleAware) {
@@ -381,10 +387,12 @@ void QSortFilterProxyModel_SortLocaleAwareChanged(QSortFilterProxyModel* self, b
 
 void QSortFilterProxyModel_Connect_SortLocaleAwareChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, bool) = reinterpret_cast<void (*)(QSortFilterProxyModel*, bool)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::sortLocaleAwareChanged, [self, slotFunc](bool sortLocaleAware) {
-        bool sigval1 = sortLocaleAware;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(bool)>(&QSortFilterProxyModel::sortLocaleAwareChanged),
+                                   [self, slotFunc](bool sortLocaleAware) {
+                                       bool sigval1 = sortLocaleAware;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_SortRoleChanged(QSortFilterProxyModel* self, int sortRole) {
@@ -393,10 +401,12 @@ void QSortFilterProxyModel_SortRoleChanged(QSortFilterProxyModel* self, int sort
 
 void QSortFilterProxyModel_Connect_SortRoleChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, int) = reinterpret_cast<void (*)(QSortFilterProxyModel*, int)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::sortRoleChanged, [self, slotFunc](int sortRole) {
-        int sigval1 = sortRole;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(int)>(&QSortFilterProxyModel::sortRoleChanged),
+                                   [self, slotFunc](int sortRole) {
+                                       int sigval1 = sortRole;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_FilterRoleChanged(QSortFilterProxyModel* self, int filterRole) {
@@ -405,10 +415,12 @@ void QSortFilterProxyModel_FilterRoleChanged(QSortFilterProxyModel* self, int fi
 
 void QSortFilterProxyModel_Connect_FilterRoleChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, int) = reinterpret_cast<void (*)(QSortFilterProxyModel*, int)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::filterRoleChanged, [self, slotFunc](int filterRole) {
-        int sigval1 = filterRole;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(int)>(&QSortFilterProxyModel::filterRoleChanged),
+                                   [self, slotFunc](int filterRole) {
+                                       int sigval1 = filterRole;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_RecursiveFilteringEnabledChanged(QSortFilterProxyModel* self, bool recursiveFilteringEnabled) {
@@ -417,10 +429,12 @@ void QSortFilterProxyModel_RecursiveFilteringEnabledChanged(QSortFilterProxyMode
 
 void QSortFilterProxyModel_Connect_RecursiveFilteringEnabledChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, bool) = reinterpret_cast<void (*)(QSortFilterProxyModel*, bool)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::recursiveFilteringEnabledChanged, [self, slotFunc](bool recursiveFilteringEnabled) {
-        bool sigval1 = recursiveFilteringEnabled;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(bool)>(&QSortFilterProxyModel::recursiveFilteringEnabledChanged),
+                                   [self, slotFunc](bool recursiveFilteringEnabled) {
+                                       bool sigval1 = recursiveFilteringEnabled;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QSortFilterProxyModel_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, bool autoAcceptChildRows) {
@@ -429,10 +443,12 @@ void QSortFilterProxyModel_AutoAcceptChildRowsChanged(QSortFilterProxyModel* sel
 
 void QSortFilterProxyModel_Connect_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, intptr_t slot) {
     void (*slotFunc)(QSortFilterProxyModel*, bool) = reinterpret_cast<void (*)(QSortFilterProxyModel*, bool)>(slot);
-    QSortFilterProxyModel::connect(self, &QSortFilterProxyModel::autoAcceptChildRowsChanged, [self, slotFunc](bool autoAcceptChildRows) {
-        bool sigval1 = autoAcceptChildRows;
-        slotFunc(self, sigval1);
-    });
+    QSortFilterProxyModel::connect(self,
+                                   static_cast<void (QSortFilterProxyModel::*)(bool)>(&QSortFilterProxyModel::autoAcceptChildRowsChanged),
+                                   [self, slotFunc](bool autoAcceptChildRows) {
+                                       bool sigval1 = autoAcceptChildRows;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_string QSortFilterProxyModel_Tr2(const char* s, const char* c) {

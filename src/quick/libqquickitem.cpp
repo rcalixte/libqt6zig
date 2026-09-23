@@ -1081,12 +1081,14 @@ void QQuickItem_ChildrenRectChanged(QQuickItem* self, const QRectF* param1) {
 
 void QQuickItem_Connect_ChildrenRectChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, QRectF*) = reinterpret_cast<void (*)(QQuickItem*, QRectF*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::childrenRectChanged, [self, slotFunc](const QRectF& param1) {
-        const QRectF& param1_ret = param1;
-        // Cast returned reference into pointer
-        QRectF* sigval1 = const_cast<QRectF*>(&param1_ret);
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(const QRectF&)>(&QQuickItem::childrenRectChanged),
+                        [self, slotFunc](const QRectF& param1) {
+                            const QRectF& param1_ret = param1;
+                            // Cast returned reference into pointer
+                            QRectF* sigval1 = const_cast<QRectF*>(&param1_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_BaselineOffsetChanged(QQuickItem* self, double param1) {
@@ -1095,10 +1097,12 @@ void QQuickItem_BaselineOffsetChanged(QQuickItem* self, double param1) {
 
 void QQuickItem_Connect_BaselineOffsetChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, double) = reinterpret_cast<void (*)(QQuickItem*, double)>(slot);
-    QQuickItem::connect(self, &QQuickItem::baselineOffsetChanged, [self, slotFunc](qreal param1) {
-        double sigval1 = static_cast<double>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(qreal)>(&QQuickItem::baselineOffsetChanged),
+                        [self, slotFunc](qreal param1) {
+                            double sigval1 = static_cast<double>(param1);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_StateChanged(QQuickItem* self, const libqt_string param1) {
@@ -1108,18 +1112,20 @@ void QQuickItem_StateChanged(QQuickItem* self, const libqt_string param1) {
 
 void QQuickItem_Connect_StateChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, const char*) = reinterpret_cast<void (*)(QQuickItem*, const char*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::stateChanged, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(const QString&)>(&QQuickItem::stateChanged),
+                        [self, slotFunc](const QString& param1) {
+                            const auto param1_ret = param1;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray param1_b = param1_ret.toUtf8();
+                            auto param1_str_len = param1_b.length();
+                            const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                            memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                            ((char*)param1_str)[param1_str_len] = '\0';
+                            const char* sigval1 = param1_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(param1_str);
+                        });
 }
 
 void QQuickItem_FocusChanged(QQuickItem* self, bool param1) {
@@ -1128,10 +1134,12 @@ void QQuickItem_FocusChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_FocusChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::focusChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::focusChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_ActiveFocusChanged(QQuickItem* self, bool param1) {
@@ -1140,10 +1148,12 @@ void QQuickItem_ActiveFocusChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_ActiveFocusChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::activeFocusChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::activeFocusChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_FocusPolicyChanged(QQuickItem* self, int param1) {
@@ -1152,10 +1162,12 @@ void QQuickItem_FocusPolicyChanged(QQuickItem* self, int param1) {
 
 void QQuickItem_Connect_FocusPolicyChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, int) = reinterpret_cast<void (*)(QQuickItem*, int)>(slot);
-    QQuickItem::connect(self, &QQuickItem::focusPolicyChanged, [self, slotFunc](Qt::FocusPolicy param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(Qt::FocusPolicy)>(&QQuickItem::focusPolicyChanged),
+                        [self, slotFunc](Qt::FocusPolicy param1) {
+                            int sigval1 = static_cast<int>(param1);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_ActiveFocusOnTabChanged(QQuickItem* self, bool param1) {
@@ -1164,10 +1176,12 @@ void QQuickItem_ActiveFocusOnTabChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_ActiveFocusOnTabChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::activeFocusOnTabChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::activeFocusOnTabChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_ParentChanged(QQuickItem* self, QQuickItem* param1) {
@@ -1176,10 +1190,12 @@ void QQuickItem_ParentChanged(QQuickItem* self, QQuickItem* param1) {
 
 void QQuickItem_Connect_ParentChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*, QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::parentChanged, [self, slotFunc](QQuickItem* param1) {
-        QQuickItem* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(QQuickItem*)>(&QQuickItem::parentChanged),
+                        [self, slotFunc](QQuickItem* param1) {
+                            QQuickItem* sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_TransformOriginChanged(QQuickItem* self, int param1) {
@@ -1188,10 +1204,12 @@ void QQuickItem_TransformOriginChanged(QQuickItem* self, int param1) {
 
 void QQuickItem_Connect_TransformOriginChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, int) = reinterpret_cast<void (*)(QQuickItem*, int)>(slot);
-    QQuickItem::connect(self, &QQuickItem::transformOriginChanged, [self, slotFunc](QQuickItem::TransformOrigin param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(QQuickItem::TransformOrigin)>(&QQuickItem::transformOriginChanged),
+                        [self, slotFunc](QQuickItem::TransformOrigin param1) {
+                            int sigval1 = static_cast<int>(param1);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_SmoothChanged(QQuickItem* self, bool param1) {
@@ -1200,10 +1218,12 @@ void QQuickItem_SmoothChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_SmoothChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::smoothChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::smoothChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_AntialiasingChanged(QQuickItem* self, bool param1) {
@@ -1212,10 +1232,12 @@ void QQuickItem_AntialiasingChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_AntialiasingChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::antialiasingChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::antialiasingChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_ClipChanged(QQuickItem* self, bool param1) {
@@ -1224,10 +1246,12 @@ void QQuickItem_ClipChanged(QQuickItem* self, bool param1) {
 
 void QQuickItem_Connect_ClipChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, bool) = reinterpret_cast<void (*)(QQuickItem*, bool)>(slot);
-    QQuickItem::connect(self, &QQuickItem::clipChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(bool)>(&QQuickItem::clipChanged),
+                        [self, slotFunc](bool param1) {
+                            bool sigval1 = param1;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_WindowChanged(QQuickItem* self, QQuickWindow* window) {
@@ -1236,10 +1260,12 @@ void QQuickItem_WindowChanged(QQuickItem* self, QQuickWindow* window) {
 
 void QQuickItem_Connect_WindowChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*, QQuickWindow*) = reinterpret_cast<void (*)(QQuickItem*, QQuickWindow*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::windowChanged, [self, slotFunc](QQuickWindow* window) {
-        QQuickWindow* sigval1 = window;
-        slotFunc(self, sigval1);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)(QQuickWindow*)>(&QQuickItem::windowChanged),
+                        [self, slotFunc](QQuickWindow* window) {
+                            QQuickWindow* sigval1 = window;
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickItem_ChildrenChanged(QQuickItem* self) {
@@ -1248,9 +1274,11 @@ void QQuickItem_ChildrenChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ChildrenChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::childrenChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::childrenChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_OpacityChanged(QQuickItem* self) {
@@ -1259,9 +1287,11 @@ void QQuickItem_OpacityChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_OpacityChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::opacityChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::opacityChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_EnabledChanged(QQuickItem* self) {
@@ -1270,9 +1300,11 @@ void QQuickItem_EnabledChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_EnabledChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::enabledChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::enabledChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_VisibleChanged(QQuickItem* self) {
@@ -1281,9 +1313,11 @@ void QQuickItem_VisibleChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_VisibleChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::visibleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::visibleChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_VisibleChildrenChanged(QQuickItem* self) {
@@ -1292,9 +1326,11 @@ void QQuickItem_VisibleChildrenChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_VisibleChildrenChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::visibleChildrenChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::visibleChildrenChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_RotationChanged(QQuickItem* self) {
@@ -1303,9 +1339,11 @@ void QQuickItem_RotationChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_RotationChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::rotationChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::rotationChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_ScaleChanged(QQuickItem* self) {
@@ -1314,9 +1352,11 @@ void QQuickItem_ScaleChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ScaleChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::scaleChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::scaleChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_XChanged(QQuickItem* self) {
@@ -1325,9 +1365,11 @@ void QQuickItem_XChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_XChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::xChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::xChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_YChanged(QQuickItem* self) {
@@ -1336,9 +1378,11 @@ void QQuickItem_YChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_YChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::yChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::yChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_WidthChanged(QQuickItem* self) {
@@ -1347,9 +1391,11 @@ void QQuickItem_WidthChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_WidthChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::widthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::widthChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_HeightChanged(QQuickItem* self) {
@@ -1358,9 +1404,11 @@ void QQuickItem_HeightChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_HeightChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::heightChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::heightChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_ZChanged(QQuickItem* self) {
@@ -1369,9 +1417,11 @@ void QQuickItem_ZChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ZChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::zChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::zChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_ImplicitWidthChanged(QQuickItem* self) {
@@ -1380,9 +1430,11 @@ void QQuickItem_ImplicitWidthChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ImplicitWidthChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::implicitWidthChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::implicitWidthChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_ImplicitHeightChanged(QQuickItem* self) {
@@ -1391,9 +1443,11 @@ void QQuickItem_ImplicitHeightChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ImplicitHeightChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::implicitHeightChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::implicitHeightChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_ContainmentMaskChanged(QQuickItem* self) {
@@ -1402,9 +1456,11 @@ void QQuickItem_ContainmentMaskChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_ContainmentMaskChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::containmentMaskChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::containmentMaskChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_PaletteChanged(QQuickItem* self) {
@@ -1413,9 +1469,11 @@ void QQuickItem_PaletteChanged(QQuickItem* self) {
 
 void QQuickItem_Connect_PaletteChanged(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::paletteChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::paletteChanged),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QQuickItem_PaletteCreated(QQuickItem* self) {
@@ -1424,9 +1482,11 @@ void QQuickItem_PaletteCreated(QQuickItem* self) {
 
 void QQuickItem_Connect_PaletteCreated(QQuickItem* self, intptr_t slot) {
     void (*slotFunc)(QQuickItem*) = reinterpret_cast<void (*)(QQuickItem*)>(slot);
-    QQuickItem::connect(self, &QQuickItem::paletteCreated, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QQuickItem::connect(self,
+                        static_cast<void (QQuickItem::*)()>(&QQuickItem::paletteCreated),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 bool QQuickItem_Event(QQuickItem* self, QEvent* param1) {

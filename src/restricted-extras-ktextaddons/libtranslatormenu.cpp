@@ -74,30 +74,32 @@ void TextTranslator__TranslatorMenu_Translate(TextTranslator__TranslatorMenu* se
 
 void TextTranslator__TranslatorMenu_Connect_Translate(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorMenu*, const char*, const char*, QPersistentModelIndex*) = reinterpret_cast<void (*)(TextTranslator__TranslatorMenu*, const char*, const char*, QPersistentModelIndex*)>(slot);
-    TextTranslator::TranslatorMenu::connect(self, &TextTranslator::TranslatorMenu::translate, [self, slotFunc](const QString& from, const QString& to, const QPersistentModelIndex& modelIndex) {
-        const auto from_ret = from;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray from_b = from_ret.toUtf8();
-        auto from_str_len = from_b.length();
-        const char* from_str = static_cast<const char*>(malloc(from_str_len + 1));
-        memcpy((void*)from_str, from_b.data(), from_str_len);
-        ((char*)from_str)[from_str_len] = '\0';
-        const char* sigval1 = from_str;
-        const auto to_ret = to;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray to_b = to_ret.toUtf8();
-        auto to_str_len = to_b.length();
-        const char* to_str = static_cast<const char*>(malloc(to_str_len + 1));
-        memcpy((void*)to_str, to_b.data(), to_str_len);
-        ((char*)to_str)[to_str_len] = '\0';
-        const char* sigval2 = to_str;
-        const QPersistentModelIndex& modelIndex_ret = modelIndex;
-        // Cast returned reference into pointer
-        QPersistentModelIndex* sigval3 = const_cast<QPersistentModelIndex*>(&modelIndex_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(from_str);
-        libqt_free(to_str);
-    });
+    TextTranslator::TranslatorMenu::connect(self,
+                                            static_cast<void (TextTranslator::TranslatorMenu::*)(const QString&, const QString&, const QPersistentModelIndex&)>(&TextTranslator::TranslatorMenu::translate),
+                                            [self, slotFunc](const QString& from, const QString& to, const QPersistentModelIndex& modelIndex) {
+                                                const auto from_ret = from;
+                                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                QByteArray from_b = from_ret.toUtf8();
+                                                auto from_str_len = from_b.length();
+                                                const char* from_str = static_cast<const char*>(malloc(from_str_len + 1));
+                                                memcpy((void*)from_str, from_b.data(), from_str_len);
+                                                ((char*)from_str)[from_str_len] = '\0';
+                                                const char* sigval1 = from_str;
+                                                const auto to_ret = to;
+                                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                QByteArray to_b = to_ret.toUtf8();
+                                                auto to_str_len = to_b.length();
+                                                const char* to_str = static_cast<const char*>(malloc(to_str_len + 1));
+                                                memcpy((void*)to_str, to_b.data(), to_str_len);
+                                                ((char*)to_str)[to_str_len] = '\0';
+                                                const char* sigval2 = to_str;
+                                                const QPersistentModelIndex& modelIndex_ret = modelIndex;
+                                                // Cast returned reference into pointer
+                                                QPersistentModelIndex* sigval3 = const_cast<QPersistentModelIndex*>(&modelIndex_ret);
+                                                slotFunc(self, sigval1, sigval2, sigval3);
+                                                libqt_free(from_str);
+                                                libqt_free(to_str);
+                                            });
 }
 
 libqt_string TextTranslator__TranslatorMenu_Tr2(const char* s, const char* c) {

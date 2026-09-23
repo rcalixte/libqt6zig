@@ -130,9 +130,11 @@ void KSambaShare_Changed(KSambaShare* self) {
 
 void KSambaShare_Connect_Changed(KSambaShare* self, intptr_t slot) {
     void (*slotFunc)(KSambaShare*) = reinterpret_cast<void (*)(KSambaShare*)>(slot);
-    KSambaShare::connect(self, &KSambaShare::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KSambaShare::connect(self,
+                         static_cast<void (KSambaShare::*)()>(&KSambaShare::changed),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 libqt_string KSambaShare_Tr2(const char* s, const char* c) {

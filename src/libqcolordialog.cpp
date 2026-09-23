@@ -141,12 +141,14 @@ void QColorDialog_CurrentColorChanged(QColorDialog* self, const QColor* color) {
 
 void QColorDialog_Connect_CurrentColorChanged(QColorDialog* self, intptr_t slot) {
     void (*slotFunc)(QColorDialog*, QColor*) = reinterpret_cast<void (*)(QColorDialog*, QColor*)>(slot);
-    QColorDialog::connect(self, &QColorDialog::currentColorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QColorDialog::connect(self,
+                          static_cast<void (QColorDialog::*)(const QColor&)>(&QColorDialog::currentColorChanged),
+                          [self, slotFunc](const QColor& color) {
+                              const QColor& color_ret = color;
+                              // Cast returned reference into pointer
+                              QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QColorDialog_ColorSelected(QColorDialog* self, const QColor* color) {
@@ -155,12 +157,14 @@ void QColorDialog_ColorSelected(QColorDialog* self, const QColor* color) {
 
 void QColorDialog_Connect_ColorSelected(QColorDialog* self, intptr_t slot) {
     void (*slotFunc)(QColorDialog*, QColor*) = reinterpret_cast<void (*)(QColorDialog*, QColor*)>(slot);
-    QColorDialog::connect(self, &QColorDialog::colorSelected, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QColorDialog::connect(self,
+                          static_cast<void (QColorDialog::*)(const QColor&)>(&QColorDialog::colorSelected),
+                          [self, slotFunc](const QColor& color) {
+                              const QColor& color_ret = color;
+                              // Cast returned reference into pointer
+                              QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QColorDialog_ChangeEvent(QColorDialog* self, QEvent* event) {

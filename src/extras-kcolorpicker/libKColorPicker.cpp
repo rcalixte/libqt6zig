@@ -103,12 +103,14 @@ void kColorPicker__KColorPicker_ColorChanged(const kColorPicker__KColorPicker* s
 
 void kColorPicker__KColorPicker_Connect_ColorChanged(const kColorPicker__KColorPicker* self, intptr_t slot) {
     void (*slotFunc)(const kColorPicker__KColorPicker*, QColor*) = reinterpret_cast<void (*)(const kColorPicker__KColorPicker*, QColor*)>(slot);
-    kColorPicker::KColorPicker::connect(self, &kColorPicker::KColorPicker::colorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    kColorPicker::KColorPicker::connect(self,
+                                        static_cast<void (kColorPicker::KColorPicker::*)(const QColor&) const>(&kColorPicker::KColorPicker::colorChanged),
+                                        [self, slotFunc](const QColor& color) {
+                                            const QColor& color_ret = color;
+                                            // Cast returned reference into pointer
+                                            QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                                            slotFunc(self, sigval1);
+                                        });
 }
 
 libqt_string kColorPicker__KColorPicker_Tr2(const char* s, const char* c) {

@@ -174,10 +174,12 @@ void QQuickView_StatusChanged(QQuickView* self, int param1) {
 
 void QQuickView_Connect_StatusChanged(QQuickView* self, intptr_t slot) {
     void (*slotFunc)(QQuickView*, int) = reinterpret_cast<void (*)(QQuickView*, int)>(slot);
-    QQuickView::connect(self, &QQuickView::statusChanged, [self, slotFunc](QQuickView::Status param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QQuickView::connect(self,
+                        static_cast<void (QQuickView::*)(QQuickView::Status)>(&QQuickView::statusChanged),
+                        [self, slotFunc](QQuickView::Status param1) {
+                            int sigval1 = static_cast<int>(param1);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QQuickView_ResizeEvent(QQuickView* self, QResizeEvent* param1) {

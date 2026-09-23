@@ -375,12 +375,14 @@ void QHeaderView_SectionMoved(QHeaderView* self, int logicalIndex, int oldVisual
 
 void QHeaderView_Connect_SectionMoved(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int, int, int) = reinterpret_cast<void (*)(QHeaderView*, int, int, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionMoved, [self, slotFunc](int logicalIndex, int oldVisualIndex, int newVisualIndex) {
-        int sigval1 = logicalIndex;
-        int sigval2 = oldVisualIndex;
-        int sigval3 = newVisualIndex;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int, int, int)>(&QHeaderView::sectionMoved),
+                         [self, slotFunc](int logicalIndex, int oldVisualIndex, int newVisualIndex) {
+                             int sigval1 = logicalIndex;
+                             int sigval2 = oldVisualIndex;
+                             int sigval3 = newVisualIndex;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QHeaderView_SectionResized(QHeaderView* self, int logicalIndex, int oldSize, int newSize) {
@@ -389,12 +391,14 @@ void QHeaderView_SectionResized(QHeaderView* self, int logicalIndex, int oldSize
 
 void QHeaderView_Connect_SectionResized(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int, int, int) = reinterpret_cast<void (*)(QHeaderView*, int, int, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionResized, [self, slotFunc](int logicalIndex, int oldSize, int newSize) {
-        int sigval1 = logicalIndex;
-        int sigval2 = oldSize;
-        int sigval3 = newSize;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int, int, int)>(&QHeaderView::sectionResized),
+                         [self, slotFunc](int logicalIndex, int oldSize, int newSize) {
+                             int sigval1 = logicalIndex;
+                             int sigval2 = oldSize;
+                             int sigval3 = newSize;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QHeaderView_SectionPressed(QHeaderView* self, int logicalIndex) {
@@ -403,10 +407,12 @@ void QHeaderView_SectionPressed(QHeaderView* self, int logicalIndex) {
 
 void QHeaderView_Connect_SectionPressed(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int) = reinterpret_cast<void (*)(QHeaderView*, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionPressed, [self, slotFunc](int logicalIndex) {
-        int sigval1 = logicalIndex;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int)>(&QHeaderView::sectionPressed),
+                         [self, slotFunc](int logicalIndex) {
+                             int sigval1 = logicalIndex;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_SectionClicked(QHeaderView* self, int logicalIndex) {
@@ -415,10 +421,12 @@ void QHeaderView_SectionClicked(QHeaderView* self, int logicalIndex) {
 
 void QHeaderView_Connect_SectionClicked(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int) = reinterpret_cast<void (*)(QHeaderView*, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionClicked, [self, slotFunc](int logicalIndex) {
-        int sigval1 = logicalIndex;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int)>(&QHeaderView::sectionClicked),
+                         [self, slotFunc](int logicalIndex) {
+                             int sigval1 = logicalIndex;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_SectionEntered(QHeaderView* self, int logicalIndex) {
@@ -427,10 +435,12 @@ void QHeaderView_SectionEntered(QHeaderView* self, int logicalIndex) {
 
 void QHeaderView_Connect_SectionEntered(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int) = reinterpret_cast<void (*)(QHeaderView*, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionEntered, [self, slotFunc](int logicalIndex) {
-        int sigval1 = logicalIndex;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int)>(&QHeaderView::sectionEntered),
+                         [self, slotFunc](int logicalIndex) {
+                             int sigval1 = logicalIndex;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_SectionDoubleClicked(QHeaderView* self, int logicalIndex) {
@@ -439,10 +449,12 @@ void QHeaderView_SectionDoubleClicked(QHeaderView* self, int logicalIndex) {
 
 void QHeaderView_Connect_SectionDoubleClicked(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int) = reinterpret_cast<void (*)(QHeaderView*, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionDoubleClicked, [self, slotFunc](int logicalIndex) {
-        int sigval1 = logicalIndex;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int)>(&QHeaderView::sectionDoubleClicked),
+                         [self, slotFunc](int logicalIndex) {
+                             int sigval1 = logicalIndex;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_SectionCountChanged(QHeaderView* self, int oldCount, int newCount) {
@@ -451,11 +463,13 @@ void QHeaderView_SectionCountChanged(QHeaderView* self, int oldCount, int newCou
 
 void QHeaderView_Connect_SectionCountChanged(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int, int) = reinterpret_cast<void (*)(QHeaderView*, int, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionCountChanged, [self, slotFunc](int oldCount, int newCount) {
-        int sigval1 = oldCount;
-        int sigval2 = newCount;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int, int)>(&QHeaderView::sectionCountChanged),
+                         [self, slotFunc](int oldCount, int newCount) {
+                             int sigval1 = oldCount;
+                             int sigval2 = newCount;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QHeaderView_SectionHandleDoubleClicked(QHeaderView* self, int logicalIndex) {
@@ -464,10 +478,12 @@ void QHeaderView_SectionHandleDoubleClicked(QHeaderView* self, int logicalIndex)
 
 void QHeaderView_Connect_SectionHandleDoubleClicked(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int) = reinterpret_cast<void (*)(QHeaderView*, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sectionHandleDoubleClicked, [self, slotFunc](int logicalIndex) {
-        int sigval1 = logicalIndex;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int)>(&QHeaderView::sectionHandleDoubleClicked),
+                         [self, slotFunc](int logicalIndex) {
+                             int sigval1 = logicalIndex;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_GeometriesChanged(QHeaderView* self) {
@@ -476,9 +492,11 @@ void QHeaderView_GeometriesChanged(QHeaderView* self) {
 
 void QHeaderView_Connect_GeometriesChanged(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*) = reinterpret_cast<void (*)(QHeaderView*)>(slot);
-    QHeaderView::connect(self, &QHeaderView::geometriesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)()>(&QHeaderView::geometriesChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QHeaderView_SortIndicatorChanged(QHeaderView* self, int logicalIndex, int order) {
@@ -487,11 +505,13 @@ void QHeaderView_SortIndicatorChanged(QHeaderView* self, int logicalIndex, int o
 
 void QHeaderView_Connect_SortIndicatorChanged(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, int, int) = reinterpret_cast<void (*)(QHeaderView*, int, int)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sortIndicatorChanged, [self, slotFunc](int logicalIndex, Qt::SortOrder order) {
-        int sigval1 = logicalIndex;
-        int sigval2 = static_cast<int>(order);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(int, Qt::SortOrder)>(&QHeaderView::sortIndicatorChanged),
+                         [self, slotFunc](int logicalIndex, Qt::SortOrder order) {
+                             int sigval1 = logicalIndex;
+                             int sigval2 = static_cast<int>(order);
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QHeaderView_SortIndicatorClearableChanged(QHeaderView* self, bool clearable) {
@@ -500,10 +520,12 @@ void QHeaderView_SortIndicatorClearableChanged(QHeaderView* self, bool clearable
 
 void QHeaderView_Connect_SortIndicatorClearableChanged(QHeaderView* self, intptr_t slot) {
     void (*slotFunc)(QHeaderView*, bool) = reinterpret_cast<void (*)(QHeaderView*, bool)>(slot);
-    QHeaderView::connect(self, &QHeaderView::sortIndicatorClearableChanged, [self, slotFunc](bool clearable) {
-        bool sigval1 = clearable;
-        slotFunc(self, sigval1);
-    });
+    QHeaderView::connect(self,
+                         static_cast<void (QHeaderView::*)(bool)>(&QHeaderView::sortIndicatorClearableChanged),
+                         [self, slotFunc](bool clearable) {
+                             bool sigval1 = clearable;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QHeaderView_CurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {

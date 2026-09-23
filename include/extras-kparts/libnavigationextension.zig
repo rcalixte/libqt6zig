@@ -585,6 +585,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_EnableAction(@ptrCast(self.ptr), name_Cstring, enabled);
     }
 
+    /// ### DEPRECATED: Use `onEnableAction` instead
+    ///
+    pub const OnEnableAction = onEnableAction;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#enableAction)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, name: [*:0]const u8, enabled: bool) callconv(.c) void `
+    ///
+    pub fn onEnableAction(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_EnableAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `setActionText` instead
     ///
     pub const SetActionText = setActionText;
@@ -608,6 +624,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_SetActionText(@ptrCast(self.ptr), name_Cstring, text_str);
     }
 
+    /// ### DEPRECATED: Use `onSetActionText` instead
+    ///
+    pub const OnSetActionText = onSetActionText;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setActionText)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, name: [*:0]const u8, text: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onSetActionText(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SetActionText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `openUrlRequest` instead
     ///
     pub const OpenUrlRequest = openUrlRequest;
@@ -623,6 +655,22 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn openUrlRequest(self: KParts__NavigationExtension, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_OpenUrlRequest(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onOpenUrlRequest` instead
+    ///
+    pub const OnOpenUrlRequest = onOpenUrlRequest;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl) callconv(.c) void `
+    ///
+    pub fn onOpenUrlRequest(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_OpenUrlRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `openUrlRequestDelayed` instead
@@ -645,6 +693,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_OpenUrlRequestDelayed(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(arguments.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpenUrlRequestDelayed` instead
+    ///
+    pub const OnOpenUrlRequestDelayed = onOpenUrlRequestDelayed;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequestDelayed)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl, arguments: KParts__OpenUrlArguments) callconv(.c) void `
+    ///
+    pub fn onOpenUrlRequestDelayed(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl, KParts__OpenUrlArguments) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_OpenUrlRequestDelayed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `openUrlNotify` instead
     ///
     pub const OpenUrlNotify = openUrlNotify;
@@ -657,6 +721,22 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     pub fn openUrlNotify(self: KParts__NavigationExtension) void {
         qtc.KParts__NavigationExtension_OpenUrlNotify(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onOpenUrlNotify` instead
+    ///
+    pub const OnOpenUrlNotify = onOpenUrlNotify;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlNotify)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension) callconv(.c) void `
+    ///
+    pub fn onOpenUrlNotify(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_OpenUrlNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setLocationBarUrl` instead
@@ -679,6 +759,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_SetLocationBarUrl(@ptrCast(self.ptr), url_str);
     }
 
+    /// ### DEPRECATED: Use `onSetLocationBarUrl` instead
+    ///
+    pub const OnSetLocationBarUrl = onSetLocationBarUrl;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setLocationBarUrl)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onSetLocationBarUrl(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SetLocationBarUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `setIconUrl` instead
     ///
     pub const SetIconUrl = setIconUrl;
@@ -694,6 +790,22 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn setIconUrl(self: KParts__NavigationExtension, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_SetIconUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSetIconUrl` instead
+    ///
+    pub const OnSetIconUrl = onSetIconUrl;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setIconUrl)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl) callconv(.c) void `
+    ///
+    pub fn onSetIconUrl(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SetIconUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `createNewWindow` instead
@@ -713,6 +825,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_CreateNewWindow(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreateNewWindow` instead
+    ///
+    pub const OnCreateNewWindow = onCreateNewWindow;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#createNewWindow)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl) callconv(.c) void `
+    ///
+    pub fn onCreateNewWindow(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_CreateNewWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `loadingProgress` instead
     ///
     pub const LoadingProgress = loadingProgress;
@@ -729,6 +857,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_LoadingProgress(@ptrCast(self.ptr), @bitCast(percent));
     }
 
+    /// ### DEPRECATED: Use `onLoadingProgress` instead
+    ///
+    pub const OnLoadingProgress = onLoadingProgress;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#loadingProgress)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, percent: i32) callconv(.c) void `
+    ///
+    pub fn onLoadingProgress(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_LoadingProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `speedProgress` instead
     ///
     pub const SpeedProgress = speedProgress;
@@ -743,6 +887,22 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     pub fn speedProgress(self: KParts__NavigationExtension, bytesPerSecond: i32) void {
         qtc.KParts__NavigationExtension_SpeedProgress(@ptrCast(self.ptr), @bitCast(bytesPerSecond));
+    }
+
+    /// ### DEPRECATED: Use `onSpeedProgress` instead
+    ///
+    pub const OnSpeedProgress = onSpeedProgress;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#speedProgress)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, bytesPerSecond: i32) callconv(.c) void `
+    ///
+    pub fn onSpeedProgress(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SpeedProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `infoMessage` instead
@@ -765,6 +925,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_InfoMessage(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onInfoMessage` instead
+    ///
+    pub const OnInfoMessage = onInfoMessage;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#infoMessage)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, param1: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onInfoMessage(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `popupMenu` instead
     ///
     pub const PopupMenu = popupMenu;
@@ -783,6 +959,22 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KParts__NavigationExtension_PopupMenu(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu` instead
+    ///
+    pub const OnPopupMenu = onPopupMenu;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, items: KFileItemList) callconv(.c) void `
+    ///
+    pub fn onPopupMenu(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, KFileItemList) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `popupMenu2` instead
@@ -805,6 +997,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_PopupMenu2(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPopupMenu2` instead
+    ///
+    pub const OnPopupMenu2 = onPopupMenu2;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, url: QUrl) callconv(.c) void `
+    ///
+    pub fn onPopupMenu2(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, QUrl) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `selectionInfo` instead
     ///
     pub const SelectionInfo = selectionInfo;
@@ -822,6 +1030,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_SelectionInfo(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionInfo` instead
+    ///
+    pub const OnSelectionInfo = onSelectionInfo;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#selectionInfo)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, items: KFileItemList) callconv(.c) void `
+    ///
+    pub fn onSelectionInfo(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, KFileItemList) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SelectionInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `mouseOverInfo` instead
     ///
     pub const MouseOverInfo = mouseOverInfo;
@@ -837,6 +1061,22 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn mouseOverInfo(self: KParts__NavigationExtension, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KParts__NavigationExtension_MouseOverInfo(@ptrCast(self.ptr), @ptrCast(item.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onMouseOverInfo` instead
+    ///
+    pub const OnMouseOverInfo = onMouseOverInfo;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#mouseOverInfo)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, item: KFileItem) callconv(.c) void `
+    ///
+    pub fn onMouseOverInfo(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, KFileItem) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_MouseOverInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `addWebSideBar` instead
@@ -862,6 +1102,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_AddWebSideBar(@ptrCast(self.ptr), @ptrCast(url.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `onAddWebSideBar` instead
+    ///
+    pub const OnAddWebSideBar = onAddWebSideBar;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#addWebSideBar)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl, name: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onAddWebSideBar(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_AddWebSideBar(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `moveTopLevelWidget` instead
     ///
     pub const MoveTopLevelWidget = moveTopLevelWidget;
@@ -878,6 +1134,22 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     pub fn moveTopLevelWidget(self: KParts__NavigationExtension, x: i32, y: i32) void {
         qtc.KParts__NavigationExtension_MoveTopLevelWidget(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    }
+
+    /// ### DEPRECATED: Use `onMoveTopLevelWidget` instead
+    ///
+    pub const OnMoveTopLevelWidget = onMoveTopLevelWidget;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#moveTopLevelWidget)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, x: i32, y: i32) callconv(.c) void `
+    ///
+    pub fn onMoveTopLevelWidget(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_MoveTopLevelWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `resizeTopLevelWidget` instead
@@ -898,6 +1170,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_ResizeTopLevelWidget(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
+    /// ### DEPRECATED: Use `onResizeTopLevelWidget` instead
+    ///
+    pub const OnResizeTopLevelWidget = onResizeTopLevelWidget;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#resizeTopLevelWidget)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, w: i32, h: i32) callconv(.c) void `
+    ///
+    pub fn onResizeTopLevelWidget(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_ResizeTopLevelWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `requestFocus` instead
     ///
     pub const RequestFocus = requestFocus;
@@ -913,6 +1201,22 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn requestFocus(self: KParts__NavigationExtension, part: anytype) void {
         comptime _ = @TypeOf(part)._is_KParts__ReadOnlyPart;
         qtc.KParts__NavigationExtension_RequestFocus(@ptrCast(self.ptr), @ptrCast(part.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onRequestFocus` instead
+    ///
+    pub const OnRequestFocus = onRequestFocus;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#requestFocus)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, part: KParts__ReadOnlyPart) callconv(.c) void `
+    ///
+    pub fn onRequestFocus(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, KParts__ReadOnlyPart) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_RequestFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPageSecurity` instead
@@ -931,6 +1235,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_SetPageSecurity(@ptrCast(self.ptr), @bitCast(pageSecurity));
     }
 
+    /// ### DEPRECATED: Use `onSetPageSecurity` instead
+    ///
+    pub const OnSetPageSecurity = onSetPageSecurity;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setPageSecurity)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, pageSecurity: i32) callconv(.c) void `
+    ///
+    pub fn onSetPageSecurity(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_SetPageSecurity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `itemsRemoved` instead
     ///
     pub const ItemsRemoved = itemsRemoved;
@@ -946,6 +1266,22 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn itemsRemoved(self: KParts__NavigationExtension, items: anytype) void {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KParts__NavigationExtension_ItemsRemoved(@ptrCast(self.ptr), @ptrCast(items.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onItemsRemoved` instead
+    ///
+    pub const OnItemsRemoved = onItemsRemoved;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#itemsRemoved)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, items: KFileItemList) callconv(.c) void `
+    ///
+    pub fn onItemsRemoved(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, KFileItemList) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_ItemsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1022,6 +1358,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_OpenUrlRequest2(@ptrCast(self.ptr), @ptrCast(url.ptr), @ptrCast(arguments.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpenUrlRequest2` instead
+    ///
+    pub const OnOpenUrlRequest2 = onOpenUrlRequest2;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, url: QUrl, arguments: KParts__OpenUrlArguments) callconv(.c) void `
+    ///
+    pub fn onOpenUrlRequest2(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QUrl, KParts__OpenUrlArguments) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_OpenUrlRequest2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `popupMenu3` instead
     ///
     pub const PopupMenu3 = popupMenu3;
@@ -1043,6 +1395,22 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu3(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu3` instead
+    ///
+    pub const OnPopupMenu3 = onPopupMenu3;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, items: KFileItemList, arguments: KParts__OpenUrlArguments) callconv(.c) void `
+    ///
+    pub fn onPopupMenu3(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, KFileItemList, KParts__OpenUrlArguments) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `popupMenu4` instead
@@ -1068,6 +1436,22 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu4(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr), @bitCast(flags));
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu4` instead
+    ///
+    pub const OnPopupMenu4 = onPopupMenu4;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, items: KFileItemList, arguments: KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag) callconv(.c) void `
+    ///
+    pub fn onPopupMenu4(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, KFileItemList, KParts__OpenUrlArguments, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu4(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `popupMenu5` instead
@@ -1123,6 +1507,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_PopupMenu5(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(items.ptr), @ptrCast(arguments.ptr), @bitCast(flags), actionGroups_map);
     }
 
+    /// ### DEPRECATED: Use `onPopupMenu5` instead
+    ///
+    pub const OnPopupMenu5 = onPopupMenu5;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, items: KFileItemList, arguments: KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: qtc.libqt_map (ArrayMap_constu8_SliceQAction)) callconv(.c) void `
+    ///
+    pub fn onPopupMenu5(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, KFileItemList, KParts__OpenUrlArguments, i32, qtc.libqt_map) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu5(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `popupMenu32` instead
     ///
     pub const PopupMenu32 = popupMenu32;
@@ -1143,6 +1543,22 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(global)._is_QPoint;
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KParts__NavigationExtension_PopupMenu32(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode);
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu32` instead
+    ///
+    pub const OnPopupMenu32 = onPopupMenu32;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, url: QUrl, mode: u32) callconv(.c) void `
+    ///
+    pub fn onPopupMenu32(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, QUrl, u32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu32(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `popupMenu42` instead
@@ -1170,6 +1586,22 @@ pub const KParts__NavigationExtension = extern struct {
         qtc.KParts__NavigationExtension_PopupMenu42(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPopupMenu42` instead
+    ///
+    pub const OnPopupMenu42 = onPopupMenu42;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, url: QUrl, mode: u32, arguments: KParts__OpenUrlArguments) callconv(.c) void `
+    ///
+    pub fn onPopupMenu42(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, QUrl, u32, KParts__OpenUrlArguments) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu42(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `popupMenu52` instead
     ///
     pub const PopupMenu52 = popupMenu52;
@@ -1195,6 +1627,22 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         qtc.KParts__NavigationExtension_PopupMenu52(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr), @bitCast(flags));
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu52` instead
+    ///
+    pub const OnPopupMenu52 = onPopupMenu52;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, url: QUrl, mode: u32, arguments: KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag) callconv(.c) void `
+    ///
+    pub fn onPopupMenu52(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, QUrl, u32, KParts__OpenUrlArguments, i32) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu52(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `popupMenu6` instead
@@ -1250,6 +1698,22 @@ pub const KParts__NavigationExtension = extern struct {
             .values = @ptrCast(actionGroups_values.ptr),
         };
         qtc.KParts__NavigationExtension_PopupMenu6(@ptrCast(self.ptr), @ptrCast(global.ptr), @ptrCast(url.ptr), mode, @ptrCast(arguments.ptr), @bitCast(flags), actionGroups_map);
+    }
+
+    /// ### DEPRECATED: Use `onPopupMenu6` instead
+    ///
+    pub const OnPopupMenu6 = onPopupMenu6;
+
+    /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KParts__NavigationExtension `
+    ///
+    /// ` callback: *const fn (self: KParts__NavigationExtension, global: QPoint, url: QUrl, mode: u32, arguments: KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: qtc.libqt_map (ArrayMap_constu8_SliceQAction)) callconv(.c) void `
+    ///
+    pub fn onPopupMenu6(self: KParts__NavigationExtension, callback: *const fn (KParts__NavigationExtension, QPoint, QUrl, u32, KParts__OpenUrlArguments, i32, qtc.libqt_map) callconv(.c) void) void {
+        qtc.KParts__NavigationExtension_Connect_PopupMenu6(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `objectName` instead

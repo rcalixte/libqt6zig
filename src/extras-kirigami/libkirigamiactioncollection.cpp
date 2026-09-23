@@ -194,10 +194,12 @@ void KirigamiActionCollection_Inserted(KirigamiActionCollection* self, QAction* 
 
 void KirigamiActionCollection_Connect_Inserted(KirigamiActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KirigamiActionCollection*, QAction*) = reinterpret_cast<void (*)(KirigamiActionCollection*, QAction*)>(slot);
-    KirigamiActionCollection::connect(self, &KirigamiActionCollection::inserted, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KirigamiActionCollection::connect(self,
+                                      static_cast<void (KirigamiActionCollection::*)(QAction*)>(&KirigamiActionCollection::inserted),
+                                      [self, slotFunc](QAction* action) {
+                                          QAction* sigval1 = action;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KirigamiActionCollection_Changed(KirigamiActionCollection* self) {
@@ -206,9 +208,11 @@ void KirigamiActionCollection_Changed(KirigamiActionCollection* self) {
 
 void KirigamiActionCollection_Connect_Changed(KirigamiActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KirigamiActionCollection*) = reinterpret_cast<void (*)(KirigamiActionCollection*)>(slot);
-    KirigamiActionCollection::connect(self, &KirigamiActionCollection::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KirigamiActionCollection::connect(self,
+                                      static_cast<void (KirigamiActionCollection::*)()>(&KirigamiActionCollection::changed),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KirigamiActionCollection_ActionHovered(KirigamiActionCollection* self, QAction* action) {
@@ -217,10 +221,12 @@ void KirigamiActionCollection_ActionHovered(KirigamiActionCollection* self, QAct
 
 void KirigamiActionCollection_Connect_ActionHovered(KirigamiActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KirigamiActionCollection*, QAction*) = reinterpret_cast<void (*)(KirigamiActionCollection*, QAction*)>(slot);
-    KirigamiActionCollection::connect(self, &KirigamiActionCollection::actionHovered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KirigamiActionCollection::connect(self,
+                                      static_cast<void (KirigamiActionCollection::*)(QAction*)>(&KirigamiActionCollection::actionHovered),
+                                      [self, slotFunc](QAction* action) {
+                                          QAction* sigval1 = action;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KirigamiActionCollection_ActionTriggered(KirigamiActionCollection* self, QAction* action) {
@@ -229,10 +235,12 @@ void KirigamiActionCollection_ActionTriggered(KirigamiActionCollection* self, QA
 
 void KirigamiActionCollection_Connect_ActionTriggered(KirigamiActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KirigamiActionCollection*, QAction*) = reinterpret_cast<void (*)(KirigamiActionCollection*, QAction*)>(slot);
-    KirigamiActionCollection::connect(self, &KirigamiActionCollection::actionTriggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KirigamiActionCollection::connect(self,
+                                      static_cast<void (KirigamiActionCollection::*)(QAction*)>(&KirigamiActionCollection::actionTriggered),
+                                      [self, slotFunc](QAction* action) {
+                                          QAction* sigval1 = action;
+                                          slotFunc(self, sigval1);
+                                      });
 }
 
 void KirigamiActionCollection_ConnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal) {

@@ -136,20 +136,22 @@ void KFind_TextFound(KFind* self, const libqt_string text, int matchingIndex, in
 
 void KFind_Connect_TextFound(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*, const char*, int, int) = reinterpret_cast<void (*)(KFind*, const char*, int, int)>(slot);
-    KFind::connect(self, &KFind::textFound, [self, slotFunc](const QString& text, int matchingIndex, int matchedLength) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        int sigval2 = matchingIndex;
-        int sigval3 = matchedLength;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(text_str);
-    });
+    KFind::connect(self,
+                   static_cast<void (KFind::*)(const QString&, int, int)>(&KFind::textFound),
+                   [self, slotFunc](const QString& text, int matchingIndex, int matchedLength) {
+                       const auto text_ret = text;
+                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                       QByteArray text_b = text_ret.toUtf8();
+                       auto text_str_len = text_b.length();
+                       const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                       memcpy((void*)text_str, text_b.data(), text_str_len);
+                       ((char*)text_str)[text_str_len] = '\0';
+                       const char* sigval1 = text_str;
+                       int sigval2 = matchingIndex;
+                       int sigval3 = matchedLength;
+                       slotFunc(self, sigval1, sigval2, sigval3);
+                       libqt_free(text_str);
+                   });
 }
 
 void KFind_TextFoundAtId(KFind* self, int id, int matchingIndex, int matchedLength) {
@@ -158,12 +160,14 @@ void KFind_TextFoundAtId(KFind* self, int id, int matchingIndex, int matchedLeng
 
 void KFind_Connect_TextFoundAtId(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*, int, int, int) = reinterpret_cast<void (*)(KFind*, int, int, int)>(slot);
-    KFind::connect(self, &KFind::textFoundAtId, [self, slotFunc](int id, int matchingIndex, int matchedLength) {
-        int sigval1 = id;
-        int sigval2 = matchingIndex;
-        int sigval3 = matchedLength;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KFind::connect(self,
+                   static_cast<void (KFind::*)(int, int, int)>(&KFind::textFoundAtId),
+                   [self, slotFunc](int id, int matchingIndex, int matchedLength) {
+                       int sigval1 = id;
+                       int sigval2 = matchingIndex;
+                       int sigval3 = matchedLength;
+                       slotFunc(self, sigval1, sigval2, sigval3);
+                   });
 }
 
 void KFind_FindNext(KFind* self) {
@@ -172,9 +176,11 @@ void KFind_FindNext(KFind* self) {
 
 void KFind_Connect_FindNext(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*) = reinterpret_cast<void (*)(KFind*)>(slot);
-    KFind::connect(self, &KFind::findNext, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFind::connect(self,
+                   static_cast<void (KFind::*)()>(&KFind::findNext),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 void KFind_OptionsChanged(KFind* self) {
@@ -183,9 +189,11 @@ void KFind_OptionsChanged(KFind* self) {
 
 void KFind_Connect_OptionsChanged(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*) = reinterpret_cast<void (*)(KFind*)>(slot);
-    KFind::connect(self, &KFind::optionsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFind::connect(self,
+                   static_cast<void (KFind::*)()>(&KFind::optionsChanged),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 void KFind_DialogClosed(KFind* self) {
@@ -194,9 +202,11 @@ void KFind_DialogClosed(KFind* self) {
 
 void KFind_Connect_DialogClosed(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*) = reinterpret_cast<void (*)(KFind*)>(slot);
-    KFind::connect(self, &KFind::dialogClosed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFind::connect(self,
+                   static_cast<void (KFind::*)()>(&KFind::dialogClosed),
+                   [self, slotFunc]() {
+                       slotFunc(self);
+                   });
 }
 
 libqt_string KFind_Tr2(const char* s, const char* c) {

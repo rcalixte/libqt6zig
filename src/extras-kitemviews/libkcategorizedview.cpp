@@ -174,10 +174,12 @@ void KCategorizedView_CategorySpacingChanged(KCategorizedView* self, int spacing
 
 void KCategorizedView_Connect_CategorySpacingChanged(KCategorizedView* self, intptr_t slot) {
     void (*slotFunc)(KCategorizedView*, int) = reinterpret_cast<void (*)(KCategorizedView*, int)>(slot);
-    KCategorizedView::connect(self, &KCategorizedView::categorySpacingChanged, [self, slotFunc](int spacing) {
-        int sigval1 = spacing;
-        slotFunc(self, sigval1);
-    });
+    KCategorizedView::connect(self,
+                              static_cast<void (KCategorizedView::*)(int)>(&KCategorizedView::categorySpacingChanged),
+                              [self, slotFunc](int spacing) {
+                                  int sigval1 = spacing;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void KCategorizedView_AlternatingBlockColorsChanged(KCategorizedView* self, bool enable) {
@@ -186,10 +188,12 @@ void KCategorizedView_AlternatingBlockColorsChanged(KCategorizedView* self, bool
 
 void KCategorizedView_Connect_AlternatingBlockColorsChanged(KCategorizedView* self, intptr_t slot) {
     void (*slotFunc)(KCategorizedView*, bool) = reinterpret_cast<void (*)(KCategorizedView*, bool)>(slot);
-    KCategorizedView::connect(self, &KCategorizedView::alternatingBlockColorsChanged, [self, slotFunc](bool enable) {
-        bool sigval1 = enable;
-        slotFunc(self, sigval1);
-    });
+    KCategorizedView::connect(self,
+                              static_cast<void (KCategorizedView::*)(bool)>(&KCategorizedView::alternatingBlockColorsChanged),
+                              [self, slotFunc](bool enable) {
+                                  bool sigval1 = enable;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void KCategorizedView_CollapsibleBlocksChanged(KCategorizedView* self, bool enable) {
@@ -198,10 +202,12 @@ void KCategorizedView_CollapsibleBlocksChanged(KCategorizedView* self, bool enab
 
 void KCategorizedView_Connect_CollapsibleBlocksChanged(KCategorizedView* self, intptr_t slot) {
     void (*slotFunc)(KCategorizedView*, bool) = reinterpret_cast<void (*)(KCategorizedView*, bool)>(slot);
-    KCategorizedView::connect(self, &KCategorizedView::collapsibleBlocksChanged, [self, slotFunc](bool enable) {
-        bool sigval1 = enable;
-        slotFunc(self, sigval1);
-    });
+    KCategorizedView::connect(self,
+                              static_cast<void (KCategorizedView::*)(bool)>(&KCategorizedView::collapsibleBlocksChanged),
+                              [self, slotFunc](bool enable) {
+                                  bool sigval1 = enable;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void KCategorizedView_PaintEvent(KCategorizedView* self, QPaintEvent* event) {

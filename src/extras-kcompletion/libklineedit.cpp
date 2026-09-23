@@ -186,18 +186,20 @@ void KLineEdit_CompletionBoxActivated(KLineEdit* self, const libqt_string param1
 
 void KLineEdit_Connect_CompletionBoxActivated(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::completionBoxActivated, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(const QString&)>(&KLineEdit::completionBoxActivated),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KLineEdit_ReturnKeyPressed(KLineEdit* self, const libqt_string text) {
@@ -207,18 +209,20 @@ void KLineEdit_ReturnKeyPressed(KLineEdit* self, const libqt_string text) {
 
 void KLineEdit_Connect_ReturnKeyPressed(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::returnKeyPressed, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(const QString&)>(&KLineEdit::returnKeyPressed),
+                       [self, slotFunc](const QString& text) {
+                           const auto text_ret = text;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray text_b = text_ret.toUtf8();
+                           auto text_str_len = text_b.length();
+                           const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                           memcpy((void*)text_str, text_b.data(), text_str_len);
+                           ((char*)text_str)[text_str_len] = '\0';
+                           const char* sigval1 = text_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(text_str);
+                       });
 }
 
 void KLineEdit_Completion(KLineEdit* self, const libqt_string param1) {
@@ -228,18 +232,20 @@ void KLineEdit_Completion(KLineEdit* self, const libqt_string param1) {
 
 void KLineEdit_Connect_Completion(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::completion, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(const QString&)>(&KLineEdit::completion),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KLineEdit_SubstringCompletion(KLineEdit* self, const libqt_string param1) {
@@ -249,18 +255,20 @@ void KLineEdit_SubstringCompletion(KLineEdit* self, const libqt_string param1) {
 
 void KLineEdit_Connect_SubstringCompletion(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::substringCompletion, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(const QString&)>(&KLineEdit::substringCompletion),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void KLineEdit_TextRotation(KLineEdit* self, int param1) {
@@ -269,10 +277,12 @@ void KLineEdit_TextRotation(KLineEdit* self, int param1) {
 
 void KLineEdit_Connect_TextRotation(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, int) = reinterpret_cast<void (*)(KLineEdit*, int)>(slot);
-    KLineEdit::connect(self, &KLineEdit::textRotation, [self, slotFunc](KCompletionBase::KeyBindingType param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(KCompletionBase::KeyBindingType)>(&KLineEdit::textRotation),
+                       [self, slotFunc](KCompletionBase::KeyBindingType param1) {
+                           int sigval1 = static_cast<int>(param1);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KLineEdit_CompletionModeChanged(KLineEdit* self, int param1) {
@@ -281,10 +291,12 @@ void KLineEdit_CompletionModeChanged(KLineEdit* self, int param1) {
 
 void KLineEdit_Connect_CompletionModeChanged(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, int) = reinterpret_cast<void (*)(KLineEdit*, int)>(slot);
-    KLineEdit::connect(self, &KLineEdit::completionModeChanged, [self, slotFunc](KCompletion::CompletionMode param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(KCompletion::CompletionMode)>(&KLineEdit::completionModeChanged),
+                       [self, slotFunc](KCompletion::CompletionMode param1) {
+                           int sigval1 = static_cast<int>(param1);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KLineEdit_AboutToShowContextMenu(KLineEdit* self, QMenu* contextMenu) {
@@ -293,10 +305,12 @@ void KLineEdit_AboutToShowContextMenu(KLineEdit* self, QMenu* contextMenu) {
 
 void KLineEdit_Connect_AboutToShowContextMenu(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, QMenu*) = reinterpret_cast<void (*)(KLineEdit*, QMenu*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::aboutToShowContextMenu, [self, slotFunc](QMenu* contextMenu) {
-        QMenu* sigval1 = contextMenu;
-        slotFunc(self, sigval1);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)(QMenu*)>(&KLineEdit::aboutToShowContextMenu),
+                       [self, slotFunc](QMenu* contextMenu) {
+                           QMenu* sigval1 = contextMenu;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void KLineEdit_ClearButtonClicked(KLineEdit* self) {
@@ -305,9 +319,11 @@ void KLineEdit_ClearButtonClicked(KLineEdit* self) {
 
 void KLineEdit_Connect_ClearButtonClicked(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*) = reinterpret_cast<void (*)(KLineEdit*)>(slot);
-    KLineEdit::connect(self, &KLineEdit::clearButtonClicked, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KLineEdit::connect(self,
+                       static_cast<void (KLineEdit::*)()>(&KLineEdit::clearButtonClicked),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void KLineEdit_SetReadOnly(KLineEdit* self, bool readOnly) {

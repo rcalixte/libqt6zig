@@ -100,11 +100,13 @@ void KTextEditor__Document_ViewCreated(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_ViewCreated(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__View*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__View*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::viewCreated, [self, slotFunc](KTextEditor::Document* document, KTextEditor::View* view) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__View* sigval2 = view;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::View*)>(&KTextEditor::Document::viewCreated),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::View* view) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__View* sigval2 = view;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 libqt_string KTextEditor__Document_DocumentName(const KTextEditor__Document* self) {
@@ -146,10 +148,12 @@ void KTextEditor__Document_DocumentNameChanged(KTextEditor__Document* self, KTex
 
 void KTextEditor__Document_Connect_DocumentNameChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::documentNameChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::documentNameChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_DocumentUrlChanged(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -158,10 +162,12 @@ void KTextEditor__Document_DocumentUrlChanged(KTextEditor__Document* self, KText
 
 void KTextEditor__Document_Connect_DocumentUrlChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::documentUrlChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::documentUrlChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_ModifiedChanged(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -170,10 +176,12 @@ void KTextEditor__Document_ModifiedChanged(KTextEditor__Document* self, KTextEdi
 
 void KTextEditor__Document_Connect_ModifiedChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::modifiedChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::modifiedChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_ReadWriteChanged(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -182,10 +190,12 @@ void KTextEditor__Document_ReadWriteChanged(KTextEditor__Document* self, KTextEd
 
 void KTextEditor__Document_Connect_ReadWriteChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::readWriteChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::readWriteChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 bool KTextEditor__Document_SetEncoding(KTextEditor__Document* self, const libqt_string encoding) {
@@ -227,11 +237,13 @@ void KTextEditor__Document_DocumentSavedOrUploaded(KTextEditor__Document* self, 
 
 void KTextEditor__Document_Connect_DocumentSavedOrUploaded(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, bool) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, bool)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::documentSavedOrUploaded, [self, slotFunc](KTextEditor::Document* document, bool saveAs) {
-        KTextEditor__Document* sigval1 = document;
-        bool sigval2 = saveAs;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, bool)>(&KTextEditor::Document::documentSavedOrUploaded),
+                                   [self, slotFunc](KTextEditor::Document* document, bool saveAs) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       bool sigval2 = saveAs;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void KTextEditor__Document_AboutToClose(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -240,10 +252,12 @@ void KTextEditor__Document_AboutToClose(KTextEditor__Document* self, KTextEditor
 
 void KTextEditor__Document_Connect_AboutToClose(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::aboutToClose, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::aboutToClose),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_AboutToReload(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -252,10 +266,12 @@ void KTextEditor__Document_AboutToReload(KTextEditor__Document* self, KTextEdito
 
 void KTextEditor__Document_Connect_AboutToReload(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::aboutToReload, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::aboutToReload),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_Reloaded(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -264,10 +280,12 @@ void KTextEditor__Document_Reloaded(KTextEditor__Document* self, KTextEditor__Do
 
 void KTextEditor__Document_Connect_Reloaded(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::reloaded, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::reloaded),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_AboutToSave(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -276,10 +294,12 @@ void KTextEditor__Document_AboutToSave(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_AboutToSave(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::aboutToSave, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::aboutToSave),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 bool KTextEditor__Document_IsEditingTransactionRunning(const KTextEditor__Document* self) {
@@ -511,10 +531,12 @@ void KTextEditor__Document_EditingStarted(KTextEditor__Document* self, KTextEdit
 
 void KTextEditor__Document_Connect_EditingStarted(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::editingStarted, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::editingStarted),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_EditingFinished(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -523,10 +545,12 @@ void KTextEditor__Document_EditingFinished(KTextEditor__Document* self, KTextEdi
 
 void KTextEditor__Document_Connect_EditingFinished(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::editingFinished, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::editingFinished),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_LineWrapped(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Cursor* position) {
@@ -535,11 +559,13 @@ void KTextEditor__Document_LineWrapped(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_LineWrapped(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Cursor*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Cursor*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::lineWrapped, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Cursor position) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Cursor)>(&KTextEditor::Document::lineWrapped),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Cursor position) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void KTextEditor__Document_LineUnwrapped(KTextEditor__Document* self, KTextEditor__Document* document, int line) {
@@ -548,11 +574,13 @@ void KTextEditor__Document_LineUnwrapped(KTextEditor__Document* self, KTextEdito
 
 void KTextEditor__Document_Connect_LineUnwrapped(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, int) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, int)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::lineUnwrapped, [self, slotFunc](KTextEditor::Document* document, int line) {
-        KTextEditor__Document* sigval1 = document;
-        int sigval2 = line;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, int)>(&KTextEditor::Document::lineUnwrapped),
+                                   [self, slotFunc](KTextEditor::Document* document, int line) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       int sigval2 = line;
+                                       slotFunc(self, sigval1, sigval2);
+                                   });
 }
 
 void KTextEditor__Document_TextInserted(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Cursor* position, const libqt_string text) {
@@ -562,20 +590,22 @@ void KTextEditor__Document_TextInserted(KTextEditor__Document* self, KTextEditor
 
 void KTextEditor__Document_Connect_TextInserted(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Cursor*, const char*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Cursor*, const char*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::textInserted, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Cursor position, const QString& text) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval3 = text_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(text_str);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Cursor, const QString&)>(&KTextEditor::Document::textInserted),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Cursor position, const QString& text) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
+                                       const auto text_ret = text;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray text_b = text_ret.toUtf8();
+                                       auto text_str_len = text_b.length();
+                                       const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                       memcpy((void*)text_str, text_b.data(), text_str_len);
+                                       ((char*)text_str)[text_str_len] = '\0';
+                                       const char* sigval3 = text_str;
+                                       slotFunc(self, sigval1, sigval2, sigval3);
+                                       libqt_free(text_str);
+                                   });
 }
 
 void KTextEditor__Document_TextRemoved(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Range* range, const libqt_string text) {
@@ -585,20 +615,22 @@ void KTextEditor__Document_TextRemoved(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_TextRemoved(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Range*, const char*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Range*, const char*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::textRemoved, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Range range, const QString& text) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Range* sigval2 = new KTextEditor::Range(range);
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval3 = text_str;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(text_str);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Range, const QString&)>(&KTextEditor::Document::textRemoved),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Range range, const QString& text) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Range* sigval2 = new KTextEditor::Range(range);
+                                       const auto text_ret = text;
+                                       // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                       QByteArray text_b = text_ret.toUtf8();
+                                       auto text_str_len = text_b.length();
+                                       const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                       memcpy((void*)text_str, text_b.data(), text_str_len);
+                                       ((char*)text_str)[text_str_len] = '\0';
+                                       const char* sigval3 = text_str;
+                                       slotFunc(self, sigval1, sigval2, sigval3);
+                                       libqt_free(text_str);
+                                   });
 }
 
 void KTextEditor__Document_TextChanged(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -607,10 +639,12 @@ void KTextEditor__Document_TextChanged(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_TextChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::textChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::textChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 int KTextEditor__Document_DefaultStyleAt(const KTextEditor__Document* self, KTextEditor__Cursor* position) {
@@ -756,10 +790,12 @@ void KTextEditor__Document_ModeChanged(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_ModeChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::modeChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::modeChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_HighlightingModeChanged(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -768,10 +804,12 @@ void KTextEditor__Document_HighlightingModeChanged(KTextEditor__Document* self, 
 
 void KTextEditor__Document_Connect_HighlightingModeChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::highlightingModeChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::highlightingModeChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 bool KTextEditor__Document_Print(KTextEditor__Document* self) {
@@ -824,10 +862,12 @@ void KTextEditor__Document_ConfigChanged(KTextEditor__Document* self, KTextEdito
 
 void KTextEditor__Document_Connect_ConfigChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::configChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::configChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 KTextEditor__MovingCursor* KTextEditor__Document_NewMovingCursor(KTextEditor__Document* self, KTextEditor__Cursor* position, int insertBehavior) {
@@ -872,10 +912,12 @@ void KTextEditor__Document_AboutToDeleteMovingInterfaceContent(KTextEditor__Docu
 
 void KTextEditor__Document_Connect_AboutToDeleteMovingInterfaceContent(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::aboutToDeleteMovingInterfaceContent, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::aboutToDeleteMovingInterfaceContent),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_AboutToInvalidateMovingInterfaceContent(KTextEditor__Document* self, KTextEditor__Document* document) {
@@ -884,10 +926,12 @@ void KTextEditor__Document_AboutToInvalidateMovingInterfaceContent(KTextEditor__
 
 void KTextEditor__Document_Connect_AboutToInvalidateMovingInterfaceContent(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::aboutToInvalidateMovingInterfaceContent, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::aboutToInvalidateMovingInterfaceContent),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 libqt_list /* of libqt_string */ KTextEditor__Document_ConfigKeys(const KTextEditor__Document* self) {
@@ -935,12 +979,14 @@ void KTextEditor__Document_ModifiedOnDisk(KTextEditor__Document* self, KTextEdit
 
 void KTextEditor__Document_Connect_ModifiedOnDisk(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, bool, int) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, bool, int)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::modifiedOnDisk, [self, slotFunc](KTextEditor::Document* document, bool isModified, KTextEditor::Document::ModifiedOnDiskReason reason) {
-        KTextEditor__Document* sigval1 = document;
-        bool sigval2 = isModified;
-        int sigval3 = static_cast<int>(reason);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, bool, KTextEditor::Document::ModifiedOnDiskReason)>(&KTextEditor::Document::modifiedOnDisk),
+                                   [self, slotFunc](KTextEditor::Document* document, bool isModified, KTextEditor::Document::ModifiedOnDiskReason reason) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       bool sigval2 = isModified;
+                                       int sigval3 = static_cast<int>(reason);
+                                       slotFunc(self, sigval1, sigval2, sigval3);
+                                   });
 }
 
 unsigned int KTextEditor__Document_Mark(KTextEditor__Document* self, int line) {
@@ -1028,10 +1074,12 @@ void KTextEditor__Document_MarksChanged(KTextEditor__Document* self, KTextEditor
 
 void KTextEditor__Document_Connect_MarksChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::marksChanged, [self, slotFunc](KTextEditor::Document* document) {
-        KTextEditor__Document* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*)>(&KTextEditor::Document::marksChanged),
+                                   [self, slotFunc](KTextEditor::Document* document) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void KTextEditor__Document_MarkChanged(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Mark* mark, int action) {
@@ -1040,12 +1088,14 @@ void KTextEditor__Document_MarkChanged(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_MarkChanged(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, int) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, int)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::markChanged, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, KTextEditor::Document::MarkChangeAction action) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
-        int sigval3 = static_cast<int>(action);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Mark, KTextEditor::Document::MarkChangeAction)>(&KTextEditor::Document::markChanged),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, KTextEditor::Document::MarkChangeAction action) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
+                                       int sigval3 = static_cast<int>(action);
+                                       slotFunc(self, sigval1, sigval2, sigval3);
+                                   });
 }
 
 void KTextEditor__Document_MarkToolTipRequested(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Mark* mark, QPoint* position, bool* handled) {
@@ -1054,13 +1104,15 @@ void KTextEditor__Document_MarkToolTipRequested(KTextEditor__Document* self, KTe
 
 void KTextEditor__Document_Connect_MarkToolTipRequested(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, QPoint*, bool*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, QPoint*, bool*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::markToolTipRequested, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, QPoint position, bool& handled) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
-        QPoint* sigval3 = new QPoint(position);
-        bool* sigval4 = &handled;
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Mark, QPoint, bool&)>(&KTextEditor::Document::markToolTipRequested),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, QPoint position, bool& handled) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
+                                       QPoint* sigval3 = new QPoint(position);
+                                       bool* sigval4 = &handled;
+                                       slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                   });
 }
 
 void KTextEditor__Document_MarkContextMenuRequested(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Mark* mark, QPoint* pos, bool* handled) {
@@ -1069,13 +1121,15 @@ void KTextEditor__Document_MarkContextMenuRequested(KTextEditor__Document* self,
 
 void KTextEditor__Document_Connect_MarkContextMenuRequested(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, QPoint*, bool*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, QPoint*, bool*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::markContextMenuRequested, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, QPoint pos, bool& handled) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
-        QPoint* sigval3 = new QPoint(pos);
-        bool* sigval4 = &handled;
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Mark, QPoint, bool&)>(&KTextEditor::Document::markContextMenuRequested),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, QPoint pos, bool& handled) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
+                                       QPoint* sigval3 = new QPoint(pos);
+                                       bool* sigval4 = &handled;
+                                       slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                   });
 }
 
 void KTextEditor__Document_MarkClicked(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__Mark* mark, bool* handled) {
@@ -1084,12 +1138,14 @@ void KTextEditor__Document_MarkClicked(KTextEditor__Document* self, KTextEditor_
 
 void KTextEditor__Document_Connect_MarkClicked(KTextEditor__Document* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, bool*) = reinterpret_cast<void (*)(KTextEditor__Document*, KTextEditor__Document*, KTextEditor__Mark*, bool*)>(slot);
-    KTextEditor::Document::connect(self, &KTextEditor::Document::markClicked, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, bool& handled) {
-        KTextEditor__Document* sigval1 = document;
-        KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
-        bool* sigval3 = &handled;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KTextEditor::Document::connect(self,
+                                   static_cast<void (KTextEditor::Document::*)(KTextEditor::Document*, KTextEditor::Mark, bool&)>(&KTextEditor::Document::markClicked),
+                                   [self, slotFunc](KTextEditor::Document* document, KTextEditor::Mark mark, bool& handled) {
+                                       KTextEditor__Document* sigval1 = document;
+                                       KTextEditor__Mark* sigval2 = new KTextEditor::Mark(mark);
+                                       bool* sigval3 = &handled;
+                                       slotFunc(self, sigval1, sigval2, sigval3);
+                                   });
 }
 
 void KTextEditor__Document_SetAnnotationModel(KTextEditor__Document* self, KTextEditor__AnnotationModel* model) {

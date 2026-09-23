@@ -1923,10 +1923,12 @@ void KMultiTabBarButton_Clicked(KMultiTabBarButton* self, int id) {
 
 void KMultiTabBarButton_Connect_Clicked(KMultiTabBarButton* self, intptr_t slot) {
     void (*slotFunc)(KMultiTabBarButton*, int) = reinterpret_cast<void (*)(KMultiTabBarButton*, int)>(slot);
-    KMultiTabBarButton::connect(self, &KMultiTabBarButton::clicked, [self, slotFunc](int id) {
-        int sigval1 = id;
-        slotFunc(self, sigval1);
-    });
+    KMultiTabBarButton::connect(self,
+                                static_cast<void (KMultiTabBarButton::*)(int)>(&KMultiTabBarButton::clicked),
+                                [self, slotFunc](int id) {
+                                    int sigval1 = id;
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 libqt_string KMultiTabBarButton_Tr2(const char* s, const char* c) {

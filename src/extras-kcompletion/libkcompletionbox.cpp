@@ -205,18 +205,20 @@ void KCompletionBox_TextActivated(KCompletionBox* self, const libqt_string text)
 
 void KCompletionBox_Connect_TextActivated(KCompletionBox* self, intptr_t slot) {
     void (*slotFunc)(KCompletionBox*, const char*) = reinterpret_cast<void (*)(KCompletionBox*, const char*)>(slot);
-    KCompletionBox::connect(self, &KCompletionBox::textActivated, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KCompletionBox::connect(self,
+                            static_cast<void (KCompletionBox::*)(const QString&)>(&KCompletionBox::textActivated),
+                            [self, slotFunc](const QString& text) {
+                                const auto text_ret = text;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray text_b = text_ret.toUtf8();
+                                auto text_str_len = text_b.length();
+                                const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                memcpy((void*)text_str, text_b.data(), text_str_len);
+                                ((char*)text_str)[text_str_len] = '\0';
+                                const char* sigval1 = text_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(text_str);
+                            });
 }
 
 void KCompletionBox_UserCancelled(KCompletionBox* self, const libqt_string param1) {
@@ -226,18 +228,20 @@ void KCompletionBox_UserCancelled(KCompletionBox* self, const libqt_string param
 
 void KCompletionBox_Connect_UserCancelled(KCompletionBox* self, intptr_t slot) {
     void (*slotFunc)(KCompletionBox*, const char*) = reinterpret_cast<void (*)(KCompletionBox*, const char*)>(slot);
-    KCompletionBox::connect(self, &KCompletionBox::userCancelled, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    KCompletionBox::connect(self,
+                            static_cast<void (KCompletionBox::*)(const QString&)>(&KCompletionBox::userCancelled),
+                            [self, slotFunc](const QString& param1) {
+                                const auto param1_ret = param1;
+                                // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                QByteArray param1_b = param1_ret.toUtf8();
+                                auto param1_str_len = param1_b.length();
+                                const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                                memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                                ((char*)param1_str)[param1_str_len] = '\0';
+                                const char* sigval1 = param1_str;
+                                slotFunc(self, sigval1);
+                                libqt_free(param1_str);
+                            });
 }
 
 bool KCompletionBox_EventFilter(KCompletionBox* self, QObject* param1, QEvent* param2) {

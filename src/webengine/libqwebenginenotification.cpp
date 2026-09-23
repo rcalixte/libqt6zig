@@ -115,9 +115,11 @@ void QWebEngineNotification_Closed(QWebEngineNotification* self) {
 
 void QWebEngineNotification_Connect_Closed(QWebEngineNotification* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineNotification*) = reinterpret_cast<void (*)(QWebEngineNotification*)>(slot);
-    QWebEngineNotification::connect(self, &QWebEngineNotification::closed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEngineNotification::connect(self,
+                                    static_cast<void (QWebEngineNotification::*)()>(&QWebEngineNotification::closed),
+                                    [self, slotFunc]() {
+                                        slotFunc(self);
+                                    });
 }
 
 libqt_string QWebEngineNotification_Tr2(const char* s, const char* c) {

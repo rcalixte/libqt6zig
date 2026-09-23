@@ -84,10 +84,12 @@ void KWindowSystem_ShowingDesktopChanged(KWindowSystem* self, bool showing) {
 
 void KWindowSystem_Connect_ShowingDesktopChanged(KWindowSystem* self, intptr_t slot) {
     void (*slotFunc)(KWindowSystem*, bool) = reinterpret_cast<void (*)(KWindowSystem*, bool)>(slot);
-    KWindowSystem::connect(self, &KWindowSystem::showingDesktopChanged, [self, slotFunc](bool showing) {
-        bool sigval1 = showing;
-        slotFunc(self, sigval1);
-    });
+    KWindowSystem::connect(self,
+                           static_cast<void (KWindowSystem::*)(bool)>(&KWindowSystem::showingDesktopChanged),
+                           [self, slotFunc](bool showing) {
+                               bool sigval1 = showing;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 libqt_string KWindowSystem_Tr2(const char* s, const char* c) {

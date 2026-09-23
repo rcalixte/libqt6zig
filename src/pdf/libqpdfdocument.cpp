@@ -144,9 +144,11 @@ void QPdfDocument_PasswordChanged(QPdfDocument* self) {
 
 void QPdfDocument_Connect_PasswordChanged(QPdfDocument* self, intptr_t slot) {
     void (*slotFunc)(QPdfDocument*) = reinterpret_cast<void (*)(QPdfDocument*)>(slot);
-    QPdfDocument::connect(self, &QPdfDocument::passwordChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfDocument::connect(self,
+                          static_cast<void (QPdfDocument::*)()>(&QPdfDocument::passwordChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QPdfDocument_PasswordRequired(QPdfDocument* self) {
@@ -155,9 +157,11 @@ void QPdfDocument_PasswordRequired(QPdfDocument* self) {
 
 void QPdfDocument_Connect_PasswordRequired(QPdfDocument* self, intptr_t slot) {
     void (*slotFunc)(QPdfDocument*) = reinterpret_cast<void (*)(QPdfDocument*)>(slot);
-    QPdfDocument::connect(self, &QPdfDocument::passwordRequired, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfDocument::connect(self,
+                          static_cast<void (QPdfDocument::*)()>(&QPdfDocument::passwordRequired),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void QPdfDocument_StatusChanged(QPdfDocument* self, int status) {
@@ -166,10 +170,12 @@ void QPdfDocument_StatusChanged(QPdfDocument* self, int status) {
 
 void QPdfDocument_Connect_StatusChanged(QPdfDocument* self, intptr_t slot) {
     void (*slotFunc)(QPdfDocument*, int) = reinterpret_cast<void (*)(QPdfDocument*, int)>(slot);
-    QPdfDocument::connect(self, &QPdfDocument::statusChanged, [self, slotFunc](QPdfDocument::Status status) {
-        int sigval1 = static_cast<int>(status);
-        slotFunc(self, sigval1);
-    });
+    QPdfDocument::connect(self,
+                          static_cast<void (QPdfDocument::*)(QPdfDocument::Status)>(&QPdfDocument::statusChanged),
+                          [self, slotFunc](QPdfDocument::Status status) {
+                              int sigval1 = static_cast<int>(status);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QPdfDocument_PageCountChanged(QPdfDocument* self, int pageCount) {
@@ -178,10 +184,12 @@ void QPdfDocument_PageCountChanged(QPdfDocument* self, int pageCount) {
 
 void QPdfDocument_Connect_PageCountChanged(QPdfDocument* self, intptr_t slot) {
     void (*slotFunc)(QPdfDocument*, int) = reinterpret_cast<void (*)(QPdfDocument*, int)>(slot);
-    QPdfDocument::connect(self, &QPdfDocument::pageCountChanged, [self, slotFunc](int pageCount) {
-        int sigval1 = pageCount;
-        slotFunc(self, sigval1);
-    });
+    QPdfDocument::connect(self,
+                          static_cast<void (QPdfDocument::*)(int)>(&QPdfDocument::pageCountChanged),
+                          [self, slotFunc](int pageCount) {
+                              int sigval1 = pageCount;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QPdfDocument_PageModelChanged(QPdfDocument* self) {
@@ -190,9 +198,11 @@ void QPdfDocument_PageModelChanged(QPdfDocument* self) {
 
 void QPdfDocument_Connect_PageModelChanged(QPdfDocument* self, intptr_t slot) {
     void (*slotFunc)(QPdfDocument*) = reinterpret_cast<void (*)(QPdfDocument*)>(slot);
-    QPdfDocument::connect(self, &QPdfDocument::pageModelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QPdfDocument::connect(self,
+                          static_cast<void (QPdfDocument::*)()>(&QPdfDocument::pageModelChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 libqt_string QPdfDocument_Tr2(const char* s, const char* c) {

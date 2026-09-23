@@ -1027,9 +1027,11 @@ void KCoreConfigSkeleton_ConfigChanged(KCoreConfigSkeleton* self) {
 
 void KCoreConfigSkeleton_Connect_ConfigChanged(KCoreConfigSkeleton* self, intptr_t slot) {
     void (*slotFunc)(KCoreConfigSkeleton*) = reinterpret_cast<void (*)(KCoreConfigSkeleton*)>(slot);
-    KCoreConfigSkeleton::connect(self, &KCoreConfigSkeleton::configChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCoreConfigSkeleton::connect(self,
+                                 static_cast<void (KCoreConfigSkeleton::*)()>(&KCoreConfigSkeleton::configChanged),
+                                 [self, slotFunc]() {
+                                     slotFunc(self);
+                                 });
 }
 
 bool KCoreConfigSkeleton_UsrUseDefaults(KCoreConfigSkeleton* self, bool b) {

@@ -421,10 +421,12 @@ void QDesignerFormWindowInterface_MainContainerChanged(QDesignerFormWindowInterf
 
 void QDesignerFormWindowInterface_Connect_MainContainerChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::mainContainerChanged, [self, slotFunc](QWidget* mainContainer) {
-        QWidget* sigval1 = mainContainer;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::mainContainerChanged),
+                                          [self, slotFunc](QWidget* mainContainer) {
+                                              QWidget* sigval1 = mainContainer;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_ToolChanged(QDesignerFormWindowInterface* self, int toolIndex) {
@@ -433,10 +435,12 @@ void QDesignerFormWindowInterface_ToolChanged(QDesignerFormWindowInterface* self
 
 void QDesignerFormWindowInterface_Connect_ToolChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, int) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, int)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::toolChanged, [self, slotFunc](int toolIndex) {
-        int sigval1 = toolIndex;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(int)>(&QDesignerFormWindowInterface::toolChanged),
+                                          [self, slotFunc](int toolIndex) {
+                                              int sigval1 = toolIndex;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_FileNameChanged(QDesignerFormWindowInterface* self, const libqt_string fileName) {
@@ -446,18 +450,20 @@ void QDesignerFormWindowInterface_FileNameChanged(QDesignerFormWindowInterface* 
 
 void QDesignerFormWindowInterface_Connect_FileNameChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, const char*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, const char*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::fileNameChanged, [self, slotFunc](const QString& fileName) {
-        const auto fileName_ret = fileName;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray fileName_b = fileName_ret.toUtf8();
-        auto fileName_str_len = fileName_b.length();
-        const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
-        memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
-        ((char*)fileName_str)[fileName_str_len] = '\0';
-        const char* sigval1 = fileName_str;
-        slotFunc(self, sigval1);
-        libqt_free(fileName_str);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(const QString&)>(&QDesignerFormWindowInterface::fileNameChanged),
+                                          [self, slotFunc](const QString& fileName) {
+                                              const auto fileName_ret = fileName;
+                                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                              QByteArray fileName_b = fileName_ret.toUtf8();
+                                              auto fileName_str_len = fileName_b.length();
+                                              const char* fileName_str = static_cast<const char*>(malloc(fileName_str_len + 1));
+                                              memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
+                                              ((char*)fileName_str)[fileName_str_len] = '\0';
+                                              const char* sigval1 = fileName_str;
+                                              slotFunc(self, sigval1);
+                                              libqt_free(fileName_str);
+                                          });
 }
 
 void QDesignerFormWindowInterface_FeatureChanged(QDesignerFormWindowInterface* self, int f) {
@@ -466,10 +472,12 @@ void QDesignerFormWindowInterface_FeatureChanged(QDesignerFormWindowInterface* s
 
 void QDesignerFormWindowInterface_Connect_FeatureChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, int) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, int)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::featureChanged, [self, slotFunc](QDesignerFormWindowInterface::Feature f) {
-        int sigval1 = static_cast<int>(f);
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QDesignerFormWindowInterface::Feature)>(&QDesignerFormWindowInterface::featureChanged),
+                                          [self, slotFunc](QDesignerFormWindowInterface::Feature f) {
+                                              int sigval1 = static_cast<int>(f);
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_SelectionChanged(QDesignerFormWindowInterface* self) {
@@ -478,9 +486,11 @@ void QDesignerFormWindowInterface_SelectionChanged(QDesignerFormWindowInterface*
 
 void QDesignerFormWindowInterface_Connect_SelectionChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::selectionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)()>(&QDesignerFormWindowInterface::selectionChanged),
+                                          [self, slotFunc]() {
+                                              slotFunc(self);
+                                          });
 }
 
 void QDesignerFormWindowInterface_GeometryChanged(QDesignerFormWindowInterface* self) {
@@ -489,9 +499,11 @@ void QDesignerFormWindowInterface_GeometryChanged(QDesignerFormWindowInterface* 
 
 void QDesignerFormWindowInterface_Connect_GeometryChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::geometryChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)()>(&QDesignerFormWindowInterface::geometryChanged),
+                                          [self, slotFunc]() {
+                                              slotFunc(self);
+                                          });
 }
 
 void QDesignerFormWindowInterface_ResourceFilesChanged(QDesignerFormWindowInterface* self) {
@@ -500,9 +512,11 @@ void QDesignerFormWindowInterface_ResourceFilesChanged(QDesignerFormWindowInterf
 
 void QDesignerFormWindowInterface_Connect_ResourceFilesChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::resourceFilesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)()>(&QDesignerFormWindowInterface::resourceFilesChanged),
+                                          [self, slotFunc]() {
+                                              slotFunc(self);
+                                          });
 }
 
 void QDesignerFormWindowInterface_WidgetManaged(QDesignerFormWindowInterface* self, QWidget* widget) {
@@ -511,10 +525,12 @@ void QDesignerFormWindowInterface_WidgetManaged(QDesignerFormWindowInterface* se
 
 void QDesignerFormWindowInterface_Connect_WidgetManaged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::widgetManaged, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::widgetManaged),
+                                          [self, slotFunc](QWidget* widget) {
+                                              QWidget* sigval1 = widget;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_WidgetUnmanaged(QDesignerFormWindowInterface* self, QWidget* widget) {
@@ -523,10 +539,12 @@ void QDesignerFormWindowInterface_WidgetUnmanaged(QDesignerFormWindowInterface* 
 
 void QDesignerFormWindowInterface_Connect_WidgetUnmanaged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::widgetUnmanaged, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::widgetUnmanaged),
+                                          [self, slotFunc](QWidget* widget) {
+                                              QWidget* sigval1 = widget;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_AboutToUnmanageWidget(QDesignerFormWindowInterface* self, QWidget* widget) {
@@ -535,10 +553,12 @@ void QDesignerFormWindowInterface_AboutToUnmanageWidget(QDesignerFormWindowInter
 
 void QDesignerFormWindowInterface_Connect_AboutToUnmanageWidget(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::aboutToUnmanageWidget, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::aboutToUnmanageWidget),
+                                          [self, slotFunc](QWidget* widget) {
+                                              QWidget* sigval1 = widget;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_Activated(QDesignerFormWindowInterface* self, QWidget* widget) {
@@ -547,10 +567,12 @@ void QDesignerFormWindowInterface_Activated(QDesignerFormWindowInterface* self, 
 
 void QDesignerFormWindowInterface_Connect_Activated(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::activated, [self, slotFunc](QWidget* widget) {
-        QWidget* sigval1 = widget;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::activated),
+                                          [self, slotFunc](QWidget* widget) {
+                                              QWidget* sigval1 = widget;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_Changed(QDesignerFormWindowInterface* self) {
@@ -559,9 +581,11 @@ void QDesignerFormWindowInterface_Changed(QDesignerFormWindowInterface* self) {
 
 void QDesignerFormWindowInterface_Connect_Changed(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)()>(&QDesignerFormWindowInterface::changed),
+                                          [self, slotFunc]() {
+                                              slotFunc(self);
+                                          });
 }
 
 void QDesignerFormWindowInterface_WidgetRemoved(QDesignerFormWindowInterface* self, QWidget* w) {
@@ -570,10 +594,12 @@ void QDesignerFormWindowInterface_WidgetRemoved(QDesignerFormWindowInterface* se
 
 void QDesignerFormWindowInterface_Connect_WidgetRemoved(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QWidget*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QWidget*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::widgetRemoved, [self, slotFunc](QWidget* w) {
-        QWidget* sigval1 = w;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QWidget*)>(&QDesignerFormWindowInterface::widgetRemoved),
+                                          [self, slotFunc](QWidget* w) {
+                                              QWidget* sigval1 = w;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 void QDesignerFormWindowInterface_ObjectRemoved(QDesignerFormWindowInterface* self, QObject* o) {
@@ -582,10 +608,12 @@ void QDesignerFormWindowInterface_ObjectRemoved(QDesignerFormWindowInterface* se
 
 void QDesignerFormWindowInterface_Connect_ObjectRemoved(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, QObject*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, QObject*)>(slot);
-    QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::objectRemoved, [self, slotFunc](QObject* o) {
-        QObject* sigval1 = o;
-        slotFunc(self, sigval1);
-    });
+    QDesignerFormWindowInterface::connect(self,
+                                          static_cast<void (QDesignerFormWindowInterface::*)(QObject*)>(&QDesignerFormWindowInterface::objectRemoved),
+                                          [self, slotFunc](QObject* o) {
+                                              QObject* sigval1 = o;
+                                              slotFunc(self, sigval1);
+                                          });
 }
 
 libqt_string QDesignerFormWindowInterface_Tr2(const char* s, const char* c) {

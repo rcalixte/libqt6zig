@@ -1108,6 +1108,22 @@ pub const QCompleter = extern struct {
         qtc.QCompleter_Activated(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCompleter `
+    ///
+    /// ` callback: *const fn (self: QCompleter, text: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onActivated(self: QCompleter, callback: *const fn (QCompleter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QCompleter_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `activated2` instead
     ///
     pub const Activated2 = activated2;
@@ -1123,6 +1139,22 @@ pub const QCompleter = extern struct {
     pub fn activated2(self: QCompleter, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QCompleter_Activated2(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onActivated2` instead
+    ///
+    pub const OnActivated2 = onActivated2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCompleter `
+    ///
+    /// ` callback: *const fn (self: QCompleter, index: QModelIndex) callconv(.c) void `
+    ///
+    pub fn onActivated2(self: QCompleter, callback: *const fn (QCompleter, QModelIndex) callconv(.c) void) void {
+        qtc.QCompleter_Connect_Activated2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `highlighted` instead
@@ -1145,6 +1177,22 @@ pub const QCompleter = extern struct {
         qtc.QCompleter_Highlighted(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCompleter `
+    ///
+    /// ` callback: *const fn (self: QCompleter, text: [*:0]const u8) callconv(.c) void `
+    ///
+    pub fn onHighlighted(self: QCompleter, callback: *const fn (QCompleter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QCompleter_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// ### DEPRECATED: Use `highlighted2` instead
     ///
     pub const Highlighted2 = highlighted2;
@@ -1160,6 +1208,22 @@ pub const QCompleter = extern struct {
     pub fn highlighted2(self: QCompleter, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QCompleter_Highlighted2(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onHighlighted2` instead
+    ///
+    pub const OnHighlighted2 = onHighlighted2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#highlighted)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCompleter `
+    ///
+    /// ` callback: *const fn (self: QCompleter, index: QModelIndex) callconv(.c) void `
+    ///
+    pub fn onHighlighted2(self: QCompleter, callback: *const fn (QCompleter, QModelIndex) callconv(.c) void) void {
+        qtc.QCompleter_Connect_Highlighted2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `tr2` instead

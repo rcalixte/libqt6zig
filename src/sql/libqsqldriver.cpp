@@ -243,22 +243,24 @@ void QSqlDriver_Notification(QSqlDriver* self, const libqt_string name, int sour
 
 void QSqlDriver_Connect_Notification(QSqlDriver* self, intptr_t slot) {
     void (*slotFunc)(QSqlDriver*, const char*, int, QVariant*) = reinterpret_cast<void (*)(QSqlDriver*, const char*, int, QVariant*)>(slot);
-    QSqlDriver::connect(self, &QSqlDriver::notification, [self, slotFunc](const QString& name, QSqlDriver::NotificationSource source, const QVariant& payload) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        int sigval2 = static_cast<int>(source);
-        const QVariant& payload_ret = payload;
-        // Cast returned reference into pointer
-        QVariant* sigval3 = const_cast<QVariant*>(&payload_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(name_str);
-    });
+    QSqlDriver::connect(self,
+                        static_cast<void (QSqlDriver::*)(const QString&, QSqlDriver::NotificationSource, const QVariant&)>(&QSqlDriver::notification),
+                        [self, slotFunc](const QString& name, QSqlDriver::NotificationSource source, const QVariant& payload) {
+                            const auto name_ret = name;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray name_b = name_ret.toUtf8();
+                            auto name_str_len = name_b.length();
+                            const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                            memcpy((void*)name_str, name_b.data(), name_str_len);
+                            ((char*)name_str)[name_str_len] = '\0';
+                            const char* sigval1 = name_str;
+                            int sigval2 = static_cast<int>(source);
+                            const QVariant& payload_ret = payload;
+                            // Cast returned reference into pointer
+                            QVariant* sigval3 = const_cast<QVariant*>(&payload_ret);
+                            slotFunc(self, sigval1, sigval2, sigval3);
+                            libqt_free(name_str);
+                        });
 }
 
 void QSqlDriver_SetOpen(QSqlDriver* self, bool o) {

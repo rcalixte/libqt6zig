@@ -184,10 +184,12 @@ void QToolBar_ActionTriggered(QToolBar* self, QAction* action) {
 
 void QToolBar_Connect_ActionTriggered(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, QAction*) = reinterpret_cast<void (*)(QToolBar*, QAction*)>(slot);
-    QToolBar::connect(self, &QToolBar::actionTriggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(QAction*)>(&QToolBar::actionTriggered),
+                      [self, slotFunc](QAction* action) {
+                          QAction* sigval1 = action;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_MovableChanged(QToolBar* self, bool movable) {
@@ -196,10 +198,12 @@ void QToolBar_MovableChanged(QToolBar* self, bool movable) {
 
 void QToolBar_Connect_MovableChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, bool) = reinterpret_cast<void (*)(QToolBar*, bool)>(slot);
-    QToolBar::connect(self, &QToolBar::movableChanged, [self, slotFunc](bool movable) {
-        bool sigval1 = movable;
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(bool)>(&QToolBar::movableChanged),
+                      [self, slotFunc](bool movable) {
+                          bool sigval1 = movable;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_AllowedAreasChanged(QToolBar* self, int allowedAreas) {
@@ -208,10 +212,12 @@ void QToolBar_AllowedAreasChanged(QToolBar* self, int allowedAreas) {
 
 void QToolBar_Connect_AllowedAreasChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, int) = reinterpret_cast<void (*)(QToolBar*, int)>(slot);
-    QToolBar::connect(self, &QToolBar::allowedAreasChanged, [self, slotFunc](Qt::ToolBarAreas allowedAreas) {
-        int sigval1 = static_cast<int>(allowedAreas);
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(Qt::ToolBarAreas)>(&QToolBar::allowedAreasChanged),
+                      [self, slotFunc](Qt::ToolBarAreas allowedAreas) {
+                          int sigval1 = static_cast<int>(allowedAreas);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_OrientationChanged(QToolBar* self, int orientation) {
@@ -220,10 +226,12 @@ void QToolBar_OrientationChanged(QToolBar* self, int orientation) {
 
 void QToolBar_Connect_OrientationChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, int) = reinterpret_cast<void (*)(QToolBar*, int)>(slot);
-    QToolBar::connect(self, &QToolBar::orientationChanged, [self, slotFunc](Qt::Orientation orientation) {
-        int sigval1 = static_cast<int>(orientation);
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(Qt::Orientation)>(&QToolBar::orientationChanged),
+                      [self, slotFunc](Qt::Orientation orientation) {
+                          int sigval1 = static_cast<int>(orientation);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_IconSizeChanged(QToolBar* self, const QSize* iconSize) {
@@ -232,12 +240,14 @@ void QToolBar_IconSizeChanged(QToolBar* self, const QSize* iconSize) {
 
 void QToolBar_Connect_IconSizeChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, QSize*) = reinterpret_cast<void (*)(QToolBar*, QSize*)>(slot);
-    QToolBar::connect(self, &QToolBar::iconSizeChanged, [self, slotFunc](const QSize& iconSize) {
-        const QSize& iconSize_ret = iconSize;
-        // Cast returned reference into pointer
-        QSize* sigval1 = const_cast<QSize*>(&iconSize_ret);
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(const QSize&)>(&QToolBar::iconSizeChanged),
+                      [self, slotFunc](const QSize& iconSize) {
+                          const QSize& iconSize_ret = iconSize;
+                          // Cast returned reference into pointer
+                          QSize* sigval1 = const_cast<QSize*>(&iconSize_ret);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_ToolButtonStyleChanged(QToolBar* self, int toolButtonStyle) {
@@ -246,10 +256,12 @@ void QToolBar_ToolButtonStyleChanged(QToolBar* self, int toolButtonStyle) {
 
 void QToolBar_Connect_ToolButtonStyleChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, int) = reinterpret_cast<void (*)(QToolBar*, int)>(slot);
-    QToolBar::connect(self, &QToolBar::toolButtonStyleChanged, [self, slotFunc](Qt::ToolButtonStyle toolButtonStyle) {
-        int sigval1 = static_cast<int>(toolButtonStyle);
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(Qt::ToolButtonStyle)>(&QToolBar::toolButtonStyleChanged),
+                      [self, slotFunc](Qt::ToolButtonStyle toolButtonStyle) {
+                          int sigval1 = static_cast<int>(toolButtonStyle);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_TopLevelChanged(QToolBar* self, bool topLevel) {
@@ -258,10 +270,12 @@ void QToolBar_TopLevelChanged(QToolBar* self, bool topLevel) {
 
 void QToolBar_Connect_TopLevelChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, bool) = reinterpret_cast<void (*)(QToolBar*, bool)>(slot);
-    QToolBar::connect(self, &QToolBar::topLevelChanged, [self, slotFunc](bool topLevel) {
-        bool sigval1 = topLevel;
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(bool)>(&QToolBar::topLevelChanged),
+                      [self, slotFunc](bool topLevel) {
+                          bool sigval1 = topLevel;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_VisibilityChanged(QToolBar* self, bool visible) {
@@ -270,10 +284,12 @@ void QToolBar_VisibilityChanged(QToolBar* self, bool visible) {
 
 void QToolBar_Connect_VisibilityChanged(QToolBar* self, intptr_t slot) {
     void (*slotFunc)(QToolBar*, bool) = reinterpret_cast<void (*)(QToolBar*, bool)>(slot);
-    QToolBar::connect(self, &QToolBar::visibilityChanged, [self, slotFunc](bool visible) {
-        bool sigval1 = visible;
-        slotFunc(self, sigval1);
-    });
+    QToolBar::connect(self,
+                      static_cast<void (QToolBar::*)(bool)>(&QToolBar::visibilityChanged),
+                      [self, slotFunc](bool visible) {
+                          bool sigval1 = visible;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QToolBar_ActionEvent(QToolBar* self, QActionEvent* event) {

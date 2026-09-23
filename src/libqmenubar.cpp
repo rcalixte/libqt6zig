@@ -166,10 +166,12 @@ void QMenuBar_Triggered(QMenuBar* self, QAction* action) {
 
 void QMenuBar_Connect_Triggered(QMenuBar* self, intptr_t slot) {
     void (*slotFunc)(QMenuBar*, QAction*) = reinterpret_cast<void (*)(QMenuBar*, QAction*)>(slot);
-    QMenuBar::connect(self, &QMenuBar::triggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QMenuBar::connect(self,
+                      static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::triggered),
+                      [self, slotFunc](QAction* action) {
+                          QAction* sigval1 = action;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QMenuBar_Hovered(QMenuBar* self, QAction* action) {
@@ -178,10 +180,12 @@ void QMenuBar_Hovered(QMenuBar* self, QAction* action) {
 
 void QMenuBar_Connect_Hovered(QMenuBar* self, intptr_t slot) {
     void (*slotFunc)(QMenuBar*, QAction*) = reinterpret_cast<void (*)(QMenuBar*, QAction*)>(slot);
-    QMenuBar::connect(self, &QMenuBar::hovered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    QMenuBar::connect(self,
+                      static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::hovered),
+                      [self, slotFunc](QAction* action) {
+                          QAction* sigval1 = action;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QMenuBar_ChangeEvent(QMenuBar* self, QEvent* param1) {

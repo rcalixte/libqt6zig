@@ -62,9 +62,11 @@ void QWebEngineNavigationRequest_ActionChanged(QWebEngineNavigationRequest* self
 
 void QWebEngineNavigationRequest_Connect_ActionChanged(QWebEngineNavigationRequest* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineNavigationRequest*) = reinterpret_cast<void (*)(QWebEngineNavigationRequest*)>(slot);
-    QWebEngineNavigationRequest::connect(self, &QWebEngineNavigationRequest::actionChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QWebEngineNavigationRequest::connect(self,
+                                         static_cast<void (QWebEngineNavigationRequest::*)()>(&QWebEngineNavigationRequest::actionChanged),
+                                         [self, slotFunc]() {
+                                             slotFunc(self);
+                                         });
 }
 
 libqt_string QWebEngineNavigationRequest_Tr2(const char* s, const char* c) {

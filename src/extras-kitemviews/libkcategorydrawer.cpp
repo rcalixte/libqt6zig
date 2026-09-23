@@ -70,12 +70,14 @@ void KCategoryDrawer_CollapseOrExpandClicked(KCategoryDrawer* self, const QModel
 
 void KCategoryDrawer_Connect_CollapseOrExpandClicked(KCategoryDrawer* self, intptr_t slot) {
     void (*slotFunc)(KCategoryDrawer*, QModelIndex*) = reinterpret_cast<void (*)(KCategoryDrawer*, QModelIndex*)>(slot);
-    KCategoryDrawer::connect(self, &KCategoryDrawer::collapseOrExpandClicked, [self, slotFunc](const QModelIndex& index) {
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1);
-    });
+    KCategoryDrawer::connect(self,
+                             static_cast<void (KCategoryDrawer::*)(const QModelIndex&)>(&KCategoryDrawer::collapseOrExpandClicked),
+                             [self, slotFunc](const QModelIndex& index) {
+                                 const QModelIndex& index_ret = index;
+                                 // Cast returned reference into pointer
+                                 QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KCategoryDrawer_ActionRequested(KCategoryDrawer* self, int action, const QModelIndex* index) {
@@ -84,13 +86,15 @@ void KCategoryDrawer_ActionRequested(KCategoryDrawer* self, int action, const QM
 
 void KCategoryDrawer_Connect_ActionRequested(KCategoryDrawer* self, intptr_t slot) {
     void (*slotFunc)(KCategoryDrawer*, int, QModelIndex*) = reinterpret_cast<void (*)(KCategoryDrawer*, int, QModelIndex*)>(slot);
-    KCategoryDrawer::connect(self, &KCategoryDrawer::actionRequested, [self, slotFunc](int action, const QModelIndex& index) {
-        int sigval1 = action;
-        const QModelIndex& index_ret = index;
-        // Cast returned reference into pointer
-        QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KCategoryDrawer::connect(self,
+                             static_cast<void (KCategoryDrawer::*)(int, const QModelIndex&)>(&KCategoryDrawer::actionRequested),
+                             [self, slotFunc](int action, const QModelIndex& index) {
+                                 int sigval1 = action;
+                                 const QModelIndex& index_ret = index;
+                                 // Cast returned reference into pointer
+                                 QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
+                                 slotFunc(self, sigval1, sigval2);
+                             });
 }
 
 void KCategoryDrawer_MouseButtonPressed(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event) {

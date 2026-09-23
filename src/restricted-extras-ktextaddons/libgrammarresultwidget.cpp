@@ -97,12 +97,14 @@ void TextGrammarCheck__GrammarResultWidget_ReplaceText(TextGrammarCheck__Grammar
 
 void TextGrammarCheck__GrammarResultWidget_Connect_ReplaceText(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultWidget*, TextGrammarCheck__GrammarAction*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultWidget*, TextGrammarCheck__GrammarAction*)>(slot);
-    TextGrammarCheck::GrammarResultWidget::connect(self, &TextGrammarCheck::GrammarResultWidget::replaceText, [self, slotFunc](const TextGrammarCheck::GrammarAction& act) {
-        const TextGrammarCheck::GrammarAction& act_ret = act;
-        // Cast returned reference into pointer
-        TextGrammarCheck__GrammarAction* sigval1 = const_cast<TextGrammarCheck::GrammarAction*>(&act_ret);
-        slotFunc(self, sigval1);
-    });
+    TextGrammarCheck::GrammarResultWidget::connect(self,
+                                                   static_cast<void (TextGrammarCheck::GrammarResultWidget::*)(const TextGrammarCheck::GrammarAction&)>(&TextGrammarCheck::GrammarResultWidget::replaceText),
+                                                   [self, slotFunc](const TextGrammarCheck::GrammarAction& act) {
+                                                       const TextGrammarCheck::GrammarAction& act_ret = act;
+                                                       // Cast returned reference into pointer
+                                                       TextGrammarCheck__GrammarAction* sigval1 = const_cast<TextGrammarCheck::GrammarAction*>(&act_ret);
+                                                       slotFunc(self, sigval1);
+                                                   });
 }
 
 void TextGrammarCheck__GrammarResultWidget_CheckAgain(TextGrammarCheck__GrammarResultWidget* self) {
@@ -111,9 +113,11 @@ void TextGrammarCheck__GrammarResultWidget_CheckAgain(TextGrammarCheck__GrammarR
 
 void TextGrammarCheck__GrammarResultWidget_Connect_CheckAgain(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultWidget*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultWidget*)>(slot);
-    TextGrammarCheck::GrammarResultWidget::connect(self, &TextGrammarCheck::GrammarResultWidget::checkAgain, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultWidget::connect(self,
+                                                   static_cast<void (TextGrammarCheck::GrammarResultWidget::*)()>(&TextGrammarCheck::GrammarResultWidget::checkAgain),
+                                                   [self, slotFunc]() {
+                                                       slotFunc(self);
+                                                   });
 }
 
 void TextGrammarCheck__GrammarResultWidget_CloseChecker(TextGrammarCheck__GrammarResultWidget* self) {
@@ -122,9 +126,11 @@ void TextGrammarCheck__GrammarResultWidget_CloseChecker(TextGrammarCheck__Gramma
 
 void TextGrammarCheck__GrammarResultWidget_Connect_CloseChecker(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultWidget*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultWidget*)>(slot);
-    TextGrammarCheck::GrammarResultWidget::connect(self, &TextGrammarCheck::GrammarResultWidget::closeChecker, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultWidget::connect(self,
+                                                   static_cast<void (TextGrammarCheck::GrammarResultWidget::*)()>(&TextGrammarCheck::GrammarResultWidget::closeChecker),
+                                                   [self, slotFunc]() {
+                                                       slotFunc(self);
+                                                   });
 }
 
 void TextGrammarCheck__GrammarResultWidget_Configure(TextGrammarCheck__GrammarResultWidget* self) {
@@ -133,9 +139,11 @@ void TextGrammarCheck__GrammarResultWidget_Configure(TextGrammarCheck__GrammarRe
 
 void TextGrammarCheck__GrammarResultWidget_Connect_Configure(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammarResultWidget*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammarResultWidget*)>(slot);
-    TextGrammarCheck::GrammarResultWidget::connect(self, &TextGrammarCheck::GrammarResultWidget::configure, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextGrammarCheck::GrammarResultWidget::connect(self,
+                                                   static_cast<void (TextGrammarCheck::GrammarResultWidget::*)()>(&TextGrammarCheck::GrammarResultWidget::configure),
+                                                   [self, slotFunc]() {
+                                                       slotFunc(self);
+                                                   });
 }
 
 void TextGrammarCheck__GrammarResultWidget_AddExtraWidget(TextGrammarCheck__GrammarResultWidget* self) {

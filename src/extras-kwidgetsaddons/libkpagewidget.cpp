@@ -117,11 +117,13 @@ void KPageWidget_CurrentPageChanged(KPageWidget* self, KPageWidgetItem* current,
 
 void KPageWidget_Connect_CurrentPageChanged(KPageWidget* self, intptr_t slot) {
     void (*slotFunc)(KPageWidget*, KPageWidgetItem*, KPageWidgetItem*) = reinterpret_cast<void (*)(KPageWidget*, KPageWidgetItem*, KPageWidgetItem*)>(slot);
-    KPageWidget::connect(self, &KPageWidget::currentPageChanged, [self, slotFunc](KPageWidgetItem* current, KPageWidgetItem* before) {
-        KPageWidgetItem* sigval1 = current;
-        KPageWidgetItem* sigval2 = before;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KPageWidget::connect(self,
+                         static_cast<void (KPageWidget::*)(KPageWidgetItem*, KPageWidgetItem*)>(&KPageWidget::currentPageChanged),
+                         [self, slotFunc](KPageWidgetItem* current, KPageWidgetItem* before) {
+                             KPageWidgetItem* sigval1 = current;
+                             KPageWidgetItem* sigval2 = before;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void KPageWidget_PageToggled(KPageWidget* self, KPageWidgetItem* page, bool checked) {
@@ -130,11 +132,13 @@ void KPageWidget_PageToggled(KPageWidget* self, KPageWidgetItem* page, bool chec
 
 void KPageWidget_Connect_PageToggled(KPageWidget* self, intptr_t slot) {
     void (*slotFunc)(KPageWidget*, KPageWidgetItem*, bool) = reinterpret_cast<void (*)(KPageWidget*, KPageWidgetItem*, bool)>(slot);
-    KPageWidget::connect(self, &KPageWidget::pageToggled, [self, slotFunc](KPageWidgetItem* page, bool checked) {
-        KPageWidgetItem* sigval1 = page;
-        bool sigval2 = checked;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KPageWidget::connect(self,
+                         static_cast<void (KPageWidget::*)(KPageWidgetItem*, bool)>(&KPageWidget::pageToggled),
+                         [self, slotFunc](KPageWidgetItem* page, bool checked) {
+                             KPageWidgetItem* sigval1 = page;
+                             bool sigval2 = checked;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void KPageWidget_PageRemoved(KPageWidget* self, KPageWidgetItem* page) {
@@ -143,10 +147,12 @@ void KPageWidget_PageRemoved(KPageWidget* self, KPageWidgetItem* page) {
 
 void KPageWidget_Connect_PageRemoved(KPageWidget* self, intptr_t slot) {
     void (*slotFunc)(KPageWidget*, KPageWidgetItem*) = reinterpret_cast<void (*)(KPageWidget*, KPageWidgetItem*)>(slot);
-    KPageWidget::connect(self, &KPageWidget::pageRemoved, [self, slotFunc](KPageWidgetItem* page) {
-        KPageWidgetItem* sigval1 = page;
-        slotFunc(self, sigval1);
-    });
+    KPageWidget::connect(self,
+                         static_cast<void (KPageWidget::*)(KPageWidgetItem*)>(&KPageWidget::pageRemoved),
+                         [self, slotFunc](KPageWidgetItem* page) {
+                             KPageWidgetItem* sigval1 = page;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string KPageWidget_Tr2(const char* s, const char* c) {

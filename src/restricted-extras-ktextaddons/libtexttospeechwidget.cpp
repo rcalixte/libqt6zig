@@ -105,10 +105,12 @@ void TextEditTextToSpeech__TextToSpeechWidget_StateChanged(TextEditTextToSpeech_
 
 void TextEditTextToSpeech__TextToSpeechWidget_Connect_StateChanged(TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot) {
     void (*slotFunc)(TextEditTextToSpeech__TextToSpeechWidget*, int) = reinterpret_cast<void (*)(TextEditTextToSpeech__TextToSpeechWidget*, int)>(slot);
-    TextEditTextToSpeech::TextToSpeechWidget::connect(self, &TextEditTextToSpeech::TextToSpeechWidget::stateChanged, [self, slotFunc](TextEditTextToSpeech::TextToSpeechWidget::State state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    TextEditTextToSpeech::TextToSpeechWidget::connect(self,
+                                                      static_cast<void (TextEditTextToSpeech::TextToSpeechWidget::*)(TextEditTextToSpeech::TextToSpeechWidget::State)>(&TextEditTextToSpeech::TextToSpeechWidget::stateChanged),
+                                                      [self, slotFunc](TextEditTextToSpeech::TextToSpeechWidget::State state) {
+                                                          int sigval1 = static_cast<int>(state);
+                                                          slotFunc(self, sigval1);
+                                                      });
 }
 
 void TextEditTextToSpeech__TextToSpeechWidget_ChangeVisibility(TextEditTextToSpeech__TextToSpeechWidget* self, bool state) {
@@ -117,10 +119,12 @@ void TextEditTextToSpeech__TextToSpeechWidget_ChangeVisibility(TextEditTextToSpe
 
 void TextEditTextToSpeech__TextToSpeechWidget_Connect_ChangeVisibility(TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot) {
     void (*slotFunc)(TextEditTextToSpeech__TextToSpeechWidget*, bool) = reinterpret_cast<void (*)(TextEditTextToSpeech__TextToSpeechWidget*, bool)>(slot);
-    TextEditTextToSpeech::TextToSpeechWidget::connect(self, &TextEditTextToSpeech::TextToSpeechWidget::changeVisibility, [self, slotFunc](bool state) {
-        bool sigval1 = state;
-        slotFunc(self, sigval1);
-    });
+    TextEditTextToSpeech::TextToSpeechWidget::connect(self,
+                                                      static_cast<void (TextEditTextToSpeech::TextToSpeechWidget::*)(bool)>(&TextEditTextToSpeech::TextToSpeechWidget::changeVisibility),
+                                                      [self, slotFunc](bool state) {
+                                                          bool sigval1 = state;
+                                                          slotFunc(self, sigval1);
+                                                      });
 }
 
 libqt_string TextEditTextToSpeech__TextToSpeechWidget_Tr2(const char* s, const char* c) {

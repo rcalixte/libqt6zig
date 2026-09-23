@@ -76,12 +76,14 @@ void SignOn__AuthSession_Error(SignOn__AuthSession* self, const SignOn__Error* e
 
 void SignOn__AuthSession_Connect_Error(SignOn__AuthSession* self, intptr_t slot) {
     void (*slotFunc)(SignOn__AuthSession*, SignOn__Error*) = reinterpret_cast<void (*)(SignOn__AuthSession*, SignOn__Error*)>(slot);
-    SignOn::AuthSession::connect(self, &SignOn::AuthSession::error, [self, slotFunc](const SignOn::Error& err) {
-        const SignOn::Error& err_ret = err;
-        // Cast returned reference into pointer
-        SignOn__Error* sigval1 = const_cast<SignOn::Error*>(&err_ret);
-        slotFunc(self, sigval1);
-    });
+    SignOn::AuthSession::connect(self,
+                                 static_cast<void (SignOn::AuthSession::*)(const SignOn::Error&)>(&SignOn::AuthSession::error),
+                                 [self, slotFunc](const SignOn::Error& err) {
+                                     const SignOn::Error& err_ret = err;
+                                     // Cast returned reference into pointer
+                                     SignOn__Error* sigval1 = const_cast<SignOn::Error*>(&err_ret);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void SignOn__AuthSession_MechanismsAvailable(SignOn__AuthSession* self, const libqt_list /* of libqt_string */ mechanisms) {
@@ -97,24 +99,26 @@ void SignOn__AuthSession_MechanismsAvailable(SignOn__AuthSession* self, const li
 
 void SignOn__AuthSession_Connect_MechanismsAvailable(SignOn__AuthSession* self, intptr_t slot) {
     void (*slotFunc)(SignOn__AuthSession*, const char**) = reinterpret_cast<void (*)(SignOn__AuthSession*, const char**)>(slot);
-    SignOn::AuthSession::connect(self, &SignOn::AuthSession::mechanismsAvailable, [self, slotFunc](const QList<QString>& mechanisms) {
-        const QList<QString>& mechanisms_ret = mechanisms;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** mechanisms_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mechanisms_ret.size() + 1)));
-        for (qsizetype i = 0; i < mechanisms_ret.size(); ++i) {
-            QByteArray mechanisms_b = mechanisms_ret[i].toUtf8();
-            auto mechanisms_str_len = mechanisms_b.length();
-            char* mechanisms_str = static_cast<char*>(malloc(mechanisms_str_len + 1));
-            memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_str_len);
-            mechanisms_str[mechanisms_str_len] = '\0';
-            mechanisms_arr[i] = mechanisms_str;
-        }
-        // Append sentinel null terminator to the list
-        mechanisms_arr[mechanisms_ret.size()] = nullptr;
-        const char** sigval1 = mechanisms_arr;
-        slotFunc(self, sigval1);
-        libqt_free(mechanisms_arr);
-    });
+    SignOn::AuthSession::connect(self,
+                                 static_cast<void (SignOn::AuthSession::*)(const QList<QString>&)>(&SignOn::AuthSession::mechanismsAvailable),
+                                 [self, slotFunc](const QList<QString>& mechanisms) {
+                                     const QList<QString>& mechanisms_ret = mechanisms;
+                                     // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                     const char** mechanisms_arr = static_cast<const char**>(malloc(sizeof(const char*) * (mechanisms_ret.size() + 1)));
+                                     for (qsizetype i = 0; i < mechanisms_ret.size(); ++i) {
+                                         QByteArray mechanisms_b = mechanisms_ret[i].toUtf8();
+                                         auto mechanisms_str_len = mechanisms_b.length();
+                                         char* mechanisms_str = static_cast<char*>(malloc(mechanisms_str_len + 1));
+                                         memcpy(mechanisms_str, mechanisms_b.data(), mechanisms_str_len);
+                                         mechanisms_str[mechanisms_str_len] = '\0';
+                                         mechanisms_arr[i] = mechanisms_str;
+                                     }
+                                     // Append sentinel null terminator to the list
+                                     mechanisms_arr[mechanisms_ret.size()] = nullptr;
+                                     const char** sigval1 = mechanisms_arr;
+                                     slotFunc(self, sigval1);
+                                     libqt_free(mechanisms_arr);
+                                 });
 }
 
 void SignOn__AuthSession_Response(SignOn__AuthSession* self, const SignOn__SessionData* sessionData) {
@@ -123,12 +127,14 @@ void SignOn__AuthSession_Response(SignOn__AuthSession* self, const SignOn__Sessi
 
 void SignOn__AuthSession_Connect_Response(SignOn__AuthSession* self, intptr_t slot) {
     void (*slotFunc)(SignOn__AuthSession*, SignOn__SessionData*) = reinterpret_cast<void (*)(SignOn__AuthSession*, SignOn__SessionData*)>(slot);
-    SignOn::AuthSession::connect(self, &SignOn::AuthSession::response, [self, slotFunc](const SignOn::SessionData& sessionData) {
-        const SignOn::SessionData& sessionData_ret = sessionData;
-        // Cast returned reference into pointer
-        SignOn__SessionData* sigval1 = const_cast<SignOn::SessionData*>(&sessionData_ret);
-        slotFunc(self, sigval1);
-    });
+    SignOn::AuthSession::connect(self,
+                                 static_cast<void (SignOn::AuthSession::*)(const SignOn::SessionData&)>(&SignOn::AuthSession::response),
+                                 [self, slotFunc](const SignOn::SessionData& sessionData) {
+                                     const SignOn::SessionData& sessionData_ret = sessionData;
+                                     // Cast returned reference into pointer
+                                     SignOn__SessionData* sigval1 = const_cast<SignOn::SessionData*>(&sessionData_ret);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void SignOn__AuthSession_StateChanged(SignOn__AuthSession* self, int state, const libqt_string message) {
@@ -138,19 +144,21 @@ void SignOn__AuthSession_StateChanged(SignOn__AuthSession* self, int state, cons
 
 void SignOn__AuthSession_Connect_StateChanged(SignOn__AuthSession* self, intptr_t slot) {
     void (*slotFunc)(SignOn__AuthSession*, int, const char*) = reinterpret_cast<void (*)(SignOn__AuthSession*, int, const char*)>(slot);
-    SignOn::AuthSession::connect(self, &SignOn::AuthSession::stateChanged, [self, slotFunc](SignOn::AuthSession::AuthSessionState state, const QString& message) {
-        int sigval1 = static_cast<int>(state);
-        const auto message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray message_b = message_ret.toUtf8();
-        auto message_str_len = message_b.length();
-        const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
-        memcpy((void*)message_str, message_b.data(), message_str_len);
-        ((char*)message_str)[message_str_len] = '\0';
-        const char* sigval2 = message_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(message_str);
-    });
+    SignOn::AuthSession::connect(self,
+                                 static_cast<void (SignOn::AuthSession::*)(SignOn::AuthSession::AuthSessionState, const QString&)>(&SignOn::AuthSession::stateChanged),
+                                 [self, slotFunc](SignOn::AuthSession::AuthSessionState state, const QString& message) {
+                                     int sigval1 = static_cast<int>(state);
+                                     const auto message_ret = message;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray message_b = message_ret.toUtf8();
+                                     auto message_str_len = message_b.length();
+                                     const char* message_str = static_cast<const char*>(malloc(message_str_len + 1));
+                                     memcpy((void*)message_str, message_b.data(), message_str_len);
+                                     ((char*)message_str)[message_str_len] = '\0';
+                                     const char* sigval2 = message_str;
+                                     slotFunc(self, sigval1, sigval2);
+                                     libqt_free(message_str);
+                                 });
 }
 
 libqt_string SignOn__AuthSession_Tr2(const char* s, const char* c) {

@@ -150,10 +150,12 @@ void QPdfView_DocumentChanged(QPdfView* self, QPdfDocument* document) {
 
 void QPdfView_Connect_DocumentChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, QPdfDocument*) = reinterpret_cast<void (*)(QPdfView*, QPdfDocument*)>(slot);
-    QPdfView::connect(self, &QPdfView::documentChanged, [self, slotFunc](QPdfDocument* document) {
-        QPdfDocument* sigval1 = document;
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(QPdfDocument*)>(&QPdfView::documentChanged),
+                      [self, slotFunc](QPdfDocument* document) {
+                          QPdfDocument* sigval1 = document;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_PageModeChanged(QPdfView* self, int pageMode) {
@@ -162,10 +164,12 @@ void QPdfView_PageModeChanged(QPdfView* self, int pageMode) {
 
 void QPdfView_Connect_PageModeChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, int) = reinterpret_cast<void (*)(QPdfView*, int)>(slot);
-    QPdfView::connect(self, &QPdfView::pageModeChanged, [self, slotFunc](QPdfView::PageMode pageMode) {
-        int sigval1 = static_cast<int>(pageMode);
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(QPdfView::PageMode)>(&QPdfView::pageModeChanged),
+                      [self, slotFunc](QPdfView::PageMode pageMode) {
+                          int sigval1 = static_cast<int>(pageMode);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_ZoomModeChanged(QPdfView* self, int zoomMode) {
@@ -174,10 +178,12 @@ void QPdfView_ZoomModeChanged(QPdfView* self, int zoomMode) {
 
 void QPdfView_Connect_ZoomModeChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, int) = reinterpret_cast<void (*)(QPdfView*, int)>(slot);
-    QPdfView::connect(self, &QPdfView::zoomModeChanged, [self, slotFunc](QPdfView::ZoomMode zoomMode) {
-        int sigval1 = static_cast<int>(zoomMode);
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(QPdfView::ZoomMode)>(&QPdfView::zoomModeChanged),
+                      [self, slotFunc](QPdfView::ZoomMode zoomMode) {
+                          int sigval1 = static_cast<int>(zoomMode);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_ZoomFactorChanged(QPdfView* self, double zoomFactor) {
@@ -186,10 +192,12 @@ void QPdfView_ZoomFactorChanged(QPdfView* self, double zoomFactor) {
 
 void QPdfView_Connect_ZoomFactorChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, double) = reinterpret_cast<void (*)(QPdfView*, double)>(slot);
-    QPdfView::connect(self, &QPdfView::zoomFactorChanged, [self, slotFunc](qreal zoomFactor) {
-        double sigval1 = static_cast<double>(zoomFactor);
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(qreal)>(&QPdfView::zoomFactorChanged),
+                      [self, slotFunc](qreal zoomFactor) {
+                          double sigval1 = static_cast<double>(zoomFactor);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_PageSpacingChanged(QPdfView* self, int pageSpacing) {
@@ -198,10 +206,12 @@ void QPdfView_PageSpacingChanged(QPdfView* self, int pageSpacing) {
 
 void QPdfView_Connect_PageSpacingChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, int) = reinterpret_cast<void (*)(QPdfView*, int)>(slot);
-    QPdfView::connect(self, &QPdfView::pageSpacingChanged, [self, slotFunc](int pageSpacing) {
-        int sigval1 = pageSpacing;
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(int)>(&QPdfView::pageSpacingChanged),
+                      [self, slotFunc](int pageSpacing) {
+                          int sigval1 = pageSpacing;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_DocumentMarginsChanged(QPdfView* self, QMargins* documentMargins) {
@@ -210,10 +220,12 @@ void QPdfView_DocumentMarginsChanged(QPdfView* self, QMargins* documentMargins) 
 
 void QPdfView_Connect_DocumentMarginsChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, QMargins*) = reinterpret_cast<void (*)(QPdfView*, QMargins*)>(slot);
-    QPdfView::connect(self, &QPdfView::documentMarginsChanged, [self, slotFunc](QMargins documentMargins) {
-        QMargins* sigval1 = new QMargins(documentMargins);
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(QMargins)>(&QPdfView::documentMarginsChanged),
+                      [self, slotFunc](QMargins documentMargins) {
+                          QMargins* sigval1 = new QMargins(documentMargins);
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_SearchModelChanged(QPdfView* self, QPdfSearchModel* searchModel) {
@@ -222,10 +234,12 @@ void QPdfView_SearchModelChanged(QPdfView* self, QPdfSearchModel* searchModel) {
 
 void QPdfView_Connect_SearchModelChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, QPdfSearchModel*) = reinterpret_cast<void (*)(QPdfView*, QPdfSearchModel*)>(slot);
-    QPdfView::connect(self, &QPdfView::searchModelChanged, [self, slotFunc](QPdfSearchModel* searchModel) {
-        QPdfSearchModel* sigval1 = searchModel;
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(QPdfSearchModel*)>(&QPdfView::searchModelChanged),
+                      [self, slotFunc](QPdfSearchModel* searchModel) {
+                          QPdfSearchModel* sigval1 = searchModel;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_CurrentSearchResultIndexChanged(QPdfView* self, int currentResult) {
@@ -234,10 +248,12 @@ void QPdfView_CurrentSearchResultIndexChanged(QPdfView* self, int currentResult)
 
 void QPdfView_Connect_CurrentSearchResultIndexChanged(QPdfView* self, intptr_t slot) {
     void (*slotFunc)(QPdfView*, int) = reinterpret_cast<void (*)(QPdfView*, int)>(slot);
-    QPdfView::connect(self, &QPdfView::currentSearchResultIndexChanged, [self, slotFunc](int currentResult) {
-        int sigval1 = currentResult;
-        slotFunc(self, sigval1);
-    });
+    QPdfView::connect(self,
+                      static_cast<void (QPdfView::*)(int)>(&QPdfView::currentSearchResultIndexChanged),
+                      [self, slotFunc](int currentResult) {
+                          int sigval1 = currentResult;
+                          slotFunc(self, sigval1);
+                      });
 }
 
 void QPdfView_PaintEvent(QPdfView* self, QPaintEvent* event) {

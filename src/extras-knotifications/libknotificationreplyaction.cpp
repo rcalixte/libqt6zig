@@ -122,18 +122,20 @@ void KNotificationReplyAction_Replied(KNotificationReplyAction* self, const libq
 
 void KNotificationReplyAction_Connect_Replied(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*, const char*) = reinterpret_cast<void (*)(KNotificationReplyAction*, const char*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::replied, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)(const QString&)>(&KNotificationReplyAction::replied),
+                                      [self, slotFunc](const QString& text) {
+                                          const auto text_ret = text;
+                                          // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                          QByteArray text_b = text_ret.toUtf8();
+                                          auto text_str_len = text_b.length();
+                                          const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                          memcpy((void*)text_str, text_b.data(), text_str_len);
+                                          ((char*)text_str)[text_str_len] = '\0';
+                                          const char* sigval1 = text_str;
+                                          slotFunc(self, sigval1);
+                                          libqt_free(text_str);
+                                      });
 }
 
 void KNotificationReplyAction_Activated(KNotificationReplyAction* self) {
@@ -142,9 +144,11 @@ void KNotificationReplyAction_Activated(KNotificationReplyAction* self) {
 
 void KNotificationReplyAction_Connect_Activated(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::activated, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::activated),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KNotificationReplyAction_LabelChanged(KNotificationReplyAction* self) {
@@ -153,9 +157,11 @@ void KNotificationReplyAction_LabelChanged(KNotificationReplyAction* self) {
 
 void KNotificationReplyAction_Connect_LabelChanged(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::labelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::labelChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KNotificationReplyAction_PlaceholderTextChanged(KNotificationReplyAction* self) {
@@ -164,9 +170,11 @@ void KNotificationReplyAction_PlaceholderTextChanged(KNotificationReplyAction* s
 
 void KNotificationReplyAction_Connect_PlaceholderTextChanged(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::placeholderTextChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::placeholderTextChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KNotificationReplyAction_SubmitButtonTextChanged(KNotificationReplyAction* self) {
@@ -175,9 +183,11 @@ void KNotificationReplyAction_SubmitButtonTextChanged(KNotificationReplyAction* 
 
 void KNotificationReplyAction_Connect_SubmitButtonTextChanged(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::submitButtonTextChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::submitButtonTextChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KNotificationReplyAction_SubmitButtonIconNameChanged(KNotificationReplyAction* self) {
@@ -186,9 +196,11 @@ void KNotificationReplyAction_SubmitButtonIconNameChanged(KNotificationReplyActi
 
 void KNotificationReplyAction_Connect_SubmitButtonIconNameChanged(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::submitButtonIconNameChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::submitButtonIconNameChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 void KNotificationReplyAction_FallbackBehaviorChanged(KNotificationReplyAction* self) {
@@ -197,9 +209,11 @@ void KNotificationReplyAction_FallbackBehaviorChanged(KNotificationReplyAction* 
 
 void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*) = reinterpret_cast<void (*)(KNotificationReplyAction*)>(slot);
-    KNotificationReplyAction::connect(self, &KNotificationReplyAction::fallbackBehaviorChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNotificationReplyAction::connect(self,
+                                      static_cast<void (KNotificationReplyAction::*)()>(&KNotificationReplyAction::fallbackBehaviorChanged),
+                                      [self, slotFunc]() {
+                                          slotFunc(self);
+                                      });
 }
 
 libqt_string KNotificationReplyAction_Tr2(const char* s, const char* c) {

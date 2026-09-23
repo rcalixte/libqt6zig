@@ -507,12 +507,14 @@ void QXYSeries_Clicked(QXYSeries* self, const QPointF* point) {
 
 void QXYSeries_Connect_Clicked(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPointF*) = reinterpret_cast<void (*)(QXYSeries*, QPointF*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::clicked, [self, slotFunc](const QPointF& point) {
-        const QPointF& point_ret = point;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPointF&)>(&QXYSeries::clicked),
+                       [self, slotFunc](const QPointF& point) {
+                           const QPointF& point_ret = point;
+                           // Cast returned reference into pointer
+                           QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_Hovered(QXYSeries* self, const QPointF* point, bool state) {
@@ -521,13 +523,15 @@ void QXYSeries_Hovered(QXYSeries* self, const QPointF* point, bool state) {
 
 void QXYSeries_Connect_Hovered(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPointF*, bool) = reinterpret_cast<void (*)(QXYSeries*, QPointF*, bool)>(slot);
-    QXYSeries::connect(self, &QXYSeries::hovered, [self, slotFunc](const QPointF& point, bool state) {
-        const QPointF& point_ret = point;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
-        bool sigval2 = state;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPointF&, bool)>(&QXYSeries::hovered),
+                       [self, slotFunc](const QPointF& point, bool state) {
+                           const QPointF& point_ret = point;
+                           // Cast returned reference into pointer
+                           QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+                           bool sigval2 = state;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QXYSeries_Pressed(QXYSeries* self, const QPointF* point) {
@@ -536,12 +540,14 @@ void QXYSeries_Pressed(QXYSeries* self, const QPointF* point) {
 
 void QXYSeries_Connect_Pressed(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPointF*) = reinterpret_cast<void (*)(QXYSeries*, QPointF*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pressed, [self, slotFunc](const QPointF& point) {
-        const QPointF& point_ret = point;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPointF&)>(&QXYSeries::pressed),
+                       [self, slotFunc](const QPointF& point) {
+                           const QPointF& point_ret = point;
+                           // Cast returned reference into pointer
+                           QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_Released(QXYSeries* self, const QPointF* point) {
@@ -550,12 +556,14 @@ void QXYSeries_Released(QXYSeries* self, const QPointF* point) {
 
 void QXYSeries_Connect_Released(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPointF*) = reinterpret_cast<void (*)(QXYSeries*, QPointF*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::released, [self, slotFunc](const QPointF& point) {
-        const QPointF& point_ret = point;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPointF&)>(&QXYSeries::released),
+                       [self, slotFunc](const QPointF& point) {
+                           const QPointF& point_ret = point;
+                           // Cast returned reference into pointer
+                           QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_DoubleClicked(QXYSeries* self, const QPointF* point) {
@@ -564,12 +572,14 @@ void QXYSeries_DoubleClicked(QXYSeries* self, const QPointF* point) {
 
 void QXYSeries_Connect_DoubleClicked(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPointF*) = reinterpret_cast<void (*)(QXYSeries*, QPointF*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::doubleClicked, [self, slotFunc](const QPointF& point) {
-        const QPointF& point_ret = point;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPointF&)>(&QXYSeries::doubleClicked),
+                       [self, slotFunc](const QPointF& point) {
+                           const QPointF& point_ret = point;
+                           // Cast returned reference into pointer
+                           QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointReplaced(QXYSeries* self, int index) {
@@ -578,10 +588,12 @@ void QXYSeries_PointReplaced(QXYSeries* self, int index) {
 
 void QXYSeries_Connect_PointReplaced(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, int) = reinterpret_cast<void (*)(QXYSeries*, int)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointReplaced, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(int)>(&QXYSeries::pointReplaced),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointRemoved(QXYSeries* self, int index) {
@@ -590,10 +602,12 @@ void QXYSeries_PointRemoved(QXYSeries* self, int index) {
 
 void QXYSeries_Connect_PointRemoved(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, int) = reinterpret_cast<void (*)(QXYSeries*, int)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointRemoved, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(int)>(&QXYSeries::pointRemoved),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointAdded(QXYSeries* self, int index) {
@@ -602,10 +616,12 @@ void QXYSeries_PointAdded(QXYSeries* self, int index) {
 
 void QXYSeries_Connect_PointAdded(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, int) = reinterpret_cast<void (*)(QXYSeries*, int)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointAdded, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(int)>(&QXYSeries::pointAdded),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_ColorChanged(QXYSeries* self, QColor* color) {
@@ -614,10 +630,12 @@ void QXYSeries_ColorChanged(QXYSeries* self, QColor* color) {
 
 void QXYSeries_Connect_ColorChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QColor*) = reinterpret_cast<void (*)(QXYSeries*, QColor*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::colorChanged, [self, slotFunc](QColor color) {
-        QColor* sigval1 = new QColor(color);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(QColor)>(&QXYSeries::colorChanged),
+                       [self, slotFunc](QColor color) {
+                           QColor* sigval1 = new QColor(color);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_SelectedColorChanged(QXYSeries* self, const QColor* color) {
@@ -626,12 +644,14 @@ void QXYSeries_SelectedColorChanged(QXYSeries* self, const QColor* color) {
 
 void QXYSeries_Connect_SelectedColorChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QColor*) = reinterpret_cast<void (*)(QXYSeries*, QColor*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::selectedColorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QColor&)>(&QXYSeries::selectedColorChanged),
+                       [self, slotFunc](const QColor& color) {
+                           const QColor& color_ret = color;
+                           // Cast returned reference into pointer
+                           QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointsReplaced(QXYSeries* self) {
@@ -640,9 +660,11 @@ void QXYSeries_PointsReplaced(QXYSeries* self) {
 
 void QXYSeries_Connect_PointsReplaced(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*) = reinterpret_cast<void (*)(QXYSeries*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointsReplaced, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)()>(&QXYSeries::pointsReplaced),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QXYSeries_PointLabelsFormatChanged(QXYSeries* self, const libqt_string format) {
@@ -652,18 +674,20 @@ void QXYSeries_PointLabelsFormatChanged(QXYSeries* self, const libqt_string form
 
 void QXYSeries_Connect_PointLabelsFormatChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, const char*) = reinterpret_cast<void (*)(QXYSeries*, const char*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointLabelsFormatChanged, [self, slotFunc](const QString& format) {
-        const auto format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray format_b = format_ret.toUtf8();
-        auto format_str_len = format_b.length();
-        const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
-        memcpy((void*)format_str, format_b.data(), format_str_len);
-        ((char*)format_str)[format_str_len] = '\0';
-        const char* sigval1 = format_str;
-        slotFunc(self, sigval1);
-        libqt_free(format_str);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QString&)>(&QXYSeries::pointLabelsFormatChanged),
+                       [self, slotFunc](const QString& format) {
+                           const auto format_ret = format;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray format_b = format_ret.toUtf8();
+                           auto format_str_len = format_b.length();
+                           const char* format_str = static_cast<const char*>(malloc(format_str_len + 1));
+                           memcpy((void*)format_str, format_b.data(), format_str_len);
+                           ((char*)format_str)[format_str_len] = '\0';
+                           const char* sigval1 = format_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(format_str);
+                       });
 }
 
 void QXYSeries_PointLabelsVisibilityChanged(QXYSeries* self, bool visible) {
@@ -672,10 +696,12 @@ void QXYSeries_PointLabelsVisibilityChanged(QXYSeries* self, bool visible) {
 
 void QXYSeries_Connect_PointLabelsVisibilityChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, bool) = reinterpret_cast<void (*)(QXYSeries*, bool)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointLabelsVisibilityChanged, [self, slotFunc](bool visible) {
-        bool sigval1 = visible;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(bool)>(&QXYSeries::pointLabelsVisibilityChanged),
+                       [self, slotFunc](bool visible) {
+                           bool sigval1 = visible;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointLabelsFontChanged(QXYSeries* self, const QFont* font) {
@@ -684,12 +710,14 @@ void QXYSeries_PointLabelsFontChanged(QXYSeries* self, const QFont* font) {
 
 void QXYSeries_Connect_PointLabelsFontChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QFont*) = reinterpret_cast<void (*)(QXYSeries*, QFont*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointLabelsFontChanged, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QFont&)>(&QXYSeries::pointLabelsFontChanged),
+                       [self, slotFunc](const QFont& font) {
+                           const QFont& font_ret = font;
+                           // Cast returned reference into pointer
+                           QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointLabelsColorChanged(QXYSeries* self, const QColor* color) {
@@ -698,12 +726,14 @@ void QXYSeries_PointLabelsColorChanged(QXYSeries* self, const QColor* color) {
 
 void QXYSeries_Connect_PointLabelsColorChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QColor*) = reinterpret_cast<void (*)(QXYSeries*, QColor*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointLabelsColorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QColor&)>(&QXYSeries::pointLabelsColorChanged),
+                       [self, slotFunc](const QColor& color) {
+                           const QColor& color_ret = color;
+                           // Cast returned reference into pointer
+                           QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointLabelsClippingChanged(QXYSeries* self, bool clipping) {
@@ -712,10 +742,12 @@ void QXYSeries_PointLabelsClippingChanged(QXYSeries* self, bool clipping) {
 
 void QXYSeries_Connect_PointLabelsClippingChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, bool) = reinterpret_cast<void (*)(QXYSeries*, bool)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointLabelsClippingChanged, [self, slotFunc](bool clipping) {
-        bool sigval1 = clipping;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(bool)>(&QXYSeries::pointLabelsClippingChanged),
+                       [self, slotFunc](bool clipping) {
+                           bool sigval1 = clipping;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointsRemoved(QXYSeries* self, int index, int count) {
@@ -724,11 +756,13 @@ void QXYSeries_PointsRemoved(QXYSeries* self, int index, int count) {
 
 void QXYSeries_Connect_PointsRemoved(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, int, int) = reinterpret_cast<void (*)(QXYSeries*, int, int)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointsRemoved, [self, slotFunc](int index, int count) {
-        int sigval1 = index;
-        int sigval2 = count;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(int, int)>(&QXYSeries::pointsRemoved),
+                       [self, slotFunc](int index, int count) {
+                           int sigval1 = index;
+                           int sigval2 = count;
+                           slotFunc(self, sigval1, sigval2);
+                       });
 }
 
 void QXYSeries_PenChanged(QXYSeries* self, const QPen* pen) {
@@ -737,12 +771,14 @@ void QXYSeries_PenChanged(QXYSeries* self, const QPen* pen) {
 
 void QXYSeries_Connect_PenChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPen*) = reinterpret_cast<void (*)(QXYSeries*, QPen*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::penChanged, [self, slotFunc](const QPen& pen) {
-        const QPen& pen_ret = pen;
-        // Cast returned reference into pointer
-        QPen* sigval1 = const_cast<QPen*>(&pen_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPen&)>(&QXYSeries::penChanged),
+                       [self, slotFunc](const QPen& pen) {
+                           const QPen& pen_ret = pen;
+                           // Cast returned reference into pointer
+                           QPen* sigval1 = const_cast<QPen*>(&pen_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_SelectedPointsChanged(QXYSeries* self) {
@@ -751,9 +787,11 @@ void QXYSeries_SelectedPointsChanged(QXYSeries* self) {
 
 void QXYSeries_Connect_SelectedPointsChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*) = reinterpret_cast<void (*)(QXYSeries*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::selectedPointsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)()>(&QXYSeries::selectedPointsChanged),
+                       [self, slotFunc]() {
+                           slotFunc(self);
+                       });
 }
 
 void QXYSeries_LightMarkerChanged(QXYSeries* self, const QImage* lightMarker) {
@@ -762,12 +800,14 @@ void QXYSeries_LightMarkerChanged(QXYSeries* self, const QImage* lightMarker) {
 
 void QXYSeries_Connect_LightMarkerChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QImage*) = reinterpret_cast<void (*)(QXYSeries*, QImage*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::lightMarkerChanged, [self, slotFunc](const QImage& lightMarker) {
-        const QImage& lightMarker_ret = lightMarker;
-        // Cast returned reference into pointer
-        QImage* sigval1 = const_cast<QImage*>(&lightMarker_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QImage&)>(&QXYSeries::lightMarkerChanged),
+                       [self, slotFunc](const QImage& lightMarker) {
+                           const QImage& lightMarker_ret = lightMarker;
+                           // Cast returned reference into pointer
+                           QImage* sigval1 = const_cast<QImage*>(&lightMarker_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_SelectedLightMarkerChanged(QXYSeries* self, const QImage* selectedLightMarker) {
@@ -776,12 +816,14 @@ void QXYSeries_SelectedLightMarkerChanged(QXYSeries* self, const QImage* selecte
 
 void QXYSeries_Connect_SelectedLightMarkerChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QImage*) = reinterpret_cast<void (*)(QXYSeries*, QImage*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::selectedLightMarkerChanged, [self, slotFunc](const QImage& selectedLightMarker) {
-        const QImage& selectedLightMarker_ret = selectedLightMarker;
-        // Cast returned reference into pointer
-        QImage* sigval1 = const_cast<QImage*>(&selectedLightMarker_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QImage&)>(&QXYSeries::selectedLightMarkerChanged),
+                       [self, slotFunc](const QImage& selectedLightMarker) {
+                           const QImage& selectedLightMarker_ret = selectedLightMarker;
+                           // Cast returned reference into pointer
+                           QImage* sigval1 = const_cast<QImage*>(&selectedLightMarker_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_BestFitLineVisibilityChanged(QXYSeries* self, bool visible) {
@@ -790,10 +832,12 @@ void QXYSeries_BestFitLineVisibilityChanged(QXYSeries* self, bool visible) {
 
 void QXYSeries_Connect_BestFitLineVisibilityChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, bool) = reinterpret_cast<void (*)(QXYSeries*, bool)>(slot);
-    QXYSeries::connect(self, &QXYSeries::bestFitLineVisibilityChanged, [self, slotFunc](bool visible) {
-        bool sigval1 = visible;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(bool)>(&QXYSeries::bestFitLineVisibilityChanged),
+                       [self, slotFunc](bool visible) {
+                           bool sigval1 = visible;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_BestFitLinePenChanged(QXYSeries* self, const QPen* pen) {
@@ -802,12 +846,14 @@ void QXYSeries_BestFitLinePenChanged(QXYSeries* self, const QPen* pen) {
 
 void QXYSeries_Connect_BestFitLinePenChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QPen*) = reinterpret_cast<void (*)(QXYSeries*, QPen*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::bestFitLinePenChanged, [self, slotFunc](const QPen& pen) {
-        const QPen& pen_ret = pen;
-        // Cast returned reference into pointer
-        QPen* sigval1 = const_cast<QPen*>(&pen_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QPen&)>(&QXYSeries::bestFitLinePenChanged),
+                       [self, slotFunc](const QPen& pen) {
+                           const QPen& pen_ret = pen;
+                           // Cast returned reference into pointer
+                           QPen* sigval1 = const_cast<QPen*>(&pen_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_BestFitLineColorChanged(QXYSeries* self, const QColor* color) {
@@ -816,12 +862,14 @@ void QXYSeries_BestFitLineColorChanged(QXYSeries* self, const QColor* color) {
 
 void QXYSeries_Connect_BestFitLineColorChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, QColor*) = reinterpret_cast<void (*)(QXYSeries*, QColor*)>(slot);
-    QXYSeries::connect(self, &QXYSeries::bestFitLineColorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QColor&)>(&QXYSeries::bestFitLineColorChanged),
+                       [self, slotFunc](const QColor& color) {
+                           const QColor& color_ret = color;
+                           // Cast returned reference into pointer
+                           QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of int to libqt_map of int to QVariant* */ configuration) {
@@ -844,38 +892,40 @@ void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of
 
 void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, libqt_map /* of int to libqt_map of int to QVariant* */) = reinterpret_cast<void (*)(QXYSeries*, libqt_map /* of int to libqt_map of int to QVariant* */)>(slot);
-    QXYSeries::connect(self, &QXYSeries::pointsConfigurationChanged, [self, slotFunc](const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration) {
-        const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration_ret = configuration;
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* configuration_karr = static_cast<int*>(malloc(sizeof(int) * configuration_ret.size()));
-        libqt_map /* of int to QVariant* */* configuration_varr = static_cast<libqt_map /* of int to QVariant* */*>(malloc(sizeof(libqt_map /* of int to QVariant* */) * configuration_ret.size()));
-        int configuration_ctr = 0;
-        for (auto configuration_itr = configuration_ret.keyValueBegin(); configuration_itr != configuration_ret.keyValueEnd(); ++configuration_itr) {
-            configuration_karr[configuration_ctr] = configuration_itr->first;
-            QHash<QXYSeries::PointConfiguration, QVariant> configuration_hashval_ret = configuration_itr->second;
-            // Convert QHash<> from C++ memory to manually-managed C memory
-            int* configuration_hashval_karr = static_cast<int*>(malloc(sizeof(int) * configuration_hashval_ret.size()));
-            QVariant** configuration_hashval_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * configuration_hashval_ret.size()));
-            int configuration_hashval_ctr = 0;
-            for (auto configuration_hashval_itr = configuration_hashval_ret.keyValueBegin(); configuration_hashval_itr != configuration_hashval_ret.keyValueEnd(); ++configuration_hashval_itr) {
-                configuration_hashval_karr[configuration_hashval_ctr] = static_cast<int>(configuration_hashval_itr->first);
-                configuration_hashval_varr[configuration_hashval_ctr] = new QVariant(configuration_hashval_itr->second);
-                configuration_hashval_ctr++;
-            }
-            libqt_map configuration_hashval_out;
-            configuration_hashval_out.len = configuration_hashval_ret.size();
-            configuration_hashval_out.keys = static_cast<void*>(configuration_hashval_karr);
-            configuration_hashval_out.values = static_cast<void*>(configuration_hashval_varr);
-            configuration_varr[configuration_ctr] = configuration_hashval_out;
-            configuration_ctr++;
-        }
-        libqt_map configuration_out;
-        configuration_out.len = configuration_ret.size();
-        configuration_out.keys = static_cast<void*>(configuration_karr);
-        configuration_out.values = static_cast<void*>(configuration_varr);
-        libqt_map /* of int to libqt_map of int to QVariant* */ sigval1 = configuration_out;
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>&)>(&QXYSeries::pointsConfigurationChanged),
+                       [self, slotFunc](const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration) {
+                           const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration_ret = configuration;
+                           // Convert QHash<> from C++ memory to manually-managed C memory
+                           int* configuration_karr = static_cast<int*>(malloc(sizeof(int) * configuration_ret.size()));
+                           libqt_map /* of int to QVariant* */* configuration_varr = static_cast<libqt_map /* of int to QVariant* */*>(malloc(sizeof(libqt_map /* of int to QVariant* */) * configuration_ret.size()));
+                           int configuration_ctr = 0;
+                           for (auto configuration_itr = configuration_ret.keyValueBegin(); configuration_itr != configuration_ret.keyValueEnd(); ++configuration_itr) {
+                               configuration_karr[configuration_ctr] = configuration_itr->first;
+                               QHash<QXYSeries::PointConfiguration, QVariant> configuration_hashval_ret = configuration_itr->second;
+                               // Convert QHash<> from C++ memory to manually-managed C memory
+                               int* configuration_hashval_karr = static_cast<int*>(malloc(sizeof(int) * configuration_hashval_ret.size()));
+                               QVariant** configuration_hashval_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * configuration_hashval_ret.size()));
+                               int configuration_hashval_ctr = 0;
+                               for (auto configuration_hashval_itr = configuration_hashval_ret.keyValueBegin(); configuration_hashval_itr != configuration_hashval_ret.keyValueEnd(); ++configuration_hashval_itr) {
+                                   configuration_hashval_karr[configuration_hashval_ctr] = static_cast<int>(configuration_hashval_itr->first);
+                                   configuration_hashval_varr[configuration_hashval_ctr] = new QVariant(configuration_hashval_itr->second);
+                                   configuration_hashval_ctr++;
+                               }
+                               libqt_map configuration_hashval_out;
+                               configuration_hashval_out.len = configuration_hashval_ret.size();
+                               configuration_hashval_out.keys = static_cast<void*>(configuration_hashval_karr);
+                               configuration_hashval_out.values = static_cast<void*>(configuration_hashval_varr);
+                               configuration_varr[configuration_ctr] = configuration_hashval_out;
+                               configuration_ctr++;
+                           }
+                           libqt_map configuration_out;
+                           configuration_out.len = configuration_ret.size();
+                           configuration_out.keys = static_cast<void*>(configuration_karr);
+                           configuration_out.values = static_cast<void*>(configuration_varr);
+                           libqt_map /* of int to libqt_map of int to QVariant* */ sigval1 = configuration_out;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QXYSeries_MarkerSizeChanged(QXYSeries* self, double size) {
@@ -884,10 +934,12 @@ void QXYSeries_MarkerSizeChanged(QXYSeries* self, double size) {
 
 void QXYSeries_Connect_MarkerSizeChanged(QXYSeries* self, intptr_t slot) {
     void (*slotFunc)(QXYSeries*, double) = reinterpret_cast<void (*)(QXYSeries*, double)>(slot);
-    QXYSeries::connect(self, &QXYSeries::markerSizeChanged, [self, slotFunc](qreal size) {
-        double sigval1 = static_cast<double>(size);
-        slotFunc(self, sigval1);
-    });
+    QXYSeries::connect(self,
+                       static_cast<void (QXYSeries::*)(qreal)>(&QXYSeries::markerSizeChanged),
+                       [self, slotFunc](qreal size) {
+                           double sigval1 = static_cast<double>(size);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 libqt_string QXYSeries_Tr2(const char* s, const char* c) {

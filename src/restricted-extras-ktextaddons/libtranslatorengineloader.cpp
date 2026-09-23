@@ -183,9 +183,11 @@ void TextTranslator__TranslatorEngineLoader_LoadingTranslatorFailed(TextTranslat
 
 void TextTranslator__TranslatorEngineLoader_Connect_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorEngineLoader*) = reinterpret_cast<void (*)(TextTranslator__TranslatorEngineLoader*)>(slot);
-    TextTranslator::TranslatorEngineLoader::connect(self, &TextTranslator::TranslatorEngineLoader::loadingTranslatorFailed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorEngineLoader::connect(self,
+                                                    static_cast<void (TextTranslator::TranslatorEngineLoader::*)()>(&TextTranslator::TranslatorEngineLoader::loadingTranslatorFailed),
+                                                    [self, slotFunc]() {
+                                                        slotFunc(self);
+                                                    });
 }
 
 libqt_string TextTranslator__TranslatorEngineLoader_Tr2(const char* s, const char* c) {

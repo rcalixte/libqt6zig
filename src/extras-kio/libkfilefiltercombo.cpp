@@ -137,9 +137,11 @@ void KFileFilterCombo_FilterChanged(KFileFilterCombo* self) {
 
 void KFileFilterCombo_Connect_FilterChanged(KFileFilterCombo* self, intptr_t slot) {
     void (*slotFunc)(KFileFilterCombo*) = reinterpret_cast<void (*)(KFileFilterCombo*)>(slot);
-    KFileFilterCombo::connect(self, &KFileFilterCombo::filterChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KFileFilterCombo::connect(self,
+                              static_cast<void (KFileFilterCombo::*)()>(&KFileFilterCombo::filterChanged),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string KFileFilterCombo_Tr2(const char* s, const char* c) {

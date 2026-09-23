@@ -127,9 +127,11 @@ void KNumberModel_MinimumValueChanged(KNumberModel* self) {
 
 void KNumberModel_Connect_MinimumValueChanged(KNumberModel* self, intptr_t slot) {
     void (*slotFunc)(KNumberModel*) = reinterpret_cast<void (*)(KNumberModel*)>(slot);
-    KNumberModel::connect(self, &KNumberModel::minimumValueChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNumberModel::connect(self,
+                          static_cast<void (KNumberModel::*)()>(&KNumberModel::minimumValueChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KNumberModel_MaximumValueChanged(KNumberModel* self) {
@@ -138,9 +140,11 @@ void KNumberModel_MaximumValueChanged(KNumberModel* self) {
 
 void KNumberModel_Connect_MaximumValueChanged(KNumberModel* self, intptr_t slot) {
     void (*slotFunc)(KNumberModel*) = reinterpret_cast<void (*)(KNumberModel*)>(slot);
-    KNumberModel::connect(self, &KNumberModel::maximumValueChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNumberModel::connect(self,
+                          static_cast<void (KNumberModel::*)()>(&KNumberModel::maximumValueChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KNumberModel_StepSizeChanged(KNumberModel* self) {
@@ -149,9 +153,11 @@ void KNumberModel_StepSizeChanged(KNumberModel* self) {
 
 void KNumberModel_Connect_StepSizeChanged(KNumberModel* self, intptr_t slot) {
     void (*slotFunc)(KNumberModel*) = reinterpret_cast<void (*)(KNumberModel*)>(slot);
-    KNumberModel::connect(self, &KNumberModel::stepSizeChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNumberModel::connect(self,
+                          static_cast<void (KNumberModel::*)()>(&KNumberModel::stepSizeChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KNumberModel_FormattingOptionsChanged(KNumberModel* self) {
@@ -160,9 +166,11 @@ void KNumberModel_FormattingOptionsChanged(KNumberModel* self) {
 
 void KNumberModel_Connect_FormattingOptionsChanged(KNumberModel* self, intptr_t slot) {
     void (*slotFunc)(KNumberModel*) = reinterpret_cast<void (*)(KNumberModel*)>(slot);
-    KNumberModel::connect(self, &KNumberModel::formattingOptionsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KNumberModel::connect(self,
+                          static_cast<void (KNumberModel::*)()>(&KNumberModel::formattingOptionsChanged),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 libqt_string KNumberModel_Tr2(const char* s, const char* c) {

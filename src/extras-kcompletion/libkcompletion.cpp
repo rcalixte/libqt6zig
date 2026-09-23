@@ -276,18 +276,20 @@ void KCompletion_Match(KCompletion* self, const libqt_string item) {
 
 void KCompletion_Connect_Match(KCompletion* self, intptr_t slot) {
     void (*slotFunc)(KCompletion*, const char*) = reinterpret_cast<void (*)(KCompletion*, const char*)>(slot);
-    KCompletion::connect(self, &KCompletion::match, [self, slotFunc](const QString& item) {
-        const auto item_ret = item;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray item_b = item_ret.toUtf8();
-        auto item_str_len = item_b.length();
-        const char* item_str = static_cast<const char*>(malloc(item_str_len + 1));
-        memcpy((void*)item_str, item_b.data(), item_str_len);
-        ((char*)item_str)[item_str_len] = '\0';
-        const char* sigval1 = item_str;
-        slotFunc(self, sigval1);
-        libqt_free(item_str);
-    });
+    KCompletion::connect(self,
+                         static_cast<void (KCompletion::*)(const QString&)>(&KCompletion::match),
+                         [self, slotFunc](const QString& item) {
+                             const auto item_ret = item;
+                             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                             QByteArray item_b = item_ret.toUtf8();
+                             auto item_str_len = item_b.length();
+                             const char* item_str = static_cast<const char*>(malloc(item_str_len + 1));
+                             memcpy((void*)item_str, item_b.data(), item_str_len);
+                             ((char*)item_str)[item_str_len] = '\0';
+                             const char* sigval1 = item_str;
+                             slotFunc(self, sigval1);
+                             libqt_free(item_str);
+                         });
 }
 
 void KCompletion_Matches(KCompletion* self, const libqt_list /* of libqt_string */ matchlist) {
@@ -303,24 +305,26 @@ void KCompletion_Matches(KCompletion* self, const libqt_list /* of libqt_string 
 
 void KCompletion_Connect_Matches(KCompletion* self, intptr_t slot) {
     void (*slotFunc)(KCompletion*, const char**) = reinterpret_cast<void (*)(KCompletion*, const char**)>(slot);
-    KCompletion::connect(self, &KCompletion::matches, [self, slotFunc](const QList<QString>& matchlist) {
-        const QList<QString>& matchlist_ret = matchlist;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** matchlist_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matchlist_ret.size() + 1)));
-        for (qsizetype i = 0; i < matchlist_ret.size(); ++i) {
-            QByteArray matchlist_b = matchlist_ret[i].toUtf8();
-            auto matchlist_str_len = matchlist_b.length();
-            char* matchlist_str = static_cast<char*>(malloc(matchlist_str_len + 1));
-            memcpy(matchlist_str, matchlist_b.data(), matchlist_str_len);
-            matchlist_str[matchlist_str_len] = '\0';
-            matchlist_arr[i] = matchlist_str;
-        }
-        // Append sentinel null terminator to the list
-        matchlist_arr[matchlist_ret.size()] = nullptr;
-        const char** sigval1 = matchlist_arr;
-        slotFunc(self, sigval1);
-        libqt_free(matchlist_arr);
-    });
+    KCompletion::connect(self,
+                         static_cast<void (KCompletion::*)(const QList<QString>&)>(&KCompletion::matches),
+                         [self, slotFunc](const QList<QString>& matchlist) {
+                             const QList<QString>& matchlist_ret = matchlist;
+                             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                             const char** matchlist_arr = static_cast<const char**>(malloc(sizeof(const char*) * (matchlist_ret.size() + 1)));
+                             for (qsizetype i = 0; i < matchlist_ret.size(); ++i) {
+                                 QByteArray matchlist_b = matchlist_ret[i].toUtf8();
+                                 auto matchlist_str_len = matchlist_b.length();
+                                 char* matchlist_str = static_cast<char*>(malloc(matchlist_str_len + 1));
+                                 memcpy(matchlist_str, matchlist_b.data(), matchlist_str_len);
+                                 matchlist_str[matchlist_str_len] = '\0';
+                                 matchlist_arr[i] = matchlist_str;
+                             }
+                             // Append sentinel null terminator to the list
+                             matchlist_arr[matchlist_ret.size()] = nullptr;
+                             const char** sigval1 = matchlist_arr;
+                             slotFunc(self, sigval1);
+                             libqt_free(matchlist_arr);
+                         });
 }
 
 void KCompletion_MultipleMatches(KCompletion* self) {
@@ -329,9 +333,11 @@ void KCompletion_MultipleMatches(KCompletion* self) {
 
 void KCompletion_Connect_MultipleMatches(KCompletion* self, intptr_t slot) {
     void (*slotFunc)(KCompletion*) = reinterpret_cast<void (*)(KCompletion*)>(slot);
-    KCompletion::connect(self, &KCompletion::multipleMatches, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCompletion::connect(self,
+                         static_cast<void (KCompletion::*)()>(&KCompletion::multipleMatches),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {

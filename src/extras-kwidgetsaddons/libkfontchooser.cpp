@@ -179,12 +179,14 @@ void KFontChooser_FontSelected(KFontChooser* self, const QFont* font) {
 
 void KFontChooser_Connect_FontSelected(KFontChooser* self, intptr_t slot) {
     void (*slotFunc)(KFontChooser*, QFont*) = reinterpret_cast<void (*)(KFontChooser*, QFont*)>(slot);
-    KFontChooser::connect(self, &KFontChooser::fontSelected, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    KFontChooser::connect(self,
+                          static_cast<void (KFontChooser::*)(const QFont&)>(&KFontChooser::fontSelected),
+                          [self, slotFunc](const QFont& font) {
+                              const QFont& font_ret = font;
+                              // Cast returned reference into pointer
+                              QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                              slotFunc(self, sigval1);
+                          });
 }
 
 libqt_string KFontChooser_Tr2(const char* s, const char* c) {

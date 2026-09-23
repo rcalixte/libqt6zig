@@ -119,20 +119,22 @@ void KShortcutWidget_ShortcutChanged(KShortcutWidget* self, const libqt_list /* 
 
 void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slot) {
     void (*slotFunc)(KShortcutWidget*, libqt_list /* of QKeySequence* */) = reinterpret_cast<void (*)(KShortcutWidget*, libqt_list /* of QKeySequence* */)>(slot);
-    KShortcutWidget::connect(self, &KShortcutWidget::shortcutChanged, [self, slotFunc](const QList<QKeySequence>& cut) {
-        const QList<QKeySequence>& cut_ret = cut;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QKeySequence** cut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (cut_ret.size())));
-        for (qsizetype i = 0; i < cut_ret.size(); ++i) {
-            cut_arr[i] = new QKeySequence(cut_ret[i]);
-        }
-        libqt_list cut_out;
-        cut_out.len = cut_ret.size();
-        cut_out.data = static_cast<void*>(cut_arr);
-        libqt_list /* of QKeySequence* */ sigval1 = cut_out;
-        slotFunc(self, sigval1);
-        free(cut_arr);
-    });
+    KShortcutWidget::connect(self,
+                             static_cast<void (KShortcutWidget::*)(const QList<QKeySequence>&)>(&KShortcutWidget::shortcutChanged),
+                             [self, slotFunc](const QList<QKeySequence>& cut) {
+                                 const QList<QKeySequence>& cut_ret = cut;
+                                 // Convert QList<> from C++ memory to manually-managed C memory
+                                 QKeySequence** cut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (cut_ret.size())));
+                                 for (qsizetype i = 0; i < cut_ret.size(); ++i) {
+                                     cut_arr[i] = new QKeySequence(cut_ret[i]);
+                                 }
+                                 libqt_list cut_out;
+                                 cut_out.len = cut_ret.size();
+                                 cut_out.data = static_cast<void*>(cut_arr);
+                                 libqt_list /* of QKeySequence* */ sigval1 = cut_out;
+                                 slotFunc(self, sigval1);
+                                 free(cut_arr);
+                             });
 }
 
 void KShortcutWidget_SetShortcut(KShortcutWidget* self, const libqt_list /* of QKeySequence* */ cut) {

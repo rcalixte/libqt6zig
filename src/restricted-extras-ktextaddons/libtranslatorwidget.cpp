@@ -88,9 +88,11 @@ void TextTranslator__TranslatorTextEdit_TranslateText(TextTranslator__Translator
 
 void TextTranslator__TranslatorTextEdit_Connect_TranslateText(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorTextEdit*) = reinterpret_cast<void (*)(TextTranslator__TranslatorTextEdit*)>(slot);
-    TextTranslator::TranslatorTextEdit::connect(self, &TextTranslator::TranslatorTextEdit::translateText, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorTextEdit::connect(self,
+                                                static_cast<void (TextTranslator::TranslatorTextEdit::*)()>(&TextTranslator::TranslatorTextEdit::translateText),
+                                                [self, slotFunc]() {
+                                                    slotFunc(self);
+                                                });
 }
 
 void TextTranslator__TranslatorTextEdit_DropEvent(TextTranslator__TranslatorTextEdit* self, QDropEvent* param1) {
@@ -2369,9 +2371,11 @@ void TextTranslator__TranslatorWidget_ToolsWasClosed(TextTranslator__TranslatorW
 
 void TextTranslator__TranslatorWidget_Connect_ToolsWasClosed(TextTranslator__TranslatorWidget* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorWidget*) = reinterpret_cast<void (*)(TextTranslator__TranslatorWidget*)>(slot);
-    TextTranslator::TranslatorWidget::connect(self, &TextTranslator::TranslatorWidget::toolsWasClosed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextTranslator::TranslatorWidget::connect(self,
+                                              static_cast<void (TextTranslator::TranslatorWidget::*)()>(&TextTranslator::TranslatorWidget::toolsWasClosed),
+                                              [self, slotFunc]() {
+                                                  slotFunc(self);
+                                              });
 }
 
 libqt_string TextTranslator__TranslatorWidget_Tr2(const char* s, const char* c) {

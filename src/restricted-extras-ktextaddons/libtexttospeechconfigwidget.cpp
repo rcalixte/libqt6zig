@@ -91,10 +91,12 @@ void TextEditTextToSpeech__TextToSpeechConfigWidget_ConfigChanged(TextEditTextTo
 
 void TextEditTextToSpeech__TextToSpeechConfigWidget_Connect_ConfigChanged(TextEditTextToSpeech__TextToSpeechConfigWidget* self, intptr_t slot) {
     void (*slotFunc)(TextEditTextToSpeech__TextToSpeechConfigWidget*, bool) = reinterpret_cast<void (*)(TextEditTextToSpeech__TextToSpeechConfigWidget*, bool)>(slot);
-    TextEditTextToSpeech::TextToSpeechConfigWidget::connect(self, &TextEditTextToSpeech::TextToSpeechConfigWidget::configChanged, [self, slotFunc](bool state) {
-        bool sigval1 = state;
-        slotFunc(self, sigval1);
-    });
+    TextEditTextToSpeech::TextToSpeechConfigWidget::connect(self,
+                                                            static_cast<void (TextEditTextToSpeech::TextToSpeechConfigWidget::*)(bool)>(&TextEditTextToSpeech::TextToSpeechConfigWidget::configChanged),
+                                                            [self, slotFunc](bool state) {
+                                                                bool sigval1 = state;
+                                                                slotFunc(self, sigval1);
+                                                            });
 }
 
 libqt_string TextEditTextToSpeech__TextToSpeechConfigWidget_Tr2(const char* s, const char* c) {

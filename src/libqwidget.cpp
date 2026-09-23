@@ -1254,18 +1254,20 @@ void QWidget_WindowTitleChanged(QWidget* self, const libqt_string title) {
 
 void QWidget_Connect_WindowTitleChanged(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
-    QWidget::connect(self, &QWidget::windowTitleChanged, [self, slotFunc](const QString& title) {
-        const auto title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray title_b = title_ret.toUtf8();
-        auto title_str_len = title_b.length();
-        const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
-        memcpy((void*)title_str, title_b.data(), title_str_len);
-        ((char*)title_str)[title_str_len] = '\0';
-        const char* sigval1 = title_str;
-        slotFunc(self, sigval1);
-        libqt_free(title_str);
-    });
+    QWidget::connect(self,
+                     static_cast<void (QWidget::*)(const QString&)>(&QWidget::windowTitleChanged),
+                     [self, slotFunc](const QString& title) {
+                         const auto title_ret = title;
+                         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                         QByteArray title_b = title_ret.toUtf8();
+                         auto title_str_len = title_b.length();
+                         const char* title_str = static_cast<const char*>(malloc(title_str_len + 1));
+                         memcpy((void*)title_str, title_b.data(), title_str_len);
+                         ((char*)title_str)[title_str_len] = '\0';
+                         const char* sigval1 = title_str;
+                         slotFunc(self, sigval1);
+                         libqt_free(title_str);
+                     });
 }
 
 void QWidget_WindowIconChanged(QWidget* self, const QIcon* icon) {
@@ -1274,12 +1276,14 @@ void QWidget_WindowIconChanged(QWidget* self, const QIcon* icon) {
 
 void QWidget_Connect_WindowIconChanged(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, QIcon*) = reinterpret_cast<void (*)(QWidget*, QIcon*)>(slot);
-    QWidget::connect(self, &QWidget::windowIconChanged, [self, slotFunc](const QIcon& icon) {
-        const QIcon& icon_ret = icon;
-        // Cast returned reference into pointer
-        QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
-        slotFunc(self, sigval1);
-    });
+    QWidget::connect(self,
+                     static_cast<void (QWidget::*)(const QIcon&)>(&QWidget::windowIconChanged),
+                     [self, slotFunc](const QIcon& icon) {
+                         const QIcon& icon_ret = icon;
+                         // Cast returned reference into pointer
+                         QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QWidget_WindowIconTextChanged(QWidget* self, const libqt_string iconText) {
@@ -1289,18 +1293,20 @@ void QWidget_WindowIconTextChanged(QWidget* self, const libqt_string iconText) {
 
 void QWidget_Connect_WindowIconTextChanged(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
-    QWidget::connect(self, &QWidget::windowIconTextChanged, [self, slotFunc](const QString& iconText) {
-        const auto iconText_ret = iconText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray iconText_b = iconText_ret.toUtf8();
-        auto iconText_str_len = iconText_b.length();
-        const char* iconText_str = static_cast<const char*>(malloc(iconText_str_len + 1));
-        memcpy((void*)iconText_str, iconText_b.data(), iconText_str_len);
-        ((char*)iconText_str)[iconText_str_len] = '\0';
-        const char* sigval1 = iconText_str;
-        slotFunc(self, sigval1);
-        libqt_free(iconText_str);
-    });
+    QWidget::connect(self,
+                     static_cast<void (QWidget::*)(const QString&)>(&QWidget::windowIconTextChanged),
+                     [self, slotFunc](const QString& iconText) {
+                         const auto iconText_ret = iconText;
+                         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                         QByteArray iconText_b = iconText_ret.toUtf8();
+                         auto iconText_str_len = iconText_b.length();
+                         const char* iconText_str = static_cast<const char*>(malloc(iconText_str_len + 1));
+                         memcpy((void*)iconText_str, iconText_b.data(), iconText_str_len);
+                         ((char*)iconText_str)[iconText_str_len] = '\0';
+                         const char* sigval1 = iconText_str;
+                         slotFunc(self, sigval1);
+                         libqt_free(iconText_str);
+                     });
 }
 
 void QWidget_CustomContextMenuRequested(QWidget* self, const QPoint* pos) {
@@ -1309,12 +1315,14 @@ void QWidget_CustomContextMenuRequested(QWidget* self, const QPoint* pos) {
 
 void QWidget_Connect_CustomContextMenuRequested(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, QPoint*) = reinterpret_cast<void (*)(QWidget*, QPoint*)>(slot);
-    QWidget::connect(self, &QWidget::customContextMenuRequested, [self, slotFunc](const QPoint& pos) {
-        const QPoint& pos_ret = pos;
-        // Cast returned reference into pointer
-        QPoint* sigval1 = const_cast<QPoint*>(&pos_ret);
-        slotFunc(self, sigval1);
-    });
+    QWidget::connect(self,
+                     static_cast<void (QWidget::*)(const QPoint&)>(&QWidget::customContextMenuRequested),
+                     [self, slotFunc](const QPoint& pos) {
+                         const QPoint& pos_ret = pos;
+                         // Cast returned reference into pointer
+                         QPoint* sigval1 = const_cast<QPoint*>(&pos_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 bool QWidget_Event(QWidget* self, QEvent* event) {

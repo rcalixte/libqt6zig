@@ -405,18 +405,20 @@ void QComboBox_EditTextChanged(QComboBox* self, const libqt_string param1) {
 
 void QComboBox_Connect_EditTextChanged(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, const char*) = reinterpret_cast<void (*)(QComboBox*, const char*)>(slot);
-    QComboBox::connect(self, &QComboBox::editTextChanged, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::editTextChanged),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void QComboBox_Activated(QComboBox* self, int index) {
@@ -425,10 +427,12 @@ void QComboBox_Activated(QComboBox* self, int index) {
 
 void QComboBox_Connect_Activated(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, int) = reinterpret_cast<void (*)(QComboBox*, int)>(slot);
-    QComboBox::connect(self, &QComboBox::activated, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QComboBox_TextActivated(QComboBox* self, const libqt_string param1) {
@@ -438,18 +442,20 @@ void QComboBox_TextActivated(QComboBox* self, const libqt_string param1) {
 
 void QComboBox_Connect_TextActivated(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, const char*) = reinterpret_cast<void (*)(QComboBox*, const char*)>(slot);
-    QComboBox::connect(self, &QComboBox::textActivated, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textActivated),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void QComboBox_Highlighted(QComboBox* self, int index) {
@@ -458,10 +464,12 @@ void QComboBox_Highlighted(QComboBox* self, int index) {
 
 void QComboBox_Connect_Highlighted(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, int) = reinterpret_cast<void (*)(QComboBox*, int)>(slot);
-    QComboBox::connect(self, &QComboBox::highlighted, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(int)>(&QComboBox::highlighted),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QComboBox_TextHighlighted(QComboBox* self, const libqt_string param1) {
@@ -471,18 +479,20 @@ void QComboBox_TextHighlighted(QComboBox* self, const libqt_string param1) {
 
 void QComboBox_Connect_TextHighlighted(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, const char*) = reinterpret_cast<void (*)(QComboBox*, const char*)>(slot);
-    QComboBox::connect(self, &QComboBox::textHighlighted, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textHighlighted),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void QComboBox_CurrentIndexChanged(QComboBox* self, int index) {
@@ -491,10 +501,12 @@ void QComboBox_CurrentIndexChanged(QComboBox* self, int index) {
 
 void QComboBox_Connect_CurrentIndexChanged(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, int) = reinterpret_cast<void (*)(QComboBox*, int)>(slot);
-    QComboBox::connect(self, &QComboBox::currentIndexChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                       [self, slotFunc](int index) {
+                           int sigval1 = index;
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QComboBox_CurrentTextChanged(QComboBox* self, const libqt_string param1) {
@@ -504,18 +516,20 @@ void QComboBox_CurrentTextChanged(QComboBox* self, const libqt_string param1) {
 
 void QComboBox_Connect_CurrentTextChanged(QComboBox* self, intptr_t slot) {
     void (*slotFunc)(QComboBox*, const char*) = reinterpret_cast<void (*)(QComboBox*, const char*)>(slot);
-    QComboBox::connect(self, &QComboBox::currentTextChanged, [self, slotFunc](const QString& param1) {
-        const auto param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray param1_b = param1_ret.toUtf8();
-        auto param1_str_len = param1_b.length();
-        const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
-        memcpy((void*)param1_str, param1_b.data(), param1_str_len);
-        ((char*)param1_str)[param1_str_len] = '\0';
-        const char* sigval1 = param1_str;
-        slotFunc(self, sigval1);
-        libqt_free(param1_str);
-    });
+    QComboBox::connect(self,
+                       static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged),
+                       [self, slotFunc](const QString& param1) {
+                           const auto param1_ret = param1;
+                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                           QByteArray param1_b = param1_ret.toUtf8();
+                           auto param1_str_len = param1_b.length();
+                           const char* param1_str = static_cast<const char*>(malloc(param1_str_len + 1));
+                           memcpy((void*)param1_str, param1_b.data(), param1_str_len);
+                           ((char*)param1_str)[param1_str_len] = '\0';
+                           const char* sigval1 = param1_str;
+                           slotFunc(self, sigval1);
+                           libqt_free(param1_str);
+                       });
 }
 
 void QComboBox_FocusInEvent(QComboBox* self, QFocusEvent* e) {

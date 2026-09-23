@@ -172,10 +172,12 @@ void QDialogButtonBox_Clicked(QDialogButtonBox* self, QAbstractButton* button) {
 
 void QDialogButtonBox_Connect_Clicked(QDialogButtonBox* self, intptr_t slot) {
     void (*slotFunc)(QDialogButtonBox*, QAbstractButton*) = reinterpret_cast<void (*)(QDialogButtonBox*, QAbstractButton*)>(slot);
-    QDialogButtonBox::connect(self, &QDialogButtonBox::clicked, [self, slotFunc](QAbstractButton* button) {
-        QAbstractButton* sigval1 = button;
-        slotFunc(self, sigval1);
-    });
+    QDialogButtonBox::connect(self,
+                              static_cast<void (QDialogButtonBox::*)(QAbstractButton*)>(&QDialogButtonBox::clicked),
+                              [self, slotFunc](QAbstractButton* button) {
+                                  QAbstractButton* sigval1 = button;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QDialogButtonBox_Accepted(QDialogButtonBox* self) {
@@ -184,9 +186,11 @@ void QDialogButtonBox_Accepted(QDialogButtonBox* self) {
 
 void QDialogButtonBox_Connect_Accepted(QDialogButtonBox* self, intptr_t slot) {
     void (*slotFunc)(QDialogButtonBox*) = reinterpret_cast<void (*)(QDialogButtonBox*)>(slot);
-    QDialogButtonBox::connect(self, &QDialogButtonBox::accepted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDialogButtonBox::connect(self,
+                              static_cast<void (QDialogButtonBox::*)()>(&QDialogButtonBox::accepted),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QDialogButtonBox_HelpRequested(QDialogButtonBox* self) {
@@ -195,9 +199,11 @@ void QDialogButtonBox_HelpRequested(QDialogButtonBox* self) {
 
 void QDialogButtonBox_Connect_HelpRequested(QDialogButtonBox* self, intptr_t slot) {
     void (*slotFunc)(QDialogButtonBox*) = reinterpret_cast<void (*)(QDialogButtonBox*)>(slot);
-    QDialogButtonBox::connect(self, &QDialogButtonBox::helpRequested, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDialogButtonBox::connect(self,
+                              static_cast<void (QDialogButtonBox::*)()>(&QDialogButtonBox::helpRequested),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QDialogButtonBox_Rejected(QDialogButtonBox* self) {
@@ -206,9 +212,11 @@ void QDialogButtonBox_Rejected(QDialogButtonBox* self) {
 
 void QDialogButtonBox_Connect_Rejected(QDialogButtonBox* self, intptr_t slot) {
     void (*slotFunc)(QDialogButtonBox*) = reinterpret_cast<void (*)(QDialogButtonBox*)>(slot);
-    QDialogButtonBox::connect(self, &QDialogButtonBox::rejected, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QDialogButtonBox::connect(self,
+                              static_cast<void (QDialogButtonBox::*)()>(&QDialogButtonBox::rejected),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void QDialogButtonBox_ChangeEvent(QDialogButtonBox* self, QEvent* event) {

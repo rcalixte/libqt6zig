@@ -9079,6 +9079,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_QSCN_SELCHANGED(@ptrCast(self.ptr), yes);
     }
 
+    /// ### DEPRECATED: Use `onQSCN_SELCHANGED` instead
+    ///
+    pub const OnQSCN_SELCHANGED = onQSCN_SELCHANGED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, yes: bool) callconv(.c) void `
+    ///
+    pub fn onQSCN_SELCHANGED(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_QSCN_SELCHANGED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9091,6 +9109,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_AUTOCCANCELLED(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSCN_AUTOCCANCELLED` instead
+    ///
+    pub const OnSCN_AUTOCCANCELLED = onSCN_AUTOCCANCELLED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCCANCELLED(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCCANCELLED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9101,6 +9137,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_AUTOCCHARDELETED(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_AUTOCCHARDELETED(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_AUTOCCHARDELETED` instead
+    ///
+    pub const OnSCN_AUTOCCHARDELETED = onSCN_AUTOCCHARDELETED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCCHARDELETED(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCCHARDELETED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9124,6 +9178,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_AUTOCCOMPLETED(@ptrCast(self.ptr), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
     }
 
+    /// ### DEPRECATED: Use `onSCN_AUTOCCOMPLETED` instead
+    ///
+    pub const OnSCN_AUTOCCOMPLETED = onSCN_AUTOCCOMPLETED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, position: i32, ch: i32, method: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCCOMPLETED(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCCOMPLETED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9145,6 +9217,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_AUTOCSELECTION(@ptrCast(self.ptr), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
     }
 
+    /// ### DEPRECATED: Use `onSCN_AUTOCSELECTION` instead
+    ///
+    pub const OnSCN_AUTOCSELECTION = onSCN_AUTOCSELECTION;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, position: i32, ch: i32, method: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCSELECTION(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCSELECTION(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9160,6 +9250,24 @@ pub const QsciScintilla = extern struct {
     pub fn SCN_AUTOCSELECTION2(self: QsciScintilla, selection: [:0]const u8, position: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_AUTOCSELECTION2(@ptrCast(self.ptr), selection_Cstring, @bitCast(position));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_AUTOCSELECTION2` instead
+    ///
+    pub const OnSCN_AUTOCSELECTION2 = onSCN_AUTOCSELECTION2;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, position: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCSELECTION2(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCSELECTION2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9181,6 +9289,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_AUTOCSELECTIONCHANGE(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(position));
     }
 
+    /// ### DEPRECATED: Use `onSCN_AUTOCSELECTIONCHANGE` instead
+    ///
+    pub const OnSCN_AUTOCSELECTIONCHANGE = onSCN_AUTOCSELECTIONCHANGE;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, id: i32, position: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_AUTOCSELECTIONCHANGE(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_AUTOCSELECTIONCHANGE(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9191,6 +9317,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCEN_CHANGE(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCEN_CHANGE(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCEN_CHANGE` instead
+    ///
+    pub const OnSCEN_CHANGE = onSCEN_CHANGE;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCEN_CHANGE(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCEN_CHANGE(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9207,6 +9351,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_CALLTIPCLICK(@ptrCast(self.ptr), @bitCast(direction));
     }
 
+    /// ### DEPRECATED: Use `onSCN_CALLTIPCLICK` instead
+    ///
+    pub const OnSCN_CALLTIPCLICK = onSCN_CALLTIPCLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, direction: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_CALLTIPCLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_CALLTIPCLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9219,6 +9381,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_CHARADDED(self: QsciScintilla, charadded: i32) void {
         qtc.QsciScintillaBase_SCN_CHARADDED(@ptrCast(self.ptr), @bitCast(charadded));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_CHARADDED` instead
+    ///
+    pub const OnSCN_CHARADDED = onSCN_CHARADDED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, charadded: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_CHARADDED(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_CHARADDED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9239,6 +9419,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_DOUBLECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(line), @bitCast(modifiers));
     }
 
+    /// ### DEPRECATED: Use `onSCN_DOUBLECLICK` instead
+    ///
+    pub const OnSCN_DOUBLECLICK = onSCN_DOUBLECLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, line: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_DOUBLECLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_DOUBLECLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9255,6 +9453,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_DWELLEND(self: QsciScintilla, position: i32, _x: i32, _y: i32) void {
         qtc.QsciScintillaBase_SCN_DWELLEND(@ptrCast(self.ptr), @bitCast(position), @bitCast(_x), @bitCast(_y));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_DWELLEND` instead
+    ///
+    pub const OnSCN_DWELLEND = onSCN_DWELLEND;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, x: i32, y: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_DWELLEND(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_DWELLEND(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9275,6 +9491,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_DWELLSTART(@ptrCast(self.ptr), @bitCast(position), @bitCast(_x), @bitCast(_y));
     }
 
+    /// ### DEPRECATED: Use `onSCN_DWELLSTART` instead
+    ///
+    pub const OnSCN_DWELLSTART = onSCN_DWELLSTART;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, x: i32, y: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_DWELLSTART(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_DWELLSTART(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9287,6 +9521,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_FOCUSIN(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSCN_FOCUSIN` instead
+    ///
+    pub const OnSCN_FOCUSIN = onSCN_FOCUSIN;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_FOCUSIN(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_FOCUSIN(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9297,6 +9549,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_FOCUSOUT(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_FOCUSOUT(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_FOCUSOUT` instead
+    ///
+    pub const OnSCN_FOCUSOUT = onSCN_FOCUSOUT;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_FOCUSOUT(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_FOCUSOUT(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9315,6 +9585,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_HOTSPOTCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
+    /// ### DEPRECATED: Use `onSCN_HOTSPOTCLICK` instead
+    ///
+    pub const OnSCN_HOTSPOTCLICK = onSCN_HOTSPOTCLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_HOTSPOTCLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_HOTSPOTCLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9329,6 +9617,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_HOTSPOTDOUBLECLICK(self: QsciScintilla, position: i32, modifiers: i32) void {
         qtc.QsciScintillaBase_SCN_HOTSPOTDOUBLECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_HOTSPOTDOUBLECLICK` instead
+    ///
+    pub const OnSCN_HOTSPOTDOUBLECLICK = onSCN_HOTSPOTDOUBLECLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_HOTSPOTDOUBLECLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_HOTSPOTDOUBLECLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9347,6 +9653,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_HOTSPOTRELEASECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
+    /// ### DEPRECATED: Use `onSCN_HOTSPOTRELEASECLICK` instead
+    ///
+    pub const OnSCN_HOTSPOTRELEASECLICK = onSCN_HOTSPOTRELEASECLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_HOTSPOTRELEASECLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_HOTSPOTRELEASECLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9363,6 +9687,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_INDICATORCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
+    /// ### DEPRECATED: Use `onSCN_INDICATORCLICK` instead
+    ///
+    pub const OnSCN_INDICATORCLICK = onSCN_INDICATORCLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_INDICATORCLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_INDICATORCLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9377,6 +9719,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_INDICATORRELEASE(self: QsciScintilla, position: i32, modifiers: i32) void {
         qtc.QsciScintillaBase_SCN_INDICATORRELEASE(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_INDICATORRELEASE` instead
+    ///
+    pub const OnSCN_INDICATORRELEASE = onSCN_INDICATORRELEASE;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_INDICATORRELEASE(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_INDICATORRELEASE(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9397,6 +9757,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `onSCN_MACRORECORD` instead
+    ///
+    pub const OnSCN_MACRORECORD = onSCN_MACRORECORD;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, param1: u32, param2: usize, param3: ?*anyopaque) callconv(.c) void `
+    ///
+    pub fn onSCN_MACRORECORD(self: QsciScintilla, callback: *const fn (QsciScintilla, u32, usize, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_MACRORECORD(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9415,6 +9793,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_MARGINCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
     }
 
+    /// ### DEPRECATED: Use `onSCN_MARGINCLICK` instead
+    ///
+    pub const OnSCN_MARGINCLICK = onSCN_MARGINCLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32, margin: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_MARGINCLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_MARGINCLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9431,6 +9827,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_MARGINRIGHTCLICK(self: QsciScintilla, position: i32, modifiers: i32, margin: i32) void {
         qtc.QsciScintillaBase_SCN_MARGINRIGHTCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_MARGINRIGHTCLICK` instead
+    ///
+    pub const OnSCN_MARGINRIGHTCLICK = onSCN_MARGINRIGHTCLICK;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32, modifiers: i32, margin: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_MARGINRIGHTCLICK(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_MARGINRIGHTCLICK(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9466,6 +9880,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_MODIFIED(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), param3_Cstring, @bitCast(param4), @bitCast(param5), @bitCast(param6), @bitCast(param7), @bitCast(param8), @bitCast(param9), @bitCast(param10));
     }
 
+    /// ### DEPRECATED: Use `onSCN_MODIFIED` instead
+    ///
+    pub const OnSCN_MODIFIED = onSCN_MODIFIED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, param1: i32, param2: i32, param3: [*:0]const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_MODIFIED(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, [*:0]const u8, i32, i32, i32, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_MODIFIED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9476,6 +9908,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_MODIFYATTEMPTRO(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_MODIFYATTEMPTRO(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_MODIFYATTEMPTRO` instead
+    ///
+    pub const OnSCN_MODIFYATTEMPTRO = onSCN_MODIFYATTEMPTRO;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_MODIFYATTEMPTRO(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_MODIFYATTEMPTRO(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9494,6 +9944,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_NEEDSHOWN(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
+    /// ### DEPRECATED: Use `onSCN_NEEDSHOWN` instead
+    ///
+    pub const OnSCN_NEEDSHOWN = onSCN_NEEDSHOWN;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, param1: i32, param2: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_NEEDSHOWN(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_NEEDSHOWN(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9504,6 +9972,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_PAINTED(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_PAINTED(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_PAINTED` instead
+    ///
+    pub const OnSCN_PAINTED = onSCN_PAINTED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_PAINTED(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_PAINTED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9518,6 +10004,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_SAVEPOINTLEFT(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSCN_SAVEPOINTLEFT` instead
+    ///
+    pub const OnSCN_SAVEPOINTLEFT = onSCN_SAVEPOINTLEFT;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_SAVEPOINTLEFT(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_SAVEPOINTLEFT(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9528,6 +10032,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_SAVEPOINTREACHED(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_SAVEPOINTREACHED(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_SAVEPOINTREACHED` instead
+    ///
+    pub const OnSCN_SAVEPOINTREACHED = onSCN_SAVEPOINTREACHED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_SAVEPOINTREACHED(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_SAVEPOINTREACHED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9542,6 +10064,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_STYLENEEDED(self: QsciScintilla, position: i32) void {
         qtc.QsciScintillaBase_SCN_STYLENEEDED(@ptrCast(self.ptr), @bitCast(position));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_STYLENEEDED` instead
+    ///
+    pub const OnSCN_STYLENEEDED = onSCN_STYLENEEDED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, position: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_STYLENEEDED(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_STYLENEEDED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9559,6 +10099,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_URIDROPPED(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSCN_URIDROPPED` instead
+    ///
+    pub const OnSCN_URIDROPPED = onSCN_URIDROPPED;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, url: QUrl) callconv(.c) void `
+    ///
+    pub fn onSCN_URIDROPPED(self: QsciScintilla, callback: *const fn (QsciScintilla, QUrl) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_URIDROPPED(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9571,6 +10129,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_UPDATEUI(self: QsciScintilla, updated: i32) void {
         qtc.QsciScintillaBase_SCN_UPDATEUI(@ptrCast(self.ptr), @bitCast(updated));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_UPDATEUI` instead
+    ///
+    pub const OnSCN_UPDATEUI = onSCN_UPDATEUI;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, updated: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_UPDATEUI(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_UPDATEUI(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -9596,6 +10172,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method), @bitCast(position));
     }
 
+    /// ### DEPRECATED: Use `onSCN_USERLISTSELECTION` instead
+    ///
+    pub const OnSCN_USERLISTSELECTION = onSCN_USERLISTSELECTION;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, id: i32, ch: i32, method: i32, position: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_USERLISTSELECTION(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_USERLISTSELECTION(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9617,6 +10211,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION2(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method));
     }
 
+    /// ### DEPRECATED: Use `onSCN_USERLISTSELECTION2` instead
+    ///
+    pub const OnSCN_USERLISTSELECTION2 = onSCN_USERLISTSELECTION2;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, id: i32, ch: i32, method: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_USERLISTSELECTION2(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_USERLISTSELECTION2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9634,6 +10246,24 @@ pub const QsciScintilla = extern struct {
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION3(@ptrCast(self.ptr), selection_Cstring, @bitCast(id));
     }
 
+    /// ### DEPRECATED: Use `onSCN_USERLISTSELECTION3` instead
+    ///
+    pub const OnSCN_USERLISTSELECTION3 = onSCN_USERLISTSELECTION3;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, selection: [*:0]const u8, id: i32) callconv(.c) void `
+    ///
+    pub fn onSCN_USERLISTSELECTION3(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_USERLISTSELECTION3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -9644,6 +10274,24 @@ pub const QsciScintilla = extern struct {
     ///
     pub fn SCN_ZOOM(self: QsciScintilla) void {
         qtc.QsciScintillaBase_SCN_ZOOM(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `onSCN_ZOOM` instead
+    ///
+    pub const OnSCN_ZOOM = onSCN_ZOOM;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
+    ///
+    pub fn onSCN_ZOOM(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintillaBase_Connect_SCN_ZOOM(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase

@@ -227,9 +227,11 @@ void KPropertiesDialog_PropertiesClosed(KPropertiesDialog* self) {
 
 void KPropertiesDialog_Connect_PropertiesClosed(KPropertiesDialog* self, intptr_t slot) {
     void (*slotFunc)(KPropertiesDialog*) = reinterpret_cast<void (*)(KPropertiesDialog*)>(slot);
-    KPropertiesDialog::connect(self, &KPropertiesDialog::propertiesClosed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KPropertiesDialog::connect(self,
+                               static_cast<void (KPropertiesDialog::*)()>(&KPropertiesDialog::propertiesClosed),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KPropertiesDialog_Applied(KPropertiesDialog* self) {
@@ -238,9 +240,11 @@ void KPropertiesDialog_Applied(KPropertiesDialog* self) {
 
 void KPropertiesDialog_Connect_Applied(KPropertiesDialog* self, intptr_t slot) {
     void (*slotFunc)(KPropertiesDialog*) = reinterpret_cast<void (*)(KPropertiesDialog*)>(slot);
-    KPropertiesDialog::connect(self, &KPropertiesDialog::applied, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KPropertiesDialog::connect(self,
+                               static_cast<void (KPropertiesDialog::*)()>(&KPropertiesDialog::applied),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KPropertiesDialog_Canceled(KPropertiesDialog* self) {
@@ -249,9 +253,11 @@ void KPropertiesDialog_Canceled(KPropertiesDialog* self) {
 
 void KPropertiesDialog_Connect_Canceled(KPropertiesDialog* self, intptr_t slot) {
     void (*slotFunc)(KPropertiesDialog*) = reinterpret_cast<void (*)(KPropertiesDialog*)>(slot);
-    KPropertiesDialog::connect(self, &KPropertiesDialog::canceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KPropertiesDialog::connect(self,
+                               static_cast<void (KPropertiesDialog::*)()>(&KPropertiesDialog::canceled),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KPropertiesDialog_SaveAs(KPropertiesDialog* self, const QUrl* oldUrl, QUrl* newUrl) {
@@ -260,15 +266,17 @@ void KPropertiesDialog_SaveAs(KPropertiesDialog* self, const QUrl* oldUrl, QUrl*
 
 void KPropertiesDialog_Connect_SaveAs(KPropertiesDialog* self, intptr_t slot) {
     void (*slotFunc)(KPropertiesDialog*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KPropertiesDialog*, QUrl*, QUrl*)>(slot);
-    KPropertiesDialog::connect(self, &KPropertiesDialog::saveAs, [self, slotFunc](const QUrl& oldUrl, QUrl& newUrl) {
-        const QUrl& oldUrl_ret = oldUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
-        QUrl& newUrl_ret = newUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = &newUrl_ret;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KPropertiesDialog::connect(self,
+                               static_cast<void (KPropertiesDialog::*)(const QUrl&, QUrl&)>(&KPropertiesDialog::saveAs),
+                               [self, slotFunc](const QUrl& oldUrl, QUrl& newUrl) {
+                                   const QUrl& oldUrl_ret = oldUrl;
+                                   // Cast returned reference into pointer
+                                   QUrl* sigval1 = const_cast<QUrl*>(&oldUrl_ret);
+                                   QUrl& newUrl_ret = newUrl;
+                                   // Cast returned reference into pointer
+                                   QUrl* sigval2 = &newUrl_ret;
+                                   slotFunc(self, sigval1, sigval2);
+                               });
 }
 
 libqt_string KPropertiesDialog_Tr2(const char* s, const char* c) {

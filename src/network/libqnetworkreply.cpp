@@ -195,9 +195,11 @@ void QNetworkReply_SocketStartedConnecting(QNetworkReply* self) {
 
 void QNetworkReply_Connect_SocketStartedConnecting(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::socketStartedConnecting, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::socketStartedConnecting),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_RequestSent(QNetworkReply* self) {
@@ -206,9 +208,11 @@ void QNetworkReply_RequestSent(QNetworkReply* self) {
 
 void QNetworkReply_Connect_RequestSent(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::requestSent, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::requestSent),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_MetaDataChanged(QNetworkReply* self) {
@@ -217,9 +221,11 @@ void QNetworkReply_MetaDataChanged(QNetworkReply* self) {
 
 void QNetworkReply_Connect_MetaDataChanged(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::metaDataChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::metaDataChanged),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_Finished(QNetworkReply* self) {
@@ -228,9 +234,11 @@ void QNetworkReply_Finished(QNetworkReply* self) {
 
 void QNetworkReply_Connect_Finished(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::finished),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_ErrorOccurred(QNetworkReply* self, int param1) {
@@ -239,10 +247,12 @@ void QNetworkReply_ErrorOccurred(QNetworkReply* self, int param1) {
 
 void QNetworkReply_Connect_ErrorOccurred(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, int) = reinterpret_cast<void (*)(QNetworkReply*, int)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::errorOccurred, [self, slotFunc](QNetworkReply::NetworkError param1) {
-        int sigval1 = static_cast<int>(param1);
-        slotFunc(self, sigval1);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::errorOccurred),
+                           [self, slotFunc](QNetworkReply::NetworkError param1) {
+                               int sigval1 = static_cast<int>(param1);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QNetworkReply_Encrypted(QNetworkReply* self) {
@@ -251,9 +261,11 @@ void QNetworkReply_Encrypted(QNetworkReply* self) {
 
 void QNetworkReply_Connect_Encrypted(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::encrypted, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::encrypted),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_SslErrors(QNetworkReply* self, const libqt_list /* of QSslError* */ errors) {
@@ -268,20 +280,22 @@ void QNetworkReply_SslErrors(QNetworkReply* self, const libqt_list /* of QSslErr
 
 void QNetworkReply_Connect_SslErrors(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
-        const QList<QSslError>& errors_ret = errors;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
-        for (qsizetype i = 0; i < errors_ret.size(); ++i) {
-            errors_arr[i] = new QSslError(errors_ret[i]);
-        }
-        libqt_list errors_out;
-        errors_out.len = errors_ret.size();
-        errors_out.data = static_cast<void*>(errors_arr);
-        libqt_list /* of QSslError* */ sigval1 = errors_out;
-        slotFunc(self, sigval1);
-        free(errors_arr);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(const QList<QSslError>&)>(&QNetworkReply::sslErrors),
+                           [self, slotFunc](const QList<QSslError>& errors) {
+                               const QList<QSslError>& errors_ret = errors;
+                               // Convert QList<> from C++ memory to manually-managed C memory
+                               QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size())));
+                               for (qsizetype i = 0; i < errors_ret.size(); ++i) {
+                                   errors_arr[i] = new QSslError(errors_ret[i]);
+                               }
+                               libqt_list errors_out;
+                               errors_out.len = errors_ret.size();
+                               errors_out.data = static_cast<void*>(errors_arr);
+                               libqt_list /* of QSslError* */ sigval1 = errors_out;
+                               slotFunc(self, sigval1);
+                               free(errors_arr);
+                           });
 }
 
 void QNetworkReply_PreSharedKeyAuthenticationRequired(QNetworkReply* self, QSslPreSharedKeyAuthenticator* authenticator) {
@@ -290,10 +304,12 @@ void QNetworkReply_PreSharedKeyAuthenticationRequired(QNetworkReply* self, QSslP
 
 void QNetworkReply_Connect_PreSharedKeyAuthenticationRequired(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, QSslPreSharedKeyAuthenticator*) = reinterpret_cast<void (*)(QNetworkReply*, QSslPreSharedKeyAuthenticator*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::preSharedKeyAuthenticationRequired, [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
-        QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
-        slotFunc(self, sigval1);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(QSslPreSharedKeyAuthenticator*)>(&QNetworkReply::preSharedKeyAuthenticationRequired),
+                           [self, slotFunc](QSslPreSharedKeyAuthenticator* authenticator) {
+                               QSslPreSharedKeyAuthenticator* sigval1 = authenticator;
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QNetworkReply_Redirected(QNetworkReply* self, const QUrl* url) {
@@ -302,12 +318,14 @@ void QNetworkReply_Redirected(QNetworkReply* self, const QUrl* url) {
 
 void QNetworkReply_Connect_Redirected(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, QUrl*) = reinterpret_cast<void (*)(QNetworkReply*, QUrl*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::redirected, [self, slotFunc](const QUrl& url) {
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(const QUrl&)>(&QNetworkReply::redirected),
+                           [self, slotFunc](const QUrl& url) {
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QNetworkReply_RedirectAllowed(QNetworkReply* self) {
@@ -316,9 +334,11 @@ void QNetworkReply_RedirectAllowed(QNetworkReply* self) {
 
 void QNetworkReply_Connect_RedirectAllowed(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*) = reinterpret_cast<void (*)(QNetworkReply*)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::redirectAllowed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)()>(&QNetworkReply::redirectAllowed),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QNetworkReply_UploadProgress(QNetworkReply* self, long long bytesSent, long long bytesTotal) {
@@ -327,11 +347,13 @@ void QNetworkReply_UploadProgress(QNetworkReply* self, long long bytesSent, long
 
 void QNetworkReply_Connect_UploadProgress(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, long long, long long) = reinterpret_cast<void (*)(QNetworkReply*, long long, long long)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::uploadProgress, [self, slotFunc](qint64 bytesSent, qint64 bytesTotal) {
-        long long sigval1 = static_cast<long long>(bytesSent);
-        long long sigval2 = static_cast<long long>(bytesTotal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(qint64, qint64)>(&QNetworkReply::uploadProgress),
+                           [self, slotFunc](qint64 bytesSent, qint64 bytesTotal) {
+                               long long sigval1 = static_cast<long long>(bytesSent);
+                               long long sigval2 = static_cast<long long>(bytesTotal);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void QNetworkReply_DownloadProgress(QNetworkReply* self, long long bytesReceived, long long bytesTotal) {
@@ -340,11 +362,13 @@ void QNetworkReply_DownloadProgress(QNetworkReply* self, long long bytesReceived
 
 void QNetworkReply_Connect_DownloadProgress(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, long long, long long) = reinterpret_cast<void (*)(QNetworkReply*, long long, long long)>(slot);
-    QNetworkReply::connect(self, &QNetworkReply::downloadProgress, [self, slotFunc](qint64 bytesReceived, qint64 bytesTotal) {
-        long long sigval1 = static_cast<long long>(bytesReceived);
-        long long sigval2 = static_cast<long long>(bytesTotal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    QNetworkReply::connect(self,
+                           static_cast<void (QNetworkReply::*)(qint64, qint64)>(&QNetworkReply::downloadProgress),
+                           [self, slotFunc](qint64 bytesReceived, qint64 bytesTotal) {
+                               long long sigval1 = static_cast<long long>(bytesReceived);
+                               long long sigval2 = static_cast<long long>(bytesTotal);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 libqt_string QNetworkReply_Tr2(const char* s, const char* c) {

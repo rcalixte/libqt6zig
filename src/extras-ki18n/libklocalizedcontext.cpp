@@ -299,18 +299,20 @@ void KLocalizedContext_TranslationDomainChanged(KLocalizedContext* self, const l
 
 void KLocalizedContext_Connect_TranslationDomainChanged(KLocalizedContext* self, intptr_t slot) {
     void (*slotFunc)(KLocalizedContext*, const char*) = reinterpret_cast<void (*)(KLocalizedContext*, const char*)>(slot);
-    KLocalizedContext::connect(self, &KLocalizedContext::translationDomainChanged, [self, slotFunc](const QString& translationDomain) {
-        const auto translationDomain_ret = translationDomain;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray translationDomain_b = translationDomain_ret.toUtf8();
-        auto translationDomain_str_len = translationDomain_b.length();
-        const char* translationDomain_str = static_cast<const char*>(malloc(translationDomain_str_len + 1));
-        memcpy((void*)translationDomain_str, translationDomain_b.data(), translationDomain_str_len);
-        ((char*)translationDomain_str)[translationDomain_str_len] = '\0';
-        const char* sigval1 = translationDomain_str;
-        slotFunc(self, sigval1);
-        libqt_free(translationDomain_str);
-    });
+    KLocalizedContext::connect(self,
+                               static_cast<void (KLocalizedContext::*)(const QString&)>(&KLocalizedContext::translationDomainChanged),
+                               [self, slotFunc](const QString& translationDomain) {
+                                   const auto translationDomain_ret = translationDomain;
+                                   // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                   QByteArray translationDomain_b = translationDomain_ret.toUtf8();
+                                   auto translationDomain_str_len = translationDomain_b.length();
+                                   const char* translationDomain_str = static_cast<const char*>(malloc(translationDomain_str_len + 1));
+                                   memcpy((void*)translationDomain_str, translationDomain_b.data(), translationDomain_str_len);
+                                   ((char*)translationDomain_str)[translationDomain_str_len] = '\0';
+                                   const char* sigval1 = translationDomain_str;
+                                   slotFunc(self, sigval1);
+                                   libqt_free(translationDomain_str);
+                               });
 }
 
 libqt_string KLocalizedContext_Tr2(const char* s, const char* c) {

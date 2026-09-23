@@ -45,10 +45,12 @@ void KSignalHandler_SignalReceived(KSignalHandler* self, int signal) {
 
 void KSignalHandler_Connect_SignalReceived(KSignalHandler* self, intptr_t slot) {
     void (*slotFunc)(KSignalHandler*, int) = reinterpret_cast<void (*)(KSignalHandler*, int)>(slot);
-    KSignalHandler::connect(self, &KSignalHandler::signalReceived, [self, slotFunc](int signal) {
-        int sigval1 = signal;
-        slotFunc(self, sigval1);
-    });
+    KSignalHandler::connect(self,
+                            static_cast<void (KSignalHandler::*)(int)>(&KSignalHandler::signalReceived),
+                            [self, slotFunc](int signal) {
+                                int sigval1 = signal;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 libqt_string KSignalHandler_Tr2(const char* s, const char* c) {

@@ -251,10 +251,12 @@ void QBarSet_Clicked(QBarSet* self, int index) {
 
 void QBarSet_Connect_Clicked(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int) = reinterpret_cast<void (*)(QBarSet*, int)>(slot);
-    QBarSet::connect(self, &QBarSet::clicked, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int)>(&QBarSet::clicked),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_Hovered(QBarSet* self, bool status, int index) {
@@ -263,11 +265,13 @@ void QBarSet_Hovered(QBarSet* self, bool status, int index) {
 
 void QBarSet_Connect_Hovered(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, bool, int) = reinterpret_cast<void (*)(QBarSet*, bool, int)>(slot);
-    QBarSet::connect(self, &QBarSet::hovered, [self, slotFunc](bool status, int index) {
-        bool sigval1 = status;
-        int sigval2 = index;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(bool, int)>(&QBarSet::hovered),
+                     [self, slotFunc](bool status, int index) {
+                         bool sigval1 = status;
+                         int sigval2 = index;
+                         slotFunc(self, sigval1, sigval2);
+                     });
 }
 
 void QBarSet_Pressed(QBarSet* self, int index) {
@@ -276,10 +280,12 @@ void QBarSet_Pressed(QBarSet* self, int index) {
 
 void QBarSet_Connect_Pressed(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int) = reinterpret_cast<void (*)(QBarSet*, int)>(slot);
-    QBarSet::connect(self, &QBarSet::pressed, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int)>(&QBarSet::pressed),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_Released(QBarSet* self, int index) {
@@ -288,10 +294,12 @@ void QBarSet_Released(QBarSet* self, int index) {
 
 void QBarSet_Connect_Released(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int) = reinterpret_cast<void (*)(QBarSet*, int)>(slot);
-    QBarSet::connect(self, &QBarSet::released, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int)>(&QBarSet::released),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_DoubleClicked(QBarSet* self, int index) {
@@ -300,10 +308,12 @@ void QBarSet_DoubleClicked(QBarSet* self, int index) {
 
 void QBarSet_Connect_DoubleClicked(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int) = reinterpret_cast<void (*)(QBarSet*, int)>(slot);
-    QBarSet::connect(self, &QBarSet::doubleClicked, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int)>(&QBarSet::doubleClicked),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_PenChanged(QBarSet* self) {
@@ -312,9 +322,11 @@ void QBarSet_PenChanged(QBarSet* self) {
 
 void QBarSet_Connect_PenChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*) = reinterpret_cast<void (*)(QBarSet*)>(slot);
-    QBarSet::connect(self, &QBarSet::penChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)()>(&QBarSet::penChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBarSet_BrushChanged(QBarSet* self) {
@@ -323,9 +335,11 @@ void QBarSet_BrushChanged(QBarSet* self) {
 
 void QBarSet_Connect_BrushChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*) = reinterpret_cast<void (*)(QBarSet*)>(slot);
-    QBarSet::connect(self, &QBarSet::brushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)()>(&QBarSet::brushChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBarSet_LabelChanged(QBarSet* self) {
@@ -334,9 +348,11 @@ void QBarSet_LabelChanged(QBarSet* self) {
 
 void QBarSet_Connect_LabelChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*) = reinterpret_cast<void (*)(QBarSet*)>(slot);
-    QBarSet::connect(self, &QBarSet::labelChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)()>(&QBarSet::labelChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBarSet_LabelBrushChanged(QBarSet* self) {
@@ -345,9 +361,11 @@ void QBarSet_LabelBrushChanged(QBarSet* self) {
 
 void QBarSet_Connect_LabelBrushChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*) = reinterpret_cast<void (*)(QBarSet*)>(slot);
-    QBarSet::connect(self, &QBarSet::labelBrushChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)()>(&QBarSet::labelBrushChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBarSet_LabelFontChanged(QBarSet* self) {
@@ -356,9 +374,11 @@ void QBarSet_LabelFontChanged(QBarSet* self) {
 
 void QBarSet_Connect_LabelFontChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*) = reinterpret_cast<void (*)(QBarSet*)>(slot);
-    QBarSet::connect(self, &QBarSet::labelFontChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)()>(&QBarSet::labelFontChanged),
+                     [self, slotFunc]() {
+                         slotFunc(self);
+                     });
 }
 
 void QBarSet_ColorChanged(QBarSet* self, QColor* color) {
@@ -367,10 +387,12 @@ void QBarSet_ColorChanged(QBarSet* self, QColor* color) {
 
 void QBarSet_Connect_ColorChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, QColor*) = reinterpret_cast<void (*)(QBarSet*, QColor*)>(slot);
-    QBarSet::connect(self, &QBarSet::colorChanged, [self, slotFunc](QColor color) {
-        QColor* sigval1 = new QColor(color);
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(QColor)>(&QBarSet::colorChanged),
+                     [self, slotFunc](QColor color) {
+                         QColor* sigval1 = new QColor(color);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_BorderColorChanged(QBarSet* self, QColor* color) {
@@ -379,10 +401,12 @@ void QBarSet_BorderColorChanged(QBarSet* self, QColor* color) {
 
 void QBarSet_Connect_BorderColorChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, QColor*) = reinterpret_cast<void (*)(QBarSet*, QColor*)>(slot);
-    QBarSet::connect(self, &QBarSet::borderColorChanged, [self, slotFunc](QColor color) {
-        QColor* sigval1 = new QColor(color);
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(QColor)>(&QBarSet::borderColorChanged),
+                     [self, slotFunc](QColor color) {
+                         QColor* sigval1 = new QColor(color);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_LabelColorChanged(QBarSet* self, QColor* color) {
@@ -391,10 +415,12 @@ void QBarSet_LabelColorChanged(QBarSet* self, QColor* color) {
 
 void QBarSet_Connect_LabelColorChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, QColor*) = reinterpret_cast<void (*)(QBarSet*, QColor*)>(slot);
-    QBarSet::connect(self, &QBarSet::labelColorChanged, [self, slotFunc](QColor color) {
-        QColor* sigval1 = new QColor(color);
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(QColor)>(&QBarSet::labelColorChanged),
+                     [self, slotFunc](QColor color) {
+                         QColor* sigval1 = new QColor(color);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_SelectedColorChanged(QBarSet* self, const QColor* color) {
@@ -403,12 +429,14 @@ void QBarSet_SelectedColorChanged(QBarSet* self, const QColor* color) {
 
 void QBarSet_Connect_SelectedColorChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, QColor*) = reinterpret_cast<void (*)(QBarSet*, QColor*)>(slot);
-    QBarSet::connect(self, &QBarSet::selectedColorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(const QColor&)>(&QBarSet::selectedColorChanged),
+                     [self, slotFunc](const QColor& color) {
+                         const QColor& color_ret = color;
+                         // Cast returned reference into pointer
+                         QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_ValuesAdded(QBarSet* self, int index, int count) {
@@ -417,11 +445,13 @@ void QBarSet_ValuesAdded(QBarSet* self, int index, int count) {
 
 void QBarSet_Connect_ValuesAdded(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int, int) = reinterpret_cast<void (*)(QBarSet*, int, int)>(slot);
-    QBarSet::connect(self, &QBarSet::valuesAdded, [self, slotFunc](int index, int count) {
-        int sigval1 = index;
-        int sigval2 = count;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesAdded),
+                     [self, slotFunc](int index, int count) {
+                         int sigval1 = index;
+                         int sigval2 = count;
+                         slotFunc(self, sigval1, sigval2);
+                     });
 }
 
 void QBarSet_ValuesRemoved(QBarSet* self, int index, int count) {
@@ -430,11 +460,13 @@ void QBarSet_ValuesRemoved(QBarSet* self, int index, int count) {
 
 void QBarSet_Connect_ValuesRemoved(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int, int) = reinterpret_cast<void (*)(QBarSet*, int, int)>(slot);
-    QBarSet::connect(self, &QBarSet::valuesRemoved, [self, slotFunc](int index, int count) {
-        int sigval1 = index;
-        int sigval2 = count;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesRemoved),
+                     [self, slotFunc](int index, int count) {
+                         int sigval1 = index;
+                         int sigval2 = count;
+                         slotFunc(self, sigval1, sigval2);
+                     });
 }
 
 void QBarSet_ValueChanged(QBarSet* self, int index) {
@@ -443,10 +475,12 @@ void QBarSet_ValueChanged(QBarSet* self, int index) {
 
 void QBarSet_Connect_ValueChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, int) = reinterpret_cast<void (*)(QBarSet*, int)>(slot);
-    QBarSet::connect(self, &QBarSet::valueChanged, [self, slotFunc](int index) {
-        int sigval1 = index;
-        slotFunc(self, sigval1);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(int)>(&QBarSet::valueChanged),
+                     [self, slotFunc](int index) {
+                         int sigval1 = index;
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QBarSet_SelectedBarsChanged(QBarSet* self, const libqt_list /* of int */ indexes) {
@@ -461,20 +495,22 @@ void QBarSet_SelectedBarsChanged(QBarSet* self, const libqt_list /* of int */ in
 
 void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, libqt_list /* of int */) = reinterpret_cast<void (*)(QBarSet*, libqt_list /* of int */)>(slot);
-    QBarSet::connect(self, &QBarSet::selectedBarsChanged, [self, slotFunc](const QList<int>& indexes) {
-        const QList<int>& indexes_ret = indexes;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * (indexes_ret.size())));
-        for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
-            indexes_arr[i] = indexes_ret[i];
-        }
-        libqt_list indexes_out;
-        indexes_out.len = indexes_ret.size();
-        indexes_out.data = static_cast<void*>(indexes_arr);
-        libqt_list /* of int */ sigval1 = indexes_out;
-        slotFunc(self, sigval1);
-        free(indexes_arr);
-    });
+    QBarSet::connect(self,
+                     static_cast<void (QBarSet::*)(const QList<int>&)>(&QBarSet::selectedBarsChanged),
+                     [self, slotFunc](const QList<int>& indexes) {
+                         const QList<int>& indexes_ret = indexes;
+                         // Convert QList<> from C++ memory to manually-managed C memory
+                         int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * (indexes_ret.size())));
+                         for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
+                             indexes_arr[i] = indexes_ret[i];
+                         }
+                         libqt_list indexes_out;
+                         indexes_out.len = indexes_ret.size();
+                         indexes_out.data = static_cast<void*>(indexes_arr);
+                         libqt_list /* of int */ sigval1 = indexes_out;
+                         slotFunc(self, sigval1);
+                         free(indexes_arr);
+                     });
 }
 
 libqt_string QBarSet_Tr2(const char* s, const char* c) {

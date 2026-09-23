@@ -135,10 +135,12 @@ void QAudioSink_StateChanged(QAudioSink* self, int state) {
 
 void QAudioSink_Connect_StateChanged(QAudioSink* self, intptr_t slot) {
     void (*slotFunc)(QAudioSink*, int) = reinterpret_cast<void (*)(QAudioSink*, int)>(slot);
-    QAudioSink::connect(self, &QAudioSink::stateChanged, [self, slotFunc](QAudio::State state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QAudioSink::connect(self,
+                        static_cast<void (QAudioSink::*)(QAudio::State)>(&QAudioSink::stateChanged),
+                        [self, slotFunc](QAudio::State state) {
+                            int sigval1 = static_cast<int>(state);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QAudioSink_Tr2(const char* s, const char* c) {

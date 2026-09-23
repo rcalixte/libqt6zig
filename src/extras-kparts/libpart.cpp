@@ -101,18 +101,20 @@ void KParts__Part_SetWindowCaption(KParts__Part* self, const libqt_string captio
 
 void KParts__Part_Connect_SetWindowCaption(KParts__Part* self, intptr_t slot) {
     void (*slotFunc)(KParts__Part*, const char*) = reinterpret_cast<void (*)(KParts__Part*, const char*)>(slot);
-    KParts::Part::connect(self, &KParts::Part::setWindowCaption, [self, slotFunc](const QString& caption) {
-        const auto caption_ret = caption;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray caption_b = caption_ret.toUtf8();
-        auto caption_str_len = caption_b.length();
-        const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
-        memcpy((void*)caption_str, caption_b.data(), caption_str_len);
-        ((char*)caption_str)[caption_str_len] = '\0';
-        const char* sigval1 = caption_str;
-        slotFunc(self, sigval1);
-        libqt_free(caption_str);
-    });
+    KParts::Part::connect(self,
+                          static_cast<void (KParts::Part::*)(const QString&)>(&KParts::Part::setWindowCaption),
+                          [self, slotFunc](const QString& caption) {
+                              const auto caption_ret = caption;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray caption_b = caption_ret.toUtf8();
+                              auto caption_str_len = caption_b.length();
+                              const char* caption_str = static_cast<const char*>(malloc(caption_str_len + 1));
+                              memcpy((void*)caption_str, caption_b.data(), caption_str_len);
+                              ((char*)caption_str)[caption_str_len] = '\0';
+                              const char* sigval1 = caption_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(caption_str);
+                          });
 }
 
 void KParts__Part_SetStatusBarText(KParts__Part* self, const libqt_string text) {
@@ -122,18 +124,20 @@ void KParts__Part_SetStatusBarText(KParts__Part* self, const libqt_string text) 
 
 void KParts__Part_Connect_SetStatusBarText(KParts__Part* self, intptr_t slot) {
     void (*slotFunc)(KParts__Part*, const char*) = reinterpret_cast<void (*)(KParts__Part*, const char*)>(slot);
-    KParts::Part::connect(self, &KParts::Part::setStatusBarText, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KParts::Part::connect(self,
+                          static_cast<void (KParts::Part::*)(const QString&)>(&KParts::Part::setStatusBarText),
+                          [self, slotFunc](const QString& text) {
+                              const auto text_ret = text;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray text_b = text_ret.toUtf8();
+                              auto text_str_len = text_b.length();
+                              const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                              memcpy((void*)text_str, text_b.data(), text_str_len);
+                              ((char*)text_str)[text_str_len] = '\0';
+                              const char* sigval1 = text_str;
+                              slotFunc(self, sigval1);
+                              libqt_free(text_str);
+                          });
 }
 
 void KParts__Part_SetWidget(KParts__Part* self, QWidget* widget) {

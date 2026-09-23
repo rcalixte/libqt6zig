@@ -274,8 +274,38 @@ void QCompleter_Activated(QCompleter* self, const libqt_string text) {
     self->activated(text_QString);
 }
 
+void QCompleter_Connect_Activated(QCompleter* self, intptr_t slot) {
+    void (*slotFunc)(QCompleter*, const char*) = reinterpret_cast<void (*)(QCompleter*, const char*)>(slot);
+    QCompleter::connect(self,
+                        static_cast<void (QCompleter::*)(const QString&)>(&QCompleter::activated),
+                        [self, slotFunc](const QString& text) {
+                            const auto text_ret = text;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray text_b = text_ret.toUtf8();
+                            auto text_str_len = text_b.length();
+                            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                            memcpy((void*)text_str, text_b.data(), text_str_len);
+                            ((char*)text_str)[text_str_len] = '\0';
+                            const char* sigval1 = text_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(text_str);
+                        });
+}
+
 void QCompleter_Activated2(QCompleter* self, const QModelIndex* index) {
     self->activated(*index);
+}
+
+void QCompleter_Connect_Activated2(QCompleter* self, intptr_t slot) {
+    void (*slotFunc)(QCompleter*, QModelIndex*) = reinterpret_cast<void (*)(QCompleter*, QModelIndex*)>(slot);
+    QCompleter::connect(self,
+                        static_cast<void (QCompleter::*)(const QModelIndex&)>(&QCompleter::activated),
+                        [self, slotFunc](const QModelIndex& index) {
+                            const QModelIndex& index_ret = index;
+                            // Cast returned reference into pointer
+                            QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 void QCompleter_Highlighted(QCompleter* self, const libqt_string text) {
@@ -283,8 +313,38 @@ void QCompleter_Highlighted(QCompleter* self, const libqt_string text) {
     self->highlighted(text_QString);
 }
 
+void QCompleter_Connect_Highlighted(QCompleter* self, intptr_t slot) {
+    void (*slotFunc)(QCompleter*, const char*) = reinterpret_cast<void (*)(QCompleter*, const char*)>(slot);
+    QCompleter::connect(self,
+                        static_cast<void (QCompleter::*)(const QString&)>(&QCompleter::highlighted),
+                        [self, slotFunc](const QString& text) {
+                            const auto text_ret = text;
+                            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                            QByteArray text_b = text_ret.toUtf8();
+                            auto text_str_len = text_b.length();
+                            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                            memcpy((void*)text_str, text_b.data(), text_str_len);
+                            ((char*)text_str)[text_str_len] = '\0';
+                            const char* sigval1 = text_str;
+                            slotFunc(self, sigval1);
+                            libqt_free(text_str);
+                        });
+}
+
 void QCompleter_Highlighted2(QCompleter* self, const QModelIndex* index) {
     self->highlighted(*index);
+}
+
+void QCompleter_Connect_Highlighted2(QCompleter* self, intptr_t slot) {
+    void (*slotFunc)(QCompleter*, QModelIndex*) = reinterpret_cast<void (*)(QCompleter*, QModelIndex*)>(slot);
+    QCompleter::connect(self,
+                        static_cast<void (QCompleter::*)(const QModelIndex&)>(&QCompleter::highlighted),
+                        [self, slotFunc](const QModelIndex& index) {
+                            const QModelIndex& index_ret = index;
+                            // Cast returned reference into pointer
+                            QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QCompleter_Tr2(const char* s, const char* c) {

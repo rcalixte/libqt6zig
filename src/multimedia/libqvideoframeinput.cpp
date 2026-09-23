@@ -71,9 +71,11 @@ void QVideoFrameInput_ReadyToSendVideoFrame(QVideoFrameInput* self) {
 
 void QVideoFrameInput_Connect_ReadyToSendVideoFrame(QVideoFrameInput* self, intptr_t slot) {
     void (*slotFunc)(QVideoFrameInput*) = reinterpret_cast<void (*)(QVideoFrameInput*)>(slot);
-    QVideoFrameInput::connect(self, &QVideoFrameInput::readyToSendVideoFrame, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QVideoFrameInput::connect(self,
+                              static_cast<void (QVideoFrameInput::*)()>(&QVideoFrameInput::readyToSendVideoFrame),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string QVideoFrameInput_Tr2(const char* s, const char* c) {

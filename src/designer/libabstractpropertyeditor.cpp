@@ -101,21 +101,23 @@ void QDesignerPropertyEditorInterface_PropertyChanged(QDesignerPropertyEditorInt
 
 void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerPropertyEditorInterface*, const char*, QVariant*) = reinterpret_cast<void (*)(QDesignerPropertyEditorInterface*, const char*, QVariant*)>(slot);
-    QDesignerPropertyEditorInterface::connect(self, &QDesignerPropertyEditorInterface::propertyChanged, [self, slotFunc](const QString& name, const QVariant& value) {
-        const auto name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray name_b = name_ret.toUtf8();
-        auto name_str_len = name_b.length();
-        const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
-        memcpy((void*)name_str, name_b.data(), name_str_len);
-        ((char*)name_str)[name_str_len] = '\0';
-        const char* sigval1 = name_str;
-        const QVariant& value_ret = value;
-        // Cast returned reference into pointer
-        QVariant* sigval2 = const_cast<QVariant*>(&value_ret);
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(name_str);
-    });
+    QDesignerPropertyEditorInterface::connect(self,
+                                              static_cast<void (QDesignerPropertyEditorInterface::*)(const QString&, const QVariant&)>(&QDesignerPropertyEditorInterface::propertyChanged),
+                                              [self, slotFunc](const QString& name, const QVariant& value) {
+                                                  const auto name_ret = name;
+                                                  // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                  QByteArray name_b = name_ret.toUtf8();
+                                                  auto name_str_len = name_b.length();
+                                                  const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                                  memcpy((void*)name_str, name_b.data(), name_str_len);
+                                                  ((char*)name_str)[name_str_len] = '\0';
+                                                  const char* sigval1 = name_str;
+                                                  const QVariant& value_ret = value;
+                                                  // Cast returned reference into pointer
+                                                  QVariant* sigval2 = const_cast<QVariant*>(&value_ret);
+                                                  slotFunc(self, sigval1, sigval2);
+                                                  libqt_free(name_str);
+                                              });
 }
 
 void QDesignerPropertyEditorInterface_SetObject(QDesignerPropertyEditorInterface* self, QObject* object) {

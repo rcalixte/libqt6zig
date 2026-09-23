@@ -88,12 +88,14 @@ void QDBusServer_NewConnection(QDBusServer* self, const QDBusConnection* connect
 
 void QDBusServer_Connect_NewConnection(QDBusServer* self, intptr_t slot) {
     void (*slotFunc)(QDBusServer*, QDBusConnection*) = reinterpret_cast<void (*)(QDBusServer*, QDBusConnection*)>(slot);
-    QDBusServer::connect(self, &QDBusServer::newConnection, [self, slotFunc](const QDBusConnection& connection) {
-        const QDBusConnection& connection_ret = connection;
-        // Cast returned reference into pointer
-        QDBusConnection* sigval1 = const_cast<QDBusConnection*>(&connection_ret);
-        slotFunc(self, sigval1);
-    });
+    QDBusServer::connect(self,
+                         static_cast<void (QDBusServer::*)(const QDBusConnection&)>(&QDBusServer::newConnection),
+                         [self, slotFunc](const QDBusConnection& connection) {
+                             const QDBusConnection& connection_ret = connection;
+                             // Cast returned reference into pointer
+                             QDBusConnection* sigval1 = const_cast<QDBusConnection*>(&connection_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string QDBusServer_Tr2(const char* s, const char* c) {

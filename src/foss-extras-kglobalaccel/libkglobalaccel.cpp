@@ -170,13 +170,15 @@ void KGlobalAccel_GlobalShortcutChanged(KGlobalAccel* self, QAction* action, con
 
 void KGlobalAccel_Connect_GlobalShortcutChanged(KGlobalAccel* self, intptr_t slot) {
     void (*slotFunc)(KGlobalAccel*, QAction*, QKeySequence*) = reinterpret_cast<void (*)(KGlobalAccel*, QAction*, QKeySequence*)>(slot);
-    KGlobalAccel::connect(self, &KGlobalAccel::globalShortcutChanged, [self, slotFunc](QAction* action, const QKeySequence& seq) {
-        QAction* sigval1 = action;
-        const QKeySequence& seq_ret = seq;
-        // Cast returned reference into pointer
-        QKeySequence* sigval2 = const_cast<QKeySequence*>(&seq_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KGlobalAccel::connect(self,
+                          static_cast<void (KGlobalAccel::*)(QAction*, const QKeySequence&)>(&KGlobalAccel::globalShortcutChanged),
+                          [self, slotFunc](QAction* action, const QKeySequence& seq) {
+                              QAction* sigval1 = action;
+                              const QKeySequence& seq_ret = seq;
+                              // Cast returned reference into pointer
+                              QKeySequence* sigval2 = const_cast<QKeySequence*>(&seq_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KGlobalAccel_GlobalShortcutActiveChanged(KGlobalAccel* self, QAction* action, bool active) {
@@ -185,11 +187,13 @@ void KGlobalAccel_GlobalShortcutActiveChanged(KGlobalAccel* self, QAction* actio
 
 void KGlobalAccel_Connect_GlobalShortcutActiveChanged(KGlobalAccel* self, intptr_t slot) {
     void (*slotFunc)(KGlobalAccel*, QAction*, bool) = reinterpret_cast<void (*)(KGlobalAccel*, QAction*, bool)>(slot);
-    KGlobalAccel::connect(self, &KGlobalAccel::globalShortcutActiveChanged, [self, slotFunc](QAction* action, bool active) {
-        QAction* sigval1 = action;
-        bool sigval2 = active;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KGlobalAccel::connect(self,
+                          static_cast<void (KGlobalAccel::*)(QAction*, bool)>(&KGlobalAccel::globalShortcutActiveChanged),
+                          [self, slotFunc](QAction* action, bool active) {
+                              QAction* sigval1 = action;
+                              bool sigval2 = active;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 libqt_string KGlobalAccel_Tr2(const char* s, const char* c) {

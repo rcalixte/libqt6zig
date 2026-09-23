@@ -110,12 +110,14 @@ void KKeySequenceRecorder_GotKeySequence(KKeySequenceRecorder* self, const QKeyS
 
 void KKeySequenceRecorder_Connect_GotKeySequence(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*, QKeySequence*) = reinterpret_cast<void (*)(KKeySequenceRecorder*, QKeySequence*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::gotKeySequence, [self, slotFunc](const QKeySequence& keySequence) {
-        const QKeySequence& keySequence_ret = keySequence;
-        // Cast returned reference into pointer
-        QKeySequence* sigval1 = const_cast<QKeySequence*>(&keySequence_ret);
-        slotFunc(self, sigval1);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)(const QKeySequence&)>(&KKeySequenceRecorder::gotKeySequence),
+                                  [self, slotFunc](const QKeySequence& keySequence) {
+                                      const QKeySequence& keySequence_ret = keySequence;
+                                      // Cast returned reference into pointer
+                                      QKeySequence* sigval1 = const_cast<QKeySequence*>(&keySequence_ret);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void KKeySequenceRecorder_RecordingChanged(KKeySequenceRecorder* self) {
@@ -124,9 +126,11 @@ void KKeySequenceRecorder_RecordingChanged(KKeySequenceRecorder* self) {
 
 void KKeySequenceRecorder_Connect_RecordingChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::recordingChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::recordingChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_WindowChanged(KKeySequenceRecorder* self) {
@@ -135,9 +139,11 @@ void KKeySequenceRecorder_WindowChanged(KKeySequenceRecorder* self) {
 
 void KKeySequenceRecorder_Connect_WindowChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::windowChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::windowChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_CurrentKeySequenceChanged(KKeySequenceRecorder* self) {
@@ -146,9 +152,11 @@ void KKeySequenceRecorder_CurrentKeySequenceChanged(KKeySequenceRecorder* self) 
 
 void KKeySequenceRecorder_Connect_CurrentKeySequenceChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::currentKeySequenceChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::currentKeySequenceChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_MultiKeyShortcutsAllowedChanged(KKeySequenceRecorder* self) {
@@ -157,9 +165,11 @@ void KKeySequenceRecorder_MultiKeyShortcutsAllowedChanged(KKeySequenceRecorder* 
 
 void KKeySequenceRecorder_Connect_MultiKeyShortcutsAllowedChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::multiKeyShortcutsAllowedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::multiKeyShortcutsAllowedChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_ModifierlessAllowedChanged(KKeySequenceRecorder* self) {
@@ -168,9 +178,11 @@ void KKeySequenceRecorder_ModifierlessAllowedChanged(KKeySequenceRecorder* self)
 
 void KKeySequenceRecorder_Connect_ModifierlessAllowedChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::modifierlessAllowedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::modifierlessAllowedChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self) {
@@ -179,9 +191,11 @@ void KKeySequenceRecorder_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self)
 
 void KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::modifierOnlyAllowedChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::modifierOnlyAllowedChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 void KKeySequenceRecorder_PatternsChanged(KKeySequenceRecorder* self) {
@@ -190,9 +204,11 @@ void KKeySequenceRecorder_PatternsChanged(KKeySequenceRecorder* self) {
 
 void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, intptr_t slot) {
     void (*slotFunc)(KKeySequenceRecorder*) = reinterpret_cast<void (*)(KKeySequenceRecorder*)>(slot);
-    KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::patternsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KKeySequenceRecorder::connect(self,
+                                  static_cast<void (KKeySequenceRecorder::*)()>(&KKeySequenceRecorder::patternsChanged),
+                                  [self, slotFunc]() {
+                                      slotFunc(self);
+                                  });
 }
 
 libqt_string KKeySequenceRecorder_Tr2(const char* s, const char* c) {

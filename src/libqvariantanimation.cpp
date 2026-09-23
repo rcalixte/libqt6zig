@@ -128,12 +128,14 @@ void QVariantAnimation_ValueChanged(QVariantAnimation* self, const QVariant* val
 
 void QVariantAnimation_Connect_ValueChanged(QVariantAnimation* self, intptr_t slot) {
     void (*slotFunc)(QVariantAnimation*, QVariant*) = reinterpret_cast<void (*)(QVariantAnimation*, QVariant*)>(slot);
-    QVariantAnimation::connect(self, &QVariantAnimation::valueChanged, [self, slotFunc](const QVariant& value) {
-        const QVariant& value_ret = value;
-        // Cast returned reference into pointer
-        QVariant* sigval1 = const_cast<QVariant*>(&value_ret);
-        slotFunc(self, sigval1);
-    });
+    QVariantAnimation::connect(self,
+                               static_cast<void (QVariantAnimation::*)(const QVariant&)>(&QVariantAnimation::valueChanged),
+                               [self, slotFunc](const QVariant& value) {
+                                   const QVariant& value_ret = value;
+                                   // Cast returned reference into pointer
+                                   QVariant* sigval1 = const_cast<QVariant*>(&value_ret);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 bool QVariantAnimation_Event(QVariantAnimation* self, QEvent* event) {

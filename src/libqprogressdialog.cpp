@@ -203,9 +203,11 @@ void QProgressDialog_Canceled(QProgressDialog* self) {
 
 void QProgressDialog_Connect_Canceled(QProgressDialog* self, intptr_t slot) {
     void (*slotFunc)(QProgressDialog*) = reinterpret_cast<void (*)(QProgressDialog*)>(slot);
-    QProgressDialog::connect(self, &QProgressDialog::canceled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QProgressDialog::connect(self,
+                             static_cast<void (QProgressDialog::*)()>(&QProgressDialog::canceled),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event) {

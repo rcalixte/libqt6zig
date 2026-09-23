@@ -94,10 +94,12 @@ void QPdfPageNavigator_CurrentPageChanged(QPdfPageNavigator* self, int page) {
 
 void QPdfPageNavigator_Connect_CurrentPageChanged(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, int) = reinterpret_cast<void (*)(QPdfPageNavigator*, int)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::currentPageChanged, [self, slotFunc](int page) {
-        int sigval1 = page;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(int)>(&QPdfPageNavigator::currentPageChanged),
+                               [self, slotFunc](int page) {
+                                   int sigval1 = page;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QPdfPageNavigator_CurrentLocationChanged(QPdfPageNavigator* self, QPointF* location) {
@@ -106,10 +108,12 @@ void QPdfPageNavigator_CurrentLocationChanged(QPdfPageNavigator* self, QPointF* 
 
 void QPdfPageNavigator_Connect_CurrentLocationChanged(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, QPointF*) = reinterpret_cast<void (*)(QPdfPageNavigator*, QPointF*)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::currentLocationChanged, [self, slotFunc](QPointF location) {
-        QPointF* sigval1 = new QPointF(location);
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(QPointF)>(&QPdfPageNavigator::currentLocationChanged),
+                               [self, slotFunc](QPointF location) {
+                                   QPointF* sigval1 = new QPointF(location);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QPdfPageNavigator_CurrentZoomChanged(QPdfPageNavigator* self, double zoom) {
@@ -118,10 +122,12 @@ void QPdfPageNavigator_CurrentZoomChanged(QPdfPageNavigator* self, double zoom) 
 
 void QPdfPageNavigator_Connect_CurrentZoomChanged(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, double) = reinterpret_cast<void (*)(QPdfPageNavigator*, double)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::currentZoomChanged, [self, slotFunc](qreal zoom) {
-        double sigval1 = static_cast<double>(zoom);
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(qreal)>(&QPdfPageNavigator::currentZoomChanged),
+                               [self, slotFunc](qreal zoom) {
+                                   double sigval1 = static_cast<double>(zoom);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QPdfPageNavigator_BackAvailableChanged(QPdfPageNavigator* self, bool available) {
@@ -130,10 +136,12 @@ void QPdfPageNavigator_BackAvailableChanged(QPdfPageNavigator* self, bool availa
 
 void QPdfPageNavigator_Connect_BackAvailableChanged(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, bool) = reinterpret_cast<void (*)(QPdfPageNavigator*, bool)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::backAvailableChanged, [self, slotFunc](bool available) {
-        bool sigval1 = available;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(bool)>(&QPdfPageNavigator::backAvailableChanged),
+                               [self, slotFunc](bool available) {
+                                   bool sigval1 = available;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QPdfPageNavigator_ForwardAvailableChanged(QPdfPageNavigator* self, bool available) {
@@ -142,10 +150,12 @@ void QPdfPageNavigator_ForwardAvailableChanged(QPdfPageNavigator* self, bool ava
 
 void QPdfPageNavigator_Connect_ForwardAvailableChanged(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, bool) = reinterpret_cast<void (*)(QPdfPageNavigator*, bool)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::forwardAvailableChanged, [self, slotFunc](bool available) {
-        bool sigval1 = available;
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(bool)>(&QPdfPageNavigator::forwardAvailableChanged),
+                               [self, slotFunc](bool available) {
+                                   bool sigval1 = available;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void QPdfPageNavigator_Jumped(QPdfPageNavigator* self, QPdfLink* current) {
@@ -154,10 +164,12 @@ void QPdfPageNavigator_Jumped(QPdfPageNavigator* self, QPdfLink* current) {
 
 void QPdfPageNavigator_Connect_Jumped(QPdfPageNavigator* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageNavigator*, QPdfLink*) = reinterpret_cast<void (*)(QPdfPageNavigator*, QPdfLink*)>(slot);
-    QPdfPageNavigator::connect(self, &QPdfPageNavigator::jumped, [self, slotFunc](QPdfLink current) {
-        QPdfLink* sigval1 = new QPdfLink(current);
-        slotFunc(self, sigval1);
-    });
+    QPdfPageNavigator::connect(self,
+                               static_cast<void (QPdfPageNavigator::*)(QPdfLink)>(&QPdfPageNavigator::jumped),
+                               [self, slotFunc](QPdfLink current) {
+                                   QPdfLink* sigval1 = new QPdfLink(current);
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 libqt_string QPdfPageNavigator_Tr2(const char* s, const char* c) {

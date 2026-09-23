@@ -139,10 +139,12 @@ void QToolButton_Triggered(QToolButton* self, QAction* param1) {
 
 void QToolButton_Connect_Triggered(QToolButton* self, intptr_t slot) {
     void (*slotFunc)(QToolButton*, QAction*) = reinterpret_cast<void (*)(QToolButton*, QAction*)>(slot);
-    QToolButton::connect(self, &QToolButton::triggered, [self, slotFunc](QAction* param1) {
-        QAction* sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QToolButton::connect(self,
+                         static_cast<void (QToolButton::*)(QAction*)>(&QToolButton::triggered),
+                         [self, slotFunc](QAction* param1) {
+                             QAction* sigval1 = param1;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 bool QToolButton_Event(QToolButton* self, QEvent* e) {

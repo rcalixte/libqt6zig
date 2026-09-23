@@ -191,9 +191,11 @@ void KUnitConversion__UpdateJob_Finished(KUnitConversion__UpdateJob* self) {
 
 void KUnitConversion__UpdateJob_Connect_Finished(KUnitConversion__UpdateJob* self, intptr_t slot) {
     void (*slotFunc)(KUnitConversion__UpdateJob*) = reinterpret_cast<void (*)(KUnitConversion__UpdateJob*)>(slot);
-    KUnitConversion::UpdateJob::connect(self, &KUnitConversion::UpdateJob::finished, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KUnitConversion::UpdateJob::connect(self,
+                                        static_cast<void (KUnitConversion::UpdateJob::*)()>(&KUnitConversion::UpdateJob::finished),
+                                        [self, slotFunc]() {
+                                            slotFunc(self);
+                                        });
 }
 
 libqt_string KUnitConversion__UpdateJob_Tr2(const char* s, const char* c) {

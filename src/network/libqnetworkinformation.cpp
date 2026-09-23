@@ -121,10 +121,12 @@ void QNetworkInformation_ReachabilityChanged(QNetworkInformation* self, int newR
 
 void QNetworkInformation_Connect_ReachabilityChanged(QNetworkInformation* self, intptr_t slot) {
     void (*slotFunc)(QNetworkInformation*, int) = reinterpret_cast<void (*)(QNetworkInformation*, int)>(slot);
-    QNetworkInformation::connect(self, &QNetworkInformation::reachabilityChanged, [self, slotFunc](QNetworkInformation::Reachability newReachability) {
-        int sigval1 = static_cast<int>(newReachability);
-        slotFunc(self, sigval1);
-    });
+    QNetworkInformation::connect(self,
+                                 static_cast<void (QNetworkInformation::*)(QNetworkInformation::Reachability)>(&QNetworkInformation::reachabilityChanged),
+                                 [self, slotFunc](QNetworkInformation::Reachability newReachability) {
+                                     int sigval1 = static_cast<int>(newReachability);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QNetworkInformation_IsBehindCaptivePortalChanged(QNetworkInformation* self, bool state) {
@@ -133,10 +135,12 @@ void QNetworkInformation_IsBehindCaptivePortalChanged(QNetworkInformation* self,
 
 void QNetworkInformation_Connect_IsBehindCaptivePortalChanged(QNetworkInformation* self, intptr_t slot) {
     void (*slotFunc)(QNetworkInformation*, bool) = reinterpret_cast<void (*)(QNetworkInformation*, bool)>(slot);
-    QNetworkInformation::connect(self, &QNetworkInformation::isBehindCaptivePortalChanged, [self, slotFunc](bool state) {
-        bool sigval1 = state;
-        slotFunc(self, sigval1);
-    });
+    QNetworkInformation::connect(self,
+                                 static_cast<void (QNetworkInformation::*)(bool)>(&QNetworkInformation::isBehindCaptivePortalChanged),
+                                 [self, slotFunc](bool state) {
+                                     bool sigval1 = state;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QNetworkInformation_TransportMediumChanged(QNetworkInformation* self, int current) {
@@ -145,10 +149,12 @@ void QNetworkInformation_TransportMediumChanged(QNetworkInformation* self, int c
 
 void QNetworkInformation_Connect_TransportMediumChanged(QNetworkInformation* self, intptr_t slot) {
     void (*slotFunc)(QNetworkInformation*, int) = reinterpret_cast<void (*)(QNetworkInformation*, int)>(slot);
-    QNetworkInformation::connect(self, &QNetworkInformation::transportMediumChanged, [self, slotFunc](QNetworkInformation::TransportMedium current) {
-        int sigval1 = static_cast<int>(current);
-        slotFunc(self, sigval1);
-    });
+    QNetworkInformation::connect(self,
+                                 static_cast<void (QNetworkInformation::*)(QNetworkInformation::TransportMedium)>(&QNetworkInformation::transportMediumChanged),
+                                 [self, slotFunc](QNetworkInformation::TransportMedium current) {
+                                     int sigval1 = static_cast<int>(current);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QNetworkInformation_IsMeteredChanged(QNetworkInformation* self, bool isMetered) {
@@ -157,10 +163,12 @@ void QNetworkInformation_IsMeteredChanged(QNetworkInformation* self, bool isMete
 
 void QNetworkInformation_Connect_IsMeteredChanged(QNetworkInformation* self, intptr_t slot) {
     void (*slotFunc)(QNetworkInformation*, bool) = reinterpret_cast<void (*)(QNetworkInformation*, bool)>(slot);
-    QNetworkInformation::connect(self, &QNetworkInformation::isMeteredChanged, [self, slotFunc](bool isMetered) {
-        bool sigval1 = isMetered;
-        slotFunc(self, sigval1);
-    });
+    QNetworkInformation::connect(self,
+                                 static_cast<void (QNetworkInformation::*)(bool)>(&QNetworkInformation::isMeteredChanged),
+                                 [self, slotFunc](bool isMetered) {
+                                     bool sigval1 = isMetered;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 libqt_string QNetworkInformation_Tr2(const char* s, const char* c) {

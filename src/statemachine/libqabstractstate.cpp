@@ -52,10 +52,12 @@ void QAbstractState_ActiveChanged(QAbstractState* self, bool active) {
 
 void QAbstractState_Connect_ActiveChanged(QAbstractState* self, intptr_t slot) {
     void (*slotFunc)(QAbstractState*, bool) = reinterpret_cast<void (*)(QAbstractState*, bool)>(slot);
-    QAbstractState::connect(self, &QAbstractState::activeChanged, [self, slotFunc](bool active) {
-        bool sigval1 = active;
-        slotFunc(self, sigval1);
-    });
+    QAbstractState::connect(self,
+                            static_cast<void (QAbstractState::*)(bool)>(&QAbstractState::activeChanged),
+                            [self, slotFunc](bool active) {
+                                bool sigval1 = active;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 libqt_string QAbstractState_Tr2(const char* s, const char* c) {

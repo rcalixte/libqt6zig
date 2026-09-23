@@ -121,9 +121,11 @@ void QOpenGLWindow_FrameSwapped(QOpenGLWindow* self) {
 
 void QOpenGLWindow_Connect_FrameSwapped(QOpenGLWindow* self, intptr_t slot) {
     void (*slotFunc)(QOpenGLWindow*) = reinterpret_cast<void (*)(QOpenGLWindow*)>(slot);
-    QOpenGLWindow::connect(self, &QOpenGLWindow::frameSwapped, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QOpenGLWindow::connect(self,
+                           static_cast<void (QOpenGLWindow::*)()>(&QOpenGLWindow::frameSwapped),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void QOpenGLWindow_InitializeGL(QOpenGLWindow* self) {

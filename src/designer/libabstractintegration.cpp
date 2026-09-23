@@ -149,16 +149,94 @@ void QDesignerIntegrationInterface_PropertyChanged(QDesignerIntegrationInterface
     self->propertyChanged(formWindow, name_QString, *value);
 }
 
+void QDesignerIntegrationInterface_Connect_PropertyChanged(QDesignerIntegrationInterface* self, intptr_t slot) {
+    void (*slotFunc)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*, const char*, QVariant*) = reinterpret_cast<void (*)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*, const char*, QVariant*)>(slot);
+    QDesignerIntegrationInterface::connect(self,
+                                           static_cast<void (QDesignerIntegrationInterface::*)(QDesignerFormWindowInterface*, const QString&, const QVariant&)>(&QDesignerIntegrationInterface::propertyChanged),
+                                           [self, slotFunc](QDesignerFormWindowInterface* formWindow, const QString& name, const QVariant& value) {
+                                               QDesignerFormWindowInterface* sigval1 = formWindow;
+                                               const auto name_ret = name;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray name_b = name_ret.toUtf8();
+                                               auto name_str_len = name_b.length();
+                                               const char* name_str = static_cast<const char*>(malloc(name_str_len + 1));
+                                               memcpy((void*)name_str, name_b.data(), name_str_len);
+                                               ((char*)name_str)[name_str_len] = '\0';
+                                               const char* sigval2 = name_str;
+                                               const QVariant& value_ret = value;
+                                               // Cast returned reference into pointer
+                                               QVariant* sigval3 = const_cast<QVariant*>(&value_ret);
+                                               slotFunc(self, sigval1, sigval2, sigval3);
+                                               libqt_free(name_str);
+                                           });
+}
+
 void QDesignerIntegrationInterface_ObjectNameChanged(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow, QObject* object, const libqt_string newName, const libqt_string oldName) {
     QString newName_QString = QString::fromUtf8(newName.data, newName.len);
     QString oldName_QString = QString::fromUtf8(oldName.data, oldName.len);
     self->objectNameChanged(formWindow, object, newName_QString, oldName_QString);
 }
 
+void QDesignerIntegrationInterface_Connect_ObjectNameChanged(QDesignerIntegrationInterface* self, intptr_t slot) {
+    void (*slotFunc)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*, QObject*, const char*, const char*) = reinterpret_cast<void (*)(QDesignerIntegrationInterface*, QDesignerFormWindowInterface*, QObject*, const char*, const char*)>(slot);
+    QDesignerIntegrationInterface::connect(self,
+                                           static_cast<void (QDesignerIntegrationInterface::*)(QDesignerFormWindowInterface*, QObject*, const QString&, const QString&)>(&QDesignerIntegrationInterface::objectNameChanged),
+                                           [self, slotFunc](QDesignerFormWindowInterface* formWindow, QObject* object, const QString& newName, const QString& oldName) {
+                                               QDesignerFormWindowInterface* sigval1 = formWindow;
+                                               QObject* sigval2 = object;
+                                               const auto newName_ret = newName;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray newName_b = newName_ret.toUtf8();
+                                               auto newName_str_len = newName_b.length();
+                                               const char* newName_str = static_cast<const char*>(malloc(newName_str_len + 1));
+                                               memcpy((void*)newName_str, newName_b.data(), newName_str_len);
+                                               ((char*)newName_str)[newName_str_len] = '\0';
+                                               const char* sigval3 = newName_str;
+                                               const auto oldName_ret = oldName;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray oldName_b = oldName_ret.toUtf8();
+                                               auto oldName_str_len = oldName_b.length();
+                                               const char* oldName_str = static_cast<const char*>(malloc(oldName_str_len + 1));
+                                               memcpy((void*)oldName_str, oldName_b.data(), oldName_str_len);
+                                               ((char*)oldName_str)[oldName_str_len] = '\0';
+                                               const char* sigval4 = oldName_str;
+                                               slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                                               libqt_free(newName_str);
+                                               libqt_free(oldName_str);
+                                           });
+}
+
 void QDesignerIntegrationInterface_HelpRequested(QDesignerIntegrationInterface* self, const libqt_string manual, const libqt_string document) {
     QString manual_QString = QString::fromUtf8(manual.data, manual.len);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     self->helpRequested(manual_QString, document_QString);
+}
+
+void QDesignerIntegrationInterface_Connect_HelpRequested(QDesignerIntegrationInterface* self, intptr_t slot) {
+    void (*slotFunc)(QDesignerIntegrationInterface*, const char*, const char*) = reinterpret_cast<void (*)(QDesignerIntegrationInterface*, const char*, const char*)>(slot);
+    QDesignerIntegrationInterface::connect(self,
+                                           static_cast<void (QDesignerIntegrationInterface::*)(const QString&, const QString&)>(&QDesignerIntegrationInterface::helpRequested),
+                                           [self, slotFunc](const QString& manual, const QString& document) {
+                                               const auto manual_ret = manual;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray manual_b = manual_ret.toUtf8();
+                                               auto manual_str_len = manual_b.length();
+                                               const char* manual_str = static_cast<const char*>(malloc(manual_str_len + 1));
+                                               memcpy((void*)manual_str, manual_b.data(), manual_str_len);
+                                               ((char*)manual_str)[manual_str_len] = '\0';
+                                               const char* sigval1 = manual_str;
+                                               const auto document_ret = document;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray document_b = document_ret.toUtf8();
+                                               auto document_str_len = document_b.length();
+                                               const char* document_str = static_cast<const char*>(malloc(document_str_len + 1));
+                                               memcpy((void*)document_str, document_b.data(), document_str_len);
+                                               ((char*)document_str)[document_str_len] = '\0';
+                                               const char* sigval2 = document_str;
+                                               slotFunc(self, sigval1, sigval2);
+                                               libqt_free(manual_str);
+                                               libqt_free(document_str);
+                                           });
 }
 
 void QDesignerIntegrationInterface_NavigateToSlot(QDesignerIntegrationInterface* self, const libqt_string objectName, const libqt_string signalSignature, const libqt_list /* of libqt_string */ parameterNames) {
@@ -174,9 +252,69 @@ void QDesignerIntegrationInterface_NavigateToSlot(QDesignerIntegrationInterface*
     self->navigateToSlot(objectName_QString, signalSignature_QString, parameterNames_QList);
 }
 
+void QDesignerIntegrationInterface_Connect_NavigateToSlot(QDesignerIntegrationInterface* self, intptr_t slot) {
+    void (*slotFunc)(QDesignerIntegrationInterface*, const char*, const char*, const char**) = reinterpret_cast<void (*)(QDesignerIntegrationInterface*, const char*, const char*, const char**)>(slot);
+    QDesignerIntegrationInterface::connect(self,
+                                           static_cast<void (QDesignerIntegrationInterface::*)(const QString&, const QString&, const QList<QString>&)>(&QDesignerIntegrationInterface::navigateToSlot),
+                                           [self, slotFunc](const QString& objectName, const QString& signalSignature, const QList<QString>& parameterNames) {
+                                               const auto objectName_ret = objectName;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray objectName_b = objectName_ret.toUtf8();
+                                               auto objectName_str_len = objectName_b.length();
+                                               const char* objectName_str = static_cast<const char*>(malloc(objectName_str_len + 1));
+                                               memcpy((void*)objectName_str, objectName_b.data(), objectName_str_len);
+                                               ((char*)objectName_str)[objectName_str_len] = '\0';
+                                               const char* sigval1 = objectName_str;
+                                               const auto signalSignature_ret = signalSignature;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray signalSignature_b = signalSignature_ret.toUtf8();
+                                               auto signalSignature_str_len = signalSignature_b.length();
+                                               const char* signalSignature_str = static_cast<const char*>(malloc(signalSignature_str_len + 1));
+                                               memcpy((void*)signalSignature_str, signalSignature_b.data(), signalSignature_str_len);
+                                               ((char*)signalSignature_str)[signalSignature_str_len] = '\0';
+                                               const char* sigval2 = signalSignature_str;
+                                               const QList<QString>& parameterNames_ret = parameterNames;
+                                               // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                               const char** parameterNames_arr = static_cast<const char**>(malloc(sizeof(const char*) * (parameterNames_ret.size() + 1)));
+                                               for (qsizetype i = 0; i < parameterNames_ret.size(); ++i) {
+                                                   QByteArray parameterNames_b = parameterNames_ret[i].toUtf8();
+                                                   auto parameterNames_str_len = parameterNames_b.length();
+                                                   char* parameterNames_str = static_cast<char*>(malloc(parameterNames_str_len + 1));
+                                                   memcpy(parameterNames_str, parameterNames_b.data(), parameterNames_str_len);
+                                                   parameterNames_str[parameterNames_str_len] = '\0';
+                                                   parameterNames_arr[i] = parameterNames_str;
+                                               }
+                                               // Append sentinel null terminator to the list
+                                               parameterNames_arr[parameterNames_ret.size()] = nullptr;
+                                               const char** sigval3 = parameterNames_arr;
+                                               slotFunc(self, sigval1, sigval2, sigval3);
+                                               libqt_free(objectName_str);
+                                               libqt_free(signalSignature_str);
+                                               libqt_free(parameterNames_arr);
+                                           });
+}
+
 void QDesignerIntegrationInterface_NavigateToSlot2(QDesignerIntegrationInterface* self, const libqt_string slotSignature) {
     QString slotSignature_QString = QString::fromUtf8(slotSignature.data, slotSignature.len);
     self->navigateToSlot(slotSignature_QString);
+}
+
+void QDesignerIntegrationInterface_Connect_NavigateToSlot2(QDesignerIntegrationInterface* self, intptr_t slot) {
+    void (*slotFunc)(QDesignerIntegrationInterface*, const char*) = reinterpret_cast<void (*)(QDesignerIntegrationInterface*, const char*)>(slot);
+    QDesignerIntegrationInterface::connect(self,
+                                           static_cast<void (QDesignerIntegrationInterface::*)(const QString&)>(&QDesignerIntegrationInterface::navigateToSlot),
+                                           [self, slotFunc](const QString& slotSignature) {
+                                               const auto slotSignature_ret = slotSignature;
+                                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                               QByteArray slotSignature_b = slotSignature_ret.toUtf8();
+                                               auto slotSignature_str_len = slotSignature_b.length();
+                                               const char* slotSignature_str = static_cast<const char*>(malloc(slotSignature_str_len + 1));
+                                               memcpy((void*)slotSignature_str, slotSignature_b.data(), slotSignature_str_len);
+                                               ((char*)slotSignature_str)[slotSignature_str_len] = '\0';
+                                               const char* sigval1 = slotSignature_str;
+                                               slotFunc(self, sigval1);
+                                               libqt_free(slotSignature_str);
+                                           });
 }
 
 void QDesignerIntegrationInterface_SetFeatures(QDesignerIntegrationInterface* self, int f) {

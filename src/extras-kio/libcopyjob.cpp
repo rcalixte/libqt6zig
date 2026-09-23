@@ -88,11 +88,13 @@ void KIO__CopyJob_ProcessedFiles(KIO__CopyJob* self, KIO__Job* job, unsigned lon
 
 void KIO__CopyJob_Connect_ProcessedFiles(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, unsigned long) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, unsigned long)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::processedFiles, [self, slotFunc](KIO::Job* job, unsigned long files) {
-        KIO__Job* sigval1 = job;
-        unsigned long sigval2 = files;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, unsigned long)>(&KIO::CopyJob::processedFiles),
+                          [self, slotFunc](KIO::Job* job, unsigned long files) {
+                              KIO__Job* sigval1 = job;
+                              unsigned long sigval2 = files;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KIO__CopyJob_ProcessedDirs(KIO__CopyJob* self, KIO__Job* job, unsigned long dirs) {
@@ -101,11 +103,13 @@ void KIO__CopyJob_ProcessedDirs(KIO__CopyJob* self, KIO__Job* job, unsigned long
 
 void KIO__CopyJob_Connect_ProcessedDirs(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, unsigned long) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, unsigned long)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::processedDirs, [self, slotFunc](KIO::Job* job, unsigned long dirs) {
-        KIO__Job* sigval1 = job;
-        unsigned long sigval2 = dirs;
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, unsigned long)>(&KIO::CopyJob::processedDirs),
+                          [self, slotFunc](KIO::Job* job, unsigned long dirs) {
+                              KIO__Job* sigval1 = job;
+                              unsigned long sigval2 = dirs;
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KIO__CopyJob_Copying(KIO__CopyJob* self, KIO__Job* job, const QUrl* src, const QUrl* dest) {
@@ -114,16 +118,18 @@ void KIO__CopyJob_Copying(KIO__CopyJob* self, KIO__Job* job, const QUrl* src, co
 
 void KIO__CopyJob_Connect_Copying(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::copying, [self, slotFunc](KIO::Job* job, const QUrl& src, const QUrl& dest) {
-        KIO__Job* sigval1 = job;
-        const QUrl& src_ret = src;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&src_ret);
-        const QUrl& dest_ret = dest;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&dest_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&, const QUrl&)>(&KIO::CopyJob::copying),
+                          [self, slotFunc](KIO::Job* job, const QUrl& src, const QUrl& dest) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& src_ret = src;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&src_ret);
+                              const QUrl& dest_ret = dest;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&dest_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                          });
 }
 
 void KIO__CopyJob_Linking(KIO__CopyJob* self, KIO__Job* job, const libqt_string target, const QUrl* to) {
@@ -133,22 +139,24 @@ void KIO__CopyJob_Linking(KIO__CopyJob* self, KIO__Job* job, const libqt_string 
 
 void KIO__CopyJob_Connect_Linking(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, const char*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, const char*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::linking, [self, slotFunc](KIO::Job* job, const QString& target, const QUrl& to) {
-        KIO__Job* sigval1 = job;
-        const auto target_ret = target;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray target_b = target_ret.toUtf8();
-        auto target_str_len = target_b.length();
-        const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
-        memcpy((void*)target_str, target_b.data(), target_str_len);
-        ((char*)target_str)[target_str_len] = '\0';
-        const char* sigval2 = target_str;
-        const QUrl& to_ret = to;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(target_str);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QString&, const QUrl&)>(&KIO::CopyJob::linking),
+                          [self, slotFunc](KIO::Job* job, const QString& target, const QUrl& to) {
+                              KIO__Job* sigval1 = job;
+                              const auto target_ret = target;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray target_b = target_ret.toUtf8();
+                              auto target_str_len = target_b.length();
+                              const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+                              memcpy((void*)target_str, target_b.data(), target_str_len);
+                              ((char*)target_str)[target_str_len] = '\0';
+                              const char* sigval2 = target_str;
+                              const QUrl& to_ret = to;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                              libqt_free(target_str);
+                          });
 }
 
 void KIO__CopyJob_Moving(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, const QUrl* to) {
@@ -157,16 +165,18 @@ void KIO__CopyJob_Moving(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, co
 
 void KIO__CopyJob_Connect_Moving(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::moving, [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to) {
-        KIO__Job* sigval1 = job;
-        const QUrl& from_ret = from;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
-        const QUrl& to_ret = to;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&, const QUrl&)>(&KIO::CopyJob::moving),
+                          [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& from_ret = from;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
+                              const QUrl& to_ret = to;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                          });
 }
 
 void KIO__CopyJob_CreatingDir(KIO__CopyJob* self, KIO__Job* job, const QUrl* dir) {
@@ -175,13 +185,15 @@ void KIO__CopyJob_CreatingDir(KIO__CopyJob* self, KIO__Job* job, const QUrl* dir
 
 void KIO__CopyJob_Connect_CreatingDir(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::creatingDir, [self, slotFunc](KIO::Job* job, const QUrl& dir) {
-        KIO__Job* sigval1 = job;
-        const QUrl& dir_ret = dir;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&dir_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&)>(&KIO::CopyJob::creatingDir),
+                          [self, slotFunc](KIO::Job* job, const QUrl& dir) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& dir_ret = dir;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&dir_ret);
+                              slotFunc(self, sigval1, sigval2);
+                          });
 }
 
 void KIO__CopyJob_Renamed(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, const QUrl* to) {
@@ -190,16 +202,18 @@ void KIO__CopyJob_Renamed(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, c
 
 void KIO__CopyJob_Connect_Renamed(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::renamed, [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to) {
-        KIO__Job* sigval1 = job;
-        const QUrl& from_ret = from;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
-        const QUrl& to_ret = to;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&, const QUrl&)>(&KIO::CopyJob::renamed),
+                          [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& from_ret = from;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
+                              const QUrl& to_ret = to;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3);
+                          });
 }
 
 void KIO__CopyJob_CopyingDone(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, const QUrl* to, const QDateTime* mtime, bool directory, bool renamed) {
@@ -208,21 +222,23 @@ void KIO__CopyJob_CopyingDone(KIO__CopyJob* self, KIO__Job* job, const QUrl* fro
 
 void KIO__CopyJob_Connect_CopyingDone(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*, QDateTime*, bool, bool) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*, QUrl*, QDateTime*, bool, bool)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::copyingDone, [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to, const QDateTime& mtime, bool directory, bool renamed) {
-        KIO__Job* sigval1 = job;
-        const QUrl& from_ret = from;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
-        const QUrl& to_ret = to;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
-        const QDateTime& mtime_ret = mtime;
-        // Cast returned reference into pointer
-        QDateTime* sigval4 = const_cast<QDateTime*>(&mtime_ret);
-        bool sigval5 = directory;
-        bool sigval6 = renamed;
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5, sigval6);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&, const QUrl&, const QDateTime&, bool, bool)>(&KIO::CopyJob::copyingDone),
+                          [self, slotFunc](KIO::Job* job, const QUrl& from, const QUrl& to, const QDateTime& mtime, bool directory, bool renamed) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& from_ret = from;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
+                              const QUrl& to_ret = to;
+                              // Cast returned reference into pointer
+                              QUrl* sigval3 = const_cast<QUrl*>(&to_ret);
+                              const QDateTime& mtime_ret = mtime;
+                              // Cast returned reference into pointer
+                              QDateTime* sigval4 = const_cast<QDateTime*>(&mtime_ret);
+                              bool sigval5 = directory;
+                              bool sigval6 = renamed;
+                              slotFunc(self, sigval1, sigval2, sigval3, sigval4, sigval5, sigval6);
+                          });
 }
 
 void KIO__CopyJob_CopyingLinkDone(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, const libqt_string target, const QUrl* to) {
@@ -232,25 +248,27 @@ void KIO__CopyJob_CopyingLinkDone(KIO__CopyJob* self, KIO__Job* job, const QUrl*
 
 void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, QUrl*, const char*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, QUrl*, const char*, QUrl*)>(slot);
-    KIO::CopyJob::connect(self, &KIO::CopyJob::copyingLinkDone, [self, slotFunc](KIO::Job* job, const QUrl& from, const QString& target, const QUrl& to) {
-        KIO__Job* sigval1 = job;
-        const QUrl& from_ret = from;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
-        const auto target_ret = target;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray target_b = target_ret.toUtf8();
-        auto target_str_len = target_b.length();
-        const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
-        memcpy((void*)target_str, target_b.data(), target_str_len);
-        ((char*)target_str)[target_str_len] = '\0';
-        const char* sigval3 = target_str;
-        const QUrl& to_ret = to;
-        // Cast returned reference into pointer
-        QUrl* sigval4 = const_cast<QUrl*>(&to_ret);
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-        libqt_free(target_str);
-    });
+    KIO::CopyJob::connect(self,
+                          static_cast<void (KIO::CopyJob::*)(KIO::Job*, const QUrl&, const QString&, const QUrl&)>(&KIO::CopyJob::copyingLinkDone),
+                          [self, slotFunc](KIO::Job* job, const QUrl& from, const QString& target, const QUrl& to) {
+                              KIO__Job* sigval1 = job;
+                              const QUrl& from_ret = from;
+                              // Cast returned reference into pointer
+                              QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
+                              const auto target_ret = target;
+                              // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                              QByteArray target_b = target_ret.toUtf8();
+                              auto target_str_len = target_b.length();
+                              const char* target_str = static_cast<const char*>(malloc(target_str_len + 1));
+                              memcpy((void*)target_str, target_b.data(), target_str_len);
+                              ((char*)target_str)[target_str_len] = '\0';
+                              const char* sigval3 = target_str;
+                              const QUrl& to_ret = to;
+                              // Cast returned reference into pointer
+                              QUrl* sigval4 = const_cast<QUrl*>(&to_ret);
+                              slotFunc(self, sigval1, sigval2, sigval3, sigval4);
+                              libqt_free(target_str);
+                          });
 }
 
 libqt_string KIO__CopyJob_Tr2(const char* s, const char* c) {

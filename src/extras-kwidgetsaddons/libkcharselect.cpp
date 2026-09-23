@@ -148,12 +148,14 @@ void KCharSelect_CurrentFontChanged(KCharSelect* self, const QFont* font) {
 
 void KCharSelect_Connect_CurrentFontChanged(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*, QFont*) = reinterpret_cast<void (*)(KCharSelect*, QFont*)>(slot);
-    KCharSelect::connect(self, &KCharSelect::currentFontChanged, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)(const QFont&)>(&KCharSelect::currentFontChanged),
+                         [self, slotFunc](const QFont& font) {
+                             const QFont& font_ret = font;
+                             // Cast returned reference into pointer
+                             QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KCharSelect_CurrentCharChanged(KCharSelect* self, const QChar* c) {
@@ -162,12 +164,14 @@ void KCharSelect_CurrentCharChanged(KCharSelect* self, const QChar* c) {
 
 void KCharSelect_Connect_CurrentCharChanged(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*, QChar*) = reinterpret_cast<void (*)(KCharSelect*, QChar*)>(slot);
-    KCharSelect::connect(self, &KCharSelect::currentCharChanged, [self, slotFunc](const QChar& c) {
-        const QChar& c_ret = c;
-        // Cast returned reference into pointer
-        QChar* sigval1 = const_cast<QChar*>(&c_ret);
-        slotFunc(self, sigval1);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)(const QChar&)>(&KCharSelect::currentCharChanged),
+                         [self, slotFunc](const QChar& c) {
+                             const QChar& c_ret = c;
+                             // Cast returned reference into pointer
+                             QChar* sigval1 = const_cast<QChar*>(&c_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KCharSelect_CurrentCodePointChanged(KCharSelect* self, unsigned int codePoint) {
@@ -176,10 +180,12 @@ void KCharSelect_CurrentCodePointChanged(KCharSelect* self, unsigned int codePoi
 
 void KCharSelect_Connect_CurrentCodePointChanged(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*, unsigned int) = reinterpret_cast<void (*)(KCharSelect*, unsigned int)>(slot);
-    KCharSelect::connect(self, &KCharSelect::currentCodePointChanged, [self, slotFunc](uint codePoint) {
-        unsigned int sigval1 = static_cast<unsigned int>(codePoint);
-        slotFunc(self, sigval1);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)(uint)>(&KCharSelect::currentCodePointChanged),
+                         [self, slotFunc](uint codePoint) {
+                             unsigned int sigval1 = static_cast<unsigned int>(codePoint);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KCharSelect_DisplayedCharsChanged(KCharSelect* self) {
@@ -188,9 +194,11 @@ void KCharSelect_DisplayedCharsChanged(KCharSelect* self) {
 
 void KCharSelect_Connect_DisplayedCharsChanged(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*) = reinterpret_cast<void (*)(KCharSelect*)>(slot);
-    KCharSelect::connect(self, &KCharSelect::displayedCharsChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)()>(&KCharSelect::displayedCharsChanged),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void KCharSelect_CharSelected(KCharSelect* self, const QChar* c) {
@@ -199,12 +207,14 @@ void KCharSelect_CharSelected(KCharSelect* self, const QChar* c) {
 
 void KCharSelect_Connect_CharSelected(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*, QChar*) = reinterpret_cast<void (*)(KCharSelect*, QChar*)>(slot);
-    KCharSelect::connect(self, &KCharSelect::charSelected, [self, slotFunc](const QChar& c) {
-        const QChar& c_ret = c;
-        // Cast returned reference into pointer
-        QChar* sigval1 = const_cast<QChar*>(&c_ret);
-        slotFunc(self, sigval1);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)(const QChar&)>(&KCharSelect::charSelected),
+                         [self, slotFunc](const QChar& c) {
+                             const QChar& c_ret = c;
+                             // Cast returned reference into pointer
+                             QChar* sigval1 = const_cast<QChar*>(&c_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void KCharSelect_CodePointSelected(KCharSelect* self, unsigned int codePoint) {
@@ -213,10 +223,12 @@ void KCharSelect_CodePointSelected(KCharSelect* self, unsigned int codePoint) {
 
 void KCharSelect_Connect_CodePointSelected(KCharSelect* self, intptr_t slot) {
     void (*slotFunc)(KCharSelect*, unsigned int) = reinterpret_cast<void (*)(KCharSelect*, unsigned int)>(slot);
-    KCharSelect::connect(self, &KCharSelect::codePointSelected, [self, slotFunc](uint codePoint) {
-        unsigned int sigval1 = static_cast<unsigned int>(codePoint);
-        slotFunc(self, sigval1);
-    });
+    KCharSelect::connect(self,
+                         static_cast<void (KCharSelect::*)(uint)>(&KCharSelect::codePointSelected),
+                         [self, slotFunc](uint codePoint) {
+                             unsigned int sigval1 = static_cast<unsigned int>(codePoint);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 libqt_string KCharSelect_Tr2(const char* s, const char* c) {

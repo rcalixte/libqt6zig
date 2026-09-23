@@ -179,10 +179,12 @@ void KActionSelector_Added(KActionSelector* self, QListWidgetItem* item) {
 
 void KActionSelector_Connect_Added(KActionSelector* self, intptr_t slot) {
     void (*slotFunc)(KActionSelector*, QListWidgetItem*) = reinterpret_cast<void (*)(KActionSelector*, QListWidgetItem*)>(slot);
-    KActionSelector::connect(self, &KActionSelector::added, [self, slotFunc](QListWidgetItem* item) {
-        QListWidgetItem* sigval1 = item;
-        slotFunc(self, sigval1);
-    });
+    KActionSelector::connect(self,
+                             static_cast<void (KActionSelector::*)(QListWidgetItem*)>(&KActionSelector::added),
+                             [self, slotFunc](QListWidgetItem* item) {
+                                 QListWidgetItem* sigval1 = item;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KActionSelector_Removed(KActionSelector* self, QListWidgetItem* item) {
@@ -191,10 +193,12 @@ void KActionSelector_Removed(KActionSelector* self, QListWidgetItem* item) {
 
 void KActionSelector_Connect_Removed(KActionSelector* self, intptr_t slot) {
     void (*slotFunc)(KActionSelector*, QListWidgetItem*) = reinterpret_cast<void (*)(KActionSelector*, QListWidgetItem*)>(slot);
-    KActionSelector::connect(self, &KActionSelector::removed, [self, slotFunc](QListWidgetItem* item) {
-        QListWidgetItem* sigval1 = item;
-        slotFunc(self, sigval1);
-    });
+    KActionSelector::connect(self,
+                             static_cast<void (KActionSelector::*)(QListWidgetItem*)>(&KActionSelector::removed),
+                             [self, slotFunc](QListWidgetItem* item) {
+                                 QListWidgetItem* sigval1 = item;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KActionSelector_MovedUp(KActionSelector* self, QListWidgetItem* item) {
@@ -203,10 +207,12 @@ void KActionSelector_MovedUp(KActionSelector* self, QListWidgetItem* item) {
 
 void KActionSelector_Connect_MovedUp(KActionSelector* self, intptr_t slot) {
     void (*slotFunc)(KActionSelector*, QListWidgetItem*) = reinterpret_cast<void (*)(KActionSelector*, QListWidgetItem*)>(slot);
-    KActionSelector::connect(self, &KActionSelector::movedUp, [self, slotFunc](QListWidgetItem* item) {
-        QListWidgetItem* sigval1 = item;
-        slotFunc(self, sigval1);
-    });
+    KActionSelector::connect(self,
+                             static_cast<void (KActionSelector::*)(QListWidgetItem*)>(&KActionSelector::movedUp),
+                             [self, slotFunc](QListWidgetItem* item) {
+                                 QListWidgetItem* sigval1 = item;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KActionSelector_MovedDown(KActionSelector* self, QListWidgetItem* item) {
@@ -215,10 +221,12 @@ void KActionSelector_MovedDown(KActionSelector* self, QListWidgetItem* item) {
 
 void KActionSelector_Connect_MovedDown(KActionSelector* self, intptr_t slot) {
     void (*slotFunc)(KActionSelector*, QListWidgetItem*) = reinterpret_cast<void (*)(KActionSelector*, QListWidgetItem*)>(slot);
-    KActionSelector::connect(self, &KActionSelector::movedDown, [self, slotFunc](QListWidgetItem* item) {
-        QListWidgetItem* sigval1 = item;
-        slotFunc(self, sigval1);
-    });
+    KActionSelector::connect(self,
+                             static_cast<void (KActionSelector::*)(QListWidgetItem*)>(&KActionSelector::movedDown),
+                             [self, slotFunc](QListWidgetItem* item) {
+                                 QListWidgetItem* sigval1 = item;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void KActionSelector_SetButtonsEnabled(KActionSelector* self) {

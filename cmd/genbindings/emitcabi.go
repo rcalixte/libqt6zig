@@ -230,6 +230,23 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 	return cppType
 }
 
+// emitParameterTypesCpp emits the parameter type definitions exactly how Qt C++ defines them.
+func emitParameterTypesCpp(m CppMethod, includeHidden bool) string {
+	tmp := make([]string, 0, len(m.Parameters))
+	for i := range m.Parameters {
+		tmp = append(tmp, ifv(m.Parameters[i].Const && m.Parameters[i].QtClassType(), "const ", "")+m.Parameters[i].RenderTypeQtCpp())
+	}
+
+	if includeHidden {
+		for i := range m.HiddenParams {
+			tmp = append(tmp, ifv(m.HiddenParams[i].Const && m.HiddenParams[i].QtClassType(), "const ", "")+m.HiddenParams[i].RenderTypeQtCpp())
+		}
+	}
+
+	// TODO figure this out
+	return strings.ReplaceAll(strings.Join(tmp, ", "), "const const ", "const ")
+}
+
 // emitParametersCpp emits the parameter definitions exactly how Qt C++ defines them.
 func emitParametersCpp(m CppMethod, includeHidden bool) string {
 	tmp := make([]string, 0, len(m.Parameters))
@@ -243,6 +260,7 @@ func emitParametersCpp(m CppMethod, includeHidden bool) string {
 		}
 	}
 
+	// TODO figure this out
 	return strings.ReplaceAll(strings.Join(tmp, ", "), "const const ", "const ")
 }
 
@@ -421,7 +439,11 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 
 		isQMulti := IsMultiHashMap(containerType)
 
-		preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
+		if isSlot && p.ByRef {
+			preamble += indent + nameprefix + "_" + containerType + ".clear();\n"
+		} else {
+			preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
+		}
 
 		// This container may be a Q*Map or a Q*Hash
 		// Q*Hash supports .reserve(), but Q*Map doesn't
@@ -793,7 +815,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		if namePrefix == "_lv" {
 			iterator = "j"
 			maybeConst = "const "
-			maybeRef = "& "
+			maybeRef = ifv(p.Pointer, "", "& ")
 		}
 
 		shouldReturn = maybeConst + p.RenderTypeQtCpp() + maybeRef + namePrefix + "_ret = "
@@ -1276,33 +1298,6 @@ func cabiPreventStructDeclaration(className string) bool {
 var (
 	ret = strings.Builder{}
 
-	noQtConnect = map[string]struct{}{
-		"Accounts__AccountService":      {},
-		"KNSCore__EngineBase":           {},
-		"KParts__NavigationExtension":   {},
-		"QAudioDecoder":                 {},
-		"QBluetoothPermission":          {},
-		"QCPAbstractPlottable":          {},
-		"QCPAxis":                       {},
-		"QCPPolarAxisAngular":           {},
-		"QCPPolarAxisRadial":            {},
-		"QCPPolarGraph":                 {},
-		"QCalendarPermission":           {},
-		"QCameraPermission":             {},
-		"QCompleter":                    {},
-		"QContactsPermission":           {},
-		"QDesignerIntegrationInterface": {},
-		"QLocationPermission":           {},
-		"QMicrophonePermission":         {},
-		"QNativeInterface__QEGLContext": {},
-		"QPrintDialog":                  {},
-		"QsciScintillaBase":             {},
-	}
-
-	unmatchedQtConnect = []string{
-		"QWebSocket_Error2", // @ref https://doc.qt.io/qt-6/qwebsocket-obsolete.html
-	}
-
 	moveCtorOnly = map[string]struct{}{
 		"QDirListing::const_iterator": {},
 	}
@@ -1399,7 +1394,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 			seenProtectedEnums := map[string]struct{}{}
 			allProtectedEnums := getAllProtectedEnums(&c, seenProtectedEnums)
 			for _, e := range allProtectedEnums {
-				publicTypes = append(publicTypes, "\tusing "+e.EnumName+";\n")
+				if !strings.HasSuffix(e.EnumName, "::") {
+					publicTypes = append(publicTypes, "\tusing "+e.EnumName+";\n")
+				}
 			}
 
 			seenCallbacks := map[string]struct{}{}
@@ -1428,6 +1425,11 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				isBaseName := strings.ToLower(baseName) + "_isbase"
 				if _, ok := seenCallbacks[callbackType]; ok {
 					continue
+				}
+
+				if _, _, containerType, ok := m.ReturnType.QMapOf(); ok && m.ReturnType.ByRef {
+					ret.WriteString("private:\n//Storage for a reference-returning method" +
+						"\n\t" + m.ReturnType.GetQtCppType().ParameterType + strings.ToLower(baseName) + "_ret_" + containerType + ";\n")
 				}
 
 				var maybeSelf string
@@ -1461,7 +1463,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 			// Virtual method public types
 			ret.WriteString("public:\n\t// Virtual class boolean flag\n")
-			ret.WriteString("\tbool is" + overriddenClassName + "= true;\n\n")
+			ret.WriteString("\tbool is" + overriddenClassName + " = true;\n\n")
 			ret.WriteString("\t// Virtual class public types (including callbacks)\n" + strings.Join(publicTypes, "") + "\n")
 
 			// Virtual method protected types
@@ -1528,9 +1530,13 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 				var maybeReturn2, retTransformP, retTransformF string
 				if !m.ReturnType.Void() {
-					maybeReturn2 = m.ReturnType.RenderTypeCabi(true) + " callback_ret = "
+					callbackName := "callback_ret"
+					if _, _, _, ok := m.ReturnType.QMapOf(); ok && m.ReturnType.ByRef {
+						callbackName = strings.ToLower(methodPrefixName+"_"+m.SafeMethodName()) + "_ret"
+					}
+					maybeReturn2 = m.ReturnType.RenderTypeCabi(true) + " " + callbackName + " = "
 					returnParam := m.ReturnType // copy
-					returnParam.ParameterName = "callback_ret"
+					returnParam.ParameterName = callbackName
 					retTransformP, retTransformF = emitCABI2CppForwarding(returnParam, "\t\t", c.ClassName, true, true)
 				}
 
@@ -1567,6 +1573,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 				cbName := strings.ToLower(mSafeMethodName) + "_cb"
 				returnDecl := m.ReturnType.RenderTypeQtCpp()
+				if m.ReturnType.UniquePtr {
+					returnDecl = "std::unique_ptr<" + returnDecl + ">"
+				}
 
 				if !m.IsPureVirtual && !m.IsPrivate {
 					customCallback += indent + "if (" + isBaseName + ") {\n"
@@ -1890,19 +1899,9 @@ extern "C" {
 				ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ");\n" + maybeEndMacro)
 			}
 
-			if m.IsSignal {
-				addConnect := true
-				if _, ok := noQtConnect[methodPrefixName]; ok {
-					addConnect = false
-				}
-				if slices.Contains(unmatchedQtConnect, methodPrefixName+"_"+mSafeMethodName) {
-					addConnect = false
-				}
-
-				if addConnect {
-					maybeConst := ifv(m.IsConst, "const ", "")
-					ret.WriteString(m.ReturnType.RenderTypeCabi(false) + " " + methodPrefixName + "_Connect_" + mSafeMethodName + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot);\n")
-				}
+			if m.IsSignal && c.HasQObjectMacro {
+				maybeConst := ifv(m.IsConst, "const ", "")
+				ret.WriteString(m.ReturnType.RenderTypeCabi(false) + " " + methodPrefixName + "_Connect_" + mSafeMethodName + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot);\n")
 			}
 		}
 
@@ -2055,7 +2054,6 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		}
 
 		seenVirtualsMap := map[string]struct{}{}
-
 		for _, m := range c.Methods {
 			if !m.IsProtected {
 				continue
@@ -2379,14 +2377,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 					virtualClose + emptyReturn + "}\n" + maybeEndMacro + "\n\n")
 			}
 
-			if m.IsSignal {
-				if _, ok := noQtConnect[methodPrefixName]; ok {
-					continue
-				}
-				if slices.Contains(unmatchedQtConnect, methodPrefixName+"_"+mSafeMethodName) {
-					continue
-				}
-
+			if m.IsSignal && c.HasQObjectMacro {
 				signalTarget := "slotFunc(self"
 
 				// Qt 6.8 moved many operator== implementations from class methods
@@ -2421,11 +2412,12 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 				signalCode += "\t" + bindingFunc + ");\n" + sigCleanup + "\t});\n"
 				maybeConst := ifv(m.IsConst, "const ", "")
+				signalParam := "\nstatic_cast<void (" + c.ClassName + "::*)(" + emitParameterTypesCpp(m, true) + ")" + maybeConst + ">(&" + c.ClassName + "::" + m.CppCallTarget() + "),\n"
 
 				ret.WriteString(
 					"void " + methodPrefixName + "_Connect_" + mSafeMethodName + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot) {\n" +
 						"\tvoid (*slotFunc)(" + maybeConst + methodPrefixName + "*" + sigRet + ") = reinterpret_cast<void (*)(" + maybeConst + methodPrefixName + "*" + sigRet + ")>(slot);\n" +
-						"\t" + c.ClassName + "::connect(self, &" + c.ClassName + "::" + m.CppCallTarget() + ", [self, slotFunc](" + emitParametersCpp(m, showHiddenParams) + ") {\n" +
+						"\t" + c.ClassName + "::connect(self, " + signalParam + "[self, slotFunc](" + emitParametersCpp(m, showHiddenParams) + ") {\n" +
 						signalCode + "}\n\n",
 				)
 			}

@@ -1405,10 +1405,12 @@ void QCPLayerable_LayerChanged(QCPLayerable* self, QCPLayer* newLayer) {
 
 void QCPLayerable_Connect_LayerChanged(QCPLayerable* self, intptr_t slot) {
     void (*slotFunc)(QCPLayerable*, QCPLayer*) = reinterpret_cast<void (*)(QCPLayerable*, QCPLayer*)>(slot);
-    QCPLayerable::connect(self, &QCPLayerable::layerChanged, [self, slotFunc](QCPLayer* newLayer) {
-        QCPLayer* sigval1 = newLayer;
-        slotFunc(self, sigval1);
-    });
+    QCPLayerable::connect(self,
+                          static_cast<void (QCPLayerable::*)(QCPLayer*)>(&QCPLayerable::layerChanged),
+                          [self, slotFunc](QCPLayer* newLayer) {
+                              QCPLayer* sigval1 = newLayer;
+                              slotFunc(self, sigval1);
+                          });
 }
 
 void QCPLayerable_ParentPlotInitialized(QCPLayerable* self, QCustomPlot* parentPlot) {
@@ -2647,10 +2649,12 @@ void QCPSelectionRect_Started(QCPSelectionRect* self, QMouseEvent* event) {
 
 void QCPSelectionRect_Connect_Started(QCPSelectionRect* self, intptr_t slot) {
     void (*slotFunc)(QCPSelectionRect*, QMouseEvent*) = reinterpret_cast<void (*)(QCPSelectionRect*, QMouseEvent*)>(slot);
-    QCPSelectionRect::connect(self, &QCPSelectionRect::started, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCPSelectionRect::connect(self,
+                              static_cast<void (QCPSelectionRect::*)(QMouseEvent*)>(&QCPSelectionRect::started),
+                              [self, slotFunc](QMouseEvent* event) {
+                                  QMouseEvent* sigval1 = event;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void QCPSelectionRect_Changed(QCPSelectionRect* self, const QRect* rect, QMouseEvent* event) {
@@ -2659,13 +2663,15 @@ void QCPSelectionRect_Changed(QCPSelectionRect* self, const QRect* rect, QMouseE
 
 void QCPSelectionRect_Connect_Changed(QCPSelectionRect* self, intptr_t slot) {
     void (*slotFunc)(QCPSelectionRect*, QRect*, QMouseEvent*) = reinterpret_cast<void (*)(QCPSelectionRect*, QRect*, QMouseEvent*)>(slot);
-    QCPSelectionRect::connect(self, &QCPSelectionRect::changed, [self, slotFunc](const QRect& rect, QMouseEvent* event) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        QMouseEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCPSelectionRect::connect(self,
+                              static_cast<void (QCPSelectionRect::*)(const QRect&, QMouseEvent*)>(&QCPSelectionRect::changed),
+                              [self, slotFunc](const QRect& rect, QMouseEvent* event) {
+                                  const QRect& rect_ret = rect;
+                                  // Cast returned reference into pointer
+                                  QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                                  QMouseEvent* sigval2 = event;
+                                  slotFunc(self, sigval1, sigval2);
+                              });
 }
 
 void QCPSelectionRect_Canceled(QCPSelectionRect* self, const QRect* rect, QInputEvent* event) {
@@ -2674,13 +2680,15 @@ void QCPSelectionRect_Canceled(QCPSelectionRect* self, const QRect* rect, QInput
 
 void QCPSelectionRect_Connect_Canceled(QCPSelectionRect* self, intptr_t slot) {
     void (*slotFunc)(QCPSelectionRect*, QRect*, QInputEvent*) = reinterpret_cast<void (*)(QCPSelectionRect*, QRect*, QInputEvent*)>(slot);
-    QCPSelectionRect::connect(self, &QCPSelectionRect::canceled, [self, slotFunc](const QRect& rect, QInputEvent* event) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        QInputEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCPSelectionRect::connect(self,
+                              static_cast<void (QCPSelectionRect::*)(const QRect&, QInputEvent*)>(&QCPSelectionRect::canceled),
+                              [self, slotFunc](const QRect& rect, QInputEvent* event) {
+                                  const QRect& rect_ret = rect;
+                                  // Cast returned reference into pointer
+                                  QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                                  QInputEvent* sigval2 = event;
+                                  slotFunc(self, sigval1, sigval2);
+                              });
 }
 
 void QCPSelectionRect_Accepted(QCPSelectionRect* self, const QRect* rect, QMouseEvent* event) {
@@ -2689,13 +2697,15 @@ void QCPSelectionRect_Accepted(QCPSelectionRect* self, const QRect* rect, QMouse
 
 void QCPSelectionRect_Connect_Accepted(QCPSelectionRect* self, intptr_t slot) {
     void (*slotFunc)(QCPSelectionRect*, QRect*, QMouseEvent*) = reinterpret_cast<void (*)(QCPSelectionRect*, QRect*, QMouseEvent*)>(slot);
-    QCPSelectionRect::connect(self, &QCPSelectionRect::accepted, [self, slotFunc](const QRect& rect, QMouseEvent* event) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        QMouseEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCPSelectionRect::connect(self,
+                              static_cast<void (QCPSelectionRect::*)(const QRect&, QMouseEvent*)>(&QCPSelectionRect::accepted),
+                              [self, slotFunc](const QRect& rect, QMouseEvent* event) {
+                                  const QRect& rect_ret = rect;
+                                  // Cast returned reference into pointer
+                                  QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                                  QMouseEvent* sigval2 = event;
+                                  slotFunc(self, sigval1, sigval2);
+                              });
 }
 
 void QCPSelectionRect_StartSelection(QCPSelectionRect* self, QMouseEvent* event) {
@@ -15850,20 +15860,79 @@ void QCPAxis_RangeChanged(QCPAxis* self, const QCPRange* newRange) {
     self->rangeChanged(*newRange);
 }
 
+void QCPAxis_Connect_RangeChanged(QCPAxis* self, intptr_t slot) {
+    void (*slotFunc)(QCPAxis*, QCPRange*) = reinterpret_cast<void (*)(QCPAxis*, QCPRange*)>(slot);
+    QCPAxis::connect(self,
+                     static_cast<void (QCPAxis::*)(const QCPRange&)>(&QCPAxis::rangeChanged),
+                     [self, slotFunc](const QCPRange& newRange) {
+                         const QCPRange& newRange_ret = newRange;
+                         // Cast returned reference into pointer
+                         QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                         slotFunc(self, sigval1);
+                     });
+}
+
 void QCPAxis_RangeChanged2(QCPAxis* self, const QCPRange* newRange, const QCPRange* oldRange) {
     self->rangeChanged(*newRange, *oldRange);
+}
+
+void QCPAxis_Connect_RangeChanged2(QCPAxis* self, intptr_t slot) {
+    void (*slotFunc)(QCPAxis*, QCPRange*, QCPRange*) = reinterpret_cast<void (*)(QCPAxis*, QCPRange*, QCPRange*)>(slot);
+    QCPAxis::connect(self,
+                     static_cast<void (QCPAxis::*)(const QCPRange&, const QCPRange&)>(&QCPAxis::rangeChanged),
+                     [self, slotFunc](const QCPRange& newRange, const QCPRange& oldRange) {
+                         const QCPRange& newRange_ret = newRange;
+                         // Cast returned reference into pointer
+                         QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                         const QCPRange& oldRange_ret = oldRange;
+                         // Cast returned reference into pointer
+                         QCPRange* sigval2 = const_cast<QCPRange*>(&oldRange_ret);
+                         slotFunc(self, sigval1, sigval2);
+                     });
 }
 
 void QCPAxis_ScaleTypeChanged(QCPAxis* self, int scaleType) {
     self->scaleTypeChanged(static_cast<QCPAxis::ScaleType>(scaleType));
 }
 
+void QCPAxis_Connect_ScaleTypeChanged(QCPAxis* self, intptr_t slot) {
+    void (*slotFunc)(QCPAxis*, int) = reinterpret_cast<void (*)(QCPAxis*, int)>(slot);
+    QCPAxis::connect(self,
+                     static_cast<void (QCPAxis::*)(QCPAxis::ScaleType)>(&QCPAxis::scaleTypeChanged),
+                     [self, slotFunc](QCPAxis::ScaleType scaleType) {
+                         int sigval1 = static_cast<int>(scaleType);
+                         slotFunc(self, sigval1);
+                     });
+}
+
 void QCPAxis_SelectionChanged(QCPAxis* self, const int* parts) {
     self->selectionChanged((const QCPAxis::SelectableParts&)(*parts));
 }
 
+void QCPAxis_Connect_SelectionChanged(QCPAxis* self, intptr_t slot) {
+    void (*slotFunc)(QCPAxis*, const int*) = reinterpret_cast<void (*)(QCPAxis*, const int*)>(slot);
+    QCPAxis::connect(self,
+                     static_cast<void (QCPAxis::*)(const QCPAxis::SelectableParts&)>(&QCPAxis::selectionChanged),
+                     [self, slotFunc](const QCPAxis::SelectableParts& parts) {
+                         const QCPAxis::SelectableParts& parts_ret = parts;
+                         const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                         slotFunc(self, sigval1);
+                     });
+}
+
 void QCPAxis_SelectableChanged(QCPAxis* self, const int* parts) {
     self->selectableChanged((const QCPAxis::SelectableParts&)(*parts));
+}
+
+void QCPAxis_Connect_SelectableChanged(QCPAxis* self, intptr_t slot) {
+    void (*slotFunc)(QCPAxis*, const int*) = reinterpret_cast<void (*)(QCPAxis*, const int*)>(slot);
+    QCPAxis::connect(self,
+                     static_cast<void (QCPAxis::*)(const QCPAxis::SelectableParts&)>(&QCPAxis::selectableChanged),
+                     [self, slotFunc](const QCPAxis::SelectableParts& parts) {
+                         const QCPAxis::SelectableParts& parts_ret = parts;
+                         const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 int QCPAxis_CalculateMargin(QCPAxis* self) {
@@ -17381,12 +17450,44 @@ void QCPAbstractPlottable_SelectionChanged(QCPAbstractPlottable* self, bool sele
     self->selectionChanged(selected);
 }
 
+void QCPAbstractPlottable_Connect_SelectionChanged(QCPAbstractPlottable* self, intptr_t slot) {
+    void (*slotFunc)(QCPAbstractPlottable*, bool) = reinterpret_cast<void (*)(QCPAbstractPlottable*, bool)>(slot);
+    QCPAbstractPlottable::connect(self,
+                                  static_cast<void (QCPAbstractPlottable::*)(bool)>(&QCPAbstractPlottable::selectionChanged),
+                                  [self, slotFunc](bool selected) {
+                                      bool sigval1 = selected;
+                                      slotFunc(self, sigval1);
+                                  });
+}
+
 void QCPAbstractPlottable_SelectionChanged2(QCPAbstractPlottable* self, const QCPDataSelection* selection) {
     self->selectionChanged(*selection);
 }
 
+void QCPAbstractPlottable_Connect_SelectionChanged2(QCPAbstractPlottable* self, intptr_t slot) {
+    void (*slotFunc)(QCPAbstractPlottable*, QCPDataSelection*) = reinterpret_cast<void (*)(QCPAbstractPlottable*, QCPDataSelection*)>(slot);
+    QCPAbstractPlottable::connect(self,
+                                  static_cast<void (QCPAbstractPlottable::*)(const QCPDataSelection&)>(&QCPAbstractPlottable::selectionChanged),
+                                  [self, slotFunc](const QCPDataSelection& selection) {
+                                      const QCPDataSelection& selection_ret = selection;
+                                      // Cast returned reference into pointer
+                                      QCPDataSelection* sigval1 = const_cast<QCPDataSelection*>(&selection_ret);
+                                      slotFunc(self, sigval1);
+                                  });
+}
+
 void QCPAbstractPlottable_SelectableChanged(QCPAbstractPlottable* self, int selectable) {
     self->selectableChanged(static_cast<QCP::SelectionType>(selectable));
+}
+
+void QCPAbstractPlottable_Connect_SelectableChanged(QCPAbstractPlottable* self, intptr_t slot) {
+    void (*slotFunc)(QCPAbstractPlottable*, int) = reinterpret_cast<void (*)(QCPAbstractPlottable*, int)>(slot);
+    QCPAbstractPlottable::connect(self,
+                                  static_cast<void (QCPAbstractPlottable::*)(QCP::SelectionType)>(&QCPAbstractPlottable::selectableChanged),
+                                  [self, slotFunc](QCP::SelectionType selectable) {
+                                      int sigval1 = static_cast<int>(selectable);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 QRect* QCPAbstractPlottable_ClipRect(const QCPAbstractPlottable* self) {
@@ -18949,10 +19050,12 @@ void QCPAbstractItem_SelectionChanged(QCPAbstractItem* self, bool selected) {
 
 void QCPAbstractItem_Connect_SelectionChanged(QCPAbstractItem* self, intptr_t slot) {
     void (*slotFunc)(QCPAbstractItem*, bool) = reinterpret_cast<void (*)(QCPAbstractItem*, bool)>(slot);
-    QCPAbstractItem::connect(self, &QCPAbstractItem::selectionChanged, [self, slotFunc](bool selected) {
-        bool sigval1 = selected;
-        slotFunc(self, sigval1);
-    });
+    QCPAbstractItem::connect(self,
+                             static_cast<void (QCPAbstractItem::*)(bool)>(&QCPAbstractItem::selectionChanged),
+                             [self, slotFunc](bool selected) {
+                                 bool sigval1 = selected;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QCPAbstractItem_SelectableChanged(QCPAbstractItem* self, bool selectable) {
@@ -18961,10 +19064,12 @@ void QCPAbstractItem_SelectableChanged(QCPAbstractItem* self, bool selectable) {
 
 void QCPAbstractItem_Connect_SelectableChanged(QCPAbstractItem* self, intptr_t slot) {
     void (*slotFunc)(QCPAbstractItem*, bool) = reinterpret_cast<void (*)(QCPAbstractItem*, bool)>(slot);
-    QCPAbstractItem::connect(self, &QCPAbstractItem::selectableChanged, [self, slotFunc](bool selectable) {
-        bool sigval1 = selectable;
-        slotFunc(self, sigval1);
-    });
+    QCPAbstractItem::connect(self,
+                             static_cast<void (QCPAbstractItem::*)(bool)>(&QCPAbstractItem::selectableChanged),
+                             [self, slotFunc](bool selectable) {
+                                 bool sigval1 = selectable;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 int QCPAbstractItem_SelectionCategory(const QCPAbstractItem* self) {
@@ -20427,10 +20532,12 @@ void QCustomPlot_MouseDoubleClick(QCustomPlot* self, QMouseEvent* event) {
 
 void QCustomPlot_Connect_MouseDoubleClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::mouseDoubleClick, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QMouseEvent*)>(&QCustomPlot::mouseDoubleClick),
+                         [self, slotFunc](QMouseEvent* event) {
+                             QMouseEvent* sigval1 = event;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCustomPlot_MousePress(QCustomPlot* self, QMouseEvent* event) {
@@ -20439,10 +20546,12 @@ void QCustomPlot_MousePress(QCustomPlot* self, QMouseEvent* event) {
 
 void QCustomPlot_Connect_MousePress(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::mousePress, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QMouseEvent*)>(&QCustomPlot::mousePress),
+                         [self, slotFunc](QMouseEvent* event) {
+                             QMouseEvent* sigval1 = event;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCustomPlot_MouseMove(QCustomPlot* self, QMouseEvent* event) {
@@ -20451,10 +20560,12 @@ void QCustomPlot_MouseMove(QCustomPlot* self, QMouseEvent* event) {
 
 void QCustomPlot_Connect_MouseMove(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::mouseMove, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QMouseEvent*)>(&QCustomPlot::mouseMove),
+                         [self, slotFunc](QMouseEvent* event) {
+                             QMouseEvent* sigval1 = event;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCustomPlot_MouseRelease(QCustomPlot* self, QMouseEvent* event) {
@@ -20463,10 +20574,12 @@ void QCustomPlot_MouseRelease(QCustomPlot* self, QMouseEvent* event) {
 
 void QCustomPlot_Connect_MouseRelease(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::mouseRelease, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QMouseEvent*)>(&QCustomPlot::mouseRelease),
+                         [self, slotFunc](QMouseEvent* event) {
+                             QMouseEvent* sigval1 = event;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCustomPlot_MouseWheel(QCustomPlot* self, QWheelEvent* event) {
@@ -20475,10 +20588,12 @@ void QCustomPlot_MouseWheel(QCustomPlot* self, QWheelEvent* event) {
 
 void QCustomPlot_Connect_MouseWheel(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QWheelEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QWheelEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::mouseWheel, [self, slotFunc](QWheelEvent* event) {
-        QWheelEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QWheelEvent*)>(&QCustomPlot::mouseWheel),
+                         [self, slotFunc](QWheelEvent* event) {
+                             QWheelEvent* sigval1 = event;
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCustomPlot_PlottableClick(QCustomPlot* self, QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
@@ -20487,12 +20602,14 @@ void QCustomPlot_PlottableClick(QCustomPlot* self, QCPAbstractPlottable* plottab
 
 void QCustomPlot_Connect_PlottableClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAbstractPlottable*, int, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAbstractPlottable*, int, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::plottableClick, [self, slotFunc](QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
-        QCPAbstractPlottable* sigval1 = plottable;
-        int sigval2 = dataIndex;
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAbstractPlottable*, int, QMouseEvent*)>(&QCustomPlot::plottableClick),
+                         [self, slotFunc](QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
+                             QCPAbstractPlottable* sigval1 = plottable;
+                             int sigval2 = dataIndex;
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_PlottableDoubleClick(QCustomPlot* self, QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
@@ -20501,12 +20618,14 @@ void QCustomPlot_PlottableDoubleClick(QCustomPlot* self, QCPAbstractPlottable* p
 
 void QCustomPlot_Connect_PlottableDoubleClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAbstractPlottable*, int, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAbstractPlottable*, int, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::plottableDoubleClick, [self, slotFunc](QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
-        QCPAbstractPlottable* sigval1 = plottable;
-        int sigval2 = dataIndex;
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAbstractPlottable*, int, QMouseEvent*)>(&QCustomPlot::plottableDoubleClick),
+                         [self, slotFunc](QCPAbstractPlottable* plottable, int dataIndex, QMouseEvent* event) {
+                             QCPAbstractPlottable* sigval1 = plottable;
+                             int sigval2 = dataIndex;
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_ItemClick(QCustomPlot* self, QCPAbstractItem* item, QMouseEvent* event) {
@@ -20515,11 +20634,13 @@ void QCustomPlot_ItemClick(QCustomPlot* self, QCPAbstractItem* item, QMouseEvent
 
 void QCustomPlot_Connect_ItemClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAbstractItem*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAbstractItem*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::itemClick, [self, slotFunc](QCPAbstractItem* item, QMouseEvent* event) {
-        QCPAbstractItem* sigval1 = item;
-        QMouseEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAbstractItem*, QMouseEvent*)>(&QCustomPlot::itemClick),
+                         [self, slotFunc](QCPAbstractItem* item, QMouseEvent* event) {
+                             QCPAbstractItem* sigval1 = item;
+                             QMouseEvent* sigval2 = event;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QCustomPlot_ItemDoubleClick(QCustomPlot* self, QCPAbstractItem* item, QMouseEvent* event) {
@@ -20528,11 +20649,13 @@ void QCustomPlot_ItemDoubleClick(QCustomPlot* self, QCPAbstractItem* item, QMous
 
 void QCustomPlot_Connect_ItemDoubleClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAbstractItem*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAbstractItem*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::itemDoubleClick, [self, slotFunc](QCPAbstractItem* item, QMouseEvent* event) {
-        QCPAbstractItem* sigval1 = item;
-        QMouseEvent* sigval2 = event;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAbstractItem*, QMouseEvent*)>(&QCustomPlot::itemDoubleClick),
+                         [self, slotFunc](QCPAbstractItem* item, QMouseEvent* event) {
+                             QCPAbstractItem* sigval1 = item;
+                             QMouseEvent* sigval2 = event;
+                             slotFunc(self, sigval1, sigval2);
+                         });
 }
 
 void QCustomPlot_AxisClick(QCustomPlot* self, QCPAxis* axis, int part, QMouseEvent* event) {
@@ -20541,12 +20664,14 @@ void QCustomPlot_AxisClick(QCustomPlot* self, QCPAxis* axis, int part, QMouseEve
 
 void QCustomPlot_Connect_AxisClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAxis*, int, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAxis*, int, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::axisClick, [self, slotFunc](QCPAxis* axis, QCPAxis::SelectablePart part, QMouseEvent* event) {
-        QCPAxis* sigval1 = axis;
-        int sigval2 = static_cast<int>(part);
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAxis*, QCPAxis::SelectablePart, QMouseEvent*)>(&QCustomPlot::axisClick),
+                         [self, slotFunc](QCPAxis* axis, QCPAxis::SelectablePart part, QMouseEvent* event) {
+                             QCPAxis* sigval1 = axis;
+                             int sigval2 = static_cast<int>(part);
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_AxisDoubleClick(QCustomPlot* self, QCPAxis* axis, int part, QMouseEvent* event) {
@@ -20555,12 +20680,14 @@ void QCustomPlot_AxisDoubleClick(QCustomPlot* self, QCPAxis* axis, int part, QMo
 
 void QCustomPlot_Connect_AxisDoubleClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPAxis*, int, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPAxis*, int, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::axisDoubleClick, [self, slotFunc](QCPAxis* axis, QCPAxis::SelectablePart part, QMouseEvent* event) {
-        QCPAxis* sigval1 = axis;
-        int sigval2 = static_cast<int>(part);
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPAxis*, QCPAxis::SelectablePart, QMouseEvent*)>(&QCustomPlot::axisDoubleClick),
+                         [self, slotFunc](QCPAxis* axis, QCPAxis::SelectablePart part, QMouseEvent* event) {
+                             QCPAxis* sigval1 = axis;
+                             int sigval2 = static_cast<int>(part);
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_LegendClick(QCustomPlot* self, QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
@@ -20569,12 +20696,14 @@ void QCustomPlot_LegendClick(QCustomPlot* self, QCPLegend* legend, QCPAbstractLe
 
 void QCustomPlot_Connect_LegendClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::legendClick, [self, slotFunc](QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
-        QCPLegend* sigval1 = legend;
-        QCPAbstractLegendItem* sigval2 = item;
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*)>(&QCustomPlot::legendClick),
+                         [self, slotFunc](QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
+                             QCPLegend* sigval1 = legend;
+                             QCPAbstractLegendItem* sigval2 = item;
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_LegendDoubleClick(QCustomPlot* self, QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
@@ -20583,12 +20712,14 @@ void QCustomPlot_LegendDoubleClick(QCustomPlot* self, QCPLegend* legend, QCPAbst
 
 void QCustomPlot_Connect_LegendDoubleClick(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*, QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*) = reinterpret_cast<void (*)(QCustomPlot*, QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::legendDoubleClick, [self, slotFunc](QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
-        QCPLegend* sigval1 = legend;
-        QCPAbstractLegendItem* sigval2 = item;
-        QMouseEvent* sigval3 = event;
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)(QCPLegend*, QCPAbstractLegendItem*, QMouseEvent*)>(&QCustomPlot::legendDoubleClick),
+                         [self, slotFunc](QCPLegend* legend, QCPAbstractLegendItem* item, QMouseEvent* event) {
+                             QCPLegend* sigval1 = legend;
+                             QCPAbstractLegendItem* sigval2 = item;
+                             QMouseEvent* sigval3 = event;
+                             slotFunc(self, sigval1, sigval2, sigval3);
+                         });
 }
 
 void QCustomPlot_SelectionChangedByUser(QCustomPlot* self) {
@@ -20597,9 +20728,11 @@ void QCustomPlot_SelectionChangedByUser(QCustomPlot* self) {
 
 void QCustomPlot_Connect_SelectionChangedByUser(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*) = reinterpret_cast<void (*)(QCustomPlot*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::selectionChangedByUser, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)()>(&QCustomPlot::selectionChangedByUser),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QCustomPlot_BeforeReplot(QCustomPlot* self) {
@@ -20608,9 +20741,11 @@ void QCustomPlot_BeforeReplot(QCustomPlot* self) {
 
 void QCustomPlot_Connect_BeforeReplot(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*) = reinterpret_cast<void (*)(QCustomPlot*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::beforeReplot, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)()>(&QCustomPlot::beforeReplot),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QCustomPlot_AfterLayout(QCustomPlot* self) {
@@ -20619,9 +20754,11 @@ void QCustomPlot_AfterLayout(QCustomPlot* self) {
 
 void QCustomPlot_Connect_AfterLayout(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*) = reinterpret_cast<void (*)(QCustomPlot*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::afterLayout, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)()>(&QCustomPlot::afterLayout),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 void QCustomPlot_AfterReplot(QCustomPlot* self) {
@@ -20630,9 +20767,11 @@ void QCustomPlot_AfterReplot(QCustomPlot* self) {
 
 void QCustomPlot_Connect_AfterReplot(QCustomPlot* self, intptr_t slot) {
     void (*slotFunc)(QCustomPlot*) = reinterpret_cast<void (*)(QCustomPlot*)>(slot);
-    QCustomPlot::connect(self, &QCustomPlot::afterReplot, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QCustomPlot::connect(self,
+                         static_cast<void (QCustomPlot::*)()>(&QCustomPlot::afterReplot),
+                         [self, slotFunc]() {
+                             slotFunc(self);
+                         });
 }
 
 QSize* QCustomPlot_MinimumSizeHint(const QCustomPlot* self) {
@@ -25107,10 +25246,12 @@ void QCPAbstractLegendItem_SelectionChanged(QCPAbstractLegendItem* self, bool se
 
 void QCPAbstractLegendItem_Connect_SelectionChanged(QCPAbstractLegendItem* self, intptr_t slot) {
     void (*slotFunc)(QCPAbstractLegendItem*, bool) = reinterpret_cast<void (*)(QCPAbstractLegendItem*, bool)>(slot);
-    QCPAbstractLegendItem::connect(self, &QCPAbstractLegendItem::selectionChanged, [self, slotFunc](bool selected) {
-        bool sigval1 = selected;
-        slotFunc(self, sigval1);
-    });
+    QCPAbstractLegendItem::connect(self,
+                                   static_cast<void (QCPAbstractLegendItem::*)(bool)>(&QCPAbstractLegendItem::selectionChanged),
+                                   [self, slotFunc](bool selected) {
+                                       bool sigval1 = selected;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 void QCPAbstractLegendItem_SelectableChanged(QCPAbstractLegendItem* self, bool selectable) {
@@ -25119,10 +25260,12 @@ void QCPAbstractLegendItem_SelectableChanged(QCPAbstractLegendItem* self, bool s
 
 void QCPAbstractLegendItem_Connect_SelectableChanged(QCPAbstractLegendItem* self, intptr_t slot) {
     void (*slotFunc)(QCPAbstractLegendItem*, bool) = reinterpret_cast<void (*)(QCPAbstractLegendItem*, bool)>(slot);
-    QCPAbstractLegendItem::connect(self, &QCPAbstractLegendItem::selectableChanged, [self, slotFunc](bool selectable) {
-        bool sigval1 = selectable;
-        slotFunc(self, sigval1);
-    });
+    QCPAbstractLegendItem::connect(self,
+                                   static_cast<void (QCPAbstractLegendItem::*)(bool)>(&QCPAbstractLegendItem::selectableChanged),
+                                   [self, slotFunc](bool selectable) {
+                                       bool sigval1 = selectable;
+                                       slotFunc(self, sigval1);
+                                   });
 }
 
 int QCPAbstractLegendItem_SelectionCategory(const QCPAbstractLegendItem* self) {
@@ -27543,10 +27686,12 @@ void QCPLegend_SelectionChanged(QCPLegend* self, int parts) {
 
 void QCPLegend_Connect_SelectionChanged(QCPLegend* self, intptr_t slot) {
     void (*slotFunc)(QCPLegend*, int) = reinterpret_cast<void (*)(QCPLegend*, int)>(slot);
-    QCPLegend::connect(self, &QCPLegend::selectionChanged, [self, slotFunc](QCPLegend::SelectableParts parts) {
-        int sigval1 = static_cast<int>(parts);
-        slotFunc(self, sigval1);
-    });
+    QCPLegend::connect(self,
+                       static_cast<void (QCPLegend::*)(QCPLegend::SelectableParts)>(&QCPLegend::selectionChanged),
+                       [self, slotFunc](QCPLegend::SelectableParts parts) {
+                           int sigval1 = static_cast<int>(parts);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QCPLegend_SelectableChanged(QCPLegend* self, int parts) {
@@ -27555,10 +27700,12 @@ void QCPLegend_SelectableChanged(QCPLegend* self, int parts) {
 
 void QCPLegend_Connect_SelectableChanged(QCPLegend* self, intptr_t slot) {
     void (*slotFunc)(QCPLegend*, int) = reinterpret_cast<void (*)(QCPLegend*, int)>(slot);
-    QCPLegend::connect(self, &QCPLegend::selectableChanged, [self, slotFunc](QCPLegend::SelectableParts parts) {
-        int sigval1 = static_cast<int>(parts);
-        slotFunc(self, sigval1);
-    });
+    QCPLegend::connect(self,
+                       static_cast<void (QCPLegend::*)(QCPLegend::SelectableParts)>(&QCPLegend::selectableChanged),
+                       [self, slotFunc](QCPLegend::SelectableParts parts) {
+                           int sigval1 = static_cast<int>(parts);
+                           slotFunc(self, sigval1);
+                       });
 }
 
 void QCPLegend_ParentPlotInitialized(QCPLegend* self, QCustomPlot* parentPlot) {
@@ -29254,10 +29401,12 @@ void QCPTextElement_SelectionChanged(QCPTextElement* self, bool selected) {
 
 void QCPTextElement_Connect_SelectionChanged(QCPTextElement* self, intptr_t slot) {
     void (*slotFunc)(QCPTextElement*, bool) = reinterpret_cast<void (*)(QCPTextElement*, bool)>(slot);
-    QCPTextElement::connect(self, &QCPTextElement::selectionChanged, [self, slotFunc](bool selected) {
-        bool sigval1 = selected;
-        slotFunc(self, sigval1);
-    });
+    QCPTextElement::connect(self,
+                            static_cast<void (QCPTextElement::*)(bool)>(&QCPTextElement::selectionChanged),
+                            [self, slotFunc](bool selected) {
+                                bool sigval1 = selected;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QCPTextElement_SelectableChanged(QCPTextElement* self, bool selectable) {
@@ -29266,10 +29415,12 @@ void QCPTextElement_SelectableChanged(QCPTextElement* self, bool selectable) {
 
 void QCPTextElement_Connect_SelectableChanged(QCPTextElement* self, intptr_t slot) {
     void (*slotFunc)(QCPTextElement*, bool) = reinterpret_cast<void (*)(QCPTextElement*, bool)>(slot);
-    QCPTextElement::connect(self, &QCPTextElement::selectableChanged, [self, slotFunc](bool selectable) {
-        bool sigval1 = selectable;
-        slotFunc(self, sigval1);
-    });
+    QCPTextElement::connect(self,
+                            static_cast<void (QCPTextElement::*)(bool)>(&QCPTextElement::selectableChanged),
+                            [self, slotFunc](bool selectable) {
+                                bool sigval1 = selectable;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QCPTextElement_Clicked(QCPTextElement* self, QMouseEvent* event) {
@@ -29278,10 +29429,12 @@ void QCPTextElement_Clicked(QCPTextElement* self, QMouseEvent* event) {
 
 void QCPTextElement_Connect_Clicked(QCPTextElement* self, intptr_t slot) {
     void (*slotFunc)(QCPTextElement*, QMouseEvent*) = reinterpret_cast<void (*)(QCPTextElement*, QMouseEvent*)>(slot);
-    QCPTextElement::connect(self, &QCPTextElement::clicked, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCPTextElement::connect(self,
+                            static_cast<void (QCPTextElement::*)(QMouseEvent*)>(&QCPTextElement::clicked),
+                            [self, slotFunc](QMouseEvent* event) {
+                                QMouseEvent* sigval1 = event;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QCPTextElement_DoubleClicked(QCPTextElement* self, QMouseEvent* event) {
@@ -29290,10 +29443,12 @@ void QCPTextElement_DoubleClicked(QCPTextElement* self, QMouseEvent* event) {
 
 void QCPTextElement_Connect_DoubleClicked(QCPTextElement* self, intptr_t slot) {
     void (*slotFunc)(QCPTextElement*, QMouseEvent*) = reinterpret_cast<void (*)(QCPTextElement*, QMouseEvent*)>(slot);
-    QCPTextElement::connect(self, &QCPTextElement::doubleClicked, [self, slotFunc](QMouseEvent* event) {
-        QMouseEvent* sigval1 = event;
-        slotFunc(self, sigval1);
-    });
+    QCPTextElement::connect(self,
+                            static_cast<void (QCPTextElement::*)(QMouseEvent*)>(&QCPTextElement::doubleClicked),
+                            [self, slotFunc](QMouseEvent* event) {
+                                QMouseEvent* sigval1 = event;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QCPTextElement_ApplyDefaultAntialiasingHint(const QCPTextElement* self, QCPPainter* painter) {
@@ -30490,12 +30645,14 @@ void QCPColorScale_DataRangeChanged(QCPColorScale* self, const QCPRange* newRang
 
 void QCPColorScale_Connect_DataRangeChanged(QCPColorScale* self, intptr_t slot) {
     void (*slotFunc)(QCPColorScale*, QCPRange*) = reinterpret_cast<void (*)(QCPColorScale*, QCPRange*)>(slot);
-    QCPColorScale::connect(self, &QCPColorScale::dataRangeChanged, [self, slotFunc](const QCPRange& newRange) {
-        const QCPRange& newRange_ret = newRange;
-        // Cast returned reference into pointer
-        QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
-        slotFunc(self, sigval1);
-    });
+    QCPColorScale::connect(self,
+                           static_cast<void (QCPColorScale::*)(const QCPRange&)>(&QCPColorScale::dataRangeChanged),
+                           [self, slotFunc](const QCPRange& newRange) {
+                               const QCPRange& newRange_ret = newRange;
+                               // Cast returned reference into pointer
+                               QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QCPColorScale_DataScaleTypeChanged(QCPColorScale* self, int scaleType) {
@@ -30504,10 +30661,12 @@ void QCPColorScale_DataScaleTypeChanged(QCPColorScale* self, int scaleType) {
 
 void QCPColorScale_Connect_DataScaleTypeChanged(QCPColorScale* self, intptr_t slot) {
     void (*slotFunc)(QCPColorScale*, int) = reinterpret_cast<void (*)(QCPColorScale*, int)>(slot);
-    QCPColorScale::connect(self, &QCPColorScale::dataScaleTypeChanged, [self, slotFunc](QCPAxis::ScaleType scaleType) {
-        int sigval1 = static_cast<int>(scaleType);
-        slotFunc(self, sigval1);
-    });
+    QCPColorScale::connect(self,
+                           static_cast<void (QCPColorScale::*)(QCPAxis::ScaleType)>(&QCPColorScale::dataScaleTypeChanged),
+                           [self, slotFunc](QCPAxis::ScaleType scaleType) {
+                               int sigval1 = static_cast<int>(scaleType);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QCPColorScale_GradientChanged(QCPColorScale* self, const QCPColorGradient* newGradient) {
@@ -30516,12 +30675,14 @@ void QCPColorScale_GradientChanged(QCPColorScale* self, const QCPColorGradient* 
 
 void QCPColorScale_Connect_GradientChanged(QCPColorScale* self, intptr_t slot) {
     void (*slotFunc)(QCPColorScale*, QCPColorGradient*) = reinterpret_cast<void (*)(QCPColorScale*, QCPColorGradient*)>(slot);
-    QCPColorScale::connect(self, &QCPColorScale::gradientChanged, [self, slotFunc](const QCPColorGradient& newGradient) {
-        const QCPColorGradient& newGradient_ret = newGradient;
-        // Cast returned reference into pointer
-        QCPColorGradient* sigval1 = const_cast<QCPColorGradient*>(&newGradient_ret);
-        slotFunc(self, sigval1);
-    });
+    QCPColorScale::connect(self,
+                           static_cast<void (QCPColorScale::*)(const QCPColorGradient&)>(&QCPColorScale::gradientChanged),
+                           [self, slotFunc](const QCPColorGradient& newGradient) {
+                               const QCPColorGradient& newGradient_ret = newGradient;
+                               // Cast returned reference into pointer
+                               QCPColorGradient* sigval1 = const_cast<QCPColorGradient*>(&newGradient_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void QCPColorScale_ApplyDefaultAntialiasingHint(const QCPColorScale* self, QCPPainter* painter) {
@@ -40197,12 +40358,14 @@ void QCPColorMap_DataRangeChanged(QCPColorMap* self, const QCPRange* newRange) {
 
 void QCPColorMap_Connect_DataRangeChanged(QCPColorMap* self, intptr_t slot) {
     void (*slotFunc)(QCPColorMap*, QCPRange*) = reinterpret_cast<void (*)(QCPColorMap*, QCPRange*)>(slot);
-    QCPColorMap::connect(self, &QCPColorMap::dataRangeChanged, [self, slotFunc](const QCPRange& newRange) {
-        const QCPRange& newRange_ret = newRange;
-        // Cast returned reference into pointer
-        QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
-        slotFunc(self, sigval1);
-    });
+    QCPColorMap::connect(self,
+                         static_cast<void (QCPColorMap::*)(const QCPRange&)>(&QCPColorMap::dataRangeChanged),
+                         [self, slotFunc](const QCPRange& newRange) {
+                             const QCPRange& newRange_ret = newRange;
+                             // Cast returned reference into pointer
+                             QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCPColorMap_DataScaleTypeChanged(QCPColorMap* self, int scaleType) {
@@ -40211,10 +40374,12 @@ void QCPColorMap_DataScaleTypeChanged(QCPColorMap* self, int scaleType) {
 
 void QCPColorMap_Connect_DataScaleTypeChanged(QCPColorMap* self, intptr_t slot) {
     void (*slotFunc)(QCPColorMap*, int) = reinterpret_cast<void (*)(QCPColorMap*, int)>(slot);
-    QCPColorMap::connect(self, &QCPColorMap::dataScaleTypeChanged, [self, slotFunc](QCPAxis::ScaleType scaleType) {
-        int sigval1 = static_cast<int>(scaleType);
-        slotFunc(self, sigval1);
-    });
+    QCPColorMap::connect(self,
+                         static_cast<void (QCPColorMap::*)(QCPAxis::ScaleType)>(&QCPColorMap::dataScaleTypeChanged),
+                         [self, slotFunc](QCPAxis::ScaleType scaleType) {
+                             int sigval1 = static_cast<int>(scaleType);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCPColorMap_GradientChanged(QCPColorMap* self, const QCPColorGradient* newGradient) {
@@ -40223,12 +40388,14 @@ void QCPColorMap_GradientChanged(QCPColorMap* self, const QCPColorGradient* newG
 
 void QCPColorMap_Connect_GradientChanged(QCPColorMap* self, intptr_t slot) {
     void (*slotFunc)(QCPColorMap*, QCPColorGradient*) = reinterpret_cast<void (*)(QCPColorMap*, QCPColorGradient*)>(slot);
-    QCPColorMap::connect(self, &QCPColorMap::gradientChanged, [self, slotFunc](const QCPColorGradient& newGradient) {
-        const QCPColorGradient& newGradient_ret = newGradient;
-        // Cast returned reference into pointer
-        QCPColorGradient* sigval1 = const_cast<QCPColorGradient*>(&newGradient_ret);
-        slotFunc(self, sigval1);
-    });
+    QCPColorMap::connect(self,
+                         static_cast<void (QCPColorMap::*)(const QCPColorGradient&)>(&QCPColorMap::gradientChanged),
+                         [self, slotFunc](const QCPColorGradient& newGradient) {
+                             const QCPColorGradient& newGradient_ret = newGradient;
+                             // Cast returned reference into pointer
+                             QCPColorGradient* sigval1 = const_cast<QCPColorGradient*>(&newGradient_ret);
+                             slotFunc(self, sigval1);
+                         });
 }
 
 void QCPColorMap_UpdateMapImage(QCPColorMap* self) {
@@ -55122,20 +55289,79 @@ void QCPPolarAxisRadial_RangeChanged(QCPPolarAxisRadial* self, const QCPRange* n
     self->rangeChanged(*newRange);
 }
 
+void QCPPolarAxisRadial_Connect_RangeChanged(QCPPolarAxisRadial* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisRadial*, QCPRange*) = reinterpret_cast<void (*)(QCPPolarAxisRadial*, QCPRange*)>(slot);
+    QCPPolarAxisRadial::connect(self,
+                                static_cast<void (QCPPolarAxisRadial::*)(const QCPRange&)>(&QCPPolarAxisRadial::rangeChanged),
+                                [self, slotFunc](const QCPRange& newRange) {
+                                    const QCPRange& newRange_ret = newRange;
+                                    // Cast returned reference into pointer
+                                    QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                                    slotFunc(self, sigval1);
+                                });
+}
+
 void QCPPolarAxisRadial_RangeChanged2(QCPPolarAxisRadial* self, const QCPRange* newRange, const QCPRange* oldRange) {
     self->rangeChanged(*newRange, *oldRange);
+}
+
+void QCPPolarAxisRadial_Connect_RangeChanged2(QCPPolarAxisRadial* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisRadial*, QCPRange*, QCPRange*) = reinterpret_cast<void (*)(QCPPolarAxisRadial*, QCPRange*, QCPRange*)>(slot);
+    QCPPolarAxisRadial::connect(self,
+                                static_cast<void (QCPPolarAxisRadial::*)(const QCPRange&, const QCPRange&)>(&QCPPolarAxisRadial::rangeChanged),
+                                [self, slotFunc](const QCPRange& newRange, const QCPRange& oldRange) {
+                                    const QCPRange& newRange_ret = newRange;
+                                    // Cast returned reference into pointer
+                                    QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                                    const QCPRange& oldRange_ret = oldRange;
+                                    // Cast returned reference into pointer
+                                    QCPRange* sigval2 = const_cast<QCPRange*>(&oldRange_ret);
+                                    slotFunc(self, sigval1, sigval2);
+                                });
 }
 
 void QCPPolarAxisRadial_ScaleTypeChanged(QCPPolarAxisRadial* self, int scaleType) {
     self->scaleTypeChanged(static_cast<QCPPolarAxisRadial::ScaleType>(scaleType));
 }
 
+void QCPPolarAxisRadial_Connect_ScaleTypeChanged(QCPPolarAxisRadial* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisRadial*, int) = reinterpret_cast<void (*)(QCPPolarAxisRadial*, int)>(slot);
+    QCPPolarAxisRadial::connect(self,
+                                static_cast<void (QCPPolarAxisRadial::*)(QCPPolarAxisRadial::ScaleType)>(&QCPPolarAxisRadial::scaleTypeChanged),
+                                [self, slotFunc](QCPPolarAxisRadial::ScaleType scaleType) {
+                                    int sigval1 = static_cast<int>(scaleType);
+                                    slotFunc(self, sigval1);
+                                });
+}
+
 void QCPPolarAxisRadial_SelectionChanged(QCPPolarAxisRadial* self, const int* parts) {
     self->selectionChanged((const QCPPolarAxisRadial::SelectableParts&)(*parts));
 }
 
+void QCPPolarAxisRadial_Connect_SelectionChanged(QCPPolarAxisRadial* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisRadial*, const int*) = reinterpret_cast<void (*)(QCPPolarAxisRadial*, const int*)>(slot);
+    QCPPolarAxisRadial::connect(self,
+                                static_cast<void (QCPPolarAxisRadial::*)(const QCPPolarAxisRadial::SelectableParts&)>(&QCPPolarAxisRadial::selectionChanged),
+                                [self, slotFunc](const QCPPolarAxisRadial::SelectableParts& parts) {
+                                    const QCPPolarAxisRadial::SelectableParts& parts_ret = parts;
+                                    const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                                    slotFunc(self, sigval1);
+                                });
+}
+
 void QCPPolarAxisRadial_SelectableChanged(QCPPolarAxisRadial* self, const int* parts) {
     self->selectableChanged((const QCPPolarAxisRadial::SelectableParts&)(*parts));
+}
+
+void QCPPolarAxisRadial_Connect_SelectableChanged(QCPPolarAxisRadial* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisRadial*, const int*) = reinterpret_cast<void (*)(QCPPolarAxisRadial*, const int*)>(slot);
+    QCPPolarAxisRadial::connect(self,
+                                static_cast<void (QCPPolarAxisRadial::*)(const QCPPolarAxisRadial::SelectableParts&)>(&QCPPolarAxisRadial::selectableChanged),
+                                [self, slotFunc](const QCPPolarAxisRadial::SelectableParts& parts) {
+                                    const QCPPolarAxisRadial::SelectableParts& parts_ret = parts;
+                                    const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                                    slotFunc(self, sigval1);
+                                });
 }
 
 void QCPPolarAxisRadial_ApplyDefaultAntialiasingHint(const QCPPolarAxisRadial* self, QCPPainter* painter) {
@@ -56802,16 +57028,65 @@ void QCPPolarAxisAngular_RangeChanged(QCPPolarAxisAngular* self, const QCPRange*
     self->rangeChanged(*newRange);
 }
 
+void QCPPolarAxisAngular_Connect_RangeChanged(QCPPolarAxisAngular* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisAngular*, QCPRange*) = reinterpret_cast<void (*)(QCPPolarAxisAngular*, QCPRange*)>(slot);
+    QCPPolarAxisAngular::connect(self,
+                                 static_cast<void (QCPPolarAxisAngular::*)(const QCPRange&)>(&QCPPolarAxisAngular::rangeChanged),
+                                 [self, slotFunc](const QCPRange& newRange) {
+                                     const QCPRange& newRange_ret = newRange;
+                                     // Cast returned reference into pointer
+                                     QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                                     slotFunc(self, sigval1);
+                                 });
+}
+
 void QCPPolarAxisAngular_RangeChanged2(QCPPolarAxisAngular* self, const QCPRange* newRange, const QCPRange* oldRange) {
     self->rangeChanged(*newRange, *oldRange);
+}
+
+void QCPPolarAxisAngular_Connect_RangeChanged2(QCPPolarAxisAngular* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisAngular*, QCPRange*, QCPRange*) = reinterpret_cast<void (*)(QCPPolarAxisAngular*, QCPRange*, QCPRange*)>(slot);
+    QCPPolarAxisAngular::connect(self,
+                                 static_cast<void (QCPPolarAxisAngular::*)(const QCPRange&, const QCPRange&)>(&QCPPolarAxisAngular::rangeChanged),
+                                 [self, slotFunc](const QCPRange& newRange, const QCPRange& oldRange) {
+                                     const QCPRange& newRange_ret = newRange;
+                                     // Cast returned reference into pointer
+                                     QCPRange* sigval1 = const_cast<QCPRange*>(&newRange_ret);
+                                     const QCPRange& oldRange_ret = oldRange;
+                                     // Cast returned reference into pointer
+                                     QCPRange* sigval2 = const_cast<QCPRange*>(&oldRange_ret);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void QCPPolarAxisAngular_SelectionChanged(QCPPolarAxisAngular* self, const int* parts) {
     self->selectionChanged((const QCPPolarAxisAngular::SelectableParts&)(*parts));
 }
 
+void QCPPolarAxisAngular_Connect_SelectionChanged(QCPPolarAxisAngular* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisAngular*, const int*) = reinterpret_cast<void (*)(QCPPolarAxisAngular*, const int*)>(slot);
+    QCPPolarAxisAngular::connect(self,
+                                 static_cast<void (QCPPolarAxisAngular::*)(const QCPPolarAxisAngular::SelectableParts&)>(&QCPPolarAxisAngular::selectionChanged),
+                                 [self, slotFunc](const QCPPolarAxisAngular::SelectableParts& parts) {
+                                     const QCPPolarAxisAngular::SelectableParts& parts_ret = parts;
+                                     const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                                     slotFunc(self, sigval1);
+                                 });
+}
+
 void QCPPolarAxisAngular_SelectableChanged(QCPPolarAxisAngular* self, const int* parts) {
     self->selectableChanged((const QCPPolarAxisAngular::SelectableParts&)(*parts));
+}
+
+void QCPPolarAxisAngular_Connect_SelectableChanged(QCPPolarAxisAngular* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarAxisAngular*, const int*) = reinterpret_cast<void (*)(QCPPolarAxisAngular*, const int*)>(slot);
+    QCPPolarAxisAngular::connect(self,
+                                 static_cast<void (QCPPolarAxisAngular::*)(const QCPPolarAxisAngular::SelectableParts&)>(&QCPPolarAxisAngular::selectableChanged),
+                                 [self, slotFunc](const QCPPolarAxisAngular::SelectableParts& parts) {
+                                     const QCPPolarAxisAngular::SelectableParts& parts_ret = parts;
+                                     const int* sigval1 = reinterpret_cast<const int*>(&parts_ret);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QCPPolarAxisAngular_ApplyDefaultAntialiasingHint(const QCPPolarAxisAngular* self, QCPPainter* painter) {
@@ -60599,12 +60874,44 @@ void QCPPolarGraph_SelectionChanged(QCPPolarGraph* self, bool selected) {
     self->selectionChanged(selected);
 }
 
+void QCPPolarGraph_Connect_SelectionChanged(QCPPolarGraph* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarGraph*, bool) = reinterpret_cast<void (*)(QCPPolarGraph*, bool)>(slot);
+    QCPPolarGraph::connect(self,
+                           static_cast<void (QCPPolarGraph::*)(bool)>(&QCPPolarGraph::selectionChanged),
+                           [self, slotFunc](bool selected) {
+                               bool sigval1 = selected;
+                               slotFunc(self, sigval1);
+                           });
+}
+
 void QCPPolarGraph_SelectionChanged2(QCPPolarGraph* self, const QCPDataSelection* selection) {
     self->selectionChanged(*selection);
 }
 
+void QCPPolarGraph_Connect_SelectionChanged2(QCPPolarGraph* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarGraph*, QCPDataSelection*) = reinterpret_cast<void (*)(QCPPolarGraph*, QCPDataSelection*)>(slot);
+    QCPPolarGraph::connect(self,
+                           static_cast<void (QCPPolarGraph::*)(const QCPDataSelection&)>(&QCPPolarGraph::selectionChanged),
+                           [self, slotFunc](const QCPDataSelection& selection) {
+                               const QCPDataSelection& selection_ret = selection;
+                               // Cast returned reference into pointer
+                               QCPDataSelection* sigval1 = const_cast<QCPDataSelection*>(&selection_ret);
+                               slotFunc(self, sigval1);
+                           });
+}
+
 void QCPPolarGraph_SelectableChanged(QCPPolarGraph* self, int selectable) {
     self->selectableChanged(static_cast<QCP::SelectionType>(selectable));
+}
+
+void QCPPolarGraph_Connect_SelectableChanged(QCPPolarGraph* self, intptr_t slot) {
+    void (*slotFunc)(QCPPolarGraph*, int) = reinterpret_cast<void (*)(QCPPolarGraph*, int)>(slot);
+    QCPPolarGraph::connect(self,
+                           static_cast<void (QCPPolarGraph::*)(QCP::SelectionType)>(&QCPPolarGraph::selectableChanged),
+                           [self, slotFunc](QCP::SelectionType selectable) {
+                               int sigval1 = static_cast<int>(selectable);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 QRect* QCPPolarGraph_ClipRect(const QCPPolarGraph* self) {

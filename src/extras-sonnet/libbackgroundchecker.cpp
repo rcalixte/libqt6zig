@@ -164,19 +164,21 @@ void Sonnet__BackgroundChecker_Misspelling(Sonnet__BackgroundChecker* self, cons
 
 void Sonnet__BackgroundChecker_Connect_Misspelling(Sonnet__BackgroundChecker* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__BackgroundChecker*, const char*, int) = reinterpret_cast<void (*)(Sonnet__BackgroundChecker*, const char*, int)>(slot);
-    Sonnet::BackgroundChecker::connect(self, &Sonnet::BackgroundChecker::misspelling, [self, slotFunc](const QString& word, int start) {
-        const auto word_ret = word;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray word_b = word_ret.toUtf8();
-        auto word_str_len = word_b.length();
-        const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
-        memcpy((void*)word_str, word_b.data(), word_str_len);
-        ((char*)word_str)[word_str_len] = '\0';
-        const char* sigval1 = word_str;
-        int sigval2 = start;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(word_str);
-    });
+    Sonnet::BackgroundChecker::connect(self,
+                                       static_cast<void (Sonnet::BackgroundChecker::*)(const QString&, int)>(&Sonnet::BackgroundChecker::misspelling),
+                                       [self, slotFunc](const QString& word, int start) {
+                                           const auto word_ret = word;
+                                           // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                           QByteArray word_b = word_ret.toUtf8();
+                                           auto word_str_len = word_b.length();
+                                           const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
+                                           memcpy((void*)word_str, word_b.data(), word_str_len);
+                                           ((char*)word_str)[word_str_len] = '\0';
+                                           const char* sigval1 = word_str;
+                                           int sigval2 = start;
+                                           slotFunc(self, sigval1, sigval2);
+                                           libqt_free(word_str);
+                                       });
 }
 
 void Sonnet__BackgroundChecker_Done(Sonnet__BackgroundChecker* self) {
@@ -185,9 +187,11 @@ void Sonnet__BackgroundChecker_Done(Sonnet__BackgroundChecker* self) {
 
 void Sonnet__BackgroundChecker_Connect_Done(Sonnet__BackgroundChecker* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__BackgroundChecker*) = reinterpret_cast<void (*)(Sonnet__BackgroundChecker*)>(slot);
-    Sonnet::BackgroundChecker::connect(self, &Sonnet::BackgroundChecker::done, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Sonnet::BackgroundChecker::connect(self,
+                                       static_cast<void (Sonnet::BackgroundChecker::*)()>(&Sonnet::BackgroundChecker::done),
+                                       [self, slotFunc]() {
+                                           slotFunc(self);
+                                       });
 }
 
 libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet__BackgroundChecker* self) {

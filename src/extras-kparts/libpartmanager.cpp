@@ -136,10 +136,12 @@ void KParts__PartManager_PartAdded(KParts__PartManager* self, KParts__Part* part
 
 void KParts__PartManager_Connect_PartAdded(KParts__PartManager* self, intptr_t slot) {
     void (*slotFunc)(KParts__PartManager*, KParts__Part*) = reinterpret_cast<void (*)(KParts__PartManager*, KParts__Part*)>(slot);
-    KParts::PartManager::connect(self, &KParts::PartManager::partAdded, [self, slotFunc](KParts::Part* part) {
-        KParts__Part* sigval1 = part;
-        slotFunc(self, sigval1);
-    });
+    KParts::PartManager::connect(self,
+                                 static_cast<void (KParts::PartManager::*)(KParts::Part*)>(&KParts::PartManager::partAdded),
+                                 [self, slotFunc](KParts::Part* part) {
+                                     KParts__Part* sigval1 = part;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void KParts__PartManager_PartRemoved(KParts__PartManager* self, KParts__Part* part) {
@@ -148,10 +150,12 @@ void KParts__PartManager_PartRemoved(KParts__PartManager* self, KParts__Part* pa
 
 void KParts__PartManager_Connect_PartRemoved(KParts__PartManager* self, intptr_t slot) {
     void (*slotFunc)(KParts__PartManager*, KParts__Part*) = reinterpret_cast<void (*)(KParts__PartManager*, KParts__Part*)>(slot);
-    KParts::PartManager::connect(self, &KParts::PartManager::partRemoved, [self, slotFunc](KParts::Part* part) {
-        KParts__Part* sigval1 = part;
-        slotFunc(self, sigval1);
-    });
+    KParts::PartManager::connect(self,
+                                 static_cast<void (KParts::PartManager::*)(KParts::Part*)>(&KParts::PartManager::partRemoved),
+                                 [self, slotFunc](KParts::Part* part) {
+                                     KParts__Part* sigval1 = part;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void KParts__PartManager_ActivePartChanged(KParts__PartManager* self, KParts__Part* newPart) {
@@ -160,10 +164,12 @@ void KParts__PartManager_ActivePartChanged(KParts__PartManager* self, KParts__Pa
 
 void KParts__PartManager_Connect_ActivePartChanged(KParts__PartManager* self, intptr_t slot) {
     void (*slotFunc)(KParts__PartManager*, KParts__Part*) = reinterpret_cast<void (*)(KParts__PartManager*, KParts__Part*)>(slot);
-    KParts::PartManager::connect(self, &KParts::PartManager::activePartChanged, [self, slotFunc](KParts::Part* newPart) {
-        KParts__Part* sigval1 = newPart;
-        slotFunc(self, sigval1);
-    });
+    KParts::PartManager::connect(self,
+                                 static_cast<void (KParts::PartManager::*)(KParts::Part*)>(&KParts::PartManager::activePartChanged),
+                                 [self, slotFunc](KParts::Part* newPart) {
+                                     KParts__Part* sigval1 = newPart;
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 libqt_string KParts__PartManager_Tr2(const char* s, const char* c) {

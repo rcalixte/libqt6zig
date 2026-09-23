@@ -101,9 +101,11 @@ void KEditToolBar_NewToolBarConfig(KEditToolBar* self) {
 
 void KEditToolBar_Connect_NewToolBarConfig(KEditToolBar* self, intptr_t slot) {
     void (*slotFunc)(KEditToolBar*) = reinterpret_cast<void (*)(KEditToolBar*)>(slot);
-    KEditToolBar::connect(self, &KEditToolBar::newToolBarConfig, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KEditToolBar::connect(self,
+                          static_cast<void (KEditToolBar::*)()>(&KEditToolBar::newToolBarConfig),
+                          [self, slotFunc]() {
+                              slotFunc(self);
+                          });
 }
 
 void KEditToolBar_ShowEvent(KEditToolBar* self, QShowEvent* event) {

@@ -118,10 +118,12 @@ void QQuickFramebufferObject_TextureFollowsItemSizeChanged(QQuickFramebufferObje
 
 void QQuickFramebufferObject_Connect_TextureFollowsItemSizeChanged(QQuickFramebufferObject* self, intptr_t slot) {
     void (*slotFunc)(QQuickFramebufferObject*, bool) = reinterpret_cast<void (*)(QQuickFramebufferObject*, bool)>(slot);
-    QQuickFramebufferObject::connect(self, &QQuickFramebufferObject::textureFollowsItemSizeChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickFramebufferObject::connect(self,
+                                     static_cast<void (QQuickFramebufferObject::*)(bool)>(&QQuickFramebufferObject::textureFollowsItemSizeChanged),
+                                     [self, slotFunc](bool param1) {
+                                         bool sigval1 = param1;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void QQuickFramebufferObject_MirrorVerticallyChanged(QQuickFramebufferObject* self, bool param1) {
@@ -130,10 +132,12 @@ void QQuickFramebufferObject_MirrorVerticallyChanged(QQuickFramebufferObject* se
 
 void QQuickFramebufferObject_Connect_MirrorVerticallyChanged(QQuickFramebufferObject* self, intptr_t slot) {
     void (*slotFunc)(QQuickFramebufferObject*, bool) = reinterpret_cast<void (*)(QQuickFramebufferObject*, bool)>(slot);
-    QQuickFramebufferObject::connect(self, &QQuickFramebufferObject::mirrorVerticallyChanged, [self, slotFunc](bool param1) {
-        bool sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    QQuickFramebufferObject::connect(self,
+                                     static_cast<void (QQuickFramebufferObject::*)(bool)>(&QQuickFramebufferObject::mirrorVerticallyChanged),
+                                     [self, slotFunc](bool param1) {
+                                         bool sigval1 = param1;
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 libqt_string QQuickFramebufferObject_Tr2(const char* s, const char* c) {

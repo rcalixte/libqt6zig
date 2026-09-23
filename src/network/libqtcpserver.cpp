@@ -147,9 +147,11 @@ void QTcpServer_NewConnection(QTcpServer* self) {
 
 void QTcpServer_Connect_NewConnection(QTcpServer* self, intptr_t slot) {
     void (*slotFunc)(QTcpServer*) = reinterpret_cast<void (*)(QTcpServer*)>(slot);
-    QTcpServer::connect(self, &QTcpServer::newConnection, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    QTcpServer::connect(self,
+                        static_cast<void (QTcpServer::*)()>(&QTcpServer::newConnection),
+                        [self, slotFunc]() {
+                            slotFunc(self);
+                        });
 }
 
 void QTcpServer_AcceptError(QTcpServer* self, int socketError) {
@@ -158,10 +160,12 @@ void QTcpServer_AcceptError(QTcpServer* self, int socketError) {
 
 void QTcpServer_Connect_AcceptError(QTcpServer* self, intptr_t slot) {
     void (*slotFunc)(QTcpServer*, int) = reinterpret_cast<void (*)(QTcpServer*, int)>(slot);
-    QTcpServer::connect(self, &QTcpServer::acceptError, [self, slotFunc](QAbstractSocket::SocketError socketError) {
-        int sigval1 = static_cast<int>(socketError);
-        slotFunc(self, sigval1);
-    });
+    QTcpServer::connect(self,
+                        static_cast<void (QTcpServer::*)(QAbstractSocket::SocketError)>(&QTcpServer::acceptError),
+                        [self, slotFunc](QAbstractSocket::SocketError socketError) {
+                            int sigval1 = static_cast<int>(socketError);
+                            slotFunc(self, sigval1);
+                        });
 }
 
 libqt_string QTcpServer_Tr2(const char* s, const char* c) {

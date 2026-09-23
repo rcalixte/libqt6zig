@@ -157,10 +157,12 @@ void KTextEditor__Message_Closed(KTextEditor__Message* self, KTextEditor__Messag
 
 void KTextEditor__Message_Connect_Closed(KTextEditor__Message* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Message*, KTextEditor__Message*) = reinterpret_cast<void (*)(KTextEditor__Message*, KTextEditor__Message*)>(slot);
-    KTextEditor::Message::connect(self, &KTextEditor::Message::closed, [self, slotFunc](KTextEditor::Message* message) {
-        KTextEditor__Message* sigval1 = message;
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Message::connect(self,
+                                  static_cast<void (KTextEditor::Message::*)(KTextEditor::Message*)>(&KTextEditor::Message::closed),
+                                  [self, slotFunc](KTextEditor::Message* message) {
+                                      KTextEditor__Message* sigval1 = message;
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 void KTextEditor__Message_TextChanged(KTextEditor__Message* self, const libqt_string text) {
@@ -170,18 +172,20 @@ void KTextEditor__Message_TextChanged(KTextEditor__Message* self, const libqt_st
 
 void KTextEditor__Message_Connect_TextChanged(KTextEditor__Message* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Message*, const char*) = reinterpret_cast<void (*)(KTextEditor__Message*, const char*)>(slot);
-    KTextEditor::Message::connect(self, &KTextEditor::Message::textChanged, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KTextEditor::Message::connect(self,
+                                  static_cast<void (KTextEditor::Message::*)(const QString&)>(&KTextEditor::Message::textChanged),
+                                  [self, slotFunc](const QString& text) {
+                                      const auto text_ret = text;
+                                      // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                      QByteArray text_b = text_ret.toUtf8();
+                                      auto text_str_len = text_b.length();
+                                      const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                      memcpy((void*)text_str, text_b.data(), text_str_len);
+                                      ((char*)text_str)[text_str_len] = '\0';
+                                      const char* sigval1 = text_str;
+                                      slotFunc(self, sigval1);
+                                      libqt_free(text_str);
+                                  });
 }
 
 void KTextEditor__Message_IconChanged(KTextEditor__Message* self, const QIcon* icon) {
@@ -190,12 +194,14 @@ void KTextEditor__Message_IconChanged(KTextEditor__Message* self, const QIcon* i
 
 void KTextEditor__Message_Connect_IconChanged(KTextEditor__Message* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Message*, QIcon*) = reinterpret_cast<void (*)(KTextEditor__Message*, QIcon*)>(slot);
-    KTextEditor::Message::connect(self, &KTextEditor::Message::iconChanged, [self, slotFunc](const QIcon& icon) {
-        const QIcon& icon_ret = icon;
-        // Cast returned reference into pointer
-        QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
-        slotFunc(self, sigval1);
-    });
+    KTextEditor::Message::connect(self,
+                                  static_cast<void (KTextEditor::Message::*)(const QIcon&)>(&KTextEditor::Message::iconChanged),
+                                  [self, slotFunc](const QIcon& icon) {
+                                      const QIcon& icon_ret = icon;
+                                      // Cast returned reference into pointer
+                                      QIcon* sigval1 = const_cast<QIcon*>(&icon_ret);
+                                      slotFunc(self, sigval1);
+                                  });
 }
 
 libqt_string KTextEditor__Message_Tr2(const char* s, const char* c) {

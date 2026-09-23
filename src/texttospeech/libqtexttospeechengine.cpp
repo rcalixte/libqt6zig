@@ -166,10 +166,12 @@ void QTextToSpeechEngine_StateChanged(QTextToSpeechEngine* self, int state) {
 
 void QTextToSpeechEngine_Connect_StateChanged(QTextToSpeechEngine* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeechEngine*, int) = reinterpret_cast<void (*)(QTextToSpeechEngine*, int)>(slot);
-    QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::stateChanged, [self, slotFunc](QTextToSpeech::State state) {
-        int sigval1 = static_cast<int>(state);
-        slotFunc(self, sigval1);
-    });
+    QTextToSpeechEngine::connect(self,
+                                 static_cast<void (QTextToSpeechEngine::*)(QTextToSpeech::State)>(&QTextToSpeechEngine::stateChanged),
+                                 [self, slotFunc](QTextToSpeech::State state) {
+                                     int sigval1 = static_cast<int>(state);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QTextToSpeechEngine_ErrorOccurred(QTextToSpeechEngine* self, int errorVal, const libqt_string errorString) {
@@ -179,19 +181,21 @@ void QTextToSpeechEngine_ErrorOccurred(QTextToSpeechEngine* self, int errorVal, 
 
 void QTextToSpeechEngine_Connect_ErrorOccurred(QTextToSpeechEngine* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeechEngine*, int, const char*) = reinterpret_cast<void (*)(QTextToSpeechEngine*, int, const char*)>(slot);
-    QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::errorOccurred, [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
-        int sigval1 = static_cast<int>(errorVal);
-        const auto errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray errorString_b = errorString_ret.toUtf8();
-        auto errorString_str_len = errorString_b.length();
-        const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
-        memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
-        ((char*)errorString_str)[errorString_str_len] = '\0';
-        const char* sigval2 = errorString_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(errorString_str);
-    });
+    QTextToSpeechEngine::connect(self,
+                                 static_cast<void (QTextToSpeechEngine::*)(QTextToSpeech::ErrorReason, const QString&)>(&QTextToSpeechEngine::errorOccurred),
+                                 [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
+                                     int sigval1 = static_cast<int>(errorVal);
+                                     const auto errorString_ret = errorString;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray errorString_b = errorString_ret.toUtf8();
+                                     auto errorString_str_len = errorString_b.length();
+                                     const char* errorString_str = static_cast<const char*>(malloc(errorString_str_len + 1));
+                                     memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
+                                     ((char*)errorString_str)[errorString_str_len] = '\0';
+                                     const char* sigval2 = errorString_str;
+                                     slotFunc(self, sigval1, sigval2);
+                                     libqt_free(errorString_str);
+                                 });
 }
 
 void QTextToSpeechEngine_SayingWord(QTextToSpeechEngine* self, const libqt_string word, ptrdiff_t start, ptrdiff_t length) {
@@ -201,20 +205,22 @@ void QTextToSpeechEngine_SayingWord(QTextToSpeechEngine* self, const libqt_strin
 
 void QTextToSpeechEngine_Connect_SayingWord(QTextToSpeechEngine* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeechEngine*, const char*, ptrdiff_t, ptrdiff_t) = reinterpret_cast<void (*)(QTextToSpeechEngine*, const char*, ptrdiff_t, ptrdiff_t)>(slot);
-    QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::sayingWord, [self, slotFunc](const QString& word, qsizetype start, qsizetype length) {
-        const auto word_ret = word;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray word_b = word_ret.toUtf8();
-        auto word_str_len = word_b.length();
-        const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
-        memcpy((void*)word_str, word_b.data(), word_str_len);
-        ((char*)word_str)[word_str_len] = '\0';
-        const char* sigval1 = word_str;
-        ptrdiff_t sigval2 = static_cast<ptrdiff_t>(start);
-        ptrdiff_t sigval3 = static_cast<ptrdiff_t>(length);
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(word_str);
-    });
+    QTextToSpeechEngine::connect(self,
+                                 static_cast<void (QTextToSpeechEngine::*)(const QString&, qsizetype, qsizetype)>(&QTextToSpeechEngine::sayingWord),
+                                 [self, slotFunc](const QString& word, qsizetype start, qsizetype length) {
+                                     const auto word_ret = word;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray word_b = word_ret.toUtf8();
+                                     auto word_str_len = word_b.length();
+                                     const char* word_str = static_cast<const char*>(malloc(word_str_len + 1));
+                                     memcpy((void*)word_str, word_b.data(), word_str_len);
+                                     ((char*)word_str)[word_str_len] = '\0';
+                                     const char* sigval1 = word_str;
+                                     ptrdiff_t sigval2 = static_cast<ptrdiff_t>(start);
+                                     ptrdiff_t sigval3 = static_cast<ptrdiff_t>(length);
+                                     slotFunc(self, sigval1, sigval2, sigval3);
+                                     libqt_free(word_str);
+                                 });
 }
 
 void QTextToSpeechEngine_Synthesized(QTextToSpeechEngine* self, const QAudioFormat* format, const libqt_string data) {
@@ -224,19 +230,21 @@ void QTextToSpeechEngine_Synthesized(QTextToSpeechEngine* self, const QAudioForm
 
 void QTextToSpeechEngine_Connect_Synthesized(QTextToSpeechEngine* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeechEngine*, QAudioFormat*, libqt_string) = reinterpret_cast<void (*)(QTextToSpeechEngine*, QAudioFormat*, libqt_string)>(slot);
-    QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::synthesized, [self, slotFunc](const QAudioFormat& format, const QByteArray& data) {
-        const QAudioFormat& format_ret = format;
-        // Cast returned reference into pointer
-        QAudioFormat* sigval1 = const_cast<QAudioFormat*>(&format_ret);
-        const QByteArray data_qb = data;
-        libqt_string data_str;
-        data_str.len = data_qb.length();
-        data_str.data = static_cast<char*>(malloc(data_str.len));
-        memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-        libqt_string sigval2 = data_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(data_str.data);
-    });
+    QTextToSpeechEngine::connect(self,
+                                 static_cast<void (QTextToSpeechEngine::*)(const QAudioFormat&, const QByteArray&)>(&QTextToSpeechEngine::synthesized),
+                                 [self, slotFunc](const QAudioFormat& format, const QByteArray& data) {
+                                     const QAudioFormat& format_ret = format;
+                                     // Cast returned reference into pointer
+                                     QAudioFormat* sigval1 = const_cast<QAudioFormat*>(&format_ret);
+                                     const QByteArray data_qb = data;
+                                     libqt_string data_str;
+                                     data_str.len = data_qb.length();
+                                     data_str.data = static_cast<char*>(malloc(data_str.len));
+                                     memcpy((void*)data_str.data, data_qb.data(), data_str.len);
+                                     libqt_string sigval2 = data_str;
+                                     slotFunc(self, sigval1, sigval2);
+                                     libqt_free(data_str.data);
+                                 });
 }
 
 libqt_string QTextToSpeechEngine_Tr2(const char* s, const char* c) {

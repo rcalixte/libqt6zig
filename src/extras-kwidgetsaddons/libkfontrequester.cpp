@@ -136,12 +136,14 @@ void KFontRequester_FontSelected(KFontRequester* self, const QFont* font) {
 
 void KFontRequester_Connect_FontSelected(KFontRequester* self, intptr_t slot) {
     void (*slotFunc)(KFontRequester*, QFont*) = reinterpret_cast<void (*)(KFontRequester*, QFont*)>(slot);
-    KFontRequester::connect(self, &KFontRequester::fontSelected, [self, slotFunc](const QFont& font) {
-        const QFont& font_ret = font;
-        // Cast returned reference into pointer
-        QFont* sigval1 = const_cast<QFont*>(&font_ret);
-        slotFunc(self, sigval1);
-    });
+    KFontRequester::connect(self,
+                            static_cast<void (KFontRequester::*)(const QFont&)>(&KFontRequester::fontSelected),
+                            [self, slotFunc](const QFont& font) {
+                                const QFont& font_ret = font;
+                                // Cast returned reference into pointer
+                                QFont* sigval1 = const_cast<QFont*>(&font_ret);
+                                slotFunc(self, sigval1);
+                            });
 }
 
 bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* event) {

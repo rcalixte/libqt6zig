@@ -621,9 +621,11 @@ void PackageKit__Daemon_IsRunningChanged(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_IsRunningChanged(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::isRunningChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::isRunningChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_NetworkStateChanged(PackageKit__Daemon* self) {
@@ -632,9 +634,11 @@ void PackageKit__Daemon_NetworkStateChanged(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_NetworkStateChanged(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::networkStateChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::networkStateChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_Changed(PackageKit__Daemon* self) {
@@ -643,9 +647,11 @@ void PackageKit__Daemon_Changed(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_Changed(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::changed),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_RepoListChanged(PackageKit__Daemon* self) {
@@ -654,9 +660,11 @@ void PackageKit__Daemon_RepoListChanged(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_RepoListChanged(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::repoListChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::repoListChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_RestartScheduled(PackageKit__Daemon* self) {
@@ -665,9 +673,11 @@ void PackageKit__Daemon_RestartScheduled(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_RestartScheduled(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::restartScheduled, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::restartScheduled),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_TransactionListChanged(PackageKit__Daemon* self, const libqt_list /* of libqt_string */ tids) {
@@ -683,24 +693,26 @@ void PackageKit__Daemon_TransactionListChanged(PackageKit__Daemon* self, const l
 
 void PackageKit__Daemon_Connect_TransactionListChanged(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*, const char**) = reinterpret_cast<void (*)(PackageKit__Daemon*, const char**)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::transactionListChanged, [self, slotFunc](const QList<QString>& tids) {
-        const QList<QString>& tids_ret = tids;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** tids_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tids_ret.size() + 1)));
-        for (qsizetype i = 0; i < tids_ret.size(); ++i) {
-            QByteArray tids_b = tids_ret[i].toUtf8();
-            auto tids_str_len = tids_b.length();
-            char* tids_str = static_cast<char*>(malloc(tids_str_len + 1));
-            memcpy(tids_str, tids_b.data(), tids_str_len);
-            tids_str[tids_str_len] = '\0';
-            tids_arr[i] = tids_str;
-        }
-        // Append sentinel null terminator to the list
-        tids_arr[tids_ret.size()] = nullptr;
-        const char** sigval1 = tids_arr;
-        slotFunc(self, sigval1);
-        libqt_free(tids_arr);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)(const QList<QString>&)>(&PackageKit::Daemon::transactionListChanged),
+                                [self, slotFunc](const QList<QString>& tids) {
+                                    const QList<QString>& tids_ret = tids;
+                                    // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                    const char** tids_arr = static_cast<const char**>(malloc(sizeof(const char*) * (tids_ret.size() + 1)));
+                                    for (qsizetype i = 0; i < tids_ret.size(); ++i) {
+                                        QByteArray tids_b = tids_ret[i].toUtf8();
+                                        auto tids_str_len = tids_b.length();
+                                        char* tids_str = static_cast<char*>(malloc(tids_str_len + 1));
+                                        memcpy(tids_str, tids_b.data(), tids_str_len);
+                                        tids_str[tids_str_len] = '\0';
+                                        tids_arr[i] = tids_str;
+                                    }
+                                    // Append sentinel null terminator to the list
+                                    tids_arr[tids_ret.size()] = nullptr;
+                                    const char** sigval1 = tids_arr;
+                                    slotFunc(self, sigval1);
+                                    libqt_free(tids_arr);
+                                });
 }
 
 void PackageKit__Daemon_UpdatesChanged(PackageKit__Daemon* self) {
@@ -709,9 +721,11 @@ void PackageKit__Daemon_UpdatesChanged(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_UpdatesChanged(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::updatesChanged, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::updatesChanged),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 void PackageKit__Daemon_DaemonQuit(PackageKit__Daemon* self) {
@@ -720,9 +734,11 @@ void PackageKit__Daemon_DaemonQuit(PackageKit__Daemon* self) {
 
 void PackageKit__Daemon_Connect_DaemonQuit(PackageKit__Daemon* self, intptr_t slot) {
     void (*slotFunc)(PackageKit__Daemon*) = reinterpret_cast<void (*)(PackageKit__Daemon*)>(slot);
-    PackageKit::Daemon::connect(self, &PackageKit::Daemon::daemonQuit, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    PackageKit::Daemon::connect(self,
+                                static_cast<void (PackageKit::Daemon::*)()>(&PackageKit::Daemon::daemonQuit),
+                                [self, slotFunc]() {
+                                    slotFunc(self);
+                                });
 }
 
 libqt_string PackageKit__Daemon_Tr2(const char* s, const char* c) {

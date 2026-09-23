@@ -217,12 +217,14 @@ void QScreen_GeometryChanged(QScreen* self, const QRect* geometry) {
 
 void QScreen_Connect_GeometryChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, QRect*) = reinterpret_cast<void (*)(QScreen*, QRect*)>(slot);
-    QScreen::connect(self, &QScreen::geometryChanged, [self, slotFunc](const QRect& geometry) {
-        const QRect& geometry_ret = geometry;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&geometry_ret);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(const QRect&)>(&QScreen::geometryChanged),
+                     [self, slotFunc](const QRect& geometry) {
+                         const QRect& geometry_ret = geometry;
+                         // Cast returned reference into pointer
+                         QRect* sigval1 = const_cast<QRect*>(&geometry_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_AvailableGeometryChanged(QScreen* self, const QRect* geometry) {
@@ -231,12 +233,14 @@ void QScreen_AvailableGeometryChanged(QScreen* self, const QRect* geometry) {
 
 void QScreen_Connect_AvailableGeometryChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, QRect*) = reinterpret_cast<void (*)(QScreen*, QRect*)>(slot);
-    QScreen::connect(self, &QScreen::availableGeometryChanged, [self, slotFunc](const QRect& geometry) {
-        const QRect& geometry_ret = geometry;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&geometry_ret);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(const QRect&)>(&QScreen::availableGeometryChanged),
+                     [self, slotFunc](const QRect& geometry) {
+                         const QRect& geometry_ret = geometry;
+                         // Cast returned reference into pointer
+                         QRect* sigval1 = const_cast<QRect*>(&geometry_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_PhysicalSizeChanged(QScreen* self, const QSizeF* size) {
@@ -245,12 +249,14 @@ void QScreen_PhysicalSizeChanged(QScreen* self, const QSizeF* size) {
 
 void QScreen_Connect_PhysicalSizeChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, QSizeF*) = reinterpret_cast<void (*)(QScreen*, QSizeF*)>(slot);
-    QScreen::connect(self, &QScreen::physicalSizeChanged, [self, slotFunc](const QSizeF& size) {
-        const QSizeF& size_ret = size;
-        // Cast returned reference into pointer
-        QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(const QSizeF&)>(&QScreen::physicalSizeChanged),
+                     [self, slotFunc](const QSizeF& size) {
+                         const QSizeF& size_ret = size;
+                         // Cast returned reference into pointer
+                         QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_PhysicalDotsPerInchChanged(QScreen* self, double dpi) {
@@ -259,10 +265,12 @@ void QScreen_PhysicalDotsPerInchChanged(QScreen* self, double dpi) {
 
 void QScreen_Connect_PhysicalDotsPerInchChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, double) = reinterpret_cast<void (*)(QScreen*, double)>(slot);
-    QScreen::connect(self, &QScreen::physicalDotsPerInchChanged, [self, slotFunc](qreal dpi) {
-        double sigval1 = static_cast<double>(dpi);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(qreal)>(&QScreen::physicalDotsPerInchChanged),
+                     [self, slotFunc](qreal dpi) {
+                         double sigval1 = static_cast<double>(dpi);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_LogicalDotsPerInchChanged(QScreen* self, double dpi) {
@@ -271,10 +279,12 @@ void QScreen_LogicalDotsPerInchChanged(QScreen* self, double dpi) {
 
 void QScreen_Connect_LogicalDotsPerInchChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, double) = reinterpret_cast<void (*)(QScreen*, double)>(slot);
-    QScreen::connect(self, &QScreen::logicalDotsPerInchChanged, [self, slotFunc](qreal dpi) {
-        double sigval1 = static_cast<double>(dpi);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(qreal)>(&QScreen::logicalDotsPerInchChanged),
+                     [self, slotFunc](qreal dpi) {
+                         double sigval1 = static_cast<double>(dpi);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_VirtualGeometryChanged(QScreen* self, const QRect* rect) {
@@ -283,12 +293,14 @@ void QScreen_VirtualGeometryChanged(QScreen* self, const QRect* rect) {
 
 void QScreen_Connect_VirtualGeometryChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, QRect*) = reinterpret_cast<void (*)(QScreen*, QRect*)>(slot);
-    QScreen::connect(self, &QScreen::virtualGeometryChanged, [self, slotFunc](const QRect& rect) {
-        const QRect& rect_ret = rect;
-        // Cast returned reference into pointer
-        QRect* sigval1 = const_cast<QRect*>(&rect_ret);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(const QRect&)>(&QScreen::virtualGeometryChanged),
+                     [self, slotFunc](const QRect& rect) {
+                         const QRect& rect_ret = rect;
+                         // Cast returned reference into pointer
+                         QRect* sigval1 = const_cast<QRect*>(&rect_ret);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_PrimaryOrientationChanged(QScreen* self, int orientation) {
@@ -297,10 +309,12 @@ void QScreen_PrimaryOrientationChanged(QScreen* self, int orientation) {
 
 void QScreen_Connect_PrimaryOrientationChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, int) = reinterpret_cast<void (*)(QScreen*, int)>(slot);
-    QScreen::connect(self, &QScreen::primaryOrientationChanged, [self, slotFunc](Qt::ScreenOrientation orientation) {
-        int sigval1 = static_cast<int>(orientation);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(Qt::ScreenOrientation)>(&QScreen::primaryOrientationChanged),
+                     [self, slotFunc](Qt::ScreenOrientation orientation) {
+                         int sigval1 = static_cast<int>(orientation);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_OrientationChanged(QScreen* self, int orientation) {
@@ -309,10 +323,12 @@ void QScreen_OrientationChanged(QScreen* self, int orientation) {
 
 void QScreen_Connect_OrientationChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, int) = reinterpret_cast<void (*)(QScreen*, int)>(slot);
-    QScreen::connect(self, &QScreen::orientationChanged, [self, slotFunc](Qt::ScreenOrientation orientation) {
-        int sigval1 = static_cast<int>(orientation);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(Qt::ScreenOrientation)>(&QScreen::orientationChanged),
+                     [self, slotFunc](Qt::ScreenOrientation orientation) {
+                         int sigval1 = static_cast<int>(orientation);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 void QScreen_RefreshRateChanged(QScreen* self, double refreshRate) {
@@ -321,10 +337,12 @@ void QScreen_RefreshRateChanged(QScreen* self, double refreshRate) {
 
 void QScreen_Connect_RefreshRateChanged(QScreen* self, intptr_t slot) {
     void (*slotFunc)(QScreen*, double) = reinterpret_cast<void (*)(QScreen*, double)>(slot);
-    QScreen::connect(self, &QScreen::refreshRateChanged, [self, slotFunc](qreal refreshRate) {
-        double sigval1 = static_cast<double>(refreshRate);
-        slotFunc(self, sigval1);
-    });
+    QScreen::connect(self,
+                     static_cast<void (QScreen::*)(qreal)>(&QScreen::refreshRateChanged),
+                     [self, slotFunc](qreal refreshRate) {
+                         double sigval1 = static_cast<double>(refreshRate);
+                         slotFunc(self, sigval1);
+                     });
 }
 
 libqt_string QScreen_Tr2(const char* s, const char* c) {

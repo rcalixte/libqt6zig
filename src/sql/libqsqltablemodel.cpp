@@ -224,13 +224,15 @@ void QSqlTableModel_PrimeInsert(QSqlTableModel* self, int row, QSqlRecord* recor
 
 void QSqlTableModel_Connect_PrimeInsert(QSqlTableModel* self, intptr_t slot) {
     void (*slotFunc)(QSqlTableModel*, int, QSqlRecord*) = reinterpret_cast<void (*)(QSqlTableModel*, int, QSqlRecord*)>(slot);
-    QSqlTableModel::connect(self, &QSqlTableModel::primeInsert, [self, slotFunc](int row, QSqlRecord& record) {
-        int sigval1 = row;
-        QSqlRecord& record_ret = record;
-        // Cast returned reference into pointer
-        QSqlRecord* sigval2 = &record_ret;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QSqlTableModel::connect(self,
+                            static_cast<void (QSqlTableModel::*)(int, QSqlRecord&)>(&QSqlTableModel::primeInsert),
+                            [self, slotFunc](int row, QSqlRecord& record) {
+                                int sigval1 = row;
+                                QSqlRecord& record_ret = record;
+                                // Cast returned reference into pointer
+                                QSqlRecord* sigval2 = &record_ret;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QSqlTableModel_BeforeInsert(QSqlTableModel* self, QSqlRecord* record) {
@@ -239,12 +241,14 @@ void QSqlTableModel_BeforeInsert(QSqlTableModel* self, QSqlRecord* record) {
 
 void QSqlTableModel_Connect_BeforeInsert(QSqlTableModel* self, intptr_t slot) {
     void (*slotFunc)(QSqlTableModel*, QSqlRecord*) = reinterpret_cast<void (*)(QSqlTableModel*, QSqlRecord*)>(slot);
-    QSqlTableModel::connect(self, &QSqlTableModel::beforeInsert, [self, slotFunc](QSqlRecord& record) {
-        QSqlRecord& record_ret = record;
-        // Cast returned reference into pointer
-        QSqlRecord* sigval1 = &record_ret;
-        slotFunc(self, sigval1);
-    });
+    QSqlTableModel::connect(self,
+                            static_cast<void (QSqlTableModel::*)(QSqlRecord&)>(&QSqlTableModel::beforeInsert),
+                            [self, slotFunc](QSqlRecord& record) {
+                                QSqlRecord& record_ret = record;
+                                // Cast returned reference into pointer
+                                QSqlRecord* sigval1 = &record_ret;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 void QSqlTableModel_BeforeUpdate(QSqlTableModel* self, int row, QSqlRecord* record) {
@@ -253,13 +257,15 @@ void QSqlTableModel_BeforeUpdate(QSqlTableModel* self, int row, QSqlRecord* reco
 
 void QSqlTableModel_Connect_BeforeUpdate(QSqlTableModel* self, intptr_t slot) {
     void (*slotFunc)(QSqlTableModel*, int, QSqlRecord*) = reinterpret_cast<void (*)(QSqlTableModel*, int, QSqlRecord*)>(slot);
-    QSqlTableModel::connect(self, &QSqlTableModel::beforeUpdate, [self, slotFunc](int row, QSqlRecord& record) {
-        int sigval1 = row;
-        QSqlRecord& record_ret = record;
-        // Cast returned reference into pointer
-        QSqlRecord* sigval2 = &record_ret;
-        slotFunc(self, sigval1, sigval2);
-    });
+    QSqlTableModel::connect(self,
+                            static_cast<void (QSqlTableModel::*)(int, QSqlRecord&)>(&QSqlTableModel::beforeUpdate),
+                            [self, slotFunc](int row, QSqlRecord& record) {
+                                int sigval1 = row;
+                                QSqlRecord& record_ret = record;
+                                // Cast returned reference into pointer
+                                QSqlRecord* sigval2 = &record_ret;
+                                slotFunc(self, sigval1, sigval2);
+                            });
 }
 
 void QSqlTableModel_BeforeDelete(QSqlTableModel* self, int row) {
@@ -268,10 +274,12 @@ void QSqlTableModel_BeforeDelete(QSqlTableModel* self, int row) {
 
 void QSqlTableModel_Connect_BeforeDelete(QSqlTableModel* self, intptr_t slot) {
     void (*slotFunc)(QSqlTableModel*, int) = reinterpret_cast<void (*)(QSqlTableModel*, int)>(slot);
-    QSqlTableModel::connect(self, &QSqlTableModel::beforeDelete, [self, slotFunc](int row) {
-        int sigval1 = row;
-        slotFunc(self, sigval1);
-    });
+    QSqlTableModel::connect(self,
+                            static_cast<void (QSqlTableModel::*)(int)>(&QSqlTableModel::beforeDelete),
+                            [self, slotFunc](int row) {
+                                int sigval1 = row;
+                                slotFunc(self, sigval1);
+                            });
 }
 
 bool QSqlTableModel_UpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {

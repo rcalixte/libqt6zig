@@ -106,12 +106,14 @@ void SignOn__Identity_Error(SignOn__Identity* self, const SignOn__Error* err) {
 
 void SignOn__Identity_Connect_Error(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, SignOn__Error*) = reinterpret_cast<void (*)(SignOn__Identity*, SignOn__Error*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::error, [self, slotFunc](const SignOn::Error& err) {
-        const SignOn::Error& err_ret = err;
-        // Cast returned reference into pointer
-        SignOn__Error* sigval1 = const_cast<SignOn::Error*>(&err_ret);
-        slotFunc(self, sigval1);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const SignOn::Error&)>(&SignOn::Identity::error),
+                              [self, slotFunc](const SignOn::Error& err) {
+                                  const SignOn::Error& err_ret = err;
+                                  // Cast returned reference into pointer
+                                  SignOn__Error* sigval1 = const_cast<SignOn::Error*>(&err_ret);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void SignOn__Identity_MethodsAvailable(SignOn__Identity* self, const libqt_list /* of libqt_string */ methods) {
@@ -127,24 +129,26 @@ void SignOn__Identity_MethodsAvailable(SignOn__Identity* self, const libqt_list 
 
 void SignOn__Identity_Connect_MethodsAvailable(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, const char**) = reinterpret_cast<void (*)(SignOn__Identity*, const char**)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::methodsAvailable, [self, slotFunc](const QList<QString>& methods) {
-        const QList<QString>& methods_ret = methods;
-        // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-        const char** methods_arr = static_cast<const char**>(malloc(sizeof(const char*) * (methods_ret.size() + 1)));
-        for (qsizetype i = 0; i < methods_ret.size(); ++i) {
-            QByteArray methods_b = methods_ret[i].toUtf8();
-            auto methods_str_len = methods_b.length();
-            char* methods_str = static_cast<char*>(malloc(methods_str_len + 1));
-            memcpy(methods_str, methods_b.data(), methods_str_len);
-            methods_str[methods_str_len] = '\0';
-            methods_arr[i] = methods_str;
-        }
-        // Append sentinel null terminator to the list
-        methods_arr[methods_ret.size()] = nullptr;
-        const char** sigval1 = methods_arr;
-        slotFunc(self, sigval1);
-        libqt_free(methods_arr);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const QList<QString>&)>(&SignOn::Identity::methodsAvailable),
+                              [self, slotFunc](const QList<QString>& methods) {
+                                  const QList<QString>& methods_ret = methods;
+                                  // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
+                                  const char** methods_arr = static_cast<const char**>(malloc(sizeof(const char*) * (methods_ret.size() + 1)));
+                                  for (qsizetype i = 0; i < methods_ret.size(); ++i) {
+                                      QByteArray methods_b = methods_ret[i].toUtf8();
+                                      auto methods_str_len = methods_b.length();
+                                      char* methods_str = static_cast<char*>(malloc(methods_str_len + 1));
+                                      memcpy(methods_str, methods_b.data(), methods_str_len);
+                                      methods_str[methods_str_len] = '\0';
+                                      methods_arr[i] = methods_str;
+                                  }
+                                  // Append sentinel null terminator to the list
+                                  methods_arr[methods_ret.size()] = nullptr;
+                                  const char** sigval1 = methods_arr;
+                                  slotFunc(self, sigval1);
+                                  libqt_free(methods_arr);
+                              });
 }
 
 void SignOn__Identity_CredentialsStored(SignOn__Identity* self, const unsigned int id) {
@@ -153,10 +157,12 @@ void SignOn__Identity_CredentialsStored(SignOn__Identity* self, const unsigned i
 
 void SignOn__Identity_Connect_CredentialsStored(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, const unsigned int) = reinterpret_cast<void (*)(SignOn__Identity*, const unsigned int)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::credentialsStored, [self, slotFunc](const quint32 id) {
-        const unsigned int sigval1 = static_cast<const unsigned int>(id);
-        slotFunc(self, sigval1);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const quint32)>(&SignOn::Identity::credentialsStored),
+                              [self, slotFunc](const quint32 id) {
+                                  const unsigned int sigval1 = static_cast<const unsigned int>(id);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void SignOn__Identity_ReferenceAdded(SignOn__Identity* self) {
@@ -165,9 +171,11 @@ void SignOn__Identity_ReferenceAdded(SignOn__Identity* self) {
 
 void SignOn__Identity_Connect_ReferenceAdded(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*) = reinterpret_cast<void (*)(SignOn__Identity*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::referenceAdded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)()>(&SignOn::Identity::referenceAdded),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void SignOn__Identity_ReferenceRemoved(SignOn__Identity* self) {
@@ -176,9 +184,11 @@ void SignOn__Identity_ReferenceRemoved(SignOn__Identity* self) {
 
 void SignOn__Identity_Connect_ReferenceRemoved(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*) = reinterpret_cast<void (*)(SignOn__Identity*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::referenceRemoved, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)()>(&SignOn::Identity::referenceRemoved),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void SignOn__Identity_Info(SignOn__Identity* self, const SignOn__IdentityInfo* info) {
@@ -187,12 +197,14 @@ void SignOn__Identity_Info(SignOn__Identity* self, const SignOn__IdentityInfo* i
 
 void SignOn__Identity_Connect_Info(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, SignOn__IdentityInfo*) = reinterpret_cast<void (*)(SignOn__Identity*, SignOn__IdentityInfo*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::info, [self, slotFunc](const SignOn::IdentityInfo& info) {
-        const SignOn::IdentityInfo& info_ret = info;
-        // Cast returned reference into pointer
-        SignOn__IdentityInfo* sigval1 = const_cast<SignOn::IdentityInfo*>(&info_ret);
-        slotFunc(self, sigval1);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const SignOn::IdentityInfo&)>(&SignOn::Identity::info),
+                              [self, slotFunc](const SignOn::IdentityInfo& info) {
+                                  const SignOn::IdentityInfo& info_ret = info;
+                                  // Cast returned reference into pointer
+                                  SignOn__IdentityInfo* sigval1 = const_cast<SignOn::IdentityInfo*>(&info_ret);
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void SignOn__Identity_UserVerified(SignOn__Identity* self, const bool valid) {
@@ -201,10 +213,12 @@ void SignOn__Identity_UserVerified(SignOn__Identity* self, const bool valid) {
 
 void SignOn__Identity_Connect_UserVerified(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, const bool) = reinterpret_cast<void (*)(SignOn__Identity*, const bool)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::userVerified, [self, slotFunc](const bool valid) {
-        const bool sigval1 = (const bool)valid;
-        slotFunc(self, sigval1);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const bool)>(&SignOn::Identity::userVerified),
+                              [self, slotFunc](const bool valid) {
+                                  const bool sigval1 = (const bool)valid;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void SignOn__Identity_SecretVerified(SignOn__Identity* self, const bool valid) {
@@ -213,10 +227,12 @@ void SignOn__Identity_SecretVerified(SignOn__Identity* self, const bool valid) {
 
 void SignOn__Identity_Connect_SecretVerified(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*, const bool) = reinterpret_cast<void (*)(SignOn__Identity*, const bool)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::secretVerified, [self, slotFunc](const bool valid) {
-        const bool sigval1 = (const bool)valid;
-        slotFunc(self, sigval1);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)(const bool)>(&SignOn::Identity::secretVerified),
+                              [self, slotFunc](const bool valid) {
+                                  const bool sigval1 = (const bool)valid;
+                                  slotFunc(self, sigval1);
+                              });
 }
 
 void SignOn__Identity_SignedOut(SignOn__Identity* self) {
@@ -225,9 +241,11 @@ void SignOn__Identity_SignedOut(SignOn__Identity* self) {
 
 void SignOn__Identity_Connect_SignedOut(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*) = reinterpret_cast<void (*)(SignOn__Identity*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::signedOut, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)()>(&SignOn::Identity::signedOut),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 void SignOn__Identity_Removed(SignOn__Identity* self) {
@@ -236,9 +254,11 @@ void SignOn__Identity_Removed(SignOn__Identity* self) {
 
 void SignOn__Identity_Connect_Removed(SignOn__Identity* self, intptr_t slot) {
     void (*slotFunc)(SignOn__Identity*) = reinterpret_cast<void (*)(SignOn__Identity*)>(slot);
-    SignOn::Identity::connect(self, &SignOn::Identity::removed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    SignOn::Identity::connect(self,
+                              static_cast<void (SignOn::Identity::*)()>(&SignOn::Identity::removed),
+                              [self, slotFunc]() {
+                                  slotFunc(self);
+                              });
 }
 
 libqt_string SignOn__Identity_Tr2(const char* s, const char* c) {

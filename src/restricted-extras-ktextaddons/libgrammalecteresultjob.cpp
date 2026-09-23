@@ -141,18 +141,20 @@ void TextGrammarCheck__GrammalecteResultJob_Finished(TextGrammarCheck__Grammalec
 
 void TextGrammarCheck__GrammalecteResultJob_Connect_Finished(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammalecteResultJob*, const char*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammalecteResultJob*, const char*)>(slot);
-    TextGrammarCheck::GrammalecteResultJob::connect(self, &TextGrammarCheck::GrammalecteResultJob::finished, [self, slotFunc](const QString& result) {
-        const auto result_ret = result;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray result_b = result_ret.toUtf8();
-        auto result_str_len = result_b.length();
-        const char* result_str = static_cast<const char*>(malloc(result_str_len + 1));
-        memcpy((void*)result_str, result_b.data(), result_str_len);
-        ((char*)result_str)[result_str_len] = '\0';
-        const char* sigval1 = result_str;
-        slotFunc(self, sigval1);
-        libqt_free(result_str);
-    });
+    TextGrammarCheck::GrammalecteResultJob::connect(self,
+                                                    static_cast<void (TextGrammarCheck::GrammalecteResultJob::*)(const QString&)>(&TextGrammarCheck::GrammalecteResultJob::finished),
+                                                    [self, slotFunc](const QString& result) {
+                                                        const auto result_ret = result;
+                                                        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                                        QByteArray result_b = result_ret.toUtf8();
+                                                        auto result_str_len = result_b.length();
+                                                        const char* result_str = static_cast<const char*>(malloc(result_str_len + 1));
+                                                        memcpy((void*)result_str, result_b.data(), result_str_len);
+                                                        ((char*)result_str)[result_str_len] = '\0';
+                                                        const char* sigval1 = result_str;
+                                                        slotFunc(self, sigval1);
+                                                        libqt_free(result_str);
+                                                    });
 }
 
 void TextGrammarCheck__GrammalecteResultJob_Error(TextGrammarCheck__GrammalecteResultJob* self, int typeVal) {
@@ -161,10 +163,12 @@ void TextGrammarCheck__GrammalecteResultJob_Error(TextGrammarCheck__GrammalecteR
 
 void TextGrammarCheck__GrammalecteResultJob_Connect_Error(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammalecteResultJob*, int) = reinterpret_cast<void (*)(TextGrammarCheck__GrammalecteResultJob*, int)>(slot);
-    TextGrammarCheck::GrammalecteResultJob::connect(self, &TextGrammarCheck::GrammalecteResultJob::error, [self, slotFunc](TextGrammarCheck::GrammalecteResultJob::ErrorType typeVal) {
-        int sigval1 = static_cast<int>(typeVal);
-        slotFunc(self, sigval1);
-    });
+    TextGrammarCheck::GrammalecteResultJob::connect(self,
+                                                    static_cast<void (TextGrammarCheck::GrammalecteResultJob::*)(TextGrammarCheck::GrammalecteResultJob::ErrorType)>(&TextGrammarCheck::GrammalecteResultJob::error),
+                                                    [self, slotFunc](TextGrammarCheck::GrammalecteResultJob::ErrorType typeVal) {
+                                                        int sigval1 = static_cast<int>(typeVal);
+                                                        slotFunc(self, sigval1);
+                                                    });
 }
 
 libqt_string TextGrammarCheck__GrammalecteResultJob_Tr2(const char* s, const char* c) {

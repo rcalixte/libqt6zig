@@ -79,10 +79,12 @@ void QGraphicsEffect_EnabledChanged(QGraphicsEffect* self, bool enabled) {
 
 void QGraphicsEffect_Connect_EnabledChanged(QGraphicsEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsEffect*, bool) = reinterpret_cast<void (*)(QGraphicsEffect*, bool)>(slot);
-    QGraphicsEffect::connect(self, &QGraphicsEffect::enabledChanged, [self, slotFunc](bool enabled) {
-        bool sigval1 = enabled;
-        slotFunc(self, sigval1);
-    });
+    QGraphicsEffect::connect(self,
+                             static_cast<void (QGraphicsEffect::*)(bool)>(&QGraphicsEffect::enabledChanged),
+                             [self, slotFunc](bool enabled) {
+                                 bool sigval1 = enabled;
+                                 slotFunc(self, sigval1);
+                             });
 }
 
 void QGraphicsEffect_Draw(QGraphicsEffect* self, QPainter* painter) {
@@ -837,12 +839,14 @@ void QGraphicsColorizeEffect_ColorChanged(QGraphicsColorizeEffect* self, const Q
 
 void QGraphicsColorizeEffect_Connect_ColorChanged(QGraphicsColorizeEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsColorizeEffect*, QColor*) = reinterpret_cast<void (*)(QGraphicsColorizeEffect*, QColor*)>(slot);
-    QGraphicsColorizeEffect::connect(self, &QGraphicsColorizeEffect::colorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsColorizeEffect::connect(self,
+                                     static_cast<void (QGraphicsColorizeEffect::*)(const QColor&)>(&QGraphicsColorizeEffect::colorChanged),
+                                     [self, slotFunc](const QColor& color) {
+                                         const QColor& color_ret = color;
+                                         // Cast returned reference into pointer
+                                         QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void QGraphicsColorizeEffect_StrengthChanged(QGraphicsColorizeEffect* self, double strength) {
@@ -851,10 +855,12 @@ void QGraphicsColorizeEffect_StrengthChanged(QGraphicsColorizeEffect* self, doub
 
 void QGraphicsColorizeEffect_Connect_StrengthChanged(QGraphicsColorizeEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsColorizeEffect*, double) = reinterpret_cast<void (*)(QGraphicsColorizeEffect*, double)>(slot);
-    QGraphicsColorizeEffect::connect(self, &QGraphicsColorizeEffect::strengthChanged, [self, slotFunc](qreal strength) {
-        double sigval1 = static_cast<double>(strength);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsColorizeEffect::connect(self,
+                                     static_cast<void (QGraphicsColorizeEffect::*)(qreal)>(&QGraphicsColorizeEffect::strengthChanged),
+                                     [self, slotFunc](qreal strength) {
+                                         double sigval1 = static_cast<double>(strength);
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void QGraphicsColorizeEffect_Draw(QGraphicsColorizeEffect* self, QPainter* painter) {
@@ -1522,10 +1528,12 @@ void QGraphicsBlurEffect_BlurRadiusChanged(QGraphicsBlurEffect* self, double blu
 
 void QGraphicsBlurEffect_Connect_BlurRadiusChanged(QGraphicsBlurEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsBlurEffect*, double) = reinterpret_cast<void (*)(QGraphicsBlurEffect*, double)>(slot);
-    QGraphicsBlurEffect::connect(self, &QGraphicsBlurEffect::blurRadiusChanged, [self, slotFunc](qreal blurRadius) {
-        double sigval1 = static_cast<double>(blurRadius);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsBlurEffect::connect(self,
+                                 static_cast<void (QGraphicsBlurEffect::*)(qreal)>(&QGraphicsBlurEffect::blurRadiusChanged),
+                                 [self, slotFunc](qreal blurRadius) {
+                                     double sigval1 = static_cast<double>(blurRadius);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QGraphicsBlurEffect_BlurHintsChanged(QGraphicsBlurEffect* self, int hints) {
@@ -1534,10 +1542,12 @@ void QGraphicsBlurEffect_BlurHintsChanged(QGraphicsBlurEffect* self, int hints) 
 
 void QGraphicsBlurEffect_Connect_BlurHintsChanged(QGraphicsBlurEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsBlurEffect*, int) = reinterpret_cast<void (*)(QGraphicsBlurEffect*, int)>(slot);
-    QGraphicsBlurEffect::connect(self, &QGraphicsBlurEffect::blurHintsChanged, [self, slotFunc](QGraphicsBlurEffect::BlurHints hints) {
-        int sigval1 = static_cast<int>(hints);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsBlurEffect::connect(self,
+                                 static_cast<void (QGraphicsBlurEffect::*)(QGraphicsBlurEffect::BlurHints)>(&QGraphicsBlurEffect::blurHintsChanged),
+                                 [self, slotFunc](QGraphicsBlurEffect::BlurHints hints) {
+                                     int sigval1 = static_cast<int>(hints);
+                                     slotFunc(self, sigval1);
+                                 });
 }
 
 void QGraphicsBlurEffect_Draw(QGraphicsBlurEffect* self, QPainter* painter) {
@@ -2227,12 +2237,14 @@ void QGraphicsDropShadowEffect_OffsetChanged(QGraphicsDropShadowEffect* self, co
 
 void QGraphicsDropShadowEffect_Connect_OffsetChanged(QGraphicsDropShadowEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsDropShadowEffect*, QPointF*) = reinterpret_cast<void (*)(QGraphicsDropShadowEffect*, QPointF*)>(slot);
-    QGraphicsDropShadowEffect::connect(self, &QGraphicsDropShadowEffect::offsetChanged, [self, slotFunc](const QPointF& offset) {
-        const QPointF& offset_ret = offset;
-        // Cast returned reference into pointer
-        QPointF* sigval1 = const_cast<QPointF*>(&offset_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsDropShadowEffect::connect(self,
+                                       static_cast<void (QGraphicsDropShadowEffect::*)(const QPointF&)>(&QGraphicsDropShadowEffect::offsetChanged),
+                                       [self, slotFunc](const QPointF& offset) {
+                                           const QPointF& offset_ret = offset;
+                                           // Cast returned reference into pointer
+                                           QPointF* sigval1 = const_cast<QPointF*>(&offset_ret);
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 void QGraphicsDropShadowEffect_BlurRadiusChanged(QGraphicsDropShadowEffect* self, double blurRadius) {
@@ -2241,10 +2253,12 @@ void QGraphicsDropShadowEffect_BlurRadiusChanged(QGraphicsDropShadowEffect* self
 
 void QGraphicsDropShadowEffect_Connect_BlurRadiusChanged(QGraphicsDropShadowEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsDropShadowEffect*, double) = reinterpret_cast<void (*)(QGraphicsDropShadowEffect*, double)>(slot);
-    QGraphicsDropShadowEffect::connect(self, &QGraphicsDropShadowEffect::blurRadiusChanged, [self, slotFunc](qreal blurRadius) {
-        double sigval1 = static_cast<double>(blurRadius);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsDropShadowEffect::connect(self,
+                                       static_cast<void (QGraphicsDropShadowEffect::*)(qreal)>(&QGraphicsDropShadowEffect::blurRadiusChanged),
+                                       [self, slotFunc](qreal blurRadius) {
+                                           double sigval1 = static_cast<double>(blurRadius);
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 void QGraphicsDropShadowEffect_ColorChanged(QGraphicsDropShadowEffect* self, const QColor* color) {
@@ -2253,12 +2267,14 @@ void QGraphicsDropShadowEffect_ColorChanged(QGraphicsDropShadowEffect* self, con
 
 void QGraphicsDropShadowEffect_Connect_ColorChanged(QGraphicsDropShadowEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsDropShadowEffect*, QColor*) = reinterpret_cast<void (*)(QGraphicsDropShadowEffect*, QColor*)>(slot);
-    QGraphicsDropShadowEffect::connect(self, &QGraphicsDropShadowEffect::colorChanged, [self, slotFunc](const QColor& color) {
-        const QColor& color_ret = color;
-        // Cast returned reference into pointer
-        QColor* sigval1 = const_cast<QColor*>(&color_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsDropShadowEffect::connect(self,
+                                       static_cast<void (QGraphicsDropShadowEffect::*)(const QColor&)>(&QGraphicsDropShadowEffect::colorChanged),
+                                       [self, slotFunc](const QColor& color) {
+                                           const QColor& color_ret = color;
+                                           // Cast returned reference into pointer
+                                           QColor* sigval1 = const_cast<QColor*>(&color_ret);
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 void QGraphicsDropShadowEffect_Draw(QGraphicsDropShadowEffect* self, QPainter* painter) {
@@ -2912,10 +2928,12 @@ void QGraphicsOpacityEffect_OpacityChanged(QGraphicsOpacityEffect* self, double 
 
 void QGraphicsOpacityEffect_Connect_OpacityChanged(QGraphicsOpacityEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsOpacityEffect*, double) = reinterpret_cast<void (*)(QGraphicsOpacityEffect*, double)>(slot);
-    QGraphicsOpacityEffect::connect(self, &QGraphicsOpacityEffect::opacityChanged, [self, slotFunc](qreal opacity) {
-        double sigval1 = static_cast<double>(opacity);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsOpacityEffect::connect(self,
+                                    static_cast<void (QGraphicsOpacityEffect::*)(qreal)>(&QGraphicsOpacityEffect::opacityChanged),
+                                    [self, slotFunc](qreal opacity) {
+                                        double sigval1 = static_cast<double>(opacity);
+                                        slotFunc(self, sigval1);
+                                    });
 }
 
 void QGraphicsOpacityEffect_OpacityMaskChanged(QGraphicsOpacityEffect* self, const QBrush* mask) {
@@ -2924,12 +2942,14 @@ void QGraphicsOpacityEffect_OpacityMaskChanged(QGraphicsOpacityEffect* self, con
 
 void QGraphicsOpacityEffect_Connect_OpacityMaskChanged(QGraphicsOpacityEffect* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsOpacityEffect*, QBrush*) = reinterpret_cast<void (*)(QGraphicsOpacityEffect*, QBrush*)>(slot);
-    QGraphicsOpacityEffect::connect(self, &QGraphicsOpacityEffect::opacityMaskChanged, [self, slotFunc](const QBrush& mask) {
-        const QBrush& mask_ret = mask;
-        // Cast returned reference into pointer
-        QBrush* sigval1 = const_cast<QBrush*>(&mask_ret);
-        slotFunc(self, sigval1);
-    });
+    QGraphicsOpacityEffect::connect(self,
+                                    static_cast<void (QGraphicsOpacityEffect::*)(const QBrush&)>(&QGraphicsOpacityEffect::opacityMaskChanged),
+                                    [self, slotFunc](const QBrush& mask) {
+                                        const QBrush& mask_ret = mask;
+                                        // Cast returned reference into pointer
+                                        QBrush* sigval1 = const_cast<QBrush*>(&mask_ret);
+                                        slotFunc(self, sigval1);
+                                    });
 }
 
 void QGraphicsOpacityEffect_Draw(QGraphicsOpacityEffect* self, QPainter* painter) {

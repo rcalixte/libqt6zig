@@ -237,10 +237,12 @@ void KActionCollection_Inserted(KActionCollection* self, QAction* action) {
 
 void KActionCollection_Connect_Inserted(KActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KActionCollection*, QAction*) = reinterpret_cast<void (*)(KActionCollection*, QAction*)>(slot);
-    KActionCollection::connect(self, &KActionCollection::inserted, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KActionCollection::connect(self,
+                               static_cast<void (KActionCollection::*)(QAction*)>(&KActionCollection::inserted),
+                               [self, slotFunc](QAction* action) {
+                                   QAction* sigval1 = action;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KActionCollection_Changed(KActionCollection* self) {
@@ -249,9 +251,11 @@ void KActionCollection_Changed(KActionCollection* self) {
 
 void KActionCollection_Connect_Changed(KActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KActionCollection*) = reinterpret_cast<void (*)(KActionCollection*)>(slot);
-    KActionCollection::connect(self, &KActionCollection::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KActionCollection::connect(self,
+                               static_cast<void (KActionCollection::*)()>(&KActionCollection::changed),
+                               [self, slotFunc]() {
+                                   slotFunc(self);
+                               });
 }
 
 void KActionCollection_ActionHovered(KActionCollection* self, QAction* action) {
@@ -260,10 +264,12 @@ void KActionCollection_ActionHovered(KActionCollection* self, QAction* action) {
 
 void KActionCollection_Connect_ActionHovered(KActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KActionCollection*, QAction*) = reinterpret_cast<void (*)(KActionCollection*, QAction*)>(slot);
-    KActionCollection::connect(self, &KActionCollection::actionHovered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KActionCollection::connect(self,
+                               static_cast<void (KActionCollection::*)(QAction*)>(&KActionCollection::actionHovered),
+                               [self, slotFunc](QAction* action) {
+                                   QAction* sigval1 = action;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KActionCollection_ActionTriggered(KActionCollection* self, QAction* action) {
@@ -272,10 +278,12 @@ void KActionCollection_ActionTriggered(KActionCollection* self, QAction* action)
 
 void KActionCollection_Connect_ActionTriggered(KActionCollection* self, intptr_t slot) {
     void (*slotFunc)(KActionCollection*, QAction*) = reinterpret_cast<void (*)(KActionCollection*, QAction*)>(slot);
-    KActionCollection::connect(self, &KActionCollection::actionTriggered, [self, slotFunc](QAction* action) {
-        QAction* sigval1 = action;
-        slotFunc(self, sigval1);
-    });
+    KActionCollection::connect(self,
+                               static_cast<void (KActionCollection::*)(QAction*)>(&KActionCollection::actionTriggered),
+                               [self, slotFunc](QAction* action) {
+                                   QAction* sigval1 = action;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KActionCollection_ConnectNotify(KActionCollection* self, const QMetaMethod* signal) {

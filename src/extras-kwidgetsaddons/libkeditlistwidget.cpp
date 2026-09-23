@@ -229,9 +229,11 @@ void KEditListWidget_Changed(KEditListWidget* self) {
 
 void KEditListWidget_Connect_Changed(KEditListWidget* self, intptr_t slot) {
     void (*slotFunc)(KEditListWidget*) = reinterpret_cast<void (*)(KEditListWidget*)>(slot);
-    KEditListWidget::connect(self, &KEditListWidget::changed, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KEditListWidget::connect(self,
+                             static_cast<void (KEditListWidget::*)()>(&KEditListWidget::changed),
+                             [self, slotFunc]() {
+                                 slotFunc(self);
+                             });
 }
 
 void KEditListWidget_Added(KEditListWidget* self, const libqt_string text) {
@@ -241,18 +243,20 @@ void KEditListWidget_Added(KEditListWidget* self, const libqt_string text) {
 
 void KEditListWidget_Connect_Added(KEditListWidget* self, intptr_t slot) {
     void (*slotFunc)(KEditListWidget*, const char*) = reinterpret_cast<void (*)(KEditListWidget*, const char*)>(slot);
-    KEditListWidget::connect(self, &KEditListWidget::added, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KEditListWidget::connect(self,
+                             static_cast<void (KEditListWidget::*)(const QString&)>(&KEditListWidget::added),
+                             [self, slotFunc](const QString& text) {
+                                 const auto text_ret = text;
+                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                 QByteArray text_b = text_ret.toUtf8();
+                                 auto text_str_len = text_b.length();
+                                 const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                 memcpy((void*)text_str, text_b.data(), text_str_len);
+                                 ((char*)text_str)[text_str_len] = '\0';
+                                 const char* sigval1 = text_str;
+                                 slotFunc(self, sigval1);
+                                 libqt_free(text_str);
+                             });
 }
 
 void KEditListWidget_Removed(KEditListWidget* self, const libqt_string text) {
@@ -262,18 +266,20 @@ void KEditListWidget_Removed(KEditListWidget* self, const libqt_string text) {
 
 void KEditListWidget_Connect_Removed(KEditListWidget* self, intptr_t slot) {
     void (*slotFunc)(KEditListWidget*, const char*) = reinterpret_cast<void (*)(KEditListWidget*, const char*)>(slot);
-    KEditListWidget::connect(self, &KEditListWidget::removed, [self, slotFunc](const QString& text) {
-        const auto text_ret = text;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray text_b = text_ret.toUtf8();
-        auto text_str_len = text_b.length();
-        const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
-        memcpy((void*)text_str, text_b.data(), text_str_len);
-        ((char*)text_str)[text_str_len] = '\0';
-        const char* sigval1 = text_str;
-        slotFunc(self, sigval1);
-        libqt_free(text_str);
-    });
+    KEditListWidget::connect(self,
+                             static_cast<void (KEditListWidget::*)(const QString&)>(&KEditListWidget::removed),
+                             [self, slotFunc](const QString& text) {
+                                 const auto text_ret = text;
+                                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                 QByteArray text_b = text_ret.toUtf8();
+                                 auto text_str_len = text_b.length();
+                                 const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+                                 memcpy((void*)text_str, text_b.data(), text_str_len);
+                                 ((char*)text_str)[text_str_len] = '\0';
+                                 const char* sigval1 = text_str;
+                                 slotFunc(self, sigval1);
+                                 libqt_free(text_str);
+                             });
 }
 
 libqt_string KEditListWidget_Tr2(const char* s, const char* c) {

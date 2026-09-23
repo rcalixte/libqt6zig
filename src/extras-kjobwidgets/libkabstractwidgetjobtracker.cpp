@@ -68,10 +68,12 @@ void KAbstractWidgetJobTracker_Stopped(KAbstractWidgetJobTracker* self, KJob* jo
 
 void KAbstractWidgetJobTracker_Connect_Stopped(KAbstractWidgetJobTracker* self, intptr_t slot) {
     void (*slotFunc)(KAbstractWidgetJobTracker*, KJob*) = reinterpret_cast<void (*)(KAbstractWidgetJobTracker*, KJob*)>(slot);
-    KAbstractWidgetJobTracker::connect(self, &KAbstractWidgetJobTracker::stopped, [self, slotFunc](KJob* job) {
-        KJob* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KAbstractWidgetJobTracker::connect(self,
+                                       static_cast<void (KAbstractWidgetJobTracker::*)(KJob*)>(&KAbstractWidgetJobTracker::stopped),
+                                       [self, slotFunc](KJob* job) {
+                                           KJob* sigval1 = job;
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 void KAbstractWidgetJobTracker_Suspend(KAbstractWidgetJobTracker* self, KJob* job) {
@@ -80,10 +82,12 @@ void KAbstractWidgetJobTracker_Suspend(KAbstractWidgetJobTracker* self, KJob* jo
 
 void KAbstractWidgetJobTracker_Connect_Suspend(KAbstractWidgetJobTracker* self, intptr_t slot) {
     void (*slotFunc)(KAbstractWidgetJobTracker*, KJob*) = reinterpret_cast<void (*)(KAbstractWidgetJobTracker*, KJob*)>(slot);
-    KAbstractWidgetJobTracker::connect(self, &KAbstractWidgetJobTracker::suspend, [self, slotFunc](KJob* job) {
-        KJob* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KAbstractWidgetJobTracker::connect(self,
+                                       static_cast<void (KAbstractWidgetJobTracker::*)(KJob*)>(&KAbstractWidgetJobTracker::suspend),
+                                       [self, slotFunc](KJob* job) {
+                                           KJob* sigval1 = job;
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 void KAbstractWidgetJobTracker_Resume(KAbstractWidgetJobTracker* self, KJob* job) {
@@ -92,10 +96,12 @@ void KAbstractWidgetJobTracker_Resume(KAbstractWidgetJobTracker* self, KJob* job
 
 void KAbstractWidgetJobTracker_Connect_Resume(KAbstractWidgetJobTracker* self, intptr_t slot) {
     void (*slotFunc)(KAbstractWidgetJobTracker*, KJob*) = reinterpret_cast<void (*)(KAbstractWidgetJobTracker*, KJob*)>(slot);
-    KAbstractWidgetJobTracker::connect(self, &KAbstractWidgetJobTracker::resume, [self, slotFunc](KJob* job) {
-        KJob* sigval1 = job;
-        slotFunc(self, sigval1);
-    });
+    KAbstractWidgetJobTracker::connect(self,
+                                       static_cast<void (KAbstractWidgetJobTracker::*)(KJob*)>(&KAbstractWidgetJobTracker::resume),
+                                       [self, slotFunc](KJob* job) {
+                                           KJob* sigval1 = job;
+                                           slotFunc(self, sigval1);
+                                       });
 }
 
 libqt_string KAbstractWidgetJobTracker_Tr2(const char* s, const char* c) {

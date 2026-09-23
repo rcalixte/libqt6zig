@@ -83,10 +83,12 @@ void TextCustomEditor__TextGoToLineWidget_MoveToLine(TextCustomEditor__TextGoToL
 
 void TextCustomEditor__TextGoToLineWidget_Connect_MoveToLine(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__TextGoToLineWidget*, int) = reinterpret_cast<void (*)(TextCustomEditor__TextGoToLineWidget*, int)>(slot);
-    TextCustomEditor::TextGoToLineWidget::connect(self, &TextCustomEditor::TextGoToLineWidget::moveToLine, [self, slotFunc](int param1) {
-        int sigval1 = param1;
-        slotFunc(self, sigval1);
-    });
+    TextCustomEditor::TextGoToLineWidget::connect(self,
+                                                  static_cast<void (TextCustomEditor::TextGoToLineWidget::*)(int)>(&TextCustomEditor::TextGoToLineWidget::moveToLine),
+                                                  [self, slotFunc](int param1) {
+                                                      int sigval1 = param1;
+                                                      slotFunc(self, sigval1);
+                                                  });
 }
 
 void TextCustomEditor__TextGoToLineWidget_HideGotoLine(TextCustomEditor__TextGoToLineWidget* self) {
@@ -95,9 +97,11 @@ void TextCustomEditor__TextGoToLineWidget_HideGotoLine(TextCustomEditor__TextGoT
 
 void TextCustomEditor__TextGoToLineWidget_Connect_HideGotoLine(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__TextGoToLineWidget*) = reinterpret_cast<void (*)(TextCustomEditor__TextGoToLineWidget*)>(slot);
-    TextCustomEditor::TextGoToLineWidget::connect(self, &TextCustomEditor::TextGoToLineWidget::hideGotoLine, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    TextCustomEditor::TextGoToLineWidget::connect(self,
+                                                  static_cast<void (TextCustomEditor::TextGoToLineWidget::*)()>(&TextCustomEditor::TextGoToLineWidget::hideGotoLine),
+                                                  [self, slotFunc]() {
+                                                      slotFunc(self);
+                                                  });
 }
 
 bool TextCustomEditor__TextGoToLineWidget_Event(TextCustomEditor__TextGoToLineWidget* self, QEvent* e) {

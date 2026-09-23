@@ -141,12 +141,14 @@ void KTimeComboBox_TimeEntered(KTimeComboBox* self, const QTime* time) {
 
 void KTimeComboBox_Connect_TimeEntered(KTimeComboBox* self, intptr_t slot) {
     void (*slotFunc)(KTimeComboBox*, QTime*) = reinterpret_cast<void (*)(KTimeComboBox*, QTime*)>(slot);
-    KTimeComboBox::connect(self, &KTimeComboBox::timeEntered, [self, slotFunc](const QTime& time) {
-        const QTime& time_ret = time;
-        // Cast returned reference into pointer
-        QTime* sigval1 = const_cast<QTime*>(&time_ret);
-        slotFunc(self, sigval1);
-    });
+    KTimeComboBox::connect(self,
+                           static_cast<void (KTimeComboBox::*)(const QTime&)>(&KTimeComboBox::timeEntered),
+                           [self, slotFunc](const QTime& time) {
+                               const QTime& time_ret = time;
+                               // Cast returned reference into pointer
+                               QTime* sigval1 = const_cast<QTime*>(&time_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KTimeComboBox_TimeChanged(KTimeComboBox* self, const QTime* time) {
@@ -155,12 +157,14 @@ void KTimeComboBox_TimeChanged(KTimeComboBox* self, const QTime* time) {
 
 void KTimeComboBox_Connect_TimeChanged(KTimeComboBox* self, intptr_t slot) {
     void (*slotFunc)(KTimeComboBox*, QTime*) = reinterpret_cast<void (*)(KTimeComboBox*, QTime*)>(slot);
-    KTimeComboBox::connect(self, &KTimeComboBox::timeChanged, [self, slotFunc](const QTime& time) {
-        const QTime& time_ret = time;
-        // Cast returned reference into pointer
-        QTime* sigval1 = const_cast<QTime*>(&time_ret);
-        slotFunc(self, sigval1);
-    });
+    KTimeComboBox::connect(self,
+                           static_cast<void (KTimeComboBox::*)(const QTime&)>(&KTimeComboBox::timeChanged),
+                           [self, slotFunc](const QTime& time) {
+                               const QTime& time_ret = time;
+                               // Cast returned reference into pointer
+                               QTime* sigval1 = const_cast<QTime*>(&time_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KTimeComboBox_TimeEdited(KTimeComboBox* self, const QTime* time) {
@@ -169,12 +173,14 @@ void KTimeComboBox_TimeEdited(KTimeComboBox* self, const QTime* time) {
 
 void KTimeComboBox_Connect_TimeEdited(KTimeComboBox* self, intptr_t slot) {
     void (*slotFunc)(KTimeComboBox*, QTime*) = reinterpret_cast<void (*)(KTimeComboBox*, QTime*)>(slot);
-    KTimeComboBox::connect(self, &KTimeComboBox::timeEdited, [self, slotFunc](const QTime& time) {
-        const QTime& time_ret = time;
-        // Cast returned reference into pointer
-        QTime* sigval1 = const_cast<QTime*>(&time_ret);
-        slotFunc(self, sigval1);
-    });
+    KTimeComboBox::connect(self,
+                           static_cast<void (KTimeComboBox::*)(const QTime&)>(&KTimeComboBox::timeEdited),
+                           [self, slotFunc](const QTime& time) {
+                               const QTime& time_ret = time;
+                               // Cast returned reference into pointer
+                               QTime* sigval1 = const_cast<QTime*>(&time_ret);
+                               slotFunc(self, sigval1);
+                           });
 }
 
 void KTimeComboBox_SetTime(KTimeComboBox* self, const QTime* time) {

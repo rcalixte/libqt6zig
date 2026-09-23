@@ -131,12 +131,14 @@ void Attica__ProviderManager_ProviderAdded(Attica__ProviderManager* self, const 
 
 void Attica__ProviderManager_Connect_ProviderAdded(Attica__ProviderManager* self, intptr_t slot) {
     void (*slotFunc)(Attica__ProviderManager*, Attica__Provider*) = reinterpret_cast<void (*)(Attica__ProviderManager*, Attica__Provider*)>(slot);
-    Attica::ProviderManager::connect(self, &Attica::ProviderManager::providerAdded, [self, slotFunc](const Attica::Provider& provider) {
-        const Attica::Provider& provider_ret = provider;
-        // Cast returned reference into pointer
-        Attica__Provider* sigval1 = const_cast<Attica::Provider*>(&provider_ret);
-        slotFunc(self, sigval1);
-    });
+    Attica::ProviderManager::connect(self,
+                                     static_cast<void (Attica::ProviderManager::*)(const Attica::Provider&)>(&Attica::ProviderManager::providerAdded),
+                                     [self, slotFunc](const Attica::Provider& provider) {
+                                         const Attica::Provider& provider_ret = provider;
+                                         // Cast returned reference into pointer
+                                         Attica__Provider* sigval1 = const_cast<Attica::Provider*>(&provider_ret);
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void Attica__ProviderManager_DefaultProvidersLoaded(Attica__ProviderManager* self) {
@@ -145,9 +147,11 @@ void Attica__ProviderManager_DefaultProvidersLoaded(Attica__ProviderManager* sel
 
 void Attica__ProviderManager_Connect_DefaultProvidersLoaded(Attica__ProviderManager* self, intptr_t slot) {
     void (*slotFunc)(Attica__ProviderManager*) = reinterpret_cast<void (*)(Attica__ProviderManager*)>(slot);
-    Attica::ProviderManager::connect(self, &Attica::ProviderManager::defaultProvidersLoaded, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    Attica::ProviderManager::connect(self,
+                                     static_cast<void (Attica::ProviderManager::*)()>(&Attica::ProviderManager::defaultProvidersLoaded),
+                                     [self, slotFunc]() {
+                                         slotFunc(self);
+                                     });
 }
 
 void Attica__ProviderManager_AuthenticationCredentialsMissing(Attica__ProviderManager* self, const Attica__Provider* provider) {
@@ -156,12 +160,14 @@ void Attica__ProviderManager_AuthenticationCredentialsMissing(Attica__ProviderMa
 
 void Attica__ProviderManager_Connect_AuthenticationCredentialsMissing(Attica__ProviderManager* self, intptr_t slot) {
     void (*slotFunc)(Attica__ProviderManager*, Attica__Provider*) = reinterpret_cast<void (*)(Attica__ProviderManager*, Attica__Provider*)>(slot);
-    Attica::ProviderManager::connect(self, &Attica::ProviderManager::authenticationCredentialsMissing, [self, slotFunc](const Attica::Provider& provider) {
-        const Attica::Provider& provider_ret = provider;
-        // Cast returned reference into pointer
-        Attica__Provider* sigval1 = const_cast<Attica::Provider*>(&provider_ret);
-        slotFunc(self, sigval1);
-    });
+    Attica::ProviderManager::connect(self,
+                                     static_cast<void (Attica::ProviderManager::*)(const Attica::Provider&)>(&Attica::ProviderManager::authenticationCredentialsMissing),
+                                     [self, slotFunc](const Attica::Provider& provider) {
+                                         const Attica::Provider& provider_ret = provider;
+                                         // Cast returned reference into pointer
+                                         Attica__Provider* sigval1 = const_cast<Attica::Provider*>(&provider_ret);
+                                         slotFunc(self, sigval1);
+                                     });
 }
 
 void Attica__ProviderManager_FailedToLoad(Attica__ProviderManager* self, const QUrl* provider, int errorVal) {
@@ -170,13 +176,15 @@ void Attica__ProviderManager_FailedToLoad(Attica__ProviderManager* self, const Q
 
 void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self, intptr_t slot) {
     void (*slotFunc)(Attica__ProviderManager*, QUrl*, int) = reinterpret_cast<void (*)(Attica__ProviderManager*, QUrl*, int)>(slot);
-    Attica::ProviderManager::connect(self, &Attica::ProviderManager::failedToLoad, [self, slotFunc](const QUrl& provider, QNetworkReply::NetworkError errorVal) {
-        const QUrl& provider_ret = provider;
-        // Cast returned reference into pointer
-        QUrl* sigval1 = const_cast<QUrl*>(&provider_ret);
-        int sigval2 = static_cast<int>(errorVal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    Attica::ProviderManager::connect(self,
+                                     static_cast<void (Attica::ProviderManager::*)(const QUrl&, QNetworkReply::NetworkError)>(&Attica::ProviderManager::failedToLoad),
+                                     [self, slotFunc](const QUrl& provider, QNetworkReply::NetworkError errorVal) {
+                                         const QUrl& provider_ret = provider;
+                                         // Cast returned reference into pointer
+                                         QUrl* sigval1 = const_cast<QUrl*>(&provider_ret);
+                                         int sigval2 = static_cast<int>(errorVal);
+                                         slotFunc(self, sigval1, sigval2);
+                                     });
 }
 
 libqt_string Attica__ProviderManager_Tr2(const char* s, const char* c) {

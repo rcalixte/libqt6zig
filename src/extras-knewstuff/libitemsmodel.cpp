@@ -88,19 +88,21 @@ void KNSCore__ItemsModel_JobStarted(KNSCore__ItemsModel* self, KJob* param1, con
 
 void KNSCore__ItemsModel_Connect_JobStarted(KNSCore__ItemsModel* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__ItemsModel*, KJob*, const char*) = reinterpret_cast<void (*)(KNSCore__ItemsModel*, KJob*, const char*)>(slot);
-    KNSCore::ItemsModel::connect(self, &KNSCore::ItemsModel::jobStarted, [self, slotFunc](KJob* param1, const QString& label) {
-        KJob* sigval1 = param1;
-        const auto label_ret = label;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray label_b = label_ret.toUtf8();
-        auto label_str_len = label_b.length();
-        const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
-        memcpy((void*)label_str, label_b.data(), label_str_len);
-        ((char*)label_str)[label_str_len] = '\0';
-        const char* sigval2 = label_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(label_str);
-    });
+    KNSCore::ItemsModel::connect(self,
+                                 static_cast<void (KNSCore::ItemsModel::*)(KJob*, const QString&)>(&KNSCore::ItemsModel::jobStarted),
+                                 [self, slotFunc](KJob* param1, const QString& label) {
+                                     KJob* sigval1 = param1;
+                                     const auto label_ret = label;
+                                     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                                     QByteArray label_b = label_ret.toUtf8();
+                                     auto label_str_len = label_b.length();
+                                     const char* label_str = static_cast<const char*>(malloc(label_str_len + 1));
+                                     memcpy((void*)label_str, label_b.data(), label_str_len);
+                                     ((char*)label_str)[label_str_len] = '\0';
+                                     const char* sigval2 = label_str;
+                                     slotFunc(self, sigval1, sigval2);
+                                     libqt_free(label_str);
+                                 });
 }
 
 void KNSCore__ItemsModel_LoadPreview(KNSCore__ItemsModel* self, const KNSCore__Entry* entry, int typeVal) {
@@ -109,13 +111,15 @@ void KNSCore__ItemsModel_LoadPreview(KNSCore__ItemsModel* self, const KNSCore__E
 
 void KNSCore__ItemsModel_Connect_LoadPreview(KNSCore__ItemsModel* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__ItemsModel*, KNSCore__Entry*, int) = reinterpret_cast<void (*)(KNSCore__ItemsModel*, KNSCore__Entry*, int)>(slot);
-    KNSCore::ItemsModel::connect(self, &KNSCore::ItemsModel::loadPreview, [self, slotFunc](const KNSCore::Entry& entry, KNSCore::Entry::PreviewType typeVal) {
-        const KNSCore::Entry& entry_ret = entry;
-        // Cast returned reference into pointer
-        KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&entry_ret);
-        int sigval2 = static_cast<int>(typeVal);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KNSCore::ItemsModel::connect(self,
+                                 static_cast<void (KNSCore::ItemsModel::*)(const KNSCore::Entry&, KNSCore::Entry::PreviewType)>(&KNSCore::ItemsModel::loadPreview),
+                                 [self, slotFunc](const KNSCore::Entry& entry, KNSCore::Entry::PreviewType typeVal) {
+                                     const KNSCore::Entry& entry_ret = entry;
+                                     // Cast returned reference into pointer
+                                     KNSCore__Entry* sigval1 = const_cast<KNSCore::Entry*>(&entry_ret);
+                                     int sigval2 = static_cast<int>(typeVal);
+                                     slotFunc(self, sigval1, sigval2);
+                                 });
 }
 
 void KNSCore__ItemsModel_SlotEntryChanged(KNSCore__ItemsModel* self, const KNSCore__Entry* entry) {

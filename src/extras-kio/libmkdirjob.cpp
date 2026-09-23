@@ -43,13 +43,15 @@ void KIO__MkdirJob_Redirection(KIO__MkdirJob* self, KIO__Job* job, const QUrl* u
 
 void KIO__MkdirJob_Connect_Redirection(KIO__MkdirJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__MkdirJob*, KIO__Job*, QUrl*) = reinterpret_cast<void (*)(KIO__MkdirJob*, KIO__Job*, QUrl*)>(slot);
-    KIO::MkdirJob::connect(self, &KIO::MkdirJob::redirection, [self, slotFunc](KIO::Job* job, const QUrl& url) {
-        KIO__Job* sigval1 = job;
-        const QUrl& url_ret = url;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
-        slotFunc(self, sigval1, sigval2);
-    });
+    KIO::MkdirJob::connect(self,
+                           static_cast<void (KIO::MkdirJob::*)(KIO::Job*, const QUrl&)>(&KIO::MkdirJob::redirection),
+                           [self, slotFunc](KIO::Job* job, const QUrl& url) {
+                               KIO__Job* sigval1 = job;
+                               const QUrl& url_ret = url;
+                               // Cast returned reference into pointer
+                               QUrl* sigval2 = const_cast<QUrl*>(&url_ret);
+                               slotFunc(self, sigval1, sigval2);
+                           });
 }
 
 void KIO__MkdirJob_PermanentRedirection(KIO__MkdirJob* self, KIO__Job* job, const QUrl* fromUrl, const QUrl* toUrl) {
@@ -58,16 +60,18 @@ void KIO__MkdirJob_PermanentRedirection(KIO__MkdirJob* self, KIO__Job* job, cons
 
 void KIO__MkdirJob_Connect_PermanentRedirection(KIO__MkdirJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__MkdirJob*, KIO__Job*, QUrl*, QUrl*) = reinterpret_cast<void (*)(KIO__MkdirJob*, KIO__Job*, QUrl*, QUrl*)>(slot);
-    KIO::MkdirJob::connect(self, &KIO::MkdirJob::permanentRedirection, [self, slotFunc](KIO::Job* job, const QUrl& fromUrl, const QUrl& toUrl) {
-        KIO__Job* sigval1 = job;
-        const QUrl& fromUrl_ret = fromUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval2 = const_cast<QUrl*>(&fromUrl_ret);
-        const QUrl& toUrl_ret = toUrl;
-        // Cast returned reference into pointer
-        QUrl* sigval3 = const_cast<QUrl*>(&toUrl_ret);
-        slotFunc(self, sigval1, sigval2, sigval3);
-    });
+    KIO::MkdirJob::connect(self,
+                           static_cast<void (KIO::MkdirJob::*)(KIO::Job*, const QUrl&, const QUrl&)>(&KIO::MkdirJob::permanentRedirection),
+                           [self, slotFunc](KIO::Job* job, const QUrl& fromUrl, const QUrl& toUrl) {
+                               KIO__Job* sigval1 = job;
+                               const QUrl& fromUrl_ret = fromUrl;
+                               // Cast returned reference into pointer
+                               QUrl* sigval2 = const_cast<QUrl*>(&fromUrl_ret);
+                               const QUrl& toUrl_ret = toUrl;
+                               // Cast returned reference into pointer
+                               QUrl* sigval3 = const_cast<QUrl*>(&toUrl_ret);
+                               slotFunc(self, sigval1, sigval2, sigval3);
+                           });
 }
 
 libqt_string KIO__MkdirJob_Tr2(const char* s, const char* c) {

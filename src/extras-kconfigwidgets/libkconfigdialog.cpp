@@ -78,9 +78,11 @@ void KConfigDialog_WidgetModified(KConfigDialog* self) {
 
 void KConfigDialog_Connect_WidgetModified(KConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(KConfigDialog*) = reinterpret_cast<void (*)(KConfigDialog*)>(slot);
-    KConfigDialog::connect(self, &KConfigDialog::widgetModified, [self, slotFunc]() {
-        slotFunc(self);
-    });
+    KConfigDialog::connect(self,
+                           static_cast<void (KConfigDialog::*)()>(&KConfigDialog::widgetModified),
+                           [self, slotFunc]() {
+                               slotFunc(self);
+                           });
 }
 
 void KConfigDialog_SettingsChanged(KConfigDialog* self, const libqt_string dialogName) {
@@ -90,18 +92,20 @@ void KConfigDialog_SettingsChanged(KConfigDialog* self, const libqt_string dialo
 
 void KConfigDialog_Connect_SettingsChanged(KConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(KConfigDialog*, const char*) = reinterpret_cast<void (*)(KConfigDialog*, const char*)>(slot);
-    KConfigDialog::connect(self, &KConfigDialog::settingsChanged, [self, slotFunc](const QString& dialogName) {
-        const auto dialogName_ret = dialogName;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray dialogName_b = dialogName_ret.toUtf8();
-        auto dialogName_str_len = dialogName_b.length();
-        const char* dialogName_str = static_cast<const char*>(malloc(dialogName_str_len + 1));
-        memcpy((void*)dialogName_str, dialogName_b.data(), dialogName_str_len);
-        ((char*)dialogName_str)[dialogName_str_len] = '\0';
-        const char* sigval1 = dialogName_str;
-        slotFunc(self, sigval1);
-        libqt_free(dialogName_str);
-    });
+    KConfigDialog::connect(self,
+                           static_cast<void (KConfigDialog::*)(const QString&)>(&KConfigDialog::settingsChanged),
+                           [self, slotFunc](const QString& dialogName) {
+                               const auto dialogName_ret = dialogName;
+                               // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+                               QByteArray dialogName_b = dialogName_ret.toUtf8();
+                               auto dialogName_str_len = dialogName_b.length();
+                               const char* dialogName_str = static_cast<const char*>(malloc(dialogName_str_len + 1));
+                               memcpy((void*)dialogName_str, dialogName_b.data(), dialogName_str_len);
+                               ((char*)dialogName_str)[dialogName_str_len] = '\0';
+                               const char* sigval1 = dialogName_str;
+                               slotFunc(self, sigval1);
+                               libqt_free(dialogName_str);
+                           });
 }
 
 KPageWidgetItem* KConfigDialog_AddPage(KConfigDialog* self, QWidget* page, const libqt_string itemName) {
