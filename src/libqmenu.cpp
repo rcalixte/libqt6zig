@@ -250,6 +250,12 @@ void QMenu_SetNoReplayFor(QMenu* self, QWidget* widget) {
 }
 
 #ifdef __APPLE__
+NSMenu* QMenu_ToNSMenu(QMenu* self) {
+    return self->toNSMenu();
+}
+#endif
+
+#ifdef __APPLE__
 void QMenu_SetAsDockMenu(QMenu* self) {
     self->setAsDockMenu();
 }

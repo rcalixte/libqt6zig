@@ -10,6 +10,7 @@ const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
+const builtin = @import("builtin");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -33,11 +34,11 @@ pub const KSelectionWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` selection: [:0]const u8 `
+    /// ` selection: xcb_atom_t `
     ///
-    pub fn new(selection: [:0]const u8) KSelectionWatcher {
-        const selection_Cstring = selection.ptr;
-        return .{ .ptr = qtc.KSelectionWatcher_new(selection_Cstring) };
+    pub fn new(selection: u32) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionWatcher_new(@bitCast(selection)) };
     }
 
     /// ### DEPRECATED: Use `new2` instead
@@ -50,16 +51,107 @@ pub const KSelectionWatcher = extern struct {
     ///
     /// ` selection: [:0]const u8 `
     ///
-    /// ` screen: i32 `
-    ///
-    pub fn new2(selection: [:0]const u8, screen: i32) KSelectionWatcher {
+    pub fn new2(selection: [:0]const u8) KSelectionWatcher {
         const selection_Cstring = selection.ptr;
-        return .{ .ptr = qtc.KSelectionWatcher_new2(selection_Cstring, @bitCast(screen)) };
+        return .{ .ptr = qtc.KSelectionWatcher_new2(selection_Cstring) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
     ///
     pub const New3 = new3;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    pub fn new3(selection: u32, c: ?*anyopaque, root: u32) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionWatcher_new3(@bitCast(selection), @ptrCast(c), @bitCast(root)) };
+    }
+
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    pub fn new4(selection: [:0]const u8, c: ?*anyopaque, root: u32) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const selection_Cstring = selection.ptr;
+        return .{ .ptr = qtc.KSelectionWatcher_new4(selection_Cstring, @ptrCast(c), @bitCast(root)) };
+    }
+
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    pub fn new5(selection: u32, screen: i32) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionWatcher_new5(@bitCast(selection), @bitCast(screen)) };
+    }
+
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new6(selection: u32, screen: i32, _parent: anytype) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionWatcher_new6(@bitCast(selection), @bitCast(screen), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` screen: i32 `
+    ///
+    pub fn new7(selection: [:0]const u8, screen: i32) KSelectionWatcher {
+        const selection_Cstring = selection.ptr;
+        return .{ .ptr = qtc.KSelectionWatcher_new7(selection_Cstring, @bitCast(screen)) };
+    }
+
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
 
     /// Allocate a new KSelectionWatcher object in C++ memory
     ///
@@ -71,10 +163,55 @@ pub const KSelectionWatcher = extern struct {
     ///
     /// ` _parent: QObject `
     ///
-    pub fn new3(selection: [:0]const u8, screen: i32, _parent: anytype) KSelectionWatcher {
+    pub fn new8(selection: [:0]const u8, screen: i32, _parent: anytype) KSelectionWatcher {
         const selection_Cstring = selection.ptr;
         comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.KSelectionWatcher_new3(selection_Cstring, @bitCast(screen), @ptrCast(_parent.ptr)) };
+        return .{ .ptr = qtc.KSelectionWatcher_new8(selection_Cstring, @bitCast(screen), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new9(selection: u32, c: ?*anyopaque, root: u32, _parent: anytype) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionWatcher_new9(@bitCast(selection), @ptrCast(c), @bitCast(root), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new KSelectionWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new10(selection: [:0]const u8, c: ?*anyopaque, root: u32, _parent: anytype) KSelectionWatcher {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const selection_Cstring = selection.ptr;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionWatcher_new10(selection_Cstring, @ptrCast(c), @bitCast(root), @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -250,6 +387,25 @@ pub const KSelectionWatcher = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `owner` instead
+    ///
+    pub const Owner = owner;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionwatcher.html#owner)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionWatcher `
+    ///
+    /// ## Returns:
+    ///
+    /// ` xcb_window_t `
+    ///
+    pub fn owner(self: KSelectionWatcher) u32 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return @bitCast(qtc.KSelectionWatcher_Owner(@ptrCast(self.ptr)));
+    }
+
     /// ### DEPRECATED: Use `filterEvent` instead
     ///
     pub const FilterEvent = filterEvent;
@@ -264,6 +420,40 @@ pub const KSelectionWatcher = extern struct {
     ///
     pub fn filterEvent(self: KSelectionWatcher, ev_P: ?*anyopaque) void {
         qtc.KSelectionWatcher_FilterEvent(@ptrCast(self.ptr), @ptrCast(ev_P));
+    }
+
+    /// ### DEPRECATED: Use `newOwner` instead
+    ///
+    pub const NewOwner = newOwner;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionwatcher.html#newOwner)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionWatcher `
+    ///
+    /// ` _owner: xcb_window_t `
+    ///
+    pub fn newOwner(self: KSelectionWatcher, _owner: u32) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionWatcher_NewOwner(@ptrCast(self.ptr), @bitCast(_owner));
+    }
+
+    /// ### DEPRECATED: Use `onNewOwner` instead
+    ///
+    pub const OnNewOwner = onNewOwner;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionwatcher.html#newOwner)
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KSelectionWatcher `
+    ///
+    /// ` callback: *const fn (self: KSelectionWatcher, owner: xcb_window_t) callconv(.c) void `
+    ///
+    pub fn onNewOwner(self: KSelectionWatcher, callback: *const fn (KSelectionWatcher, u32) callconv(.c) void) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionWatcher_Connect_NewOwner(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `lostOwner` instead

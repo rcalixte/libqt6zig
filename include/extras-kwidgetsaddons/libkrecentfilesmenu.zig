@@ -1273,6 +1273,28 @@ pub const KRecentFilesMenu = extern struct {
         qtc.QMenu_SetNoReplayFor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `toNSMenu` instead
+    ///
+    pub const ToNSMenu = toNSMenu;
+
+    /// Inherited from QMenu
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#toNSMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*NSMenu ` (NOTE: This pointer value could be `null`.)
+    ///
+    pub fn toNSMenu(self: KRecentFilesMenu) ?*anyopaque {
+        if (builtin.is_test and builtin.target.os.tag != .macos) return null;
+        if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
+        return @ptrCast(qtc.QMenu_ToNSMenu(@ptrCast(self.ptr)));
+    }
+
     /// ### DEPRECATED: Use `setAsDockMenu` instead
     ///
     pub const SetAsDockMenu = setAsDockMenu;

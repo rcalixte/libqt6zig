@@ -10,6 +10,7 @@ const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
+const builtin = @import("builtin");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -33,11 +34,11 @@ pub const KSelectionOwner = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` selection: [:0]const u8 `
+    /// ` selection: xcb_atom_t `
     ///
-    pub fn new(selection: [:0]const u8) KSelectionOwner {
-        const selection_Cstring = selection.ptr;
-        return .{ .ptr = qtc.KSelectionOwner_new(selection_Cstring) };
+    pub fn new(selection: u32) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionOwner_new(@bitCast(selection)) };
     }
 
     /// ### DEPRECATED: Use `new2` instead
@@ -50,16 +51,107 @@ pub const KSelectionOwner = extern struct {
     ///
     /// ` selection: [:0]const u8 `
     ///
-    /// ` screen: i32 `
-    ///
-    pub fn new2(selection: [:0]const u8, screen: i32) KSelectionOwner {
+    pub fn new2(selection: [:0]const u8) KSelectionOwner {
         const selection_Cstring = selection.ptr;
-        return .{ .ptr = qtc.KSelectionOwner_new2(selection_Cstring, @bitCast(screen)) };
+        return .{ .ptr = qtc.KSelectionOwner_new2(selection_Cstring) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
     ///
     pub const New3 = new3;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    pub fn new3(selection: u32, c: ?*anyopaque, root: u32) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionOwner_new3(@bitCast(selection), @ptrCast(c), @bitCast(root)) };
+    }
+
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    pub fn new4(selection: [:0]const u8, c: ?*anyopaque, root: u32) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const selection_Cstring = selection.ptr;
+        return .{ .ptr = qtc.KSelectionOwner_new4(selection_Cstring, @ptrCast(c), @bitCast(root)) };
+    }
+
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    pub fn new5(selection: u32, screen: i32) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KSelectionOwner_new5(@bitCast(selection), @bitCast(screen)) };
+    }
+
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new6(selection: u32, screen: i32, _parent: anytype) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionOwner_new6(@bitCast(selection), @bitCast(screen), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` screen: i32 `
+    ///
+    pub fn new7(selection: [:0]const u8, screen: i32) KSelectionOwner {
+        const selection_Cstring = selection.ptr;
+        return .{ .ptr = qtc.KSelectionOwner_new7(selection_Cstring, @bitCast(screen)) };
+    }
+
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
 
     /// Allocate a new KSelectionOwner object in C++ memory
     ///
@@ -71,10 +163,55 @@ pub const KSelectionOwner = extern struct {
     ///
     /// ` _parent: QObject `
     ///
-    pub fn new3(selection: [:0]const u8, screen: i32, _parent: anytype) KSelectionOwner {
+    pub fn new8(selection: [:0]const u8, screen: i32, _parent: anytype) KSelectionOwner {
         const selection_Cstring = selection.ptr;
         comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.KSelectionOwner_new3(selection_Cstring, @bitCast(screen), @ptrCast(_parent.ptr)) };
+        return .{ .ptr = qtc.KSelectionOwner_new8(selection_Cstring, @bitCast(screen), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: xcb_atom_t `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new9(selection: u32, c: ?*anyopaque, root: u32, _parent: anytype) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionOwner_new9(@bitCast(selection), @ptrCast(c), @bitCast(root), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new KSelectionOwner object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` selection: [:0]const u8 `
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` root: xcb_window_t `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new10(selection: [:0]const u8, c: ?*anyopaque, root: u32, _parent: anytype) KSelectionOwner {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const selection_Cstring = selection.ptr;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KSelectionOwner_new10(selection_Cstring, @ptrCast(c), @bitCast(root), @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -280,6 +417,25 @@ pub const KSelectionOwner = extern struct {
         qtc.KSelectionOwner_Release(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `ownerWindow` instead
+    ///
+    pub const OwnerWindow = ownerWindow;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#ownerWindow)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ## Returns:
+    ///
+    /// ` xcb_window_t `
+    ///
+    pub fn ownerWindow(self: KSelectionOwner) u32 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return @bitCast(qtc.KSelectionOwner_OwnerWindow(@ptrCast(self.ptr)));
+    }
+
     /// ### DEPRECATED: Use `filterEvent` instead
     ///
     pub const FilterEvent = filterEvent;
@@ -438,6 +594,128 @@ pub const KSelectionOwner = extern struct {
     ///
     pub fn onFailedToClaimOwnership(self: KSelectionOwner, callback: *const fn (KSelectionOwner) callconv(.c) void) void {
         qtc.KSelectionOwner_Connect_FailedToClaimOwnership(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `genericReply` instead
+    ///
+    pub const GenericReply = genericReply;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#genericReply)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` target: xcb_atom_t `
+    ///
+    /// ` _property: xcb_atom_t `
+    ///
+    /// ` requestor: xcb_window_t `
+    ///
+    pub fn genericReply(self: KSelectionOwner, target: u32, _property: u32, requestor: u32) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return qtc.KSelectionOwner_GenericReply(@ptrCast(self.ptr), @bitCast(target), @bitCast(_property), @bitCast(requestor));
+    }
+
+    /// ### DEPRECATED: Use `onGenericReply` instead
+    ///
+    pub const OnGenericReply = onGenericReply;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#genericReply)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` callback: *const fn (self: KSelectionOwner, target: xcb_atom_t, property: xcb_atom_t, requestor: xcb_window_t) callconv(.c) bool `
+    ///
+    pub fn onGenericReply(self: KSelectionOwner, callback: *const fn (KSelectionOwner, u32, u32, u32) callconv(.c) bool) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionOwner_OnGenericReply(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `superGenericReply` instead
+    ///
+    pub const SuperGenericReply = superGenericReply;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#genericReply)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` target: xcb_atom_t `
+    ///
+    /// ` _property: xcb_atom_t `
+    ///
+    /// ` requestor: xcb_window_t `
+    ///
+    pub fn superGenericReply(self: KSelectionOwner, target: u32, _property: u32, requestor: u32) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return qtc.KSelectionOwner_SuperGenericReply(@ptrCast(self.ptr), @bitCast(target), @bitCast(_property), @bitCast(requestor));
+    }
+
+    /// ### DEPRECATED: Use `replyTargets` instead
+    ///
+    pub const ReplyTargets = replyTargets;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#replyTargets)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` _property: xcb_atom_t `
+    ///
+    /// ` requestor: xcb_window_t `
+    ///
+    pub fn replyTargets(self: KSelectionOwner, _property: u32, requestor: u32) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionOwner_ReplyTargets(@ptrCast(self.ptr), @bitCast(_property), @bitCast(requestor));
+    }
+
+    /// ### DEPRECATED: Use `onReplyTargets` instead
+    ///
+    pub const OnReplyTargets = onReplyTargets;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#replyTargets)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` callback: *const fn (self: KSelectionOwner, property: xcb_atom_t, requestor: xcb_window_t) callconv(.c) void `
+    ///
+    pub fn onReplyTargets(self: KSelectionOwner, callback: *const fn (KSelectionOwner, u32, u32) callconv(.c) void) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionOwner_OnReplyTargets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `superReplyTargets` instead
+    ///
+    pub const SuperReplyTargets = superReplyTargets;
+
+    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#replyTargets)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSelectionOwner `
+    ///
+    /// ` _property: xcb_atom_t `
+    ///
+    /// ` requestor: xcb_window_t `
+    ///
+    pub fn superReplyTargets(self: KSelectionOwner, _property: u32, requestor: u32) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        qtc.KSelectionOwner_SuperReplyTargets(@ptrCast(self.ptr), @bitCast(_property), @bitCast(requestor));
     }
 
     /// ### DEPRECATED: Use `getAtoms` instead

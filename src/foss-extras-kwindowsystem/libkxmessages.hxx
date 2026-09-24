@@ -67,8 +67,11 @@ class VirtualKXMessages final : public KXMessages {
 
   public:
     VirtualKXMessages() : KXMessages() {};
+    VirtualKXMessages(xcb_connection_t* connection, xcb_window_t rootWindow) : KXMessages(connection, rootWindow) {};
     VirtualKXMessages(const char* accept_broadcast) : KXMessages(accept_broadcast) {};
     VirtualKXMessages(const char* accept_broadcast, QObject* parent) : KXMessages(accept_broadcast, parent) {};
+    VirtualKXMessages(xcb_connection_t* connection, xcb_window_t rootWindow, const char* accept_broadcast) : KXMessages(connection, rootWindow, accept_broadcast) {};
+    VirtualKXMessages(xcb_connection_t* connection, xcb_window_t rootWindow, const char* accept_broadcast, QObject* parent) : KXMessages(connection, rootWindow, accept_broadcast, parent) {};
 
     // Callback setters
     inline void setKXMessages_MetaObject_Callback(KXMessages_MetaObject_Callback cb) { kxmessages_metaobject_callback = cb; }

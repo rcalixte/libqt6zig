@@ -10,17 +10,59 @@
 #include "libkselectionwatcher.h"
 #include "libkselectionwatcher.hxx"
 
-KSelectionWatcher* KSelectionWatcher_new(const char* selection) {
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new(uint32_t selection) {
+    return new VirtualKSelectionWatcher(selection);
+}
+#endif
+
+KSelectionWatcher* KSelectionWatcher_new2(const char* selection) {
     return new VirtualKSelectionWatcher(selection);
 }
 
-KSelectionWatcher* KSelectionWatcher_new2(const char* selection, int screen) {
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new3(uint32_t selection, xcb_connection_t* c, uint32_t root) {
+    return new VirtualKSelectionWatcher(selection, c, root);
+}
+#endif
+
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new4(const char* selection, xcb_connection_t* c, uint32_t root) {
+    return new VirtualKSelectionWatcher(selection, c, root);
+}
+#endif
+
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new5(uint32_t selection, int screen) {
+    return new VirtualKSelectionWatcher(selection, static_cast<int>(screen));
+}
+#endif
+
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new6(uint32_t selection, int screen, QObject* parent) {
+    return new VirtualKSelectionWatcher(selection, static_cast<int>(screen), parent);
+}
+#endif
+
+KSelectionWatcher* KSelectionWatcher_new7(const char* selection, int screen) {
     return new VirtualKSelectionWatcher(selection, static_cast<int>(screen));
 }
 
-KSelectionWatcher* KSelectionWatcher_new3(const char* selection, int screen, QObject* parent) {
+KSelectionWatcher* KSelectionWatcher_new8(const char* selection, int screen, QObject* parent) {
     return new VirtualKSelectionWatcher(selection, static_cast<int>(screen), parent);
 }
+
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new9(uint32_t selection, xcb_connection_t* c, uint32_t root, QObject* parent) {
+    return new VirtualKSelectionWatcher(selection, c, root, parent);
+}
+#endif
+
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new10(const char* selection, xcb_connection_t* c, uint32_t root, QObject* parent) {
+    return new VirtualKSelectionWatcher(selection, c, root, parent);
+}
+#endif
 
 QMetaObject* KSelectionWatcher_MetaObject(const KSelectionWatcher* self) {
     return (QMetaObject*)self->metaObject();
@@ -46,8 +88,30 @@ libqt_string KSelectionWatcher_Tr(const char* s) {
     return _str;
 }
 
+#ifdef __linux__
+uint32_t KSelectionWatcher_Owner(KSelectionWatcher* self) {
+    return self->owner();
+}
+#endif
+
 void KSelectionWatcher_FilterEvent(KSelectionWatcher* self, void* ev_P) {
     self->filterEvent(ev_P);
+}
+
+#ifdef __linux__
+void KSelectionWatcher_NewOwner(KSelectionWatcher* self, uint32_t owner) {
+    self->newOwner(owner);
+}
+#endif
+
+void KSelectionWatcher_Connect_NewOwner(KSelectionWatcher* self, intptr_t slot) {
+    void (*slotFunc)(KSelectionWatcher*, uint32_t) = reinterpret_cast<void (*)(KSelectionWatcher*, uint32_t)>(slot);
+    KSelectionWatcher::connect(self,
+                               static_cast<void (KSelectionWatcher::*)(xcb_window_t)>(&KSelectionWatcher::newOwner),
+                               [self, slotFunc](xcb_window_t owner) {
+                                   uint32_t sigval1 = owner;
+                                   slotFunc(self, sigval1);
+                               });
 }
 
 void KSelectionWatcher_LostOwner(KSelectionWatcher* self) {

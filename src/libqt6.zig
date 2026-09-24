@@ -785,7 +785,7 @@ pub const KXMLGUIBuilder = @import("extras-kxmlgui/libkxmlguibuilder.zig").KXMLG
 pub const KXMLGUIClient = @import("extras-kxmlgui/libkxmlguiclient.zig").KXMLGUIClient;
 pub const KXMLGUIClient__StateChange = @import("extras-kxmlgui/libkxmlguiclient.zig").KXMLGUIClient__StateChange;
 pub const KXMLGUIFactory = @import("extras-kxmlgui/libkxmlguifactory.zig").KXMLGUIFactory;
-pub const KXMessages = @import("foss-extras-kwindowsystem/libkxmessages.zig").KXMessages;
+pub const KXMessages = if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system") else @import("foss-extras-kwindowsystem/libkxmessages.zig").KXMessages;
 pub const KXYSelector = @import("extras-kwidgetsaddons/libkxyselector.zig").KXYSelector;
 pub const KXmlGuiWindow = @import("extras-kxmlgui/libkxmlguiwindow.zig").KXmlGuiWindow;
 pub const KZip = @import("extras-karchive/libkzip.zig").KZip;
@@ -1576,6 +1576,8 @@ pub const QMutex = @import("libqmutex.zig").QMutex;
 pub const QNativeGestureEvent = @import("libqevent.zig").QNativeGestureEvent;
 pub const QNativeInterface__QEGLContext = @import("libqopenglcontext_platform.zig").QNativeInterface__QEGLContext;
 pub const QNativeInterface__QSGOpenGLTexture = @import("quick/libqsgtexture_platform.zig").QNativeInterface__QSGOpenGLTexture;
+pub const QNativeInterface__QWaylandApplication = if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else @import("libqguiapplication_platform.zig").QNativeInterface__QWaylandApplication;
+pub const QNativeInterface__QX11Application = if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else @import("libqguiapplication_platform.zig").QNativeInterface__QX11Application;
 pub const QNativeIpcKey = @import("libqtipccommon.zig").QNativeIpcKey;
 pub const QNetworkAccessManager = @import("network/libqnetworkaccessmanager.zig").QNetworkAccessManager;
 pub const QNetworkAddressEntry = @import("network/libqnetworkinterface.zig").QNetworkAddressEntry;

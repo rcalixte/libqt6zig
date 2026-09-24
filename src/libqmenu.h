@@ -99,6 +99,9 @@ QIcon* QMenu_Icon(const QMenu* self);
 void QMenu_SetIcon(QMenu* self, const QIcon* icon);
 void QMenu_SetNoReplayFor(QMenu* self, QWidget* widget);
 #ifdef __APPLE__
+NSMenu* QMenu_ToNSMenu(QMenu* self);
+#endif
+#ifdef __APPLE__
 void QMenu_SetAsDockMenu(QMenu* self);
 #endif
 bool QMenu_SeparatorsCollapsible(const QMenu* self);

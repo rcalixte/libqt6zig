@@ -1,0 +1,80 @@
+#pragma once
+#ifndef LIBQGUIAPPLICATION_PLATFORM_H
+#define LIBQGUIAPPLICATION_PLATFORM_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QNativeInterface__QWaylandApplication)
+typedef QNativeInterface::QWaylandApplication QNativeInterface__QWaylandApplication;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QNativeInterface__QX11Application)
+typedef QNativeInterface::QX11Application QNativeInterface__QX11Application;
+#endif
+#else
+typedef struct QNativeInterface__QWaylandApplication QNativeInterface__QWaylandApplication;
+typedef struct QNativeInterface__QX11Application QNativeInterface__QX11Application;
+typedef struct _XDisplay Display;
+typedef struct xcb_connection_t xcb_connection_t;
+typedef struct wl_compositor wl_compositor;
+typedef struct wl_display wl_display;
+typedef struct wl_keyboard wl_keyboard;
+typedef struct wl_pointer wl_pointer;
+typedef struct wl_seat wl_seat;
+typedef struct wl_touch wl_touch;
+#endif
+
+QNativeInterface__QX11Application* QNativeInterface__QX11Application_new();
+Display* QNativeInterface__QX11Application_Display(const QNativeInterface__QX11Application* self);
+#ifdef __linux__
+xcb_connection_t* QNativeInterface__QX11Application_Connection(const QNativeInterface__QX11Application* self);
+#endif
+void QNativeInterface__QX11Application_OnDisplay(const QNativeInterface__QX11Application* self, intptr_t slot);
+Display* QNativeInterface__QX11Application_SuperDisplay(const QNativeInterface__QX11Application* self);
+#ifdef __linux__
+void QNativeInterface__QX11Application_OnConnection(const QNativeInterface__QX11Application* self, intptr_t slot);
+#endif
+#ifdef __linux__
+xcb_connection_t* QNativeInterface__QX11Application_SuperConnection(const QNativeInterface__QX11Application* self);
+#endif
+
+QNativeInterface__QWaylandApplication* QNativeInterface__QWaylandApplication_new();
+wl_display* QNativeInterface__QWaylandApplication_Display(const QNativeInterface__QWaylandApplication* self);
+wl_compositor* QNativeInterface__QWaylandApplication_Compositor(const QNativeInterface__QWaylandApplication* self);
+wl_seat* QNativeInterface__QWaylandApplication_Seat(const QNativeInterface__QWaylandApplication* self);
+wl_keyboard* QNativeInterface__QWaylandApplication_Keyboard(const QNativeInterface__QWaylandApplication* self);
+wl_pointer* QNativeInterface__QWaylandApplication_Pointer(const QNativeInterface__QWaylandApplication* self);
+wl_touch* QNativeInterface__QWaylandApplication_Touch(const QNativeInterface__QWaylandApplication* self);
+unsigned int QNativeInterface__QWaylandApplication_LastInputSerial(const QNativeInterface__QWaylandApplication* self);
+wl_seat* QNativeInterface__QWaylandApplication_LastInputSeat(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnDisplay(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_display* QNativeInterface__QWaylandApplication_SuperDisplay(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnCompositor(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_compositor* QNativeInterface__QWaylandApplication_SuperCompositor(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnSeat(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_seat* QNativeInterface__QWaylandApplication_SuperSeat(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnKeyboard(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_keyboard* QNativeInterface__QWaylandApplication_SuperKeyboard(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnPointer(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_pointer* QNativeInterface__QWaylandApplication_SuperPointer(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnTouch(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_touch* QNativeInterface__QWaylandApplication_SuperTouch(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnLastInputSerial(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+unsigned int QNativeInterface__QWaylandApplication_SuperLastInputSerial(const QNativeInterface__QWaylandApplication* self);
+void QNativeInterface__QWaylandApplication_OnLastInputSeat(const QNativeInterface__QWaylandApplication* self, intptr_t slot);
+wl_seat* QNativeInterface__QWaylandApplication_SuperLastInputSeat(const QNativeInterface__QWaylandApplication* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

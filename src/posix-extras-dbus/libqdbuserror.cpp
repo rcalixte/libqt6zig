@@ -9,16 +9,20 @@ QDBusError* QDBusError_new() {
     return new QDBusError();
 }
 
-QDBusError* QDBusError_new2(const QDBusMessage* msg) {
+QDBusError* QDBusError_new2(const DBusError* errorVal) {
+    return new QDBusError(errorVal);
+}
+
+QDBusError* QDBusError_new3(const QDBusMessage* msg) {
     return new QDBusError(*msg);
 }
 
-QDBusError* QDBusError_new3(int errorVal, const libqt_string message) {
+QDBusError* QDBusError_new4(int errorVal, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     return new QDBusError(static_cast<QDBusError::ErrorType>(errorVal), message_QString);
 }
 
-QDBusError* QDBusError_new4(const QDBusError* other) {
+QDBusError* QDBusError_new5(const QDBusError* other) {
     return new QDBusError(*other);
 }
 

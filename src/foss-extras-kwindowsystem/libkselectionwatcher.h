@@ -24,14 +24,42 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-KSelectionWatcher* KSelectionWatcher_new(const char* selection);
-KSelectionWatcher* KSelectionWatcher_new2(const char* selection, int screen);
-KSelectionWatcher* KSelectionWatcher_new3(const char* selection, int screen, QObject* parent);
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new(uint32_t selection);
+#endif
+KSelectionWatcher* KSelectionWatcher_new2(const char* selection);
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new3(uint32_t selection, xcb_connection_t* c, uint32_t root);
+#endif
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new4(const char* selection, xcb_connection_t* c, uint32_t root);
+#endif
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new5(uint32_t selection, int screen);
+#endif
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new6(uint32_t selection, int screen, QObject* parent);
+#endif
+KSelectionWatcher* KSelectionWatcher_new7(const char* selection, int screen);
+KSelectionWatcher* KSelectionWatcher_new8(const char* selection, int screen, QObject* parent);
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new9(uint32_t selection, xcb_connection_t* c, uint32_t root, QObject* parent);
+#endif
+#ifdef __linux__
+KSelectionWatcher* KSelectionWatcher_new10(const char* selection, xcb_connection_t* c, uint32_t root, QObject* parent);
+#endif
 QMetaObject* KSelectionWatcher_MetaObject(const KSelectionWatcher* self);
 void* KSelectionWatcher_Metacast(KSelectionWatcher* self, const char* param1);
 int KSelectionWatcher_Metacall(KSelectionWatcher* self, int param1, int param2, void** param3);
 libqt_string KSelectionWatcher_Tr(const char* s);
+#ifdef __linux__
+uint32_t KSelectionWatcher_Owner(KSelectionWatcher* self);
+#endif
 void KSelectionWatcher_FilterEvent(KSelectionWatcher* self, void* ev_P);
+#ifdef __linux__
+void KSelectionWatcher_NewOwner(KSelectionWatcher* self, uint32_t owner);
+#endif
+void KSelectionWatcher_Connect_NewOwner(KSelectionWatcher* self, intptr_t slot);
 void KSelectionWatcher_LostOwner(KSelectionWatcher* self);
 void KSelectionWatcher_Connect_LostOwner(KSelectionWatcher* self, intptr_t slot);
 libqt_string KSelectionWatcher_Tr2(const char* s, const char* c);

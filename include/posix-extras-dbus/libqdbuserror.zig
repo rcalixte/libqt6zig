@@ -32,11 +32,10 @@ pub const QDBusError = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` msg: QDBusMessage `
+    /// ` errorVal: ?*DBusError (This is an opaque pointer to an external type.) `
     ///
-    pub fn new2(msg: anytype) QDBusError {
-        comptime _ = @TypeOf(msg)._is_QDBusMessage;
-        return .{ .ptr = qtc.QDBusError_new2(@ptrCast(msg.ptr)) };
+    pub fn new2(errorVal: ?*const anyopaque) QDBusError {
+        return .{ .ptr = qtc.QDBusError_new2(@ptrCast(errorVal)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
@@ -47,16 +46,11 @@ pub const QDBusError = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` errorVal: qdbuserror_enums.ErrorType `
+    /// ` msg: QDBusMessage `
     ///
-    /// ` _message: []const u8 `
-    ///
-    pub fn new3(errorVal: i32, _message: []const u8) QDBusError {
-        const message_str = qtc.libqt_string{
-            .len = _message.len,
-            .data = _message.ptr,
-        };
-        return .{ .ptr = qtc.QDBusError_new3(@bitCast(errorVal), message_str) };
+    pub fn new3(msg: anytype) QDBusError {
+        comptime _ = @TypeOf(msg)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusError_new3(@ptrCast(msg.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -67,11 +61,31 @@ pub const QDBusError = extern struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` errorVal: qdbuserror_enums.ErrorType `
+    ///
+    /// ` _message: []const u8 `
+    ///
+    pub fn new4(errorVal: i32, _message: []const u8) QDBusError {
+        const message_str = qtc.libqt_string{
+            .len = _message.len,
+            .data = _message.ptr,
+        };
+        return .{ .ptr = qtc.QDBusError_new4(@bitCast(errorVal), message_str) };
+    }
+
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDBusError object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` other: QDBusError `
     ///
-    pub fn new4(other: anytype) QDBusError {
+    pub fn new5(other: anytype) QDBusError {
         comptime _ = @TypeOf(other)._is_QDBusError;
-        return .{ .ptr = qtc.QDBusError_new4(@ptrCast(other.ptr)) };
+        return .{ .ptr = qtc.QDBusError_new5(@ptrCast(other.ptr)) };
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
