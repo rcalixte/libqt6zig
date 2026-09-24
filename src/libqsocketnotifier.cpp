@@ -489,14 +489,11 @@ QSocketDescriptor* QSocketDescriptor_new4(const QSocketDescriptor* param1) {
     return new QSocketDescriptor(*param1);
 }
 
-QSocketDescriptor* QSocketDescriptor_new5(int descriptor) {
 #if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)
+QSocketDescriptor* QSocketDescriptor_new5(int descriptor) {
     return new QSocketDescriptor(static_cast<QSocketDescriptor::DescriptorType>(descriptor));
-#else
-    (void)descriptor; // Suppress unused parameter warning
-    return nullptr;
-#endif
 }
+#endif
 
 void QSocketDescriptor_CopyAssign(QSocketDescriptor* self, QSocketDescriptor* other) {
     *self = *other;
@@ -506,14 +503,11 @@ void QSocketDescriptor_MoveAssign(QSocketDescriptor* self, QSocketDescriptor* ot
     *self = std::move(*other);
 }
 
-int QSocketDescriptor_ToInt(const QSocketDescriptor* self) {
 #if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)
+int QSocketDescriptor_ToInt(const QSocketDescriptor* self) {
     return static_cast<int>(self->operator int());
-#else
-    (void)self; // Suppress unused parameter warning
-    return {};
-#endif
 }
+#endif
 
 bool QSocketDescriptor_IsValid(const QSocketDescriptor* self) {
     return self->isValid();

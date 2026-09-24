@@ -21,6 +21,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     using KSelectionOwner_Metacast_Callback = void* (*)(KSelectionOwner*, const char*);
     using KSelectionOwner_Metacall_Callback = int (*)(KSelectionOwner*, int, int, void**);
     using KSelectionOwner_TimerEvent_Callback = void (*)(KSelectionOwner*, QTimerEvent*);
+    using KSelectionOwner_GenericReply_Callback = bool (*)(KSelectionOwner*, uint32_t, uint32_t, uint32_t);
+    using KSelectionOwner_ReplyTargets_Callback = void (*)(KSelectionOwner*, uint32_t, uint32_t);
     using KSelectionOwner_GetAtoms_Callback = void (*)();
     using KSelectionOwner_Event_Callback = bool (*)(KSelectionOwner*, QEvent*);
     using KSelectionOwner_EventFilter_Callback = bool (*)(KSelectionOwner*, QObject*, QEvent*);
@@ -40,6 +42,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     KSelectionOwner_Metacast_Callback kselectionowner_metacast_callback = nullptr;
     KSelectionOwner_Metacall_Callback kselectionowner_metacall_callback = nullptr;
     KSelectionOwner_TimerEvent_Callback kselectionowner_timerevent_callback = nullptr;
+    KSelectionOwner_GenericReply_Callback kselectionowner_genericreply_callback = nullptr;
+    KSelectionOwner_ReplyTargets_Callback kselectionowner_replytargets_callback = nullptr;
     KSelectionOwner_GetAtoms_Callback kselectionowner_getatoms_callback = nullptr;
     KSelectionOwner_Event_Callback kselectionowner_event_callback = nullptr;
     KSelectionOwner_EventFilter_Callback kselectionowner_eventfilter_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     mutable bool kselectionowner_metacast_isbase = false;
     mutable bool kselectionowner_metacall_isbase = false;
     mutable bool kselectionowner_timerevent_isbase = false;
+    mutable bool kselectionowner_genericreply_isbase = false;
+    mutable bool kselectionowner_replytargets_isbase = false;
     mutable bool kselectionowner_getatoms_isbase = false;
     mutable bool kselectionowner_event_isbase = false;
     mutable bool kselectionowner_eventfilter_isbase = false;
@@ -72,15 +78,24 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     mutable bool kselectionowner_issignalconnected_isbase = false;
 
   public:
+    VirtualKSelectionOwner(xcb_atom_t selection) : KSelectionOwner(selection) {};
     VirtualKSelectionOwner(const char* selection) : KSelectionOwner(selection) {};
+    VirtualKSelectionOwner(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root) : KSelectionOwner(selection, c, root) {};
+    VirtualKSelectionOwner(const char* selection, xcb_connection_t* c, xcb_window_t root) : KSelectionOwner(selection, c, root) {};
+    VirtualKSelectionOwner(xcb_atom_t selection, int screen) : KSelectionOwner(selection, screen) {};
+    VirtualKSelectionOwner(xcb_atom_t selection, int screen, QObject* parent) : KSelectionOwner(selection, screen, parent) {};
     VirtualKSelectionOwner(const char* selection, int screen) : KSelectionOwner(selection, screen) {};
     VirtualKSelectionOwner(const char* selection, int screen, QObject* parent) : KSelectionOwner(selection, screen, parent) {};
+    VirtualKSelectionOwner(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionOwner(selection, c, root, parent) {};
+    VirtualKSelectionOwner(const char* selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionOwner(selection, c, root, parent) {};
 
     // Callback setters
     inline void setKSelectionOwner_MetaObject_Callback(KSelectionOwner_MetaObject_Callback cb) { kselectionowner_metaobject_callback = cb; }
     inline void setKSelectionOwner_Metacast_Callback(KSelectionOwner_Metacast_Callback cb) { kselectionowner_metacast_callback = cb; }
     inline void setKSelectionOwner_Metacall_Callback(KSelectionOwner_Metacall_Callback cb) { kselectionowner_metacall_callback = cb; }
     inline void setKSelectionOwner_TimerEvent_Callback(KSelectionOwner_TimerEvent_Callback cb) { kselectionowner_timerevent_callback = cb; }
+    inline void setKSelectionOwner_GenericReply_Callback(KSelectionOwner_GenericReply_Callback cb) { kselectionowner_genericreply_callback = cb; }
+    inline void setKSelectionOwner_ReplyTargets_Callback(KSelectionOwner_ReplyTargets_Callback cb) { kselectionowner_replytargets_callback = cb; }
     inline void setKSelectionOwner_GetAtoms_Callback(KSelectionOwner_GetAtoms_Callback cb) { kselectionowner_getatoms_callback = cb; }
     inline void setKSelectionOwner_Event_Callback(KSelectionOwner_Event_Callback cb) { kselectionowner_event_callback = cb; }
     inline void setKSelectionOwner_EventFilter_Callback(KSelectionOwner_EventFilter_Callback cb) { kselectionowner_eventfilter_callback = cb; }
@@ -99,6 +114,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     inline void setKSelectionOwner_Metacast_IsBase(bool value) const { kselectionowner_metacast_isbase = value; }
     inline void setKSelectionOwner_Metacall_IsBase(bool value) const { kselectionowner_metacall_isbase = value; }
     inline void setKSelectionOwner_TimerEvent_IsBase(bool value) const { kselectionowner_timerevent_isbase = value; }
+    inline void setKSelectionOwner_GenericReply_IsBase(bool value) const { kselectionowner_genericreply_isbase = value; }
+    inline void setKSelectionOwner_ReplyTargets_IsBase(bool value) const { kselectionowner_replytargets_isbase = value; }
     inline void setKSelectionOwner_GetAtoms_IsBase(bool value) const { kselectionowner_getatoms_isbase = value; }
     inline void setKSelectionOwner_Event_IsBase(bool value) const { kselectionowner_event_isbase = value; }
     inline void setKSelectionOwner_EventFilter_IsBase(bool value) const { kselectionowner_eventfilter_isbase = value; }
@@ -172,6 +189,40 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
             return;
         }
         KSelectionOwner::timerEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool genericReply(xcb_atom_t target, xcb_atom_t property, xcb_window_t requestor) override {
+        if (kselectionowner_genericreply_isbase) {
+            kselectionowner_genericreply_isbase = false;
+            return KSelectionOwner::genericReply(target, property, requestor);
+        }
+        auto genericreply_cb = kselectionowner_genericreply_callback;
+        if (genericreply_cb) {
+            uint32_t cbval1 = target;
+            uint32_t cbval2 = property;
+            uint32_t cbval3 = requestor;
+            bool callback_ret = genericreply_cb(this, cbval1, cbval2, cbval3);
+            return callback_ret;
+        }
+        return KSelectionOwner::genericReply(target, property, requestor);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void replyTargets(xcb_atom_t property, xcb_window_t requestor) override {
+        if (kselectionowner_replytargets_isbase) {
+            kselectionowner_replytargets_isbase = false;
+            KSelectionOwner::replyTargets(property, requestor);
+            return;
+        }
+        auto replytargets_cb = kselectionowner_replytargets_callback;
+        if (replytargets_cb) {
+            uint32_t cbval1 = property;
+            uint32_t cbval2 = requestor;
+            replytargets_cb(this, cbval1, cbval2);
+            return;
+        }
+        KSelectionOwner::replyTargets(property, requestor);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -366,6 +417,10 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     }
 
     // Friend functions
+    friend bool KSelectionOwner_GenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor);
+    friend bool KSelectionOwner_SuperGenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor);
+    friend void KSelectionOwner_ReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor);
+    friend void KSelectionOwner_SuperReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor);
     friend void KSelectionOwner_GetAtoms(KSelectionOwner* self);
     friend void KSelectionOwner_SuperGetAtoms(KSelectionOwner* self);
     friend void KSelectionOwner_ChildEvent(KSelectionOwner* self, QChildEvent* event);

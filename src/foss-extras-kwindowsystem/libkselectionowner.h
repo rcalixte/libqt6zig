@@ -22,17 +22,42 @@ typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
+typedef struct xcb_window_t xcb_window_t;
 #endif
 
-KSelectionOwner* KSelectionOwner_new(const char* selection);
-KSelectionOwner* KSelectionOwner_new2(const char* selection, int screen);
-KSelectionOwner* KSelectionOwner_new3(const char* selection, int screen, QObject* parent);
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new(uint32_t selection);
+#endif
+KSelectionOwner* KSelectionOwner_new2(const char* selection);
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new3(uint32_t selection, xcb_connection_t* c, uint32_t root);
+#endif
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new4(const char* selection, xcb_connection_t* c, uint32_t root);
+#endif
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new5(uint32_t selection, int screen);
+#endif
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new6(uint32_t selection, int screen, QObject* parent);
+#endif
+KSelectionOwner* KSelectionOwner_new7(const char* selection, int screen);
+KSelectionOwner* KSelectionOwner_new8(const char* selection, int screen, QObject* parent);
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new9(uint32_t selection, xcb_connection_t* c, uint32_t root, QObject* parent);
+#endif
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new10(const char* selection, xcb_connection_t* c, uint32_t root, QObject* parent);
+#endif
 QMetaObject* KSelectionOwner_MetaObject(const KSelectionOwner* self);
 void* KSelectionOwner_Metacast(KSelectionOwner* self, const char* param1);
 int KSelectionOwner_Metacall(KSelectionOwner* self, int param1, int param2, void** param3);
 libqt_string KSelectionOwner_Tr(const char* s);
 void KSelectionOwner_Claim(KSelectionOwner* self, bool force);
 void KSelectionOwner_Release(KSelectionOwner* self);
+#ifdef __linux__
+uint32_t KSelectionOwner_OwnerWindow(const KSelectionOwner* self);
+#endif
 bool KSelectionOwner_FilterEvent(KSelectionOwner* self, void* ev_P);
 void KSelectionOwner_TimerEvent(KSelectionOwner* self, QTimerEvent* event);
 void KSelectionOwner_LostOwnership(KSelectionOwner* self);
@@ -41,6 +66,12 @@ void KSelectionOwner_ClaimedOwnership(KSelectionOwner* self);
 void KSelectionOwner_Connect_ClaimedOwnership(KSelectionOwner* self, intptr_t slot);
 void KSelectionOwner_FailedToClaimOwnership(KSelectionOwner* self);
 void KSelectionOwner_Connect_FailedToClaimOwnership(KSelectionOwner* self, intptr_t slot);
+#ifdef __linux__
+bool KSelectionOwner_GenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor);
+#endif
+#ifdef __linux__
+void KSelectionOwner_ReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor);
+#endif
 void KSelectionOwner_GetAtoms(KSelectionOwner* self);
 libqt_string KSelectionOwner_Tr2(const char* s, const char* c);
 libqt_string KSelectionOwner_Tr3(const char* s, const char* c, int n);
@@ -53,6 +84,18 @@ void KSelectionOwner_OnMetacall(KSelectionOwner* self, intptr_t slot);
 int KSelectionOwner_SuperMetacall(KSelectionOwner* self, int param1, int param2, void** param3);
 void KSelectionOwner_OnTimerEvent(KSelectionOwner* self, intptr_t slot);
 void KSelectionOwner_SuperTimerEvent(KSelectionOwner* self, QTimerEvent* event);
+#ifdef __linux__
+void KSelectionOwner_OnGenericReply(KSelectionOwner* self, intptr_t slot);
+#endif
+#ifdef __linux__
+bool KSelectionOwner_SuperGenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor);
+#endif
+#ifdef __linux__
+void KSelectionOwner_OnReplyTargets(KSelectionOwner* self, intptr_t slot);
+#endif
+#ifdef __linux__
+void KSelectionOwner_SuperReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor);
+#endif
 void KSelectionOwner_OnGetAtoms(KSelectionOwner* self, intptr_t slot);
 void KSelectionOwner_SuperGetAtoms(KSelectionOwner* self);
 bool KSelectionOwner_Event(KSelectionOwner* self, QEvent* event);

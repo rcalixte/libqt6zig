@@ -2178,12 +2178,9 @@ pub const QSocketDescriptor = extern struct {
     /// ` descriptor: i32 `
     ///
     pub fn new5(descriptor: i32) QSocketDescriptor {
-        switch (builtin.target.os.tag) {
-            .linux, .freebsd => {
-                return .{ .ptr = qtc.QSocketDescriptor_new5(@bitCast(descriptor)) };
-            },
-            else => @compileError("Unsupported operating system"),
-        }
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
+            @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.QSocketDescriptor_new5(@bitCast(descriptor)) };
     }
 
     /// ### DEPRECATED: Use `copyAssign` instead
@@ -2227,10 +2224,8 @@ pub const QSocketDescriptor = extern struct {
     /// ` self: QSocketDescriptor `
     ///
     pub fn toInt(self: QSocketDescriptor) i32 {
-        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
             @compileError("Unsupported operating system");
-        }
-
         return qtc.QSocketDescriptor_ToInt(@ptrCast(self.ptr));
     }
 

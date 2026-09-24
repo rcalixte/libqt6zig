@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const builtin = @import("builtin");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kkeyserver.html)
@@ -296,5 +297,57 @@ pub const KKeyServer = extern struct {
     ///
     pub fn modXToQt(modX: u32, modQt: *i32) bool {
         return qtc.KKeyServer_ModXToQt(@bitCast(modX), @ptrCast(modQt));
+    }
+
+    /// ### DEPRECATED: Use `xEventToQt` instead
+    ///
+    pub const XEventToQt = xEventToQt;
+
+    /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#xEventToQt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` e: ?*XEvent (This is an opaque pointer to an external type.) `
+    ///
+    /// ` keyModQt: *i32 `
+    ///
+    pub fn xEventToQt(e: ?*anyopaque, keyModQt: *i32) bool {
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
+            @compileError("Unsupported operating system");
+        return qtc.KKeyServer_XEventToQt(@ptrCast(e), @ptrCast(keyModQt));
+    }
+
+    /// ### DEPRECATED: Use `xcbKeyPressEventToQt` instead
+    ///
+    pub const XcbKeyPressEventToQt = xcbKeyPressEventToQt;
+
+    /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#xcbKeyPressEventToQt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` e: ?*xcb_generic_event_t `
+    ///
+    /// ` keyModQt: *i32 `
+    ///
+    pub fn xcbKeyPressEventToQt(e: ?*anyopaque, keyModQt: *i32) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return qtc.KKeyServer_XcbKeyPressEventToQt(@ptrCast(e), @ptrCast(keyModQt));
+    }
+
+    /// ### DEPRECATED: Use `xcbKeyPressEventToQt2` instead
+    ///
+    pub const XcbKeyPressEventToQt2 = xcbKeyPressEventToQt2;
+
+    /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#xcbKeyPressEventToQt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` e: ?*xcb_key_press_event_t `
+    ///
+    /// ` keyModQt: *i32 `
+    ///
+    pub fn xcbKeyPressEventToQt2(e: ?*anyopaque, keyModQt: *i32) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return qtc.KKeyServer_XcbKeyPressEventToQt2(@ptrCast(e), @ptrCast(keyModQt));
     }
 };

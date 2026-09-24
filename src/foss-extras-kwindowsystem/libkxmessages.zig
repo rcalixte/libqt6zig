@@ -10,6 +10,7 @@ const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
+const builtin = @import("builtin");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -43,11 +44,13 @@ pub const KXMessages = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` accept_broadcast: [:0]const u8 `
+    /// ` connection: ?*xcb_connection_t `
     ///
-    pub fn new2(accept_broadcast: [:0]const u8) KXMessages {
-        const accept_broadcast_Cstring = accept_broadcast.ptr;
-        return .{ .ptr = qtc.KXMessages_new2(accept_broadcast_Cstring) };
+    /// ` rootWindow: xcb_window_t `
+    ///
+    pub fn new2(connection: ?*anyopaque, rootWindow: u32) KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        return .{ .ptr = qtc.KXMessages_new2(@ptrCast(connection), @bitCast(rootWindow)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
@@ -60,12 +63,70 @@ pub const KXMessages = extern struct {
     ///
     /// ` accept_broadcast: [:0]const u8 `
     ///
+    pub fn new3(accept_broadcast: [:0]const u8) KXMessages {
+        const accept_broadcast_Cstring = accept_broadcast.ptr;
+        return .{ .ptr = qtc.KXMessages_new3(accept_broadcast_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KXMessages object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` accept_broadcast: [:0]const u8 `
+    ///
     /// ` _parent: QObject `
     ///
-    pub fn new3(accept_broadcast: [:0]const u8, _parent: anytype) KXMessages {
+    pub fn new4(accept_broadcast: [:0]const u8, _parent: anytype) KXMessages {
         const accept_broadcast_Cstring = accept_broadcast.ptr;
         comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.KXMessages_new3(accept_broadcast_Cstring, @ptrCast(_parent.ptr)) };
+        return .{ .ptr = qtc.KXMessages_new4(accept_broadcast_Cstring, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KXMessages object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` connection: ?*xcb_connection_t `
+    ///
+    /// ` rootWindow: xcb_window_t `
+    ///
+    /// ` accept_broadcast: [:0]const u8 `
+    ///
+    pub fn new5(connection: ?*anyopaque, rootWindow: u32, accept_broadcast: [:0]const u8) KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const accept_broadcast_Cstring = accept_broadcast.ptr;
+        return .{ .ptr = qtc.KXMessages_new5(@ptrCast(connection), @bitCast(rootWindow), accept_broadcast_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KXMessages object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` connection: ?*xcb_connection_t `
+    ///
+    /// ` rootWindow: xcb_window_t `
+    ///
+    /// ` accept_broadcast: [:0]const u8 `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new6(connection: ?*anyopaque, rootWindow: u32, accept_broadcast: [:0]const u8, _parent: anytype) KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const accept_broadcast_Cstring = accept_broadcast.ptr;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KXMessages_new6(@ptrCast(connection), @bitCast(rootWindow), accept_broadcast_Cstring, @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -79,6 +140,7 @@ pub const KXMessages = extern struct {
     /// ` self: KXMessages `
     ///
     pub fn metaObject(self: KXMessages) QMetaObject {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         return .{ .ptr = qtc.KXMessages_MetaObject(@ptrCast(self.ptr)) };
     }
 
@@ -97,6 +159,7 @@ pub const KXMessages = extern struct {
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
     pub fn onMetaObject(self: KXMessages, callback: *const fn () callconv(.c) QMetaObject) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         qtc.KXMessages_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -113,6 +176,7 @@ pub const KXMessages = extern struct {
     /// ` self: KXMessages `
     ///
     pub fn superMetaObject(self: KXMessages) QMetaObject {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         return .{ .ptr = qtc.KXMessages_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
@@ -127,6 +191,7 @@ pub const KXMessages = extern struct {
     /// ` param1: [:0]const u8 `
     ///
     pub fn metacast(self: KXMessages, param1: [:0]const u8) ?*anyopaque {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const param1_Cstring = param1.ptr;
         return qtc.KXMessages_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
@@ -144,6 +209,7 @@ pub const KXMessages = extern struct {
     /// ` callback: *const fn (self: KXMessages, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
     pub fn onMetacast(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         qtc.KXMessages_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -160,6 +226,7 @@ pub const KXMessages = extern struct {
     /// ` param1: [:0]const u8 `
     ///
     pub fn superMetacast(self: KXMessages, param1: [:0]const u8) ?*anyopaque {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const param1_Cstring = param1.ptr;
         return qtc.KXMessages_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
@@ -179,6 +246,7 @@ pub const KXMessages = extern struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn metacall(self: KXMessages, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         return qtc.KXMessages_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
@@ -195,6 +263,7 @@ pub const KXMessages = extern struct {
     /// ` callback: *const fn (self: KXMessages, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
     pub fn onMetacall(self: KXMessages, callback: *const fn (KXMessages, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         qtc.KXMessages_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -215,6 +284,7 @@ pub const KXMessages = extern struct {
     /// ` param3: *?*anyopaque `
     ///
     pub fn superMetacall(self: KXMessages, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         return qtc.KXMessages_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
@@ -233,6 +303,7 @@ pub const KXMessages = extern struct {
     /// ` s: [:0]const u8 `
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const s_Cstring = s.ptr;
         var _str = qtc.KXMessages_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -256,12 +327,39 @@ pub const KXMessages = extern struct {
     /// ` message: []const u8 `
     ///
     pub fn broadcastMessage(self: KXMessages, msg_type: [:0]const u8, message: []const u8) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const msg_type_Cstring = msg_type.ptr;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
         qtc.KXMessages_BroadcastMessage(@ptrCast(self.ptr), msg_type_Cstring, message_str);
+    }
+
+    /// ### DEPRECATED: Use `broadcastMessageX` instead
+    ///
+    pub const BroadcastMessageX = broadcastMessageX;
+
+    /// ### [Upstream resources](https://api.kde.org/kxmessages.html#broadcastMessageX)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` c: ?*xcb_connection_t `
+    ///
+    /// ` msg_type: [:0]const u8 `
+    ///
+    /// ` message: []const u8 `
+    ///
+    /// ` screenNumber: i32 `
+    ///
+    pub fn broadcastMessageX(c: ?*anyopaque, msg_type: [:0]const u8, message: []const u8, screenNumber: i32) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        const msg_type_Cstring = msg_type.ptr;
+        const message_str = qtc.libqt_string{
+            .len = message.len,
+            .data = message.ptr,
+        };
+        return qtc.KXMessages_BroadcastMessageX(@ptrCast(c), msg_type_Cstring, message_str, @bitCast(screenNumber));
     }
 
     /// ### DEPRECATED: Use `gotMessage` instead
@@ -277,6 +375,7 @@ pub const KXMessages = extern struct {
     /// ` message: []const u8 `
     ///
     pub fn gotMessage(self: KXMessages, message: []const u8) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -297,6 +396,7 @@ pub const KXMessages = extern struct {
     /// ` callback: *const fn (self: KXMessages, message: [*:0]const u8) callconv(.c) void `
     ///
     pub fn onGotMessage(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) void) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         qtc.KXMessages_Connect_GotMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -317,6 +417,7 @@ pub const KXMessages = extern struct {
     /// ` c: [:0]const u8 `
     ///
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.KXMessages_Tr2(s_Cstring, c_Cstring);
@@ -345,6 +446,7 @@ pub const KXMessages = extern struct {
     /// ` n: i32 `
     ///
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.KXMessages_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -371,6 +473,7 @@ pub const KXMessages = extern struct {
     /// ` screen: i32 `
     ///
     pub fn broadcastMessage3(self: KXMessages, msg_type: [:0]const u8, message: []const u8, screen: i32) void {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const msg_type_Cstring = msg_type.ptr;
         const message_str = qtc.libqt_string{
             .len = message.len,

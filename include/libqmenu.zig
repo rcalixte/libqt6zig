@@ -970,6 +970,26 @@ pub const QMenu = extern struct {
         qtc.QMenu_SetNoReplayFor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
+    /// ### DEPRECATED: Use `toNSMenu` instead
+    ///
+    pub const ToNSMenu = toNSMenu;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#toNSMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMenu `
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*NSMenu ` (NOTE: This pointer value could be `null`.)
+    ///
+    pub fn toNSMenu(self: QMenu) ?*anyopaque {
+        if (builtin.is_test and builtin.target.os.tag != .macos) return null;
+        if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
+        return @ptrCast(qtc.QMenu_ToNSMenu(@ptrCast(self.ptr)));
+    }
+
     /// ### DEPRECATED: Use `setAsDockMenu` instead
     ///
     pub const SetAsDockMenu = setAsDockMenu;

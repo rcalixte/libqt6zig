@@ -16,6 +16,9 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct KKeyServer KKeyServer;
+typedef struct xcb_generic_event_t xcb_generic_event_t;
+typedef struct xcb_key_press_event_t xcb_key_press_event_t;
+typedef struct XEvent XEvent;
 #endif
 
 libqt_string KKeyServer_ModToStringUser(unsigned int mod);
@@ -39,6 +42,13 @@ libqt_list /* of int */ KKeyServer_KeyQtToCodeXs(int keyQt);
 bool KKeyServer_KeyQtToModX(int keyQt, unsigned int* mod);
 bool KKeyServer_SymXModXToKeyQt(uint32_t keySym, uint16_t modX, int* keyQt);
 bool KKeyServer_ModXToQt(unsigned int modX, int* modQt);
+bool KKeyServer_XEventToQt(XEvent* e, int* keyModQt);
+#ifdef __linux__
+bool KKeyServer_XcbKeyPressEventToQt(xcb_generic_event_t* e, int* keyModQt);
+#endif
+#ifdef __linux__
+bool KKeyServer_XcbKeyPressEventToQt2(xcb_key_press_event_t* e, int* keyModQt);
+#endif
 
 #ifdef __cplusplus
 } /* extern C */

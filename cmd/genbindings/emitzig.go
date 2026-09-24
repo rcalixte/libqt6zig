@@ -440,6 +440,10 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "usize"
 	case "quint128":
 		ret = "u128"
+	// cross-platform and opaque external types
+	case "NSMenu", "QNativeInterface::QX11Application::Display", "XEvent",
+		"wl_compositor", "wl_display", "wl_keyboard", "wl_pointer", "wl_seat", "wl_touch":
+		ret = "?*anyopaque"
 
 	default:
 		if ft, ok := p.QFlagsOf(); ok {
@@ -522,8 +526,19 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			} else {
 				ret = "anytype"
 			}
+		} else if p.ParameterType == "DBusError" || p.ParameterType == "XEvent" {
+			ret = "?*" + ifv(p.Const, "const ", "") + "anyopaque"
 		} else if !(p.ParameterType == "GLvoid" || p.ParameterType == "void") {
 			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
+		}
+	}
+
+	if strings.HasPrefix(paramType, "xcb_") {
+		// e.g. xcb_atom_t, xcb_connection_t, xcb_generic_event_t
+		if p.Pointer {
+			ret = "?*anyopaque"
+		} else {
+			ret = "u32"
 		}
 	}
 
@@ -546,6 +561,22 @@ func maybeDotsPath(zigImport, zfsName string) string {
 		} else {
 			return "../" + zigImport + "/"
 		}
+	}
+
+	return ""
+}
+
+func maybePlatformRestriction(zigStructName string) string {
+	switch zigStructName {
+	case "KXMessages":
+		return `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system") else `
+	case
+		"QNativeInterface__QWaylandApplication",
+		"QNativeInterface__QWaylandScreen",
+		"QNativeInterface__QX11Application":
+		return `if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else `
+	case "QProcess__UnixProcessParameters":
+		return `if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system") else `
 	}
 
 	return ""
@@ -743,6 +774,9 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 			returnTypeDecl, _, _ := p.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
 			paramType = "*const fn (" + zfs.emitCommentParametersZig(p.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl
 		}
+		if p.Pointer && (p.ParameterType == "DBusError" || p.ParameterType == "XEvent") {
+			paramType = "?*" + p.ParameterType + " (This is an opaque pointer to an external type.)"
+		}
 		if isSlot {
 			if t, _, ok := p.QListOf(); ok && (t.ParameterType != "QString" && t.ParameterType != "QByteArray") {
 				paramType = "qtc.libqt_list (" + paramType + ")"
@@ -822,6 +856,11 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 
 		if p.UniquePtr {
 			paramType += uniquePtrWarning
+		}
+
+		if strings.HasPrefix(p.ParameterType, "xcb_") {
+			// e.g. xcb_atom_t, xcb_connection_t, xcb_generic_event_t
+			paramType = ifv(p.Pointer, "?*", "") + p.ParameterType
 		}
 
 		paramName := p.ParameterName
@@ -1014,6 +1053,13 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 
 	} else if rt.IsStdOptional && IsKnownClass(rt.ParameterType) {
 		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " ` (NOTE: The `ptr` field could be `null`.)"
+
+	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || strings.HasPrefix(rt.ParameterType, "wl_") ||
+		rt.ParameterType == "XEvent" || strings.HasPrefix(rt.ParameterType, "xcb_")) {
+		returnComment = "\n///\n/// ## Returns:\n///\n/// ` ?*" + rt.ParameterType + " ` (NOTE: This pointer value could be `null`.)"
+
+	} else if !rt.Pointer && strings.HasPrefix(rt.ParameterType, "xcb_") {
+		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.ParameterType + " `"
 	}
 
 	return returnComment
@@ -1488,6 +1534,13 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 	} else if p.GlIntType() && p.Pointer {
 		rvalue = p.ParameterName + ".ptr"
+
+	} else if p.Pointer && (p.ParameterType == "DBusError" || strings.HasPrefix(p.ParameterType, "wl_") ||
+		p.ParameterType == "XEvent" || strings.HasPrefix(p.ParameterType, "xcb_")) {
+		rvalue = "@ptrCast(" + p.ParameterName + ")"
+
+	} else if !p.Pointer && strings.HasPrefix(p.ParameterType, "xcb_") {
+		rvalue = "@bitCast(" + p.ParameterName + ")"
 
 	} else if p.IntType() || p.IsFlagType() || p.IsKnownEnum() {
 		if p.Pointer || p.ByRef {
@@ -2173,6 +2226,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		return assignExpr + rvalue + ";"
 
+	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || strings.HasPrefix(rt.ParameterType, "wl_") ||
+		rt.ParameterType == "XEvent" || strings.HasPrefix(rt.ParameterType, "xcb_")) {
+		return shouldReturn + "@ptrCast(" + rvalue + ");"
+
 	} else if reflect.TypeFor[string]().Kind() == reflect.String {
 		// Single type conversion from C ABI State to Zig State type
 		return shouldReturn + "@bitCast(" + rvalue + ");"
@@ -2412,11 +2469,8 @@ const qtc = @import("qt6c");`)
 			}
 
 			// Windows hacks for QProcess
-			var maybeNonWin string
-			if zigStructName == "QProcess__UnixProcessParameters" {
-				maybeNonWin = `if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system") else `
-			}
-			zigIncs[zigStructName+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybeNonWin + `@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
+			zigIncs[zigStructName+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybePlatformRestriction(zigStructName) +
+				`@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
 			pageUrl := zfs.getPageUrl(QtPage, pageName, "", zigStructName)
 			ret.WriteString(pageUrl + "\n" +
 				"pub const " + zigStructName + " = extern struct {\n")
@@ -2523,37 +2577,28 @@ const qtc = @import("qt6c");`)
 				}
 			}
 
-			if ctor.FossOnly {
+			maybePlatformCompileError := ""
+			if ctor.LinuxOnly {
 				zfs.imports["builtin"] = struct{}{}
-
-				ret.WriteString("\n/// ### DEPRECATED: Use `new" + maybeSuffix(i) + "` instead\n///\n" +
-					"\n    pub const New" + maybeSuffix(i) + " = new" + maybeSuffix(i) + ";\n")
-
-				ret.WriteString("\n\n/// Allocate a new " + c.ClassName + " object in C++ memory" +
-					maybeParamsLine + maybeAllocatorComment + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeFinalNewLine +
-					"\n    pub fn new" + maybeSuffix(i) + "(" + allocatorParam + zfs.emitParametersZig(ctor.Parameters, false) + ") " + zigStructName + ` {
-        switch (builtin.target.os.tag) {
-            .linux, .freebsd => {
-                return .{ .ptr = qtc.` + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + `) };
-            },
-            else => @compileError("Unsupported operating system"),
-        }
-    }
-
-`)
-			} else {
-				maybeMoveCtor := ifv(ctor.IsMoveCtor, " object and invalidate the source "+c.ClassName, "")
-
-				preamble = ifv(preamble != "", preamble+"\n", "")
-
-				ret.WriteString("\n/// ### DEPRECATED: Use `new" + maybeSuffix(i) + "` instead\n///\n" +
-					"\n    pub const New" + maybeSuffix(i) + " = new" + maybeSuffix(i) + ";\n")
-
-				ret.WriteString("\n/// Allocate a new " + c.ClassName + maybeMoveCtor + " object in C++ memory" +
-					maybeParamsLine + maybeAllocatorComment + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeFinalNewLine +
-					"\n    pub fn new" + maybeSuffix(i) + "(" + allocatorParam + zfs.emitParametersZig(ctor.Parameters, false) + ") " + zigStructName + " {\n" +
-					preamble + "        return .{ .ptr = qtc." + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + ") };\n}\n\n")
+				maybePlatformCompileError = `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");`
+			} else if ctor.FossOnly {
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = "if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)\n" +
+					`@compileError("Unsupported operating system");`
 			}
+
+			maybeMoveCtor := ifv(ctor.IsMoveCtor, " object and invalidate the source "+c.ClassName, "")
+
+			preamble = ifv(len(preamble) > 0, preamble+"\n", "")
+
+			ret.WriteString("\n/// ### DEPRECATED: Use `new" + maybeSuffix(i) + "` instead\n///\n" +
+				"\n    pub const New" + maybeSuffix(i) + " = new" + maybeSuffix(i) + ";\n")
+
+			ret.WriteString("\n/// Allocate a new " + c.ClassName + maybeMoveCtor + " object in C++ memory" +
+				maybeParamsLine + maybeAllocatorComment + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeFinalNewLine +
+				"\n    pub fn new" + maybeSuffix(i) + "(" + allocatorParam + zfs.emitParametersZig(ctor.Parameters, false) + ") " + zigStructName + " {\n" +
+				maybePlatformCompileError + preamble +
+				"        return .{ .ptr = qtc." + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + ") };\n}\n\n")
 		}
 
 		if c.HasTrivialCopyAssign {
@@ -2640,16 +2685,25 @@ const qtc = @import("qt6c");`)
 			}
 
 			maybePlatformCompileError := ""
-			if _, ok := platformFunctions[cmdStructName+"_"+mSafeMethodName]; ok && !m.FossOnly {
+			if m.LinuxOnly {
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");`
+			} else if m.FossOnly {
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = "if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)\n" +
+					`@compileError("Unsupported operating system");`
+			} else if _, ok := platformFunctions[cmdStructName+"_"+mSafeMethodName]; ok {
 				zfs.imports["builtin"] = struct{}{}
 				maybePlatformCompileError = "switch (builtin.target.os.tag) {\n" +
 					"    .linux, .freebsd => {},\n" +
 					`    else => @compileError("Unsupported operating system"),` +
 					"\n}\n"
-			} else if mSafeMethodName == "SetAsDockMenu" {
-				// hack for QMenu::setAsDockMenu
+			} else if mSafeMethodName == "SetAsDockMenu" || mSafeMethodName == "ToNSMenu" {
+				// hack for QMenu::setAsDockMenu & QMenu::toNSMenu
 				zfs.imports["builtin"] = struct{}{}
-				maybePlatformCompileError = `if (builtin.is_test and builtin.target.os.tag != .macos) return;
+				maybePlatformCompileError = `if (builtin.is_test and builtin.target.os.tag != .macos) return` +
+					ifv(mSafeMethodName == "ToNSMenu", " null", "") +
+					`;
 if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");`
 			} else if cmdStructName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName)) {
 				// Windows hacks for QProcess
@@ -2760,15 +2814,6 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				returnComment + maybeFinalNewLine + maybeReturnString +
 				"\n    pub fn " + fnMethod + allocatorParam + zfs.emitParametersZig(m.Parameters, false) + ") " + returnTypeDecl + " {" + maybePlatformCompileError)
 
-			if m.FossOnly {
-				zfs.imports["builtin"] = struct{}{}
-				ret.WriteString(`
-    if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
-        @compileError("Unsupported operating system");
-    }
-`)
-			}
-
 			ret.WriteString("\n" + preamble + returnFunc + "\n}\n\n")
 
 			// Add Connect() wrappers for signal functions
@@ -2780,6 +2825,11 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				}
 
 				maybeComma = ifv(len(m.Parameters) != 0, ", ", "")
+				maybePlatformCompileError := ""
+				if m.LinuxOnly {
+					zfs.imports["builtin"] = struct{}{}
+					maybePlatformCompileError = `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");`
+				}
 
 				if addConnect {
 					ret.WriteString("\n/// ### DEPRECATED: Use `on" + mSafeMethodName + "` instead\n///\n" +
@@ -2788,7 +2838,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 					ret.WriteString(inheritedFrom + docCommentUrl + "\n///\n/// ## Parameters:\n///\n/// ` self: " + zigStructName + " `\n///\n/// ` callback: *const fn (self: " +
 						zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 						"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + zigStructName +
-						maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
+						maybeComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" + maybePlatformCompileError +
 						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));\n}\n")
 				}
 			}
@@ -2821,6 +2871,15 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 
 				retType, maybeReturnWarning, maybeReturnString := m.ReturnType.renderReturnTypeZig(&zfs, true)
 				paramsZig := zfs.emitParametersZig(m.Parameters, true)
+				maybePlatformCompileError := ""
+				if m.LinuxOnly {
+					zfs.imports["builtin"] = struct{}{}
+					maybePlatformCompileError = `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");`
+				} else if m.FossOnly {
+					zfs.imports["builtin"] = struct{}{}
+					maybePlatformCompileError = "if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)\n" +
+						`@compileError("Unsupported operating system");`
+				}
 
 				maybeNewLine = ifv(docCommentUrl == "", maybeNewLine, "\n///\n")
 				onDocComment := maybeNewLine + "/// Allows for overriding the related default method\n///" + maybeReturnWarning + "\n/// ## Parameters:"
@@ -2832,7 +2891,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 					" `\n///\n/// ` callback: *const fn (" + maybeCommentSelf + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) +
 					") callconv(.c) " + retType + " `\n///\n" + maybeReturnString +
 					"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + maybeClassName + maybeComma +
-					paramsZig + ") callconv(.c) " + retType + ") void {\n" +
+					paramsZig + ") callconv(.c) " + retType + ") void {\n" + maybePlatformCompileError +
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: "+zigStructName)
@@ -2847,18 +2906,8 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 					zfs.emitCommentParametersZig(m.Parameters, false) +
 					returnComment + maybeFinalNewLine +
 					"\n    pub fn super" + mSafeMethodName + "(" + maybeSelf + ifv(allocComma != "" || maybeComma != "", ", ", "") + allocatorParam +
-					zfs.emitParametersZig(m.Parameters, false) + ") " + returnTypeDecl + " {")
-
-				if m.FossOnly {
-					zfs.imports["builtin"] = struct{}{}
-					ret.WriteString(`
-			if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
-				@compileError("Unsupported operating system");
-			}
-		`)
-				}
-
-				ret.WriteString("\n" + preamble + basereturnFunc + "\n}\n")
+					zfs.emitParametersZig(m.Parameters, false) + ") " + returnTypeDecl + " {" + maybePlatformCompileError +
+					"\n" + preamble + basereturnFunc + "\n}\n")
 			}
 		}
 

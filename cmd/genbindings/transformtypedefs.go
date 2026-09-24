@@ -205,6 +205,8 @@ func applyTypedefs_Method(m *CppMethod, className string) {
 
 		if FossCompatCheck(m.Parameters[k]) {
 			m.FossOnly = true
+		} else if LinuxCompatCheck(m.Parameters[k]) {
+			m.LinuxOnly = true
 		}
 	}
 
@@ -213,6 +215,8 @@ func applyTypedefs_Method(m *CppMethod, className string) {
 	// Also apply OS compatibility rules
 	if FossCompatCheck(m.ReturnType) {
 		m.FossOnly = true
+	} else if LinuxCompatCheck(m.ReturnType) {
+		m.LinuxOnly = true
 	}
 }
 

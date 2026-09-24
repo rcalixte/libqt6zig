@@ -14,26 +14,51 @@ KXMessages* KXMessages_new() {
     return new VirtualKXMessages();
 }
 
-KXMessages* KXMessages_new2(const char* accept_broadcast) {
+#ifdef __linux__
+KXMessages* KXMessages_new2(xcb_connection_t* connection, uint32_t rootWindow) {
+    return new VirtualKXMessages(connection, rootWindow);
+}
+#endif
+
+KXMessages* KXMessages_new3(const char* accept_broadcast) {
     return new VirtualKXMessages(accept_broadcast);
 }
 
-KXMessages* KXMessages_new3(const char* accept_broadcast, QObject* parent) {
+KXMessages* KXMessages_new4(const char* accept_broadcast, QObject* parent) {
     return new VirtualKXMessages(accept_broadcast, parent);
 }
 
+#ifdef __linux__
+KXMessages* KXMessages_new5(xcb_connection_t* connection, uint32_t rootWindow, const char* accept_broadcast) {
+    return new VirtualKXMessages(connection, rootWindow, accept_broadcast);
+}
+#endif
+
+#ifdef __linux__
+KXMessages* KXMessages_new6(xcb_connection_t* connection, uint32_t rootWindow, const char* accept_broadcast, QObject* parent) {
+    return new VirtualKXMessages(connection, rootWindow, accept_broadcast, parent);
+}
+#endif
+
+#ifdef __linux__
 QMetaObject* KXMessages_MetaObject(const KXMessages* self) {
     return (QMetaObject*)self->metaObject();
 }
+#endif
 
+#ifdef __linux__
 void* KXMessages_Metacast(KXMessages* self, const char* param1) {
     return self->qt_metacast(param1);
 }
+#endif
 
+#ifdef __linux__
 int KXMessages_Metacall(KXMessages* self, int param1, int param2, void** param3) {
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
+#endif
 
+#ifdef __linux__
 libqt_string KXMessages_Tr(const char* s) {
     auto _ret = KXMessages::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -45,16 +70,28 @@ libqt_string KXMessages_Tr(const char* s) {
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
+#endif
 
+#ifdef __linux__
 void KXMessages_BroadcastMessage(KXMessages* self, const char* msg_type, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->broadcastMessage(msg_type, message_QString);
 }
+#endif
 
+#ifdef __linux__
+bool KXMessages_BroadcastMessageX(xcb_connection_t* c, const char* msg_type, const libqt_string message, int screenNumber) {
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    return KXMessages::broadcastMessageX(c, msg_type, message_QString, static_cast<int>(screenNumber));
+}
+#endif
+
+#ifdef __linux__
 void KXMessages_GotMessage(KXMessages* self, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->gotMessage(message_QString);
 }
+#endif
 
 void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot) {
     void (*slotFunc)(KXMessages*, const char*) = reinterpret_cast<void (*)(KXMessages*, const char*)>(slot);
@@ -74,6 +111,7 @@ void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot) {
                         });
 }
 
+#ifdef __linux__
 libqt_string KXMessages_Tr2(const char* s, const char* c) {
     auto _ret = KXMessages::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -85,7 +123,9 @@ libqt_string KXMessages_Tr2(const char* s, const char* c) {
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
+#endif
 
+#ifdef __linux__
 libqt_string KXMessages_Tr3(const char* s, const char* c, int n) {
     auto _ret = KXMessages::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -97,11 +137,14 @@ libqt_string KXMessages_Tr3(const char* s, const char* c, int n) {
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
+#endif
 
+#ifdef __linux__
 void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const libqt_string message, int screen) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->broadcastMessage(msg_type, message_QString, static_cast<int>(screen));
 }
+#endif
 
 // Base class handler implementation
 QMetaObject* KXMessages_SuperMetaObject(const KXMessages* self) {

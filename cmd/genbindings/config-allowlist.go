@@ -29,6 +29,9 @@ func InsertTypedefs() {
 	// Qt 6 Solid: predicate.h has a broken inner typedef for QSet<DeviceInterface::Type> - TODO?
 	KnownTypedefs["DeviceInterface::Type"] = lookupResultTypedef{pp, CppTypedef{"Solid::DeviceInterface::Type", parseSingleTypeString("Solid::DeviceInterface::Type", "")}}
 
+	// Qt 6 qguiapplication_platform.h a hacked typedef to force a type that is manually replaced later
+	KnownTypedefs["QNativeInterface::QX11Application::Display"] = lookupResultTypedef{pp, CppTypedef{"QNativeInterface::QX11Application::Display", parseSingleTypeString("QNativeInterface::QX11Application::Display", "")}}
+
 	// Qt 6 KIO
 	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type", "")}}
 
@@ -78,7 +81,6 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"q20iterator.h",                   // Qt 6 unstable header
 		"q23functional.h",                 // Qt 6 unstable header
 		"qendian.h",                       // Qt 6 broken type casts, void pointers to numeric types
-		"qguiapplication_platform.h",      // Qt 6 - can be built for X11 but then platform-specific code fails to build on Windows
 		"qcomparehelpers.h",               // Qt 6 - not meant to be included directly
 		"bus_interface.h",                 // Qt 6 - includes QtGui/private
 		"cache_adaptor.h",                 // Qt 6 - includes QtGui/private
@@ -87,7 +89,7 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"socket_interface.h",              // Qt 6 - includes QtGui/private
 		"qatomic.h",                       // Qt 6 - broken inheritance QAtomicInt => QAtomicInteger
 		"qrhiwidget.h",                    // Qt 6 - broken QRhi* types, granular blocking might be fine
-		"qscreen_platform.h",              // Qt 6 - returns Wayland-specific wl_output type external to this library, a manual typedef does not work
+		"qscreen_platform.h",              // Qt 6 - the only member function is a static pure virtual
 		"qopenglext.h",                    // Qt 6 - typedefs are not in the header
 		"____last____":
 		return false
@@ -413,12 +415,6 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
-	// Qt 6 KWindowSystem
-	if className == "KKeyServer" && mm.MethodName == "xEventToQt" {
-		// Qt 6 kkeyserver.h: incomplete external parameter type
-		return ErrTooComplex
-	}
-
 	// Qt 6 KIO
 	if className == "KACL" && (mm.MethodName == "setAllGroupPermissions" || mm.MethodName == "setAllUserPermissions") {
 		// Qt 6 kacl.h: undefined symbol error during compilation
@@ -727,11 +723,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		// These classes don't have a valid include and end up as incomplete types
 		return ErrTooComplex
 	}
-	if strings.HasPrefix(p.ParameterType, "xcb_") {
-		// e.g. xcb_atom_t, xcb_connection_t, xcb_generic_event_t
-		// These are external types that require more work to project
-		return ErrTooComplex
-	}
 
 	// Qt 6 KIO
 	if strings.Contains(p.ParameterType, "stat64") {
@@ -750,7 +741,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"char32_t",                        // e.g. QDebug().operator<< overload, unnecessary
 		"wchar_t",                         // e.g. qstringview.h overloads, unnecessary
 		"FILE",                            // e.g. qfile.h constructors
-		"NSMenu",                          // e.g. OS-specific forward declaration, QMenu::toNSMenu
 		"sockaddr",                        // Qt network Qhostaddress. Should be possible to make this work but may be platform-specific
 		"QGraphicsEffectSource",           // e.g. used by qgraphicseffect.h, but the definition is in ????
 		"QXmlStreamEntityDeclarations",    // e.g. qxmlstream.h. The class definition was blacklisted for ???? reason so don't allow it as a parameter either
@@ -771,7 +761,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QtResourceModel",                 // Qt 6 Designer
 		"QtResourceSet",                   // Qt 6 Designer
 		"QVulkanInstance",                 // e.g. qwindow.h. Not tackling vulkan yet
-		"QPlatformNativeInterface",        // e.g. QGuiApplication::platformNativeInterface(). Private type, could probably expose as uintptr. n.b. Changes in Qt6
+		"QPlatformNativeInterface",        // e.g. QGuiApplication::platformNativeInterface(), private type succeeded by QNativeInterface
 		"QPlatformBackingStore",           // e.g. qbackingstore.h, as below
 		"QPlatformMenuBar",                // e.g. qfutureinterface.h, as below
 		"QPlatformOffscreenSurface",       // e.g. qoffscreensurface.h, as below
@@ -804,7 +794,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QList<bool>",                     // Qt 6 qsqlindex.h, this can probably be implemented at some point
 		"group",                           // Qt 6 kuser.h
 		"passwd",                          // Qt 6 kuser.h
-		"DBusError",                       // Qt 6 qdbuserror.h, this is an external type forward declaration
 		"ClipboardUpdater",                // Qt 6 jobuidelegate.h
 		"KIO::SslUi",                      // Qt 6 sslui.h
 		"Installation",                    // Qt 6 KNewStuff, enginebase.h
@@ -990,15 +979,36 @@ func AllowFunctionParameter(paramType string) bool {
 // generated headers (generated on Linux) with other OSes such as Windows.
 // These methods will be blocked on non-Linux and non-BSD OSes.
 func FossCompatCheck(p CppParameter) bool {
-	if p.GetQtCppType().ParameterType == "Q_PID" {
-		return true // int64 on Linux, _PROCESS_INFORMATION* on Windows
+	paramType := p.GetQtCppType().ParameterType
+	switch paramType {
+	case
+		"Q_PID",                             // int64 on Linux, _PROCESS_INFORMATION* on Windows
+		"QSocketDescriptor::DescriptorType", // uintptr_t-compatible on Linux, void* on Windows
+		"XEvent":                            // X11 server event type
+		return true
 	}
 
-	if p.GetQtCppType().ParameterType == "QSocketDescriptor::DescriptorType" {
-		return true // uintptr_t-compatible on Linux, void* on Windows
+	return false
+}
+
+// LinuxCompatCheck checks if the parameter is incompatible between the
+// generated headers (generated on Linux) with BSD variants.
+// These methods will be blocked on non-Linux platforms.
+func LinuxCompatCheck(p CppParameter) bool {
+	if strings.HasPrefix(p.GetQtCppType().ParameterType, "xcb_") {
+		return true
 	}
 	return false
 }
 
 func ApplyQuirks(className string, mm *CppMethod) {
+	switch className {
+	case "KXMessages":
+		mm.LinuxOnly = true
+	case
+		"QNativeInterface::QWaylandApplication",
+		"QNativeInterface::QWaylandScreen",
+		"QNativeInterface::QX11Application":
+		mm.FossOnly = true
+	}
 }

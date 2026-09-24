@@ -11,6 +11,7 @@ const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
 const QWindow = @import("libqt6").QWindow;
+const builtin = @import("builtin");
 const kstartupinfo_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -354,6 +355,29 @@ pub const KStartupInfo = extern struct {
         return qtc.KStartupInfo_SendStartup(@ptrCast(id.ptr), @ptrCast(data.ptr));
     }
 
+    /// ### DEPRECATED: Use `sendStartupXcb` instead
+    ///
+    pub const SendStartupXcb = sendStartupXcb;
+
+    /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#sendStartupXcb)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` conn: ?*xcb_connection_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` id: KStartupInfoId `
+    ///
+    /// ` data: KStartupInfoData `
+    ///
+    pub fn sendStartupXcb(conn: ?*anyopaque, screen: i32, id: anytype, data: anytype) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(id)._is_KStartupInfoId;
+        comptime _ = @TypeOf(data)._is_KStartupInfoData;
+        return qtc.KStartupInfo_SendStartupXcb(@ptrCast(conn), @bitCast(screen), @ptrCast(id.ptr), @ptrCast(data.ptr));
+    }
+
     /// ### DEPRECATED: Use `sendChange` instead
     ///
     pub const SendChange = sendChange;
@@ -372,6 +396,29 @@ pub const KStartupInfo = extern struct {
         return qtc.KStartupInfo_SendChange(@ptrCast(id.ptr), @ptrCast(data.ptr));
     }
 
+    /// ### DEPRECATED: Use `sendChangeXcb` instead
+    ///
+    pub const SendChangeXcb = sendChangeXcb;
+
+    /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#sendChangeXcb)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` conn: ?*xcb_connection_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` id: KStartupInfoId `
+    ///
+    /// ` data: KStartupInfoData `
+    ///
+    pub fn sendChangeXcb(conn: ?*anyopaque, screen: i32, id: anytype, data: anytype) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(id)._is_KStartupInfoId;
+        comptime _ = @TypeOf(data)._is_KStartupInfoData;
+        return qtc.KStartupInfo_SendChangeXcb(@ptrCast(conn), @bitCast(screen), @ptrCast(id.ptr), @ptrCast(data.ptr));
+    }
+
     /// ### DEPRECATED: Use `sendFinish` instead
     ///
     pub const SendFinish = sendFinish;
@@ -385,6 +432,26 @@ pub const KStartupInfo = extern struct {
     pub fn sendFinish(id: anytype) bool {
         comptime _ = @TypeOf(id)._is_KStartupInfoId;
         return qtc.KStartupInfo_SendFinish(@ptrCast(id.ptr));
+    }
+
+    /// ### DEPRECATED: Use `sendFinishXcb` instead
+    ///
+    pub const SendFinishXcb = sendFinishXcb;
+
+    /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#sendFinishXcb)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` conn: ?*xcb_connection_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` id: KStartupInfoId `
+    ///
+    pub fn sendFinishXcb(conn: ?*anyopaque, screen: i32, id: anytype) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(id)._is_KStartupInfoId;
+        return qtc.KStartupInfo_SendFinishXcb(@ptrCast(conn), @bitCast(screen), @ptrCast(id.ptr));
     }
 
     /// ### DEPRECATED: Use `sendFinish2` instead
@@ -403,6 +470,29 @@ pub const KStartupInfo = extern struct {
         comptime _ = @TypeOf(id)._is_KStartupInfoId;
         comptime _ = @TypeOf(data)._is_KStartupInfoData;
         return qtc.KStartupInfo_SendFinish2(@ptrCast(id.ptr), @ptrCast(data.ptr));
+    }
+
+    /// ### DEPRECATED: Use `sendFinishXcb2` instead
+    ///
+    pub const SendFinishXcb2 = sendFinishXcb2;
+
+    /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#sendFinishXcb)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` conn: ?*xcb_connection_t `
+    ///
+    /// ` screen: i32 `
+    ///
+    /// ` id: KStartupInfoId `
+    ///
+    /// ` data: KStartupInfoData `
+    ///
+    pub fn sendFinishXcb2(conn: ?*anyopaque, screen: i32, id: anytype, data: anytype) bool {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
+        comptime _ = @TypeOf(id)._is_KStartupInfoId;
+        comptime _ = @TypeOf(data)._is_KStartupInfoData;
+        return qtc.KStartupInfo_SendFinishXcb2(@ptrCast(conn), @bitCast(screen), @ptrCast(id.ptr), @ptrCast(data.ptr));
     }
 
     /// ### DEPRECATED: Use `resetStartupEnv` instead

@@ -66,9 +66,16 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     mutable bool kselectionwatcher_issignalconnected_isbase = false;
 
   public:
+    VirtualKSelectionWatcher(xcb_atom_t selection) : KSelectionWatcher(selection) {};
     VirtualKSelectionWatcher(const char* selection) : KSelectionWatcher(selection) {};
+    VirtualKSelectionWatcher(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root) : KSelectionWatcher(selection, c, root) {};
+    VirtualKSelectionWatcher(const char* selection, xcb_connection_t* c, xcb_window_t root) : KSelectionWatcher(selection, c, root) {};
+    VirtualKSelectionWatcher(xcb_atom_t selection, int screen) : KSelectionWatcher(selection, screen) {};
+    VirtualKSelectionWatcher(xcb_atom_t selection, int screen, QObject* parent) : KSelectionWatcher(selection, screen, parent) {};
     VirtualKSelectionWatcher(const char* selection, int screen) : KSelectionWatcher(selection, screen) {};
     VirtualKSelectionWatcher(const char* selection, int screen, QObject* parent) : KSelectionWatcher(selection, screen, parent) {};
+    VirtualKSelectionWatcher(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionWatcher(selection, c, root, parent) {};
+    VirtualKSelectionWatcher(const char* selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionWatcher(selection, c, root, parent) {};
 
     // Callback setters
     inline void setKSelectionWatcher_MetaObject_Callback(KSelectionWatcher_MetaObject_Callback cb) { kselectionwatcher_metaobject_callback = cb; }

@@ -10,17 +10,59 @@
 #include "libkselectionowner.h"
 #include "libkselectionowner.hxx"
 
-KSelectionOwner* KSelectionOwner_new(const char* selection) {
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new(uint32_t selection) {
+    return new VirtualKSelectionOwner(selection);
+}
+#endif
+
+KSelectionOwner* KSelectionOwner_new2(const char* selection) {
     return new VirtualKSelectionOwner(selection);
 }
 
-KSelectionOwner* KSelectionOwner_new2(const char* selection, int screen) {
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new3(uint32_t selection, xcb_connection_t* c, uint32_t root) {
+    return new VirtualKSelectionOwner(selection, c, root);
+}
+#endif
+
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new4(const char* selection, xcb_connection_t* c, uint32_t root) {
+    return new VirtualKSelectionOwner(selection, c, root);
+}
+#endif
+
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new5(uint32_t selection, int screen) {
+    return new VirtualKSelectionOwner(selection, static_cast<int>(screen));
+}
+#endif
+
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new6(uint32_t selection, int screen, QObject* parent) {
+    return new VirtualKSelectionOwner(selection, static_cast<int>(screen), parent);
+}
+#endif
+
+KSelectionOwner* KSelectionOwner_new7(const char* selection, int screen) {
     return new VirtualKSelectionOwner(selection, static_cast<int>(screen));
 }
 
-KSelectionOwner* KSelectionOwner_new3(const char* selection, int screen, QObject* parent) {
+KSelectionOwner* KSelectionOwner_new8(const char* selection, int screen, QObject* parent) {
     return new VirtualKSelectionOwner(selection, static_cast<int>(screen), parent);
 }
+
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new9(uint32_t selection, xcb_connection_t* c, uint32_t root, QObject* parent) {
+    return new VirtualKSelectionOwner(selection, c, root, parent);
+}
+#endif
+
+#ifdef __linux__
+KSelectionOwner* KSelectionOwner_new10(const char* selection, xcb_connection_t* c, uint32_t root, QObject* parent) {
+    return new VirtualKSelectionOwner(selection, c, root, parent);
+}
+#endif
 
 QMetaObject* KSelectionOwner_MetaObject(const KSelectionOwner* self) {
     return (QMetaObject*)self->metaObject();
@@ -53,6 +95,12 @@ void KSelectionOwner_Claim(KSelectionOwner* self, bool force) {
 void KSelectionOwner_Release(KSelectionOwner* self) {
     self->release();
 }
+
+#ifdef __linux__
+uint32_t KSelectionOwner_OwnerWindow(const KSelectionOwner* self) {
+    return self->ownerWindow();
+}
+#endif
 
 bool KSelectionOwner_FilterEvent(KSelectionOwner* self, void* ev_P) {
     return self->filterEvent(ev_P);
@@ -100,6 +148,25 @@ void KSelectionOwner_Connect_FailedToClaimOwnership(KSelectionOwner* self, intpt
                                  slotFunc(self);
                              });
 }
+
+#ifdef __linux__
+bool KSelectionOwner_GenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        return vkselectionowner->genericReply(target, property, requestor);
+    }
+    return {};
+}
+#endif
+
+#ifdef __linux__
+void KSelectionOwner_ReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->replyTargets(property, requestor);
+    }
+}
+#endif
 
 void KSelectionOwner_GetAtoms(KSelectionOwner* self) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
@@ -206,6 +273,42 @@ void KSelectionOwner_OnTimerEvent(KSelectionOwner* self, intptr_t slot) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
         vkselectionowner->setKSelectionOwner_TimerEvent_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_TimerEvent_Callback>(slot));
+}
+
+// Base class handler implementation
+bool KSelectionOwner_SuperGenericReply(KSelectionOwner* self, uint32_t target, uint32_t property, uint32_t requestor) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_GenericReply_IsBase(true);
+        return vkselectionowner->genericReply(target, property, requestor);
+    } else {
+        return ((VirtualKSelectionOwner*)self)->genericReply(target, property, requestor);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionOwner_OnGenericReply(KSelectionOwner* self, intptr_t slot) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
+        vkselectionowner->setKSelectionOwner_GenericReply_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_GenericReply_Callback>(slot));
+}
+
+// Base class handler implementation
+void KSelectionOwner_SuperReplyTargets(KSelectionOwner* self, uint32_t property, uint32_t requestor) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_ReplyTargets_IsBase(true);
+        vkselectionowner->replyTargets(property, requestor);
+    } else {
+        ((VirtualKSelectionOwner*)self)->replyTargets(property, requestor);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionOwner_OnReplyTargets(KSelectionOwner* self, intptr_t slot) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner)
+        vkselectionowner->setKSelectionOwner_ReplyTargets_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_ReplyTargets_Callback>(slot));
 }
 
 // Base class handler implementation

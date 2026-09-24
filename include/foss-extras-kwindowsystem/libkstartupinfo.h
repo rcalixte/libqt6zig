@@ -44,9 +44,21 @@ void KStartupInfo_SetNewStartupId(QWindow* window, const libqt_string startup_id
 libqt_string KStartupInfo_CreateNewStartupId();
 libqt_string KStartupInfo_CreateNewStartupIdForTimestamp(unsigned int timestamp);
 bool KStartupInfo_SendStartup(const KStartupInfoId* id, const KStartupInfoData* data);
+#ifdef __linux__
+bool KStartupInfo_SendStartupXcb(xcb_connection_t* conn, int screen, const KStartupInfoId* id, const KStartupInfoData* data);
+#endif
 bool KStartupInfo_SendChange(const KStartupInfoId* id, const KStartupInfoData* data);
+#ifdef __linux__
+bool KStartupInfo_SendChangeXcb(xcb_connection_t* conn, int screen, const KStartupInfoId* id, const KStartupInfoData* data);
+#endif
 bool KStartupInfo_SendFinish(const KStartupInfoId* id);
+#ifdef __linux__
+bool KStartupInfo_SendFinishXcb(xcb_connection_t* conn, int screen, const KStartupInfoId* id);
+#endif
 bool KStartupInfo_SendFinish2(const KStartupInfoId* id, const KStartupInfoData* data);
+#ifdef __linux__
+bool KStartupInfo_SendFinishXcb2(xcb_connection_t* conn, int screen, const KStartupInfoId* id, const KStartupInfoData* data);
+#endif
 void KStartupInfo_ResetStartupEnv();
 int KStartupInfo_CheckStartup(KStartupInfo* self, uintptr_t w);
 int KStartupInfo_CheckStartup2(KStartupInfo* self, uintptr_t w, KStartupInfoId* id);
