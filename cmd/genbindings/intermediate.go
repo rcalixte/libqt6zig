@@ -397,6 +397,7 @@ type CppMethod struct {
 
 	// Special quirks
 	FossOnly                   bool
+	LinuxOnly                  bool
 	BecomesNonConstInVersion   *string // "6,7"
 	HasStdFunctionPointerParam bool
 }
