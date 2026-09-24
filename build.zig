@@ -113,7 +113,8 @@ pub fn build(b: *std.Build) !void {
                     std.mem.eql(u8, basename, "qopengltimerquery") or
                     std.mem.eql(u8, basename, "qopenglversionfunctions")))
                 continue;
-            if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
+            if ((is_macos or is_windows) and (std.mem.eql(u8, basename, "qopenglcontext_platform") or
+                std.mem.eql(u8, basename, "qguiapplication_platform")))
                 continue;
             if (is_windows and std.mem.eql(u8, basename, "qhashfunctions"))
                 continue;
