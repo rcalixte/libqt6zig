@@ -571,6 +571,7 @@ func maybePlatformRestriction(zigStructName string) string {
 	case "KXMessages":
 		return `if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system") else `
 	case
+		"QNativeInterface__QEGLContext",
 		"QNativeInterface__QWaylandApplication",
 		"QNativeInterface__QWaylandScreen",
 		"QNativeInterface__QX11Application":
@@ -2857,6 +2858,10 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			}
 
 			if (m.IsVirtual || m.IsProtected) && len(virtualMethods) > 0 && virtualEligible {
+				if m.IsPureVirtual && m.IsSignal {
+					continue
+				}
+
 				var maybeClassName, maybeComma, maybeCommentSelf string
 				if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
 					maybeClassName = zigStructName
