@@ -28,6 +28,10 @@ pub const modules = &.{
     "QtPrintSupport",
     // Qt 6 QML
     "QtQml",
+    "QtQmlIntegration",
+    "QtQmlMeta",
+    "QtQmlModels",
+    "QtQmlWorkerScript",
     // Qt 6 Quick
     "QtQuick",
     "QtQuickControls2",
