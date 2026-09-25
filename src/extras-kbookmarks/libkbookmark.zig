@@ -700,6 +700,23 @@ pub const KBookmark = extern struct {
         return qtc.KBookmark_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/kbookmark.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBookmark `
+    ///
+    /// ` param1: KBookmark `
+    ///
+    pub fn operatorAssign(self: KBookmark, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KBookmark;
+        qtc.KBookmark_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `setMetaDataItem3` instead
     ///
     pub const SetMetaDataItem3 = setMetaDataItem3;
@@ -1735,6 +1752,25 @@ pub const KBookmarkGroup = extern struct {
     pub fn operatorEqual(self: KBookmarkGroup, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_KBookmark;
         return qtc.KBookmark_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from KBookmark
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kbookmark.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBookmarkGroup `
+    ///
+    /// ` param1: KBookmark `
+    ///
+    pub fn operatorAssign(self: KBookmarkGroup, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KBookmark;
+        qtc.KBookmark_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `setMetaDataItem3` instead

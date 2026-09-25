@@ -390,6 +390,7 @@ bool QGestureEvent_IsAccepted2(const QGestureEvent* self, int param1);
 void QGestureEvent_SetWidget(QGestureEvent* self, QWidget* widget);
 QWidget* QGestureEvent_Widget(const QGestureEvent* self);
 QPointF* QGestureEvent_MapToGraphicsScene(const QGestureEvent* self, const QPointF* gesturePoint);
+void QGestureEvent_OperatorAssign(QGestureEvent* self, const QGestureEvent* param1);
 QEvent* QGestureEvent_Clone(const QGestureEvent* self);
 void QGestureEvent_OnClone(const QGestureEvent* self, intptr_t slot);
 QEvent* QGestureEvent_SuperClone(const QGestureEvent* self);

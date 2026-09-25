@@ -175,6 +175,7 @@ void QTextCharFormat_SetTableCellRowSpan(QTextCharFormat* self, int tableCellRow
 int QTextCharFormat_TableCellRowSpan(const QTextCharFormat* self);
 void QTextCharFormat_SetTableCellColumnSpan(QTextCharFormat* self, int tableCellColumnSpan);
 int QTextCharFormat_TableCellColumnSpan(const QTextCharFormat* self);
+void QTextCharFormat_OperatorAssign(QTextCharFormat* self, const QTextCharFormat* param1);
 void QTextCharFormat_SetFont2(QTextCharFormat* self, const QFont* font, int behavior);
 void QTextCharFormat_SetFontStyleHint2(QTextCharFormat* self, int hint, int strategy);
 void QTextCharFormat_Delete(QTextCharFormat* self);
@@ -210,6 +211,7 @@ void QTextBlockFormat_SetTabPositions(QTextBlockFormat* self, const libqt_list /
 libqt_list /* of QTextOption__Tab* */ QTextBlockFormat_TabPositions(const QTextBlockFormat* self);
 void QTextBlockFormat_SetMarker(QTextBlockFormat* self, int marker);
 int QTextBlockFormat_Marker(const QTextBlockFormat* self);
+void QTextBlockFormat_OperatorAssign(QTextBlockFormat* self, const QTextBlockFormat* param1);
 void QTextBlockFormat_Delete(QTextBlockFormat* self);
 
 QTextListFormat* QTextListFormat_new();
@@ -225,6 +227,7 @@ void QTextListFormat_SetNumberSuffix(QTextListFormat* self, const libqt_string n
 libqt_string QTextListFormat_NumberSuffix(const QTextListFormat* self);
 void QTextListFormat_SetStart(QTextListFormat* self, int indent);
 int QTextListFormat_Start(const QTextListFormat* self);
+void QTextListFormat_OperatorAssign(QTextListFormat* self, const QTextListFormat* param1);
 void QTextListFormat_Delete(QTextListFormat* self);
 
 QTextImageFormat* QTextImageFormat_new();
@@ -274,6 +277,7 @@ void QTextFrameFormat_SetHeight2(QTextFrameFormat* self, const QTextLength* heig
 QTextLength* QTextFrameFormat_Height(const QTextFrameFormat* self);
 void QTextFrameFormat_SetPageBreakPolicy(QTextFrameFormat* self, int flags);
 int QTextFrameFormat_PageBreakPolicy(const QTextFrameFormat* self);
+void QTextFrameFormat_OperatorAssign(QTextFrameFormat* self, const QTextFrameFormat* param1);
 void QTextFrameFormat_Delete(QTextFrameFormat* self);
 
 QTextTableFormat* QTextTableFormat_new();

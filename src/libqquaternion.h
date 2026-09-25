@@ -73,6 +73,7 @@ QQuaternion* QQuaternion_FromDirection(const QVector3D* direction, const QVector
 QQuaternion* QQuaternion_RotationTo(const QVector3D* from, const QVector3D* to);
 QQuaternion* QQuaternion_Slerp(const QQuaternion* q1, const QQuaternion* q2, float t);
 QQuaternion* QQuaternion_Nlerp(const QQuaternion* q1, const QQuaternion* q2, float t);
+void QQuaternion_OperatorAssign(QQuaternion* self, const QQuaternion* param1);
 void QQuaternion_Delete(QQuaternion* self);
 
 bool qquaternion_h_QFuzzyCompare(const QQuaternion* q1, const QQuaternion* q2);

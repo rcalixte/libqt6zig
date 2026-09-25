@@ -136,6 +136,7 @@ QStateMachine__SignalEvent* QStateMachine__SignalEvent_new2(const QStateMachine_
 QObject* QStateMachine__SignalEvent_Sender(const QStateMachine__SignalEvent* self);
 int QStateMachine__SignalEvent_SignalIndex(const QStateMachine__SignalEvent* self);
 libqt_list /* of QVariant* */ QStateMachine__SignalEvent_Arguments(const QStateMachine__SignalEvent* self);
+void QStateMachine__SignalEvent_OperatorAssign(QStateMachine__SignalEvent* self, const QStateMachine__SignalEvent* param1);
 void QStateMachine__SignalEvent_SetAccepted(QStateMachine__SignalEvent* self, bool accepted);
 void QStateMachine__SignalEvent_OnSetAccepted(QStateMachine__SignalEvent* self, intptr_t slot);
 void QStateMachine__SignalEvent_SuperSetAccepted(QStateMachine__SignalEvent* self, bool accepted);
@@ -148,6 +149,7 @@ QStateMachine__WrappedEvent* QStateMachine__WrappedEvent_new(QObject* object, QE
 QStateMachine__WrappedEvent* QStateMachine__WrappedEvent_new2(const QStateMachine__WrappedEvent* param1);
 QObject* QStateMachine__WrappedEvent_Object(const QStateMachine__WrappedEvent* self);
 QEvent* QStateMachine__WrappedEvent_Event(const QStateMachine__WrappedEvent* self);
+void QStateMachine__WrappedEvent_OperatorAssign(QStateMachine__WrappedEvent* self, const QStateMachine__WrappedEvent* param1);
 void QStateMachine__WrappedEvent_SetAccepted(QStateMachine__WrappedEvent* self, bool accepted);
 void QStateMachine__WrappedEvent_OnSetAccepted(QStateMachine__WrappedEvent* self, intptr_t slot);
 void QStateMachine__WrappedEvent_SuperSetAccepted(QStateMachine__WrappedEvent* self, bool accepted);

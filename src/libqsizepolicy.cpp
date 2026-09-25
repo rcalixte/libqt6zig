@@ -124,6 +124,10 @@ QSizePolicy* QSizePolicy_Transposed(const QSizePolicy* self) {
     return new QSizePolicy(self->transposed());
 }
 
+void QSizePolicy_OperatorAssign(QSizePolicy* self, const QSizePolicy* param1) {
+    self->operator=(*param1);
+}
+
 void QSizePolicy_Delete(QSizePolicy* self) {
     delete self;
 }

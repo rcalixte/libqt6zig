@@ -113,6 +113,10 @@ QVersionNumber* QVersionNumber_FromString(libqt_string string) {
     return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string.data, string.len)));
 }
 
+void QVersionNumber_OperatorAssign(QVersionNumber* self, const QVersionNumber* param1) {
+    self->operator=(*param1);
+}
+
 QVersionNumber* QVersionNumber_FromString2(libqt_string string, ptrdiff_t* suffixIndex) {
     return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string.data, string.len), (qsizetype*)(suffixIndex)));
 }

@@ -557,6 +557,23 @@ pub const KCodecs__Codec = extern struct {
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCodecs__Codec `
+    ///
+    /// ` param1: KCodecs__Codec `
+    ///
+    pub fn operatorAssign(self: KCodecs__Codec, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KCodecs__Codec;
+        qtc.KCodecs__Codec_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `encode22` instead
     ///
     pub const Encode22 = encode22;

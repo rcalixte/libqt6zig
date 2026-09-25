@@ -51,6 +51,7 @@ QItemSelectionRange* QItemSelectionRange_Intersected(const QItemSelectionRange* 
 bool QItemSelectionRange_IsValid(const QItemSelectionRange* self);
 bool QItemSelectionRange_IsEmpty(const QItemSelectionRange* self);
 libqt_list /* of QModelIndex* */ QItemSelectionRange_Indexes(const QItemSelectionRange* self);
+void QItemSelectionRange_OperatorAssign(QItemSelectionRange* self, const QItemSelectionRange* param1);
 void QItemSelectionRange_Delete(QItemSelectionRange* self);
 
 QItemSelectionModel* QItemSelectionModel_new();

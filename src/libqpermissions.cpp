@@ -24,6 +24,10 @@ QMetaType* QPermission_Type(const QPermission* self) {
     return new QMetaType(self->type());
 }
 
+void QPermission_OperatorAssign(QPermission* self, const QPermission* param1) {
+    self->operator=(*param1);
+}
+
 void QPermission_Delete(QPermission* self) {
     delete self;
 }

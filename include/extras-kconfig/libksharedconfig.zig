@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const KConfig = @import("libqt6").KConfig;
+const KConfigBase = @import("libqt6").KConfigBase;
 const KConfigGroup = @import("libqt6").KConfigGroup;
 const QSharedData = @import("libqt6").QSharedData;
 const kconfig_enums = @import("libkconfig.zig").enums;
@@ -700,6 +701,25 @@ pub const KSharedConfig = extern struct {
             .data = _group.ptr,
         };
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self.ptr), group_str);
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from KConfigBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSharedConfig `
+    ///
+    /// ` param1: KConfigBase `
+    ///
+    pub fn operatorAssign(self: KSharedConfig, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigBase;
+        qtc.KConfigBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `deleteGroup2` instead

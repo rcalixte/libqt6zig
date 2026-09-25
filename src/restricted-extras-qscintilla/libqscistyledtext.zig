@@ -121,6 +121,23 @@ pub const QsciStyledText = extern struct {
         return qtc.QsciStyledText_Style(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyledText.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciStyledText `
+    ///
+    /// ` param1: QsciStyledText `
+    ///
+    pub fn operatorAssign(self: QsciStyledText, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QsciStyledText;
+        qtc.QsciStyledText_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

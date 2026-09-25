@@ -49,6 +49,10 @@ void TextEmoticonsCore__CustomEmoji_SetIsAnimatedEmoji(TextEmoticonsCore__Custom
     self->setIsAnimatedEmoji(newIsAnimatedEmoji);
 }
 
+void TextEmoticonsCore__CustomEmoji_OperatorAssign(TextEmoticonsCore__CustomEmoji* self, const TextEmoticonsCore__CustomEmoji* param1) {
+    self->operator=(*param1);
+}
+
 void TextEmoticonsCore__CustomEmoji_Delete(TextEmoticonsCore__CustomEmoji* self) {
     delete self;
 }

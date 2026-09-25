@@ -32,6 +32,7 @@ void TextEmoticonsCore__EmoticonCategory_SetI18nName(TextEmoticonsCore__Emoticon
 bool TextEmoticonsCore__EmoticonCategory_OperatorLesser(const TextEmoticonsCore__EmoticonCategory* self, const TextEmoticonsCore__EmoticonCategory* other);
 int TextEmoticonsCore__EmoticonCategory_Order(const TextEmoticonsCore__EmoticonCategory* self);
 void TextEmoticonsCore__EmoticonCategory_SetOrder(TextEmoticonsCore__EmoticonCategory* self, int newOrder);
+void TextEmoticonsCore__EmoticonCategory_OperatorAssign(TextEmoticonsCore__EmoticonCategory* self, const TextEmoticonsCore__EmoticonCategory* param1);
 void TextEmoticonsCore__EmoticonCategory_Delete(TextEmoticonsCore__EmoticonCategory* self);
 
 #ifdef __cplusplus

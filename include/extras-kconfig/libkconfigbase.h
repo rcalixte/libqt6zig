@@ -29,6 +29,7 @@ void KConfigBase_MarkAsClean(KConfigBase* self);
 int KConfigBase_AccessMode(const KConfigBase* self);
 bool KConfigBase_IsImmutable(const KConfigBase* self);
 bool KConfigBase_IsGroupImmutable(const KConfigBase* self, const libqt_string group);
+void KConfigBase_OperatorAssign(KConfigBase* self, const KConfigBase* param1);
 void KConfigBase_DeleteGroup2(KConfigBase* self, const libqt_string group, int flags);
 void KConfigBase_Delete(KConfigBase* self);
 

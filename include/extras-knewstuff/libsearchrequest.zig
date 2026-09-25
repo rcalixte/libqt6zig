@@ -405,6 +405,23 @@ pub const KNSCore__SearchRequest = extern struct {
         return .{ .ptr = qtc.KNSCore__SearchRequest_NextPage(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchrequest.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNSCore__SearchRequest `
+    ///
+    /// ` param1: KNSCore__SearchRequest `
+    ///
+    pub fn operatorAssign(self: KNSCore__SearchRequest, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KNSCore__SearchRequest;
+        qtc.KNSCore__SearchRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

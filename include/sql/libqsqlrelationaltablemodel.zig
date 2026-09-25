@@ -187,6 +187,23 @@ pub const QSqlRelation = extern struct {
         return qtc.QSqlRelation_IsValid(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrelation.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSqlRelation `
+    ///
+    /// ` param1: QSqlRelation `
+    ///
+    pub fn operatorAssign(self: QSqlRelation, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSqlRelation;
+        qtc.QSqlRelation_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

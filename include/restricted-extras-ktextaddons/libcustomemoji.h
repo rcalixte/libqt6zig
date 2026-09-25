@@ -28,6 +28,7 @@ void TextEmoticonsCore__CustomEmoji_SetIdentifier(TextEmoticonsCore__CustomEmoji
 libqt_string TextEmoticonsCore__CustomEmoji_Category(const TextEmoticonsCore__CustomEmoji* self);
 bool TextEmoticonsCore__CustomEmoji_IsAnimatedEmoji(const TextEmoticonsCore__CustomEmoji* self);
 void TextEmoticonsCore__CustomEmoji_SetIsAnimatedEmoji(TextEmoticonsCore__CustomEmoji* self, bool newIsAnimatedEmoji);
+void TextEmoticonsCore__CustomEmoji_OperatorAssign(TextEmoticonsCore__CustomEmoji* self, const TextEmoticonsCore__CustomEmoji* param1);
 void TextEmoticonsCore__CustomEmoji_Delete(TextEmoticonsCore__CustomEmoji* self);
 
 #ifdef __cplusplus

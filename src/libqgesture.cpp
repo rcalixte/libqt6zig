@@ -2840,6 +2840,10 @@ QPointF* QGestureEvent_MapToGraphicsScene(const QGestureEvent* self, const QPoin
     return new QPointF(self->mapToGraphicsScene(*gesturePoint));
 }
 
+void QGestureEvent_OperatorAssign(QGestureEvent* self, const QGestureEvent* param1) {
+    self->operator=(*param1);
+}
+
 // Derived class handler implementation
 QEvent* QGestureEvent_Clone(const QGestureEvent* self) {
     auto* vqgestureevent = const_cast<VirtualQGestureEvent*>(dynamic_cast<const VirtualQGestureEvent*>(self));

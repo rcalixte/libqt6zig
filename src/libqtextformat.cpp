@@ -668,6 +668,10 @@ int QTextCharFormat_TableCellColumnSpan(const QTextCharFormat* self) {
     return self->tableCellColumnSpan();
 }
 
+void QTextCharFormat_OperatorAssign(QTextCharFormat* self, const QTextCharFormat* param1) {
+    self->operator=(*param1);
+}
+
 void QTextCharFormat_SetFont2(QTextCharFormat* self, const QFont* font, int behavior) {
     self->setFont(*font, static_cast<QTextCharFormat::FontPropertiesInheritanceBehavior>(behavior));
 }
@@ -819,6 +823,10 @@ int QTextBlockFormat_Marker(const QTextBlockFormat* self) {
     return static_cast<int>(self->marker());
 }
 
+void QTextBlockFormat_OperatorAssign(QTextBlockFormat* self, const QTextBlockFormat* param1) {
+    self->operator=(*param1);
+}
+
 void QTextBlockFormat_Delete(QTextBlockFormat* self) {
     delete self;
 }
@@ -891,6 +899,10 @@ void QTextListFormat_SetStart(QTextListFormat* self, int indent) {
 
 int QTextListFormat_Start(const QTextListFormat* self) {
     return self->start();
+}
+
+void QTextListFormat_OperatorAssign(QTextListFormat* self, const QTextListFormat* param1) {
+    self->operator=(*param1);
 }
 
 void QTextListFormat_Delete(QTextListFormat* self) {
@@ -1088,6 +1100,10 @@ void QTextFrameFormat_SetPageBreakPolicy(QTextFrameFormat* self, int flags) {
 
 int QTextFrameFormat_PageBreakPolicy(const QTextFrameFormat* self) {
     return static_cast<int>(self->pageBreakPolicy());
+}
+
+void QTextFrameFormat_OperatorAssign(QTextFrameFormat* self, const QTextFrameFormat* param1) {
+    self->operator=(*param1);
 }
 
 void QTextFrameFormat_Delete(QTextFrameFormat* self) {

@@ -101,6 +101,10 @@ void QLowEnergyAdvertisingParameters__AddressInfo_SetType(QLowEnergyAdvertisingP
     self->type = static_cast<QLowEnergyController::RemoteAddressType>(type);
 }
 
+void QLowEnergyAdvertisingParameters__AddressInfo_OperatorAssign(QLowEnergyAdvertisingParameters__AddressInfo* self, const QLowEnergyAdvertisingParameters__AddressInfo* param1) {
+    self->operator=(*param1);
+}
+
 void QLowEnergyAdvertisingParameters__AddressInfo_Delete(QLowEnergyAdvertisingParameters__AddressInfo* self) {
     delete self;
 }

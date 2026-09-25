@@ -472,6 +472,25 @@ pub const QAccessibleObject = extern struct {
         return .{ .ptr = qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleObject `
+    ///
+    /// ` param1: QAccessibleInterface `
+    ///
+    pub fn operatorAssign(self: QAccessibleObject, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
+        qtc.QAccessibleInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `window` instead
     ///
     pub const Window = window;
@@ -1981,6 +2000,25 @@ pub const QAccessibleApplication = extern struct {
     ///
     pub fn attributesInterface(self: QAccessibleApplication) QAccessibleAttributesInterface {
         return .{ .ptr = qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleApplication `
+    ///
+    /// ` param1: QAccessibleInterface `
+    ///
+    pub fn operatorAssign(self: QAccessibleApplication, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
+        qtc.QAccessibleInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `isValid` instead

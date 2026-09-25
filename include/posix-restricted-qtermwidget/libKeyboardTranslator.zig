@@ -222,6 +222,23 @@ pub const Konsole__KeyboardTranslator = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Konsole__KeyboardTranslator `
+    ///
+    /// ` param1: Konsole__KeyboardTranslator `
+    ///
+    pub fn operatorAssign(self: Konsole__KeyboardTranslator, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_Konsole__KeyboardTranslator;
+        qtc.Konsole__KeyboardTranslator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `findEntry3` instead
     ///
     pub const FindEntry3 = findEntry3;
@@ -1015,6 +1032,23 @@ pub const Konsole__KeyboardTranslator__Entry = extern struct {
     pub fn operatorEqual(self: Konsole__KeyboardTranslator__Entry, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_Konsole__KeyboardTranslator__Entry;
         return qtc.Konsole__KeyboardTranslator__Entry_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Konsole__KeyboardTranslator__Entry `
+    ///
+    /// ` param1: Konsole__KeyboardTranslator__Entry `
+    ///
+    pub fn operatorAssign(self: Konsole__KeyboardTranslator__Entry, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_Konsole__KeyboardTranslator__Entry;
+        qtc.Konsole__KeyboardTranslator__Entry_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `text1` instead

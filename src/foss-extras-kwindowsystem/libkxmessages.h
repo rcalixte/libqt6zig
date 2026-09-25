@@ -24,12 +24,18 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
+#ifdef __linux__
 KXMessages* KXMessages_new();
+#endif
 #ifdef __linux__
 KXMessages* KXMessages_new2(xcb_connection_t* connection, uint32_t rootWindow);
 #endif
+#ifdef __linux__
 KXMessages* KXMessages_new3(const char* accept_broadcast);
+#endif
+#ifdef __linux__
 KXMessages* KXMessages_new4(const char* accept_broadcast, QObject* parent);
+#endif
 #ifdef __linux__
 KXMessages* KXMessages_new5(xcb_connection_t* connection, uint32_t rootWindow, const char* accept_broadcast);
 #endif

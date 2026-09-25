@@ -29,6 +29,7 @@ QPlace* QPlaceResult_Place(const QPlaceResult* self);
 void QPlaceResult_SetPlace(QPlaceResult* self, const QPlace* place);
 bool QPlaceResult_IsSponsored(const QPlaceResult* self);
 void QPlaceResult_SetSponsored(QPlaceResult* self, bool sponsored);
+void QPlaceResult_OperatorAssign(QPlaceResult* self, const QPlaceResult* param1);
 void QPlaceResult_Delete(QPlaceResult* self);
 
 #ifdef __cplusplus

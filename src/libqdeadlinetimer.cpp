@@ -124,6 +124,10 @@ int64_t QDeadlineTimer_RemainingTimeAsDuration(const QDeadlineTimer* self) {
     return _ret.count();
 }
 
+void QDeadlineTimer_OperatorAssign(QDeadlineTimer* self, const QDeadlineTimer* param1) {
+    self->operator=(*param1);
+}
+
 void QDeadlineTimer_SetRemainingTime2(QDeadlineTimer* self, long long msecs, int typeVal) {
     self->setRemainingTime(static_cast<qint64>(msecs), static_cast<Qt::TimerType>(typeVal));
 }

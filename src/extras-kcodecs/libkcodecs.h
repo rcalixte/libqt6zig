@@ -54,6 +54,7 @@ bool KCodecs__Codec_Decode(const KCodecs__Codec* self, const char* scursor, cons
 libqt_string KCodecs__Codec_Encode2(const KCodecs__Codec* self, libqt_string src);
 libqt_string KCodecs__Codec_Decode2(const KCodecs__Codec* self, libqt_string src);
 const char* KCodecs__Codec_Name(const KCodecs__Codec* self);
+void KCodecs__Codec_OperatorAssign(KCodecs__Codec* self, const KCodecs__Codec* param1);
 libqt_string KCodecs__Codec_Encode22(const KCodecs__Codec* self, libqt_string src, int newline);
 libqt_string KCodecs__Codec_Decode22(const KCodecs__Codec* self, libqt_string src, int newline);
 void KCodecs__Codec_Delete(KCodecs__Codec* self);

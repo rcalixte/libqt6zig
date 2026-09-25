@@ -104,6 +104,7 @@ QRect* QRect_OperatorPlusAssign(QRect* self, const QMargins* margins);
 QRect* QRect_OperatorMinusAssign(QRect* self, const QMargins* margins);
 QRect* QRect_Span(const QPoint* p1, const QPoint* p2);
 QRectF* QRect_ToRectF(const QRect* self);
+void QRect_OperatorAssign(QRect* self, const QRect* param1);
 bool QRect_Contains22(const QRect* self, const QRect* r, bool proper);
 bool QRect_Contains23(const QRect* self, const QPoint* p, bool proper);
 void QRect_Delete(QRect* self);
@@ -189,6 +190,7 @@ QRectF* QRectF_OperatorPlusAssign(QRectF* self, const QMarginsF* margins);
 QRectF* QRectF_OperatorMinusAssign(QRectF* self, const QMarginsF* margins);
 QRect* QRectF_ToRect(const QRectF* self);
 QRect* QRectF_ToAlignedRect(const QRectF* self);
+void QRectF_OperatorAssign(QRectF* self, const QRectF* param1);
 void QRectF_Delete(QRectF* self);
 
 #ifdef __cplusplus

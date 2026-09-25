@@ -352,6 +352,23 @@ pub const QLowEnergyAdvertisingParameters__AddressInfo = extern struct {
         qtc.QLowEnergyAdvertisingParameters__AddressInfo_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyadvertisingparameters-addressinfo.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLowEnergyAdvertisingParameters__AddressInfo `
+    ///
+    /// ` param1: QLowEnergyAdvertisingParameters__AddressInfo `
+    ///
+    pub fn operatorAssign(self: QLowEnergyAdvertisingParameters__AddressInfo, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QLowEnergyAdvertisingParameters__AddressInfo;
+        qtc.QLowEnergyAdvertisingParameters__AddressInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

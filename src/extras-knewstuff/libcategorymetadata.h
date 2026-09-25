@@ -25,6 +25,7 @@ KNSCore__CategoryMetadata* KNSCore__CategoryMetadata_new(const KNSCore__Category
 libqt_string KNSCore__CategoryMetadata_Id(const KNSCore__CategoryMetadata* self);
 libqt_string KNSCore__CategoryMetadata_Name(const KNSCore__CategoryMetadata* self);
 libqt_string KNSCore__CategoryMetadata_DisplayName(const KNSCore__CategoryMetadata* self);
+void KNSCore__CategoryMetadata_OperatorAssign(KNSCore__CategoryMetadata* self, const KNSCore__CategoryMetadata* param1);
 void KNSCore__CategoryMetadata_Delete(KNSCore__CategoryMetadata* self);
 
 #ifdef __cplusplus

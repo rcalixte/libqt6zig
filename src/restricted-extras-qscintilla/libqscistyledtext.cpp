@@ -37,6 +37,10 @@ int QsciStyledText_Style(const QsciStyledText* self) {
     return self->style();
 }
 
+void QsciStyledText_OperatorAssign(QsciStyledText* self, const QsciStyledText* param1) {
+    self->operator=(*param1);
+}
+
 void QsciStyledText_Delete(QsciStyledText* self) {
     delete self;
 }

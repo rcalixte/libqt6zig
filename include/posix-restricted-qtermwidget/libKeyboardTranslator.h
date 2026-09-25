@@ -50,6 +50,7 @@ void Konsole__KeyboardTranslator_AddEntry(Konsole__KeyboardTranslator* self, con
 void Konsole__KeyboardTranslator_ReplaceEntry(Konsole__KeyboardTranslator* self, const Konsole__KeyboardTranslator__Entry* existing, const Konsole__KeyboardTranslator__Entry* replacement);
 void Konsole__KeyboardTranslator_RemoveEntry(Konsole__KeyboardTranslator* self, const Konsole__KeyboardTranslator__Entry* entry);
 libqt_list /* of Konsole__KeyboardTranslator__Entry* */ Konsole__KeyboardTranslator_Entries(const Konsole__KeyboardTranslator* self);
+void Konsole__KeyboardTranslator_OperatorAssign(Konsole__KeyboardTranslator* self, const Konsole__KeyboardTranslator* param1);
 Konsole__KeyboardTranslator__Entry* Konsole__KeyboardTranslator_FindEntry3(const Konsole__KeyboardTranslator* self, int keyCode, int modifiers, int state);
 void Konsole__KeyboardTranslator_Delete(Konsole__KeyboardTranslator* self);
 
@@ -99,6 +100,7 @@ libqt_string Konsole__KeyboardTranslator__Entry_ConditionToString(const Konsole_
 libqt_string Konsole__KeyboardTranslator__Entry_ResultToString(const Konsole__KeyboardTranslator__Entry* self);
 bool Konsole__KeyboardTranslator__Entry_Matches(const Konsole__KeyboardTranslator__Entry* self, int keyCode, int modifiers, int flags);
 bool Konsole__KeyboardTranslator__Entry_OperatorEqual(const Konsole__KeyboardTranslator__Entry* self, const Konsole__KeyboardTranslator__Entry* rhs);
+void Konsole__KeyboardTranslator__Entry_OperatorAssign(Konsole__KeyboardTranslator__Entry* self, const Konsole__KeyboardTranslator__Entry* param1);
 libqt_string Konsole__KeyboardTranslator__Entry_Text1(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards);
 libqt_string Konsole__KeyboardTranslator__Entry_Text2(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards, int modifiers);
 libqt_string Konsole__KeyboardTranslator__Entry_EscapedText1(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards);

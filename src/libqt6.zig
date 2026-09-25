@@ -1574,7 +1574,7 @@ pub const QMoveEvent = @import("libqevent.zig").QMoveEvent;
 pub const QMovie = @import("libqmovie.zig").QMovie;
 pub const QMutex = @import("libqmutex.zig").QMutex;
 pub const QNativeGestureEvent = @import("libqevent.zig").QNativeGestureEvent;
-pub const QNativeInterface__QEGLContext = @import("libqopenglcontext_platform.zig").QNativeInterface__QEGLContext;
+pub const QNativeInterface__QEGLContext = if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else @import("libqopenglcontext_platform.zig").QNativeInterface__QEGLContext;
 pub const QNativeInterface__QSGOpenGLTexture = @import("quick/libqsgtexture_platform.zig").QNativeInterface__QSGOpenGLTexture;
 pub const QNativeInterface__QWaylandApplication = if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else @import("libqguiapplication_platform.zig").QNativeInterface__QWaylandApplication;
 pub const QNativeInterface__QX11Application = if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) @compileError("Unsupported operating system") else @import("libqguiapplication_platform.zig").QNativeInterface__QX11Application;

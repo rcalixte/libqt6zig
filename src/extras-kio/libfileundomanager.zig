@@ -1767,6 +1767,23 @@ pub const KIO__FileUndoManager__UiInterface = extern struct {
         qtc.KIO__FileUndoManager__UiInterface_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__FileUndoManager__UiInterface `
+    ///
+    /// ` param1: KIO__FileUndoManager__UiInterface `
+    ///
+    pub fn operatorAssign(self: KIO__FileUndoManager__UiInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KIO__FileUndoManager__UiInterface;
+        qtc.KIO__FileUndoManager__UiInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

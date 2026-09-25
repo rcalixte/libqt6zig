@@ -107,6 +107,7 @@ SignOn__AuthService__IdentityRegExp* SignOn__AuthService__IdentityRegExp_new(con
 SignOn__AuthService__IdentityRegExp* SignOn__AuthService__IdentityRegExp_new2(const SignOn__AuthService__IdentityRegExp* src);
 bool SignOn__AuthService__IdentityRegExp_IsValid(const SignOn__AuthService__IdentityRegExp* self);
 libqt_string SignOn__AuthService__IdentityRegExp_Pattern(const SignOn__AuthService__IdentityRegExp* self);
+void SignOn__AuthService__IdentityRegExp_OperatorAssign(SignOn__AuthService__IdentityRegExp* self, const SignOn__AuthService__IdentityRegExp* param1);
 void SignOn__AuthService__IdentityRegExp_Delete(SignOn__AuthService__IdentityRegExp* self);
 
 #ifdef __cplusplus

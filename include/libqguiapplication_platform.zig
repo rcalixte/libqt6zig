@@ -19,6 +19,8 @@ pub const QNativeInterface__QX11Application = extern struct {
     /// Allocate a new QNativeInterface::QX11Application object in C++ memory
     ///
     pub fn new() QNativeInterface__QX11Application {
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
+            @compileError("Unsupported operating system");
         return .{ .ptr = qtc.QNativeInterface__QX11Application_new() };
     }
 
@@ -153,6 +155,8 @@ pub const QNativeInterface__QWaylandApplication = extern struct {
     /// Allocate a new QNativeInterface::QWaylandApplication object in C++ memory
     ///
     pub fn new() QNativeInterface__QWaylandApplication {
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd)
+            @compileError("Unsupported operating system");
         return .{ .ptr = qtc.QNativeInterface__QWaylandApplication_new() };
     }
 

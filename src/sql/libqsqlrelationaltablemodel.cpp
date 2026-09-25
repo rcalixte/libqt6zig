@@ -88,6 +88,10 @@ bool QSqlRelation_IsValid(const QSqlRelation* self) {
     return self->isValid();
 }
 
+void QSqlRelation_OperatorAssign(QSqlRelation* self, const QSqlRelation* param1) {
+    self->operator=(*param1);
+}
+
 void QSqlRelation_Delete(QSqlRelation* self) {
     delete self;
 }

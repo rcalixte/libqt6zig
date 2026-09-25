@@ -87,6 +87,23 @@ pub const KNSCore__CategoryMetadata = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-categorymetadata.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNSCore__CategoryMetadata `
+    ///
+    /// ` param1: KNSCore__CategoryMetadata `
+    ///
+    pub fn operatorAssign(self: KNSCore__CategoryMetadata, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KNSCore__CategoryMetadata;
+        qtc.KNSCore__CategoryMetadata_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

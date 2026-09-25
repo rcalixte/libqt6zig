@@ -18,16 +18,13 @@ class VirtualTextAutoCorrectionCoreImportAbstractAutocorrection : public TextAut
 
     // Virtual class public types (including callbacks)
     using TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback = bool (*)(TextAutoCorrectionCore__ImportAbstractAutocorrection*, const char*, const char*, int);
-    using TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback = void (*)(TextAutoCorrectionCore__ImportAbstractAutocorrection*, TextAutoCorrectionCore__ImportAbstractAutocorrection*);
 
   protected:
     // Instance callback storage
     TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback textautocorrectioncore__importabstractautocorrection_import_callback = nullptr;
-    TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback textautocorrectioncore__importabstractautocorrection_operatorassign_callback = nullptr;
 
     // Instance base flags
     mutable bool textautocorrectioncore__importabstractautocorrection_import_isbase = false;
-    mutable bool textautocorrectioncore__importabstractautocorrection_operatorassign_isbase = false;
 
   public:
     VirtualTextAutoCorrectionCoreImportAbstractAutocorrection() : TextAutoCorrectionCore::ImportAbstractAutocorrection() {};
@@ -35,11 +32,9 @@ class VirtualTextAutoCorrectionCoreImportAbstractAutocorrection : public TextAut
 
     // Callback setters
     inline void setTextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback(TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback cb) { textautocorrectioncore__importabstractautocorrection_import_callback = cb; }
-    inline void setTextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback(TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback cb) { textautocorrectioncore__importabstractautocorrection_operatorassign_callback = cb; }
 
     // Base flag setters
     inline void setTextAutoCorrectionCore__ImportAbstractAutocorrection_Import_IsBase(bool value) const { textautocorrectioncore__importabstractautocorrection_import_isbase = value; }
-    inline void setTextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_IsBase(bool value) const { textautocorrectioncore__importabstractautocorrection_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual bool import(const QString& fileName, QString& errorMessage, TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute loadAttribute) override {
@@ -69,28 +64,6 @@ class VirtualTextAutoCorrectionCoreImportAbstractAutocorrection : public TextAut
         }
         return {};
     }
-
-    // Virtual method for C ABI access and custom callback
-    void operator=(const TextAutoCorrectionCore::ImportAbstractAutocorrection& param1) {
-        if (textautocorrectioncore__importabstractautocorrection_operatorassign_isbase) {
-            textautocorrectioncore__importabstractautocorrection_operatorassign_isbase = false;
-            TextAutoCorrectionCore__ImportAbstractAutocorrection::operator=(param1);
-            return;
-        }
-        auto operatorassign_cb = textautocorrectioncore__importabstractautocorrection_operatorassign_callback;
-        if (operatorassign_cb) {
-            const TextAutoCorrectionCore::ImportAbstractAutocorrection& param1_ret = param1;
-            // Cast returned reference into pointer
-            TextAutoCorrectionCore__ImportAbstractAutocorrection* cbval1 = const_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection*>(&param1_ret);
-            operatorassign_cb(this, cbval1);
-            return;
-        }
-        TextAutoCorrectionCore__ImportAbstractAutocorrection::operator=(param1);
-    }
-
-    // Friend functions
-    friend void TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign(TextAutoCorrectionCore::ImportAbstractAutocorrection* self, const TextAutoCorrectionCore__ImportAbstractAutocorrection* param1);
-    friend void TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperOperatorAssign(TextAutoCorrectionCore::ImportAbstractAutocorrection* self, const TextAutoCorrectionCore__ImportAbstractAutocorrection* param1);
 };
 
 #endif

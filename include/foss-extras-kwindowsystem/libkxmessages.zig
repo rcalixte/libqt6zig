@@ -33,6 +33,7 @@ pub const KXMessages = extern struct {
     /// Allocate a new KXMessages object in C++ memory
     ///
     pub fn new() KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         return .{ .ptr = qtc.KXMessages_new() };
     }
 
@@ -64,6 +65,7 @@ pub const KXMessages = extern struct {
     /// ` accept_broadcast: [:0]const u8 `
     ///
     pub fn new3(accept_broadcast: [:0]const u8) KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const accept_broadcast_Cstring = accept_broadcast.ptr;
         return .{ .ptr = qtc.KXMessages_new3(accept_broadcast_Cstring) };
     }
@@ -81,6 +83,7 @@ pub const KXMessages = extern struct {
     /// ` _parent: QObject `
     ///
     pub fn new4(accept_broadcast: [:0]const u8, _parent: anytype) KXMessages {
+        if (builtin.target.os.tag != .linux) @compileError("Unsupported operating system");
         const accept_broadcast_Cstring = accept_broadcast.ptr;
         comptime _ = @TypeOf(_parent)._is_QObject;
         return .{ .ptr = qtc.KXMessages_new4(accept_broadcast_Cstring, @ptrCast(_parent.ptr)) };

@@ -4715,6 +4715,23 @@ pub const Kirigami__Platform__PlatformThemeChangeTracker = extern struct {
         qtc.Kirigami__Platform__PlatformThemeChangeTracker_MarkDirty(@ptrCast(self.ptr), @bitCast(changes));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformthemechangetracker.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Kirigami__Platform__PlatformThemeChangeTracker `
+    ///
+    /// ` param1: Kirigami__Platform__PlatformThemeChangeTracker `
+    ///
+    pub fn operatorAssign(self: Kirigami__Platform__PlatformThemeChangeTracker, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_Kirigami__Platform__PlatformThemeChangeTracker;
+        qtc.Kirigami__Platform__PlatformThemeChangeTracker_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

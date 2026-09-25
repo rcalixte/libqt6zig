@@ -159,6 +159,10 @@ void TextGrammarCheck__GrammarError_SetUrl(TextGrammarCheck__GrammarError* self,
     self->setUrl(url_QString);
 }
 
+void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 void TextGrammarCheck__GrammarError_SuperParse(TextGrammarCheck__GrammarError* self, const QJsonObject* obj, int blockindex) {
     auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
@@ -175,34 +179,6 @@ void TextGrammarCheck__GrammarError_OnParse(TextGrammarCheck__GrammarError* self
     auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
     if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError)
         vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_Parse_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_Parse_Callback>(slot));
-}
-
-// Derived class handler implementation
-void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1) {
-    auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError) {
-        vtextgrammarcheckgrammarerror->operator=(*param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammarError*)self)->operator=(*param1);
-    }
-}
-
-// Base class handler implementation
-void TextGrammarCheck__GrammarError_SuperOperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1) {
-    auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError) {
-        vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_OperatorAssign_IsBase(true);
-        vtextgrammarcheckgrammarerror->operator=(*param1);
-    } else {
-        ((VirtualTextGrammarCheckGrammarError*)self)->operator=(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammarError_OnOperatorAssign(TextGrammarCheck__GrammarError* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError)
-        vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_OperatorAssign_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_OperatorAssign_Callback>(slot));
 }
 
 void TextGrammarCheck__GrammarError_Delete(TextGrammarCheck__GrammarError* self) {

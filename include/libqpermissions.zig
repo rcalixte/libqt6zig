@@ -73,6 +73,23 @@ pub const QPermission = extern struct {
         return .{ .ptr = qtc.QPermission_Type(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPermission `
+    ///
+    /// ` param1: QPermission `
+    ///
+    pub fn operatorAssign(self: QPermission, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPermission;
+        qtc.QPermission_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

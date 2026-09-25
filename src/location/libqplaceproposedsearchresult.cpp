@@ -25,6 +25,10 @@ void QPlaceProposedSearchResult_SetSearchRequest(QPlaceProposedSearchResult* sel
     self->setSearchRequest(*request);
 }
 
+void QPlaceProposedSearchResult_OperatorAssign(QPlaceProposedSearchResult* self, const QPlaceProposedSearchResult* param1) {
+    self->operator=(*param1);
+}
+
 void QPlaceProposedSearchResult_Delete(QPlaceProposedSearchResult* self) {
     delete self;
 }

@@ -349,6 +349,10 @@ void QMetaObject_SetD(QMetaObject* self, QMetaObject__Data* d) {
     self->d = *d;
 }
 
+void QMetaObject_OperatorAssign(QMetaObject* self, const QMetaObject* param1) {
+    self->operator=(*param1);
+}
+
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n) {
     auto _ret = self->tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

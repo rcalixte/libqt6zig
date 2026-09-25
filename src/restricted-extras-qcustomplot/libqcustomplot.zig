@@ -6605,43 +6605,6 @@ pub const QCPAbstractPaintBuffer = extern struct {
         qtc.QCPAbstractPaintBuffer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onOperatorAssign` instead
-    ///
-    pub const OnOperatorAssign = onOperatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPaintBuffer.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCPAbstractPaintBuffer `
-    ///
-    /// ` callback: *const fn (self: QCPAbstractPaintBuffer, param1: QCPAbstractPaintBuffer) callconv(.c) void `
-    ///
-    pub fn onOperatorAssign(self: QCPAbstractPaintBuffer, callback: *const fn (QCPAbstractPaintBuffer, QCPAbstractPaintBuffer) callconv(.c) void) void {
-        qtc.QCPAbstractPaintBuffer_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOperatorAssign` instead
-    ///
-    pub const SuperOperatorAssign = superOperatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPaintBuffer.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPAbstractPaintBuffer `
-    ///
-    /// ` param1: QCPAbstractPaintBuffer `
-    ///
-    pub fn superOperatorAssign(self: QCPAbstractPaintBuffer, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPAbstractPaintBuffer;
-        qtc.QCPAbstractPaintBuffer_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `setInvalidated1` instead
     ///
     pub const SetInvalidated1 = setInvalidated1;
@@ -6937,43 +6900,6 @@ pub const QCPPaintBufferPixmap = extern struct {
     pub fn operatorAssign(self: QCPPaintBufferPixmap, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPaintBufferPixmap;
         qtc.QCPPaintBufferPixmap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOperatorAssign` instead
-    ///
-    pub const OnOperatorAssign = onOperatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPaintBufferPixmap.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCPPaintBufferPixmap `
-    ///
-    /// ` callback: *const fn (self: QCPPaintBufferPixmap, param1: QCPPaintBufferPixmap) callconv(.c) void `
-    ///
-    pub fn onOperatorAssign(self: QCPPaintBufferPixmap, callback: *const fn (QCPPaintBufferPixmap, QCPPaintBufferPixmap) callconv(.c) void) void {
-        qtc.QCPPaintBufferPixmap_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOperatorAssign` instead
-    ///
-    pub const SuperOperatorAssign = superOperatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPaintBufferPixmap.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPPaintBufferPixmap `
-    ///
-    /// ` param1: QCPPaintBufferPixmap `
-    ///
-    pub fn superOperatorAssign(self: QCPPaintBufferPixmap, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPaintBufferPixmap;
-        qtc.QCPPaintBufferPixmap_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `size` instead
@@ -38686,6 +38612,23 @@ pub const QCPLineEnding = extern struct {
         qtc.QCPLineEnding_Draw2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pos.ptr), @bitCast(_angle));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPLineEnding.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPLineEnding `
+    ///
+    /// ` param1: QCPLineEnding `
+    ///
+    pub fn operatorAssign(self: QCPLineEnding, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCPLineEnding;
+        qtc.QCPLineEnding_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -56582,6 +56525,23 @@ pub const QCPScatterStyle = extern struct {
     pub fn drawShape2(self: QCPScatterStyle, painter: anytype, _x: f64, _y: f64) void {
         comptime _ = @TypeOf(painter)._is_QCPPainter;
         qtc.QCPScatterStyle_DrawShape2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(_x), @bitCast(_y));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPScatterStyle.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPScatterStyle `
+    ///
+    /// ` param1: QCPScatterStyle `
+    ///
+    pub fn operatorAssign(self: QCPScatterStyle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCPScatterStyle;
+        qtc.QCPScatterStyle_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

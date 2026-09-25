@@ -263,6 +263,10 @@ bool KBookmark_OperatorEqual(const KBookmark* self, const KBookmark* rhs) {
     return (*self == *rhs);
 }
 
+void KBookmark_OperatorAssign(KBookmark* self, const KBookmark* param1) {
+    self->operator=(*param1);
+}
+
 void KBookmark_SetMetaDataItem3(KBookmark* self, const libqt_string key, const libqt_string value, int mode) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString value_QString = QString::fromUtf8(value.data, value.len);

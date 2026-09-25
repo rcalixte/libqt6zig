@@ -56,6 +56,7 @@ QQmlInfo* QQmlInfo_OperatorShiftLeft18(QQmlInfo* self, const libqt_string t);
 QQmlInfo* QQmlInfo_OperatorShiftLeft19(QQmlInfo* self, const void* t);
 QQmlInfo* QQmlInfo_OperatorShiftLeft20(QQmlInfo* self, intptr_t f);
 QQmlInfo* QQmlInfo_OperatorShiftLeft22(QQmlInfo* self, const QUrl* t);
+void QQmlInfo_OperatorAssign(QQmlInfo* self, const QQmlInfo* param1);
 void QQmlInfo_Delete(QQmlInfo* self);
 
 #ifdef __cplusplus

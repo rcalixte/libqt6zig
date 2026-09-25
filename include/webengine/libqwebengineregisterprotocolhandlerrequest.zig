@@ -134,6 +134,23 @@ pub const QWebEngineRegisterProtocolHandlerRequest = extern struct {
         return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
+    ///
+    /// ` param1: QWebEngineRegisterProtocolHandlerRequest `
+    ///
+    pub fn operatorAssign(self: QWebEngineRegisterProtocolHandlerRequest, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWebEngineRegisterProtocolHandlerRequest;
+        qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

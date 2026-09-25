@@ -90,6 +90,7 @@ QAccessibleSelectionInterface* QAccessibleInterface_SelectionInterface(QAccessib
 QAccessibleAttributesInterface* QAccessibleInterface_AttributesInterface(QAccessibleInterface* self);
 void QAccessibleInterface_VirtualHook(QAccessibleInterface* self, int id, void* data);
 void* QAccessibleInterface_InterfaceCast(QAccessibleInterface* self, int param1);
+void QAccessibleInterface_OperatorAssign(QAccessibleInterface* self, const QAccessibleInterface* param1);
 
 void QAccessibleTextInterface_Selection(const QAccessibleTextInterface* self, int selectionIndex, int* startOffset, int* endOffset);
 int QAccessibleTextInterface_SelectionCount(const QAccessibleTextInterface* self);
@@ -155,6 +156,7 @@ bool QAccessibleTableInterface_SelectColumn(QAccessibleTableInterface* self, int
 bool QAccessibleTableInterface_UnselectRow(QAccessibleTableInterface* self, int row);
 bool QAccessibleTableInterface_UnselectColumn(QAccessibleTableInterface* self, int column);
 void QAccessibleTableInterface_ModelChange(QAccessibleTableInterface* self, QAccessibleTableModelChangeEvent* event);
+void QAccessibleTableInterface_OperatorAssign(QAccessibleTableInterface* self, const QAccessibleTableInterface* param1);
 void QAccessibleTableInterface_Delete(QAccessibleTableInterface* self);
 
 libqt_string QAccessibleActionInterface_Tr(const char* sourceText);

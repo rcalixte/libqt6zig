@@ -3920,6 +3920,26 @@ pub const QPaintDeviceWindow = extern struct {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self.asQSurface().ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QSurface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPaintDeviceWindow `
+    ///
+    /// ` param1: QSurface `
+    ///
+    pub fn operatorAssign(self: QPaintDeviceWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSurface;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQSurface")) param1.asQSurface() else param1;
+        qtc.QSurface_OperatorAssign(@ptrCast(self.asQSurface().ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `devType` instead
     ///
     pub const DevType = devType;

@@ -201,6 +201,23 @@ pub const QMediaMetaData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMediaMetaData `
+    ///
+    /// ` param1: QMediaMetaData `
+    ///
+    pub fn operatorAssign(self: QMediaMetaData, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMediaMetaData;
+        qtc.QMediaMetaData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

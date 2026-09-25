@@ -224,6 +224,10 @@ QQuaternion* QQuaternion_Nlerp(const QQuaternion* q1, const QQuaternion* q2, flo
     return new QQuaternion(QQuaternion::nlerp(*q1, *q2, static_cast<float>(t)));
 }
 
+void QQuaternion_OperatorAssign(QQuaternion* self, const QQuaternion* param1) {
+    self->operator=(*param1);
+}
+
 void QQuaternion_Delete(QQuaternion* self) {
     delete self;
 }

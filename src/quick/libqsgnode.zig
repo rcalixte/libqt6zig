@@ -5120,43 +5120,6 @@ pub const QSGNodeVisitor = extern struct {
         qtc.QSGNodeVisitor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onOperatorAssign` instead
-    ///
-    pub const OnOperatorAssign = onOperatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgnodevisitor.html#operator-eq)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGNodeVisitor `
-    ///
-    /// ` callback: *const fn (self: QSGNodeVisitor, param1: QSGNodeVisitor) callconv(.c) void `
-    ///
-    pub fn onOperatorAssign(self: QSGNodeVisitor, callback: *const fn (QSGNodeVisitor, QSGNodeVisitor) callconv(.c) void) void {
-        qtc.QSGNodeVisitor_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOperatorAssign` instead
-    ///
-    pub const SuperOperatorAssign = superOperatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgnodevisitor.html#operator-eq)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGNodeVisitor `
-    ///
-    /// ` param1: QSGNodeVisitor `
-    ///
-    pub fn superOperatorAssign(self: QSGNodeVisitor, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSGNodeVisitor;
-        qtc.QSGNodeVisitor_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

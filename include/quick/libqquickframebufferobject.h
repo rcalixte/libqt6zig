@@ -233,6 +233,8 @@ void QQuickFramebufferObject_OnIsSignalConnected(const QQuickFramebufferObject* 
 bool QQuickFramebufferObject_SuperIsSignalConnected(const QQuickFramebufferObject* self, const QMetaMethod* signal);
 void QQuickFramebufferObject_Delete(QQuickFramebufferObject* self);
 
+void QQuickFramebufferObject__Renderer_OperatorAssign(QQuickFramebufferObject__Renderer* self, const QQuickFramebufferObject__Renderer* param1);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

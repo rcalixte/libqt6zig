@@ -2266,6 +2266,23 @@ pub const QTextCharFormat = extern struct {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextCharFormat `
+    ///
+    /// ` param1: QTextCharFormat `
+    ///
+    pub fn operatorAssign(self: QTextCharFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextCharFormat;
+        qtc.QTextCharFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `setFont2` instead
     ///
     pub const SetFont2 = setFont2;
@@ -2301,25 +2318,6 @@ pub const QTextCharFormat = extern struct {
     ///
     pub fn setFontStyleHint2(self: QTextCharFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextCharFormat `
-    ///
-    /// ` rhs: QTextFormat `
-    ///
-    pub fn operatorAssign(self: QTextCharFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -3723,19 +3721,17 @@ pub const QTextBlockFormat = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockformat.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextBlockFormat `
     ///
-    /// ` rhs: QTextFormat `
+    /// ` param1: QTextBlockFormat `
     ///
-    pub fn operatorAssign(self: QTextBlockFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    pub fn operatorAssign(self: QTextBlockFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextBlockFormat;
+        qtc.QTextBlockFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -4865,19 +4861,17 @@ pub const QTextListFormat = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlistformat.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextListFormat `
     ///
-    /// ` rhs: QTextFormat `
+    /// ` param1: QTextListFormat `
     ///
-    pub fn operatorAssign(self: QTextListFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    pub fn operatorAssign(self: QTextListFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextListFormat;
+        qtc.QTextListFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -7234,6 +7228,25 @@ pub const QTextImageFormat = extern struct {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QTextCharFormat
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextImageFormat `
+    ///
+    /// ` param1: QTextCharFormat `
+    ///
+    pub fn operatorAssign(self: QTextImageFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextCharFormat;
+        qtc.QTextCharFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `setFont2` instead
     ///
     pub const SetFont2 = setFont2;
@@ -7273,25 +7286,6 @@ pub const QTextImageFormat = extern struct {
     ///
     pub fn setFontStyleHint2(self: QTextImageFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextImageFormat `
-    ///
-    /// ` rhs: QTextFormat `
-    ///
-    pub fn operatorAssign(self: QTextImageFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -8684,19 +8678,17 @@ pub const QTextFrameFormat = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextFrameFormat `
     ///
-    /// ` rhs: QTextFormat `
+    /// ` param1: QTextFrameFormat `
     ///
-    pub fn operatorAssign(self: QTextFrameFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    pub fn operatorAssign(self: QTextFrameFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextFrameFormat;
+        qtc.QTextFrameFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -10386,19 +10378,19 @@ pub const QTextTableFormat = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QTextFormat
+    /// Inherited from QTextFrameFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextframeformat.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextTableFormat `
     ///
-    /// ` rhs: QTextFormat `
+    /// ` param1: QTextFrameFormat `
     ///
-    pub fn operatorAssign(self: QTextTableFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
+    pub fn operatorAssign(self: QTextTableFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextFrameFormat;
+        qtc.QTextFrameFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -13145,6 +13137,25 @@ pub const QTextTableCellFormat = extern struct {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QTextCharFormat
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextTableCellFormat `
+    ///
+    /// ` param1: QTextCharFormat `
+    ///
+    pub fn operatorAssign(self: QTextTableCellFormat, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextCharFormat;
+        qtc.QTextCharFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `setFont2` instead
     ///
     pub const SetFont2 = setFont2;
@@ -13184,25 +13195,6 @@ pub const QTextTableCellFormat = extern struct {
     ///
     pub fn setFontStyleHint2(self: QTextTableCellFormat, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self.ptr), @bitCast(hint), @bitCast(strategy));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QTextFormat
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextTableCellFormat `
-    ///
-    /// ` rhs: QTextFormat `
-    ///
-    pub fn operatorAssign(self: QTextTableCellFormat, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_QTextFormat;
-        qtc.QTextFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead

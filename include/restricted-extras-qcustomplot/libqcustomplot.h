@@ -248,6 +248,7 @@ void QCPAbstractPaintBuffer_DonePainting(QCPAbstractPaintBuffer* self);
 void QCPAbstractPaintBuffer_Draw(const QCPAbstractPaintBuffer* self, QCPPainter* painter);
 void QCPAbstractPaintBuffer_Clear(QCPAbstractPaintBuffer* self, const QColor* color);
 void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self);
+void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
 void QCPAbstractPaintBuffer_SetInvalidated1(QCPAbstractPaintBuffer* self, bool invalidated);
 void QCPAbstractPaintBuffer_OnStartPainting(QCPAbstractPaintBuffer* self, intptr_t slot);
 QCPPainter* QCPAbstractPaintBuffer_SuperStartPainting(QCPAbstractPaintBuffer* self);
@@ -259,9 +260,6 @@ void QCPAbstractPaintBuffer_OnClear(QCPAbstractPaintBuffer* self, intptr_t slot)
 void QCPAbstractPaintBuffer_SuperClear(QCPAbstractPaintBuffer* self, const QColor* color);
 void QCPAbstractPaintBuffer_OnReallocateBuffer(QCPAbstractPaintBuffer* self, intptr_t slot);
 void QCPAbstractPaintBuffer_SuperReallocateBuffer(QCPAbstractPaintBuffer* self);
-void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
-void QCPAbstractPaintBuffer_OnOperatorAssign(QCPAbstractPaintBuffer* self, intptr_t slot);
-void QCPAbstractPaintBuffer_SuperOperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
 void QCPAbstractPaintBuffer_Delete(QCPAbstractPaintBuffer* self);
 
 QCPPaintBufferPixmap* QCPPaintBufferPixmap_new(const QSize* size, double devicePixelRatio);
@@ -270,6 +268,7 @@ QCPPainter* QCPPaintBufferPixmap_StartPainting(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_Draw(const QCPPaintBufferPixmap* self, QCPPainter* painter);
 void QCPPaintBufferPixmap_Clear(QCPPaintBufferPixmap* self, const QColor* color);
 void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self);
+void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
 void QCPPaintBufferPixmap_OnStartPainting(QCPPaintBufferPixmap* self, intptr_t slot);
 QCPPainter* QCPPaintBufferPixmap_SuperStartPainting(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_OnDraw(const QCPPaintBufferPixmap* self, intptr_t slot);
@@ -281,9 +280,6 @@ void QCPPaintBufferPixmap_SuperReallocateBuffer(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_DonePainting(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_OnDonePainting(QCPPaintBufferPixmap* self, intptr_t slot);
 void QCPPaintBufferPixmap_SuperDonePainting(QCPPaintBufferPixmap* self);
-void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
-void QCPPaintBufferPixmap_OnOperatorAssign(QCPPaintBufferPixmap* self, intptr_t slot);
-void QCPPaintBufferPixmap_SuperOperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
 void QCPPaintBufferPixmap_Delete(QCPPaintBufferPixmap* self);
 
 QCPLayer* QCPLayer_new(QCustomPlot* parentPlot, const libqt_string layerName);
@@ -1384,6 +1380,7 @@ double QCPLineEnding_BoundingDistance(const QCPLineEnding* self);
 double QCPLineEnding_RealLength(const QCPLineEnding* self);
 void QCPLineEnding_Draw(const QCPLineEnding* self, QCPPainter* painter, const QCPVector2D* pos, const QCPVector2D* dir);
 void QCPLineEnding_Draw2(const QCPLineEnding* self, QCPPainter* painter, const QCPVector2D* pos, double angle);
+void QCPLineEnding_OperatorAssign(QCPLineEnding* self, const QCPLineEnding* param1);
 void QCPLineEnding_Delete(QCPLineEnding* self);
 
 QCPAxisTicker* QCPAxisTicker_new();
@@ -2094,6 +2091,7 @@ void QCPScatterStyle_UndefinePen(QCPScatterStyle* self);
 void QCPScatterStyle_ApplyTo(const QCPScatterStyle* self, QCPPainter* painter, const QPen* defaultPen);
 void QCPScatterStyle_DrawShape(const QCPScatterStyle* self, QCPPainter* painter, const QPointF* pos);
 void QCPScatterStyle_DrawShape2(const QCPScatterStyle* self, QCPPainter* painter, double x, double y);
+void QCPScatterStyle_OperatorAssign(QCPScatterStyle* self, const QCPScatterStyle* param1);
 void QCPScatterStyle_Delete(QCPScatterStyle* self);
 
 QCPSelectionDecorator* QCPSelectionDecorator_new();

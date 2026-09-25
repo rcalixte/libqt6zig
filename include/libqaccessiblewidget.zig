@@ -1452,6 +1452,25 @@ pub const QAccessibleWidget = extern struct {
         return .{ .ptr = qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleWidget `
+    ///
+    /// ` param1: QAccessibleInterface `
+    ///
+    pub fn operatorAssign(self: QAccessibleWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
+        qtc.QAccessibleInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `pressAction` instead
     ///
     pub const PressAction = pressAction;

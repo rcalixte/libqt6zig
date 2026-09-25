@@ -32,6 +32,7 @@ libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self
 void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, QItemEditorCreatorBase* creator);
 QItemEditorFactory* QItemEditorFactory_DefaultFactory();
 void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory);
+void QItemEditorFactory_OperatorAssign(QItemEditorFactory* self, const QItemEditorFactory* param1);
 void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t slot);
 QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);
 void QItemEditorFactory_OnValuePropertyName(const QItemEditorFactory* self, intptr_t slot);

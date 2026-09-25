@@ -47,6 +47,7 @@ libqt_string QSqlRelation_TableName(const QSqlRelation* self);
 libqt_string QSqlRelation_IndexColumn(const QSqlRelation* self);
 libqt_string QSqlRelation_DisplayColumn(const QSqlRelation* self);
 bool QSqlRelation_IsValid(const QSqlRelation* self);
+void QSqlRelation_OperatorAssign(QSqlRelation* self, const QSqlRelation* param1);
 void QSqlRelation_Delete(QSqlRelation* self);
 
 QSqlRelationalTableModel* QSqlRelationalTableModel_new();

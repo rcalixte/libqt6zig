@@ -64,6 +64,10 @@ libqt_map /* of libqt_string to QVariant* */ Accounts__AuthData_Parameters(const
     return _out;
 }
 
+void Accounts__AuthData_OperatorAssign(Accounts__AuthData* self, const Accounts__AuthData* param1) {
+    self->operator=(*param1);
+}
+
 void Accounts__AuthData_Delete(Accounts__AuthData* self) {
     delete self;
 }

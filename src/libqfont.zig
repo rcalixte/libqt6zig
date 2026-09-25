@@ -1945,6 +1945,23 @@ pub const QFont__Tag = extern struct {
         return .{ .ptr = qtc.QFont__Tag_FromString(view_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFont__Tag `
+    ///
+    /// ` param1: QFont__Tag `
+    ///
+    pub fn operatorAssign(self: QFont__Tag, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFont__Tag;
+        qtc.QFont__Tag_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -44,6 +44,10 @@ libqt_string KNSCore__CategoryMetadata_DisplayName(const KNSCore__CategoryMetada
     return _str;
 }
 
+void KNSCore__CategoryMetadata_OperatorAssign(KNSCore__CategoryMetadata* self, const KNSCore__CategoryMetadata* param1) {
+    self->operator=(*param1);
+}
+
 void KNSCore__CategoryMetadata_Delete(KNSCore__CategoryMetadata* self) {
     delete self;
 }

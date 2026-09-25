@@ -2253,6 +2253,10 @@ Konsole__TerminalImageFilterChain* Konsole__TerminalImageFilterChain_new2(const 
     return new Konsole::TerminalImageFilterChain(*param1);
 }
 
+void Konsole__TerminalImageFilterChain_OperatorAssign(Konsole__TerminalImageFilterChain* self, const Konsole__TerminalImageFilterChain* param1) {
+    self->operator=(*param1);
+}
+
 void Konsole__TerminalImageFilterChain_Delete(Konsole__TerminalImageFilterChain* self) {
     delete self;
 }
@@ -2301,6 +2305,10 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+void Konsole__Filter__HotSpot_OperatorAssign(Konsole__Filter__HotSpot* self, const Konsole__Filter__HotSpot* param1) {
+    self->operator=(*param1);
 }
 
 // Base class handler implementation
@@ -2433,6 +2441,10 @@ libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(co
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+void Konsole__RegExpFilter__HotSpot_OperatorAssign(Konsole__RegExpFilter__HotSpot* self, const Konsole__RegExpFilter__HotSpot* param1) {
+    self->operator=(*param1);
 }
 
 // Base class handler implementation
