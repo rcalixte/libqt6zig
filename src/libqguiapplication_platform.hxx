@@ -23,6 +23,8 @@ struct wl_seat;
 struct wl_touch;
 #endif
 
+struct xkb_context;
+
 // This class is a subclass of QNativeInterface::QX11Application so that we can call protected methods
 class VirtualQNativeInterfaceQX11Application : public QNativeInterface::QX11Application {
 
@@ -215,6 +217,9 @@ class VirtualQNativeInterfaceQWaylandApplication : public QNativeInterface::QWay
         }
         return {};
     }
+
+    // unimplemented pure virtual method
+    virtual xkb_context* xkbContext() const { return {}; }
 };
 
 #endif
