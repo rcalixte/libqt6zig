@@ -8388,6 +8388,26 @@ pub const QQuickItem = extern struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QQmlParserStatus
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QQuickItem `
+    ///
+    /// ` param1: QQmlParserStatus `
+    ///
+    pub fn operatorAssign(self: QQuickItem, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQmlParserStatus;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlParserStatus")) param1.asQQmlParserStatus() else param1;
+        qtc.QQmlParserStatus_OperatorAssign(@ptrCast(self.asQQmlParserStatus().ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `eventFilter` instead
     ///
     pub const EventFilter = eventFilter;

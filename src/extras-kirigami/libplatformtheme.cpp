@@ -1536,6 +1536,10 @@ void Kirigami__Platform__PlatformThemeChangeTracker_MarkDirty(Kirigami__Platform
     self->markDirty(static_cast<Kirigami::Platform::PlatformThemeChangeTracker::PropertyChanges>(changes));
 }
 
+void Kirigami__Platform__PlatformThemeChangeTracker_OperatorAssign(Kirigami__Platform__PlatformThemeChangeTracker* self, const Kirigami__Platform__PlatformThemeChangeTracker* param1) {
+    self->operator=(*param1);
+}
+
 void Kirigami__Platform__PlatformThemeChangeTracker_Delete(Kirigami__Platform__PlatformThemeChangeTracker* self) {
     delete self;
 }

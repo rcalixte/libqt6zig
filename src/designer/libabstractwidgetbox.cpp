@@ -2253,6 +2253,10 @@ bool QDesignerWidgetBoxInterface__Category_IsNull(const QDesignerWidgetBoxInterf
     return self->isNull();
 }
 
+void QDesignerWidgetBoxInterface__Category_OperatorAssign(QDesignerWidgetBoxInterface__Category* self, const QDesignerWidgetBoxInterface__Category* param1) {
+    self->operator=(*param1);
+}
+
 void QDesignerWidgetBoxInterface__Category_Delete(QDesignerWidgetBoxInterface__Category* self) {
     delete self;
 }

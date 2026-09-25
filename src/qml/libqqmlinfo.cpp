@@ -201,6 +201,10 @@ QQmlInfo* QQmlInfo_OperatorShiftLeft22(QQmlInfo* self, const QUrl* t) {
     return &_ret;
 }
 
+void QQmlInfo_OperatorAssign(QQmlInfo* self, const QQmlInfo* param1) {
+    self->operator=(*param1);
+}
+
 void QQmlInfo_Delete(QQmlInfo* self) {
     delete self;
 }

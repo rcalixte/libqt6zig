@@ -394,6 +394,23 @@ pub const QMargins = extern struct {
         return .{ .ptr = qtc.QMargins_ToMarginsF(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMargins `
+    ///
+    /// ` param1: QMargins `
+    ///
+    pub fn operatorAssign(self: QMargins, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMargins;
+        qtc.QMargins_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -785,6 +802,23 @@ pub const QMarginsF = extern struct {
     ///
     pub fn toMargins(self: QMarginsF) QMargins {
         return .{ .ptr = qtc.QMarginsF_ToMargins(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMarginsF `
+    ///
+    /// ` param1: QMarginsF `
+    ///
+    pub fn operatorAssign(self: QMarginsF, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMarginsF;
+        qtc.QMarginsF_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

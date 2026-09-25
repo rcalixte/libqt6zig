@@ -91,6 +91,10 @@ int QLayoutItem_ControlTypes(const QLayoutItem* self) {
     return static_cast<int>(self->controlTypes());
 }
 
+void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 QSize* QLayoutItem_SuperSizeHint(const QLayoutItem* self) {
     auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self));
@@ -361,34 +365,6 @@ void QLayoutItem_OnControlTypes(const QLayoutItem* self, intptr_t slot) {
         vqlayoutitem->setQLayoutItem_ControlTypes_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_ControlTypes_Callback>(slot));
 }
 
-// Derived class handler implementation
-void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->operator=(*param1);
-    } else {
-        ((VirtualQLayoutItem*)self)->operator=(*param1);
-    }
-}
-
-// Base class handler implementation
-void QLayoutItem_SuperOperatorAssign(QLayoutItem* self, const QLayoutItem* param1) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setQLayoutItem_OperatorAssign_IsBase(true);
-        vqlayoutitem->operator=(*param1);
-    } else {
-        ((VirtualQLayoutItem*)self)->operator=(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayoutItem_OnOperatorAssign(QLayoutItem* self, intptr_t slot) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem)
-        vqlayoutitem->setQLayoutItem_OperatorAssign_Callback(reinterpret_cast<VirtualQLayoutItem::QLayoutItem_OperatorAssign_Callback>(slot));
-}
-
 void QLayoutItem_Delete(QLayoutItem* self) {
     delete self;
 }
@@ -447,6 +423,10 @@ QSpacerItem* QSpacerItem_SpacerItem(QSpacerItem* self) {
 
 QSizePolicy* QSpacerItem_SizePolicy(const QSpacerItem* self) {
     return new QSizePolicy(self->sizePolicy());
+}
+
+void QSpacerItem_OperatorAssign(QSpacerItem* self, const QSpacerItem* param1) {
+    self->operator=(*param1);
 }
 
 void QSpacerItem_ChangeSize3(QSpacerItem* self, int w, int h, int hData) {

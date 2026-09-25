@@ -479,6 +479,23 @@ pub const QSizePolicy = extern struct {
         return .{ .ptr = qtc.QSizePolicy_Transposed(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizepolicy.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSizePolicy `
+    ///
+    /// ` param1: QSizePolicy `
+    ///
+    pub fn operatorAssign(self: QSizePolicy, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSizePolicy;
+        qtc.QSizePolicy_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

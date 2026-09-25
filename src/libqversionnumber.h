@@ -40,6 +40,7 @@ int QVersionNumber_Compare(const QVersionNumber* v1, const QVersionNumber* v2);
 QVersionNumber* QVersionNumber_CommonPrefix(const QVersionNumber* v1, const QVersionNumber* v2);
 libqt_string QVersionNumber_ToString(const QVersionNumber* self);
 QVersionNumber* QVersionNumber_FromString(libqt_string string);
+void QVersionNumber_OperatorAssign(QVersionNumber* self, const QVersionNumber* param1);
 QVersionNumber* QVersionNumber_FromString2(libqt_string string, ptrdiff_t* suffixIndex);
 void QVersionNumber_Delete(QVersionNumber* self);
 

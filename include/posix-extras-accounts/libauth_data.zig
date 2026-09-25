@@ -120,6 +120,23 @@ pub const Accounts__AuthData = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Accounts__AuthData `
+    ///
+    /// ` param1: Accounts__AuthData `
+    ///
+    pub fn operatorAssign(self: Accounts__AuthData, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_Accounts__AuthData;
+        qtc.Accounts__AuthData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -72,6 +72,7 @@ QWidget* KIO__FileUndoManager__UiInterface_ParentWidget(const KIO__FileUndoManag
 void KIO__FileUndoManager__UiInterface_JobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job);
 bool KIO__FileUndoManager__UiInterface_CopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, const QUrl* src, const QUrl* dest, const QDateTime* srcTime, const QDateTime* destTime);
 void KIO__FileUndoManager__UiInterface_VirtualHook(KIO__FileUndoManager__UiInterface* self, int id, void* data);
+void KIO__FileUndoManager__UiInterface_OperatorAssign(KIO__FileUndoManager__UiInterface* self, const KIO__FileUndoManager__UiInterface* param1);
 void KIO__FileUndoManager__UiInterface_OnJobError(KIO__FileUndoManager__UiInterface* self, intptr_t slot);
 void KIO__FileUndoManager__UiInterface_SuperJobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job);
 void KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, intptr_t slot);

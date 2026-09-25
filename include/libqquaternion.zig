@@ -860,6 +860,23 @@ pub const QQuaternion = extern struct {
         return .{ .ptr = qtc.QQuaternion_Nlerp(@ptrCast(q1.ptr), @ptrCast(q2.ptr), @bitCast(t)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QQuaternion `
+    ///
+    /// ` param1: QQuaternion `
+    ///
+    pub fn operatorAssign(self: QQuaternion, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQuaternion;
+        qtc.QQuaternion_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -350,6 +350,23 @@ pub const QVersionNumber = extern struct {
         return .{ .ptr = qtc.QVersionNumber_FromString(string_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QVersionNumber `
+    ///
+    /// ` param1: QVersionNumber `
+    ///
+    pub fn operatorAssign(self: QVersionNumber, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QVersionNumber;
+        qtc.QVersionNumber_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `fromString2` instead
     ///
     pub const FromString2 = fromString2;

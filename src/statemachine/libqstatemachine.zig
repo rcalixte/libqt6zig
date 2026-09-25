@@ -3313,6 +3313,23 @@ pub const QStateMachine__SignalEvent = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-signalevent.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStateMachine__SignalEvent `
+    ///
+    /// ` param1: QStateMachine__SignalEvent `
+    ///
+    pub fn operatorAssign(self: QStateMachine__SignalEvent, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QStateMachine__SignalEvent;
+        qtc.QStateMachine__SignalEvent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;
@@ -3676,6 +3693,23 @@ pub const QStateMachine__WrappedEvent = extern struct {
     ///
     pub fn event(self: QStateMachine__WrappedEvent) QEvent {
         return .{ .ptr = qtc.QStateMachine__WrappedEvent_Event(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine-wrappedevent.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStateMachine__WrappedEvent `
+    ///
+    /// ` param1: QStateMachine__WrappedEvent `
+    ///
+    pub fn operatorAssign(self: QStateMachine__WrappedEvent, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QStateMachine__WrappedEvent;
+        qtc.QStateMachine__WrappedEvent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `type0` instead

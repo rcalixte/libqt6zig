@@ -3228,6 +3228,26 @@ pub const QGridLayout = extern struct {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QLayoutItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGridLayout `
+    ///
+    /// ` param1: QLayoutItem `
+    ///
+    pub fn operatorAssign(self: QGridLayout, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QLayoutItem;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.asQLayoutItem().ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `geometry` instead
     ///
     pub const Geometry = geometry;

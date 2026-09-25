@@ -675,6 +675,23 @@ pub const QJSPrimitiveValue = extern struct {
         return qtc.QJSPrimitiveValue_Equals(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsprimitivevalue.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJSPrimitiveValue `
+    ///
+    /// ` param1: QJSPrimitiveValue `
+    ///
+    pub fn operatorAssign(self: QJSPrimitiveValue, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QJSPrimitiveValue;
+        qtc.QJSPrimitiveValue_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

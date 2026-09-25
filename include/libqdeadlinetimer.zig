@@ -448,6 +448,23 @@ pub const QDeadlineTimer = extern struct {
         return qtc.QDeadlineTimer_RemainingTimeAsDuration(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDeadlineTimer `
+    ///
+    /// ` param1: QDeadlineTimer `
+    ///
+    pub fn operatorAssign(self: QDeadlineTimer, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDeadlineTimer;
+        qtc.QDeadlineTimer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `setRemainingTime2` instead
     ///
     pub const SetRemainingTime2 = setRemainingTime2;

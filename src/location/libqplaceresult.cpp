@@ -41,6 +41,10 @@ void QPlaceResult_SetSponsored(QPlaceResult* self, bool sponsored) {
     self->setSponsored(sponsored);
 }
 
+void QPlaceResult_OperatorAssign(QPlaceResult* self, const QPlaceResult* param1) {
+    self->operator=(*param1);
+}
+
 void QPlaceResult_Delete(QPlaceResult* self) {
     delete self;
 }

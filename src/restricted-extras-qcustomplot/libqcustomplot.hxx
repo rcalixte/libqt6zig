@@ -22,7 +22,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
     using QCPAbstractPaintBuffer_Draw_Callback = void (*)(const QCPAbstractPaintBuffer*, QCPPainter*);
     using QCPAbstractPaintBuffer_Clear_Callback = void (*)(QCPAbstractPaintBuffer*, QColor*);
     using QCPAbstractPaintBuffer_ReallocateBuffer_Callback = void (*)();
-    using QCPAbstractPaintBuffer_OperatorAssign_Callback = void (*)(QCPAbstractPaintBuffer*, QCPAbstractPaintBuffer*);
 
   protected:
     // Instance callback storage
@@ -31,7 +30,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
     QCPAbstractPaintBuffer_Draw_Callback qcpabstractpaintbuffer_draw_callback = nullptr;
     QCPAbstractPaintBuffer_Clear_Callback qcpabstractpaintbuffer_clear_callback = nullptr;
     QCPAbstractPaintBuffer_ReallocateBuffer_Callback qcpabstractpaintbuffer_reallocatebuffer_callback = nullptr;
-    QCPAbstractPaintBuffer_OperatorAssign_Callback qcpabstractpaintbuffer_operatorassign_callback = nullptr;
 
     // Instance base flags
     mutable bool qcpabstractpaintbuffer_startpainting_isbase = false;
@@ -39,7 +37,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
     mutable bool qcpabstractpaintbuffer_draw_isbase = false;
     mutable bool qcpabstractpaintbuffer_clear_isbase = false;
     mutable bool qcpabstractpaintbuffer_reallocatebuffer_isbase = false;
-    mutable bool qcpabstractpaintbuffer_operatorassign_isbase = false;
 
   public:
     VirtualQCPAbstractPaintBuffer(const QSize& size, double devicePixelRatio) : QCPAbstractPaintBuffer(size, devicePixelRatio) {};
@@ -51,7 +48,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
     inline void setQCPAbstractPaintBuffer_Draw_Callback(QCPAbstractPaintBuffer_Draw_Callback cb) { qcpabstractpaintbuffer_draw_callback = cb; }
     inline void setQCPAbstractPaintBuffer_Clear_Callback(QCPAbstractPaintBuffer_Clear_Callback cb) { qcpabstractpaintbuffer_clear_callback = cb; }
     inline void setQCPAbstractPaintBuffer_ReallocateBuffer_Callback(QCPAbstractPaintBuffer_ReallocateBuffer_Callback cb) { qcpabstractpaintbuffer_reallocatebuffer_callback = cb; }
-    inline void setQCPAbstractPaintBuffer_OperatorAssign_Callback(QCPAbstractPaintBuffer_OperatorAssign_Callback cb) { qcpabstractpaintbuffer_operatorassign_callback = cb; }
 
     // Base flag setters
     inline void setQCPAbstractPaintBuffer_StartPainting_IsBase(bool value) const { qcpabstractpaintbuffer_startpainting_isbase = value; }
@@ -59,7 +55,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
     inline void setQCPAbstractPaintBuffer_Draw_IsBase(bool value) const { qcpabstractpaintbuffer_draw_isbase = value; }
     inline void setQCPAbstractPaintBuffer_Clear_IsBase(bool value) const { qcpabstractpaintbuffer_clear_isbase = value; }
     inline void setQCPAbstractPaintBuffer_ReallocateBuffer_IsBase(bool value) const { qcpabstractpaintbuffer_reallocatebuffer_isbase = value; }
-    inline void setQCPAbstractPaintBuffer_OperatorAssign_IsBase(bool value) const { qcpabstractpaintbuffer_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QCPPainter* startPainting() override {
@@ -114,29 +109,9 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
         }
     }
 
-    // Virtual method for C ABI access and custom callback
-    void operator=(const QCPAbstractPaintBuffer& param1) {
-        if (qcpabstractpaintbuffer_operatorassign_isbase) {
-            qcpabstractpaintbuffer_operatorassign_isbase = false;
-            QCPAbstractPaintBuffer::operator=(param1);
-            return;
-        }
-        auto operatorassign_cb = qcpabstractpaintbuffer_operatorassign_callback;
-        if (operatorassign_cb) {
-            const QCPAbstractPaintBuffer& param1_ret = param1;
-            // Cast returned reference into pointer
-            QCPAbstractPaintBuffer* cbval1 = const_cast<QCPAbstractPaintBuffer*>(&param1_ret);
-            operatorassign_cb(this, cbval1);
-            return;
-        }
-        QCPAbstractPaintBuffer::operator=(param1);
-    }
-
     // Friend functions
     friend void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self);
     friend void QCPAbstractPaintBuffer_SuperReallocateBuffer(QCPAbstractPaintBuffer* self);
-    friend void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
-    friend void QCPAbstractPaintBuffer_SuperOperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
 };
 
 // This class is a subclass of QCPPaintBufferPixmap so that we can call protected methods
@@ -152,7 +127,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
     using QCPPaintBufferPixmap_Clear_Callback = void (*)(QCPPaintBufferPixmap*, QColor*);
     using QCPPaintBufferPixmap_ReallocateBuffer_Callback = void (*)();
     using QCPPaintBufferPixmap_DonePainting_Callback = void (*)();
-    using QCPPaintBufferPixmap_OperatorAssign_Callback = void (*)(QCPPaintBufferPixmap*, QCPPaintBufferPixmap*);
 
   protected:
     // Instance callback storage
@@ -161,7 +135,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
     QCPPaintBufferPixmap_Clear_Callback qcppaintbufferpixmap_clear_callback = nullptr;
     QCPPaintBufferPixmap_ReallocateBuffer_Callback qcppaintbufferpixmap_reallocatebuffer_callback = nullptr;
     QCPPaintBufferPixmap_DonePainting_Callback qcppaintbufferpixmap_donepainting_callback = nullptr;
-    QCPPaintBufferPixmap_OperatorAssign_Callback qcppaintbufferpixmap_operatorassign_callback = nullptr;
 
     // Instance base flags
     mutable bool qcppaintbufferpixmap_startpainting_isbase = false;
@@ -169,7 +142,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
     mutable bool qcppaintbufferpixmap_clear_isbase = false;
     mutable bool qcppaintbufferpixmap_reallocatebuffer_isbase = false;
     mutable bool qcppaintbufferpixmap_donepainting_isbase = false;
-    mutable bool qcppaintbufferpixmap_operatorassign_isbase = false;
 
   public:
     VirtualQCPPaintBufferPixmap(const QSize& size, double devicePixelRatio) : QCPPaintBufferPixmap(size, devicePixelRatio) {};
@@ -181,7 +153,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
     inline void setQCPPaintBufferPixmap_Clear_Callback(QCPPaintBufferPixmap_Clear_Callback cb) { qcppaintbufferpixmap_clear_callback = cb; }
     inline void setQCPPaintBufferPixmap_ReallocateBuffer_Callback(QCPPaintBufferPixmap_ReallocateBuffer_Callback cb) { qcppaintbufferpixmap_reallocatebuffer_callback = cb; }
     inline void setQCPPaintBufferPixmap_DonePainting_Callback(QCPPaintBufferPixmap_DonePainting_Callback cb) { qcppaintbufferpixmap_donepainting_callback = cb; }
-    inline void setQCPPaintBufferPixmap_OperatorAssign_Callback(QCPPaintBufferPixmap_OperatorAssign_Callback cb) { qcppaintbufferpixmap_operatorassign_callback = cb; }
 
     // Base flag setters
     inline void setQCPPaintBufferPixmap_StartPainting_IsBase(bool value) const { qcppaintbufferpixmap_startpainting_isbase = value; }
@@ -189,7 +160,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
     inline void setQCPPaintBufferPixmap_Clear_IsBase(bool value) const { qcppaintbufferpixmap_clear_isbase = value; }
     inline void setQCPPaintBufferPixmap_ReallocateBuffer_IsBase(bool value) const { qcppaintbufferpixmap_reallocatebuffer_isbase = value; }
     inline void setQCPPaintBufferPixmap_DonePainting_IsBase(bool value) const { qcppaintbufferpixmap_donepainting_isbase = value; }
-    inline void setQCPPaintBufferPixmap_OperatorAssign_IsBase(bool value) const { qcppaintbufferpixmap_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QCPPainter* startPainting() override {
@@ -269,29 +239,9 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
         QCPPaintBufferPixmap::donePainting();
     }
 
-    // Virtual method for C ABI access and custom callback
-    void operator=(const QCPPaintBufferPixmap& param1) {
-        if (qcppaintbufferpixmap_operatorassign_isbase) {
-            qcppaintbufferpixmap_operatorassign_isbase = false;
-            QCPPaintBufferPixmap::operator=(param1);
-            return;
-        }
-        auto operatorassign_cb = qcppaintbufferpixmap_operatorassign_callback;
-        if (operatorassign_cb) {
-            const QCPPaintBufferPixmap& param1_ret = param1;
-            // Cast returned reference into pointer
-            QCPPaintBufferPixmap* cbval1 = const_cast<QCPPaintBufferPixmap*>(&param1_ret);
-            operatorassign_cb(this, cbval1);
-            return;
-        }
-        QCPPaintBufferPixmap::operator=(param1);
-    }
-
     // Friend functions
     friend void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self);
     friend void QCPPaintBufferPixmap_SuperReallocateBuffer(QCPPaintBufferPixmap* self);
-    friend void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
-    friend void QCPPaintBufferPixmap_SuperOperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
 };
 
 // This class is a subclass of QCPLayer so that we can call protected methods

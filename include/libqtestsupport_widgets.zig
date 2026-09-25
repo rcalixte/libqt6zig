@@ -193,6 +193,23 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
         return qtc.QTest__QTouchEventWidgetSequence_SuperCommit(@ptrCast(self.ptr), processEvents);
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTest__QTouchEventWidgetSequence `
+    ///
+    /// ` param1: QTest__QTouchEventWidgetSequence `
+    ///
+    pub fn operatorAssign(self: QTest__QTouchEventWidgetSequence, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTest__QTouchEventWidgetSequence;
+        qtc.QTest__QTouchEventWidgetSequence_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `press3` instead
     ///
     pub const Press3 = press3;

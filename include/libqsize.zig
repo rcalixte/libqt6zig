@@ -499,6 +499,23 @@ pub const QSize = extern struct {
         return .{ .ptr = qtc.QSize_ToSizeF(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSize `
+    ///
+    /// ` param1: QSize `
+    ///
+    pub fn operatorAssign(self: QSize, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QSize_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -1044,6 +1061,23 @@ pub const QSizeF = extern struct {
     ///
     pub fn toSize(self: QSizeF) QSize {
         return .{ .ptr = qtc.QSizeF_ToSize(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSizeF `
+    ///
+    /// ` param1: QSizeF `
+    ///
+    pub fn operatorAssign(self: QSizeF, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSizeF;
+        qtc.QSizeF_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

@@ -28,6 +28,7 @@ void SignOn__SecurityContext_SetSystemContext(SignOn__SecurityContext* self, con
 libqt_string SignOn__SecurityContext_SystemContext(const SignOn__SecurityContext* self);
 void SignOn__SecurityContext_SetApplicationContext(SignOn__SecurityContext* self, const libqt_string applicationContext);
 libqt_string SignOn__SecurityContext_ApplicationContext(const SignOn__SecurityContext* self);
+void SignOn__SecurityContext_OperatorAssign(SignOn__SecurityContext* self, const SignOn__SecurityContext* param1);
 void SignOn__SecurityContext_Delete(SignOn__SecurityContext* self);
 
 #ifdef __cplusplus

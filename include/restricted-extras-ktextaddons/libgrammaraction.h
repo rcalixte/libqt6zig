@@ -35,6 +35,7 @@ int TextGrammarCheck__GrammarAction_BlockId(const TextGrammarCheck__GrammarActio
 void TextGrammarCheck__GrammarAction_SetBlockId(TextGrammarCheck__GrammarAction* self, int blockId);
 libqt_list /* of libqt_string */ TextGrammarCheck__GrammarAction_InfoUrls(const TextGrammarCheck__GrammarAction* self);
 void TextGrammarCheck__GrammarAction_SetInfoUrls(TextGrammarCheck__GrammarAction* self, const libqt_list /* of libqt_string */ urls);
+void TextGrammarCheck__GrammarAction_OperatorAssign(TextGrammarCheck__GrammarAction* self, const TextGrammarCheck__GrammarAction* param1);
 void TextGrammarCheck__GrammarAction_Delete(TextGrammarCheck__GrammarAction* self);
 
 #ifdef __cplusplus

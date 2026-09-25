@@ -52,6 +52,7 @@ QSize* QSize_OperatorMinusAssign(QSize* self, const QSize* param1);
 QSize* QSize_OperatorMultiplyAssign(QSize* self, double c);
 QSize* QSize_OperatorDivideAssign(QSize* self, double c);
 QSizeF* QSize_ToSizeF(const QSize* self);
+void QSize_OperatorAssign(QSize* self, const QSize* param1);
 void QSize_Delete(QSize* self);
 
 size_t qsize_QHash(const QSize* s, size_t seed);
@@ -88,6 +89,7 @@ QSizeF* QSizeF_OperatorMinusAssign(QSizeF* self, const QSizeF* param1);
 QSizeF* QSizeF_OperatorMultiplyAssign(QSizeF* self, double c);
 QSizeF* QSizeF_OperatorDivideAssign(QSizeF* self, double c);
 QSize* QSizeF_ToSize(const QSizeF* self);
+void QSizeF_OperatorAssign(QSizeF* self, const QSizeF* param1);
 void QSizeF_Delete(QSizeF* self);
 
 #ifdef __cplusplus

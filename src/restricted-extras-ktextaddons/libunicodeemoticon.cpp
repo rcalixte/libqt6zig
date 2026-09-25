@@ -146,6 +146,10 @@ bool TextEmoticonsCore__UnicodeEmoticon_OperatorEqual(const TextEmoticonsCore__U
     return (*self == *other);
 }
 
+void TextEmoticonsCore__UnicodeEmoticon_OperatorAssign(TextEmoticonsCore__UnicodeEmoticon* self, const TextEmoticonsCore__UnicodeEmoticon* param1) {
+    self->operator=(*param1);
+}
+
 void TextEmoticonsCore__UnicodeEmoticon_Delete(TextEmoticonsCore__UnicodeEmoticon* self) {
     delete self;
 }

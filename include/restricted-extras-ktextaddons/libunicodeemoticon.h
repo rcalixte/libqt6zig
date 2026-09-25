@@ -39,6 +39,7 @@ void TextEmoticonsCore__UnicodeEmoticon_SetOrder(TextEmoticonsCore__UnicodeEmoti
 libqt_string TextEmoticonsCore__UnicodeEmoticon_Key(const TextEmoticonsCore__UnicodeEmoticon* self);
 void TextEmoticonsCore__UnicodeEmoticon_SetKey(TextEmoticonsCore__UnicodeEmoticon* self, const libqt_string key);
 bool TextEmoticonsCore__UnicodeEmoticon_OperatorEqual(const TextEmoticonsCore__UnicodeEmoticon* self, const TextEmoticonsCore__UnicodeEmoticon* other);
+void TextEmoticonsCore__UnicodeEmoticon_OperatorAssign(TextEmoticonsCore__UnicodeEmoticon* self, const TextEmoticonsCore__UnicodeEmoticon* param1);
 void TextEmoticonsCore__UnicodeEmoticon_Delete(TextEmoticonsCore__UnicodeEmoticon* self);
 
 #ifdef __cplusplus

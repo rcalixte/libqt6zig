@@ -1314,6 +1314,23 @@ pub const QRect = extern struct {
         return .{ .ptr = qtc.QRect_ToRectF(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRect `
+    ///
+    /// ` param1: QRect `
+    ///
+    pub fn operatorAssign(self: QRect, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QRect_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `contains22` instead
     ///
     pub const Contains22 = contains22;
@@ -2685,6 +2702,23 @@ pub const QRectF = extern struct {
     ///
     pub fn toAlignedRect(self: QRectF) QRect {
         return .{ .ptr = qtc.QRectF_ToAlignedRect(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRectF `
+    ///
+    /// ` param1: QRectF `
+    ///
+    pub fn operatorAssign(self: QRectF, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        qtc.QRectF_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

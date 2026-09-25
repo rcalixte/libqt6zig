@@ -3062,6 +3062,26 @@ pub const QBoxLayout = extern struct {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QLayoutItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBoxLayout `
+    ///
+    /// ` param1: QLayoutItem `
+    ///
+    pub fn operatorAssign(self: QBoxLayout, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QLayoutItem;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.asQLayoutItem().ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `geometry` instead
     ///
     pub const Geometry = geometry;
@@ -6882,6 +6902,26 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn alignment(self: QHBoxLayout) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QLayoutItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHBoxLayout `
+    ///
+    /// ` param1: QLayoutItem `
+    ///
+    pub fn operatorAssign(self: QHBoxLayout, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QLayoutItem;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.asQLayoutItem().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `addItem` instead
@@ -11592,6 +11632,26 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn alignment(self: QVBoxLayout) i32 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QLayoutItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QVBoxLayout `
+    ///
+    /// ` param1: QLayoutItem `
+    ///
+    pub fn operatorAssign(self: QVBoxLayout, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QLayoutItem;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.asQLayoutItem().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `addItem` instead

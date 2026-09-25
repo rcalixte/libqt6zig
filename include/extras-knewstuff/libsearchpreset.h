@@ -29,6 +29,7 @@ libqt_string KNSCore__SearchPreset_DisplayName(const KNSCore__SearchPreset* self
 libqt_string KNSCore__SearchPreset_IconName(const KNSCore__SearchPreset* self);
 int KNSCore__SearchPreset_Type(const KNSCore__SearchPreset* self);
 libqt_string KNSCore__SearchPreset_ProviderId(const KNSCore__SearchPreset* self);
+void KNSCore__SearchPreset_OperatorAssign(KNSCore__SearchPreset* self, const KNSCore__SearchPreset* param1);
 void KNSCore__SearchPreset_Delete(KNSCore__SearchPreset* self);
 
 #ifdef __cplusplus

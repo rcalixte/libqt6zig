@@ -26,12 +26,19 @@ typedef struct QNativeInterface__QGLXContext QNativeInterface__QGLXContext;
 typedef struct QOpenGLContext QOpenGLContext;
 #endif
 
+QNativeInterface__QEGLContext* QNativeInterface__QEGLContext_new();
 QOpenGLContext* QNativeInterface__QEGLContext_FromNative(void* context, void* display);
 void* QNativeInterface__QEGLContext_NativeContext(const QNativeInterface__QEGLContext* self);
 void* QNativeInterface__QEGLContext_Config(const QNativeInterface__QEGLContext* self);
 void* QNativeInterface__QEGLContext_Display(const QNativeInterface__QEGLContext* self);
 void QNativeInterface__QEGLContext_InvalidateContext(QNativeInterface__QEGLContext* self);
 QOpenGLContext* QNativeInterface__QEGLContext_FromNative3(void* context, void* display, QOpenGLContext* shareContext);
+void QNativeInterface__QEGLContext_OnNativeContext(const QNativeInterface__QEGLContext* self, intptr_t slot);
+void* QNativeInterface__QEGLContext_SuperNativeContext(const QNativeInterface__QEGLContext* self);
+void QNativeInterface__QEGLContext_OnConfig(const QNativeInterface__QEGLContext* self, intptr_t slot);
+void* QNativeInterface__QEGLContext_SuperConfig(const QNativeInterface__QEGLContext* self);
+void QNativeInterface__QEGLContext_OnDisplay(const QNativeInterface__QEGLContext* self, intptr_t slot);
+void* QNativeInterface__QEGLContext_SuperDisplay(const QNativeInterface__QEGLContext* self);
 
 #ifdef __cplusplus
 } /* extern C */

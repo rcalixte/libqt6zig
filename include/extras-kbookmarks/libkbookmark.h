@@ -65,6 +65,7 @@ libqt_string KBookmark_MetaDataItem(const KBookmark* self, const libqt_string ke
 void KBookmark_SetMetaDataItem(KBookmark* self, const libqt_string key, const libqt_string value);
 void KBookmark_PopulateMimeData(const KBookmark* self, QMimeData* mimeData);
 bool KBookmark_OperatorEqual(const KBookmark* self, const KBookmark* rhs);
+void KBookmark_OperatorAssign(KBookmark* self, const KBookmark* param1);
 void KBookmark_SetMetaDataItem3(KBookmark* self, const libqt_string key, const libqt_string value, int mode);
 void KBookmark_Delete(KBookmark* self);
 

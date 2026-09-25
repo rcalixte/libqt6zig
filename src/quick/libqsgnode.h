@@ -149,6 +149,7 @@ void QSGNodeVisitor_EnterOpacityNode(QSGNodeVisitor* self, QSGOpacityNode* param
 void QSGNodeVisitor_LeaveOpacityNode(QSGNodeVisitor* self, QSGOpacityNode* param1);
 void QSGNodeVisitor_VisitNode(QSGNodeVisitor* self, QSGNode* n);
 void QSGNodeVisitor_VisitChildren(QSGNodeVisitor* self, QSGNode* n);
+void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
 void QSGNodeVisitor_OnEnterTransformNode(QSGNodeVisitor* self, intptr_t slot);
 void QSGNodeVisitor_SuperEnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1);
 void QSGNodeVisitor_OnLeaveTransformNode(QSGNodeVisitor* self, intptr_t slot);
@@ -169,9 +170,6 @@ void QSGNodeVisitor_OnVisitNode(QSGNodeVisitor* self, intptr_t slot);
 void QSGNodeVisitor_SuperVisitNode(QSGNodeVisitor* self, QSGNode* n);
 void QSGNodeVisitor_OnVisitChildren(QSGNodeVisitor* self, intptr_t slot);
 void QSGNodeVisitor_SuperVisitChildren(QSGNodeVisitor* self, QSGNode* n);
-void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
-void QSGNodeVisitor_OnOperatorAssign(QSGNodeVisitor* self, intptr_t slot);
-void QSGNodeVisitor_SuperOperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
 void QSGNodeVisitor_Delete(QSGNodeVisitor* self);
 
 #ifdef __cplusplus

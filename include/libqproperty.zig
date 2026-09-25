@@ -582,6 +582,23 @@ pub const QPropertyObserverBase = extern struct {
         return .{ .ptr = qtc.QPropertyObserverBase_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserverbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPropertyObserverBase `
+    ///
+    /// ` param1: QPropertyObserverBase `
+    ///
+    pub fn operatorAssign(self: QPropertyObserverBase, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPropertyObserverBase;
+        qtc.QPropertyObserverBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -618,6 +635,25 @@ pub const QPropertyObserver = extern struct {
     ///
     pub fn new() QPropertyObserver {
         return .{ .ptr = qtc.QPropertyObserver_new() };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QPropertyObserverBase
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserverbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPropertyObserver `
+    ///
+    /// ` param1: QPropertyObserverBase `
+    ///
+    pub fn operatorAssign(self: QPropertyObserver, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPropertyObserverBase;
+        qtc.QPropertyObserverBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -657,6 +693,25 @@ pub const QPropertyNotifier = extern struct {
     ///
     pub fn new() QPropertyNotifier {
         return .{ .ptr = qtc.QPropertyNotifier_new() };
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QPropertyObserverBase
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserverbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPropertyNotifier `
+    ///
+    /// ` param1: QPropertyObserverBase `
+    ///
+    pub fn operatorAssign(self: QPropertyNotifier, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPropertyObserverBase;
+        qtc.QPropertyObserverBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

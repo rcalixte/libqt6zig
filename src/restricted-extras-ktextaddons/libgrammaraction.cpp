@@ -118,6 +118,10 @@ void TextGrammarCheck__GrammarAction_SetInfoUrls(TextGrammarCheck__GrammarAction
     self->setInfoUrls(urls_QList);
 }
 
+void TextGrammarCheck__GrammarAction_OperatorAssign(TextGrammarCheck__GrammarAction* self, const TextGrammarCheck__GrammarAction* param1) {
+    self->operator=(*param1);
+}
+
 void TextGrammarCheck__GrammarAction_Delete(TextGrammarCheck__GrammarAction* self) {
     delete self;
 }

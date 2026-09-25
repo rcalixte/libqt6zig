@@ -117,6 +117,10 @@ libqt_list /* of QModelIndex* */ QItemSelectionRange_Indexes(const QItemSelectio
     return _out;
 }
 
+void QItemSelectionRange_OperatorAssign(QItemSelectionRange* self, const QItemSelectionRange* param1) {
+    self->operator=(*param1);
+}
+
 void QItemSelectionRange_Delete(QItemSelectionRange* self) {
     delete self;
 }

@@ -30,6 +30,7 @@ void QMediaMetaData_Clear(QMediaMetaData* self);
 bool QMediaMetaData_IsEmpty(const QMediaMetaData* self);
 libqt_string QMediaMetaData_StringValue(const QMediaMetaData* self, int k);
 libqt_string QMediaMetaData_MetaDataKeyToString(int k);
+void QMediaMetaData_OperatorAssign(QMediaMetaData* self, const QMediaMetaData* param1);
 void QMediaMetaData_Delete(QMediaMetaData* self);
 
 #ifdef __cplusplus

@@ -204,6 +204,23 @@ pub const KConfigBase = extern struct {
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self.ptr), group_str);
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KConfigBase `
+    ///
+    /// ` param1: KConfigBase `
+    ///
+    pub fn operatorAssign(self: KConfigBase, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigBase;
+        qtc.KConfigBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `deleteGroup2` instead
     ///
     pub const DeleteGroup2 = deleteGroup2;

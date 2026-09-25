@@ -92,6 +92,24 @@ pub const QSurface = extern struct {
         return .{ .ptr = qtc.QSurface_Size(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSurface `
+    ///
+    /// ` param1: QSurface `
+    ///
+    pub fn operatorAssign(self: QSurface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSurface;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQSurface")) param1.asQSurface() else param1;
+        qtc.QSurface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

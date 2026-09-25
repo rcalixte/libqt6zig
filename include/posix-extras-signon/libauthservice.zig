@@ -2330,6 +2330,23 @@ pub const SignOn__AuthService__IdentityRegExp = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthService__IdentityRegExp.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: SignOn__AuthService__IdentityRegExp `
+    ///
+    /// ` param1: SignOn__AuthService__IdentityRegExp `
+    ///
+    pub fn operatorAssign(self: SignOn__AuthService__IdentityRegExp, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_SignOn__AuthService__IdentityRegExp;
+        qtc.SignOn__AuthService__IdentityRegExp_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

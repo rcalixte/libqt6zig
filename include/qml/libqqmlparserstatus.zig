@@ -117,6 +117,24 @@ pub const QQmlParserStatus = extern struct {
         qtc.QQmlParserStatus_SuperComponentComplete(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QQmlParserStatus `
+    ///
+    /// ` param1: QQmlParserStatus `
+    ///
+    pub fn operatorAssign(self: QQmlParserStatus, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQmlParserStatus;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlParserStatus")) param1.asQQmlParserStatus() else param1;
+        qtc.QQmlParserStatus_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

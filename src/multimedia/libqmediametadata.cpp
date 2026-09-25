@@ -77,6 +77,10 @@ libqt_string QMediaMetaData_MetaDataKeyToString(int k) {
     return _str;
 }
 
+void QMediaMetaData_OperatorAssign(QMediaMetaData* self, const QMediaMetaData* param1) {
+    self->operator=(*param1);
+}
+
 void QMediaMetaData_Delete(QMediaMetaData* self) {
     delete self;
 }

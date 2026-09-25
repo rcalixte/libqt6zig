@@ -4957,6 +4957,26 @@ pub const QQuickFramebufferObject = extern struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QQmlParserStatus
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QQuickFramebufferObject `
+    ///
+    /// ` param1: QQmlParserStatus `
+    ///
+    pub fn operatorAssign(self: QQuickFramebufferObject, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQmlParserStatus;
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlParserStatus")) param1.asQQmlParserStatus() else param1;
+        qtc.QQmlParserStatus_OperatorAssign(@ptrCast(self.asQQmlParserStatus().ptr), @ptrCast(param1_.ptr));
+    }
+
     /// ### DEPRECATED: Use `boundingRect` instead
     ///
     pub const BoundingRect = boundingRect;
@@ -7737,4 +7757,21 @@ pub const QQuickFramebufferObject__Renderer = extern struct {
     ptr: QtC.QQuickFramebufferObject__Renderer,
 
     pub const _is_QQuickFramebufferObject__Renderer = {};
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickframebufferobject-renderer.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QQuickFramebufferObject__Renderer `
+    ///
+    /// ` param1: QQuickFramebufferObject__Renderer `
+    ///
+    pub fn operatorAssign(self: QQuickFramebufferObject__Renderer, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQuickFramebufferObject__Renderer;
+        qtc.QQuickFramebufferObject__Renderer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
 };

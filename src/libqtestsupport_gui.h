@@ -33,6 +33,7 @@ QTest__QTouchEventSequence* QTest__QTouchEventSequence_Move(QTest__QTouchEventSe
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Release(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt);
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Stationary(QTest__QTouchEventSequence* self, int touchId);
 bool QTest__QTouchEventSequence_Commit(QTest__QTouchEventSequence* self, bool processEvents);
+void QTest__QTouchEventSequence_OperatorAssign(QTest__QTouchEventSequence* self, const QTest__QTouchEventSequence* param1);
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Press3(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt, QWindow* window);
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Move3(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt, QWindow* window);
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Release3(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt, QWindow* window);

@@ -36,6 +36,7 @@ void KBookmarkOwner_OpenBookmark(KBookmarkOwner* self, const KBookmark* bm, int 
 void KBookmarkOwner_OpenFolderinTabs(KBookmarkOwner* self, const KBookmarkGroup* bm);
 void KBookmarkOwner_OpenInNewTab(KBookmarkOwner* self, const KBookmark* bm);
 void KBookmarkOwner_OpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm);
+void KBookmarkOwner_OperatorAssign(KBookmarkOwner* self, const KBookmarkOwner* param1);
 void KBookmarkOwner_OnCurrentTitle(const KBookmarkOwner* self, intptr_t slot);
 libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self);
 void KBookmarkOwner_OnCurrentUrl(const KBookmarkOwner* self, intptr_t slot);

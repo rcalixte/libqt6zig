@@ -132,6 +132,10 @@ KNSCore__SearchRequest* KNSCore__SearchRequest_NextPage(const KNSCore__SearchReq
     return new KNSCore::SearchRequest(self->nextPage());
 }
 
+void KNSCore__SearchRequest_OperatorAssign(KNSCore__SearchRequest* self, const KNSCore__SearchRequest* param1) {
+    self->operator=(*param1);
+}
+
 void KNSCore__SearchRequest_Delete(KNSCore__SearchRequest* self) {
     delete self;
 }

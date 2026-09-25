@@ -25,6 +25,7 @@ QPlaceProposedSearchResult* QPlaceProposedSearchResult_new2(const QPlaceSearchRe
 QPlaceProposedSearchResult* QPlaceProposedSearchResult_new3(const QPlaceProposedSearchResult* param1);
 QPlaceSearchRequest* QPlaceProposedSearchResult_SearchRequest(const QPlaceProposedSearchResult* self);
 void QPlaceProposedSearchResult_SetSearchRequest(QPlaceProposedSearchResult* self, const QPlaceSearchRequest* request);
+void QPlaceProposedSearchResult_OperatorAssign(QPlaceProposedSearchResult* self, const QPlaceProposedSearchResult* param1);
 void QPlaceProposedSearchResult_Delete(QPlaceProposedSearchResult* self);
 
 #ifdef __cplusplus

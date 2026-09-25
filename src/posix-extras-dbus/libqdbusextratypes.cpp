@@ -54,6 +54,10 @@ QVariant* QDBusObjectPath_ToQVariant(const QDBusObjectPath* self) {
     return new QVariant(self->operator QVariant());
 }
 
+void QDBusObjectPath_OperatorAssign(QDBusObjectPath* self, const QDBusObjectPath* param1) {
+    self->operator=(*param1);
+}
+
 void QDBusObjectPath_Delete(QDBusObjectPath* self) {
     delete self;
 }
@@ -107,6 +111,10 @@ libqt_string QDBusSignature_Signature(const QDBusSignature* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+void QDBusSignature_OperatorAssign(QDBusSignature* self, const QDBusSignature* param1) {
+    self->operator=(*param1);
 }
 
 void QDBusSignature_Delete(QDBusSignature* self) {

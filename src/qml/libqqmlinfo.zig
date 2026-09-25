@@ -559,19 +559,17 @@ pub const QQmlInfo = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QDebug
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlinfo.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlInfo `
     ///
-    /// ` other: QDebug `
+    /// ` param1: QQmlInfo `
     ///
-    pub fn operatorAssign(self: QQmlInfo, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QDebug;
-        qtc.QDebug_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
+    pub fn operatorAssign(self: QQmlInfo, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QQmlInfo;
+        qtc.QQmlInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead

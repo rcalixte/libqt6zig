@@ -27,6 +27,7 @@ unsigned int Accounts__AuthData_CredentialsId(const Accounts__AuthData* self);
 libqt_string Accounts__AuthData_Method(const Accounts__AuthData* self);
 libqt_string Accounts__AuthData_Mechanism(const Accounts__AuthData* self);
 libqt_map /* of libqt_string to QVariant* */ Accounts__AuthData_Parameters(const Accounts__AuthData* self);
+void Accounts__AuthData_OperatorAssign(Accounts__AuthData* self, const Accounts__AuthData* param1);
 void Accounts__AuthData_Delete(Accounts__AuthData* self);
 
 #ifdef __cplusplus

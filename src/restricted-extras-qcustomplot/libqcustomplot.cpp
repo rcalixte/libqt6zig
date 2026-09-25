@@ -447,6 +447,10 @@ void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self) {
     }
 }
 
+void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
+    self->operator=(*param1);
+}
+
 void QCPAbstractPaintBuffer_SetInvalidated1(QCPAbstractPaintBuffer* self, bool invalidated) {
     self->setInvalidated(invalidated);
 }
@@ -541,34 +545,6 @@ void QCPAbstractPaintBuffer_OnReallocateBuffer(QCPAbstractPaintBuffer* self, int
         vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_ReallocateBuffer_Callback(reinterpret_cast<VirtualQCPAbstractPaintBuffer::QCPAbstractPaintBuffer_ReallocateBuffer_Callback>(slot));
 }
 
-// Derived class handler implementation
-void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        vqcpabstractpaintbuffer->operator=(*param1);
-    } else {
-        ((VirtualQCPAbstractPaintBuffer*)self)->operator=(*param1);
-    }
-}
-
-// Base class handler implementation
-void QCPAbstractPaintBuffer_SuperOperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_OperatorAssign_IsBase(true);
-        vqcpabstractpaintbuffer->operator=(*param1);
-    } else {
-        ((VirtualQCPAbstractPaintBuffer*)self)->operator=(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCPAbstractPaintBuffer_OnOperatorAssign(QCPAbstractPaintBuffer* self, intptr_t slot) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer)
-        vqcpabstractpaintbuffer->setQCPAbstractPaintBuffer_OperatorAssign_Callback(reinterpret_cast<VirtualQCPAbstractPaintBuffer::QCPAbstractPaintBuffer_OperatorAssign_Callback>(slot));
-}
-
 void QCPAbstractPaintBuffer_Delete(QCPAbstractPaintBuffer* self) {
     delete self;
 }
@@ -598,6 +574,10 @@ void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self) {
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
         vqcppaintbufferpixmap->reallocateBuffer();
     }
+}
+
+void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
+    self->operator=(*param1);
 }
 
 // Base class handler implementation
@@ -698,34 +678,6 @@ void QCPPaintBufferPixmap_OnDonePainting(QCPPaintBufferPixmap* self, intptr_t sl
     auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
     if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap)
         vqcppaintbufferpixmap->setQCPPaintBufferPixmap_DonePainting_Callback(reinterpret_cast<VirtualQCPPaintBufferPixmap::QCPPaintBufferPixmap_DonePainting_Callback>(slot));
-}
-
-// Derived class handler implementation
-void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
-        vqcppaintbufferpixmap->operator=(*param1);
-    } else {
-        ((VirtualQCPPaintBufferPixmap*)self)->operator=(*param1);
-    }
-}
-
-// Base class handler implementation
-void QCPPaintBufferPixmap_SuperOperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
-        vqcppaintbufferpixmap->setQCPPaintBufferPixmap_OperatorAssign_IsBase(true);
-        vqcppaintbufferpixmap->operator=(*param1);
-    } else {
-        ((VirtualQCPPaintBufferPixmap*)self)->operator=(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCPPaintBufferPixmap_OnOperatorAssign(QCPPaintBufferPixmap* self, intptr_t slot) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap)
-        vqcppaintbufferpixmap->setQCPPaintBufferPixmap_OperatorAssign_Callback(reinterpret_cast<VirtualQCPPaintBufferPixmap::QCPPaintBufferPixmap_OperatorAssign_Callback>(slot));
 }
 
 void QCPPaintBufferPixmap_Delete(QCPPaintBufferPixmap* self) {
@@ -9887,6 +9839,10 @@ void QCPLineEnding_Draw2(const QCPLineEnding* self, QCPPainter* painter, const Q
     self->draw(painter, *pos, static_cast<double>(angle));
 }
 
+void QCPLineEnding_OperatorAssign(QCPLineEnding* self, const QCPLineEnding* param1) {
+    self->operator=(*param1);
+}
+
 void QCPLineEnding_Delete(QCPLineEnding* self) {
     delete self;
 }
@@ -17133,6 +17089,10 @@ void QCPScatterStyle_DrawShape(const QCPScatterStyle* self, QCPPainter* painter,
 
 void QCPScatterStyle_DrawShape2(const QCPScatterStyle* self, QCPPainter* painter, double x, double y) {
     self->drawShape(painter, static_cast<double>(x), static_cast<double>(y));
+}
+
+void QCPScatterStyle_OperatorAssign(QCPScatterStyle* self, const QCPScatterStyle* param1) {
+    self->operator=(*param1);
 }
 
 void QCPScatterStyle_Delete(QCPScatterStyle* self) {

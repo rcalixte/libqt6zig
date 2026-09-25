@@ -138,6 +138,10 @@ QSizeF* QSize_ToSizeF(const QSize* self) {
     return new QSizeF(self->toSizeF());
 }
 
+void QSize_OperatorAssign(QSize* self, const QSize* param1) {
+    self->operator=(*param1);
+}
+
 void QSize_Delete(QSize* self) {
     delete self;
 }
@@ -280,6 +284,10 @@ QSizeF* QSizeF_OperatorDivideAssign(QSizeF* self, double c) {
 
 QSize* QSizeF_ToSize(const QSizeF* self) {
     return new QSize(self->toSize());
+}
+
+void QSizeF_OperatorAssign(QSizeF* self, const QSizeF* param1) {
+    self->operator=(*param1);
 }
 
 void QSizeF_Delete(QSizeF* self) {

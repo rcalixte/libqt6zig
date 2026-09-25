@@ -672,6 +672,10 @@ void QSGNodeVisitor_VisitChildren(QSGNodeVisitor* self, QSGNode* n) {
     }
 }
 
+void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 void QSGNodeVisitor_SuperEnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1) {
     auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self);
@@ -850,34 +854,6 @@ void QSGNodeVisitor_OnVisitChildren(QSGNodeVisitor* self, intptr_t slot) {
     auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self);
     if (vqsgnodevisitor && vqsgnodevisitor->isVirtualQSGNodeVisitor)
         vqsgnodevisitor->setQSGNodeVisitor_VisitChildren_Callback(reinterpret_cast<VirtualQSGNodeVisitor::QSGNodeVisitor_VisitChildren_Callback>(slot));
-}
-
-// Derived class handler implementation
-void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1) {
-    auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self);
-    if (vqsgnodevisitor && vqsgnodevisitor->isVirtualQSGNodeVisitor) {
-        vqsgnodevisitor->operator=(*param1);
-    } else {
-        ((VirtualQSGNodeVisitor*)self)->operator=(*param1);
-    }
-}
-
-// Base class handler implementation
-void QSGNodeVisitor_SuperOperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1) {
-    auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self);
-    if (vqsgnodevisitor && vqsgnodevisitor->isVirtualQSGNodeVisitor) {
-        vqsgnodevisitor->setQSGNodeVisitor_OperatorAssign_IsBase(true);
-        vqsgnodevisitor->operator=(*param1);
-    } else {
-        ((VirtualQSGNodeVisitor*)self)->operator=(*param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSGNodeVisitor_OnOperatorAssign(QSGNodeVisitor* self, intptr_t slot) {
-    auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self);
-    if (vqsgnodevisitor && vqsgnodevisitor->isVirtualQSGNodeVisitor)
-        vqsgnodevisitor->setQSGNodeVisitor_OperatorAssign_Callback(reinterpret_cast<VirtualQSGNodeVisitor::QSGNodeVisitor_OperatorAssign_Callback>(slot));
 }
 
 void QSGNodeVisitor_Delete(QSGNodeVisitor* self) {

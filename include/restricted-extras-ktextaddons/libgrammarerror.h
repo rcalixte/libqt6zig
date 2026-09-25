@@ -46,11 +46,9 @@ libqt_string TextGrammarCheck__GrammarError_Rule(const TextGrammarCheck__Grammar
 void TextGrammarCheck__GrammarError_SetRule(TextGrammarCheck__GrammarError* self, const libqt_string rule);
 libqt_string TextGrammarCheck__GrammarError_Url(const TextGrammarCheck__GrammarError* self);
 void TextGrammarCheck__GrammarError_SetUrl(TextGrammarCheck__GrammarError* self, const libqt_string url);
+void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1);
 void TextGrammarCheck__GrammarError_OnParse(TextGrammarCheck__GrammarError* self, intptr_t slot);
 void TextGrammarCheck__GrammarError_SuperParse(TextGrammarCheck__GrammarError* self, const QJsonObject* obj, int blockindex);
-void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1);
-void TextGrammarCheck__GrammarError_OnOperatorAssign(TextGrammarCheck__GrammarError* self, intptr_t slot);
-void TextGrammarCheck__GrammarError_SuperOperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1);
 void TextGrammarCheck__GrammarError_Delete(TextGrammarCheck__GrammarError* self);
 
 #ifdef __cplusplus

@@ -67,6 +67,7 @@ QJSPrimitiveValue* QJSPrimitiveValue_OperatorPlus(QJSPrimitiveValue* self);
 QJSPrimitiveValue* QJSPrimitiveValue_OperatorMinus(QJSPrimitiveValue* self);
 bool QJSPrimitiveValue_StrictlyEquals(const QJSPrimitiveValue* self, const QJSPrimitiveValue* other);
 bool QJSPrimitiveValue_Equals(const QJSPrimitiveValue* self, const QJSPrimitiveValue* other);
+void QJSPrimitiveValue_OperatorAssign(QJSPrimitiveValue* self, const QJSPrimitiveValue* param1);
 void QJSPrimitiveValue_Delete(QJSPrimitiveValue* self);
 
 #ifdef __cplusplus

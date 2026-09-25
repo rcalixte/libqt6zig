@@ -365,6 +365,23 @@ pub const QItemSelectionRange = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionrange.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QItemSelectionRange `
+    ///
+    /// ` param1: QItemSelectionRange `
+    ///
+    pub fn operatorAssign(self: QItemSelectionRange, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QItemSelectionRange;
+        qtc.QItemSelectionRange_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

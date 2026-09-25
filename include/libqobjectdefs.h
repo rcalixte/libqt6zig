@@ -124,6 +124,7 @@ int QMetaObject_StaticMetacall(const QMetaObject* self, int param1, int param2, 
 int QMetaObject_Metacall(QObject* param1, int param2, int param3, void** param4);
 QMetaObject__Data* QMetaObject_D(const QMetaObject* self);
 void QMetaObject_SetD(QMetaObject* self, QMetaObject__Data* d);
+void QMetaObject_OperatorAssign(QMetaObject* self, const QMetaObject* param1);
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n);
 QMetaObject__Connection* QMetaObject_Connect5(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal);
 QMetaObject__Connection* QMetaObject_Connect6(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal, int* types);

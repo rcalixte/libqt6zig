@@ -175,6 +175,10 @@ const char* KCodecs__Codec_Name(const KCodecs__Codec* self) {
     return (const char*)self->name();
 }
 
+void KCodecs__Codec_OperatorAssign(KCodecs__Codec* self, const KCodecs__Codec* param1) {
+    self->operator=(*param1);
+}
+
 libqt_string KCodecs__Codec_Encode22(const KCodecs__Codec* self, libqt_string src, int newline) {
     QByteArrayView src_QByteArrayView(src.data, src.len);
     QByteArray _qb = self->encode(src_QByteArrayView, static_cast<KCodecs::Codec::NewlineType>(newline));

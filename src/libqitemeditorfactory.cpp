@@ -60,6 +60,10 @@ void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory) {
     QItemEditorFactory::setDefaultFactory(factory);
 }
 
+void QItemEditorFactory_OperatorAssign(QItemEditorFactory* self, const QItemEditorFactory* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));

@@ -83,6 +83,10 @@ libqt_list /* of Konsole__KeyboardTranslator__Entry* */ Konsole__KeyboardTransla
     return _out;
 }
 
+void Konsole__KeyboardTranslator_OperatorAssign(Konsole__KeyboardTranslator* self, const Konsole__KeyboardTranslator* param1) {
+    self->operator=(*param1);
+}
+
 Konsole__KeyboardTranslator__Entry* Konsole__KeyboardTranslator_FindEntry3(const Konsole__KeyboardTranslator* self, int keyCode, int modifiers, int state) {
     return new Konsole::KeyboardTranslator::Entry(self->findEntry(static_cast<int>(keyCode), static_cast<Qt::KeyboardModifiers>(modifiers), static_cast<Konsole::KeyboardTranslator::States>(state)));
 }
@@ -314,6 +318,10 @@ bool Konsole__KeyboardTranslator__Entry_Matches(const Konsole__KeyboardTranslato
 
 bool Konsole__KeyboardTranslator__Entry_OperatorEqual(const Konsole__KeyboardTranslator__Entry* self, const Konsole__KeyboardTranslator__Entry* rhs) {
     return (*self == *rhs);
+}
+
+void Konsole__KeyboardTranslator__Entry_OperatorAssign(Konsole__KeyboardTranslator__Entry* self, const Konsole__KeyboardTranslator__Entry* param1) {
+    self->operator=(*param1);
 }
 
 libqt_string Konsole__KeyboardTranslator__Entry_Text1(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards) {

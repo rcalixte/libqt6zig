@@ -226,6 +226,10 @@ void KIO__FileUndoManager__UiInterface_VirtualHook(KIO__FileUndoManager__UiInter
     self->virtual_hook(static_cast<int>(id), data);
 }
 
+void KIO__FileUndoManager__UiInterface_OperatorAssign(KIO__FileUndoManager__UiInterface* self, const KIO__FileUndoManager__UiInterface* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 void KIO__FileUndoManager__UiInterface_SuperJobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);

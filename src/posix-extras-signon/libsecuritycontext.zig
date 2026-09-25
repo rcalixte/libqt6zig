@@ -141,6 +141,23 @@ pub const SignOn__SecurityContext = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: SignOn__SecurityContext `
+    ///
+    /// ` param1: SignOn__SecurityContext `
+    ///
+    pub fn operatorAssign(self: SignOn__SecurityContext, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_SignOn__SecurityContext;
+        qtc.SignOn__SecurityContext_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

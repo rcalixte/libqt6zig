@@ -77,6 +77,10 @@ void KBookmarkOwner_OpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm) {
     self->openInNewWindow(*bm);
 }
 
+void KBookmarkOwner_OperatorAssign(KBookmarkOwner* self, const KBookmarkOwner* param1) {
+    self->operator=(*param1);
+}
+
 // Base class handler implementation
 libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));

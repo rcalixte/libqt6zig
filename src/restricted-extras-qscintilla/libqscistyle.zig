@@ -463,6 +463,23 @@ pub const QsciStyle = extern struct {
         qtc.QsciStyle_Refresh(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciStyle `
+    ///
+    /// ` param1: QsciStyle `
+    ///
+    pub fn operatorAssign(self: QsciStyle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QsciStyle;
+        qtc.QsciStyle_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

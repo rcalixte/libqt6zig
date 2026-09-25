@@ -1589,3 +1589,7 @@ void QQuickFramebufferObject_OnIsSignalConnected(const QQuickFramebufferObject* 
 void QQuickFramebufferObject_Delete(QQuickFramebufferObject* self) {
     delete self;
 }
+
+void QQuickFramebufferObject__Renderer_OperatorAssign(QQuickFramebufferObject__Renderer* self, const QQuickFramebufferObject__Renderer* param1) {
+    self->operator=(*param1);
+}

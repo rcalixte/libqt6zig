@@ -316,43 +316,6 @@ pub const TextAutoCorrectionCore__ImportAbstractAutocorrection = extern struct {
         qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onOperatorAssign` instead
-    ///
-    pub const OnOperatorAssign = onOperatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionCore__ImportAbstractAutocorrection, param1: TextAutoCorrectionCore__ImportAbstractAutocorrection) callconv(.c) void `
-    ///
-    pub fn onOperatorAssign(self: TextAutoCorrectionCore__ImportAbstractAutocorrection, callback: *const fn (TextAutoCorrectionCore__ImportAbstractAutocorrection, TextAutoCorrectionCore__ImportAbstractAutocorrection) callconv(.c) void) void {
-        qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOperatorAssign` instead
-    ///
-    pub const SuperOperatorAssign = superOperatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    /// ` param1: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    pub fn superOperatorAssign(self: TextAutoCorrectionCore__ImportAbstractAutocorrection, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportAbstractAutocorrection;
-        qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -1390,6 +1390,23 @@ pub const QMetaObject = extern struct {
         qtc.QMetaObject_SetD(@ptrCast(self.ptr), @ptrCast(_d.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QMetaObject `
+    ///
+    /// ` param1: QMetaObject `
+    ///
+    pub fn operatorAssign(self: QMetaObject, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMetaObject;
+        qtc.QMetaObject_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `tr3` instead
     ///
     pub const Tr3 = tr3;

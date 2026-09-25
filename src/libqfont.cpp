@@ -620,6 +620,10 @@ QFont__Tag* QFont__Tag_FromString(libqt_string view) {
     return _ret ? new QFont::Tag(*_ret) : nullptr;
 }
 
+void QFont__Tag_OperatorAssign(QFont__Tag* self, const QFont__Tag* param1) {
+    self->operator=(*param1);
+}
+
 void QFont__Tag_Delete(QFont__Tag* self) {
     delete self;
 }

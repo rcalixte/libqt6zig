@@ -161,6 +161,10 @@ QPropertyObserverBase* QPropertyObserverBase_new2(const QPropertyObserverBase* p
     return new QPropertyObserverBase(*param1);
 }
 
+void QPropertyObserverBase_OperatorAssign(QPropertyObserverBase* self, const QPropertyObserverBase* param1) {
+    self->operator=(*param1);
+}
+
 void QPropertyObserverBase_Delete(QPropertyObserverBase* self) {
     delete self;
 }

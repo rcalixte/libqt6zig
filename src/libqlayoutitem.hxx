@@ -32,7 +32,6 @@ class VirtualQLayoutItem : public QLayoutItem {
     using QLayoutItem_Layout_Callback = QLayout* (*)();
     using QLayoutItem_SpacerItem_Callback = QSpacerItem* (*)();
     using QLayoutItem_ControlTypes_Callback = int (*)();
-    using QLayoutItem_OperatorAssign_Callback = void (*)(QLayoutItem*, QLayoutItem*);
 
   protected:
     // Instance callback storage
@@ -51,7 +50,6 @@ class VirtualQLayoutItem : public QLayoutItem {
     QLayoutItem_Layout_Callback qlayoutitem_layout_callback = nullptr;
     QLayoutItem_SpacerItem_Callback qlayoutitem_spaceritem_callback = nullptr;
     QLayoutItem_ControlTypes_Callback qlayoutitem_controltypes_callback = nullptr;
-    QLayoutItem_OperatorAssign_Callback qlayoutitem_operatorassign_callback = nullptr;
 
     // Instance base flags
     mutable bool qlayoutitem_sizehint_isbase = false;
@@ -69,7 +67,6 @@ class VirtualQLayoutItem : public QLayoutItem {
     mutable bool qlayoutitem_layout_isbase = false;
     mutable bool qlayoutitem_spaceritem_isbase = false;
     mutable bool qlayoutitem_controltypes_isbase = false;
-    mutable bool qlayoutitem_operatorassign_isbase = false;
 
   public:
     VirtualQLayoutItem() : QLayoutItem() {};
@@ -92,7 +89,6 @@ class VirtualQLayoutItem : public QLayoutItem {
     inline void setQLayoutItem_Layout_Callback(QLayoutItem_Layout_Callback cb) { qlayoutitem_layout_callback = cb; }
     inline void setQLayoutItem_SpacerItem_Callback(QLayoutItem_SpacerItem_Callback cb) { qlayoutitem_spaceritem_callback = cb; }
     inline void setQLayoutItem_ControlTypes_Callback(QLayoutItem_ControlTypes_Callback cb) { qlayoutitem_controltypes_callback = cb; }
-    inline void setQLayoutItem_OperatorAssign_Callback(QLayoutItem_OperatorAssign_Callback cb) { qlayoutitem_operatorassign_callback = cb; }
 
     // Base flag setters
     inline void setQLayoutItem_SizeHint_IsBase(bool value) const { qlayoutitem_sizehint_isbase = value; }
@@ -110,7 +106,6 @@ class VirtualQLayoutItem : public QLayoutItem {
     inline void setQLayoutItem_Layout_IsBase(bool value) const { qlayoutitem_layout_isbase = value; }
     inline void setQLayoutItem_SpacerItem_IsBase(bool value) const { qlayoutitem_spaceritem_isbase = value; }
     inline void setQLayoutItem_ControlTypes_IsBase(bool value) const { qlayoutitem_controltypes_isbase = value; }
-    inline void setQLayoutItem_OperatorAssign_IsBase(bool value) const { qlayoutitem_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
@@ -305,28 +300,6 @@ class VirtualQLayoutItem : public QLayoutItem {
         }
         return QLayoutItem::controlTypes();
     }
-
-    // Virtual method for C ABI access and custom callback
-    void operator=(const QLayoutItem& param1) {
-        if (qlayoutitem_operatorassign_isbase) {
-            qlayoutitem_operatorassign_isbase = false;
-            QLayoutItem::operator=(param1);
-            return;
-        }
-        auto operatorassign_cb = qlayoutitem_operatorassign_callback;
-        if (operatorassign_cb) {
-            const QLayoutItem& param1_ret = param1;
-            // Cast returned reference into pointer
-            QLayoutItem* cbval1 = const_cast<QLayoutItem*>(&param1_ret);
-            operatorassign_cb(this, cbval1);
-            return;
-        }
-        QLayoutItem::operator=(param1);
-    }
-
-    // Friend functions
-    friend void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
-    friend void QLayoutItem_SuperOperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
 };
 
 // This class is a subclass of QSpacerItem so that we can call protected methods

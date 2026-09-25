@@ -330,6 +330,10 @@ QRectF* QRect_ToRectF(const QRect* self) {
     return new QRectF(self->toRectF());
 }
 
+void QRect_OperatorAssign(QRect* self, const QRect* param1) {
+    self->operator=(*param1);
+}
+
 bool QRect_Contains22(const QRect* self, const QRect* r, bool proper) {
     return self->contains(*r, proper);
 }
@@ -664,6 +668,10 @@ QRect* QRectF_ToRect(const QRectF* self) {
 
 QRect* QRectF_ToAlignedRect(const QRectF* self) {
     return new QRect(self->toAlignedRect());
+}
+
+void QRectF_OperatorAssign(QRectF* self, const QRectF* param1) {
+    self->operator=(*param1);
 }
 
 void QRectF_Delete(QRectF* self) {

@@ -316,6 +316,23 @@ pub const QWebEngineFrame = extern struct {
         qtc.QWebEngineFrame_PrintToPdf3(@ptrCast(self.ptr), @ptrCast(callback.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineFrame `
+    ///
+    /// ` param1: QWebEngineFrame `
+    ///
+    pub fn operatorAssign(self: QWebEngineFrame, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWebEngineFrame;
+        qtc.QWebEngineFrame_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `runJavaScript22` instead
     ///
     pub const RunJavaScript22 = runJavaScript22;

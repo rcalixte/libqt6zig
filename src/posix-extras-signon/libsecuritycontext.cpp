@@ -52,6 +52,10 @@ libqt_string SignOn__SecurityContext_ApplicationContext(const SignOn__SecurityCo
     return _str;
 }
 
+void SignOn__SecurityContext_OperatorAssign(SignOn__SecurityContext* self, const SignOn__SecurityContext* param1) {
+    self->operator=(*param1);
+}
+
 void SignOn__SecurityContext_Delete(SignOn__SecurityContext* self) {
     delete self;
 }

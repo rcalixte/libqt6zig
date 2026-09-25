@@ -127,6 +127,23 @@ pub const TextEmoticonsCore__CustomEmoji = extern struct {
         qtc.TextEmoticonsCore__CustomEmoji_SetIsAnimatedEmoji(@ptrCast(self.ptr), newIsAnimatedEmoji);
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1CustomEmoji.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsCore__CustomEmoji `
+    ///
+    /// ` param1: TextEmoticonsCore__CustomEmoji `
+    ///
+    pub fn operatorAssign(self: TextEmoticonsCore__CustomEmoji, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_TextEmoticonsCore__CustomEmoji;
+        qtc.TextEmoticonsCore__CustomEmoji_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

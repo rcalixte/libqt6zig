@@ -487,43 +487,6 @@ pub const TextGrammarCheck__GrammarError = extern struct {
         qtc.TextGrammarCheck__GrammarError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onOperatorAssign` instead
-    ///
-    pub const OnOperatorAssign = onOperatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammarError.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__GrammarError `
-    ///
-    /// ` callback: *const fn (self: TextGrammarCheck__GrammarError, param1: TextGrammarCheck__GrammarError) callconv(.c) void `
-    ///
-    pub fn onOperatorAssign(self: TextGrammarCheck__GrammarError, callback: *const fn (TextGrammarCheck__GrammarError, TextGrammarCheck__GrammarError) callconv(.c) void) void {
-        qtc.TextGrammarCheck__GrammarError_OnOperatorAssign(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOperatorAssign` instead
-    ///
-    pub const SuperOperatorAssign = superOperatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammarError.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammarError `
-    ///
-    /// ` param1: TextGrammarCheck__GrammarError `
-    ///
-    pub fn superOperatorAssign(self: TextGrammarCheck__GrammarError, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_TextGrammarCheck__GrammarError;
-        qtc.TextGrammarCheck__GrammarError_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

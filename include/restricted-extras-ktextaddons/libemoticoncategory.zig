@@ -204,6 +204,23 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
         qtc.TextEmoticonsCore__EmoticonCategory_SetOrder(@ptrCast(self.ptr), @bitCast(newOrder));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1EmoticonCategory.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsCore__EmoticonCategory `
+    ///
+    /// ` param1: TextEmoticonsCore__EmoticonCategory `
+    ///
+    pub fn operatorAssign(self: TextEmoticonsCore__EmoticonCategory, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_TextEmoticonsCore__EmoticonCategory;
+        qtc.TextEmoticonsCore__EmoticonCategory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

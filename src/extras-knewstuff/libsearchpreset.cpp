@@ -53,6 +53,10 @@ libqt_string KNSCore__SearchPreset_ProviderId(const KNSCore__SearchPreset* self)
     return _str;
 }
 
+void KNSCore__SearchPreset_OperatorAssign(KNSCore__SearchPreset* self, const KNSCore__SearchPreset* param1) {
+    self->operator=(*param1);
+}
+
 void KNSCore__SearchPreset_Delete(KNSCore__SearchPreset* self) {
     delete self;
 }

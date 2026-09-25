@@ -26,6 +26,7 @@ QsciStyledText* QsciStyledText_new3(const QsciStyledText* param1);
 void QsciStyledText_Apply(const QsciStyledText* self, QsciScintillaBase* sci);
 libqt_string QsciStyledText_Text(const QsciStyledText* self);
 int QsciStyledText_Style(const QsciStyledText* self);
+void QsciStyledText_OperatorAssign(QsciStyledText* self, const QsciStyledText* param1);
 void QsciStyledText_Delete(QsciStyledText* self);
 
 #ifdef __cplusplus

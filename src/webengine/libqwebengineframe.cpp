@@ -124,6 +124,10 @@ void QWebEngineFrame_PrintToPdf3(QWebEngineFrame* self, const QJSValue* callback
     self->printToPdf(*callback);
 }
 
+void QWebEngineFrame_OperatorAssign(QWebEngineFrame* self, const QWebEngineFrame* param1) {
+    self->operator=(*param1);
+}
+
 void QWebEngineFrame_RunJavaScript22(QWebEngineFrame* self, const libqt_string script, unsigned int worldId) {
     QString script_QString = QString::fromUtf8(script.data, script.len);
     self->runJavaScript(script_QString, static_cast<quint32>(worldId));

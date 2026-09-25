@@ -318,6 +318,7 @@ void QDesignerWidgetBoxInterface__Category_AddWidget(QDesignerWidgetBoxInterface
 int QDesignerWidgetBoxInterface__Category_Type(const QDesignerWidgetBoxInterface__Category* self);
 void QDesignerWidgetBoxInterface__Category_SetType(QDesignerWidgetBoxInterface__Category* self, int atype);
 bool QDesignerWidgetBoxInterface__Category_IsNull(const QDesignerWidgetBoxInterface__Category* self);
+void QDesignerWidgetBoxInterface__Category_OperatorAssign(QDesignerWidgetBoxInterface__Category* self, const QDesignerWidgetBoxInterface__Category* param1);
 void QDesignerWidgetBoxInterface__Category_Delete(QDesignerWidgetBoxInterface__Category* self);
 
 #ifdef __cplusplus

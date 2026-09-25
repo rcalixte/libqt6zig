@@ -472,6 +472,23 @@ pub const QAccessibleInterface = extern struct {
     pub fn interfaceCast(self: QAccessibleInterface, param1: i32) ?*anyopaque {
         return qtc.QAccessibleInterface_InterfaceCast(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleInterface `
+    ///
+    /// ` param1: QAccessibleInterface `
+    ///
+    pub fn operatorAssign(self: QAccessibleInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
+        qtc.QAccessibleInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html)
@@ -1577,6 +1594,23 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn modelChange(self: QAccessibleTableInterface, event: anytype) void {
         comptime _ = @TypeOf(event)._is_QAccessibleTableModelChangeEvent;
         qtc.QAccessibleTableInterface_ModelChange(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAccessibleTableInterface `
+    ///
+    /// ` param1: QAccessibleTableInterface `
+    ///
+    pub fn operatorAssign(self: QAccessibleTableInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAccessibleTableInterface;
+        qtc.QAccessibleTableInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

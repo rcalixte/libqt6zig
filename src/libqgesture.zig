@@ -13432,6 +13432,23 @@ pub const QGestureEvent = extern struct {
         return .{ .ptr = qtc.QGestureEvent_MapToGraphicsScene(@ptrCast(self.ptr), @ptrCast(gesturePoint.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGestureEvent `
+    ///
+    /// ` param1: QGestureEvent `
+    ///
+    pub fn operatorAssign(self: QGestureEvent, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QGestureEvent;
+        qtc.QGestureEvent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;

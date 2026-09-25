@@ -357,6 +357,23 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
         return qtc.TextEmoticonsCore__UnicodeEmoticon_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1UnicodeEmoticon.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsCore__UnicodeEmoticon `
+    ///
+    /// ` param1: TextEmoticonsCore__UnicodeEmoticon `
+    ///
+    pub fn operatorAssign(self: TextEmoticonsCore__UnicodeEmoticon, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_TextEmoticonsCore__UnicodeEmoticon;
+        qtc.TextEmoticonsCore__UnicodeEmoticon_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

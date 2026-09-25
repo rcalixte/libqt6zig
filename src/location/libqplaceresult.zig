@@ -152,19 +152,17 @@ pub const QPlaceResult = extern struct {
     ///
     pub const OperatorAssign = operatorAssign;
 
-    /// Inherited from QPlaceSearchResult
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchresult.html#operator-eq)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceResult `
     ///
-    /// ` other: QPlaceSearchResult `
+    /// ` param1: QPlaceResult `
     ///
-    pub fn operatorAssign(self: QPlaceResult, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
-        qtc.QPlaceSearchResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
+    pub fn operatorAssign(self: QPlaceResult, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPlaceResult;
+        qtc.QPlaceResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `operatorEqual` instead

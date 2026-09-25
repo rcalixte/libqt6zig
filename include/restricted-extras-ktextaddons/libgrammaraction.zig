@@ -285,6 +285,23 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
         qtc.TextGrammarCheck__GrammarAction_SetInfoUrls(@ptrCast(self.ptr), urls_list);
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammarAction.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextGrammarCheck__GrammarAction `
+    ///
+    /// ` param1: TextGrammarCheck__GrammarAction `
+    ///
+    pub fn operatorAssign(self: TextGrammarCheck__GrammarAction, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_TextGrammarCheck__GrammarAction;
+        qtc.TextGrammarCheck__GrammarAction_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

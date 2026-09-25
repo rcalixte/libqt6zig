@@ -124,6 +124,10 @@ void QsciStyle_Refresh(QsciStyle* self) {
     self->refresh();
 }
 
+void QsciStyle_OperatorAssign(QsciStyle* self, const QsciStyle* param1) {
+    self->operator=(*param1);
+}
+
 void QsciStyle_Delete(QsciStyle* self) {
     delete self;
 }

@@ -68,6 +68,10 @@ bool KConfigBase_IsGroupImmutable(const KConfigBase* self, const libqt_string gr
     return self->isGroupImmutable(group_QString);
 }
 
+void KConfigBase_OperatorAssign(KConfigBase* self, const KConfigBase* param1) {
+    self->operator=(*param1);
+}
+
 void KConfigBase_DeleteGroup2(KConfigBase* self, const libqt_string group, int flags) {
     QString group_QString = QString::fromUtf8(group.data, group.len);
     self->deleteGroup(group_QString, static_cast<KConfigBase::WriteConfigFlags>(flags));

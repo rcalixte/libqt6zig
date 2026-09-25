@@ -160,6 +160,23 @@ pub const QDBusObjectPath = extern struct {
         return .{ .ptr = qtc.QDBusObjectPath_ToQVariant(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDBusObjectPath `
+    ///
+    /// ` param1: QDBusObjectPath `
+    ///
+    pub fn operatorAssign(self: QDBusObjectPath, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDBusObjectPath;
+        qtc.QDBusObjectPath_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -355,6 +372,23 @@ pub const QDBusSignature = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusSignature.signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDBusSignature `
+    ///
+    /// ` param1: QDBusSignature `
+    ///
+    pub fn operatorAssign(self: QDBusSignature, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDBusSignature;
+        qtc.QDBusSignature_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

@@ -123,6 +123,23 @@ pub const KNSCore__SearchPreset = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNSCore__SearchPreset `
+    ///
+    /// ` param1: KNSCore__SearchPreset `
+    ///
+    pub fn operatorAssign(self: KNSCore__SearchPreset, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KNSCore__SearchPreset;
+        qtc.KNSCore__SearchPreset_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

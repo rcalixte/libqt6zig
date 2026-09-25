@@ -393,7 +393,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     using QSGNodeVisitor_LeaveOpacityNode_Callback = void (*)(QSGNodeVisitor*, QSGOpacityNode*);
     using QSGNodeVisitor_VisitNode_Callback = void (*)(QSGNodeVisitor*, QSGNode*);
     using QSGNodeVisitor_VisitChildren_Callback = void (*)(QSGNodeVisitor*, QSGNode*);
-    using QSGNodeVisitor_OperatorAssign_Callback = void (*)(QSGNodeVisitor*, QSGNodeVisitor*);
 
   protected:
     // Instance callback storage
@@ -407,7 +406,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     QSGNodeVisitor_LeaveOpacityNode_Callback qsgnodevisitor_leaveopacitynode_callback = nullptr;
     QSGNodeVisitor_VisitNode_Callback qsgnodevisitor_visitnode_callback = nullptr;
     QSGNodeVisitor_VisitChildren_Callback qsgnodevisitor_visitchildren_callback = nullptr;
-    QSGNodeVisitor_OperatorAssign_Callback qsgnodevisitor_operatorassign_callback = nullptr;
 
     // Instance base flags
     mutable bool qsgnodevisitor_entertransformnode_isbase = false;
@@ -420,7 +418,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     mutable bool qsgnodevisitor_leaveopacitynode_isbase = false;
     mutable bool qsgnodevisitor_visitnode_isbase = false;
     mutable bool qsgnodevisitor_visitchildren_isbase = false;
-    mutable bool qsgnodevisitor_operatorassign_isbase = false;
 
   public:
     VirtualQSGNodeVisitor() : QSGNodeVisitor() {};
@@ -436,7 +433,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     inline void setQSGNodeVisitor_LeaveOpacityNode_Callback(QSGNodeVisitor_LeaveOpacityNode_Callback cb) { qsgnodevisitor_leaveopacitynode_callback = cb; }
     inline void setQSGNodeVisitor_VisitNode_Callback(QSGNodeVisitor_VisitNode_Callback cb) { qsgnodevisitor_visitnode_callback = cb; }
     inline void setQSGNodeVisitor_VisitChildren_Callback(QSGNodeVisitor_VisitChildren_Callback cb) { qsgnodevisitor_visitchildren_callback = cb; }
-    inline void setQSGNodeVisitor_OperatorAssign_Callback(QSGNodeVisitor_OperatorAssign_Callback cb) { qsgnodevisitor_operatorassign_callback = cb; }
 
     // Base flag setters
     inline void setQSGNodeVisitor_EnterTransformNode_IsBase(bool value) const { qsgnodevisitor_entertransformnode_isbase = value; }
@@ -449,7 +445,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     inline void setQSGNodeVisitor_LeaveOpacityNode_IsBase(bool value) const { qsgnodevisitor_leaveopacitynode_isbase = value; }
     inline void setQSGNodeVisitor_VisitNode_IsBase(bool value) const { qsgnodevisitor_visitnode_isbase = value; }
     inline void setQSGNodeVisitor_VisitChildren_IsBase(bool value) const { qsgnodevisitor_visitchildren_isbase = value; }
-    inline void setQSGNodeVisitor_OperatorAssign_IsBase(bool value) const { qsgnodevisitor_operatorassign_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void enterTransformNode(QSGTransformNode* param1) override {
@@ -611,24 +606,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
         QSGNodeVisitor::visitChildren(n);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void operator=(const QSGNodeVisitor& param1) {
-        if (qsgnodevisitor_operatorassign_isbase) {
-            qsgnodevisitor_operatorassign_isbase = false;
-            QSGNodeVisitor::operator=(param1);
-            return;
-        }
-        auto operatorassign_cb = qsgnodevisitor_operatorassign_callback;
-        if (operatorassign_cb) {
-            const QSGNodeVisitor& param1_ret = param1;
-            // Cast returned reference into pointer
-            QSGNodeVisitor* cbval1 = const_cast<QSGNodeVisitor*>(&param1_ret);
-            operatorassign_cb(this, cbval1);
-            return;
-        }
-        QSGNodeVisitor::operator=(param1);
-    }
-
     // Friend functions
     friend void QSGNodeVisitor_EnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1);
     friend void QSGNodeVisitor_SuperEnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1);
@@ -650,8 +627,6 @@ class VirtualQSGNodeVisitor final : public QSGNodeVisitor {
     friend void QSGNodeVisitor_SuperVisitNode(QSGNodeVisitor* self, QSGNode* n);
     friend void QSGNodeVisitor_VisitChildren(QSGNodeVisitor* self, QSGNode* n);
     friend void QSGNodeVisitor_SuperVisitChildren(QSGNodeVisitor* self, QSGNode* n);
-    friend void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
-    friend void QSGNodeVisitor_SuperOperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
 };
 
 #endif

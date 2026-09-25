@@ -11368,6 +11368,23 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
         return qtc.QDesignerWidgetBoxInterface__Category_IsNull(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerWidgetBoxInterface__Category `
+    ///
+    /// ` param1: QDesignerWidgetBoxInterface__Category `
+    ///
+    pub fn operatorAssign(self: QDesignerWidgetBoxInterface__Category, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDesignerWidgetBoxInterface__Category;
+        qtc.QDesignerWidgetBoxInterface__Category_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

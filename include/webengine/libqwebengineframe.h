@@ -37,6 +37,7 @@ void QWebEngineFrame_RunJavaScript5(QWebEngineFrame* self, const libqt_string sc
 void QWebEngineFrame_PrintToPdf(QWebEngineFrame* self, const libqt_string filePath);
 void QWebEngineFrame_PrintToPdf2(QWebEngineFrame* self, intptr_t callback);
 void QWebEngineFrame_PrintToPdf3(QWebEngineFrame* self, const QJSValue* callback);
+void QWebEngineFrame_OperatorAssign(QWebEngineFrame* self, const QWebEngineFrame* param1);
 void QWebEngineFrame_RunJavaScript22(QWebEngineFrame* self, const libqt_string script, unsigned int worldId);
 void QWebEngineFrame_Delete(QWebEngineFrame* self);
 

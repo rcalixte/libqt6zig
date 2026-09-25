@@ -75,6 +75,10 @@ void TextEmoticonsCore__EmoticonCategory_SetOrder(TextEmoticonsCore__EmoticonCat
     self->setOrder(static_cast<int>(newOrder));
 }
 
+void TextEmoticonsCore__EmoticonCategory_OperatorAssign(TextEmoticonsCore__EmoticonCategory* self, const TextEmoticonsCore__EmoticonCategory* param1) {
+    self->operator=(*param1);
+}
+
 void TextEmoticonsCore__EmoticonCategory_Delete(TextEmoticonsCore__EmoticonCategory* self) {
     delete self;
 }

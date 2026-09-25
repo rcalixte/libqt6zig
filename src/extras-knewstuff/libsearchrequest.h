@@ -41,6 +41,7 @@ libqt_list /* of libqt_string */ KNSCore__SearchRequest_Categories(const KNSCore
 int KNSCore__SearchRequest_Page(const KNSCore__SearchRequest* self);
 int KNSCore__SearchRequest_PageSize(const KNSCore__SearchRequest* self);
 KNSCore__SearchRequest* KNSCore__SearchRequest_NextPage(const KNSCore__SearchRequest* self);
+void KNSCore__SearchRequest_OperatorAssign(KNSCore__SearchRequest* self, const KNSCore__SearchRequest* param1);
 void KNSCore__SearchRequest_Delete(KNSCore__SearchRequest* self);
 
 #ifdef __cplusplus

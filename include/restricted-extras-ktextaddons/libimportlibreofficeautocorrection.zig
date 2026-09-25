@@ -118,6 +118,23 @@ pub const TextAutoCorrectionCore__ImportLibreOfficeAutocorrection = extern struc
         return qtc.TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_SuperImport(@ptrCast(self.ptr), fileName_str, errorMessage_str, @bitCast(loadAttribute));
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportLibreOfficeAutocorrection.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__ImportLibreOfficeAutocorrection `
+    ///
+    /// ` param1: TextAutoCorrectionCore__ImportLibreOfficeAutocorrection `
+    ///
+    pub fn operatorAssign(self: TextAutoCorrectionCore__ImportLibreOfficeAutocorrection, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportLibreOfficeAutocorrection;
+        qtc.TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+    }
+
     /// ### DEPRECATED: Use `upperCaseExceptions` instead
     ///
     pub const UpperCaseExceptions = upperCaseExceptions;
