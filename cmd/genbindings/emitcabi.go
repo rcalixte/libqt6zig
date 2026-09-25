@@ -1648,7 +1648,11 @@ struct wl_touch;
 			}
 
 			// temporary hack
-			if c.ClassName == "TextCustomEditor::TextEditFindBarBase" {
+			switch c.ClassName {
+			case "QNativeInterface::QEGLContext":
+				ret.WriteString("\n// unimplemented pure virtual method")
+				ret.WriteString("\nvirtual void invalidateContext() override {}\n")
+			case "TextCustomEditor::TextEditFindBarBase":
 				ret.WriteString("\nvoid slotReplaceText() override {}\nvoid slotReplaceAllText() override {}\n")
 			}
 
@@ -2148,59 +2152,43 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			// The returned ctor needs to return a C++ pointer for the class itself
 			preamble, forwarding := emitParametersCABI2CppForwarding(ctor.Parameters, "\t", c.ClassName)
 
-			if ctor.FossOnly {
-				ret.WriteString(fmt.Sprintf(
-					"#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"+
-						"%s* %s_new%s(%s) {\n"+
-						"%s"+
-						"\treturn new %s(%s);\n"+
-						"}\n"+
-						"#endif\n"+
-						"\n",
-					methodPrefixName,
-					methodPrefixName,
-					maybeSuffix(i),
-					emitParametersCabi(ctor, ""),
-					preamble,
-					c.ClassName, forwarding,
-				))
-
-			} else {
-				var virtualName, ctorReturn, maybeMoveCtor, maybeCloseMoveCtor, maybeMacro, maybeEndMacro string
-				if virtualEligible {
-					for _, m := range virtualMethods {
-						if (m.IsProtected || m.IsVirtual) && len(virtualMethods) > 0 {
-							if _, ok := nonPolymorphicClasses[c.ClassName]; ok {
-								continue
-							}
-
-							virtualName = "Virtual"
-							break
+			var virtualName, ctorReturn, maybeMoveCtor, maybeCloseMoveCtor, maybeMacro, maybeEndMacro string
+			if virtualEligible {
+				for _, m := range virtualMethods {
+					if (m.IsProtected || m.IsVirtual) && len(virtualMethods) > 0 {
+						if _, ok := nonPolymorphicClasses[c.ClassName]; ok {
+							continue
 						}
+
+						virtualName = "Virtual"
+						break
 					}
 				}
-				if ctor.IsMoveCtor {
-					maybeMoveCtor = "std::move("
-					maybeCloseMoveCtor = ")"
-				}
-
-				if ctor.LinuxOnly {
-					maybeMacro = "#ifdef __linux__\n"
-					maybeEndMacro = "#endif\n"
-				} else if c.ClassName == "QProcess::UnixProcessParameters" {
-					// Windows hacks for QProcess
-					maybeMacro = "#ifndef _WIN32\n"
-					maybeEndMacro = "#endif\n"
-				}
-
-				cClassName := ifv(virtualName != "", strings.ReplaceAll(c.ClassName, "::", ""), c.ClassName)
-				baseReturn := "new " + virtualName + cClassName + "(" + maybeMoveCtor + forwarding + maybeCloseMoveCtor + ")"
-				ctorReturn = "\t return " + baseReturn
-
-				ret.WriteString(maybeMacro + methodPrefixName + "* " + methodPrefixName + "_new" +
-					maybeSuffix(i) + "(" + emitParametersCabi(ctor, "") +
-					") {\n" + preamble + ctorReturn + ";\n}\n" + maybeEndMacro + "\n")
 			}
+			if ctor.IsMoveCtor {
+				maybeMoveCtor = "std::move("
+				maybeCloseMoveCtor = ")"
+			}
+
+			if ctor.FossOnly {
+				maybeMacro = "#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"
+				maybeEndMacro = "#endif\n"
+			} else if ctor.LinuxOnly {
+				maybeMacro = "#ifdef __linux__\n"
+				maybeEndMacro = "#endif\n"
+			} else if c.ClassName == "QProcess::UnixProcessParameters" {
+				// Windows hacks for QProcess
+				maybeMacro = "#ifndef _WIN32\n"
+				maybeEndMacro = "#endif\n"
+			}
+
+			cClassName := ifv(virtualName != "", strings.ReplaceAll(c.ClassName, "::", ""), c.ClassName)
+			baseReturn := "new " + virtualName + cClassName + "(" + maybeMoveCtor + forwarding + maybeCloseMoveCtor + ")"
+			ctorReturn = "\t return " + baseReturn
+
+			ret.WriteString(maybeMacro + methodPrefixName + "* " + methodPrefixName + "_new" +
+				maybeSuffix(i) + "(" + emitParametersCabi(ctor, "") +
+				") {\n" + preamble + ctorReturn + ";\n}\n" + maybeEndMacro + "\n")
 		}
 
 		var maybeAMacro, maybeAEndMacro string
@@ -2302,22 +2290,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			var maybeMacro, maybeEndMacro, retExpr string
 			maybeConst := ifv(m.IsConst, "const ", "")
 
-			if m.FossOnly && !virtualEligible {
-				retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget)
-
-				ret.WriteString(fmt.Sprintf(
-					"#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"+
-						"%s %s_%s(%s) {\n"+
-						"%s"+
-						"%s"+
-						"}\n"+
-						"#endif\n"+
-						"\n",
-					m.ReturnType.RenderTypeCabi(false), methodPrefixName, mSafeMethodName, emitParametersCabi(m, maybeConst+methodPrefixName+"*"),
-					preamble, retExpr,
-				))
-
-			} else if m.BecomesNonConstInVersion != nil {
+			if m.BecomesNonConstInVersion != nil {
 
 				nonConstCallTarget := "const_cast<" + methodPrefixName + "*>(self)->" + m.CppCallTarget() + "(" + forwarding + ")"
 
@@ -2387,7 +2360,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			writeString:
 
-				if m.LinuxOnly {
+				if m.FossOnly {
+					maybeMacro = "#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"
+					maybeEndMacro = "#endif\n"
+				} else if m.LinuxOnly {
 					maybeMacro = "#ifdef __linux__\n"
 					maybeEndMacro = "#endif\n"
 				} else if c.ClassName == "QProcess::UnixProcessParameters" || (c.ClassName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName))) {
