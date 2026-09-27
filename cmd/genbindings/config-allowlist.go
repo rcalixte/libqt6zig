@@ -779,6 +779,8 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QQmlComponentAttached",           // Qt 6 QML qqmlcomponent.h
 		"QQuickCloseEvent",                // Qt 6 Quick qquickwindow.h
 		"QShader",                         // Qt 6 Quick qsgmaterialshader.h
+		"QSSGRenderGraphObject",           // Qt 6 Quick 3D
+		"QQuick3DSceneManager",            // Qt 6 Quick 3D qquick3dobject.h
 		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
