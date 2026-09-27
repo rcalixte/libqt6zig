@@ -891,6 +891,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
 		},
 
+		// Qt 6 Quick 3D
+		// Depends on Qt Core, GUI, Quick
+		{
+			path: "restricted-extras-quick3d",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtQuick3D",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Quick3D"),
+		},
+
 		// Qt 6 Virtual Keyboard
 		// Depends on Qt Core, GUI, QML
 		{

@@ -36,6 +36,11 @@ pub const modules = &.{
     "QtQuick",
     "QtQuickControls2",
     "QtQuickWidgets",
+    // Qt 6 Quick 3D
+    "QtQuick3D",
+    "QtQuick3DRuntimeRender",
+    "QtQuick3DUtils",
+    "QtShaderTools",
     // Qt 6 Spatial Audio
     "QtSpatialAudio",
     // Qt 6 SQL
