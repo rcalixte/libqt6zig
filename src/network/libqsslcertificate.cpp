@@ -485,24 +485,24 @@ libqt_list /* of QSslError* */ QSslCertificate_Verify2(const libqt_list /* of QS
 }
 
 bool QSslCertificate_ImportPkcs124(QIODevice* device, QSslKey* key, QSslCertificate* cert, libqt_list /* of QSslCertificate* */ caCertificates) {
-    QList<QSslCertificate> caCertificates_QList;
-    caCertificates_QList.reserve(caCertificates.len);
+    QList<QSslCertificate>* caCertificates_QList = new QList<QSslCertificate>();
+    caCertificates_QList->reserve(caCertificates.len);
     QSslCertificate** caCertificates_arr = static_cast<QSslCertificate**>(caCertificates.data);
     for (size_t i = 0; i < caCertificates.len; ++i) {
-        caCertificates_QList.push_back(*(caCertificates_arr[i]));
+        caCertificates_QList->push_back(*(caCertificates_arr[i]));
     }
-    return QSslCertificate::importPkcs12(device, key, cert, &caCertificates_QList);
+    return QSslCertificate::importPkcs12(device, key, cert, caCertificates_QList);
 }
 
 bool QSslCertificate_ImportPkcs125(QIODevice* device, QSslKey* key, QSslCertificate* cert, libqt_list /* of QSslCertificate* */ caCertificates, const libqt_string passPhrase) {
-    QList<QSslCertificate> caCertificates_QList;
-    caCertificates_QList.reserve(caCertificates.len);
+    QList<QSslCertificate>* caCertificates_QList = new QList<QSslCertificate>();
+    caCertificates_QList->reserve(caCertificates.len);
     QSslCertificate** caCertificates_arr = static_cast<QSslCertificate**>(caCertificates.data);
     for (size_t i = 0; i < caCertificates.len; ++i) {
-        caCertificates_QList.push_back(*(caCertificates_arr[i]));
+        caCertificates_QList->push_back(*(caCertificates_arr[i]));
     }
     QByteArray passPhrase_QByteArray(passPhrase.data, passPhrase.len);
-    return QSslCertificate::importPkcs12(device, key, cert, &caCertificates_QList, passPhrase_QByteArray);
+    return QSslCertificate::importPkcs12(device, key, cert, caCertificates_QList, passPhrase_QByteArray);
 }
 
 void QSslCertificate_Delete(QSslCertificate* self) {

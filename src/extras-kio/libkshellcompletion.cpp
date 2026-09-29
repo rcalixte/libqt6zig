@@ -57,16 +57,16 @@ libqt_string KShellCompletion_MakeCompletion(KShellCompletion* self, const libqt
 }
 
 void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches) {
-    QList<QString> matches_QList;
-    matches_QList.reserve(matches.len);
+    QList<QString>* matches_QList = new QList<QString>();
+    matches_QList->reserve(matches.len);
     libqt_string* matches_arr = static_cast<libqt_string*>(matches.data);
     for (size_t i = 0; i < matches.len; ++i) {
         QString matches_arr_i_QString = QString::fromUtf8(matches_arr[i].data, matches_arr[i].len);
-        matches_QList.push_back(matches_arr_i_QString);
+        matches_QList->push_back(matches_arr_i_QString);
     }
     auto* vkshellcompletion = dynamic_cast<const VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
-        vkshellcompletion->postProcessMatches(&matches_QList);
+        vkshellcompletion->postProcessMatches(matches_QList);
     }
 }
 
@@ -193,18 +193,18 @@ void KShellCompletion_OnMakeCompletion(KShellCompletion* self, intptr_t slot) {
 // Base class handler implementation
 void KShellCompletion_SuperPostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
-    QList<QString> matches_QList;
-    matches_QList.reserve(matches.len);
+    QList<QString>* matches_QList = new QList<QString>();
+    matches_QList->reserve(matches.len);
     libqt_string* matches_arr = static_cast<libqt_string*>(matches.data);
     for (size_t i = 0; i < matches.len; ++i) {
         QString matches_arr_i_QString = QString::fromUtf8(matches_arr[i].data, matches_arr[i].len);
-        matches_QList.push_back(matches_arr_i_QString);
+        matches_QList->push_back(matches_arr_i_QString);
     }
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_PostProcessMatches_IsBase(true);
-        vkshellcompletion->postProcessMatches(&matches_QList);
+        vkshellcompletion->postProcessMatches(matches_QList);
     } else {
-        ((VirtualKShellCompletion*)self)->postProcessMatches(&matches_QList);
+        ((VirtualKShellCompletion*)self)->postProcessMatches(matches_QList);
     }
 }
 

@@ -341,16 +341,16 @@ void KCompletion_Connect_MultipleMatches(KCompletion* self, intptr_t slot) {
 }
 
 void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {
-    QList<QString> matchList_QList;
-    matchList_QList.reserve(matchList.len);
+    QList<QString>* matchList_QList = new QList<QString>();
+    matchList_QList->reserve(matchList.len);
     libqt_string* matchList_arr = static_cast<libqt_string*>(matchList.data);
     for (size_t i = 0; i < matchList.len; ++i) {
         QString matchList_arr_i_QString = QString::fromUtf8(matchList_arr[i].data, matchList_arr[i].len);
-        matchList_QList.push_back(matchList_arr_i_QString);
+        matchList_QList->push_back(matchList_arr_i_QString);
     }
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        vkcompletion->postProcessMatches(&matchList_QList);
+        vkcompletion->postProcessMatches(matchList_QList);
     }
 }
 
@@ -626,18 +626,18 @@ void KCompletion_OnClear(KCompletion* self, intptr_t slot) {
 // Base class handler implementation
 void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
-    QList<QString> matchList_QList;
-    matchList_QList.reserve(matchList.len);
+    QList<QString>* matchList_QList = new QList<QString>();
+    matchList_QList->reserve(matchList.len);
     libqt_string* matchList_arr = static_cast<libqt_string*>(matchList.data);
     for (size_t i = 0; i < matchList.len; ++i) {
         QString matchList_arr_i_QString = QString::fromUtf8(matchList_arr[i].data, matchList_arr[i].len);
-        matchList_QList.push_back(matchList_arr_i_QString);
+        matchList_QList->push_back(matchList_arr_i_QString);
     }
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_PostProcessMatches_IsBase(true);
-        vkcompletion->postProcessMatches(&matchList_QList);
+        vkcompletion->postProcessMatches(matchList_QList);
     } else {
-        ((VirtualKCompletion*)self)->postProcessMatches(&matchList_QList);
+        ((VirtualKCompletion*)self)->postProcessMatches(matchList_QList);
     }
 }
 

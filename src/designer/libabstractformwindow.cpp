@@ -314,13 +314,13 @@ void QDesignerFormWindowInterface_EndCommand(QDesignerFormWindowInterface* self)
 }
 
 void QDesignerFormWindowInterface_SimplifySelection(const QDesignerFormWindowInterface* self, libqt_list /* of QWidget* */ widgets) {
-    QList<QWidget*> widgets_QList;
-    widgets_QList.reserve(widgets.len);
+    QList<QWidget*>* widgets_QList = new QList<QWidget*>();
+    widgets_QList->reserve(widgets.len);
     QWidget** widgets_arr = static_cast<QWidget**>(widgets.data);
     for (size_t i = 0; i < widgets.len; ++i) {
-        widgets_QList.push_back(widgets_arr[i]);
+        widgets_QList->push_back(widgets_arr[i]);
     }
-    self->simplifySelection(&widgets_QList);
+    self->simplifySelection(widgets_QList);
 }
 
 void QDesignerFormWindowInterface_EmitSelectionChanged(QDesignerFormWindowInterface* self) {

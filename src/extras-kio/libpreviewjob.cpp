@@ -24,14 +24,14 @@ KIO__PreviewJob* KIO__PreviewJob_new(const KFileItemList* items, const QSize* si
 }
 
 KIO__PreviewJob* KIO__PreviewJob_new2(const KFileItemList* items, const QSize* size, const libqt_list /* of libqt_string */ enabledPlugins) {
-    QList<QString> enabledPlugins_QList;
-    enabledPlugins_QList.reserve(enabledPlugins.len);
+    QList<QString>* enabledPlugins_QList = new QList<QString>();
+    enabledPlugins_QList->reserve(enabledPlugins.len);
     libqt_string* enabledPlugins_arr = static_cast<libqt_string*>(enabledPlugins.data);
     for (size_t i = 0; i < enabledPlugins.len; ++i) {
         QString enabledPlugins_arr_i_QString = QString::fromUtf8(enabledPlugins_arr[i].data, enabledPlugins_arr[i].len);
-        enabledPlugins_QList.push_back(enabledPlugins_arr_i_QString);
+        enabledPlugins_QList->push_back(enabledPlugins_arr_i_QString);
     }
-    return new VirtualKIOPreviewJob(*items, *size, &enabledPlugins_QList);
+    return new VirtualKIOPreviewJob(*items, *size, enabledPlugins_QList);
 }
 
 QMetaObject* KIO__PreviewJob_MetaObject(const KIO__PreviewJob* self) {
@@ -1345,12 +1345,12 @@ void KIO__PreviewJob_Delete(KIO__PreviewJob* self) {
 }
 
 KIO__PreviewJob* KIO_FilePreview(const KFileItemList* items, const QSize* size, const libqt_list /* of libqt_string */ enabledPlugins) {
-    QList<QString> enabledPlugins_QList;
-    enabledPlugins_QList.reserve(enabledPlugins.len);
+    QList<QString>* enabledPlugins_QList = new QList<QString>();
+    enabledPlugins_QList->reserve(enabledPlugins.len);
     libqt_string* enabledPlugins_arr = static_cast<libqt_string*>(enabledPlugins.data);
     for (size_t i = 0; i < enabledPlugins.len; ++i) {
         QString enabledPlugins_arr_i_QString = QString::fromUtf8(enabledPlugins_arr[i].data, enabledPlugins_arr[i].len);
-        enabledPlugins_QList.push_back(enabledPlugins_arr_i_QString);
+        enabledPlugins_QList->push_back(enabledPlugins_arr_i_QString);
     }
-    return KIO::filePreview(*items, *size, &enabledPlugins_QList);
+    return KIO::filePreview(*items, *size, enabledPlugins_QList);
 }

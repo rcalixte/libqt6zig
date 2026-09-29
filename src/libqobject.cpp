@@ -18,23 +18,23 @@
 #include "libqobject.hxx"
 
 void qobject_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
-    QList<void*> list_QList;
-    list_QList.reserve(list.len);
+    QList<void*>* list_QList = new QList<void*>();
+    list_QList->reserve(list.len);
     void** list_arr = static_cast<void**>(list.data);
     for (size_t i = 0; i < list.len; ++i) {
-        list_QList.push_back(list_arr[i]);
+        list_QList->push_back(list_arr[i]);
     }
-    qt_qFindChildren_helper(parent, QAnyStringView(name.data, name.len), *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
+    qt_qFindChildren_helper(parent, QAnyStringView(name.data, name.len), *mo, list_QList, static_cast<Qt::FindChildOptions>(options));
 }
 
 void qobject_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
-    QList<void*> list_QList;
-    list_QList.reserve(list.len);
+    QList<void*>* list_QList = new QList<void*>();
+    list_QList->reserve(list.len);
     void** list_arr = static_cast<void**>(list.data);
     for (size_t i = 0; i < list.len; ++i) {
-        list_QList.push_back(list_arr[i]);
+        list_QList->push_back(list_arr[i]);
     }
-    qt_qFindChildren_helper(parent, *re, *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
+    qt_qFindChildren_helper(parent, *re, *mo, list_QList, static_cast<Qt::FindChildOptions>(options));
 }
 
 QObject* qobject_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options) {
