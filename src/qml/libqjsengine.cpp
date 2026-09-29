@@ -202,14 +202,14 @@ QJSValue* QJSEngine_Evaluate3(QJSEngine* self, const libqt_string program, const
 QJSValue* QJSEngine_Evaluate4(QJSEngine* self, const libqt_string program, const libqt_string fileName, int lineNumber, libqt_list /* of libqt_string */ exceptionStackTrace) {
     QString program_QString = QString::fromUtf8(program.data, program.len);
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QList<QString> exceptionStackTrace_QList;
-    exceptionStackTrace_QList.reserve(exceptionStackTrace.len);
+    QList<QString>* exceptionStackTrace_QList = new QList<QString>();
+    exceptionStackTrace_QList->reserve(exceptionStackTrace.len);
     libqt_string* exceptionStackTrace_arr = static_cast<libqt_string*>(exceptionStackTrace.data);
     for (size_t i = 0; i < exceptionStackTrace.len; ++i) {
         QString exceptionStackTrace_arr_i_QString = QString::fromUtf8(exceptionStackTrace_arr[i].data, exceptionStackTrace_arr[i].len);
-        exceptionStackTrace_QList.push_back(exceptionStackTrace_arr_i_QString);
+        exceptionStackTrace_QList->push_back(exceptionStackTrace_arr_i_QString);
     }
-    return new QJSValue(self->evaluate(program_QString, fileName_QString, static_cast<int>(lineNumber), &exceptionStackTrace_QList));
+    return new QJSValue(self->evaluate(program_QString, fileName_QString, static_cast<int>(lineNumber), exceptionStackTrace_QList));
 }
 
 QJSValue* QJSEngine_NewArray1(QJSEngine* self, unsigned int length) {

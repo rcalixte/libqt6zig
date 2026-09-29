@@ -212,13 +212,13 @@ bool QQmlEngine_AddNamedBundle(QQmlEngine* self, const libqt_string param1, cons
 bool QQmlEngine_ImportPlugin(QQmlEngine* self, const libqt_string filePath, const libqt_string uri, libqt_list /* of QQmlError* */ errors) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     QString uri_QString = QString::fromUtf8(uri.data, uri.len);
-    QList<QQmlError> errors_QList;
-    errors_QList.reserve(errors.len);
+    QList<QQmlError>* errors_QList = new QList<QQmlError>();
+    errors_QList->reserve(errors.len);
     QQmlError** errors_arr = static_cast<QQmlError**>(errors.data);
     for (size_t i = 0; i < errors.len; ++i) {
-        errors_QList.push_back(*(errors_arr[i]));
+        errors_QList->push_back(*(errors_arr[i]));
     }
-    return self->importPlugin(filePath_QString, uri_QString, &errors_QList);
+    return self->importPlugin(filePath_QString, uri_QString, errors_QList);
 }
 
 void QQmlEngine_SetNetworkAccessManagerFactory(QQmlEngine* self, QQmlNetworkAccessManagerFactory* networkAccessManagerFactory) {

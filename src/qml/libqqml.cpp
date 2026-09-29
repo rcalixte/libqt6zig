@@ -78,23 +78,23 @@ int qqml_h_QmlRegisterType(const QUrl* url, const char* uri, int versionMajor, i
 }
 
 void qqml_h_QmlRegisterNamespaceAndRevisions(const QMetaObject* metaObject, const char* uri, int versionMajor, libqt_list /* of int */ qmlTypeIds, const QMetaObject* classInfoMetaObject, const QMetaObject* extensionMetaObject) {
-    QList<int> qmlTypeIds_QList;
-    qmlTypeIds_QList.reserve(qmlTypeIds.len);
+    QList<int>* qmlTypeIds_QList = new QList<int>();
+    qmlTypeIds_QList->reserve(qmlTypeIds.len);
     int* qmlTypeIds_arr = static_cast<int*>(qmlTypeIds.data);
     for (size_t i = 0; i < qmlTypeIds.len; ++i) {
-        qmlTypeIds_QList.push_back(static_cast<int>(qmlTypeIds_arr[i]));
+        qmlTypeIds_QList->push_back(static_cast<int>(qmlTypeIds_arr[i]));
     }
-    qmlRegisterNamespaceAndRevisions(metaObject, uri, static_cast<int>(versionMajor), &qmlTypeIds_QList, classInfoMetaObject, extensionMetaObject);
+    qmlRegisterNamespaceAndRevisions(metaObject, uri, static_cast<int>(versionMajor), qmlTypeIds_QList, classInfoMetaObject, extensionMetaObject);
 }
 
 void qqml_h_QmlRegisterNamespaceAndRevisions2(const QMetaObject* metaObject, const char* uri, int versionMajor, libqt_list /* of int */ qmlTypeIds, const QMetaObject* classInfoMetaObject) {
-    QList<int> qmlTypeIds_QList;
-    qmlTypeIds_QList.reserve(qmlTypeIds.len);
+    QList<int>* qmlTypeIds_QList = new QList<int>();
+    qmlTypeIds_QList->reserve(qmlTypeIds.len);
     int* qmlTypeIds_arr = static_cast<int*>(qmlTypeIds.data);
     for (size_t i = 0; i < qmlTypeIds.len; ++i) {
-        qmlTypeIds_QList.push_back(static_cast<int>(qmlTypeIds_arr[i]));
+        qmlTypeIds_QList->push_back(static_cast<int>(qmlTypeIds_arr[i]));
     }
-    qmlRegisterNamespaceAndRevisions(metaObject, uri, static_cast<int>(versionMajor), &qmlTypeIds_QList, classInfoMetaObject);
+    qmlRegisterNamespaceAndRevisions(metaObject, uri, static_cast<int>(versionMajor), qmlTypeIds_QList, classInfoMetaObject);
 }
 
 int qqml_h_QmlTypeId(const char* uri, int versionMajor, int versionMinor, const char* qmlName) {

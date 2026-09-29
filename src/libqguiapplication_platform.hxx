@@ -9,21 +9,20 @@
 
 #include "qtlibc.h"
 
-#if !QT_FEATURE_xcb
+#if QT_FEATURE_xcb
 typedef struct _XDisplay Display;
 struct xcb_connection_t;
 #endif
 
-#if !QT_FEATURE_wayland
+#if QT_FEATURE_wayland
 struct wl_compositor;
 struct wl_display;
 struct wl_keyboard;
 struct wl_pointer;
 struct wl_seat;
 struct wl_touch;
-#endif
-
 struct xkb_context;
+#endif
 
 // This class is a subclass of QNativeInterface::QX11Application so that we can call protected methods
 class VirtualQNativeInterfaceQX11Application : public QNativeInterface::QX11Application {
