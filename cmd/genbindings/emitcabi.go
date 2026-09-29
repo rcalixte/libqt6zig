@@ -392,14 +392,15 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 
 		var maybePointer string
 		refType := "."
-		if isSlot && p.ByRef {
+		if (isSlot && p.ByRef) || p.Pointer {
 			refType = "->"
 			maybePointer = "*"
 		}
 
 		lType := ifv(isSlot && listType.ParameterType == "QByteArray", "const char*", listType.RenderTypeCabi(isSlot))
 
-		preamble += indent + containerQtType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
+		preamble += indent + containerQtType + maybePointer + " " + nameprefix + "_" + containerType +
+			ifv(p.Pointer, " = new "+containerQtType+"()", "") + ";\n"
 
 		dataField := ".data"
 		iterField := ".len"
@@ -430,9 +431,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 			preamble += indent + "libqt_free(" + nameprefix + dataField + ");\n"
 		}
 
-		// Support passing QList<>* (very rare, but used in qnetwork)
+		// Support passing QList<>* (used in QSslCertificate)
 		if p.Pointer {
-			return preamble, "&" + nameprefix + "_" + containerType
+			return preamble, nameprefix + "_" + containerType
 		} else {
 			return preamble, maybePointer + nameprefix + "_" + containerType
 		}
@@ -1385,21 +1386,20 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 	// add forward declarations
 	if srcFilename == "qguiapplication_platform.h" {
-		ret.WriteString(`#if !QT_FEATURE_xcb
+		ret.WriteString(`#if QT_FEATURE_xcb
 typedef struct _XDisplay Display;
 struct xcb_connection_t;
 #endif
 
-#if !QT_FEATURE_wayland
+#if QT_FEATURE_wayland
 struct wl_compositor;
 struct wl_display;
 struct wl_keyboard;
 struct wl_pointer;
 struct wl_seat;
 struct wl_touch;
-#endif
-
 struct xkb_context;
+#endif
 
 `)
 	}
