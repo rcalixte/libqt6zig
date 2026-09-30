@@ -781,6 +781,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QShader",                         // Qt 6 Quick qsgmaterialshader.h
 		"QSSGRenderGraphObject",           // Qt 6 Quick 3D
 		"QQuick3DSceneManager",            // Qt 6 Quick 3D qquick3dobject.h
+		"QQmlWebChannelAttached",          // Qt 6 WebChannel, private internal QML class
+		"QQuickWebEngineScriptCollection", // Qt 6 WebEngine, private internal QML class
+		"QQuickWebEngineView",             // Qt 6 WebEngine, private internal QML class
 		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
