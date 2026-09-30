@@ -65,6 +65,7 @@ pub const modules = &.{
     "QtWebChannelQuick",
     // Qt 6 WebEngine
     "QtWebEngineCore",
+    "QtWebEngineQuick",
     "QtWebEngineWidgets",
     // Qt 6 WebSockets
     "QtWebSockets",
@@ -87,6 +88,7 @@ pub const modules = &.{
     "KConfig",
     "KConfigCore",
     "KConfigGui",
+    "KConfigQml",
     // Qt 6 KCoreAddons
     "KCoreAddons",
     // Qt 6 KCrash
