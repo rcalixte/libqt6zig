@@ -295,26 +295,28 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 WebChannel
-		// Depends on Qt Core
+		// Depends on Qt Core, QML
 		{
 			path: "webchannel",
 			dirs: []string{
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebChannel",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebChannelQuick",
 			},
 			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebChannel"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebChannel") + pkgConfigCflags("Qt6WebChannelQuick"),
 		},
 
 		// Qt 6 WebEngine
-		// Depends on Qt Core, GUI, Widgets
+		// Depends on Qt Core, GUI, Widgets, QML, Quick
 		{
 			path: "webengine",
 			dirs: []string{
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineCore",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineQuick",
 				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineWidgets",
 			},
 			allowHeader: ExceptHeaders("qtwebenginewidgets-config.h"),
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebEngineQuick") + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
 
 		// Qt 6 WebSockets
@@ -387,16 +389,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// KConfig
-		// Depends on Qt Core, GUI, Widgets
+		// Depends on Qt Core, GUI, Widgets, QML
 		{
 			path: "extras-kconfig",
 			dirs: []string{
 				"/usr/include/KF6/KConfig",
 				"/usr/include/KF6/KConfigCore",
 				"/usr/include/KF6/KConfigGui",
+				"/usr/include/KF6/KConfigQml",
 			},
 			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui " + pkgConfigCflags("Qt6Widgets"),
+			cflags:      "--std=c++17 -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KConfigQml " + pkgConfigCflags("Qt6Qml"),
 		},
 
 		// KCoreAddons
@@ -1020,7 +1023,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Post-processing to generate auxiliary files
 	structdefs := make([]string, 0, len(qtstructdefs))
 	for k := range qtstructdefs {
-		structdefs = append(structdefs, "pub const "+k+" = ?*C."+k+";")
+		structdefs = append(structdefs, "pub const "+k+" = "+maybePlatformRestriction(k)+"?*C."+k+";")
 	}
 	sort.Strings(structdefs)
 
