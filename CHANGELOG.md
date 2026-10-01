@@ -1,4 +1,8 @@
 
+### 6.8.2 rev90 (1 October 2026)
+
+* Update platform-based workaround and const for manual casts (#182)
+
 ### 6.8.2 rev89 (1 October 2026)
 
 * **BREAKING CHANGE:** Refactor subclass and method projections (#181)
