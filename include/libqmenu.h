@@ -52,6 +52,10 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
+#ifdef __APPLE__
+typedef struct NSMenu NSMenu;
+#endif
+
 #endif
 
 QMenu* QMenu_new(QWidget* parent);

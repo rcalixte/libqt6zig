@@ -26,7 +26,7 @@ typedef struct QTimerEvent QTimerEvent;
 #endif
 
 KModifierKeyInfoProvider* KModifierKeyInfoProvider_new();
-QSharedData* KModifierKeyInfoProvider_AsQSharedData(KModifierKeyInfoProvider* self);
+QSharedData* KModifierKeyInfoProvider_AsQSharedData(const KModifierKeyInfoProvider* self);
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self);
 void* KModifierKeyInfoProvider_Metacast(KModifierKeyInfoProvider* self, const char* param1);
 int KModifierKeyInfoProvider_Metacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3);

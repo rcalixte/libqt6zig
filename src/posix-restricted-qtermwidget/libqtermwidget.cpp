@@ -58,12 +58,12 @@ QTermWidget* QTermWidget_new4(int startnow, QWidget* parent) {
     return new VirtualQTermWidget(static_cast<int>(startnow), parent);
 }
 
-QTermWidgetInterface* QTermWidget_AsQTermWidgetInterface(QTermWidget* self) {
-    return static_cast<QTermWidgetInterface*>(self);
+QTermWidgetInterface* QTermWidget_AsQTermWidgetInterface(const QTermWidget* self) {
+    return const_cast<QTermWidget*>(self);
 }
 
-QTermWidget* QTermWidget_FromQTermWidgetInterface(QTermWidgetInterface* _qtermwidgetinterface) {
-    return dynamic_cast<QTermWidget*>(static_cast<QTermWidgetInterface*>(_qtermwidgetinterface));
+QTermWidget* QTermWidget_FromQTermWidgetInterface(const QTermWidgetInterface* _qtermwidgetinterface) {
+    return dynamic_cast<QTermWidget*>(const_cast<QTermWidgetInterface*>(_qtermwidgetinterface));
 }
 
 QMetaObject* QTermWidget_MetaObject(const QTermWidget* self) {

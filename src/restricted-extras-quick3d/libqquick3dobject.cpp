@@ -21,12 +21,12 @@ QQuick3DObject* QQuick3DObject_new2(QQuick3DObject* parent) {
     return new VirtualQQuick3DObject(parent);
 }
 
-QQmlParserStatus* QQuick3DObject_AsQQmlParserStatus(QQuick3DObject* self) {
-    return static_cast<QQmlParserStatus*>(self);
+QQmlParserStatus* QQuick3DObject_AsQQmlParserStatus(const QQuick3DObject* self) {
+    return const_cast<QQuick3DObject*>(self);
 }
 
-QQuick3DObject* QQuick3DObject_FromQQmlParserStatus(QQmlParserStatus* _qqmlparserstatus) {
-    return dynamic_cast<QQuick3DObject*>(static_cast<QQmlParserStatus*>(_qqmlparserstatus));
+QQuick3DObject* QQuick3DObject_FromQQmlParserStatus(const QQmlParserStatus* _qqmlparserstatus) {
+    return dynamic_cast<QQuick3DObject*>(const_cast<QQmlParserStatus*>(_qqmlparserstatus));
 }
 
 QMetaObject* QQuick3DObject_MetaObject(const QQuick3DObject* self) {

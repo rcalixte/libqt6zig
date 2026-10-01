@@ -20,12 +20,12 @@ QExtensionManager* QExtensionManager_new2(QObject* parent) {
     return new VirtualQExtensionManager(parent);
 }
 
-QAbstractExtensionManager* QExtensionManager_AsQAbstractExtensionManager(QExtensionManager* self) {
-    return static_cast<QAbstractExtensionManager*>(self);
+QAbstractExtensionManager* QExtensionManager_AsQAbstractExtensionManager(const QExtensionManager* self) {
+    return const_cast<QExtensionManager*>(self);
 }
 
-QExtensionManager* QExtensionManager_FromQAbstractExtensionManager(QAbstractExtensionManager* _qabstractextensionmanager) {
-    return dynamic_cast<QExtensionManager*>(static_cast<QAbstractExtensionManager*>(_qabstractextensionmanager));
+QExtensionManager* QExtensionManager_FromQAbstractExtensionManager(const QAbstractExtensionManager* _qabstractextensionmanager) {
+    return dynamic_cast<QExtensionManager*>(const_cast<QAbstractExtensionManager*>(_qabstractextensionmanager));
 }
 
 QMetaObject* QExtensionManager_MetaObject(const QExtensionManager* self) {

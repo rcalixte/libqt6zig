@@ -29,12 +29,12 @@
 #include "libview.h"
 #include "libview.hxx"
 
-KXMLGUIClient* KTextEditor__View_AsKXMLGUIClient(KTextEditor__View* self) {
-    return static_cast<KXMLGUIClient*>(self);
+KXMLGUIClient* KTextEditor__View_AsKXMLGUIClient(const KTextEditor__View* self) {
+    return const_cast<KTextEditor::View*>(self);
 }
 
-KTextEditor__View* KTextEditor__View_FromKXMLGUIClient(KXMLGUIClient* _kxmlguiclient) {
-    return dynamic_cast<KTextEditor::View*>(static_cast<KXMLGUIClient*>(_kxmlguiclient));
+KTextEditor__View* KTextEditor__View_FromKXMLGUIClient(const KXMLGUIClient* _kxmlguiclient) {
+    return dynamic_cast<KTextEditor::View*>(const_cast<KXMLGUIClient*>(_kxmlguiclient));
 }
 
 QMetaObject* KTextEditor__View_MetaObject(const KTextEditor__View* self) {

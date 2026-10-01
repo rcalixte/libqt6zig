@@ -26,12 +26,12 @@ KBookmarkActionMenu* KBookmarkActionMenu_new2(const KBookmark* bm, const libqt_s
     return new VirtualKBookmarkActionMenu(*bm, text_QString, parent);
 }
 
-KBookmarkActionInterface* KBookmarkActionMenu_AsKBookmarkActionInterface(KBookmarkActionMenu* self) {
-    return static_cast<KBookmarkActionInterface*>(self);
+KBookmarkActionInterface* KBookmarkActionMenu_AsKBookmarkActionInterface(const KBookmarkActionMenu* self) {
+    return const_cast<KBookmarkActionMenu*>(self);
 }
 
-KBookmarkActionMenu* KBookmarkActionMenu_FromKBookmarkActionInterface(KBookmarkActionInterface* _kbookmarkactioninterface) {
-    return dynamic_cast<KBookmarkActionMenu*>(static_cast<KBookmarkActionInterface*>(_kbookmarkactioninterface));
+KBookmarkActionMenu* KBookmarkActionMenu_FromKBookmarkActionInterface(const KBookmarkActionInterface* _kbookmarkactioninterface) {
+    return dynamic_cast<KBookmarkActionMenu*>(const_cast<KBookmarkActionInterface*>(_kbookmarkactioninterface));
 }
 
 QMetaObject* KBookmarkActionMenu_MetaObject(const KBookmarkActionMenu* self) {

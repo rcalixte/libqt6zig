@@ -34,12 +34,12 @@ KParts__Part* KParts__Part_new3(QObject* parent, const KPluginMetaData* data) {
     return new VirtualKPartsPart(parent, *data);
 }
 
-KParts__PartBase* KParts__Part_AsKParts__PartBase(KParts__Part* self) {
-    return static_cast<KParts::PartBase*>(self);
+KParts__PartBase* KParts__Part_AsKParts__PartBase(const KParts__Part* self) {
+    return const_cast<KParts::Part*>(self);
 }
 
-KParts__Part* KParts__Part_FromKParts__PartBase(KParts::PartBase* _kparts__partbase) {
-    return dynamic_cast<KParts::Part*>(static_cast<KParts::PartBase*>(_kparts__partbase));
+KParts__Part* KParts__Part_FromKParts__PartBase(const KParts::PartBase* _kparts__partbase) {
+    return dynamic_cast<KParts::Part*>(const_cast<KParts::PartBase*>(_kparts__partbase));
 }
 
 QMetaObject* KParts__Part_MetaObject(const KParts__Part* self) {

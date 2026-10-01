@@ -15,8 +15,8 @@ KModifierKeyInfoProvider* KModifierKeyInfoProvider_new() {
     return new VirtualKModifierKeyInfoProvider();
 }
 
-QSharedData* KModifierKeyInfoProvider_AsQSharedData(KModifierKeyInfoProvider* self) {
-    return static_cast<QSharedData*>(self);
+QSharedData* KModifierKeyInfoProvider_AsQSharedData(const KModifierKeyInfoProvider* self) {
+    return const_cast<KModifierKeyInfoProvider*>(self);
 }
 
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self) {

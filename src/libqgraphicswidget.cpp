@@ -55,12 +55,12 @@ QGraphicsWidget* QGraphicsWidget_new3(QGraphicsItem* parent, int wFlags) {
     return new VirtualQGraphicsWidget(parent, static_cast<Qt::WindowFlags>(wFlags));
 }
 
-QGraphicsLayoutItem* QGraphicsWidget_AsQGraphicsLayoutItem(QGraphicsWidget* self) {
-    return static_cast<QGraphicsLayoutItem*>(self);
+QGraphicsLayoutItem* QGraphicsWidget_AsQGraphicsLayoutItem(const QGraphicsWidget* self) {
+    return const_cast<QGraphicsWidget*>(self);
 }
 
-QGraphicsWidget* QGraphicsWidget_FromQGraphicsLayoutItem(QGraphicsLayoutItem* _qgraphicslayoutitem) {
-    return dynamic_cast<QGraphicsWidget*>(static_cast<QGraphicsLayoutItem*>(_qgraphicslayoutitem));
+QGraphicsWidget* QGraphicsWidget_FromQGraphicsLayoutItem(const QGraphicsLayoutItem* _qgraphicslayoutitem) {
+    return dynamic_cast<QGraphicsWidget*>(const_cast<QGraphicsLayoutItem*>(_qgraphicslayoutitem));
 }
 
 QMetaObject* QGraphicsWidget_MetaObject(const QGraphicsWidget* self) {

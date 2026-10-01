@@ -66,12 +66,12 @@ KLineEdit* KLineEdit_new4(const libqt_string string, QWidget* parent) {
     return new VirtualKLineEdit(string_QString, parent);
 }
 
-KCompletionBase* KLineEdit_AsKCompletionBase(KLineEdit* self) {
-    return static_cast<KCompletionBase*>(self);
+KCompletionBase* KLineEdit_AsKCompletionBase(const KLineEdit* self) {
+    return const_cast<KLineEdit*>(self);
 }
 
-KLineEdit* KLineEdit_FromKCompletionBase(KCompletionBase* _kcompletionbase) {
-    return dynamic_cast<KLineEdit*>(static_cast<KCompletionBase*>(_kcompletionbase));
+KLineEdit* KLineEdit_FromKCompletionBase(const KCompletionBase* _kcompletionbase) {
+    return dynamic_cast<KLineEdit*>(const_cast<KCompletionBase*>(_kcompletionbase));
 }
 
 QMetaObject* KLineEdit_MetaObject(const KLineEdit* self) {

@@ -28,12 +28,12 @@ QAccessibleWidget* QAccessibleWidget_new3(QWidget* o, int r, const libqt_string 
     return new VirtualQAccessibleWidget(o, static_cast<QAccessible::Role>(r), name_QString);
 }
 
-QAccessibleActionInterface* QAccessibleWidget_AsQAccessibleActionInterface(QAccessibleWidget* self) {
-    return static_cast<QAccessibleActionInterface*>(self);
+QAccessibleActionInterface* QAccessibleWidget_AsQAccessibleActionInterface(const QAccessibleWidget* self) {
+    return const_cast<QAccessibleWidget*>(self);
 }
 
-QAccessibleWidget* QAccessibleWidget_FromQAccessibleActionInterface(QAccessibleActionInterface* _qaccessibleactioninterface) {
-    return dynamic_cast<QAccessibleWidget*>(static_cast<QAccessibleActionInterface*>(_qaccessibleactioninterface));
+QAccessibleWidget* QAccessibleWidget_FromQAccessibleActionInterface(const QAccessibleActionInterface* _qaccessibleactioninterface) {
+    return dynamic_cast<QAccessibleWidget*>(const_cast<QAccessibleActionInterface*>(_qaccessibleactioninterface));
 }
 
 bool QAccessibleWidget_IsValid(const QAccessibleWidget* self) {

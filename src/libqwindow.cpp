@@ -48,12 +48,12 @@ QWindow* QWindow_new3(QScreen* screen) {
     return new VirtualQWindow(screen);
 }
 
-QSurface* QWindow_AsQSurface(QWindow* self) {
-    return static_cast<QSurface*>(self);
+QSurface* QWindow_AsQSurface(const QWindow* self) {
+    return const_cast<QWindow*>(self);
 }
 
-QWindow* QWindow_FromQSurface(QSurface* _qsurface) {
-    return dynamic_cast<QWindow*>(static_cast<QSurface*>(_qsurface));
+QWindow* QWindow_FromQSurface(const QSurface* _qsurface) {
+    return dynamic_cast<QWindow*>(const_cast<QSurface*>(_qsurface));
 }
 
 QMetaObject* QWindow_MetaObject(const QWindow* self) {

@@ -1561,12 +1561,12 @@ QGraphicsObject* QGraphicsObject_new2(QGraphicsItem* parent) {
     return new VirtualQGraphicsObject(parent);
 }
 
-QGraphicsItem* QGraphicsObject_AsQGraphicsItem(QGraphicsObject* self) {
-    return static_cast<QGraphicsItem*>(self);
+QGraphicsItem* QGraphicsObject_AsQGraphicsItem(const QGraphicsObject* self) {
+    return const_cast<QGraphicsObject*>(self);
 }
 
-QGraphicsObject* QGraphicsObject_FromQGraphicsItem(QGraphicsItem* _qgraphicsitem) {
-    return dynamic_cast<QGraphicsObject*>(static_cast<QGraphicsItem*>(_qgraphicsitem));
+QGraphicsObject* QGraphicsObject_FromQGraphicsItem(const QGraphicsItem* _qgraphicsitem) {
+    return dynamic_cast<QGraphicsObject*>(const_cast<QGraphicsItem*>(_qgraphicsitem));
 }
 
 QMetaObject* QGraphicsObject_MetaObject(const QGraphicsObject* self) {
